@@ -17,7 +17,7 @@ export default function Header() {
     <header>
       <div className="header-left">
         <h1 className="logo">
-          <Link to={"/"}>casetify</Link>
+          <Link to={"/"}><img src="./images/header-footer/casetify-logo-15th.png" alt="CASETIfY_Logo" /></Link>
         </h1>
         <nav>
           <ul className="main-menu">
@@ -32,10 +32,18 @@ export default function Header() {
       </div>
       <div className="header-right">
         <ul className="gnb-list">
-          <li>검색</li>
-          <li>로그인</li>
-          <li>장바구니</li>
-          <li>Wishlist</li>
+          <li>
+            <Link><img src="./images/header-footer/search_var.svg" alt="검색" /></Link>
+          </li>
+          <li>
+            <Link><span>로그인</span></Link>
+          </li>
+          <li>
+            <Link><img src="./images/header-footer/btn_shopping-cart.svg" alt="장바구니" /></Link>
+          </li>
+          <li>
+            <Link><img src="./images/header-footer/icon_favorite.svg" alt="위시리스트" /></Link>
+          </li>
         </ul>
       </div>
     </header>
