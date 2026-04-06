@@ -1,0 +1,33 @@
+@use "../../App.scss" as g;
+
+header {
+    border-bottom: 1px dashed skyblue;
+    padding: 10px 60px;
+    font-size: 20px;
+    height: 100px;
+    @include g.myFlex();
+
+    .header-left {
+        @include g.myFlex();
+
+        .logo {
+            width: 200px;
+        }
+
+        .main-menu {
+            @include g.myFlex();
+        }
+    }
+
+    .header-right {
+        .gnb-list {
+            @include g.myFlex($gap: 20px, $ai: center);
+
+            li {
+                img {
+                    width: 24px;
+                }
+            }
+        }
+    }
+}

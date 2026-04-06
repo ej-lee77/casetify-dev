@@ -1,0 +1,13 @@
+@mixin myFlex($jc: space-between, $ai: center, $fw: null, $gap: 20px) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $fw;
+    gap: $gap;
+}
+
+.inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: rgba(255, 0, 0, 0.075);
+}
