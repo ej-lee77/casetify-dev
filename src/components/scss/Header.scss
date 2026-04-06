@@ -2,13 +2,13 @@
 
 header {
     border-bottom: 1px dashed skyblue;
-    padding: 10px 60px;
+    padding: 12px 40px;
     font-size: 20px;
-    height: 100px;
+    height: 100px; //스크롤 헤더 고정할 때 참고 값
     @include g.myFlex();
 
     .header-left {
-        @include g.myFlex();
+        @include g.myFlex($gap: 60px);
 
         .logo {
             width: 200px;
