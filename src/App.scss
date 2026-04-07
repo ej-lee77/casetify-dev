@@ -1,9 +1,10 @@
-@mixin myFlex($jc: space-between, $ai: center, $fw: null, $gap: 20px) {
+@mixin myFlex($jc: space-between, $ai: center, $fw: null, $gap: 20px, $fd: null) {
     display: flex;
     justify-content: $jc;
     align-items: $ai;
     flex-wrap: $fw;
     gap: $gap;
+    flex-direction: $fd;
 }
 
 * {
