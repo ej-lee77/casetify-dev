@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
+import "./scss/CategoryPage.scss"
 
 export default function CategoryPage() {
     const {mainCate, subCate} = useParams();
@@ -9,6 +10,7 @@ export default function CategoryPage() {
     // 한글로 변환
     const mainCateKo = mainMenuList.find((main)=>main.link===mainCate).name;
     const subCateKo = mainMenuList.find((main)=>main.link===mainCate).sub?.find((sub)=>sub.link===subCate).name;
+    const miniCate = mainMenuList.find((main)=>main.link===mainCate).sub?.find((sub)=>sub.link===subCate).mini;
 
     useEffect(()=>{
         if(items.length === 0){
@@ -34,8 +36,18 @@ export default function CategoryPage() {
     console.log("최종 카테",cateItems);
 
   return (
-    <div>
+    <div className="sub-page-wrap">
         <h2>{subCateKo}</h2>
+        {miniCate ?         
+            <ul className="mini-menu">
+                {miniCate.map((mini, id)=>
+                    <li key={id}>
+                        {mini}
+                    </li>
+                )}
+            </ul>
+            : null
+        }
         <ul className='product-list'>
             {cateItems.map((item)=>(
                 <li key={item.id}>

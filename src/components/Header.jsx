@@ -36,49 +36,47 @@ export default function Header() {
 
   return (
     <header>
-        <div className="inner">
-            <div className="header-left">
-                <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
-                <nav>
-                  <ul className="main-menu">
-                      {mainMenuList.map(menu=>(
-                          <li key={menu.link}>
-                              {menu.sub?.length>0 ? (
-                                  <>
-                                      <Link>{menu.name}</Link>
-                                      <ul className='sub'>
-                                          {menu.sub.map((s)=>(
-                                              <li key={s.link}>
-                                                  <Link to={`/${menu.link}/${s.link}`}>{s.name}</Link>
-                                              </li>
-                                          ))}
-                                      </ul>
-                                  </>
-                              ):(
-                                  <Link to={`/${menu.link}`}>{menu.name}</Link>
-                              )}
-                          </li>
-                      ))}
-                  </ul>
-                </nav>
-            </div>
-            <div className="header-right">
-              <ul className="gnb-list">
-                <li>
-                  <Link><img src="./images/header-footer/search_var.svg" alt="검색" /></Link>
-                </li>
-                <li>
-                  <Link><span>로그인</span></Link>
-                </li>
-                <li>
-                  <Link><img src="./images/header-footer/btn_shopping-cart.svg" alt="장바구니" /></Link>
-                </li>
-                <li>
-                  <Link><img src="./images/header-footer/icon_favorite.svg" alt="위시리스트" /></Link>
-                </li>
-              </ul>
-            </div>
-        </div>
+      <div className="header-left">
+          <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
+          <nav>
+            <ul className="main-menu">
+                {mainMenuList.map(menu=>(
+                    <li key={menu.link}>
+                        {menu.sub?.length>0 ? (
+                            <>
+                                <Link>{menu.name}</Link>
+                                <ul className='sub-menu'>
+                                    {menu.sub.map((s)=>(
+                                        <li key={s.link}>
+                                            <Link to={`/${menu.link}/${s.link}`}>{s.name}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </>
+                        ):(
+                            <Link to={`/${menu.link}`}>{menu.name}</Link>
+                        )}
+                    </li>
+                ))}
+            </ul>
+          </nav>
+      </div>
+      <div className="header-right">
+        <ul className="gnb-list">
+          <li>
+            <Link><img src="./images/header-footer/search_var.svg" alt="검색" /></Link>
+          </li>
+          <li>
+            <Link><span>로그인</span></Link>
+          </li>
+          <li>
+            <Link><img src="./images/header-footer/btn_shopping-cart.svg" alt="장바구니" /></Link>
+          </li>
+          <li>
+            <Link><img src="./images/header-footer/icon_favorite.svg" alt="위시리스트" /></Link>
+          </li>
+        </ul>
+      </div>
     </header>
   )
 }
