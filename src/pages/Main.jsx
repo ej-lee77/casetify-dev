@@ -8,6 +8,8 @@ export default function Main() {
     onFetchItems();
   }, []);
   return (
-    <div>Main</div>
+    <div className="sub-page-wrap">
+      Main
+    </div>
   )
 }
