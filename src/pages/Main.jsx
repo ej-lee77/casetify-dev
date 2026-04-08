@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Main() {
   return (
-    <div>Main</div>
+    <div className="sub-page-wrap">
+      Main
+    </div>
   )
 }

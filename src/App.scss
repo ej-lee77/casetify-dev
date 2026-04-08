@@ -1,0 +1,24 @@
+@mixin myFlex($jc: space-between, $ai: center, $fw: null, $gap: 20px, $fd: null) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $fw;
+    gap: $gap;
+    flex-direction: $fd;
+}
+
+body {
+    font-family: "GMarketSans", sans-serif;
+}
+
+.inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    // background-color: rgba(255, 0, 0, 0.08);
+}
+
+// 서브페이지
+.sub-page-wrap {
+    //padding-top: 100px; //header 높이 이상 적용
+    margin: 500px 0;
+}

@@ -1,0 +1,145 @@
+@use "../../App.scss" as g;
+
+footer {
+    border-top: 1px dashed skyblue;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+
+    .inner {
+        max-width: 1600px;
+        // background-color: rgba(255, 0, 0, 0.1);
+        padding: 95px 0;
+        @include g.myFlex($ai: normal);
+
+        .footer-left {
+            @include g.myFlex($fd: column, $gap: 32px);
+
+            .casetify-15th-anniversary>a {
+                @include g.myFlex($gap: 10px);
+
+                img {
+                    height: 48px;
+                }
+            }
+
+            .sns-list-wrap {
+                text-align: center;
+
+                .sns-list {
+                    @include g.myFlex($jc: center, $gap: 8px);
+
+                    a {
+                        display: inline-block;
+                        background: white;
+                        width: 26px;
+                        height: 26px;
+                        padding: 4px;
+                        border-radius: 50%;
+                        line-height: 1;
+
+                        img {
+                            width: 100pc
+                        }
+                    }
+                }
+            }
+
+            .app-info-wrap {
+                @include g.myFlex($ai: flex-start, $gap: 20px);
+
+                .mobile-app-colab,
+                .mobile-app {
+                    @include g.myFlex($fd: column, $ai: center, $gap: 8px);
+                    text-align: center;
+
+                    >img {
+                        width: 40px;
+                    }
+
+                    .text-area>p {
+                        color: #585858;
+                    }
+
+                    .app-store-bedge {
+                        img {
+                            width: 100px;
+                            margin-bottom: 4px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-right {
+            @include g.myFlex($gap: 20px, $ai: flex-start);
+
+            .company-info {
+
+                .title {
+                    margin-bottom: 10px;
+                }
+
+
+                .payment {
+                    display: flex;
+                    gap: 10px;
+                    margin: 20px 0;
+
+                    li {
+                        height: 32px;
+
+                        img {
+                            display: block;
+                            background: white;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+
+            .cs-info {
+                .title {
+                    margin-bottom: 10px;
+                }
+
+                .contact-list {
+                    margin-bottom: 16px;
+                }
+
+            }
+
+        }
+    }
+
+    .footer-title {
+        font-family: "Italiana", sans-serif;
+        font-size: 10rem;
+        color: #737373;
+        text-align: center;
+    }
+}
+
+.top-btn {
+    width: 60px;
+    height: 60px;
+    padding: 4px;
+    background: #585858;
+    color: white;
+    @include g.myFlex($jc: normal, $gap: 4px, $fd: column);
+    font-size: 12px;
+    border-radius: 50%;
+
+    // footer
+    position: fixed;
+    right: 32px;
+    bottom: 40px;
+
+
+    img {
+        width: 24px;
+    }
+}

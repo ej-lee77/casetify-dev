@@ -1,0 +1,7 @@
+@use "../../App.scss" as g;
+
+.mini-menu{
+    @include g.myFlex($jc: center);
+    margin: 50px 0;
+    font-size: 1.3rem;
+}
