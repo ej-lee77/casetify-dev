@@ -8,6 +8,9 @@ header {
     border-bottom: 1px dashed skyblue;
     padding: 12px 40px;
     font-size: 20px;
+    top: 0;
+    left: 0;
+
     @include g.myFlex();
 
     &.active {
@@ -22,7 +25,8 @@ header {
         }
 
         .main-menu {
-            @include g.myFlex();
+            @include g.myFlex($ai: baseline);
+            padding-top: 150px;
         }
     }
 

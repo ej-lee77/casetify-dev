@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useProductStore } from '../store/useProductStore';
 import "./scss/Header.scss"
 
 export default function Header() {
-  // 메인메뉴 (좌측)
-  const mainMenus = [
-    { key: "case", label: "케이스" },
-    { key: "accessory", label: "악세서리" },
-    { key: "travel", label: "트래블" },
-    { key: "giftCard", label: "기프트카드" },
-    { key: "brand", label: "브랜드" },
-  ]
+  const {mainMenuList} = useProductStore();
 
   const navigate = useNavigate();
   // 스크롤 체크 변수
@@ -41,21 +35,31 @@ export default function Header() {
   }, [isHome])
 
   return (
-    <header className={isScrolled ? "active" : ""}>
+    <header>
       <div className="header-left">
-        <h1 className="logo">
-          <Link to={"/"}><img src="./images/header-footer/casetify-logo-15th.png" alt="CASETIfY_Logo" /></Link>
-        </h1>
-        <nav>
-          <ul className="main-menu">
-            {mainMenus.map((menu) => (
-              <li key={menu.key}>
-                <Link>{menu.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
+          <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
+          <nav>
+            <ul className="main-menu">
+                {mainMenuList.map(menu=>(
+                    <li key={menu.link}>
+                        {menu.sub?.length>0 ? (
+                            <>
+                                <Link>{menu.name}</Link>
+                                <ul className='sub-menu'>
+                                    {menu.sub.map((s)=>(
+                                        <li key={s.link}>
+                                            <Link to={`/${menu.link}/${s.link}`}>{s.name}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </>
+                        ):(
+                            <Link to={`/${menu.link}`}>{menu.name}</Link>
+                        )}
+                    </li>
+                ))}
+            </ul>
+          </nav>
       </div>
       <div className="header-right">
         <ul className="gnb-list">
