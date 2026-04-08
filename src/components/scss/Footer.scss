@@ -8,9 +8,9 @@ footer {
 
     .inner {
         max-width: 1600px;
-        // background-color: rgba(255, 0, 0, 0.25);
-        padding-top: 95px;
-        @include g.myFlex();
+        // background-color: rgba(255, 0, 0, 0.1);
+        padding: 95px 0;
+        @include g.myFlex($ai: normal);
 
         .footer-left {
             @include g.myFlex($fd: column, $gap: 32px);
@@ -74,23 +74,72 @@ footer {
         .footer-right {
             @include g.myFlex($gap: 20px, $ai: flex-start);
 
-            .payment {
-                display: flex;
-                gap: 10px;
+            .company-info {
 
-                li {
-                    height: 32px;
+                .title {
+                    margin-bottom: 10px;
+                }
 
-                    img {
-                        display: block;
-                        background: white;
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        border-radius: 4px;
+
+                .payment {
+                    display: flex;
+                    gap: 10px;
+                    margin: 20px 0;
+
+                    li {
+                        height: 32px;
+
+                        img {
+                            display: block;
+                            background: white;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 4px;
+                        }
                     }
                 }
             }
+
+            .cs-info {
+                .title {
+                    margin-bottom: 10px;
+                }
+
+                .contact-list {
+                    margin-bottom: 16px;
+                }
+
+            }
+
         }
+    }
+
+    .footer-title {
+        font-family: "Italiana", sans-serif;
+        font-size: 10rem;
+        color: #737373;
+        text-align: center;
+    }
+}
+
+.top-btn {
+    width: 60px;
+    height: 60px;
+    padding: 4px;
+    background: #585858;
+    color: white;
+    @include g.myFlex($jc: normal, $gap: 4px, $fd: column);
+    font-size: 12px;
+    border-radius: 50%;
+
+    // footer
+    position: fixed;
+    right: 32px;
+    bottom: 40px;
+
+
+    img {
+        width: 24px;
     }
 }
