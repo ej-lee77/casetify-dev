@@ -1,4 +1,5 @@
 import React from 'react'
+import "./scss/SectionTitle.scss"
 
 export default function SectionTitle({ title, subtitle }) {
     return (
