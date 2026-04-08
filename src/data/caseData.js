@@ -16,9 +16,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Number D",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -30,86 +28,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -129,9 +69,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Katie's Collective",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -143,86 +81,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -242,9 +122,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By foxy illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -256,86 +134,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -355,9 +175,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Andhika Ramadhian",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -369,86 +187,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -467,9 +227,7 @@ export const caseData =
             "Soft Blue"
         ],
         collabo: "By aquabumps",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -481,81 +239,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -574,9 +279,7 @@ export const caseData =
             "Soft Blue"
         ],
         collabo: "By matsui",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -588,81 +291,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -682,9 +332,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By INAPSQUARE",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -696,86 +344,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -795,9 +385,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Pink & Ven",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -809,86 +397,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -902,9 +432,7 @@ export const caseData =
         caseCategory: "iPhone 17 Pro Impact HD Screen Protector + Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -929,9 +457,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -943,67 +469,22 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ]
         }
     },
@@ -1020,9 +501,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1034,80 +513,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1129,9 +556,7 @@ export const caseData =
             "Soft Blue"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1143,82 +568,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1238,9 +609,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By SSEBONG",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1252,86 +621,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1351,9 +662,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Holly Nichols",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1365,82 +674,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1460,9 +715,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Ann Marie Coolick",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1474,86 +727,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1573,9 +768,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Constant Bagel Therapy",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1587,86 +780,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1686,9 +821,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By The House That Lars Built",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1700,86 +833,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1799,9 +874,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By kciafa",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1813,86 +886,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -1912,9 +927,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By SSEBONG",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -1926,82 +939,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2021,9 +980,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Mulga",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2035,86 +992,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2130,9 +1029,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2143,69 +1040,24 @@ export const caseData =
             "iPhone 17 Pro"
         ],
         deviceCategory: {
-            Apple: [
-                [
-                    "아이폰 17 Pro Max",
+             Apple: [
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
-            ]
+                    "갤럭시 Z 플립6"
+            ],
         }
     },
     {
@@ -2222,9 +1074,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2236,77 +1086,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11",
-                    "아이폰 XS"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
                 [
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
+                    "Pixel 9"
                 ]
             ]
         }
@@ -2335,9 +1135,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Huebucket",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2349,86 +1147,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2447,9 +1187,7 @@ export const caseData =
             "Soft Blue"
         ],
         collabo: "By Maltese",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2461,84 +1199,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2558,9 +1240,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Muramatsushiori",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2572,86 +1252,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2670,9 +1292,7 @@ export const caseData =
             "Soft Blue"
         ],
         collabo: "By PosterLad",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2684,85 +1304,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2782,9 +1345,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Muramatsushiori",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2796,86 +1357,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2892,9 +1395,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Dinotaeng",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -2906,83 +1407,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
                     "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -2999,9 +1444,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By foxy illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3013,86 +1456,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3109,9 +1494,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Eggsdoodz",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3123,82 +1506,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3215,9 +1544,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By WHOSMiNG",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3229,86 +1556,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3325,9 +1594,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By I Scream Colour",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3339,86 +1606,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3435,9 +1644,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Minstudio",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3449,82 +1656,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3541,9 +1694,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By eteecy",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3555,86 +1706,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3651,9 +1744,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Minstudio",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3665,86 +1756,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3758,9 +1791,7 @@ export const caseData =
         caseCategory: "iPhone 17 Impact HD Screen Protector + Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3785,9 +1816,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3799,65 +1828,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라"
-                ]
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3874,9 +1866,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3888,81 +1878,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -3982,9 +1919,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -3996,82 +1931,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4088,9 +1969,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Mr.Donothing",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4102,82 +1981,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4194,9 +2019,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By foxy illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4208,86 +2031,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4304,9 +2069,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By iiivvvyyyceramics",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4318,86 +2081,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4414,9 +2119,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Bu2Ma",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4428,86 +2131,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4524,9 +2169,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By LeonLollipop",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4538,86 +2181,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4634,9 +2219,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Maitoparta",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4648,86 +2231,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4744,9 +2269,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Chocolateye",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4758,82 +2281,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4850,9 +2319,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Top Girl Studio",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4864,86 +2331,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -4957,9 +2366,7 @@ export const caseData =
         caseCategory: "iPhone 17 Impact HD Screen Protector + Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4984,9 +2391,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -4998,78 +2403,30 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
                 [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
+                    "갤럭시 Z 플립6"
                 ]
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5086,9 +2443,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5100,78 +2455,30 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
                 [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
+                    "갤럭시 Z 플립6"
                 ]
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5196,9 +2503,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Rosie Pink",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5210,86 +2515,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5306,9 +2553,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By FORLEE BEAN",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5320,85 +2565,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5415,9 +2603,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Zizone",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5429,86 +2615,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5525,9 +2653,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Laundry Room Studios",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5539,86 +2665,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5635,9 +2703,7 @@ export const caseData =
         badge: [
             "무료 배송"
         ],
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5649,81 +2715,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11 Pro",
-                    "아이폰 11",
-                    "iPhone SE (2022)",
-                    "아이폰 XS",
-                    "아이폰 XR",
-                    "아이폰 X"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5744,9 +2757,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By foxy illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5758,86 +2769,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5858,9 +2811,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Poketo",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5872,86 +2823,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -5972,9 +2865,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By iiivvvyyyceramics",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -5986,86 +2877,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6086,9 +2919,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By SSEBONG",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6100,83 +2931,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6197,9 +2972,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Number D",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6211,86 +2984,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6311,9 +3026,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Marta Olga Klara",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6325,86 +3038,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6425,9 +3080,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Chiara LB Art",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6439,86 +3092,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6539,9 +3134,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Sharon Turner",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6553,86 +3146,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6646,9 +3181,7 @@ export const caseData =
         caseCategory: "iPhone 16 Pro Impact HD Screen Protector + Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6672,9 +3205,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6686,82 +3217,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6778,9 +3255,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6792,76 +3267,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
                 [
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
+                    "Pixel 9"
                 ]
             ]
         }
@@ -6885,9 +3311,7 @@ export const caseData =
             "Glitter Purple"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -6899,82 +3323,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -6995,9 +3365,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Callie Danielle",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7009,86 +3377,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7109,9 +3419,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Laundry Room Studios",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7123,82 +3431,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7218,9 +3472,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Holly Nichols",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7232,81 +3484,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7327,9 +3526,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Lee Sang Won",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7341,86 +3538,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7441,9 +3580,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By A-GENT TOKYO",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7455,82 +3592,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7551,9 +3634,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Dinotaeng",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7565,83 +3646,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7662,9 +3687,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By PETTYDUST",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7676,86 +3699,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7776,9 +3741,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By Catwheezie",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7790,82 +3753,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -7879,9 +3788,7 @@ export const caseData =
         caseCategory: "iPhone 16 Pro Impact HD Screen Protector + Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7906,9 +3813,7 @@ export const caseData =
             "Pink Fizz"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -7920,79 +3825,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8009,9 +3863,7 @@ export const caseData =
             "Pink Fizz"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8023,77 +3875,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11",
-                    "아이폰 XS Max"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
                 [
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
+                    "Pixel 9"
                 ]
             ]
         }
@@ -8117,9 +3919,7 @@ export const caseData =
             "Glitter Purple"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8131,82 +3931,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8222,9 +3968,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Maltese",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8236,61 +3980,23 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
-            ]
+                    "갤럭시 Z 플립6"
+            ],
         }
     },
     {
@@ -8310,9 +4016,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By namsee",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8324,83 +4028,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8421,9 +4069,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By foxy illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8435,86 +4081,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8535,9 +4123,7 @@ export const caseData =
             "Glitter Indigo"
         ],
         collabo: "By INAPSQUARE",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8549,86 +4135,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8647,9 +4175,7 @@ export const caseData =
         badge: [
             "무료 배송"
         ],
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8661,81 +4187,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11 Pro",
-                    "아이폰 11",
-                    "iPhone SE (2022)",
-                    "아이폰 XS",
-                    "아이폰 XR",
-                    "아이폰 X"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8752,9 +4225,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Holly Nichols",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8766,82 +4237,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8858,9 +4275,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Top Girl Studio",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8872,82 +4287,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -8964,9 +4325,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Eggsdoodz",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -8978,86 +4337,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9074,9 +4375,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Laura Jane Illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9088,86 +4387,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9184,9 +4425,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Maja Tomljanovic",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9198,86 +4437,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9293,9 +4474,7 @@ export const caseData =
             "Black"
         ],
         collabo: "By aquabumps",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9307,85 +4486,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9401,9 +4523,7 @@ export const caseData =
             "Black"
         ],
         collabo: "By Esther Bunny",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9415,61 +4535,18 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 Air",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11",
-                    "아이폰 XS Max"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
-                    "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 폴드6"
             ]
         }
     },
@@ -9486,9 +4563,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Maitoparta",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9500,86 +4575,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9593,9 +4610,7 @@ export const caseData =
         caseCategory: "iPhone 16 Impact HD Screen Protector + Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9620,9 +4635,7 @@ export const caseData =
             "Silver on Silver"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9634,45 +4647,18 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
-                    "갤럭시 S25+",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+"
-                ]
+                    "갤럭시 S25+"
             ]
         }
     },
@@ -9688,9 +4674,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9702,57 +4686,24 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
-                    "갤럭시 S25+",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+"
-                ]
+                    "갤럭시 S25+"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9772,9 +4723,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9786,82 +4735,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9878,9 +4773,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By I Scream Colour",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -9892,86 +4785,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -9987,9 +4822,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Maltese",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10001,60 +4834,22 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ]
         }
     },
@@ -10071,9 +4866,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By foxy illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10085,86 +4878,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -10181,9 +4916,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By DUCKOO",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10195,83 +4928,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -10288,9 +4965,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By DariaSolakIllustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10302,86 +4977,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -10398,9 +5015,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Zizone",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10412,86 +5027,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -10507,9 +5064,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10521,85 +5076,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -10616,9 +5114,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Papio Press",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10630,86 +5126,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -10723,9 +5161,7 @@ export const caseData =
         caseCategory: "iPhone 16 Impact HD Screen Protector + Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10750,9 +5186,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10764,76 +5198,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
                 [
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
+                    "Pixel 9"
                 ]
             ]
         }
@@ -10851,9 +5236,7 @@ export const caseData =
             "Silver on Silver"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10865,32 +5248,12 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
                 [
@@ -10923,9 +5286,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -10937,82 +5298,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11029,9 +5336,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By The House That Lars Built",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11043,83 +5348,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11135,9 +5384,7 @@ export const caseData =
             "Black"
         ],
         collabo: "By Ebi Emporium",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11149,85 +5396,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11243,9 +5433,7 @@ export const caseData =
             "Black"
         ],
         collabo: "By Constant Bagel Therapy",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11257,82 +5445,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11349,9 +5482,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Poppy Almond",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11363,82 +5494,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11459,9 +5536,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By namsee",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11473,86 +5548,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11573,9 +5590,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Jon Burgerman",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11587,86 +5602,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11687,9 +5644,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Skater JOHN",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11701,86 +5656,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11801,9 +5698,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Poketo",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11815,86 +5710,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -11915,9 +5752,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By The Exquisite Paradox",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -11929,82 +5764,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12025,9 +5806,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By PETTYDUST",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12039,86 +5818,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12138,9 +5859,7 @@ export const caseData =
             "Cotton Candy"
         ],
         collabo: "By Chocolateye",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12152,85 +5871,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12251,9 +5913,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By The House That Lars Built",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12265,86 +5925,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12358,9 +5960,7 @@ export const caseData =
         caseCategory: "iPhone 15 Pro & 15 Pro Max Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12384,9 +5984,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12398,51 +5996,16 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
-                    "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 S25+"
             ]
         }
     },
@@ -12459,9 +6022,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12473,80 +6034,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12567,9 +6076,7 @@ export const caseData =
             "Pink Fizz"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12581,82 +6088,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12673,9 +6126,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Gabe Shum",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12687,82 +6138,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12783,9 +6180,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Shinkiru",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12797,86 +6192,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -12897,9 +6234,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Tobe Fonseca",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -12911,86 +6246,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13011,9 +6288,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By matsui",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13025,82 +6300,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13121,9 +6342,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By foxy illustrations",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13135,82 +6354,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13231,9 +6396,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By HAWAIIANSALAD",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13245,83 +6408,27 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13342,9 +6449,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Tobe Fonseca",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13356,86 +6461,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13456,9 +6503,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By SSEBONG",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13470,86 +6515,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13563,9 +6550,7 @@ export const caseData =
         caseCategory: "iPhone 15 Pro & 15 Pro Max Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13590,9 +6575,7 @@ export const caseData =
             "Cotton Candy"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13604,82 +6587,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13697,9 +6626,7 @@ export const caseData =
             "Cyan Blue"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13711,79 +6638,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13804,9 +6680,7 @@ export const caseData =
             "Pink Fizz"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13818,82 +6692,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -13913,9 +6733,7 @@ export const caseData =
             "Cotton Candy"
         ],
         collabo: "By Skater JOHN",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -13927,81 +6745,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14021,9 +6786,7 @@ export const caseData =
             "Cotton Candy"
         ],
         collabo: "By Skater JOHN",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14035,81 +6798,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14130,9 +6840,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Mozza",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14144,86 +6852,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14244,9 +6894,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By The House That Lars Built",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14258,86 +6906,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14354,9 +6944,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By WHOSMiNG",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14368,86 +6956,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14464,9 +6994,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Poketo",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14478,86 +7006,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14574,9 +7044,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Lee Sang Won",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14588,86 +7056,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14684,9 +7094,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Davi",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14698,86 +7106,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14794,9 +7144,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Zizone",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14808,86 +7156,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -14904,9 +7194,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Fiorenzaart",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -14918,86 +7206,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15014,9 +7244,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By TARO OONO",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15028,86 +7256,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15124,9 +7294,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Travel Write Draw",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15138,86 +7306,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15231,9 +7341,7 @@ export const caseData =
         caseCategory: "iPhone 15 & 15 Plus Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15258,9 +7366,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15272,35 +7378,12 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
                 [
@@ -15331,19 +7414,10 @@ export const caseData =
                 ]
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15359,9 +7433,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15373,79 +7445,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15470,9 +7491,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By namsee",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15484,86 +7503,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15580,9 +7541,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Alilscribble",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15594,86 +7553,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15690,9 +7591,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Maitoparta",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15704,86 +7603,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15800,9 +7641,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Minstudio",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15814,82 +7653,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -15905,9 +7690,7 @@ export const caseData =
             "Black"
         ],
         collabo: "By Chocolateye",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -15919,81 +7702,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16010,9 +7740,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By The House That Lars Built",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16024,82 +7752,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16116,9 +7790,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Liliuhms",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16130,86 +7802,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16226,9 +7840,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Nyangsongi",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16240,86 +7852,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16333,9 +7887,7 @@ export const caseData =
         caseCategory: "iPhone 15 & 15 Plus Camera Lens Protector",
         color: [],
         collabo: "Essentials by CASETiFY™",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16359,9 +7911,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16373,82 +7923,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16465,9 +7961,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16479,65 +7973,22 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ]
         }
     },
@@ -16557,9 +8008,7 @@ export const caseData =
             "Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16571,82 +8020,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16663,9 +8058,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Katie's Collective",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16677,86 +8070,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16772,9 +8107,7 @@ export const caseData =
             "Black"
         ],
         collabo: "By Saitemiss",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16786,66 +8119,22 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
-                    "갤럭시 S25 울트라",
+                    "갤럭시 Z 플립7",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
                 [
@@ -16874,9 +8163,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16888,86 +8175,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -16984,9 +8213,7 @@ export const caseData =
             "Matte Black"
         ],
         collabo: "By Nature Magick",
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -16998,86 +8225,28 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11",
-                    "iPhone SE (2022)"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S24 FE",
-                    "갤럭시 Z 폴드5",
-                    "갤럭시 Z 플립5",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S23 FE",
-                    "갤럭시 Z 폴드4",
-                    "갤럭시 Z 플립4",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+",
-                    "갤럭시 S20 울트라"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel 8 Pro",
-                    "Pixel 8",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
             ]
         }
     },
@@ -17094,9 +8263,7 @@ export const caseData =
         badge: [
             "무료 배송"
         ],
-        mainCategory: [
-            "케이스"
-        ],
+        mainCategory:  "케이스",
         subCategory: [
             "디바이스"
         ],
@@ -17108,82 +8275,244 @@ export const caseData =
         ],
         deviceCategory: {
             Apple: [
-                [
-                    "아이폰 17 Pro Max",
                     "아이폰 17 Pro",
-                    "아이폰 Air",
                     "아이폰 17",
-                    "아이폰 17e",
-                    "아이폰 16 Pro Max",
                     "아이폰 16 Pro",
-                    "아이폰 16 Plus",
                     "아이폰 16",
-                    "아이폰 16e",
-                    "아이폰 15 Pro Max",
                     "아이폰 15 Pro",
-                    "아이폰 15 Plus",
-                    "아이폰 15",
-                    "아이폰 14 Pro",
-                    "아이폰 14 Pro Max",
-                    "아이폰 14 Plus",
-                    "아이폰 14",
-                    "아이폰 13 Pro",
-                    "아이폰 13 Pro Max",
-                    "아이폰 13",
-                    "아이폰 13 Mini",
-                    "아이폰 12 Pro",
-                    "아이폰 12 Pro Max",
-                    "아이폰 12",
-                    "아이폰 12 Mini",
-                    "아이폰 11 Pro Max",
-                    "아이폰 11 Pro",
-                    "아이폰 11",
-                    "iPhone SE (2022)",
-                    "아이폰 XS",
-                    "아이폰 XR",
-                    "아이폰 X"
-                ]
+                    "아이폰 15"
             ],
             Samsung: [
-                [
-                    "갤럭시 S26 울트라",
                     "갤럭시 S26",
                     "갤럭시 S26+",
                     "갤럭시 Z 폴드7",
                     "갤럭시 Z 플립7",
-                    "갤럭시 Z 플립7 FE",
-                    "갤럭시 S25 울트라",
                     "갤럭시 S25",
                     "갤럭시 S25+",
-                    "갤럭시 S25 엣지",
-                    "갤럭시 S25 FE",
                     "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6",
-                    "갤럭시 S24 울트라",
-                    "갤럭시 S24",
-                    "갤럭시 S24+",
-                    "갤럭시 S23 울트라",
-                    "갤럭시 S23",
-                    "갤럭시 S23+",
-                    "갤럭시 S22 울트라",
-                    "갤럭시 S22",
-                    "갤럭시 S22+"
-                ]
+                    "갤럭시 Z 플립6"
             ],
             Google: [
-                [
                     "Pixel 10 Pro",
-                    "Pixel 10 Pro XL",
                     "Pixel 10",
-                    "Pixel 10 Pro Fold",
                     "Pixel 9 Pro",
-                    "Pixel 9 Pro XL",
-                    "Pixel 9",
-                    "Pixel 9 Pro Fold",
-                    "Pixel Fold",
-                    "Pixel 7 Pro"
-                ]
+                    "Pixel 9"
+            ]
+        }
+    },
+
+
+        {
+        id: "CTF-28302256-16009387",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "이거 2번 Punny Orange&Berry",
+        caseCategory: "맥세이프 호환 임팩트 케이스",
+        color: [
+            "Black",
+            "Orange",
+            "Pink",
+            "Soft Blue",
+            "Matte Black"
+        ],
+        collabo: "By Number D",
+        mainCategory:  "악세서리",
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "iPhone 17 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16009387",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "맥세이프 호환 임팩트 케이스",
+        color: [
+            "Black",
+            "Orange",
+            "Pink",
+            "Soft Blue",
+            "Matte Black"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory:  "악세서리",
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "iPhone 17 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25610159-16009386",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Bunnies",
+        caseCategory: "맥세이프 호환 임팩트 케이스",
+        color: [
+            "Black",
+            "Orange",
+            "Pink",
+            "Soft Blue",
+            "Matte Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory:  "악세서리",
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "iPhone 17 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27290091-16009387",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Interlude by Andhika Ramadhian",
+        caseCategory: "맥세이프 호환 임팩트 케이스",
+        color: [
+            "Black",
+            "Orange",
+            "Pink",
+            "Soft Blue",
+            "Matte Black"
+        ],
+        collabo: "By Andhika Ramadhian",
+        mainCategory:  "악세서리",
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "iPhone 17 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
             ]
         }
     }
+
 ]
