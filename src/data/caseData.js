@@ -1,5 +1,6 @@
 export const caseData = 
 [
+    // iphone
     {
         id: "CTF-28302256-16009387",
         badge: [
@@ -8301,24 +8302,24 @@ export const caseData =
         }
     },
 
-
-        {
-        id: "CTF-28302256-16009387",
+    // Galaxy
+    {
+        id: "CTF-37498812-16008462",
         badge: [
             "무료 배송"
         ],
         price: "89000",
-        productName: "이거 2번 Punny Orange&Berry",
-        caseCategory: "맥세이프 호환 임팩트 케이스",
+        productName: "Molecular Bubbles - Purple",
+        caseCategory: "임팩트 마그네틱 케이스",
         color: [
             "Black",
-            "Orange",
-            "Pink",
-            "Soft Blue",
+            "Classic Blue",
             "Matte Black"
         ],
-        collabo: "By Number D",
-        mainCategory:  "악세서리",
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
         subCategory: [
             "디바이스"
         ],
@@ -8326,7 +8327,7 @@ export const caseData =
             "핸드폰"
         ],
         lastCategory: [
-            "iPhone 17 Pro"
+            "Galaxy S25+"
         ],
         deviceCategory: {
             Apple: [
@@ -8356,22 +8357,12233 @@ export const caseData =
         }
     },
     {
-        id: "CTF-27729581-16009387",
+        id: "CTF-37498520-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you - White",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498534-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - Black",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498626-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Black",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498500-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498562-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Poppies",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498584-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Bubbles-Blue",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498578-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Blue Dreamy Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498545-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - White",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36699355-16008476",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM PAPER CASE",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-32515732-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Hello Kitty Sticker Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36694345-16008476",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM TAPE CASE",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-35848944-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "스마일 (핑크) 폰케이스",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-34932131-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pinned Statement Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36901913-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "ZOA Sticker Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36582318-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Red Ribbon on Jaguar",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35848854-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "스마일 (레인보우) 폰케이스",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36333626-16008476",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Miffy Black Mirror Frame Case",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-35398908-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Metallic Pink Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36699132-16008463",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM DENIM CIRCLE CASE",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498616-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Pink",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968095-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "플라워 블룸 (레인보우) 폰케이스",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30429010-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Gradient Spots",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32719682-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Denim",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32739606-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Frame",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680579-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Bubbles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32787467-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "CASETiFY University",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680612-16008462",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Earth 365",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498812-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Bubbles - Purple",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498520-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you - White",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498534-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - Black",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498626-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Black",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498500-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498562-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Poppies",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498584-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Bubbles-Blue",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498578-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Blue Dreamy Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498545-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - White",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32515732-16008469",
+        badge: [
+            "한정"
+        ]
+    },
+    {
+        id: "CTF-35848944-16008469",
+        badge: [
+            "한정"
+        ]
+    },
+    {
+        id: "CTF-34932131-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pinned Statement Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36901913-16008469",
+        badge: [
+            "한정"
+        ]
+    },
+    {
+        id: "CTF-36582318-16008469",
+        badge: []
+    },
+    {
+        id: "CTF-35848854-16008469",
+        badge: [
+            "한정"
+        ]
+    },
+    {
+        id: "CTF-35398908-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Metallic Pink Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36699132-16008460",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM DENIM CIRCLE CASE",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498616-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Pink",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968095-16008469",
+        badge: [
+            "한정"
+        ]
+    },
+    {
+        id: "CTF-37547927-16008469",
+        badge: [
+            "한정"
+        ]
+    },
+    {
+        id: "CTF-32691209-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36829197-16008469",
+        badge: [
+            "한정"
+        ]
+    },
+    {
+        id: "CTF-30429010-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Gradient Spots",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32719682-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Denim",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32739606-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Frame",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680579-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Bubbles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32787467-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "CASETiFY University",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680612-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Earth 365",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680606-16008459",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Magic 8 Balls",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Classic Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32314838-16009405",
+        price: "89000",
+        productName: "Hello Kitty Sticker Case",
+        caseCategory: "맥세이프 호환 임팩트 링 스탠드 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968140-16010608",
+        price: "89000",
+        productName: "스마일 (핑크) 폰케이스",
+        caseCategory: "글레이즈 링 스탠드 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36588419-16009405",
+        price: "89000",
+        productName: "ZOA Sticker Case",
+        caseCategory: "맥세이프 호환 임팩트 링 스탠드 케이스",
+        color: [
+            "Black",
+            "Pink"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36582318-16010608",
+        price: "89000",
+        productName: "Red Ribbon on Jaguar",
+        caseCategory: "글레이즈 링 스탠드 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968142-16010608",
+        price: "89000",
+        productName: "스마일 (레인보우) 폰케이스",
+        caseCategory: "글레이즈 링 스탠드 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968097-16010608",
+        price: "89000",
+        productName: "플라워 블룸 (레인보우) 폰케이스",
+        caseCategory: "글레이즈 링 스탠드 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37547927-16009405",
+        price: "89000",
+        productName: "Evangelion 30th Anniversary Pattern Case",
+        caseCategory: "맥세이프 호환 임팩트 링 스탠드 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36476666-16009405",
+        price: "89000",
+        productName: "ZO&FRIENDS ZOA Face Case - Normal",
+        caseCategory: "맥세이프 호환 임팩트 링 스탠드 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        badge: [
+            "무료 배송"
+        ],
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S25"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498812-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Bubbles - Purple",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498520-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you - White",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498534-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - Black",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498626-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Black",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498500-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498562-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Poppies",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498584-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Bubbles-Blue",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498578-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Blue Dreamy Ribbon",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498545-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - White",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36699355-16010938",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM PAPER CASE",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-32515732-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Hello Kitty Sticker Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36694345-16010938",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM TAPE CASE",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-35848944-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "스마일 (핑크) 폰케이스",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-34932131-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pinned Statement Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36901913-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "ZOA Sticker Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36582318-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Red Ribbon on Jaguar",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35848854-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "스마일 (레인보우) 폰케이스",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36333626-16010938",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Miffy Black Mirror Frame Case",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-35398908-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Metallic Pink Ribbon",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36699132-16010933",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM DENIM CIRCLE CASE",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Doodles",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498616-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Pink",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968095-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "플라워 블룸 (레인보우) 폰케이스",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30429010-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Gradient Spots",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32719682-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Denim",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32739606-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Frame",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680579-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Bubbles",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32787467-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "CASETiFY University",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680612-16010941",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Earth 365",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26+"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498812-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Bubbles - Purple",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498520-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you - White",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498534-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - Black",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498626-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Black",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498500-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crush on you",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498562-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Poppies",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498584-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Molecular Bubbles-Blue",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498578-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Blue Dreamy Ribbon",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498545-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Star - White",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36699355-16010939",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM PAPER CASE",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-32515732-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Hello Kitty Sticker Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36694345-16010939",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM TAPE CASE",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-35848944-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "스마일 (핑크) 폰케이스",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-34932131-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pinned Statement Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36901913-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "ZOA Sticker Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36582318-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Red Ribbon on Jaguar",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35848854-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "스마일 (레인보우) 폰케이스",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36333626-16010939",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Miffy Black Mirror Frame Case",
+        caseCategory: "마그네틱 미러 케이스",
+        color: [
+            "Silver on Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 S25",
+                    "갤럭시 S25+"
+            ]
+        }
+    },
+    {
+        id: "CTF-35398908-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Metallic Pink Ribbon",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-36699132-16010935",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "MATIN KIM DENIM CIRCLE CASE",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Doodles",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37498616-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dreamy Heart - Pink",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968095-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "플라워 블룸 (레인보우) 폰케이스",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30429010-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Gradient Spots",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32719682-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Denim",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32739606-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Frame",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680579-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Bubbles",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32787467-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "CASETiFY University",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31680612-16010942",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Earth 365",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy S26"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32788008-16006912",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Crochet Granny Squares",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-33317101-16006912",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Denim",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691393-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Distorted Plaid - Pink",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32713741-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Gingham Picnic",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-34614698-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "My Pajama",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30428993-16006917",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Star Marks",
+        caseCategory: "임팩트 클리어 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30322071-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Your Feelings Are Valid",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By Top Girl Studio",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30324216-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Let's be lazy",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By Gosimperson",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35569057-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32417739-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Hello Kitty Sticker Case",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37369408-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Happy Pony Tweedle Case",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-30340615-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Clouds",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32420913-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Metallic Ribbon",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32421005-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "River Blue Dye",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30258655-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "INAP STICKER 01",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By INAPSQUARE",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32420927-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Chrome Sparkles - Purple",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30552086-16006912",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32768671-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16006917",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Strawberry Mix",
+        caseCategory: "임팩트 클리어 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968095-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "플라워 블룸 (레인보우) 폰케이스",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968093-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "플라워 블룸 (핑크) 폰케이스",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30330330-16006912",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Skater JOHN (Hello my friend)",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-15521635-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "BLUE CHECKERS",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By iiivvvyyyceramics",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-29381876-16006911",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Pang Dinosaurs and Phones",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-15521491-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "B&W CHECK",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By iiivvvyyyceramics",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-29381899-16006913",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Nang Dinosaurs and Phones",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Baby Blue",
+            "Purple"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32788008-16009647",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Crochet Granny Squares",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-33317101-16009650",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Denim",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691393-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Distorted Plaid - Pink",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32713741-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Gingham Picnic",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-34614698-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "My Pajama",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30428993-16009647",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Star Marks",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30322071-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Your Feelings Are Valid",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By Top Girl Studio",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30324216-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Let's be lazy",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By Gosimperson",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16009649",
         badge: [
             "무료 배송"
         ],
         price: "89000",
         productName: "Daisy by Katie-s Collective",
-        caseCategory: "맥세이프 호환 임팩트 케이스",
+        caseCategory: "임팩트 마그네틱 케이스",
         color: [
             "Black",
-            "Orange",
-            "Pink",
-            "Soft Blue",
+            "Glacier Blue"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35569057-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32417739-16009647",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Hello Kitty Sticker Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30340615-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Clouds",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32420913-16009650",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Metallic Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32421005-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "River Blue Dye",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30258655-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "INAP STICKER 01",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By INAPSQUARE",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32420927-16009650",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Sparkles - Purple",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30552086-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32768671-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16009647",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Strawberry Mix",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-37369408-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Happy Pony Tweedle Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-35968095-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "플라워 블룸 (레인보우) 폰케이스",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16009650",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30330330-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Skater JOHN (Hello my friend)",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-15521635-16009649",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "BLUE CHECKERS",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By iiivvvyyyceramics",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-29381876-16009647",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pang Dinosaurs and Phones",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-15521491-16009650",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "B&W CHECK",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By iiivvvyyyceramics",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-29381899-16009650",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Nang Dinosaurs and Phones",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30641762-16009650",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Giant Bobo",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Glacier Blue"
+        ],
+        collabo: "By Dinotaeng",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Flip7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35569057-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27040265-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Sweetheart Mix",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25965681-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Skater JOHN -Hello my friend 04",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20791143-16006915",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Black Space Marble",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Organic Saturation",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691036-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Sunset Wave",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30150107-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Ocean Gradient",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35693336-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Light Violet",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691055-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Candlelight",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-5755929-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Strawberry Mix",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32802854-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Casetify",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Kunel Gaur",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-26277840-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Floating People #1",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Lee Sang Won",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779456-16006918",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Maltese Coloured Ribbon Sticker Case",
+        caseCategory: "임팩트 클리어 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-18992856-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Blue Background Wavy Border",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By The House That Lars Built",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30073621-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Alright hold on !",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By matsui",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25181395-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "The weakest is the strongest - muramatsushiori",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Muramatsushiori",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30150121-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Pastel Gradient",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35687404-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Matcha Swirls",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By casetify_artist",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35690992-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Green Glass",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691054-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Soft Silk",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779452-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Maltese Shooting Star Case",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-24361204-16006918",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Silver Tiger",
+        caseCategory: "임팩트 클리어 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Jess Miller Draws",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-17365982-16006915",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Fun Friends",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Jon Burgerman",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35532385-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Audio Cassette",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20497774-16006914",
+        badge: [
+            "무료 배송"
+        ],
+        price: "83000",
+        productName: "Mondrianesque by Poketo",
+        caseCategory: "임팩트 케이스",
+        color: [
+            "Black",
+            "Cobalt Blue"
+        ],
+        collabo: "By Poketo",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold6"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16009652",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Navy"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35569057-16009652",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Navy"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dragon Pang",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16009652",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Navy"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27040265-16009652",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Sweetheart Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Navy"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25965681-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Skater JOHN -Hello my friend 04",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Chrome Doodles",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779456-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Maltese Coloured Ribbon Sticker Case",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691036-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Sunset Wave",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30150107-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Ocean Gradient",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35693336-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Light Violet",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691055-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Candlelight",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20791143-16009652",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Black Space Marble",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Navy"
+        ],
+        collabo: "By Organic Saturation",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-5755929-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Strawberry Mix",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32802854-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Casetify",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Kunel Gaur",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-26277840-16009653",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Floating People #1",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Navy"
+        ],
+        collabo: "By Lee Sang Won",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-18992856-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Blue Background Wavy Border",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By The House That Lars Built",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779452-16009652",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Maltese Shooting Star Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ]
+        }
+    },
+    {
+        id: "CTF-30073621-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Alright hold on !",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By matsui",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30150121-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pastel Gradient",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35687404-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Matcha Swirls",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By casetify_artist",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35690992-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Green Glass",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691054-16009652",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Soft Silk",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Navy"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25181395-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "The weakest is the strongest - muramatsushiori",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Muramatsushiori",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-24361204-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Silver Tiger",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Jess Miller Draws",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-17365982-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Fun Friends",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Jon Burgerman",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35532385-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Audio Cassette",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20497774-16009651",
+        badge: [
+            "무료 배송"
+        ],
+        price: "89000",
+        productName: "Mondrianesque by Poketo",
+        caseCategory: "마그네틱 임팩트 케이스",
+        color: [
+            "Clear"
+        ],
+        collabo: "By Poketo",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Galaxy Z Fold7"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+
+    // Google
+    {
+        id: "CTF-27729581-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
             "Matte Black"
         ],
         collabo: "By Katie's Collective",
-        mainCategory:  "악세서리",
+        mainCategory: [
+            "케이스"
+        ],
         subCategory: [
             "디바이스"
         ],
@@ -8379,7 +20591,7 @@ export const caseData =
             "핸드폰"
         ],
         lastCategory: [
-            "iPhone 17 Pro"
+            "Google Pixel 9 Pro"
         ],
         deviceCategory: {
             Apple: [
@@ -8409,22 +20621,177 @@ export const caseData =
         }
     },
     {
-        id: "CTF-25610159-16009386",
+        id: "CTF-35569057-16006598",
         badge: [
             "무료 배송"
         ],
-        price: "89000",
-        productName: "Bunnies",
-        caseCategory: "맥세이프 호환 임팩트 케이스",
+        price: "70000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 마그네틱 케이스",
         color: [
             "Black",
-            "Orange",
-            "Pink",
-            "Soft Blue",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27040265-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Sweetheart Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
             "Matte Black"
         ],
         collabo: "By foxy illustrations",
-        mainCategory:  "악세서리",
+        mainCategory: [
+            "케이스"
+        ],
         subCategory: [
             "디바이스"
         ],
@@ -8432,7 +20799,59 @@ export const caseData =
             "핸드폰"
         ],
         lastCategory: [
-            "iPhone 17 Pro"
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20791143-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Black Space Marble",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Organic Saturation",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
         ],
         deviceCategory: {
             Apple: [
@@ -8462,22 +20881,21 @@ export const caseData =
         }
     },
     {
-        id: "CTF-27290091-16009387",
+        id: "CTF-30295856-16006598",
         badge: [
             "무료 배송"
         ],
-        price: "89000",
-        productName: "Interlude by Andhika Ramadhian",
-        caseCategory: "맥세이프 호환 임팩트 케이스",
+        price: "70000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 마그네틱 케이스",
         color: [
             "Black",
-            "Orange",
-            "Pink",
-            "Soft Blue",
             "Matte Black"
         ],
-        collabo: "By Andhika Ramadhian",
-        mainCategory:  "악세서리",
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
         subCategory: [
             "디바이스"
         ],
@@ -8485,7 +20903,3795 @@ export const caseData =
             "핸드폰"
         ],
         lastCategory: [
-            "iPhone 17 Pro"
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779456-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Maltese Coloured Ribbon Sticker Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25965681-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Skater JOHN -Hello my friend 04",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-18992856-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Blue Background Wavy Border",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By The House That Lars Built",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Strawberry Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-5755929-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-26277840-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Floating People #1",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Lee Sang Won",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35455090-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Audio Cassette",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-11534483-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Casetify",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Kunel Gaur",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30073621-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Alright hold on !",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By matsui",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25181395-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "The weakest is the strongest - muramatsushiori",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Muramatsushiori",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32576725-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "DOG LOVES COFFEE",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By WHOSMiNG",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-17365982-16006598",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Fun Friends",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Jon Burgerman",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35569057-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27040265-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Sweetheart Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20791143-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Black Space Marble",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Organic Saturation",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779456-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Maltese Coloured Ribbon Sticker Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25965681-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Skater JOHN -Hello my friend 04",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-18992856-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Blue Background Wavy Border",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By The House That Lars Built",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Strawberry Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-5755929-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-26277840-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Floating People #1",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Lee Sang Won",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35455090-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Audio Cassette",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-11534483-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Casetify",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Kunel Gaur",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30073621-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Alright hold on !",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By matsui",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25181395-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "The weakest is the strongest - muramatsushiori",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black"
+        ],
+        collabo: "By Muramatsushiori",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32576725-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "DOG LOVES COFFEE",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By WHOSMiNG",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-17365982-16006597",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Fun Friends",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Black",
+            "Matte Black"
+        ],
+        collabo: "By Jon Burgerman",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 9"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35569057-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27040265-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Sweetheart Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20791143-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Black Space Marble",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Organic Saturation",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779456-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Maltese Coloured Ribbon Sticker Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691036-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Sunset Wave",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30150107-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Ocean Gradient",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35693429-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Light Violet",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691055-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Candlelight",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25965681-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Skater JOHN -Hello my friend 04",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-18992856-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Blue Background Wavy Border",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By The House That Lars Built",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Strawberry Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-5755929-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-26277840-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Floating People #1",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Lee Sang Won",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35455090-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Audio Cassette",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-11534483-16009641",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Casetify",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Kunel Gaur",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10 Pro"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27729581-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Daisy by Katie-s Collective",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Katie's Collective",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35569057-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Classic Dottie",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860750-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Pang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31860768-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Dragon Nang",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By PETTYDUST",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-27040265-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Sweetheart Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-20791143-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Black Space Marble",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Organic Saturation",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30295856-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Chrome Doodles",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-31779456-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Maltese Coloured Ribbon Sticker Case",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Maltese",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691036-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Sunset Wave",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30150107-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Ocean Gradient",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35693429-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Light Violet",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35691055-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Candlelight",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-25965681-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Skater JOHN -Hello my friend 04",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Skater JOHN",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-18992856-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Blue Background Wavy Border",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By The House That Lars Built",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6"
+                ]
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-30035249-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Strawberry Mix",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By foxy illustrations",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-5755929-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "WRAPPED IN A BOW",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-26277840-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Floating People #1",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Lee Sang Won",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-35455090-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Audio Cassette",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-32691209-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Pink Organza Ribbon",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
+        ],
+        deviceCategory: {
+            Apple: [
+                    "아이폰 17 Pro",
+                    "아이폰 17",
+                    "아이폰 16 Pro",
+                    "아이폰 16",
+                    "아이폰 15 Pro",
+                    "아이폰 15"
+            ],
+            Samsung: [
+                    "갤럭시 S26",
+                    "갤럭시 S26+",
+                    "갤럭시 Z 폴드7",
+                    "갤럭시 Z 플립7",
+                    "갤럭시 S25",
+                    "갤럭시 S25+",
+                    "갤럭시 Z 폴드6",
+                    "갤럭시 Z 플립6"
+            ],
+            Google: [
+                    "Pixel 10 Pro",
+                    "Pixel 10",
+                    "Pixel 9 Pro",
+                    "Pixel 9"
+            ]
+        }
+    },
+    {
+        id: "CTF-11534483-16009640",
+        badge: [
+            "무료 배송"
+        ],
+        price: "70000",
+        productName: "Casetify",
+        caseCategory: "임팩트 마그네틱 케이스",
+        color: [
+            "Matte Black",
+            "Black"
+        ],
+        collabo: "By Kunel Gaur",
+        mainCategory: [
+            "케이스"
+        ],
+        subCategory: [
+            "디바이스"
+        ],
+        miniCategory: [
+            "핸드폰"
+        ],
+        lastCategory: [
+            "Google Pixel 10"
         ],
         deviceCategory: {
             Apple: [
@@ -8514,5 +24720,4 @@ export const caseData =
             ]
         }
     }
-
 ]
