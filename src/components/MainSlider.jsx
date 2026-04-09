@@ -1,11 +1,12 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules'
+import { Autoplay, Pagination, } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
+
+import "./scss/MainSlider.scss"
 
 export default function MainSlider() {
     const slides = [
@@ -17,15 +18,14 @@ export default function MainSlider() {
     ]
     return (
         <div>
-            <Swiper
-                modules={[Autoplay, Pagination, Scrollbar]}
+            <Swiper className='main-slider-img'
+                modules={[Autoplay, Pagination]}
                 autoplay={{
-                    delay: 3000,
+                    delay: 5000,
                     disableOnInteraction: false
                 }}
                 navigation={true}
                 pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
                 loop={true}
             >
                 {slides.map((slide, i) => (
