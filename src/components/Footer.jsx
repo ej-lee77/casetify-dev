@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
             <div className="app-info-wrap">
               <div className="mobile-app-colab">
-                <img src="./images/header-footer/app-icon-colab.png" alt="App-Colab" />
+                <img src="./images/app-icon-colab.png" alt="App-Colab" />
                 <div className="text-area">
                   <span>CASETIFY Colab</span>
                   <p>독점 콜라보제품 구매하기</p>
@@ -36,7 +36,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mobile-app">
-                <img src="./images/header-footer/app-icon.png" alt="App-Offical" />
+                <img src="./images/app-icon.png" alt="App-Offical" />
                 <div className="text-area">
                   <span>CASETIFY</span>
                   <p>나만의 커스텀 케이스 만들기</p>
@@ -60,14 +60,14 @@ export default function Footer() {
                 <li>주소: 서울 강남구 영동대로 616 아남빌딩 2층, 케이스티파이</li>
               </ul>
               <ul className="payment">
-                <li><img src="./images/header-footer/payment_visa.svg" alt="결제수단:VISA" /></li>
-                <li><img src="./images/header-footer/payment_mastercard.svg" alt="결제수단:Master Card" /></li>
-                <li><img src="./images/header-footer/payment_AMEX.svg" alt="결제수단:AMEX" /></li>
-                <li><img src="./images/header-footer/payment_apple-pay.svg" alt="결제수단:Apple Pay" /></li>
-                <li><img src="./images/header-footer/payment_kakao-pay.svg" alt="결제수단:카카오페이" /></li>
-                <li><img src="./images/header-footer/payment_naver-pay.svg" alt="결제수단:네이버페이" /></li>
+                <li><img src="./images/icon/payment_visa.svg" alt="결제수단:VISA" /></li>
+                <li><img src="./images/icon/payment_mastercard.svg" alt="결제수단:Master Card" /></li>
+                <li><img src="./images/icon/payment_AMEX.svg" alt="결제수단:AMEX" /></li>
+                <li><img src="./images/icon/payment_apple-pay.svg" alt="결제수단:Apple Pay" /></li>
+                <li><img src="./images/icon/payment_kakao-pay.svg" alt="결제수단:카카오페이" /></li>
+                <li><img src="./images/icon/payment_naver-pay.svg" alt="결제수단:네이버페이" /></li>
               </ul>
-              <p><span>개인정보처리방침</span><span>약관</span></p>
+              <p className="remark"><span>개인정보처리방침</span><span>약관</span></p>
               <p>Copyright © 2026 CASETiFY</p>
             </div>
             <div className="cs-info">
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
       </footer>
       <div className="top-btn">
-        <img src="./images/header-footer/icon-top-btn.svg" alt="top" />
+        <img src="./images/icon/icon-top-btn.svg" alt="top" />
         <p>TOP</p>
       </div>
     </>
