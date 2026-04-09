@@ -1,9 +1,9 @@
 import React from 'react'
 import SectionTitle from './SectionTitle'
-import "./scss/StudioInfoSection.scss"
+import "./scss/Studio.scss"
 import { Link } from 'react-router-dom'
 
-export default function StudioInfoSection() {
+export default function Studio() {
     return (
         <section className="studio-info">
             <SectionTitle title={"CASETiFY STUDIO"} subtitle={"전국 오프라인 매장에서 만나보세요!"} />
