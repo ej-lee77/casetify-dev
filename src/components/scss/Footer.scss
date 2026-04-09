@@ -99,6 +99,20 @@ footer {
                         }
                     }
                 }
+
+                .remark {
+                    span+span {
+                        &::before {
+                            content: "";
+                            margin: 0 0.6em;
+                            display: inline-block;
+                            width: 0;
+                            height: 0.8em;
+                            vertical-align: middle;
+                            border-left: 2px solid white;
+                        }
+                    }
+                }
             }
 
             .cs-info {
