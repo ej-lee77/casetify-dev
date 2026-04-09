@@ -1,0 +1,46 @@
+@use "../../App.scss" as g;
+
+.product {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 65px;
+    text-align: center;
+}
+
+.all {
+    @include g.myFlex();
+    gap: 30px;
+
+    .right {}
+
+
+
+    .left {
+
+
+
+        text-align: center;
+
+        button {
+
+
+            margin: 50px;
+            background: #fff;
+            border-radius: 1px solid #000;
+            width: 210px;
+            height: 40px;
+            cursor: pointer;
+
+            &:hover {
+
+
+                background: linear-gradient(white, white) padding-box,
+                    linear-gradient(to right, rgb(108, 157, 235), rgb(244, 122, 122)) border-box;
+
+                border: 2px solid transparent;
+            }
+
+        }
+    }
+}
