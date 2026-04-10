@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
             <div className="app-info-wrap">
               <div className="mobile-app-colab">
-                <img src="./images/header-footer/app-icon-colab.png" alt="App-Colab" />
+                <img src="./images/app-icon-colab.png" alt="App-Colab" />
                 <div className="text-area">
                   <span>CASETIFY Colab</span>
                   <p>독점 콜라보제품 구매하기</p>
@@ -36,7 +36,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mobile-app">
-                <img src="./images/header-footer/app-icon.png" alt="App-Offical" />
+                <img src="./images/app-icon.png" alt="App-Offical" />
                 <div className="text-area">
                   <span>CASETIFY</span>
                   <p>나만의 커스텀 케이스 만들기</p>
