@@ -1,0 +1,48 @@
+@use "../../App.scss" as g;
+
+.studio-info {
+    background-image: url("./images/main/section/studio/bg-img-yellow.png");
+    background-position-x: center;
+    background-repeat: no-repeat;
+
+    .inner {
+        @include g.myFlex($jc: center, $ai: center, $gap: 60px);
+        margin-top: 36px;
+
+        >div {
+            flex: 1;
+        }
+
+        .img-box {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .txt-box {
+            @include g.myFlex($fd: column, $ai: normal);
+            padding-right: 60px;
+
+            h3 {
+                font-size: 28px;
+            }
+
+            .stdio-feature {
+                font-size: 24px;
+                margin-top: 24px;
+                margin-bottom: 16px;
+            }
+
+            .studio-search {
+                display: block;
+                margin: 0 auto;
+                background: white;
+                text-align: center;
+                padding: 10px 160px;
+                // 그라디언트 선 색상
+                border-width: 2px;
+                border-style: solid;
+                border-image: linear-gradient(to right, #F7A093, #135EAB) 1;
+            }
+        }
+    }
+}
