@@ -23,6 +23,7 @@ export default function MainTravel() {
                     className="travel-player"
                     muted
                     controls
+                    playsInline
                 >
                     <source src="./video/main-travel.mp4" type="video/mp4" />
                 </video>
