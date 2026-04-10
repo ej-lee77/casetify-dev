@@ -1,0 +1,61 @@
+body {
+  font-family: "GMarketSans", sans-serif;
+  color: #2F2F2F;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sub-page-wrap {
+  margin: 500px 0;
+}
+
+.section-title-box {
+  margin: 20px;
+}
+
+.all {
+  display: flex;
+  justify-content: space-between;
+  align-items: 20px;
+  gap: 20px;
+  flex: 1;
+}
+.all .left {
+  width: 50%;
+}
+.all .right {
+  width: 50%;
+}
+.all .right ul {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 65px;
+  width: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease;
+}
+.all .right ul.fade {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.all .right ul li {
+  color: #2F2F2F;
+}
+.all .right button {
+  display: block;
+  margin: 50px auto 0;
+  background: #fff;
+  border-radius: 1px solid #000;
+  width: 210px;
+  height: 40px;
+  cursor: pointer;
+}
+.all .right button:hover {
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, rgb(108, 157, 235), rgb(244, 122, 122)) border-box;
+  border: 2px solid transparent;
+}

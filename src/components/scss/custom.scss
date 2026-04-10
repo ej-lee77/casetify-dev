@@ -1,0 +1,71 @@
+@use "../../App.scss" as g;
+
+
+.section-title-box {
+    margin: g.$title-gap;
+}
+
+.all {
+
+    @include g.myFlex(space-between, 20px);
+    flex: 1;
+
+
+    .left {
+        width: 50%;
+    }
+
+
+    .right {
+        width: 50%;
+
+
+        ul {
+
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 65px;
+            width: 100%; // ⭐ 중요
+
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+
+            &.fade {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            li {
+                color: g.$text-main;
+            }
+
+        }
+
+
+
+        button {
+
+            display: block;
+            margin: 50px auto 0; // ⭐ 위만 띄우기
+            background: #fff;
+            border-radius: 1px solid #000;
+            width: 210px;
+            height: 40px;
+            cursor: pointer;
+
+
+            &:hover {
+
+
+                background: linear-gradient(white, white) padding-box,
+                    linear-gradient(to right, rgb(108, 157, 235), rgb(244, 122, 122)) border-box;
+
+                border: 2px solid transparent;
+            }
+
+
+        }
+    }
+}
