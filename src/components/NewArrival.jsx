@@ -12,7 +12,7 @@ const newArrivalData = [
 
 export default function NewArrival() {
     // item 정보 파악 변수
-    const { activeTab, setActiveTab } = useState(1);
+    const [activeTab, setActiveTab] = useState(1);
 
     return (
         <section className="new-arrival">
@@ -20,28 +20,18 @@ export default function NewArrival() {
             <div className="inner">
                 <div className="new-arr-inner-wrap">
                     <ul className="new-arr-list">
-                        {/* <li className="arr-item">
-                            <img src="./images/main/section/newArrival/charm-blue.png" alt="img" />
-                            <p>DENIM MANIFESTO</p>
-                        </li>
-                        <li className="arr-item">
-                            <img src="./images/main/section/newArrival/charm-yellow.png" alt="img" />
-                            <p>HI! FOREST</p></li>
-                        <li className="arr-item active">
-                            <img src="./images/main/section/newArrival/charm-red.png" alt="img" />
-                            <p>PILLOW CASE</p></li>
-                        <li className="arr-item">
-                            <img src="./images/main/section/newArrival/charm-pink.png" alt="img" />
-                            <p>SPRING IN BLOOM</p></li> */}
-                        {newArrivalData.map((arridata, id) => (
-                            <li key={id} className="arr-item">
+                        {newArrivalData.map((arridata) => (
+                            <li
+                                key={arridata.id}
+                                className={`arr-item ${activeTab === arridata.id ? "active" : ""}`}
+                                onClick={() => setActiveTab(arridata.id)}>
                                 <img src={arridata.icon} alt={`icon_${arridata.itemColor}`} />
                                 <p>{arridata.text}</p>
                             </li>
                         ))}
                     </ul>
                     <div className="new-arr-img-box">
-                        <img src="./images/main/section/newArrival/nw-photo-01.jpg" alt="" />
+                        <img src={newArrivalData.find(item => item.id === activeTab).bigImg} alt={`big_img_${newArrivalData.find(item => item.id === activeTab).text}`} />
                     </div>
                 </div>
             </div>
