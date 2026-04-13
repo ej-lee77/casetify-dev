@@ -17,6 +17,12 @@ $color-orange: #F89462;
 $color-red: #F15B41;
 $color-blue: #135EAB;
 
+// 값
+$section-gap: 150px;
+$group-gap: 40px;
+$title-gap: 20px;
+
+
 
 @mixin myFlex($jc: space-between, $ai: center, $fw: null, $gap: 20px, $fd: null) {
     display: flex;
@@ -25,6 +31,11 @@ $color-blue: #135EAB;
     flex-wrap: $fw;
     gap: $gap;
     flex-direction: $fd;
+}
+
+// n줄 말줄임
+@mixin multi-ellipsis($lines: 2) {
+
 }
 
 body {

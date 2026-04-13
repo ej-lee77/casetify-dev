@@ -18,12 +18,8 @@ export const caseData =
         ],
         collabo: "By Number D",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -71,12 +67,8 @@ export const caseData =
         ],
         collabo: "By Katie's Collective",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -124,12 +116,8 @@ export const caseData =
         ],
         collabo: "By foxy illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -177,12 +165,8 @@ export const caseData =
         ],
         collabo: "By Andhika Ramadhian",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -229,12 +213,8 @@ export const caseData =
         ],
         collabo: "By aquabumps",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -281,12 +261,8 @@ export const caseData =
         ],
         collabo: "By matsui",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -334,12 +310,8 @@ export const caseData =
         ],
         collabo: "By INAPSQUARE",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -387,12 +359,8 @@ export const caseData =
         ],
         collabo: "By Pink & Ven",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -434,12 +402,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -459,12 +423,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -503,12 +463,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -540,10 +496,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33964947-16009386",
-        badge: []
-    },
-    {
         id: "CTF-35605780-16009386",
         badge: [
             "무료 배송"
@@ -558,12 +510,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -611,12 +559,8 @@ export const caseData =
         ],
         collabo: "By SSEBONG",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -664,12 +608,8 @@ export const caseData =
         ],
         collabo: "By Holly Nichols",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -717,12 +657,8 @@ export const caseData =
         ],
         collabo: "By Ann Marie Coolick",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -770,12 +706,8 @@ export const caseData =
         ],
         collabo: "By Constant Bagel Therapy",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -823,12 +755,8 @@ export const caseData =
         ],
         collabo: "By The House That Lars Built",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -876,12 +804,8 @@ export const caseData =
         ],
         collabo: "By kciafa",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -929,12 +853,8 @@ export const caseData =
         ],
         collabo: "By SSEBONG",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -982,12 +902,8 @@ export const caseData =
         ],
         collabo: "By Mulga",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1031,12 +947,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1076,12 +988,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1113,14 +1021,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962322-16009386",
-        badge: []
-    },
-    {
-        id: "CTF-37774772-16009387",
-        badge: []
-    },
-    {
         id: "CTF-14498296-16009387",
         badge: [
             "무료 배송"
@@ -1137,12 +1037,8 @@ export const caseData =
         ],
         collabo: "By Huebucket",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1189,12 +1085,8 @@ export const caseData =
         ],
         collabo: "By Maltese",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1242,12 +1134,8 @@ export const caseData =
         ],
         collabo: "By Muramatsushiori",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1294,12 +1182,8 @@ export const caseData =
         ],
         collabo: "By PosterLad",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1347,12 +1231,8 @@ export const caseData =
         ],
         collabo: "By Muramatsushiori",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17 Pro"
         ],
@@ -1397,12 +1277,8 @@ export const caseData =
         ],
         collabo: "By Dinotaeng",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1446,12 +1322,8 @@ export const caseData =
         ],
         collabo: "By foxy illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1496,12 +1368,8 @@ export const caseData =
         ],
         collabo: "By Eggsdoodz",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1546,12 +1414,8 @@ export const caseData =
         ],
         collabo: "By WHOSMiNG",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1596,12 +1460,8 @@ export const caseData =
         ],
         collabo: "By I Scream Colour",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1646,12 +1506,8 @@ export const caseData =
         ],
         collabo: "By Minstudio",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1696,12 +1552,8 @@ export const caseData =
         ],
         collabo: "By eteecy",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1746,12 +1598,8 @@ export const caseData =
         ],
         collabo: "By Minstudio",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1793,12 +1641,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1818,12 +1662,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1868,12 +1708,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1905,10 +1741,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962322-16009380",
-        badge: []
-    },
-    {
         id: "CTF-35498319-16009380",
         badge: [
             "무료 배송"
@@ -1921,12 +1753,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -1971,12 +1799,8 @@ export const caseData =
         ],
         collabo: "By Mr.Donothing",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2021,12 +1845,8 @@ export const caseData =
         ],
         collabo: "By foxy illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2071,12 +1891,8 @@ export const caseData =
         ],
         collabo: "By iiivvvyyyceramics",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2121,12 +1937,8 @@ export const caseData =
         ],
         collabo: "By Bu2Ma",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2171,12 +1983,8 @@ export const caseData =
         ],
         collabo: "By LeonLollipop",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2221,12 +2029,8 @@ export const caseData =
         ],
         collabo: "By Maitoparta",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2271,12 +2075,8 @@ export const caseData =
         ],
         collabo: "By Chocolateye",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2321,12 +2121,8 @@ export const caseData =
         ],
         collabo: "By Top Girl Studio",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2368,12 +2164,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2393,12 +2185,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2445,12 +2233,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2484,14 +2268,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962310-16009381",
-        badge: []
-    },
-    {
-        id: "CTF-37774772-16009381",
-        badge: []
-    },
-    {
         id: "CTF-25226445-16009381",
         badge: [
             "무료 배송"
@@ -2505,12 +2281,8 @@ export const caseData =
         ],
         collabo: "By Rosie Pink",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2555,12 +2327,8 @@ export const caseData =
         ],
         collabo: "By FORLEE BEAN",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2605,12 +2373,8 @@ export const caseData =
         ],
         collabo: "By Zizone",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2655,12 +2419,8 @@ export const caseData =
         ],
         collabo: "By Laundry Room Studios",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2705,12 +2465,8 @@ export const caseData =
             "무료 배송"
         ],
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 17"
         ],
@@ -2759,12 +2515,8 @@ export const caseData =
         ],
         collabo: "By foxy illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -2813,12 +2565,8 @@ export const caseData =
         ],
         collabo: "By Poketo",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -2867,12 +2615,8 @@ export const caseData =
         ],
         collabo: "By iiivvvyyyceramics",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -2921,12 +2665,8 @@ export const caseData =
         ],
         collabo: "By SSEBONG",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -2974,12 +2714,8 @@ export const caseData =
         ],
         collabo: "By Number D",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3028,12 +2764,8 @@ export const caseData =
         ],
         collabo: "By Marta Olga Klara",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3082,12 +2814,8 @@ export const caseData =
         ],
         collabo: "By Chiara LB Art",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3136,12 +2864,8 @@ export const caseData =
         ],
         collabo: "By Sharon Turner",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3183,12 +2907,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3207,12 +2927,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3257,12 +2973,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3294,10 +3006,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962322-16007164",
-        badge: []
-    },
-    {
         id: "CTF-35498319-16008934",
         badge: [
             "무료 배송"
@@ -3313,12 +3021,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3367,12 +3071,8 @@ export const caseData =
         ],
         collabo: "By Callie Danielle",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3421,12 +3121,8 @@ export const caseData =
         ],
         collabo: "By Laundry Room Studios",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3474,12 +3170,8 @@ export const caseData =
         ],
         collabo: "By Holly Nichols",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3528,12 +3220,8 @@ export const caseData =
         ],
         collabo: "By Lee Sang Won",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3582,12 +3270,8 @@ export const caseData =
         ],
         collabo: "By A-GENT TOKYO",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3636,12 +3320,8 @@ export const caseData =
         ],
         collabo: "By Dinotaeng",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3689,12 +3369,8 @@ export const caseData =
         ],
         collabo: "By PETTYDUST",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3743,12 +3419,8 @@ export const caseData =
         ],
         collabo: "By Catwheezie",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3790,12 +3462,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3815,12 +3483,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3865,12 +3529,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3902,10 +3562,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962310-16007163",
-        badge: []
-    },
-    {
         id: "CTF-36249759-16008934",
         badge: [
             "무료 배송"
@@ -3921,12 +3577,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -3970,12 +3622,8 @@ export const caseData =
         ],
         collabo: "By Maltese",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -4018,12 +3666,8 @@ export const caseData =
         ],
         collabo: "By namsee",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -4071,12 +3715,8 @@ export const caseData =
         ],
         collabo: "By foxy illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -4125,12 +3765,8 @@ export const caseData =
         ],
         collabo: "By INAPSQUARE",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -4177,12 +3813,8 @@ export const caseData =
             "무료 배송"
         ],
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16 Pro"
         ],
@@ -4227,12 +3859,8 @@ export const caseData =
         ],
         collabo: "By Holly Nichols",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4277,12 +3905,8 @@ export const caseData =
         ],
         collabo: "By Top Girl Studio",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4327,12 +3951,8 @@ export const caseData =
         ],
         collabo: "By Eggsdoodz",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4377,12 +3997,8 @@ export const caseData =
         ],
         collabo: "By Laura Jane Illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4427,12 +4043,8 @@ export const caseData =
         ],
         collabo: "By Maja Tomljanovic",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4476,12 +4088,8 @@ export const caseData =
         ],
         collabo: "By aquabumps",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4525,12 +4133,8 @@ export const caseData =
         ],
         collabo: "By Esther Bunny",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4565,12 +4169,8 @@ export const caseData =
         ],
         collabo: "By Maitoparta",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4612,12 +4212,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4637,12 +4233,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4676,12 +4268,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4709,10 +4297,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33964947-16007155",
-        badge: []
-    },
-    {
         id: "CTF-36249759-16007155",
         badge: [
             "무료 배송"
@@ -4725,12 +4309,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4775,12 +4355,8 @@ export const caseData =
         ],
         collabo: "By I Scream Colour",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4824,12 +4400,8 @@ export const caseData =
         ],
         collabo: "By Maltese",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4868,12 +4440,8 @@ export const caseData =
         ],
         collabo: "By foxy illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4918,12 +4486,8 @@ export const caseData =
         ],
         collabo: "By DUCKOO",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -4967,12 +4531,8 @@ export const caseData =
         ],
         collabo: "By DariaSolakIllustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5017,12 +4577,8 @@ export const caseData =
         ],
         collabo: "By Zizone",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5066,12 +4622,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5116,12 +4668,8 @@ export const caseData =
         ],
         collabo: "By Papio Press",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5163,12 +4711,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5188,12 +4732,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5238,12 +4778,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5272,10 +4808,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962322-16007156",
-        badge: []
-    },
-    {
         id: "CTF-35498319-16007155",
         badge: [
             "무료 배송"
@@ -5288,12 +4820,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5338,12 +4866,8 @@ export const caseData =
         ],
         collabo: "By The House That Lars Built",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5386,12 +4910,8 @@ export const caseData =
         ],
         collabo: "By Ebi Emporium",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5435,12 +4955,8 @@ export const caseData =
         ],
         collabo: "By Constant Bagel Therapy",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5484,12 +5000,8 @@ export const caseData =
         ],
         collabo: "By Poppy Almond",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 16"
         ],
@@ -5538,12 +5050,8 @@ export const caseData =
         ],
         collabo: "By namsee",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5592,12 +5100,8 @@ export const caseData =
         ],
         collabo: "By Jon Burgerman",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5646,12 +5150,8 @@ export const caseData =
         ],
         collabo: "By Skater JOHN",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5700,12 +5200,8 @@ export const caseData =
         ],
         collabo: "By Poketo",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5754,12 +5250,8 @@ export const caseData =
         ],
         collabo: "By The Exquisite Paradox",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5808,12 +5300,8 @@ export const caseData =
         ],
         collabo: "By PETTYDUST",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5861,12 +5349,8 @@ export const caseData =
         ],
         collabo: "By Chocolateye",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5915,12 +5399,8 @@ export const caseData =
         ],
         collabo: "By The House That Lars Built",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5962,12 +5442,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -5986,12 +5462,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6024,12 +5496,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6061,10 +5529,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33964947-16005977",
-        badge: []
-    },
-    {
         id: "CTF-36249759-16005976",
         badge: [
             "무료 배송"
@@ -6078,12 +5542,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6128,12 +5588,8 @@ export const caseData =
         ],
         collabo: "By Gabe Shum",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6182,12 +5638,8 @@ export const caseData =
         ],
         collabo: "By Shinkiru",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6236,12 +5688,8 @@ export const caseData =
         ],
         collabo: "By Tobe Fonseca",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6290,12 +5738,8 @@ export const caseData =
         ],
         collabo: "By matsui",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6344,12 +5788,8 @@ export const caseData =
         ],
         collabo: "By foxy illustrations",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6398,12 +5838,8 @@ export const caseData =
         ],
         collabo: "By HAWAIIANSALAD",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6451,12 +5887,8 @@ export const caseData =
         ],
         collabo: "By Tobe Fonseca",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6505,12 +5937,8 @@ export const caseData =
         ],
         collabo: "By SSEBONG",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6552,12 +5980,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6577,12 +6001,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6628,12 +6048,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6665,10 +6081,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962322-16005976",
-        badge: []
-    },
-    {
         id: "CTF-35498319-16005976",
         badge: [
             "무료 배송"
@@ -6682,12 +6094,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6735,12 +6143,8 @@ export const caseData =
         ],
         collabo: "By Skater JOHN",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6788,12 +6192,8 @@ export const caseData =
         ],
         collabo: "By Skater JOHN",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6842,12 +6242,8 @@ export const caseData =
         ],
         collabo: "By Mozza",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6896,12 +6292,8 @@ export const caseData =
         ],
         collabo: "By The House That Lars Built",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15 Pro"
         ],
@@ -6946,12 +6338,8 @@ export const caseData =
         ],
         collabo: "By WHOSMiNG",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -6996,12 +6384,8 @@ export const caseData =
         ],
         collabo: "By Poketo",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7046,12 +6430,8 @@ export const caseData =
         ],
         collabo: "By Lee Sang Won",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7096,12 +6476,8 @@ export const caseData =
         ],
         collabo: "By Davi",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7146,12 +6522,8 @@ export const caseData =
         ],
         collabo: "By Zizone",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7196,12 +6568,8 @@ export const caseData =
         ],
         collabo: "By Fiorenzaart",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7246,12 +6614,8 @@ export const caseData =
         ],
         collabo: "By TARO OONO",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7296,12 +6660,8 @@ export const caseData =
         ],
         collabo: "By Travel Write Draw",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7343,12 +6703,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7368,12 +6724,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7435,12 +6787,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7472,14 +6820,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962322-16005974",
-        badge: []
-    },
-    {
-        id: "CTF-37711376-16005974",
-        badge: []
-    },
-    {
         id: "CTF-28650630-16005973",
         badge: [
             "무료 배송"
@@ -7493,12 +6833,8 @@ export const caseData =
         ],
         collabo: "By namsee",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7543,12 +6879,8 @@ export const caseData =
         ],
         collabo: "By Alilscribble",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7593,12 +6925,8 @@ export const caseData =
         ],
         collabo: "By Maitoparta",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7643,12 +6971,8 @@ export const caseData =
         ],
         collabo: "By Minstudio",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7692,12 +7016,8 @@ export const caseData =
         ],
         collabo: "By Chocolateye",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7742,12 +7062,8 @@ export const caseData =
         ],
         collabo: "By The House That Lars Built",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7792,12 +7108,8 @@ export const caseData =
         ],
         collabo: "By Liliuhms",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7842,12 +7154,8 @@ export const caseData =
         ],
         collabo: "By Nyangsongi",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7889,12 +7197,8 @@ export const caseData =
         color: [],
         collabo: "Essentials by CASETiFY™",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7913,12 +7217,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7963,12 +7263,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -7994,10 +7290,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-33962310-16005974",
-        badge: []
-    },
-    {
         id: "CTF-36249759-16005973",
         badge: [
             "무료 배송"
@@ -8010,12 +7302,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -8060,12 +7348,8 @@ export const caseData =
         ],
         collabo: "By Katie's Collective",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -8109,12 +7393,8 @@ export const caseData =
         ],
         collabo: "By Saitemiss",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -8165,12 +7445,8 @@ export const caseData =
         ],
         collabo: "",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -8215,12 +7491,8 @@ export const caseData =
         ],
         collabo: "By Nature Magick",
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -8265,12 +7537,8 @@ export const caseData =
             "무료 배송"
         ],
         mainCategory:  "케이스",
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "iPhone 15"
         ],
@@ -8320,12 +7588,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8373,12 +7637,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8424,12 +7684,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8477,12 +7733,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8529,12 +7781,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8580,12 +7828,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8633,12 +7877,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8686,12 +7926,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8739,12 +7975,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8790,12 +8022,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8831,12 +8059,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8882,12 +8106,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8923,12 +8143,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -8974,12 +8190,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9026,12 +8238,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9079,12 +8287,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9131,12 +8335,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9180,12 +8380,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9223,12 +8419,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9274,12 +8466,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9322,12 +8510,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9375,12 +8559,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9427,12 +8607,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9478,12 +8654,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9530,12 +8702,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9583,12 +8751,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9636,12 +8800,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9687,12 +8847,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9740,12 +8896,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9793,12 +8945,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25+"
         ],
@@ -9846,12 +8994,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -9899,12 +9043,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -9950,12 +9090,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10003,12 +9139,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10055,12 +9187,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10106,12 +9234,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10159,12 +9283,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10212,12 +9332,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10265,12 +9381,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10300,18 +9412,6 @@ export const caseData =
                     "Pixel 9"
             ]
         }
-    },
-    {
-        id: "CTF-32515732-16008469",
-        badge: [
-            "한정"
-        ]
-    },
-    {
-        id: "CTF-35848944-16008469",
-        badge: [
-            "한정"
-        ]
     },
     {
         id: "CTF-34932131-16008459",
@@ -10330,12 +9430,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10367,22 +9463,6 @@ export const caseData =
         }
     },
     {
-        id: "CTF-36901913-16008469",
-        badge: [
-            "한정"
-        ]
-    },
-    {
-        id: "CTF-36582318-16008469",
-        badge: []
-    },
-    {
-        id: "CTF-35848854-16008469",
-        badge: [
-            "한정"
-        ]
-    },
-    {
         id: "CTF-35398908-16008459",
         badge: [
             "무료 배송"
@@ -10399,12 +9479,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10450,12 +9526,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10498,12 +9570,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10551,12 +9619,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10586,18 +9650,6 @@ export const caseData =
                     "Pixel 9"
             ]
         }
-    },
-    {
-        id: "CTF-35968095-16008469",
-        badge: [
-            "한정"
-        ]
-    },
-    {
-        id: "CTF-37547927-16008469",
-        badge: [
-            "한정"
-        ]
     },
     {
         id: "CTF-32691209-16008459",
@@ -10615,12 +9667,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10650,12 +9698,6 @@ export const caseData =
                     "Pixel 9"
             ]
         }
-    },
-    {
-        id: "CTF-36829197-16008469",
-        badge: [
-            "한정"
-        ]
     },
     {
         id: "CTF-30429010-16008459",
@@ -10674,12 +9716,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10727,12 +9765,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10780,12 +9814,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10831,12 +9861,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10884,12 +9910,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10937,12 +9959,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -10990,12 +10008,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11041,12 +10055,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11092,12 +10102,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11142,12 +10148,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11193,12 +10195,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11244,12 +10242,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11293,12 +10287,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11342,12 +10332,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11391,12 +10377,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S25"
         ],
@@ -11442,12 +10424,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11493,12 +10471,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11542,12 +10516,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11593,12 +10563,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11644,12 +10610,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11693,12 +10655,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11744,12 +10702,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11795,12 +10749,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11846,12 +10796,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11897,12 +10843,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11938,12 +10880,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -11989,12 +10927,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12030,12 +10964,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12079,12 +11009,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12130,12 +11056,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12181,12 +11103,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12232,12 +11150,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12281,12 +11195,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12322,12 +11232,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12373,12 +11279,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12419,12 +11321,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12470,12 +11368,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12521,12 +11415,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12570,12 +11460,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12621,12 +11507,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12672,12 +11554,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12723,12 +11601,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12772,12 +11646,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12823,12 +11693,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12874,12 +11740,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26+"
         ],
@@ -12925,12 +11787,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -12976,12 +11834,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13025,12 +11879,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13076,12 +11926,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13127,12 +11973,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13176,12 +12018,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13227,12 +12065,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13278,12 +12112,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13329,12 +12159,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13380,12 +12206,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13421,12 +12243,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13472,12 +12290,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13513,12 +12327,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13562,12 +12372,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13613,12 +12419,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13664,12 +12466,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13715,12 +12513,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13764,12 +12558,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13805,12 +12595,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13856,12 +12642,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13902,12 +12684,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -13953,12 +12731,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14004,12 +12778,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14053,12 +12823,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14104,12 +12870,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14155,12 +12917,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14206,12 +12964,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14255,12 +13009,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14306,12 +13056,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14357,12 +13103,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy S26"
         ],
@@ -14410,12 +13152,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14463,12 +13201,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14516,12 +13250,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14569,12 +13299,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14622,12 +13348,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14673,12 +13395,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14726,12 +13444,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14779,12 +13493,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14832,12 +13542,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14885,12 +13591,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14936,12 +13638,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -14987,12 +13685,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15034,12 +13728,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15087,12 +13777,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15138,12 +13824,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15191,12 +13873,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15243,12 +13921,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15296,12 +13970,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15349,12 +14019,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15400,12 +14066,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15453,12 +14115,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15506,12 +14164,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15557,12 +14211,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15606,12 +14256,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15657,12 +14303,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15710,12 +14352,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15763,12 +14401,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15816,12 +14450,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15869,12 +14499,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15922,12 +14548,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip6"
         ],
@@ -15973,12 +14595,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16025,12 +14643,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16077,12 +14691,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16129,12 +14739,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16180,12 +14786,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16231,12 +14833,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16283,12 +14881,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16335,12 +14929,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16387,12 +14977,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16439,12 +15025,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16490,12 +15072,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16542,12 +15120,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16594,12 +15168,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16645,12 +15215,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16697,12 +15263,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16748,12 +15310,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16800,12 +15358,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16852,12 +15406,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16903,12 +15453,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -16955,12 +15501,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17007,12 +15549,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17058,12 +15596,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17103,12 +15637,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17153,12 +15683,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17205,12 +15731,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17257,12 +15779,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17308,12 +15826,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17360,12 +15874,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17412,12 +15922,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17464,12 +15970,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Flip7"
         ],
@@ -17516,12 +16018,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17568,12 +16066,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17620,12 +16114,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17672,12 +16162,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17724,12 +16210,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17774,12 +16256,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17826,12 +16304,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17878,12 +16352,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17930,12 +16400,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -17982,12 +16448,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18034,12 +16496,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18086,12 +16544,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18138,12 +16592,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18190,12 +16640,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18242,12 +16688,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18292,12 +16734,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18343,12 +16781,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18395,12 +16829,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18445,12 +16875,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18495,12 +16921,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18547,12 +16969,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18599,12 +17017,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18651,12 +17065,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18703,12 +17113,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18754,12 +17160,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18799,12 +17201,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18851,12 +17249,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18903,12 +17297,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -18955,12 +17345,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -19007,12 +17393,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold6"
         ],
@@ -19059,12 +17441,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19111,12 +17489,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19162,12 +17536,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19214,12 +17584,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19266,12 +17632,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19315,12 +17677,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19366,12 +17724,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19417,12 +17771,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19468,12 +17818,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19519,12 +17865,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19570,12 +17912,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19621,12 +17959,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19673,12 +18007,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19724,12 +18054,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19775,12 +18101,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19826,12 +18148,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19876,12 +18194,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19927,12 +18241,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -19976,12 +18286,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20021,12 +18327,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20070,12 +18372,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20121,12 +18419,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20172,12 +18466,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20224,12 +18514,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20275,12 +18561,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20326,12 +18608,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20377,12 +18655,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20428,12 +18702,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20479,12 +18749,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20530,12 +18796,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Galaxy Z Fold7"
         ],
@@ -20584,12 +18846,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20636,12 +18894,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20688,12 +18942,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20740,12 +18990,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20792,12 +19038,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20844,12 +19086,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20896,12 +19134,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20947,12 +19181,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -20999,12 +19229,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21051,12 +19277,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21103,12 +19325,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21155,12 +19373,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21207,12 +19421,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21259,12 +19469,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21310,12 +19516,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21361,12 +19563,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21413,12 +19611,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21464,12 +19658,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21516,12 +19706,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21568,12 +19754,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9 Pro"
         ],
@@ -21620,12 +19802,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -21672,12 +19850,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -21724,12 +19898,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -21776,12 +19946,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -21828,12 +19994,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -21880,12 +20042,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -21932,12 +20090,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -21983,12 +20137,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22035,12 +20185,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22087,12 +20233,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22139,12 +20281,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22191,12 +20329,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22243,12 +20377,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22295,12 +20425,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22346,12 +20472,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22397,12 +20519,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22449,12 +20567,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22500,12 +20614,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22552,12 +20662,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22604,12 +20710,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 9"
         ],
@@ -22656,12 +20758,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -22708,12 +20806,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -22760,12 +20854,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -22812,12 +20902,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -22864,12 +20950,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -22916,12 +20998,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -22968,12 +21046,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23020,12 +21094,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23072,12 +21142,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23124,12 +21190,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23176,12 +21238,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23228,12 +21286,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23280,12 +21334,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23332,12 +21382,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23384,12 +21430,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23436,12 +21478,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23488,12 +21526,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23540,12 +21574,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23592,12 +21622,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23644,12 +21670,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10 Pro"
         ],
@@ -23696,12 +21718,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -23748,12 +21766,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -23800,12 +21814,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -23852,12 +21862,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -23904,12 +21910,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -23956,12 +21958,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24008,12 +22006,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24060,12 +22054,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24112,12 +22102,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24164,12 +22150,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24216,12 +22198,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24268,12 +22246,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24320,12 +22294,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24372,12 +22342,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24424,12 +22390,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24476,12 +22438,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24528,12 +22486,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24580,12 +22534,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24632,12 +22582,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
@@ -24684,12 +22630,8 @@ export const caseData =
         mainCategory: [
             "케이스"
         ],
-        subCategory: [
-            "디바이스"
-        ],
-        miniCategory: [
-            "핸드폰"
-        ],
+        subCategory:  "디바이스",
+        miniCategory: "핸드폰",
         lastCategory: [
             "Google Pixel 10"
         ],
