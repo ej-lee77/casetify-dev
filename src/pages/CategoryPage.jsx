@@ -21,7 +21,7 @@ export default function CategoryPage() {
     useEffect(()=>{
         if(items.length > 0){
             onFilterMainCate(mainCateKo, subCateKo);
-            onLastCategoryMenu();
+            // onLastCategoryMenu();
         }
     }, [items, mainCate, subCate]);
 
