@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SectionTitle from '../SectionTitle'
 import "../scss/NewArrival.scss"
+import { Link } from 'react-router-dom';
 
 // new arrival 데이터
 const newArrivalData = [
@@ -12,7 +13,7 @@ const newArrivalData = [
 
 export default function NewArrival() {
     // item 정보 파악 변수
-    const [activeTab, setActiveTab] = useState(1);
+    const [activeTab, setActiveTab] = useState(newArrivalData[0].id);
 
     return (
         <section className="new-arrival">
@@ -24,9 +25,12 @@ export default function NewArrival() {
                             <li
                                 key={arridata.id}
                                 className={`arr-item ${activeTab === arridata.id ? "active" : ""}`}
-                                onClick={() => setActiveTab(arridata.id)}>
-                                <img src={arridata.icon} alt={`icon_${arridata.itemColor}`} />
-                                <p className={`${arridata.itemColor}`}>{arridata.text}</p>
+                                onClick={() => setActiveTab(arridata.id)}
+                                onMouseEnter={() => setActiveTab(arridata.id)}>
+                                <Link>
+                                    <img src={arridata.icon} alt={`icon_${arridata.itemColor}`} />
+                                    <p className={`${arridata.itemColor}`}>{arridata.text}</p>
+                                </Link>
                             </li>
                         ))}
                     </ul>
