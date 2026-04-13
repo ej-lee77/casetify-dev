@@ -5,7 +5,7 @@ import "./scss/CategoryPage.scss"
 
 export default function CategoryPage() {
     const {mainCate, subCate} = useParams();
-    const {items, onFetchItems, mainMenuList, filterItems, onFilterMainCate, onFilterMiniCate} = useProductStore();
+    const {items, onFetchItems, mainMenuList, filterItems, onFilterMainCate, onLastCategoryMenu} = useProductStore();
 
     // 한글로 변환
     const mainCateKo = mainMenuList.find((main)=>main.link===mainCate).name;
@@ -21,6 +21,7 @@ export default function CategoryPage() {
     useEffect(()=>{
         if(items.length > 0){
             onFilterMainCate(mainCateKo, subCateKo);
+            onLastCategoryMenu();
         }
     }, [items, mainCate, subCate]);
 
