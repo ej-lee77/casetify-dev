@@ -4,6 +4,7 @@
     background-image: url("./images/main/section/studio/bg-img-yellow.png");
     background-position-x: center;
     background-repeat: no-repeat;
+    margin-top: g.$section-gap;
 
     .inner {
         @include g.myFlex($jc: center, $ai: center, $gap: 60px);

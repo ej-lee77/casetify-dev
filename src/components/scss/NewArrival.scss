@@ -1,0 +1,47 @@
+@use "../../App.scss" as g;
+
+.new-arrival {
+    padding-top: g.$section-gap;
+
+    .inner {
+        margin-top: 36px;
+
+        .new-arr-inner-wrap {
+            @include g.myFlex($ai: center, $gap: 60px);
+
+            .new-arr-list {
+                flex-basis: 45%;
+                @include g.myFlex($fd: column, $ai: normal, $gap: 100px);
+
+                .arr-item {
+                    @include g.myFlex($jc: normal, $gap: 16px);
+
+                    img {
+                        display: none;
+                    }
+
+                    &.active {
+                        img {
+                            display: block;
+                        }
+
+                        p {
+                            color: g.$text-main;
+                        }
+                    }
+
+                    >p {
+                        font-size: 40px;
+                        font-weight: 700;
+                        color: white;
+                        -webkit-text-stroke: 1.5px g.$text-main;
+                    }
+                }
+            }
+
+            .new-arr-img-box {
+                flex-basis: 55%;
+            }
+        }
+    }
+}
