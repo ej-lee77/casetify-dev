@@ -166,63 +166,63 @@ const [slide1, slide2, slide3, slide4] = BPmain;
 export default function BestProduct() {
     const [activeIndex, setActiveIndex] = useState(0); // ✅ 초기값 추가
 
-    return (<>
+    return (
+        <section>
+            <div className="inner">
+                <SectionTitle
+                    title="Best Product"
+                    subtitle="지금 케이스티파이에서 가장핫한 제품" />
+
+                <div className="all">
+
+                    <div className="left">
+                        <Swiper modules={[Autoplay]}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false
+                            }}
+                            loop={true}
+                            onSlideChange={(Swiper) => {
+                                setActiveIndex(Swiper.realIndex); // ✅ 수정
+                            }}>
+                            <SwiperSlide>
+                                <img src={slide1.src} alt={slide1.alt} />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <img src={slide2.src} alt={slide2.alt} />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <img src={slide3.src} alt={slide3.alt} />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <img src={slide4.src} alt={slide4.alt} />
+                            </SwiperSlide>
+                        </Swiper>
+                    </div>
+                    <div className="right">
+                        <ul >
+
+                            {BPmain[activeIndex]?.Bpproduct.map((item) => ( // ✅ 안전 처리 + index 제거
+
+                                <li key={item.id}> {/* ✅ key 수정 */}
+                                    <div>
+                                        <img src={item.BPimage} alt="" />
+                                    </div>
+                                    <div>
+                                        <p>{item.title}</p>
+                                        <p> ₩{item.price}</p>
+                                    </div>
+
+                                </li>
+
+                            ))}
 
 
-        <div className="inner">
-            <SectionTitle
-                title="Best Product"
-                subtitle="지금 케이스티파이에서 가장핫한 제품" />
-
-            <div className="all">
-
-                <div className="left">
-                    <Swiper modules={[Autoplay]}
-                        autoplay={{
-                            delay: 3000,
-                            disableOnInteraction: false
-                        }}
-                        loop={true}
-                        onSlideChange={(Swiper) => {
-                            setActiveIndex(Swiper.realIndex); // ✅ 수정
-                        }}>
-                        <SwiperSlide>
-                            <img src={slide1.src} alt={slide1.alt} />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src={slide2.src} alt={slide2.alt} />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src={slide3.src} alt={slide3.alt} />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src={slide4.src} alt={slide4.alt} />
-                        </SwiperSlide>
-                    </Swiper>
+                        </ul>
+                        <button>더보기</button>
+                    </div>
                 </div>
-                <div className="right">
-                    <ul >
-
-                        {BPmain[activeIndex]?.Bpproduct.map((item) => ( // ✅ 안전 처리 + index 제거
-
-                            <li key={item.id}> {/* ✅ key 수정 */}
-                                <div>
-                                    <img src={item.BPimage} alt="" />
-                                </div>
-                                <div>
-                                    <p>{item.title}</p>
-                                    <p> ₩{item.price}</p>
-                                </div>
-
-                            </li>
-
-                        ))}
-
-
-                    </ul>
-                    <button>더보기</button>
-                </div>
-            </div>
-        </div ></>
+            </div >
+        </section>
     )
 }

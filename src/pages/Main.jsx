@@ -1,19 +1,17 @@
 import React from 'react'
-import SectionTitle from '../components/SectionTitle'
-import { Link } from 'react-router-dom'
-import Studio from '../components/Studio'
-import Quality from '../components/Quality'
-import NewArrival from '../components/NewArrival'
+import Studio from '../components/main/Studio'
+import Quality from '../components/main/Quality'
+import NewArrival from '../components/main/NewArrival'
 import BestProduct from '../components/main/BestProduct'
 import Custom from '../components/main/Custom'
-import MainTravel from '../components/MainTravel'
-import Instagram from '../components/Instagram'
-import MainSlider from '../components/MainSlider'
+import MainTravel from '../components/main/Travel'
+import Instagram from '../components/main/Instagram'
+import MainSlider from '../components/main/MainSlider'
 
 
 export default function Main() {
   return (
-    <div className="sub-page-wrap">
+    <div>
       <MainSlider />
       <BestProduct />
       <NewArrival />

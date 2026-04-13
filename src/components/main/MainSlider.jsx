@@ -6,7 +6,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-import "./scss/MainSlider.scss"
+import "../scss/MainSlider.scss"
 
 export default function MainSlider() {
     const slides = [

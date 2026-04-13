@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import SectionTitle from './SectionTitle'
-import "./scss/NewArrival.scss"
+import SectionTitle from '../SectionTitle'
+import "../scss/NewArrival.scss"
 
 // new arrival 데이터
 const newArrivalData = [

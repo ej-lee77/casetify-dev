@@ -2,7 +2,6 @@
 $skew: 24%;
 
 .quality-info {
-    padding-top: g.$section-gap;
 
     .quality-card-wrap {
         @include g.myFlex();

@@ -1,15 +1,15 @@
 import React from 'react'
-import SectionTitle from './SectionTitle'
-import "./scss/Studio.scss"
+import SectionTitle from '../SectionTitle'
+import "../scss/Studio.scss"
 import { Link } from 'react-router-dom'
 
 export default function Studio() {
     return (
         <section className="studio-info">
-            <SectionTitle title={"CASETiFY STUDIO"} subtitle={"전국 오프라인 매장에서 만나보세요!"} />
+            <SectionTitle title={"CASETiFY STUDiO"} subtitle={"전국 오프라인 매장에서 만나보세요!"} />
             <div className="inner">
                 <div className="img-box">
-                    <img src="./images/main/section/studio/studio_pangyo.jpg" alt="" />
+                    <img src="./images/main/section/studio/studio_pangyo.jpg" alt="판교지점" />
                 </div>
                 <div className="txt-box">
                     <h3>케이스티파이와 함께 나만의 스타일을 완성하세요</h3>

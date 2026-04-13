@@ -1,10 +1,11 @@
 @use "../../App.scss" as g;
 
 .studio-info {
-    background-image: url("./images/main/section/studio/bg-img-yellow.png");
+    background-image: url("./images/waveBg-yellow.png");
     background-position-x: center;
     background-repeat: no-repeat;
     margin-top: g.$section-gap;
+    background-size: cover;
 
     .inner {
         @include g.myFlex($jc: center, $ai: center, $gap: 60px);
