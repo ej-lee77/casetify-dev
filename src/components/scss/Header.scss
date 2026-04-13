@@ -47,7 +47,7 @@ header {
             // padding-top: 150px;
             >li{
                 >a{
-                    padding: 0 10px;
+                    padding: 37px 10px;
                 }
                 .sub-menu{
                     @include g.myFlex($jc: start, $gap: 70px);

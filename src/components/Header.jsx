@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header className={`${isScrolled || MenuActive !== null ? "active" : ""} ${headerColor}`}>
       <div className="header-left">
-        <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
+        <h1 className="logo"><Link to="/"><img src="/images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
         <nav>
           <ul className="main-menu">
             {mainMenuList.map(menu => (
@@ -53,7 +53,7 @@ export default function Header() {
                         <li key={s.link}>
                           <Link to={`/${menu.link}/${s.link}`}>
                             <div>
-                              <span><img src={`../images/header-footer/menu/${menu.link}-${s.link}.png`} alt={s.name} /></span>
+                              <span><img src={`/images/header-footer/menu/${menu.link}-${s.link}.png`} alt={s.name} /></span>
                               <span>{s.name}</span>
                             </div>
                           </Link>
@@ -72,16 +72,16 @@ export default function Header() {
       <div className="header-right">
         <ul className="gnb-list">
           <li>
-            <Link><img src="./images/icon/search_var.svg" alt="검색" /></Link>
+            <Link><img src="/images/icon/search_var.svg" alt="검색" /></Link>
           </li>
           <li>
             <Link><span>로그인</span></Link>
           </li>
           <li>
-            <Link><img src="./images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
+            <Link><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
           </li>
           <li>
-            <Link><img src="./images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
+            <Link><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
           </li>
         </ul>
       </div>
