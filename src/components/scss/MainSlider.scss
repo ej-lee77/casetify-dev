@@ -46,5 +46,28 @@
     bottom: 80px;
     z-index: 10;
     color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+}
 
+.title-img {
+    width: 80%;
+}
+
+.title-text {
+    margin-top: 15px;
+
+    >p {
+        white-space: pre-line;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .main-text {
+        font-size: 30px;
+
+    }
+
+    .sub-text {
+        font-size: 24px;
+    }
 }
