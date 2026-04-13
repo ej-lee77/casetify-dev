@@ -26,7 +26,7 @@ export default function NewArrival() {
                                 className={`arr-item ${activeTab === arridata.id ? "active" : ""}`}
                                 onClick={() => setActiveTab(arridata.id)}>
                                 <img src={arridata.icon} alt={`icon_${arridata.itemColor}`} />
-                                <p>{arridata.text}</p>
+                                <p className={`${arridata.itemColor}`}>{arridata.text}</p>
                             </li>
                         ))}
                     </ul>
