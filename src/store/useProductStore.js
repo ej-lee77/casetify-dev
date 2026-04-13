@@ -16,7 +16,7 @@ export const useProductStore = create((set, get)=>({
         set({items: itemLists});
     },
 
-    // 메인메뉴랑 서브메뉴
+    // 메인메뉴랑 서브메뉴랑 미니메뉴
     mainMenuList: [
         {name: "케이스", link: "case", 
             sub: [
@@ -88,19 +88,49 @@ export const useProductStore = create((set, get)=>({
         });
         set({filterItems: cateItems});
     },
-    onFilterMiniCate: (mainCate, miniCate)=>{
-        const items = get().items;
-        const cateItems = items.filter((item)=>{
-            // 메인 메뉴 카테고리 필터
-            if(item.mainCategory !== mainCate){
-                return false;
-            }
-            if(item.miniCategory !== miniCate){
-                return false;
-            }
-            return true;
+
+    // 필터용 카테고리들
+    colorFilter: [],
+    deviceFilter: [],
+    // 카테고리페이지에 뿌릴 필터 내용
+    onLastCategoryMenu: ()=>{
+        const items = get().filterItems;
+        const {colorFilter ,deviceFilter} = get();
+
+        // 모든 컬러를 담을 Set (중복 자동 제거)
+        const colorList = new Set();
+
+        // 브랜드별 모델을 담을 객체
+        const deviceList = {
+            Apple: new Set(),
+            Samsung: new Set(),
+            Google: new Set()
+        };
+
+        // 데이터 순회
+        items.forEach(product => {
+            // 컬러 추가
+            product.color.forEach(c => colorList.add(c));
+
+            // 기기 모델 추가
+            Object.keys(product.deviceCategory).forEach(brand => {
+                if (deviceList[brand]) {
+                    product.deviceCategory[brand].forEach(model => deviceList[brand].add(model));
+                }
+            });
         });
-        set({filterItems: cateItems});
-    },
+
+        set({
+            colorFilter: [...colorList],
+            deviceFilter: {
+                Apple: [...deviceList.Apple],
+                Samsung: [...deviceList.Samsung],
+                Google: [...deviceList.Google]
+            }
+        });
+
+        console.log(colorList);
+        console.log(deviceList);
+    }
 
 }));
