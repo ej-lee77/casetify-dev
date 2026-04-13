@@ -26,7 +26,28 @@
 
                         p {
                             color: g.$text-main;
+
+                            &.denim {
+                                -webkit-text-stroke: #11419c;
+                                color: #11419c;
+                            }
+
+                            &.yellow {
+                                -webkit-text-stroke: #d2b452;
+                                color: #d2b452;
+                            }
+
+                            &.red {
+                                -webkit-text-stroke: #7F1D20;
+                                color: #7F1D20;
+                            }
+
+                            &.pink {
+                                -webkit-text-stroke: #EACAD6;
+                                color: #EACAD6;
+                            }
                         }
+
                     }
 
                     >p {
@@ -34,6 +55,7 @@
                         font-weight: 700;
                         color: white;
                         -webkit-text-stroke: 1.5px g.$text-main;
+                        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
                     }
                 }
             }
