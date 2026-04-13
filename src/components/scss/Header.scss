@@ -69,3 +69,19 @@ header {
         }
     }
 }
+
+header.white {
+    color: #fff;
+
+    a {
+        color: #fff;
+    }
+
+    img {
+        filter: brightness(0) invert(1); //아이콘 흰색 처리
+    }
+
+    .logo img {
+        filter: none;
+    }
+}
