@@ -100,7 +100,7 @@ export const useProductStore = create((set, get)=>({
         // 모든 컬러를 담을 Set (중복 자동 제거)
         const colorList = new Set();
 
-        // 브랜드별 모델을 담을 객체 (브랜드 이름: Set)
+        // 브랜드별 모델을 담을 객체
         const deviceList = {
             Apple: new Set(),
             Samsung: new Set(),

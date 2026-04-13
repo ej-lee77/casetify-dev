@@ -8,11 +8,13 @@ import BestProduct from '../components/main/BestProduct'
 import Custom from '../components/main/Custom'
 import MainTravel from '../components/MainTravel'
 import Instagram from '../components/Instagram'
+import MainSlider from '../components/MainSlider'
 
 
 export default function Main() {
   return (
     <div className="sub-page-wrap">
+      <MainSlider />
       <BestProduct />
       <NewArrival />
       <MainTravel />

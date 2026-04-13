@@ -137,7 +137,7 @@ export default function Custom() {
 
 
                     </ul>
-                    <button>커스텀 케이스 제작하기</button>
+                    <button>커스텀하기</button>
                 </div>
             </div>
         </div ></>

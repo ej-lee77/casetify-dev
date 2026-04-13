@@ -9,6 +9,7 @@ export default function Header() {
   const navigate = useNavigate();
   // 스크롤 체크 변수
   const [isScrolled, setIsScrolled] = useState(false);
+  const [topBtn, setTopBtn] = useState(false);
 
   // 현재 위치 체크 함수 hook useLocation()
   const location = useLocation();
@@ -35,7 +36,7 @@ export default function Header() {
   }, [isHome])
 
   return (
-    <header>
+    <header className={isScrolled ? "active" : ""}>
       <div className="header-left">
         <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
         <nav>

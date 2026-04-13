@@ -1,18 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./scss/Footer.scss"
 import { Link } from 'react-router-dom'
 
 export default function Footer() {
+  const [topBtn, setTopBtn] = useState(false);
+
+  const handleToTop = ()=>{
+    document.documentElement.scrollTo({top:0, left:0, behavior:'smooth'});
+  }
+
+  // 윈도우 스크롤 이벤트 + 스크롤 위치 체크
+  useEffect(() => {
+    const handleTopbtn = () => {
+      // 스크롤의 위치가 830px 넘어가면 isScrolled → true 반환
+      setTopBtn(window.scrollY > 830);
+    }
+    window.addEventListener("scroll", handleTopbtn)
+
+    // 처음 값 체크
+    handleTopbtn();
+    return () => window.removeEventListener("scroll", handleTopbtn);
+  }, [])
+
   return (
     <>
       <footer>
         <div className="inner">
           <div className="footer-left">
             <div className="casetify-15th-anniversary">
-              <Link>
-                <img src="./images/header-footer/casetify-15th-icon.png" alt="casetify-15th-icon" />
-                <span>CASETIFY: 15 for 15<br />15년의 여정</span>
-              </Link>
+              <img src="./images/header-footer/casetify-15th-icon.png" alt="casetify-15th-icon" />
+              <span>CASETIFY: 15 for 15<br />15년의 여정</span>
             </div>
             <div className="sns-list-wrap">
               <p>케이스티파이를 팔로우 해주세요!</p>
@@ -28,22 +45,22 @@ export default function Footer() {
               <div className="mobile-app-colab">
                 <img src="./images/app-icon-colab.png" alt="App-Colab" />
                 <div className="text-area">
-                  <span>CASETIFY Colab</span>
+                  <span>CASETiFY Colab</span>
                   <p>독점 콜라보제품 구매하기</p>
                 </div>
                 <ul className="app-store-bedge">
-                  <li><Link><img src="./images/header-footer/badge_getapp_apple.svg" alt="" /></Link></li>
+                  <li><Link><img src="./images/header-footer/badge_getapp_apple.svg" alt="애플스토어" /></Link></li>
                 </ul>
               </div>
               <div className="mobile-app">
                 <img src="./images/app-icon.png" alt="App-Offical" />
                 <div className="text-area">
-                  <span>CASETIFY</span>
+                  <span>CASETiFY</span>
                   <p>나만의 커스텀 케이스 만들기</p>
                 </div>
                 <ul className="app-store-bedge">
-                  <li><Link><img src="./images/header-footer/badge_getapp_apple.svg" alt="" /></Link></li>
-                  <li><Link><img src="./images/header-footer/badge_getapp_google.svg" alt="" /></Link></li>
+                  <li><Link><img src="./images/header-footer/badge_getapp_apple.svg" alt="애플스토어" /></Link></li>
+                  <li><Link><img src="./images/header-footer/badge_getapp_google.svg" alt="구글스토어" /></Link></li>
                 </ul>
               </div>
             </div>
@@ -67,14 +84,14 @@ export default function Footer() {
                 <li><img src="./images/icon/payment_kakao-pay.svg" alt="결제수단:카카오페이" /></li>
                 <li><img src="./images/icon/payment_naver-pay.svg" alt="결제수단:네이버페이" /></li>
               </ul>
-              <p className="remark"><span>개인정보처리방침</span><span>약관</span></p>
+              <p className="remark"><Link><span>개인정보처리방침</span></Link><Link><span>약관</span></Link></p>
               <p>Copyright © 2026 CASETiFY</p>
             </div>
             <div className="cs-info">
               <p className="title">CS Center</p>
               <ul className="contact-list">
-                <li>hello@casetify.com</li>
-                <li>1833-6292</li>
+                <li><a href="mailto:hello@casetify.com">hello@casetify.com</a></li>
+                <li><a href="tel:1833-6292">1833-6292</a></li>
                 <li>토요일, 일요일, 공휴일 휴무</li>
               </ul>
               <ul className="cs-menu-list">
@@ -84,11 +101,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="footer-title">
-          <p>Show Your Colors CASETIFY</p>
-        </div>
+        <div className="footer-title">Show Your Colors CASETiFY</div>
       </footer>
-      <div className="top-btn">
+      <div className={topBtn ? "top-btn active" : "top-btn"} onClick={handleToTop}>
         <img src="./images/icon/icon-top-btn.svg" alt="top" />
         <p>TOP</p>
       </div>
