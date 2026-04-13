@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useProductStore } from '../store/useProductStore';
 import "./scss/Header.scss"
+import { useMainSlider } from '../store/useMainSlider';
 
 export default function Header() {
   const { mainMenuList } = useProductStore();
   const [MenuActive, setMenuActive] = useState(null); 
+
+  const navigate = useNavigate();
+  //헤더글자색 변경
+  const headerColor = useMainSlider((state) => state.headerColor)
 
   // 스크롤 체크 변수
   const [isScrolled, setIsScrolled] = useState(false);
