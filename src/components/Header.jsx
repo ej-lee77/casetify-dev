@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useProductStore } from '../store/useProductStore';
 import "./scss/Header.scss"
+import { useMainSlider } from '../store/useMainSlider';
 
 export default function Header() {
   const { mainMenuList } = useProductStore();
 
   const navigate = useNavigate();
+  //헤더글자색 변경
+  const headerColor = useMainSlider((state) => state.headerColor)
+
   // 스크롤 체크 변수
   const [isScrolled, setIsScrolled] = useState(false);
   const [topBtn, setTopBtn] = useState(false);
@@ -36,7 +40,7 @@ export default function Header() {
   }, [isHome])
 
   return (
-    <header className={isScrolled ? "active" : ""}>
+    <header className={`${isScrolled ? "active" : ""} ${headerColor}`}>
       <div className="header-left">
         <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
         <nav>
