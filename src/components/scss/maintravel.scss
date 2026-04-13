@@ -1,6 +1,8 @@
 .travel {
-    margin: 0 auto;
 
+    >div{
+        margin: 0 auto;
+    }
     .travel-video {
         position: relative;
         width: 100%;
@@ -33,10 +35,7 @@
 }
 
 .instagram {
-    padding-top: 150px;
     // background-color: rgba(0, 0, 255, 0.3);
-    max-width: 1440px;
-    margin: 0 auto;
 
     ul {
         margin-top: 36px;
