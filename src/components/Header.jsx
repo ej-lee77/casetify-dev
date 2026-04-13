@@ -6,9 +6,8 @@ import { useMainSlider } from '../store/useMainSlider';
 
 export default function Header() {
   const { mainMenuList } = useProductStore();
-  const [MenuActive, setMenuActive] = useState(null); 
+  const [MenuActive, setMenuActive] = useState(null);
 
-  const navigate = useNavigate();
   //헤더글자색 변경
   const headerColor = useMainSlider((state) => state.headerColor)
 
@@ -39,7 +38,7 @@ export default function Header() {
   }, [isHome, MenuActive])
 
   return (
-    <header className={isScrolled || MenuActive !== null ? "active" : ""}>
+    <header className={`${isScrolled || MenuActive !== null ? "active" : ""}${headerColor}`}>
       <div className="header-left">
         <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
         <nav>
