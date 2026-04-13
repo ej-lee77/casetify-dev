@@ -1,5 +1,17 @@
 @use "../../App.scss" as g;
 
+header.white {
+    color: #fff;
+
+    img {
+        filter: brightness(0) invert(1); //아이콘 흰색 처리
+    }
+
+    .logo img {
+        filter: none;
+    }
+}
+
 header {
     position: fixed;
     width: 100%;
@@ -15,7 +27,12 @@ header {
 
     &.active {
         background: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.125)
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.125);
+        color: g.$text-main;
+
+        img{
+            filter: none;
+        }
     }
 
     .header-left {
@@ -67,21 +84,5 @@ header {
                 }
             }
         }
-    }
-}
-
-header.white {
-    color: #fff;
-
-    a {
-        color: #fff;
-    }
-
-    img {
-        filter: brightness(0) invert(1); //아이콘 흰색 처리
-    }
-
-    .logo img {
-        filter: none;
     }
 }
