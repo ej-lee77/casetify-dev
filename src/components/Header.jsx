@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useProductStore } from '../store/useProductStore';
 import "./scss/Header.scss"
+import { useMainSlider } from '../store/useMainSlider';
 
 export default function Header() {
   const { mainMenuList } = useProductStore();
+  const [MenuActive, setMenuActive] = useState(null);
 
-  const navigate = useNavigate();
+  //헤더글자색 변경
+  const headerColor = useMainSlider((state) => state.headerColor)
+
   // 스크롤 체크 변수
   const [isScrolled, setIsScrolled] = useState(false);
-  const [topBtn, setTopBtn] = useState(false);
-
   // 현재 위치 체크 함수 hook useLocation()
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -33,23 +35,28 @@ export default function Header() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome])
+  }, [isHome, MenuActive])
 
   return (
-    <header className={isScrolled ? "active" : ""}>
+    <header className={`${isScrolled || MenuActive !== null ? "active" : ""} ${headerColor}`}>
       <div className="header-left">
         <h1 className="logo"><Link to="/"><img src="./images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
         <nav>
           <ul className="main-menu">
             {mainMenuList.map(menu => (
-              <li key={menu.link}>
+              <li key={menu.link} onMouseEnter={() => setMenuActive(menu.link)} onMouseLeave={() => setMenuActive(null)}>
                 {menu.sub?.length > 0 ? (
                   <>
                     <Link>{menu.name}</Link>
-                    <ul className='sub-menu'>
+                    <ul className={`sub-menu ${MenuActive === menu.link ? 'active' : ''}`}>
                       {menu.sub.map((s) => (
                         <li key={s.link}>
-                          <Link to={`/${menu.link}/${s.link}`}>{s.name}</Link>
+                          <Link to={`/${menu.link}/${s.link}`}>
+                            <div>
+                              <span><img src={`../images/header-footer/menu/${menu.link}-${s.link}.png`} alt={s.name} /></span>
+                              <span>{s.name}</span>
+                            </div>
+                          </Link>
                         </li>
                       ))}
                     </ul>
