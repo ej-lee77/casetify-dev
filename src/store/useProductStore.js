@@ -1,5 +1,8 @@
 import { create } from "zustand";
 import { caseData } from "../data/caseData";
+import { travelData } from "../data/travelData";
+import { accessoryData } from "../data/accessoryData";
+import { deviceData } from "../data/deviceData";
 
 export const useProductStore = create((set, get)=>({
 
@@ -9,10 +12,11 @@ export const useProductStore = create((set, get)=>({
     onFetchItems: async()=>{
         const existing = get().items;
         if(existing.length > 0) return;
-        set({items: caseData});
+        const itemLists = [...caseData, ...deviceData,...accessoryData, ...travelData];
+        set({items: itemLists});
     },
 
-    // 메인메뉴랑 서브메뉴
+    // 메인메뉴랑 서브메뉴랑 미니메뉴
     mainMenuList: [
         {name: "케이스", link: "case", 
             sub: [
@@ -48,7 +52,7 @@ export const useProductStore = create((set, get)=>({
         {name: "트래블", link: "travel",
             sub: [
                 {name: "캐리어", link: "suitcase"},
-                {name: "악세서리", link: "accessory"}
+                {name: "테크파우치", link: "pouch"}
             ]
         },
         {name: "기프트카드", link: "giftcard"},
@@ -62,78 +66,71 @@ export const useProductStore = create((set, get)=>({
         }
     ],
 
-    // 카테고리 페이지에 뿌릴 메뉴들
-
-    menus: [],
-    onMakeMenu: ()=>{
+    // 카테고리별 페이지에 뿌릴 제품들
+    filterItems: [],
+    onFilterMainCate: (mainCate, subCate, miniCate=null)=>{
         const items = get().items;
-        // 임시 저장
-        const menuList = [
-            {name: "케이스", link: "/case", 
-                sub: [
-                    {name: "디바이스", link: "/case/device"},
-                    {name: "디자인", link: "/case/design"},
-                    {name: "맥세이프", link: "/case/magsafe"},
-                    {name: "커스텀", link: "/case/custom"},
-                    {name: "세트", link: "/case/set"},
-                    {name: "콜라보", link: "/case/collabo"}
-                ]
-            },
-            {name: "악세서리", link: "/accessory",
-                sub: [
-                    {name: "스트랩", link: "/accessory/strap"},
-                    {name: "참", link: "/accessory/charm"},
-                    {name: "보호필름", link: "/accessory/protector"},
-                    {name: "맥세이프", link: "/accessory/magsafe"},
-                    {name: "기타", link: "/accessory/etc"}
-                ]
-            },
-            {name: "트래블", link: "/travel",
-                sub: [
-                    {name: "캐리어", link: "/travel"},
-                    {name: "악세서리", link: "/travel"}
-                ]
-            },
-            {name: "기프트카드", link: "/giftcard"},
-            {name: "브랜드", link: "/brand",
-                sub: [
-                    {name: "케이스티파이", link: "/brand/casetify"},
-                    {name: "매장찾기", link: "/brand/store"},
-                    {name: "정품인증", link: "/brand/certify"},
-                    {name: "Q&A", link: "/brand/qa"}
-                ]
+        if(mainCate === "케이스"){
+            subCate = "디바이스";
+        }
+        const cateItems = items.filter((item)=>{
+            // 메인 메뉴 카테고리 필터
+            if(item.mainCategory !== mainCate){
+                return false;
             }
-        ];
-        items.forEach(({caseCategory, color, collabo, deviceCategory, miniCategory})=>{
-            // 한글로 메뉴 변경하기
-            const koCategory1 = categoryMap[category1] || category1;
-            const koCategory2 = subCategoryMap[category2] || category2;
-
-            // let mainMenu = menuList.find((m)=>m.name === category1);
-            let mainMenu = menuList.find((m)=>m.name === koCategory1);
-            if(!mainMenu){
-                // mainMenu = {name: category1, link: `/${category1}`, subMenu: []}
-                mainMenu = {name: koCategory1, link: `/${category1}`, subMenu: []}
-                menuList.push(mainMenu);
+            if(item.subCategory !== subCate){
+                return false;
             }
+            if(miniCate !==null && item.miniCategory !== miniCate){
+                return false;
+            }
+            return true;
+        });
+        set({filterItems: cateItems});
+    },
 
-            // 서브메뉴 추가
-            // let hasSub = mainMenu.subMenu.find((s)=>s.name === category2);
-            let hasSub = mainMenu.subMenu.find((s)=>s.name === koCategory2);
-            if(!hasSub && category2){
-                // mainMenu.subMenu.push({name: category2, link:`/${category1}/${category2}`});
-                mainMenu.subMenu.push({name: koCategory2, link:`/${category1}/${category2}`});
+    // 필터용 카테고리들
+    colorFilter: [],
+    deviceFilter: [],
+    // 카테고리페이지에 뿌릴 필터 내용
+    onLastCategoryMenu: ()=>{
+        const items = get().filterItems;
+        const {colorFilter ,deviceFilter} = get();
+
+        // 모든 컬러를 담을 Set (중복 자동 제거)
+        const colorList = new Set();
+
+        // 브랜드별 모델을 담을 객체
+        const deviceList = {
+            Apple: new Set(),
+            Samsung: new Set(),
+            Google: new Set()
+        };
+
+        // 데이터 순회
+        items.forEach(product => {
+            // 컬러 추가
+            product.color.forEach(c => colorList.add(c));
+
+            // 기기 모델 추가
+            Object.keys(product.deviceCategory).forEach(brand => {
+                if (deviceList[brand]) {
+                    product.deviceCategory[brand].forEach(model => deviceList[brand].add(model));
+                }
+            });
+        });
+
+        set({
+            colorFilter: [...colorList],
+            deviceFilter: {
+                Apple: [...deviceList.Apple],
+                Samsung: [...deviceList.Samsung],
+                Google: [...deviceList.Google]
             }
         });
 
-        // 카테고리에 없는 메
-        const defaultMenus = [
-            {name: "고객센터", link:"/custom"},
-            {name: "이벤트", link:"/event"},
-        ]
+        console.log(colorList);
+        console.log(deviceList);
+    }
 
-        menuList.push(...defaultMenus);
-        set({menus: menuList});
-        // console.log(menuList);
-    },
 }));
