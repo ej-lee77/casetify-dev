@@ -27,7 +27,7 @@ export default function NewArrival() {
                                 className={`arr-item ${activeTab === arridata.id ? "active" : ""}`}
                                 onClick={() => setActiveTab(arridata.id)}
                                 onMouseEnter={() => setActiveTab(arridata.id)}>
-                                <Link>
+                                <Link to={"/"}>
                                     <img src={arridata.icon} alt={`icon_${arridata.itemColor}`} />
                                     <p className={`${arridata.itemColor}`}>{arridata.text}</p>
                                 </Link>
@@ -35,7 +35,9 @@ export default function NewArrival() {
                         ))}
                     </ul>
                     <div className="new-arr-img-box">
-                        <img src={newArrivalData.find(item => item.id === activeTab).bigImg} alt={`big_img_${newArrivalData.find(item => item.id === activeTab).text}`} />
+                        <Link to={"/"}>
+                            <img src={newArrivalData.find(item => item.id === activeTab).bigImg} alt={`big_img_${newArrivalData.find(item => item.id === activeTab).text}`} />
+                        </Link>
                     </div>
                 </div>
             </div>
