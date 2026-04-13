@@ -43,10 +43,10 @@ export default function MainSlider() {
         <div>
             <Swiper className='main-slider-img'
                 modules={[Autoplay, Pagination]}
-                autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false
-                }}
+                // autoplay={{
+                //     delay: 5000,
+                //     disableOnInteraction: false
+                // }}
                 pagination={{ clickable: true }}
                 loop={true}
             >
@@ -58,7 +58,7 @@ export default function MainSlider() {
                         <div className="slide-title">
                             <img src={slide.titleImg} alt="title" className='title-img' />
                             {slide.text && <h2>{slide.text}</h2>}
-                            {slide.sub && <p>{slide.sub}</p>}
+                            {slide.sub && <h2>{slide.sub}</h2>}
                         </div>
                     </SwiperSlide>
                 ))}
