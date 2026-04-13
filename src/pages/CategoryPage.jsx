@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 import "./scss/CategoryPage.scss"
 
 export default function CategoryPage() {
     const {mainCate, subCate} = useParams();
-    const {items, onFetchItems, mainMenuList} = useProductStore();
+    const {items, onFetchItems, mainMenuList, filterItems, onFilterMainCate, onFilterMiniCate} = useProductStore();
 
     // 한글로 변환
     const mainCateKo = mainMenuList.find((main)=>main.link===mainCate).name;
@@ -18,22 +18,18 @@ export default function CategoryPage() {
         }
     }, [items]);
 
-    console.log("이건 다",items);
-    
-    // 카테고리별 필터링
-    let cateItems = items.filter((item)=>{
-        // 메인 메뉴 카테고리 필터
-        if(mainCate && item.mainCategory !== mainCateKo){
-            return false;
+    useEffect(()=>{
+        if(items.length > 0){
+            onFilterMainCate(mainCateKo, subCateKo);
         }
-        // subcategory가 있을 경우 필터
-        // if(category2 && item.category2 !== category2){
-        //     return false;
-        // }
-        return true;
-    }); 
+    }, [items, mainCate, subCate]);
 
-    console.log("최종 카테",cateItems);
+    const onhandleMiniCategory = (mini)=>{
+        // console.log("minicateClick");
+        onFilterMainCate(mainCateKo, subCateKo, mini);
+    }
+
+    console.log("최종 카테",filterItems);
 
   return (
     <div className="sub-page-wrap">
@@ -41,7 +37,7 @@ export default function CategoryPage() {
         {miniCate ?         
             <ul className="mini-menu">
                 {miniCate.map((mini, id)=>
-                    <li key={id}>
+                    <li key={id} onClick={()=>onhandleMiniCategory(mini)}>
                         {mini}
                     </li>
                 )}
@@ -49,7 +45,7 @@ export default function CategoryPage() {
             : null
         }
         <ul className='product-list'>
-            {cateItems.map((item)=>(
+            {filterItems.map((item)=>(
                 <li key={item.id}>
                     {item.productName}
                 </li>
