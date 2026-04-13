@@ -11,7 +11,7 @@ import MainSlider from '../components/main/MainSlider'
 
 export default function Main() {
   return (
-    <div>
+    <div className='main-wrap'>
       <MainSlider />
       <BestProduct />
       <NewArrival />

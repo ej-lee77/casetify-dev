@@ -1,11 +1,23 @@
 @use "../../App.scss" as g;
 
 .studio-info {
-    background-image: url("./images/waveBg-yellow.png");
-    background-position-x: center;
-    background-repeat: no-repeat;
     margin-top: g.$section-gap;
-    background-size: cover;
+    position: relative;
+
+    &::after{
+        content: "";
+        background-image: url("./images/waveBg-yellow.png");
+        background-position-x: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 851px;
+        display: block;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        z-index: -1;
+    }
 
     .inner {
         @include g.myFlex($jc: center, $ai: center, $gap: 60px);
