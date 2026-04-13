@@ -1,10 +1,10 @@
 @use "../../App.scss" as g;
 
 footer {
-    border-top: 1px dashed skyblue;
+    // border-top: 1px dashed skyblue;
     background-color: black;
     color: white;
-    font-size: 14px;
+    font-size: 0.88em;
     position: relative;
     overflow: hidden;
     margin-top: g.$section-gap;
@@ -157,7 +157,7 @@ footer {
     background: #585858;
     color: white;
     @include g.myFlex($jc: normal, $gap: 4px, $fd: column);
-    font-size: 12px;
+    font-size: 0.75em;
     border-radius: 50%;
     display: none;
     position: fixed;
