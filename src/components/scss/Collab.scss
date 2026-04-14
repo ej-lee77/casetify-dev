@@ -1,1 +1,21 @@
 @use "../../App.scss" as g;
+
+
+.card {
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+
+    .card-content {
+        border: 3px dashed red;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        >img {
+            border-radius: 50%;
+            max-width: 24px;
+            max-height: 24px;
+        }
+    }
+}
