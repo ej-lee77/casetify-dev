@@ -13,18 +13,17 @@ const mypageMenuData = [
 
 export default function MypageMenu() {
     return (
-        <div>
+        <>
             <ul className="mypage-menu-list">
-                {mypageMenuData.map((menu) => {
-                    <li className="menu-item">
+                {mypageMenuData.map((menu) => (
+                    <li key={menu.id} className="menu-item">
                         <button>
-                            <span className="menu-icon"></span>
-                            <img src="" alt="" />
-                            <span></span>
+                            {menu.icon && <img src={menu.icon} alt={menu.name} />}
+                            <span>{menu.name}</span>
                         </button>
                     </li>
-                })}
+                ))}
             </ul>
-        </div>
+        </>
     )
 }
