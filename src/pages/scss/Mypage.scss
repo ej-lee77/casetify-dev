@@ -1,0 +1,8 @@
+@use "../../App.scss" as g;
+
+.inner {
+    .my-page-wrap {
+        @include g.myFlex($ai: normal, $gap: 3.75em);
+    }
+
+}
