@@ -12,12 +12,14 @@
 }
 
 //페이지네이션바 오른쪽
-.swiper-pagination {
-    position: absolute !important;
-    right: 0px !important;
-    left: 190px !important;
-    bottom: 10px !important;
-    transform: none !important;
+.left {
+    .swiper-pagination {
+        position: absolute;
+        right: 50px !important;
+        left: 190px !important;
+        bottom: 10px !important;
+        transform: none !important;
+    }
 }
 
 .swiper-pagination-bullet {
@@ -71,7 +73,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 33px;
 
 
         ul {
