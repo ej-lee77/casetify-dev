@@ -85,8 +85,12 @@
 
         .login-option{
             @include g.myFlex($jc: center, $gap: 0);
+            color: g.$text-sub;
             div{
-                @include g.myFlex($jc: center, $gap: 0);
+                a{
+                    line-height: 1.5;
+                    vertical-align: middle;
+                }
             }
 
             div+div {
@@ -98,6 +102,44 @@
                     height: 0.8em;
                     vertical-align: middle;
                     border-left: 1px solid #999;
+                }
+            }
+        }
+
+        .or-line{
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            color: #999;
+
+            &::after, &::before{
+                content: "";
+                display: block;
+                position: absolute;
+                width: 40%;
+                height: 0.5px;
+                background: #aaa;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &::before{
+                left: 0;
+            }
+            &::after{
+                right: 0;
+            }
+        }
+
+        .login-sns-box{
+            text-align: center;
+            color: g.$text-sub;
+
+            .login-sns{
+                @include g.myFlex($jc: center, $gap: 30px);
+                margin-top: 20px;
+
+                >div{
+                    cursor: pointer;
                 }
             }
         }

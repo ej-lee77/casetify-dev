@@ -11,11 +11,11 @@ export default function Login() {
         <SectionTitle title={"로그인"} subtitle={""} />
         <FormInput inputType={'email'} label={'이메일'} required={'required'}/>
         <FormInput inputType={'password'} label={'비밀번호'} required={'required'}/>
-        <div class="login-check">
-            <input type="checkbox" id="login-idcheck" class="login-idcheck screen-reader"/>
-            <div class="label-box">
-                <span class="check-icon" aria-hidden="true"></span>
-                <label for="login-idcheck">아이디 저장</label>
+        <div className="login-check">
+            <input type="checkbox" id="login-idcheck" className="login-idcheck screen-reader"/>
+            <div className="label-box">
+                <span className="check-icon" aria-hidden="true"></span>
+                <label htmlFor="login-idcheck">아이디 저장</label>
             </div>
         </div>
         <button>로그인하기</button>
@@ -24,13 +24,13 @@ export default function Login() {
           <div><Link>비밀번호 찾기</Link></div>
           <div><Link>회원가입</Link></div>
         </div>
-        <p>또는</p>
-        <div>
+        <p className='or-line'>또는</p>
+        <div className='login-sns-box'>
           <p>간편로그인으로 1초 회원가입</p>
           <div className='login-sns'>
-            <span></span>
-            <span></span>
-            <span></span>
+            <div><img src="/images/login/sns_btn_google.png" alt="google login" /></div>
+            <div><img src="/images/login/sns_btn_kakao.png" alt="kakao login" /></div>
+            <div><img src="/images/login/sns_btn_naver.png" alt="naver login" /></div>
           </div>
         </div>
       </div>

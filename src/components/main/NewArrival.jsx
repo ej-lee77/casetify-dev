@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SectionTitle from '../SectionTitle'
 import "../scss/NewArrival.scss"
 import { Link } from 'react-router-dom';
@@ -19,16 +19,17 @@ export default function NewArrival() {
     const [fade, setFade] = useState(true);
 
     //현재 선택한 데이터
-    const activeItem = newArrivalData.find(item => item.id === activeTab);
+    const [activeItem, setActiveItem] = useState(newArrivalData.find(item => item.id === activeTab));
 
     // 이벤트 함수
     const handleChange = (id) => {
         if (id === activeTab) return;
         setFade(false);
+        setActiveTab(id);
         setTimeout(() => {
             setFade(true);
-            setActiveTab(id);
-        }, 500);
+            setActiveItem(newArrivalData.find(item => item.id === activeTab));
+        }, 600);
     };
 
     return (
