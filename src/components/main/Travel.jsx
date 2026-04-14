@@ -27,6 +27,18 @@ export default function MainTravel() {
         <section className="travel">
             <div>
                 <div className="travel-video">
+                    <div className="logo-wrap">
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                    </div>
                     <Link to="/travel/suitcase">
                         <video
                             ref={videoRef}
@@ -42,6 +54,18 @@ export default function MainTravel() {
                             <p>발걸음마다 예술이 되는 나만의 움직이는 캔버스</p>
                         </div>
                     </Link>
+                    <div className="logo-wrap">
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                        <p>CASETiFY</p>
+                    </div>
                 </div>
             </div>
         </section>
