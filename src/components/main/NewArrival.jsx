@@ -30,7 +30,6 @@ export default function NewArrival() {
             setFade(true);
             setActiveItem(newArrivalData.find(item => item.id === activeTab));
         }, 600);
-        
     };
 
     return (
