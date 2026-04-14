@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../scss/maintravel.scss";
 import { Link } from "react-router-dom";
+import SectionTitle from "../SectionTitle";
 
 export default function MainTravel() {
 
@@ -50,8 +51,7 @@ export default function MainTravel() {
                             poster="./images/main/travel.png"
                         />
                         <div className="travel-text">
-                            <h2>Travel</h2>
-                            <p>발걸음마다 예술이 되는 나만의 움직이는 캔버스</p>
+                            <SectionTitle title={"Travel"} subtitle={"발걸음마다 예술이 되는 나만의 움직이는 캔버스"} />
                         </div>
                     </Link>
                     <div className="logo-wrap">

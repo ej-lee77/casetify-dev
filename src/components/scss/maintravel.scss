@@ -32,13 +32,10 @@
             top: 50%;
             transform: translateY(-50%);
             color: white;
+            text-align: left;
 
-            h2 {
-                font-size: 3em;
-            }
-
-            p {
-                font-size: 1.5em;
+            .section-title-box {
+                text-align: left;
             }
         }
     }
