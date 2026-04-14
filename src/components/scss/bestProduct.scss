@@ -14,13 +14,13 @@
 }
 
 //페이지네이션바 오른쪽
-.swiper-pagination {
-    position: absolute !important;
-    right: 0px !important;
-    left: 190px !important;
-    bottom: 10px !important;
-    transform: none !important;
-}
+// .swiper-pagination {
+//     position: absolute !important;
+//     right: 0px !important;
+//     left: 190px !important;
+//     bottom: 10px !important;
+//     transform: none !important;
+// }
 
 .swiper-pagination-bullet {
     width: 40px;
@@ -98,8 +98,18 @@
                 transform: translateY(10px);
             }
 
-            li {
+
+            .price {
+                color: g.$text-sub;
+            }
+
+            .name {
                 color: g.$text-main;
+            }
+
+
+            li {
+                cursor: pointer;
 
                 img {
                     width: 100%;

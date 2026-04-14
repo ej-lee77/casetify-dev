@@ -211,8 +211,8 @@ export default function BestProduct() {
                                         <img src={item.BPimage} alt="" />
                                     </div>
                                     <div>
-                                        <p>{item.title}</p>
-                                        <p> ₩{item.price}</p>
+                                        <p className='name'>{item.title}</p>
+                                        <p className='price'> ₩{item.price.toLocaleString()}</p>
                                     </div>
 
                                 </li>

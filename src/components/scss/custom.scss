@@ -2,7 +2,8 @@
 
 
 .section-title-box {
-    margin: g.$title-gap;
+    margin: 0;
+    margin-bottom: 40px;
 }
 
 
@@ -33,7 +34,7 @@
 
 .all {
     height: 100%;
-
+    padding: 0;
     @include g.myFlex(space-between, 20px);
     flex: 1;
 
@@ -65,6 +66,7 @@
 
 
     .right {
+        padding: 0;
         width: 50%;
         height: 100%;
         display: flex;
@@ -89,8 +91,17 @@
                 transform: translateY(10px);
             }
 
-            li {
+            .price {
+                color: g.$text-sub;
+            }
+
+            .name {
                 color: g.$text-main;
+            }
+
+            li {
+
+                cursor: pointer;
 
                 .img {
                     width: 40%;

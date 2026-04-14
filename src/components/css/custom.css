@@ -18,7 +18,8 @@ section {
 }
 
 .section-title-box {
-  margin: 20px;
+  margin: 0;
+  margin-bottom: 40px;
 }
 
 .section {
@@ -46,6 +47,7 @@ section {
 
 .all {
   height: 100%;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: 20px;
@@ -74,6 +76,7 @@ section {
      object-fit: cover;
 }
 .all .right {
+  padding: 0;
   width: 50%;
   height: 100%;
   display: flex;
@@ -94,8 +97,14 @@ section {
   opacity: 0;
   transform: translateY(10px);
 }
-.all .right ul li {
+.all .right ul .price {
+  color: #585858;
+}
+.all .right ul .name {
   color: #2F2F2F;
+}
+.all .right ul li {
+  cursor: pointer;
 }
 .all .right ul li .img {
   width: 40%;

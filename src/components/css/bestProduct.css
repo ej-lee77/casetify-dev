@@ -25,14 +25,6 @@ section {
   gap: 150px;
 }
 
-.swiper-pagination {
-  position: absolute !important;
-  right: 0px !important;
-  left: 190px !important;
-  bottom: 10px !important;
-  transform: none !important;
-}
-
 .swiper-pagination-bullet {
   width: 40px;
   height: 10px;
@@ -96,8 +88,14 @@ section {
   opacity: 0;
   transform: translateY(10px);
 }
-.all .right ul li {
+.all .right ul .price {
+  color: #585858;
+}
+.all .right ul .name {
   color: #2F2F2F;
+}
+.all .right ul li {
+  cursor: pointer;
 }
 .all .right ul li img {
   width: 100%;
