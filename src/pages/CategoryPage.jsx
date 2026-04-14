@@ -56,9 +56,25 @@ export default function CategoryPage() {
         }
     }, [filterItems]);
 
+    // console.log("최종 카테", filterItems);
 
+    const [selectedDevice, setSelectedDevice] = useState(null);
 
-    console.log("최종 카테", filterItems);
+    const onHandleDeviceFilter = (brand, model) => {
+        if (!model) {
+            setSelectedDevice(null);
+            return;
+        }
+        setSelectedDevice({ brand, model });
+    }
+
+    // 필터링된 상품
+    const displayItems = selectedDevice
+        ? filterItems.filter(item =>
+            item.deviceCategory?.[selectedDevice.brand]?.includes(selectedDevice.model)
+        )
+        : filterItems;
+
 
     return (
         <div className="sub-page-wrap">
