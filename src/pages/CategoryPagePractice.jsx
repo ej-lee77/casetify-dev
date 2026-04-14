@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 import "./scss/CategoryPage.scss"
 
-export default function CategoryPage() {
+export default function CategoryPagePractice() {
     const { mainCate, subCate } = useParams();
 
     const {
@@ -13,8 +13,7 @@ export default function CategoryPage() {
         filterItems,
         onFilterMainCate,
         onLastCategoryMenu,
-        deviceFilter,
-        colorFilter
+        deviceFilter
     } = useProductStore();
 
     // 카테고리 찾기
@@ -24,9 +23,23 @@ export default function CategoryPage() {
     const mainCateKo = main?.name;
     const subCateKo = sub?.name;
     const miniCate = sub?.mini;
-
-    // 디바이스 페이지 여부
-    const isDevicePage = mainCate === "case" && subCate === "device";
+    //미니 영문으로 변환
+    const MINI_ICON = {
+        "핸드폰": "phone",
+        "이어폰": "earphone",
+        "노트북": "laptop",
+        "워치": "watch",
+        "태블릿": "tablet",
+        "컬러": "color",
+        "패턴": "pattern",
+        "시그니처": "signature",
+        "캐릭터": "character",
+        "아트": "art",
+        "영화&엔터": "movie",
+        "패션&라이프스타일": "fashion",
+        "스포츠": "sports",
+        "기타": "etc",
+    };
 
     // 데이터 로딩
     useEffect(() => {
@@ -35,7 +48,7 @@ export default function CategoryPage() {
         }
     }, [items]);
 
-    // 기본 카테고리 필터
+    // 기본 필터
     useEffect(() => {
         if (items.length > 0) {
             onFilterMainCate(mainCateKo, subCateKo);
@@ -52,52 +65,43 @@ export default function CategoryPage() {
     // 상태
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [selectedDevice, setSelectedDevice] = useState(null);
-    const [selectedColors, setSelectedColors] = useState([]);
-    const [openBrand, setOpenBrand] = useState(null);
 
     // 페이지 이동 시 초기화
     useEffect(() => {
         setSelectedDevice(null);
-        setSelectedColors([]);
-        setOpenBrand(null);
     }, [mainCate, subCate]);
 
     // 미니카테 클릭
     const onhandleMiniCategory = (mini) => {
         onFilterMainCate(mainCateKo, subCateKo, mini);
-
-        // 🔥 필터 초기화 (중요)
         setSelectedDevice(null);
-        setSelectedColors([]);
     };
 
-    // 브랜드 토글
-    const toggleBrand = (brand) => {
-        setOpenBrand(prev => prev === brand ? null : brand);
-    };
+    // 🔥 device 구조 판별
+    const isPhone = !Array.isArray(deviceFilter);
 
     // 🔥 최종 필터
     const displayItems = filterItems.filter(item => {
 
-        // 디바이스
-        if (isDevicePage && selectedDevice) {
-            const deviceData = item.deviceCategory?.[selectedDevice.brand];
+        if (selectedDevice) {
 
-            if (!deviceData) return false;
+            // 📱 핸드폰
+            if (selectedDevice.brand) {
+                const deviceData = item.deviceCategory?.[selectedDevice.brand];
 
-            if (selectedDevice.model) {
+                if (!deviceData) return false;
+
                 if (!deviceData.includes(selectedDevice.model)) {
                     return false;
                 }
             }
-        }
 
-        // 컬러
-        if (selectedColors.length > 0) {
-            const matchColor = selectedColors.some(color =>
-                item.color.includes(color)
-            );
-            if (!matchColor) return false;
+            // 🎧 액세서리
+            else {
+                if (!item.deviceCategory?.includes(selectedDevice.model)) {
+                    return false;
+                }
+            }
         }
 
         return true;
@@ -124,125 +128,77 @@ export default function CategoryPage() {
                 <span>{subCateKo}</span>
             </div>
 
-            {/* 🔥 미니 카테고리 */}
-            {miniCate &&
+            {/* 미니 카테고리 */}
+            {miniCate ?
                 <ul className="mini-menu">
                     {miniCate.map((mini, id) =>
                         <li key={id} onClick={() => onhandleMiniCategory(mini)}>
+                            <img
+                                src={`/images/category/mini/${MINI_ICON[mini] || "default"}.png`}
+                                alt={mini}
+                            />
                             <p>{mini}</p>
                         </li>
                     )}
                 </ul>
+                : null
             }
 
-            {/* 🔥 상단 필터 바 */}
-            <div className="top-filter-bar">
-
-                {/* 필터 버튼 (토글) */}
+            {/* 🔥 필터 버튼 */}
+            <div className="filter-bar">
                 <button onClick={() => setIsFilterOpen(prev => !prev)}>
                     필터
                 </button>
+            </div>
 
-                {/* 빠른 브랜드 필터 */}
-                {isDevicePage && (
-                    <div className="device-quick-filter">
-                        <button onClick={() => setSelectedDevice({ brand: "Apple" })}>
-                            아이폰
-                        </button>
-                        <button onClick={() => setSelectedDevice({ brand: "Samsung" })}>
-                            갤럭시
-                        </button>
-                        <button onClick={() => setSelectedDevice({ brand: "Google" })}>
-                            픽셀
-                        </button>
+            {/* 🔥 기기 선택 */}
+            <div className="device-section">
+
+                <h3>기기 선택</h3>
+
+                {isPhone ? (
+                    <div className="device-phone">
+
+                        {Object.entries(deviceFilter).map(([brand, models]) => (
+                            <div key={brand} className="brand-block">
+
+                                <p className="brand-title">{brand}</p>
+
+                                <div className="model-list">
+                                    {models.map((model) => (
+                                        <button
+                                            key={model}
+                                            onClick={() =>
+                                                setSelectedDevice({ brand, model })
+                                            }
+                                        >
+                                            {model}
+                                        </button>
+                                    ))}
+                                </div>
+
+                            </div>
+                        ))}
+
+                    </div>
+                ) : (
+                    <div className="device-etc">
+
+                        {deviceFilter.map((model) => (
+                            <button
+                                key={model}
+                                onClick={() =>
+                                    setSelectedDevice({ model })
+                                }
+                            >
+                                {model}
+                            </button>
+                        ))}
+
                     </div>
                 )}
 
-                {/* 정렬 */}
-                <select>
-                    <option>추천순</option>
-                    <option>신상품순</option>
-                </select>
             </div>
-
-            {/* 🔥 필터 팝업 */}
-            {isFilterOpen && (
-                <div
-                    className="filter-overlay"
-                    onClick={() => setIsFilterOpen(false)}
-                >
-                    <div
-                        className="filter-panel"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-
-                        <h3>필터</h3>
-
-                        {/* 디바이스 */}
-                        {isDevicePage && (
-                            <div>
-                                <h4>기기</h4>
-
-                                {Object.entries(deviceFilter).map(([brand, models]) => (
-                                    <div key={brand}>
-                                        <button onClick={() => toggleBrand(brand)}>
-                                            {brand}
-                                        </button>
-
-                                        {openBrand === brand && (
-                                            <div>
-                                                {models.map((model) => (
-                                                    <button
-                                                        key={model}
-                                                        onClick={() =>
-                                                            setSelectedDevice({ brand, model })
-                                                        }
-                                                    >
-                                                        {model}
-                                                    </button>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-
-                        {/* 컬러 */}
-                        <div>
-                            <h4>컬러</h4>
-
-                            {colorFilter.map((color) => (
-                                <button
-                                    key={color}
-                                    onClick={() =>
-                                        setSelectedColors(prev =>
-                                            prev.includes(color)
-                                                ? prev.filter(c => c !== color)
-                                                : [...prev, color]
-                                        )
-                                    }
-                                >
-                                    {color}
-                                </button>
-                            ))}
-                        </div>
-
-                        {/* 버튼 */}
-                        <button onClick={() => setIsFilterOpen(false)}>
-                            적용
-                        </button>
-
-                        <button onClick={() => {
-                            setSelectedDevice(null);
-                            setSelectedColors([]);
-                        }}>
-                            초기화
-                        </button>
-
-                    </div>
-                </div>
-            )}
 
             {/* 상품 리스트 */}
             <ul className='product-list'>
