@@ -84,8 +84,7 @@ export default function Collab() {
         },
     ]
     return (
-        <section>
-
+        <section className='collab-wrap'>
             <Swiper modules={[Autoplay, Pagination]}
                 autoplay={{
                     delay: 3000,
@@ -93,7 +92,7 @@ export default function Collab() {
                 }}
                 loop={true}
                 pagination={{ clickable: true }}
-                slidesPerView={5}
+                slidesPerView={4}
                 spaceBetween={20}>
 
                 {slides.map((item) => (
@@ -109,9 +108,9 @@ export default function Collab() {
                         </div>
                     </SwiperSlide>
                 ))}
-
             </Swiper>
 
         </section>
+
     )
 }
