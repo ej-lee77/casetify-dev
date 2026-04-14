@@ -7,6 +7,7 @@ import Main from './pages/Main'
 import { useEffect } from 'react'
 import { useProductStore } from './store/useProductStore'
 import CategoryPage from './pages/CategoryPage'
+import Login from './pages/Login'
 
 function App() {
   const {onFetchItems} = useProductStore();
@@ -21,6 +22,8 @@ function App() {
       <Route path='/' element={<Main />}/>
 
       <Route path='/:mainCate/:subCate' element={<CategoryPage />}/>
+
+      <Route path='/login' element={<Login />}/>
     </Routes>
     <Footer />
     </>
