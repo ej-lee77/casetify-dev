@@ -8,14 +8,14 @@ import SectionTitle from '../SectionTitle';
 
 const BPmain = [
     {
-        src: "./images/main/section/bestproduct/BP/Bp04.png",
+        src: "./images/main/bestproduct/BP/Bp04.png",
         alt: "slider1",
         Bpproduct: [
             {
                 id: 1,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct001.png"
+                BPimage: "./images/main/bestproduct/BpProduct001.png"
             },
             ,
 
@@ -23,14 +23,14 @@ const BPmain = [
                 id: 2,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct002.png"
+                BPimage: "./images/main/bestproduct/BpProduct002.png"
             },
 
             {
                 id: 3,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct003.png"
+                BPimage: "./images/main/bestproduct/BpProduct003.png"
             },
 
 
@@ -38,18 +38,18 @@ const BPmain = [
                 id: 4,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct004.png"
+                BPimage: "./images/main/bestproduct/BpProduct004.png"
             }]
     },
     {
-        src: "./images/main/section/bestproduct/BP/Bp02.png",
+        src: "./images/main/bestproduct/BP/Bp02.png",
         alt: "slider2",
         Bpproduct: [
             {
                 id: 5,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct005.png"
+                BPimage: "./images/main/bestproduct/BpProduct005.png"
             },
             ,
 
@@ -57,14 +57,14 @@ const BPmain = [
                 id: 6,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct006.png"
+                BPimage: "./images/main/bestproduct/BpProduct006.png"
             },
 
             {
                 id: 7,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct007.png"
+                BPimage: "./images/main/bestproduct/BpProduct007.png"
             },
 
 
@@ -72,20 +72,20 @@ const BPmain = [
                 id: 8,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct008.png"
+                BPimage: "./images/main/bestproduct/BpProduct008.png"
             }]
 
     },
 
     {
-        src: "./images/main/section/bestproduct/BP/Bp03.png",
+        src: "./images/main/bestproduct/BP/Bp03.png",
         alt: "slider3",
         Bpproduct: [
             {
                 id: 9,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct009.png"
+                BPimage: "./images/main/bestproduct/BpProduct009.png"
             },
             ,
 
@@ -93,14 +93,14 @@ const BPmain = [
                 id: 10,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct010.png"
+                BPimage: "./images/main/bestproduct/BpProduct010.png"
             },
 
             {
                 id: 11,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct011.png"
+                BPimage: "./images/main/bestproduct/BpProduct011.png"
             },
 
 
@@ -108,7 +108,7 @@ const BPmain = [
                 id: 12,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct012.png"
+                BPimage: "./images/main/bestproduct/BpProduct012.png"
             }]
 
 
@@ -117,13 +117,13 @@ const BPmain = [
 
     },
     {
-        src: "./images/main/section/bestproduct/BP/Bp01.png", alt: "slider4",
+        src: "./images/main/bestproduct/BP/Bp01.png", alt: "slider4",
         Bpproduct: [
             {
                 id: 13,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct013.png"
+                BPimage: "./images/main/bestproduct/BpProduct013.png"
             },
             ,
 
@@ -131,14 +131,14 @@ const BPmain = [
                 id: 14,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct014.png"
+                BPimage: "./images/main/bestproduct/BpProduct014.png"
             },
 
             {
                 id: 15,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct015.png"
+                BPimage: "./images/main/bestproduct/BpProduct015.png"
             },
 
 
@@ -146,7 +146,7 @@ const BPmain = [
                 id: 16,
                 title: "Happiest KKOTKA in the world",
                 price: 29000,
-                BPimage: "./images/main/section/bestproduct/BpProduct016.png"
+                BPimage: "./images/main/bestproduct/BpProduct016.png"
             }]
 
 
