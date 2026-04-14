@@ -1,7 +1,29 @@
 @use "../../App.scss" as g;
 
-.mini-menu{
-    @include g.myFlex($jc: center);
-    margin: 50px 0;
-    font-size: 1.3rem;
+.sub-page-wrap {
+    max-width: 1920px;
+    margin: 0 auto;
+
+    .sub-slider {
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .inner {
+        margin: 0 auto;
+        max-width: 1440px;
+
+        .mini-menu {
+            @include g.myFlex($jc: center);
+            margin: 50px 0;
+            font-size: 1.3rem;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
 }
