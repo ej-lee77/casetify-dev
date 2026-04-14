@@ -2,7 +2,7 @@ import React from 'react'
 import "./scss/Mypage.scss"
 import Benefit from '../components/Benefit'
 import WishList from '../components/sub/WishList'
-import MypageMenu from '../components/sub/MyPageMenu'
+import MypageMenu from '../components/sub/MypageMenu'
 
 
 export default function Mypage() {
