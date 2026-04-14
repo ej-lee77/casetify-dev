@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "../scss/maintravel.scss";
+import { Link } from "react-router-dom";
 
 export default function MainTravel() {
 
@@ -26,20 +27,21 @@ export default function MainTravel() {
         <section className="travel">
             <div>
                 <div className="travel-video">
-                    <video
-                        ref={videoRef}
-                        className="travel-player"
-                        src="./video/main-travel.mp4"
-                        muted
-                        loop
-                        playsInline
-                        poster="./images/main/travel.png"
-                        controls
-                    />
-                    <div className="travel-text">
-                        <h2>Travel</h2>
-                        <p>발걸음마다 예술이 되는 나만의 움직이는 캔버스</p>
-                    </div>
+                    <Link to="/travel/suitcase">
+                        <video
+                            ref={videoRef}
+                            className="travel-player"
+                            src="./video/main-travel.mp4"
+                            muted
+                            loop
+                            playsInline
+                            poster="./images/main/travel.png"
+                        />
+                        <div className="travel-text">
+                            <h2>Travel</h2>
+                            <p>발걸음마다 예술이 되는 나만의 움직이는 캔버스</p>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </section>
