@@ -5,7 +5,34 @@
     margin: g.$title-gap;
 }
 
+
+.section {
+    gap: g.$section-gap;
+}
+
+//페이지네이션바 오른쪽
+.swiper-pagination {
+    position: absolute !important;
+    right: 0px !important;
+    left: 190px !important;
+    bottom: 10px !important;
+    transform: none !important;
+}
+
+.swiper-pagination-bullet {
+    width: 40px;
+    height: 10px;
+    border-radius: 0;
+    background-color: #E4E4E4;
+
+    &.swiper-pagination-bullet-active {
+        background-color: rgba(255, 255, 255, 0.7);
+        width: 70px;
+    }
+}
+
 .all {
+    height: 100%;
 
     @include g.myFlex(space-between, 20px);
     flex: 1;
@@ -13,11 +40,36 @@
 
     .left {
         width: 50%;
+        height: 100%;
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center; // 가로 가운데
+            align-items: center; // 세로 가운데
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
+
 
 
     .right {
         width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
 
 
         ul {
@@ -39,14 +91,20 @@
 
             li {
                 color: g.$text-main;
-            }
 
+                .img {
+                    width: 40%;
+                }
+            }
         }
 
 
 
-        button {
 
+        button {
+            color: g.$text-main;
+            margin-top: auto; // ⭐ 핵심 (아래로 밀어버림)
+            margin-bottom: 0px;
             display: block;
             margin: 50px auto 0; // ⭐ 위만 띄우기
             background: #fff;
@@ -67,5 +125,9 @@
 
 
         }
+
     }
+
+
+
 }

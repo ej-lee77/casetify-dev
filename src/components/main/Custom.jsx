@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css";
 import "../scss/custom.scss"
 import 'swiper/css'
-import { Autoplay } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 
 const CUmain = [
@@ -95,11 +95,12 @@ export default function Custom() {
                 <div className="all">
 
                     <div className="left">
-                        <Swiper modules={[Autoplay]}
+                        <Swiper modules={[Autoplay, Pagination]}
                             autoplay={{
-                                delay: 3000,
+                                delay: 5000,
                                 disableOnInteraction: false
                             }}
+                            pagination={{ clickable: true }}
                             loop={true}
                             onSlideChange={(Swiper) => {
                                 setActiveIndex(Swiper.realIndex); // ✅ 수정

@@ -1,6 +1,7 @@
 body {
   font-family: "GMarketSans", sans-serif;
   color: #2F2F2F;
+  font-size: 16px;
 }
 
 .inner {
@@ -12,11 +13,39 @@ body {
   margin: 500px 0;
 }
 
+section {
+  margin-top: 150px;
+}
+
 .section-title-box {
   margin: 20px;
 }
 
+.section {
+  gap: 150px;
+}
+
+.swiper-pagination {
+  position: absolute !important;
+  right: 0px !important;
+  left: 190px !important;
+  bottom: 10px !important;
+  transform: none !important;
+}
+
+.swiper-pagination-bullet {
+  width: 40px;
+  height: 10px;
+  border-radius: 0;
+  background-color: #E4E4E4;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 70px;
+}
+
 .all {
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: 20px;
@@ -25,9 +54,31 @@ body {
 }
 .all .left {
   width: 50%;
+  height: 100%;
+}
+.all .left .swiper {
+  width: 100%;
+  height: 100%;
+}
+.all .left .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.all .left img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .all .right {
   width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 .all .right ul {
   text-align: center;
@@ -46,7 +97,13 @@ body {
 .all .right ul li {
   color: #2F2F2F;
 }
+.all .right ul li .img {
+  width: 40%;
+}
 .all .right button {
+  color: #2F2F2F;
+  margin-top: auto;
+  margin-bottom: 0px;
   display: block;
   margin: 50px auto 0;
   background: #fff;
