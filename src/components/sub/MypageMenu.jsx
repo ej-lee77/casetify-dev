@@ -21,7 +21,7 @@ export default function MypageMenu() {
                         <button>
                             {menu.icon && <img src={menu.icon} alt={menu.name} />}
                             <span>{menu.name}</span>
-                            {/* <span className={`${menu.islink ? "link" : "blind"}`}><img src="./images/icon/icon_favorite.svg" alt="링크이동" /></span> */}
+                            {menu.islink && <span className="link"><img src="./images/icon/external_link.svg" alt="링크이동" /></span>}
                         </button>
                     </li>
                 ))}
