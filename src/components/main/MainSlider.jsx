@@ -49,7 +49,7 @@ export default function MainSlider() {
             titleImg: "./images/main/main-slider/main-slider-title4.png",
             text: "완벽하게 당신다운, 세상에 없던 단 하나의 케이스.",
             sub: "",
-            color: "#fff",
+            color: "#2f2f2f",
             headerColor: "black"
         },
 

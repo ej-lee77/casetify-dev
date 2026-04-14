@@ -7,6 +7,7 @@ import Custom from '../components/main/Custom'
 import MainTravel from '../components/main/Travel'
 import Instagram from '../components/main/Instagram'
 import MainSlider from '../components/main/MainSlider'
+import Collab from '../components/main/Collab'
 
 
 export default function Main() {
@@ -14,6 +15,7 @@ export default function Main() {
     <div className='main-wrap'>
       <MainSlider />
       <BestProduct />
+      <Collab />
       <NewArrival />
       <MainTravel />
       <Custom />

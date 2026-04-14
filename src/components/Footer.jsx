@@ -85,16 +85,16 @@ export default function Footer() {
                 <li><img src="/images/icon/payment_naver-pay.svg" alt="결제수단:네이버페이" /></li>
               </ul>
               <p className="remark"><Link><span>개인정보처리방침</span></Link><Link><span>약관</span></Link></p>
-              <p>Copyright © 2026 CASETiFY</p>
+              <p className='copy'>Copyright © 2026 CASETiFY</p>
             </div>
             <div className="cs-info">
               <p className="title">CS Center</p>
-              <ul className="contact-list">
+              <ul className="contact-list info-list">
                 <li><a href="mailto:hello@casetify.com">hello@casetify.com</a></li>
                 <li><a href="tel:1833-6292">1833-6292</a></li>
                 <li>토요일, 일요일, 공휴일 휴무</li>
               </ul>
-              <ul className="cs-menu-list">
+              <ul className="cs-menu-list info-list">
                 <li><Link>문의하기</Link></li>
                 <li><Link>FAQs</Link></li>
               </ul>
