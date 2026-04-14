@@ -7,6 +7,7 @@ import Main from './pages/Main'
 import { useEffect } from 'react'
 import { useProductStore } from './store/useProductStore'
 import CategoryPage from './pages/CategoryPage'
+import Login from './pages/Login'
 import Mypage from './pages/Mypage'
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
 
-        <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
+        <Route path='/:mainCate/:subCate' element={<CategoryPage />}/>
+
+        <Route path='/login' element={<Login />}/>
         <Route path='/mypage' element={<Mypage />} />
       </Routes>
       <Footer />
