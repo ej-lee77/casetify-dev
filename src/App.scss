@@ -51,7 +51,7 @@ $title-gap: 20px;
 }
 
 body {
-    font-family: "GMarketSans", sans-serif;
+    font-family: "GMarketSans",  "Pretendard", sans-serif;
     color: $text-main;
     font-size: 16px;
 }
@@ -64,8 +64,7 @@ body {
 
 // 서브페이지
 .sub-page-wrap {
-    //padding-top: 100px; //header 높이 이상 적용
-    margin: 100px 0;
+    margin: 80px 0;
 }
 
 section {
