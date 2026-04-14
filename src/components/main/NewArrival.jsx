@@ -12,8 +12,24 @@ const newArrivalData = [
 ]
 
 export default function NewArrival() {
-    // item 정보 파악 변수
+    // 현재 선택한 아이템
     const [activeTab, setActiveTab] = useState(newArrivalData[0].id);
+
+    // fade 상태 파악
+    const [fade, setFade] = useState(true);
+
+    //현재 선택한 데이터
+    const activeItem = newArrivalData.find(item => item.id === activeTab);
+
+    // 이벤트 함수
+    const handleChange = (id) => {
+        if (id === activeTab) return;
+        setFade(false);
+        setTimeout(() => {
+            setFade(true);
+            setActiveTab(id);
+        }, 500);
+    };
 
     return (
         <section className="new-arrival">
@@ -25,8 +41,8 @@ export default function NewArrival() {
                             <li
                                 key={arridata.id}
                                 className={`arr-item ${activeTab === arridata.id ? "active" : ""}`}
-                                onClick={() => setActiveTab(arridata.id)}
-                                onMouseEnter={() => setActiveTab(arridata.id)}>
+                                onClick={() => handleChange(arridata.id)}
+                                onMouseEnter={() => handleChange(arridata.id)}>
                                 <Link to={"/"}>
                                     <img src={arridata.icon} alt={`icon_${arridata.itemColor}`} />
                                     <p className={`${arridata.itemColor}`}>{arridata.text}</p>
@@ -34,9 +50,9 @@ export default function NewArrival() {
                             </li>
                         ))}
                     </ul>
-                    <div className="new-arr-img-box">
+                    <div className={`new-arr-img-box ${fade ? "fade-in" : "fade-out"}`}>
                         <Link to={"/"}>
-                            <img src={newArrivalData.find(item => item.id === activeTab).bigImg} alt={`big_img_${newArrivalData.find(item => item.id === activeTab).text}`} />
+                            <img src={activeItem.bigImg} alt={`big_img_${activeItem.text}`} />
                         </Link>
                     </div>
                 </div>
