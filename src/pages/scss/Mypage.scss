@@ -1,8 +1,10 @@
 @use "../../App.scss" as g;
 
 .inner {
+    padding-top: 20px;
+
     .my-page-wrap {
-        @include g.myFlex($ai: normal, $gap: 3.75em);
+        @include g.myFlex($jc: normal, $ai: normal, $gap: 3.75em);
     }
 
 }

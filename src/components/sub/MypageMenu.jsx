@@ -1,4 +1,5 @@
 import React from 'react'
+import "./scss/MypageMenu.scss"
 import { Link } from 'react-router-dom'
 
 // 마이페이지 메뉴 데이터
@@ -20,6 +21,7 @@ export default function MypageMenu() {
                         <button>
                             {menu.icon && <img src={menu.icon} alt={menu.name} />}
                             <span>{menu.name}</span>
+                            {/* <span className={`${menu.islink ? "link" : "blind"}`}><img src="./images/icon/icon_favorite.svg" alt="링크이동" /></span> */}
                         </button>
                     </li>
                 ))}

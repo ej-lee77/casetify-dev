@@ -2,11 +2,12 @@ import React from 'react'
 import "./scss/Mypage.scss"
 import Benefit from '../components/Benefit'
 import WishList from '../components/sub/WishList'
-import MypageMenu from '../components/sub/MypageMenu'
+import MypageMenu from '../components/sub/MyPageMenu'
+
 
 export default function Mypage() {
   return (
-    <div className="sub-page-wrap">Mypage
+    <div className="sub-page-wrap">
       <div className="inner">
         <div className="my-page-wrap">
           <div className="my-page-menu">
