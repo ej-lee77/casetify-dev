@@ -8,14 +8,14 @@ import SectionTitle from '../SectionTitle';
 
 const CUmain = [
     {
-        src: "./images/main/section/custom/CU/custom1.png",
+        src: "./images/main/custom/CU/custom1.png",
         alt: "slider1",
         Cuproduct: [
             {
                 id: 1,
                 title: "핸드폰 케이스 텍스트 커스터마이징",
                 price: 102000,
-                CUimage: "./images/main/section/custom/CUProduct05.png"
+                CUimage: "./images/main/custom/CUProduct05.png"
             },
             ,
 
@@ -23,14 +23,14 @@ const CUmain = [
                 id: 2,
                 title: "이어폰 케이스 텍스트 커스터마이징",
                 price: 58000,
-                CUimage: "./images/main/section/custom/CUProduct06.png"
+                CUimage: "./images/main/custom/CUProduct06.png"
             },
 
             {
                 id: 3,
                 title: "노트북 케이스 텍스트 커스터마이징",
                 price: 83000,
-                CUimage: "./images/main/section/custom/CUProduct07.png"
+                CUimage: "./images/main/custom/CUProduct07.png"
             },
 
 
@@ -38,18 +38,18 @@ const CUmain = [
                 id: 4,
                 title: "태블릿 케이스 텍스트 커스터마이징",
                 price: 101000,
-                CUimage: "./images/main/section/custom/CUProduct08.png"
+                CUimage: "./images/main/custom/CUProduct08.png"
             }]
     },
     {
-        src: "./images/main/section/custom/CU/custom2.png",
+        src: "./images/main/custom/CU/custom2.png",
         alt: "slider2",
         Cuproduct: [
             {
                 id: 5,
                 title: "핸드폰 케이스 포토 커스터마이징",
                 price: 89000,
-                CUimage: "./images/main/section/custom/CUProduct09.png"
+                CUimage: "./images/main/custom/CUProduct09.png"
             },
             ,
 
@@ -57,14 +57,14 @@ const CUmain = [
                 id: 6,
                 title: "그립 스탠드 포토 커스터마이징",
                 price: 45000,
-                CUimage: "./images/main/section/custom/CUProduct10.png"
+                CUimage: "./images/main/custom/CUProduct10.png"
             },
 
             {
                 id: 7,
                 title: "카드홀더 스탠드 포토 커스터마이징",
                 price: 51000,
-                CUimage: "./images/main/section/custom/CUProduct11.png"
+                CUimage: "./images/main/custom/CUProduct11.png"
             },
 
 
@@ -72,7 +72,7 @@ const CUmain = [
                 id: 8,
                 title: "노트북 케이스 포토 커스터마이징",
                 price: 83000,
-                CUimage: "./images/main/section/custom/CUProduct12.png"
+                CUimage: "./images/main/custom/CUProduct12.png"
             }]
 
     }
