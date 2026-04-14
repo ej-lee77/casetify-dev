@@ -9,6 +9,7 @@
     .menu-item {
 
         button {
+            @include g.myFlex($jc: normal, $ai: center, $gap: 0);
             width: 100%;
             text-align: left;
             border: none;
@@ -19,11 +20,20 @@
 
             img {
                 padding-right: 0.625em;
+                width: 2em;
+                height: 2em;
             }
 
-            .link>img {
-                padding-left: 0.625em;
+            .link {
+                img {
+                    padding-left: 0.625em;
+                    padding-right: 0;
+                    width: 2em;
+                    height: 2em;
+                }
             }
+
+
 
             &:hover {
                 background-color: #121212;
