@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 
 
 import 'swiper/css'
@@ -84,17 +84,16 @@ export default function Collab() {
         },
     ]
     return (
-        <section>
-
-            <Swiper modules={[Autoplay, Pagination]}
+        <section className='collab-wrap'>
+            <Swiper modules={[Autoplay,]}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false
                 }}
                 loop={true}
-                pagination={{ clickable: true }}
+
                 slidesPerView={5}
-                spaceBetween={20}>
+                spaceBetween={40}>
 
                 {slides.map((item) => (
                     <SwiperSlide key={item.id}>
@@ -109,9 +108,9 @@ export default function Collab() {
                         </div>
                     </SwiperSlide>
                 ))}
-
             </Swiper>
 
         </section>
+
     )
 }
