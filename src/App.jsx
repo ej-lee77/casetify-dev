@@ -7,22 +7,27 @@ import Main from './pages/Main'
 import { useEffect } from 'react'
 import { useProductStore } from './store/useProductStore'
 import CategoryPage from './pages/CategoryPage'
+import Login from './pages/Login'
+import Mypage from './pages/Mypage'
 
 function App() {
-  const {onFetchItems} = useProductStore();
+  const { onFetchItems } = useProductStore();
 
-  useEffect(()=>{
+  useEffect(() => {
     onFetchItems();
   }, []);
   return (
     <>
-    <Header />
-    <Routes>
-      <Route path='/' element={<Main />}/>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Main />} />
 
-      <Route path='/:mainCate/:subCate' element={<CategoryPage />}/>
-    </Routes>
-    <Footer />
+        <Route path='/:mainCate/:subCate' element={<CategoryPage />}/>
+
+        <Route path='/login' element={<Login />}/>
+        <Route path='/mypage' element={<Mypage />} />
+      </Routes>
+      <Footer />
     </>
   )
 }
