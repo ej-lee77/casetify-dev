@@ -2,27 +2,31 @@
 
 .studio-info {
     margin-top: g.$section-gap;
+    position: relative;
+    height: 800px;
+
+    &::after {
+        content: "";
+        background-image: url("./images/waveBg-yellow.png");
+        background-position-x: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 55%;
+        left: 0;
+        transform: translateY(-50%);
+        aspect-ratio: 90 / 40;
+        z-index: -1;
+    }
 
     .bg {
-        position: relative;
+        // position: relative;
         // border: 2px solid red;
 
 
-        &::after {
-            content: "";
-            background-image: url("./images/waveBg-yellow.png");
-            background-position-x: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100%;
-            display: block;
-            position: absolute;
-            top: 55%;
-            left: 0;
-            transform: translateY(-50%);
-            aspect-ratio: 90 / 40;
-            z-index: -1;
-        }
+        
     }
 
     .inner {
@@ -34,7 +38,7 @@
         }
 
         .img-box {
-            border-radius: 20px;
+            // border-radius: 20px;
             overflow: hidden;
         }
 
