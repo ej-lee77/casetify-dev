@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 // new arrival 데이터
 const newArrivalData = [
-    { id: 1, icon: "./images/main/newArrival/charm-blue.png", bigImg: "./images/main/newArrival/nw-photo-01.jpg", text: "DENIM MANIFESTO", itemColor: "denim", color: "#11419c" },
-    { id: 2, icon: "./images/main/newArrival/charm-yellow.png", bigImg: "./images/main/newArrival/nw-photo-02.jpg", text: "HI! FOREST", itemColor: "yellow", color: "#d2b452" },
-    { id: 3, icon: "./images/main/newArrival/charm-red.png", bigImg: "./images/main/newArrival/nw-photo-03.jpg", text: "PILLOW CASE", itemColor: "red", color: "#7F1D20" },
-    { id: 4, icon: "./images/main/newArrival/charm-pink.png", bigImg: "./images/main/newArrival/nw-photo-04.jpg", text: "SPRING IN BLOOM", itemColor: "pink", color: "#EACAD6" },
+    { id: 1, icon: "./images/main/newArrival/charm-blue.png", bigImg: "./images/main/newArrival/bg-blue.png", bigItemImg: "./images/main/newArrival/item-blue.png", text: "DENIM MANIFESTO", itemColor: "denim", color: "#11419c" },
+    { id: 2, icon: "./images/main/newArrival/charm-yellow.png", bigImg: "./images/main/newArrival/bg-yellow.png", bigItemImg: "./images/main/newArrival/item-yellow.png", text: "HI! FOREST", itemColor: "yellow", color: "#d2b452" },
+    { id: 3, icon: "./images/main/newArrival/charm-red.png", bigImg: "./images/main/newArrival/bg-wine.png", bigItemImg: "./images/main/newArrival/item-wine.png", text: "PILLOW CASE", itemColor: "red", color: "#7F1D20" },
+    { id: 4, icon: "./images/main/newArrival/charm-pink.png", bigImg: "./images/main/newArrival/bg-pink.png", bigItemImg: "./images/main/newArrival/item-pink.png", text: "SPRING IN BLOOM", itemColor: "pink", color: "#EACAD6" },
 ]
 
 export default function NewArrival() {
@@ -54,6 +54,7 @@ export default function NewArrival() {
                     <div className={`new-arr-img-box ${fade ? "fade-in" : "fade-out"}`}>
                         <Link to={"/"}>
                             <img src={activeItem.bigImg} alt={`big_img_${activeItem.text}`} />
+                            <span className={`bgitem-${activeItem.id}`}><img src={activeItem.bigItemImg} alt={`big_img_${activeItem.text}`} /></span>
                         </Link>
                     </div>
                 </div>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css";
+import "../scss/bestProduct.scss"
 import "../scss/custom.scss"
-import 'swiper/css'
 import { Autoplay, Pagination } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 
@@ -89,7 +89,7 @@ export default function Custom() {
     const [activeIndex, setActiveIndex] = useState(0); // ✅ 초기값 추가
 
     return (
-        <section>
+        <section className='custom-wrap bp-wrap'>
             <div className="inner">
 
                 <div className="all">
