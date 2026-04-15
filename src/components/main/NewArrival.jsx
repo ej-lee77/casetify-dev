@@ -29,7 +29,7 @@ export default function NewArrival() {
         setTimeout(() => {
             setFade(true);
             setActiveItem(newArrivalData.find(item => item.id === id));
-        }, 600);
+        }, 400);
     };
 
     return (
