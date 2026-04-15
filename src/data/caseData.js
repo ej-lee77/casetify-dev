@@ -219,30 +219,9 @@ export const caseData =
                 "iPhone 17 Pro"
             ],
             deviceCategory: {
-                Apple: [
-                    "아이폰 17 Pro",
-                    "아이폰 17",
-                    "아이폰 16 Pro",
-                    "아이폰 16",
-                    "아이폰 15 Pro",
-                    "아이폰 15"
-                ],
-                Samsung: [
-                    "갤럭시 S26",
-                    "갤럭시 S26+",
-                    "갤럭시 Z 폴드7",
-                    "갤럭시 Z 플립7",
-                    "갤럭시 S25",
-                    "갤럭시 S25+",
-                    "갤럭시 Z 폴드6",
-                    "갤럭시 Z 플립6"
-                ],
-                Google: [
-                    "Pixel 10 Pro",
-                    "Pixel 10",
-                    "Pixel 9 Pro",
-                    "Pixel 9"
-                ]
+                Apple: ["아이폰 17 Pro", "아이폰 17", "아이폰 16 Pro", "아이폰 16", "아이폰 15 Pro", "아이폰 15"],
+                Samsung: ["갤럭시 S26", "갤럭시 S26+", "갤럭시 Z 폴드7", "갤럭시 Z 플립7", "갤럭시 S25", "갤럭시 S25+", "갤럭시 Z 폴드6", "갤럭시 Z 플립6"],
+                Google: ["Pixel 10 Pro", "Pixel 10", "Pixel 9 Pro", "Pixel 9"]
             }
         },
         {
