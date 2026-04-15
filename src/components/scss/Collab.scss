@@ -2,7 +2,7 @@
 
 .collab-wrap {
     font-family: 'Pretendard';
-    margin-top: 100px;
+    margin-top: 50px;
     height: 750px;
     // border: 1px solid green;
     position: relative;
@@ -54,16 +54,17 @@
             color: #2F2F2F;
 
             div {
-                @include g.myFlex($gap: 10px, $ai: null);
+                @include g.myFlex($gap: 10px);
 
                 img {
                     border-radius: 50%;
-                    max-width: 24px;
-                    max-height: 24px;
+                    width: 24px;
+                    height: 24px;
                 }
 
                 >p {
                     @include g.multi-ellipsis($lines: 1);
+                    color: #2F2F2F;
                 }
             }
 
@@ -71,6 +72,7 @@
                 width: 100%;
                 text-align: center;
                 margin-top: 15px;
+                color: #585858
             }
         }
 
