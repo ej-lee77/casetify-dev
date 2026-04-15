@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom'
 import SectionTitle from '../SectionTitle'
 import "../scss/maintravel.scss"
 
@@ -6,7 +7,11 @@ export default function Instagram() {
     return (
         <section className='instagram'>
             <div className="inner">
-                <SectionTitle title={"INSTAGRAM"} subtitle={"@casetify"} />
+                <SectionTitle
+                    title="INSTAGRAM"
+                    subtitle="@casetify"
+                    subLink="https://www.instagram.com/casetify_kr/"
+                />
                 <ul>
                     <li>
                         <p>#ILLIT_WONHEE</p>
