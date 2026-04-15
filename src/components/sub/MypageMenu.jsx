@@ -12,30 +12,36 @@ const mypageMenuData = [
     { id: 6, icon: "./images/icon/mypage_logout.svg", name: "로그아웃", tabicon: true, islink: false },
 ]
 
-export default function MypageMenu({ sendSelect }) {
+export default function MypageMenu({ sendSelect, selectMenu }) {
     // hover 상태 파악
     const [hoverId, setHoverId] = useState(null);
 
     return (
+
         <>
             <ul className="mypage-menu-list">
-                {mypageMenuData.map((menu) => (
-                    <li key={menu.id} className="menu-item">
-                        <button
-                            onClick={() => sendSelect(menu)}
-                            onMouseEnter={() => setHoverId(menu.id)}
-                            onMouseLeave={() => setHoverId(null)}
-                        >
-                            {menu.icon &&
-                                <img src={hoverId === menu.id ? menu.icon.replace(".svg", "_white.svg") : menu.icon}
-                                    alt={menu.name} />}
-                            <span>{menu.name}</span>
-                            {menu.islink && <span className="link"
-                            ><img src={hoverId === menu.id ? "./images/icon/external_link_white.svg" : "./images/icon/external_link.svg"}
-                                alt="링크이동" /></span>}
-                        </button>
-                    </li>
-                ))}
+                {mypageMenuData.map((menu) => {
+                    const isActive = selectMenu === menu.name;
+                    const isHover = hoverId === menu.id;
+                    return (
+                        <li key={menu.id} className={`menu-item ${isActive ? "active" : ""}`}>
+                            <button
+                                onClick={() => sendSelect(menu.name)}
+                                onMouseEnter={() => setHoverId(menu.id)}
+                                onMouseLeave={() => setHoverId(null)}
+                            >
+                                {menu.icon &&
+                                    <img src={(isHover || isActive) ? menu.icon.replace(".svg", "_white.svg") : menu.icon}
+                                        alt={menu.name} />}
+                                <span>{menu.name}</span>
+                                {menu.islink && <span className="link"
+                                ><img src={(isHover || isActive) ? "./images/icon/external_link_white.svg" : "./images/icon/external_link.svg"}
+                                    alt="링크이동" /></span>}
+                            </button>
+                        </li>
+                    )
+                }
+                )}
             </ul>
         </>
     )

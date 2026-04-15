@@ -1,7 +1,7 @@
 @use "../../../App.scss" as g;
 
 .mypage-menu-list {
-    border: 1px dashed black;
+    // border: 1px dashed black;
     padding: 1em 0;
     background-color: #eee;
     width: 400px;
@@ -17,6 +17,7 @@
             font-family: inherit;
             padding: 1.125em 1.5em;
             background-color: inherit;
+            transition: 0.25s ease-in-out;
 
             img {
                 padding-right: 0.625em;
@@ -33,12 +34,12 @@
                 }
             }
 
+        }
 
-
-            &:hover {
-                background-color: #121212;
-                color: white;
-            }
+        &:hover button,
+        &.active button {
+            background-color: #121212;
+            color: white;
         }
     }
 }

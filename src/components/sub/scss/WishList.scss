@@ -33,9 +33,10 @@ $title-gap: 20px;
     li {
         padding: 0.25em;
 
-        .img-box {
+        .card-img {
             position: relative;
             width: 100%;
+            border: 1px solid purple;
 
             .img {
                 width: 100%;
@@ -52,17 +53,32 @@ $title-gap: 20px;
             }
         }
 
-        .text-box {
+        .card-info {
             width: 100%;
+            margin-top: 0.5em;
+            font-family: "Pretendard", sans-serif;
+            border: 1px dashed darkblue;
 
-            .item-name {
+            .card-name {
                 @include multi-ellipsis($lines: 1);
+                line-height: 1.2;
                 margin-bottom: 0.5em;
             }
 
-            .item-price {
+            .card-price {
                 @include multi-ellipsis($lines: 1);
+                display: inline-flex;
+                align-items: center;
+                line-height: 1.2;
                 color: $text-sub;
+
+                >.free-shipping {
+                    margin-left: 0.75em;
+                    font-size: 0.75em;
+                    border: 1px solid $text-sub;
+                    padding: 2px 4px;
+                    border-radius: 4px;
+                }
             }
         }
     }
