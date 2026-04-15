@@ -110,16 +110,18 @@ export default function Collab() {
                 {slides.map((item) => (
                     <SwiperSlide key={item.id}>
                         <div className="card">
+                            <div className='card-brand'>
+                                <img src={item.themeImg} alt={item.title} className='theme-img' />
+                            </div>
                             <div className="card-img">
                                 <img src={item.colImg} alt="" /></div>
                             <div className="card-content">
                                 <div>
-                                    <img src={item.themeImg} alt="" className='theme-img' />
+                                    <img src={item.themeImg} alt={item.title} className='theme-img' />
                                     <p>{item.title}</p>
                                 </div>
                                 <p className='price'>{item.price}</p>
                             </div>
-
                             <button className="more-btn">컬렉션 더보기 +</button>
                         </div>
                     </SwiperSlide>
