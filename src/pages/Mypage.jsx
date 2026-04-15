@@ -4,6 +4,9 @@ import Benefit from '../components/Benefit'
 import WishList from '../components/sub/WishList'
 import MypageMenu from '../components/sub/MypageMenu'
 import { useLocation } from 'react-router-dom'
+import UserInfo from '../components/sub/UserInfo'
+import OrderInfo from '../components/sub/OrderInfo'
+import Giftcard from '../components/sub/Giftcard'
 
 
 export default function Mypage() {
@@ -21,11 +24,11 @@ export default function Mypage() {
   // 오른쪽 보여줄 컴포넌트
   const handleContent = () => {
     switch (selectMenu) {
-      case "회원정보": return <p>회원정보 페이지</p>
-      case "주문": return <p>주문페이지</p>
+      case "회원정보": return <UserInfo />
+      case "주문": return <OrderInfo />
       case "위시리스트": return <WishList />
       case "케이스티파이 정품 인증": return <p>정품인증 페이지 이동</p>
-      case "기프트 카드": return <p>기프트카드 페이지</p>
+      case "기프트 카드": return <Giftcard />
       case "로그아웃": return <p>로그아웃 + 메인페이지 이동</p>
     }
   }
