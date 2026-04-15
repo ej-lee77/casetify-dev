@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css";
 import "../scss/bestProduct.scss"
-import 'swiper/css'
 import { Autoplay, Pagination } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 
@@ -167,7 +166,7 @@ export default function BestProduct() {
     const [activeIndex, setActiveIndex] = useState(0); // ✅ 초기값 추가
 
     return (
-        <section>
+        <section className='bp-wrap'>
             <div className="inner">
                 <SectionTitle
                     title="Best Product"
