@@ -30,7 +30,7 @@
     }
 
     .inner {
-        @include g.myFlex($jc: center, $ai: center, $gap: 60px);
+        @include g.myFlex($jc: center, $ai: center, $gap: unset);
         // margin-top: 36px;
 
         >div {
@@ -40,6 +40,11 @@
         .img-box {
             // border-radius: 20px;
             overflow: hidden;
+            img{
+                width: 600px;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+            }
         }
 
         .txt-box {
