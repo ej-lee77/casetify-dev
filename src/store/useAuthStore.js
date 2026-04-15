@@ -64,8 +64,10 @@ export const useAuthStore = create((set, get)=>({
             console.log(userCredential);
 
             set({user: userCredential.user});
+            return true;
         }catch(err){
             console.log(err.message);
+            return false;
         }
     },
 
