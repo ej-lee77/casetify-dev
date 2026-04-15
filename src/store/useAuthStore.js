@@ -27,33 +27,35 @@ export const useAuthStore = create((set, get)=>({
         try{
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
-            // const user = userCredential.user;
+            const user = userCredential.user;
 
-            // // 인증 메일 보내기
-            // await sendEmailVerification(user);
+            // 인증 메일 보내기
+            await sendEmailVerification(user);
 
-            // // Firestore에 저장하기
-            // // 1단계 - 저장위치 지정 doc(db정보, "컬렉션", 문서)
-            // const userRef = doc(db, "users", user.uid);
+            // Firestore에 저장하기
+            // 1단계 - 저장위치 지정 doc(db정보, "컬렉션", 문서)
+            const userRef = doc(db, "users", user.uid);
 
-            // // 2단계 - 저장할 사용자 정보 만들기
-            // const userInfo = {
-            //     uid: user.uid,
-            //     name: uName,
-            //     nickname,
-            //     email,
-            //     phone,
-            //     profile
-            // }
+            // 2단계 - 저장할 사용자 정보 만들기
+            const userInfo = {
+                userid: user.uid,
+                username: uName,
+                email,
+                phone,
+                address1,
+                address2,
+                address3
+            }
 
-            // // 3단계 - firestore에 데이터 저장
-            // await setDoc(userRef, userInfo);
+            // 3단계 - firestore에 데이터 저장
+            await setDoc(userRef, userInfo);
 
-            // // 4단계 - zustand에 상태저장
-            // // set({user: userInfo});
-            // alert("회원가입성공! 이메일 인증을 완료해주세요");
+            // 4단계 - zustand에 상태저장
+            set({user: userInfo});
+            return true;
         }catch(err){
             alert(err.message);
+            return false;
         }
     },
 

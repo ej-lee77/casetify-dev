@@ -6,7 +6,7 @@ import { useAuthStore } from '../store/useAuthStore'
 
 export default function Join() {
     const {onMember} = useAuthStore();
-    const navigation = useNavigate();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         username: "",
@@ -22,15 +22,18 @@ export default function Join() {
     const handleChange = (e)=>{
         const {name, value} = e.target;
         // console.log(name, value);
-
         setFormData({...formData, [name]:value});
     }
 
     // 회원가입 전송
-    const handleSubmit = (e)=>{
+    const handleSubmit = async(e)=>{
         e.preventDefault();
-        onMember(formData);
-        navigation("/");
+        const isJoin = await onMember(formData);
+
+        if(isJoin){
+            // 회원가입되면 첫화면으로 이동
+            navigate("/");
+        }
     }
 
   return (
