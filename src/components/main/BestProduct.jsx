@@ -166,7 +166,7 @@ export default function BestProduct() {
     const [activeIndex, setActiveIndex] = useState(0); // ✅ 초기값 추가
 
     return (
-        <section>
+        <section className='bp-wrap'>
             <div className="inner">
                 <SectionTitle
                     title="Best Product"

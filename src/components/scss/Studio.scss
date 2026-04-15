@@ -3,7 +3,7 @@
 .studio-info {
     margin-top: g.$section-gap;
     position: relative;
-    height: 800px;
+    height: 750px;
 
     &::after {
         content: "";
@@ -44,14 +44,13 @@
 
         .txt-box {
             @include g.myFlex($fd: column, $ai: normal);
-            padding-right: 60px;
+            font-family: "Pretendard", sans-serif;
 
             h3{
                 font-size: 1.75em;
             }
 
             .stdio-feature {
-                font-family: "Pretendard", sans-serif;
                 @include g.myFlex($fd: column, $gap: 0, $ai: normal);
                 margin: 0 auto;
                 font-size: 1.5em;
@@ -73,7 +72,7 @@
                 height: 40px;
                 border: 2px solid #2d2d2d;
                 cursor: pointer;
-                font-family: inherit;
+                font-size: 0.88em;
 
                 // 그라디언트 선 색상
                 &:hover {
