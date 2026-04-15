@@ -98,10 +98,10 @@ export default function Collab() {
     return (
         <section className='collab-wrap'>
             <Swiper modules={[Autoplay,]}
-                // autoplay={{
-                //     delay: 3000,
-                //     disableOnInteraction: false
-                // }}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false
+                }}
                 loop={true}
 
                 slidesPerView={5}
