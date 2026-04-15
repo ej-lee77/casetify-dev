@@ -15,7 +15,7 @@ const CUmain = [
                 id: 1,
                 title: "S26 포토 커스텀 케이스",
                 price: 102000,
-                CUimage: "./images/main/custom/CUproduct05.png"
+                CUimage: "./images/main/custom/CUProduct05.png"
             },
             ,
 
@@ -23,14 +23,14 @@ const CUmain = [
                 id: 2,
                 title: "아이폰 텍스트 커스텀 케이스",
                 price: 58000,
-                CUimage: "./images/main/custom/CUproduct06.png"
+                CUimage: "./images/main/custom/CUProduct06.png"
             },
 
             {
                 id: 3,
                 title: "아이폰 스티커 커스텀 케이스",
                 price: 83000,
-                CUimage: "./images/main/custom/CUproduct07.png"
+                CUimage: "./images/main/custom/CUProduct07.png"
             },
 
 
@@ -38,7 +38,7 @@ const CUmain = [
                 id: 4,
                 title: "태블릿 스티커 커스텀 케이스",
                 price: 101000,
-                CUimage: "./images/main/custom/CUproduct08.png"
+                CUimage: "./images/main/custom/CUProduct08.png"
             }]
     },
     {
@@ -49,7 +49,7 @@ const CUmain = [
                 id: 5,
                 title: "랩탑 케이스 커스터마이징",
                 price: 89000,
-                CUimage: "./images/main/custom/CUproduct09.png"
+                CUimage: "./images/main/custom/CUProduct09.png"
             },
             ,
 
@@ -57,14 +57,14 @@ const CUmain = [
                 id: 6,
                 title: "울트라 바운스 케이스 커스터마이징",
                 price: 45000,
-                CUimage: "./images/main/custom/CUproduct10.png"
+                CUimage: "./images/main/custom/CUProduct10.png"
             },
 
             {
                 id: 7,
                 title: "울트라 바운스 케이스 커스터마이징",
                 price: 51000,
-                CUimage: "./images/main/custom/CUproduct11.png"
+                CUimage: "./images/main/custom/CUProduct11.png"
             },
 
 
@@ -72,7 +72,7 @@ const CUmain = [
                 id: 8,
                 title: "아이폰 포토 커스터마이징 케이스",
                 price: 83000,
-                CUimage: "./images/main/custom/CUproduct12.png"
+                CUimage: "./images/main/custom/CUProduct12.png"
             }]
 
     }
