@@ -23,7 +23,7 @@ export const useAuthStore = create((set, get)=>({
     },
 
     // 회원가입
-    onMember: async({uName, nickname, email, password, phone, profile})=>{
+    onMember: async({username, email, password, phone, birthDate, zonecode, address, detailaddress})=>{
         try{
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
@@ -38,13 +38,14 @@ export const useAuthStore = create((set, get)=>({
 
             // 2단계 - 저장할 사용자 정보 만들기
             const userInfo = {
-                userid: user.uid,
-                username: uName,
+                uid: user.uid,
+                name: username,
                 email,
                 phone,
-                address1,
-                address2,
-                address3
+                birthDate,
+                zonecode,
+                address,
+                detailaddress
             }
 
             // 3단계 - firestore에 데이터 저장
@@ -90,9 +91,11 @@ export const useAuthStore = create((set, get)=>({
                     uid: user.uid,
                     email: user.email,
                     name: user.displayName,
-                    nickname: "",
                     phone: user.phoneNumber,
-                    profile: ""
+                    birthDate: "",
+                    zonecode: "",
+                    address: "",
+                    detailaddress: ""
                 }
 
                 await setDoc(userRef, userInfo);
@@ -100,8 +103,10 @@ export const useAuthStore = create((set, get)=>({
             }else{
                 set({user: userDoc.data()});
             }
+            return true;
         }catch(err){
             console.log(err.message);
+            return false;
         }
     },
 

@@ -27,12 +27,14 @@ export default function Login() {
     }
 
     // 구글 로그인
-    const handleGoogleLogin = ()=>{
+    const handleGoogleLogin = async()=>{
       console.log("구글 로그인");
-      onGoogleLogin();
+      const isLogin = await onGoogleLogin();
 
-      // 로그인되면 첫화면으로 이동
-      navigate("/");
+      if(isLogin){
+        // 로그인되면 첫화면으로 이동
+        navigate("/");
+      }
     }
 
     // 카카오 로그인
