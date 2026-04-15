@@ -12,6 +12,8 @@ export default function SectionTitle({ title, subtitle, subLink }) {
                         <a
                             href={subLink}
                             className="section-sub-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {subtitle}
                         </a>
