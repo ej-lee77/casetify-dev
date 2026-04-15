@@ -1,6 +1,8 @@
 @use "../../App.scss" as g;
 
-.inner {
+.benefit-inner {
+    max-width: 1440px;
+    margin: 0 auto;
     .benefit-card-list {
         @include g.myFlex();
         margin-top: 36px;
@@ -21,7 +23,7 @@
 
                 .text1 {
                     // font-weight: 700;
-                    font-size: 1.5em;
+                    font-size: 1.25em;
                 }
 
                 .text2 {
