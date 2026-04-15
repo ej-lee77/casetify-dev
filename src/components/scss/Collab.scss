@@ -39,7 +39,7 @@
         padding: 0 0 24px;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
         width: 300px;
-        height: 350px;
+        height: 360px;
         position: relative;
 
         .card-brand{
@@ -50,7 +50,7 @@
             left: 50%;
             width: 100%;
             img{
-                aspect-ratio: 1 / 1.18;
+                aspect-ratio: 1 / 1.2;
                 object-fit: cover;
             }
         }
