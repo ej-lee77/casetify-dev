@@ -22,7 +22,6 @@ export default function Instagram() {
                             muted
                             playsInline
                             preload="auto"
-                            controls
                         />
                     </li>
                     <li>
@@ -34,7 +33,6 @@ export default function Instagram() {
                             muted
                             playsInline
                             preload="auto"
-                            controls
                         />
                     </li>
                     <li>
@@ -46,7 +44,6 @@ export default function Instagram() {
                             muted
                             playsInline
                             preload="auto"
-                            controls
                         />
                     </li>
                     <li>
@@ -58,7 +55,6 @@ export default function Instagram() {
                             muted
                             playsInline
                             preload="auto"
-                            controls
                         />
                     </li>
                     <li>
@@ -70,7 +66,6 @@ export default function Instagram() {
                             muted
                             playsInline
                             preload="auto"
-                            controls
                         />
                     </li>
                 </ul>
