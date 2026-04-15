@@ -45,7 +45,7 @@ export default function Login() {
         <SectionTitle title={"로그인"} subtitle={""} />
         <form onSubmit={handleSubmit}>
           <div className='input-div'>
-              <input type="email" name="email" id='email' required="required" value={email} onChange={(e)=>setEmail(e.target.value)} autocomplete="email" placeholder=""/>
+              <input type="email" name="email" id='email' required="required" value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="email" placeholder=""/>
               <label htmlFor='email'>이메일</label>
               <span></span>
           </div>
