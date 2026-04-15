@@ -43,7 +43,12 @@ export default function Join() {
                 <SectionTitle title={"회원가입"} subtitle={""}/>
                 <input type="email" name='email' placeholder='이메일' onChange={handleChange}/>
                 <input type="password" name='password'placeholder='비밀번호 6자리 이상입니다' onChange={handleChange}/>
-                <button>회원가입하기</button>
+                <input type="text" name='uName' placeholder='이름' onChange={handleChange}/>
+                <input type="text" name='phone' placeholder='전화번호' onChange={handleChange}/>
+                <input type="text" name='address1' placeholder="주소우편번호" onChange={handleChange}/>
+                <input type="text" name='address2' placeholder="주소" onChange={handleChange}/>
+                <input type="text" name='address3' placeholder="상세주소" onChange={handleChange}/>
+                <button className='input-btn'>회원가입하기</button>
             </form>
         </div>
     </div>
