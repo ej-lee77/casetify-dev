@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import './App.scss'
 import Header from './components/Header'
@@ -14,6 +14,12 @@ import Join from './pages/Join'
 
 function App() {
   const { onFetchItems } = useProductStore();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // 경로가 변경될 때마다 최상단으로 이동
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     onFetchItems();
