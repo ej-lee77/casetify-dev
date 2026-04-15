@@ -15,13 +15,15 @@ export default function Login() {
     const navigate = useNavigate();
 
     // 기본 로그인
-    const handleSubmit = (e)=>{
+    const handleSubmit = async(e)=>{
       e.preventDefault();
       console.log("이메일 로그인");
-      onLogin(email, password);
+      const isLogin = await onLogin(email, password);
 
-      // 로그인되면 첫화면으로 이동
-      navigate("/");
+      if(isLogin){
+        // 로그인되면 첫화면으로 이동
+        navigate("/");
+      }
     }
 
     // 구글 로그인

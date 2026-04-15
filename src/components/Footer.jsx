@@ -27,19 +27,21 @@ export default function Footer() {
       <footer>
         <div className="inner">
           <div className="footer-left">
-            <div className="casetify-15th-anniversary">
-              <img src="/images/header-footer/casetify-15th-icon.png" alt="casetify-15th-icon" />
-              <span>CASETIFY: 15 for 15<br />15년의 여정</span>
-            </div>
-            <div className="sns-list-wrap">
-              <p>케이스티파이를 팔로우 해주세요!</p>
-              <ul className="sns-list">
-                <li><Link><img src="/images/header-footer/sns_instagram.png" alt="인스타그램" /></Link></li>
-                <li><Link><img src="/images/header-footer/sns_facebook.png" alt="페이스북" /></Link></li>
-                <li><Link><img src="/images/header-footer/sns_twitter.png" alt="인스타그램" /></Link></li>
-                <li><Link><img src="/images/header-footer/sns_pinterest.png" alt="핀터레스트" /></Link></li>
-                <li><Link><img src="/images/header-footer/sns_tiktok.png" alt="틱톡" /></Link></li>
-              </ul>
+            <div className="app-info-wrap">
+              <div className="casetify-15th-anniversary">
+                <img src="/images/header-footer/casetify-15th-icon.png" alt="casetify-15th-icon" />
+                <span>CASETIFY: 15 for 15<br />15년의 여정</span>
+              </div>
+              <div className="sns-list-wrap">
+                <p>케이스티파이를 팔로우 해주세요!</p>
+                <ul className="sns-list">
+                  <li><Link><img src="/images/header-footer/sns_instagram.png" alt="인스타그램" /></Link></li>
+                  <li><Link><img src="/images/header-footer/sns_facebook.png" alt="페이스북" /></Link></li>
+                  <li><Link><img src="/images/header-footer/sns_twitter.png" alt="인스타그램" /></Link></li>
+                  <li><Link><img src="/images/header-footer/sns_pinterest.png" alt="핀터레스트" /></Link></li>
+                  <li><Link><img src="/images/header-footer/sns_tiktok.png" alt="틱톡" /></Link></li>
+                </ul>
+              </div>
             </div>
             <div className="app-info-wrap">
               <div className="mobile-app-colab">
