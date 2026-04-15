@@ -28,7 +28,7 @@ export default function NewArrival() {
         setActiveTab(id);
         setTimeout(() => {
             setFade(true);
-            setActiveItem(newArrivalData.find(item => item.id === activeTab));
+            setActiveItem(newArrivalData.find(item => item.id === id));
         }, 600);
     };
 
