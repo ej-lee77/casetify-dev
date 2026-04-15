@@ -18,13 +18,13 @@ $color-red: #F15B41;
 $color-blue: #135EAB;
 
 // 값
-$section-gap: 150px;
+$section-gap: 100px;
 $group-gap: 40px;
 $title-gap: 20px;
 
 
 
-@mixin myFlex($jc: space-between, $ai: center, $fw: null, $gap: 20px, $fd: null) {
+@mixin myFlex($jc: space-between, $ai: center, $fw: null, $gap: 40px, $fd: null) {
     display: flex;
     justify-content: $jc;
     align-items: $ai;

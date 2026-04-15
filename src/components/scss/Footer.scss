@@ -18,7 +18,7 @@ footer {
         @include g.myFlex($ai: normal);
 
         .footer-left {
-            @include g.myFlex($fd: column, $gap: 32px);
+            @include g.myFlex($fd: column, $gap: 32px, $jc: flex-start, $ai:baseline);
 
             .casetify-15th-anniversary {
                 @include g.myFlex($gap: 10px);
@@ -70,6 +70,7 @@ footer {
                     }
 
                     .app-store-bedge {
+                        @include g.myFlex($ai: flex-start, $gap: 20px);
                         img {
                             width: 100px;
                             margin-bottom: 4px;
@@ -80,7 +81,7 @@ footer {
         }
 
         .footer-right {
-            @include g.myFlex($gap: 20px, $ai: flex-start);
+            @include g.myFlex($gap: 32px, $ai: flex-start);
 
             .title {
                 font-weight: 500;
@@ -108,7 +109,7 @@ footer {
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
-                            border-radius: 4px;
+                            // border-radius: 4px;
                         }
                     }
                 }
