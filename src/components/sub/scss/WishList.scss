@@ -1,0 +1,70 @@
+// 글자색상
+$text-main: #2F2F2F;
+$text-sub: #585858;
+$text-sale: #FF3535;
+$text-strike: #787878;
+
+// card
+$card-border: #E6E6E6;
+
+// 값
+$section-gap: 150px;
+$group-gap: 40px;
+$title-gap: 20px;
+
+// n줄 말줄임
+@mixin multi-ellipsis($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wish-list {
+    margin: $title-gap 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    align-items: center;
+    row-gap: 1.75em;
+
+    li {
+        padding: 0.25em;
+
+        .img-box {
+            position: relative;
+            width: 100%;
+
+            .img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                display: block;
+            }
+
+            .fav-icon {
+                position: absolute;
+                top: 0.5em;
+                right: 0.5em;
+                width: 1.5em;
+            }
+        }
+
+        .text-box {
+            width: 100%;
+
+            .item-name {
+                @include multi-ellipsis($lines: 1);
+                margin-bottom: 0.5em;
+            }
+
+            .item-price {
+                @include multi-ellipsis($lines: 1);
+                color: $text-sub;
+            }
+        }
+    }
+
+}
