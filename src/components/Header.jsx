@@ -75,7 +75,7 @@ export default function Header() {
             <Link><img src="/images/icon/search_var.svg" alt="검색" /></Link>
           </li>
           <li>
-            <Link to="/login"><span>로그인</span></Link>
+            <Link to="/login" className='user-icon'><img src="/images/icon/login.svg" alt="로그인" /></Link>
           </li>
           <li>
             <Link><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>

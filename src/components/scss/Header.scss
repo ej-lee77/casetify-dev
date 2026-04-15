@@ -84,8 +84,26 @@ header {
             @include g.myFlex($gap: 20px, $ai: center);
 
             li {
+                position: relative;
+                a{
+                    padding: 30px 0;
+                }
                 img {
                     width: 24px;
+                }
+                .user-icon::after{
+                    content: "로그인";
+                    display: none;
+                    position: absolute;
+                    width: 27px;
+                    height: 10px;
+                    font-size: 0.5em;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                &:hover .user-icon::after{
+                    display: block;
                 }
             }
         }
