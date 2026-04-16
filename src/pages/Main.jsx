@@ -28,30 +28,14 @@ export default function Main() {
   return (
     <div className='main-wrap'>
       <MainSlider />
-      <FadeInSection>
         <BestProduct />
-      </FadeInSection>
-      <FadeInSection>
         <Collab />
-      </FadeInSection>
-      <FadeInSection>
         <NewArrival />
-      </FadeInSection>
-      <FadeInSection>
         <MainTravel />
-      </FadeInSection>
-      <FadeInSection>
         <Custom />
-      </FadeInSection>
-      <FadeInSection>
         <Instagram />
-      </FadeInSection>
-      <FadeInSection>
         <Studio />
-      </FadeInSection>
-      <FadeInSection>
         <Quality />
-      </FadeInSection>
     </div>
   )
 }
