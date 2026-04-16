@@ -27,12 +27,14 @@ export default function Login() {
     }
 
     // 구글 로그인
-    const handleGoogleLogin = ()=>{
+    const handleGoogleLogin = async()=>{
       console.log("구글 로그인");
-      onGoogleLogin();
+      const isLogin = await onGoogleLogin();
 
-      // 로그인되면 첫화면으로 이동
-      navigate("/");
+      if(isLogin){
+        // 로그인되면 첫화면으로 이동
+        navigate("/");
+      }
     }
 
     // 카카오 로그인
@@ -61,7 +63,7 @@ export default function Login() {
                   <label htmlFor="login-idcheck">아이디 저장</label>
               </div>
           </div>
-          <button>로그인하기</button>
+          <button className='input-btn'>로그인하기</button>
         </form>
         <div className='login-option'>
           <div><Link>아이디 찾기</Link></div>
@@ -72,9 +74,9 @@ export default function Login() {
         <div className='login-sns-box'>
           <p>간편로그인으로 1초 회원가입</p>
           <div className='login-sns'>
-            <div><img src="/images/login/sns_btn_google.png" alt="google login" /></div>
-            <div><img src="/images/login/sns_btn_kakao.png" alt="kakao login" /></div>
-            <div><img src="/images/login/sns_btn_naver.png" alt="naver login" /></div>
+            <button onClick={handleGoogleLogin}><img src="/images/login/sns_btn_google.png" alt="google login" /></button>
+            <button><img src="/images/login/sns_btn_kakao.png" alt="kakao login" /></button>
+            <button><img src="/images/login/sns_btn_naver.png" alt="naver login" /></button>
           </div>
         </div>
       </div>
