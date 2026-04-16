@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useProductStore } from '../store/useProductStore';
+import { useCategoryProductStore } from '../store/useCategoryProductStore';
 import { useCategoryStore } from '../store/useCategoryStore';
 import "./scss/CategoryPage.scss";
 import DetailProductCard from '../components/sub/DetailProductCard';
@@ -13,9 +13,9 @@ export default function CategoryPagePractice() {
         items,
         onFetchItems,
         mainMenuList,
-        filterItems,
-        onFilterMainCate,
-    } = useProductStore();
+        categoryItems,
+        onFilterCategory,
+    } = useCategoryProductStore();
 
     const {
         setBaseItems,
@@ -30,6 +30,8 @@ export default function CategoryPagePractice() {
 
         selectedBrand,
         setSelectedBrand,
+        selectedSort,
+        setSelectedSort,
 
         selectedFilters,
         colorOptions,
@@ -50,22 +52,22 @@ export default function CategoryPagePractice() {
 
     const mainCateKo = currentMain?.name;
     const subCateKo = currentSub?.name;
-    const miniCate = currentSub?.mini;
+    const miniCate = currentSub?.mini || [];
 
     const MINI_ICON = {
-        "핸드폰": "phone",
-        "이어폰": "earphone",
-        "노트북": "laptop",
-        "워치": "watch",
-        "태블릿": "tablet",
-        "컬러": "color",
-        "패턴": "pattern",
-        "시그니처": "signature",
-        "캐릭터": "character",
-        "아트": "art",
+        핸드폰: "phone",
+        이어폰: "earphone",
+        노트북: "laptop",
+        워치: "watch",
+        태블릿: "tablet",
+        컬러: "color",
+        패턴: "pattern",
+        시그니처: "signature",
+        캐릭터: "character",
+        아트: "art",
         "영화&엔터": "movie",
         "패션&라이프스타일": "fashion",
-        "스포츠": "sports",
+        스포츠: "sports",
     };
 
     useEffect(() => {
@@ -76,20 +78,20 @@ export default function CategoryPagePractice() {
         if (!items.length || !mainCateKo || !subCateKo) return;
 
         setActiveMini(null);
-        onFilterMainCate(mainCateKo, subCateKo);
+        onFilterCategory(mainCateKo, subCateKo);
     }, [items, mainCateKo, subCateKo]);
 
     useEffect(() => {
-        setBaseItems(filterItems, activeMini);
-    }, [filterItems, activeMini, setBaseItems]);
+        setBaseItems(categoryItems, activeMini);
+    }, [categoryItems, activeMini, setBaseItems]);
 
     const onHandleMiniCategory = (mini) => {
         setActiveMini(mini);
-        onFilterMainCate(mainCateKo, subCateKo, mini);
+        onFilterCategory(mainCateKo, subCateKo, mini);
         closePanels();
     };
 
-    const currentMini = currentMiniCategory || filterItems?.[0]?.miniCategory || null;
+    const currentMini = currentMiniCategory || activeMini || null;
     const isPhoneMini = currentMini === "핸드폰";
 
     const showDeviceButton =
@@ -129,6 +131,10 @@ export default function CategoryPagePractice() {
         ];
     }, [selectedFilters]);
 
+    if (!currentMain || !currentSub) {
+        return <div className="sub-page-wrap"><div className="inner">카테고리를 찾을 수 없습니다.</div></div>;
+    }
+
     return (
         <div className="sub-page-wrap">
             <div className="sub-slider">
@@ -142,6 +148,8 @@ export default function CategoryPagePractice() {
                 <div className="menu-map">
                     <span>홈</span>
                     <span> &gt; </span>
+                    <span>{mainCateKo}</span>
+                    <span> &gt; </span>
                     <span>{subCateKo}</span>
                     {currentMini && (
                         <>
@@ -151,36 +159,48 @@ export default function CategoryPagePractice() {
                     )}
                 </div>
 
-                {miniCate ? (
+                {miniCate.length > 0 && (
                     <ul className="mini-menu">
-                        {miniCate.map((mini, id) => (
+                        {miniCate.map((mini) => (
                             <li
-                                key={id}
+                                key={mini}
                                 onClick={() => onHandleMiniCategory(mini)}
                                 className={activeMini === mini ? "active" : ""}
                             >
-
                                 <img
                                     src={`/images/category/mini/${MINI_ICON[mini]}.png`}
                                     alt={mini}
                                 />
                                 <p>{mini}</p>
-
                             </li>
                         ))}
                     </ul>
-                ) : null}
+                )}
 
-                <div className="filtering">
-                    <button type="button" onClick={openFilterPanel}>
-                        필터
-                    </button>
-
-                    {showDeviceButton && (
-                        <button type="button" onClick={openDevicePanel}>
-                            기기선택
+                <div className="filter-top-bar">
+                    <div className="filtering">
+                        <button type="button" onClick={openFilterPanel}>
+                            필터
                         </button>
-                    )}
+
+                        {showDeviceButton && (
+                            <button type="button" onClick={openDevicePanel}>
+                                기기선택
+                            </button>
+                        )}
+                    </div>
+
+                    <div className="sort-box">
+                        <select
+                            value={selectedSort}
+                            onChange={(e) => setSelectedSort(e.target.value)}
+                        >
+                            <option value="recommend">추천순</option>
+                            <option value="popular">인기순</option>
+                            <option value="priceLow">낮은 가격순</option>
+                            <option value="priceHigh">높은 가격순</option>
+                        </select>
+                    </div>
                 </div>
 
                 {selectedTagList.length > 0 && (
@@ -343,9 +363,7 @@ export default function CategoryPagePractice() {
 
                 <ul className='product-list'>
                     {displayItems.map((item) => (
-                        <li key={item.id}>
-                            <DetailProductCard item={item} />
-                        </li>
+                        <DetailProductCard key={item.id} item={item} />
                     ))}
                 </ul>
             </div>
