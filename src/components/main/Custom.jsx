@@ -5,6 +5,7 @@ import "../scss/bestProduct.scss"
 import "../scss/custom.scss"
 import { Autoplay, Pagination } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
+import SlideInSection from '../SlideInSection';
 
 const CUmain = [
     {
@@ -86,7 +87,7 @@ const [slide1, slide2] = CUmain;
 
 
 export default function Custom() {
-    const [activeIndex, setActiveIndex] = useState(0); // ✅ 초기값 추가
+    const [activeIndex, setActiveIndex] = useState(0); 
 
     return (
         <section className='custom-wrap bp-wrap'>
@@ -103,7 +104,7 @@ export default function Custom() {
                             pagination={{ clickable: true }}
                             loop={true}
                             onSlideChange={(Swiper) => {
-                                setActiveIndex(Swiper.realIndex); // ✅ 수정
+                                setActiveIndex(Swiper.realIndex); 
                             }}>
                             <SwiperSlide>
                                 <img src={slide1.src} alt={slide1.alt} />
@@ -117,27 +118,22 @@ export default function Custom() {
                         <SectionTitle
                             title="Customize Your Case"
                             subtitle="케이스티파이에서 나만의 케이스를 제작해보세요" />
-
-                        <ul >
-
-                            {CUmain[activeIndex]?.Cuproduct.map((item) => ( // ✅ 안전 처리 + index 제거
-
-                                <li key={item.id}> {/* ✅ key 수정 */}
-                                    <div>
-                                        <img src={item.CUimage} alt="" />
-                                    </div>
-                                    <div>
-                                        <p className='name'>{item.title}</p>
-                                        <p className='price'> ₩{item.price.toLocaleString()}</p>
-                                    </div>
-
-                                </li>
-
-                            ))}
-
-
-                        </ul>
+                        <SlideInSection direction="right" delay={0.4}>
+                            <ul >
+                                {CUmain[activeIndex]?.Cuproduct.map((item) => (
+                                    <li key={item.id}>
+                                        <div>
+                                            <img src={item.CUimage} alt="" />
+                                        </div>
+                                        <div>
+                                            <p className='name'>{item.title}</p>
+                                            <p className='price'> ₩{item.price.toLocaleString()}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
                         <button>커스텀하기</button>
+                        </SlideInSection>
                     </div>
                 </div>
             </div >

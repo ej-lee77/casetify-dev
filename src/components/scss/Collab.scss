@@ -6,8 +6,7 @@
     height: 750px;
     // border: 1px solid green;
     position: relative;
-    display: flex;
-    align-items: center;
+    @include g.myFlex($jc: center, $gap: unset, );
 
     .swiper {
         padding: 20px 0;

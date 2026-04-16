@@ -2,7 +2,6 @@ import { create } from "zustand";
 
 const initialFilters = {
     colors: [],
-    priceRange: [0, Infinity],
     caseCategories: [],
     freeShipping: false,
     devices: [],
@@ -16,6 +15,7 @@ export const useCategoryStore = create((set, get) => ({
     isFilterOpen: false,
     isDeviceOpen: false,
     selectedBrand: "Apple",
+    selectedSort: "recommend",
 
     selectedFilters: initialFilters,
 
@@ -33,10 +33,18 @@ export const useCategoryStore = create((set, get) => ({
             baseItems: items,
             displayItems: items,
             currentMiniCategory,
-            selectedFilters: initialFilters,
+            selectedFilters: {
+                colors: [],
+                caseCategories: [],
+                freeShipping: false,
+                devices: [],
+            },
             selectedBrand: "Apple",
+            selectedSort: "recommend",
         });
+
         get().buildOptions(items);
+        get().applyFilters();
     },
 
     buildOptions: (items) => {
@@ -49,39 +57,18 @@ export const useCategoryStore = create((set, get) => ({
             Google: new Set(),
         };
 
-        const deviceSet = new Set();
-
         items.forEach((item) => {
-            const colors = Array.isArray(item.color) ? item.color : [];
+            const colors = Array.isArray(item.caseColors) ? item.caseColors : [];
             colors.forEach((color) => {
                 if (color) colorSet.add(color);
             });
 
-            if (item.caseCategory && item.caseCategory.trim() !== "") {
+            if (item.caseCategory) {
                 caseCategorySet.add(item.caseCategory);
             }
 
-            // 핸드폰처럼 객체 구조
-            if (
-                item.deviceCategory &&
-                !Array.isArray(item.deviceCategory) &&
-                typeof item.deviceCategory === "object" &&
-                Object.keys(item.deviceCategory).length > 0
-            ) {
-                Object.entries(item.deviceCategory).forEach(([brand, models]) => {
-                    if (brandMap[brand]) {
-                        (models || []).forEach((model) => {
-                            if (model) brandMap[brand].add(model);
-                        });
-                    }
-                });
-            }
-
-            // 이어폰/노트북/워치/태블릿/캐리어처럼 배열 구조
-            if (Array.isArray(item.deviceCategory)) {
-                item.deviceCategory.flat().forEach((device) => {
-                    if (device) deviceSet.add(device);
-                });
+            if (item.deviceBrand && item.selectedDevice && brandMap[item.deviceBrand]) {
+                brandMap[item.deviceBrand].add(item.selectedDevice);
             }
         });
 
@@ -93,7 +80,7 @@ export const useCategoryStore = create((set, get) => ({
                 Samsung: [...brandMap.Samsung],
                 Google: [...brandMap.Google],
             },
-            deviceOptions: [...deviceSet],
+            deviceOptions: [],
         });
     },
 
@@ -120,6 +107,11 @@ export const useCategoryStore = create((set, get) => ({
 
     setSelectedBrand: (brand) => {
         set({ selectedBrand: brand });
+    },
+
+    setSelectedSort: (sort) => {
+        set({ selectedSort: sort });
+        get().applyFilters();
     },
 
     toggleColor: (color) => {
@@ -181,17 +173,6 @@ export const useCategoryStore = create((set, get) => ({
         get().applyFilters();
     },
 
-    setPriceRange: (min, max) => {
-        set((state) => ({
-            selectedFilters: {
-                ...state.selectedFilters,
-                priceRange: [min, max],
-            },
-        }));
-
-        get().applyFilters();
-    },
-
     removeFilter: (type, value) => {
         const current = get().selectedFilters;
 
@@ -231,40 +212,35 @@ export const useCategoryStore = create((set, get) => ({
             });
         }
 
-        if (type === "priceRange") {
-            set({
-                selectedFilters: {
-                    ...current,
-                    priceRange: [0, Infinity],
-                },
-            });
-        }
-
         get().applyFilters();
     },
 
     clearAllFilters: () => {
         set((state) => ({
-            selectedFilters: initialFilters,
+            selectedFilters: {
+                colors: [],
+                caseCategories: [],
+                freeShipping: false,
+                devices: [],
+            },
             displayItems: state.baseItems,
+            selectedBrand: "Apple",
+            selectedSort: "recommend",
         }));
+
+        get().applyFilters();
     },
 
     applyFilters: () => {
-        const { baseItems, selectedFilters } = get();
+        const { baseItems, selectedFilters, selectedSort } = get();
 
-        const filtered = baseItems.filter((item) => {
-            const itemPrice = Number(item.price || 0);
-
+        let filtered = baseItems.filter((item) => {
             if (
                 selectedFilters.colors.length > 0 &&
-                !selectedFilters.colors.some((color) => (Array.isArray(item.color) ? item.color : []).includes(color))
+                !selectedFilters.colors.some((color) =>
+                    (Array.isArray(item.caseColors) ? item.caseColors : []).includes(color)
+                )
             ) {
-                return false;
-            }
-
-            const [min, max] = selectedFilters.priceRange;
-            if (itemPrice < min || itemPrice > max) {
                 return false;
             }
 
@@ -282,25 +258,34 @@ export const useCategoryStore = create((set, get) => ({
                 return false;
             }
 
-            if (selectedFilters.devices.length > 0) {
-                let deviceList = [];
-
-                if (
-                    item.deviceCategory &&
-                    !Array.isArray(item.deviceCategory) &&
-                    typeof item.deviceCategory === "object"
-                ) {
-                    deviceList = Object.values(item.deviceCategory).flat();
-                } else if (Array.isArray(item.deviceCategory)) {
-                    deviceList = item.deviceCategory.flat();
-                }
-
-                if (!selectedFilters.devices.some((device) => deviceList.includes(device))) {
-                    return false;
-                }
+            if (
+                selectedFilters.devices.length > 0 &&
+                !selectedFilters.devices.includes(item.selectedDevice)
+            ) {
+                return false;
             }
 
             return true;
+        });
+
+        filtered = [...filtered].sort((a, b) => {
+            if (selectedSort === "recommend") {
+                return (a.recommendRank ?? 9999) - (b.recommendRank ?? 9999);
+            }
+
+            if (selectedSort === "popular") {
+                return Number(b.popularity || 0) - Number(a.popularity || 0);
+            }
+
+            if (selectedSort === "priceLow") {
+                return Number(a.price || 0) - Number(b.price || 0);
+            }
+
+            if (selectedSort === "priceHigh") {
+                return Number(b.price || 0) - Number(a.price || 0);
+            }
+
+            return 0;
         });
 
         set({ displayItems: filtered });

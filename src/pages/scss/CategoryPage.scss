@@ -1,45 +1,44 @@
 @use "../../App.scss" as g;
 
-.sub-page-wrap {
-    max-width: 1920px;
-    margin: 0 auto;
-
-    .sub-slider {
-        img {
-            display: block;
-            margin: 0 auto;
-        }
-    }
-
-    .inner {
-        margin: 0 auto;
-        max-width: 1440px;
-
-        .mini-menu {
-            @include g.myFlex($jc: center);
-            margin: 50px 0;
-            font-size: 1.3rem;
-
-            li {
-                img {
-                    display: inline-block;
-                }
-
-                p {
-                    align-items: center;
-                    text-align: center;
-                }
+.category-wrap {
+    div {
+        .sub-slider {
+            img {
+                display: block;
+                margin: 0 auto;
             }
         }
 
-        .product-list {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
+        .inner {
+            margin: 0 auto;
+            max-width: 1440px;
+
+            .mini-menu {
+                @include g.myFlex($jc: center);
+                margin: 50px 0;
+                font-size: 1.3rem;
+
+                li {
+                    img {
+                        display: inline-block;
+                    }
+
+                    p {
+                        align-items: center;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .product-list {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
     }
 }
 
-.sub-page-wrap {
+.category-wrap {
     --header-height: 88px;
     --panel-width: 380px;
 }
@@ -225,5 +224,23 @@
         gap: 10px;
         cursor: pointer;
         line-height: 1.4;
+    }
+}
+
+.filter-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.sort-box {
+    select {
+        min-width: 160px;
+        height: 44px;
+        padding: 0 12px;
+        border: 1px solid #111;
+        background: #fff;
     }
 }
