@@ -1,62 +1,64 @@
 @use "../../App.scss" as g;
 
-.inner {
-    padding-top: 72px;
+.cart-wrap {
+    .inner {
+        padding-top: 72px;
 
-    .title-wrap {
-        border: 2px dashed darkblue;
+        .title-wrap {
+            border: 2px dashed darkblue;
 
-        h2 {
-            font-weight: normal;
-            font-size: 2.5em;
-            text-align: center;
-        }
+            h2 {
+                font-weight: normal;
+                font-size: 2.5em;
+                text-align: center;
+            }
 
-        .payment-progress-wrap {
-            @include g.myFlex($jc: center, $ai: center, $gap: 6.25em);
-            margin-top: 40px;
+            .payment-progress-wrap {
+                @include g.myFlex($jc: center, $ai: center, $gap: 6.25em);
+                margin-top: 40px;
 
-            .payment-progress-item {
-                @include g.myFlex($jc: normal, $fd: column, $ai: center, $gap: 1.25em);
+                .payment-progress-item {
+                    @include g.myFlex($jc: normal, $fd: column, $ai: center, $gap: 1.25em);
 
-                .icon-box {
-                    @include g.myFlex($jc: center, $ai: center, $gap: null);
-                    background-color: #f8f8f8;
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 50%;
-
-                    img {
-                        width: 2.5em;
-                    }
-                }
-
-                p {
-                    font-size: 1.25em;
-                }
-
-                &.active {
                     .icon-box {
-                        background-color: #222222;
+                        @include g.myFlex($jc: center, $ai: center, $gap: null);
+                        background-color: #f8f8f8;
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+
+                        img {
+                            width: 2.5em;
+                        }
+                    }
+
+                    p {
+                        font-size: 1.25em;
+                    }
+
+                    &.active {
+                        .icon-box {
+                            background-color: #222222;
+                        }
                     }
                 }
             }
         }
-    }
 
-    .cart-wrap {
-        border: 2px dashed green;
-        @include g.myFlex($jc: normal, $ai: center, $gap: 1.25em);
-        margin-top: 6.25em;
+        .cart-wrap {
+            border: 2px dashed green;
+            @include g.myFlex($jc: normal, $ai: center, $gap: 1.25em);
+            margin-top: 6.25em;
 
-        .cart-list-area {
-            border: 1px dashed pink;
-            flex: 1;
-        }
+            .cart-list-area {
+                border: 1px dashed pink;
+                flex: 1;
+            }
 
-        .payment-ctrl-area {
-            border: 1px dashed yellowgreen;
-            width: 342px;
+            .payment-ctrl-area {
+                border: 1px dashed yellowgreen;
+                width: 342px;
+            }
         }
     }
 }
