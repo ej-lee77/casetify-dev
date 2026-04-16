@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { useProductStore } from '../store/useProductStore';
 import "./scss/Header.scss"
 import { useMainSlider } from '../store/useMainSlider';
+import { useAuthStore } from '../store/useAuthStore';
 
 export default function Header() {
   const { mainMenuList } = useProductStore();
+  const {user, onLogout} = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
 
   //헤더글자색 변경
@@ -36,6 +38,12 @@ export default function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome, MenuActive])
+
+  const handleLogout = ()=>{
+    onLogout();
+    navigate("/");
+  }
+  console.log("here",user);
 
   return (
     <header className={`${isScrolled || MenuActive !== null ? "active" : ""} ${headerColor}`}>
@@ -75,7 +83,11 @@ export default function Header() {
             <Link><img src="/images/icon/search_var.svg" alt="검색" /></Link>
           </li>
           <li>
-            <Link to="/login" className='user-icon'><img src="/images/icon/login.svg" alt="로그인" /></Link>
+            {user ? (
+              <button className='logout-icon' onClick={handleLogout}><img src="/images/icon/user.svg" alt="로그아웃" /></button>
+            ):(
+              <Link to="/login" className='user-icon'><img src="/images/icon/login.svg" alt="로그인" /></Link>
+            )}
           </li>
           <li>
             <Link><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
