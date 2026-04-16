@@ -1,45 +1,44 @@
 @use "../../App.scss" as g;
 
-.sub-page-wrap {
-    max-width: 1920px;
-    margin: 0 auto;
-
-    .sub-slider {
-        img {
-            display: block;
-            margin: 0 auto;
-        }
-    }
-
-    .inner {
-        margin: 0 auto;
-        max-width: 1440px;
-
-        .mini-menu {
-            @include g.myFlex($jc: center);
-            margin: 50px 0;
-            font-size: 1.3rem;
-
-            li {
-                img {
-                    display: inline-block;
-                }
-
-                p {
-                    align-items: center;
-                    text-align: center;
-                }
+.category-wrap {
+    div {
+        .sub-slider {
+            img {
+                display: block;
+                margin: 0 auto;
             }
         }
 
-        .product-list {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
+        .inner {
+            margin: 0 auto;
+            max-width: 1440px;
+
+            .mini-menu {
+                @include g.myFlex($jc: center);
+                margin: 50px 0;
+                font-size: 1.3rem;
+
+                li {
+                    img {
+                        display: inline-block;
+                    }
+
+                    p {
+                        align-items: center;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .product-list {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
     }
 }
 
-.sub-page-wrap {
+.category-wrap {
     --header-height: 88px;
     --panel-width: 380px;
 }
