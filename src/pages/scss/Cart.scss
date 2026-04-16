@@ -61,6 +61,7 @@
                 margin-bottom: g.$group-gap;
             }
 
+            // 좌측 - 장바구니 상품 리스트 
             .cart-list-area {
                 // border: 1px dashed pink;
                 flex: 1;
@@ -157,9 +158,25 @@
                         }
                     }
                 }
+
+                // 체크박스 취소 버튼
+                .cart-cancel-btn-wrap>button {
+                    border: 1px solid #BFBFBF;
+                    font-family: inherit;
+                    font-size: 1em;
+                    padding: 1em 4em;
+
+                    &:nth-child(1) {
+                        margin-left: 3.5em;
+                    }
+
+                    &:nth-child(2) {
+                        margin-left: 1.25em;
+                    }
+                }
             }
 
-            // 주문 예상 금액 영역
+            // 우측 - 주문 예상 금액 영역
             .payment-ctrl-area {
                 border: 1px dashed yellowgreen;
                 width: 342px;
