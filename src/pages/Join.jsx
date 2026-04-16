@@ -86,6 +86,20 @@ export default function Join() {
         <div className="inner">
             <form onSubmit={handleSubmit}>
                 <SectionTitle title={"회원가입"} subtitle={""}/>
+                <ul className="join-progress">
+                    <li className='active'>
+                        <div><img src="./images/icon/join-60.svg" alt="정보입력 약관동의" /></div>
+                        <span>정보입력 • 약관동의</span>
+                    </li>
+                    <li>
+                        <div><img src="./images/icon/user-60.svg" alt="본인인증" /></div>
+                        <span>본인인증</span>
+                    </li>
+                    <li>
+                        <div><img src="./images/icon/login-60.svg" alt="회원가입 완료" /></div>
+                        <span>회원가입 완료</span>
+                    </li>
+                </ul>
                 <div>
                     <div className='input-box line-b'>
                         <div className='label-div'><label htmlFor='username'>이름</label></div>
@@ -99,7 +113,7 @@ export default function Join() {
                         <div className='input-box'>
                             <div className='label-div'><label htmlFor='password'>비밀번호</label></div>
                             <div className='input-div'>
-                                <input type="password" id='password' name='password'placeholder='비밀번호' onChange={handleChange}/>
+                                <input type="password" id='password' name='password'placeholder='비밀번호 입력' onChange={handleChange}/>
                                 <p className='err-box'>{passValidError}</p>
                             </div>
                         </div>
@@ -133,15 +147,47 @@ export default function Join() {
                     </div>
                     <div className='input-box line-b'>
                         <div className='label-div'><label htmlFor='detailaddress'>주소</label></div>
-                        <div className='input-div'>
-                            <input value={formData.zonecode} readOnly placeholder="우편번호" />
-                            <AddressSearch setAddressData={setAddressData} />
+                        <div className='input-div address-box'>
+                            <div className='zonecode-box'>
+                                <input value={formData.zonecode} readOnly placeholder="우편번호" />
+                                <AddressSearch setAddressData={setAddressData} />
+                            </div>
                             <input value={formData.address} readOnly placeholder="기본주소" />
                             <input type="text" id='detailaddress' name='detailaddress' placeholder="상세주소" onChange={handleChange}/>
                         </div>
                     </div>
                 </div>
-                <button className='input-btn'>회원가입하기</button>
+                <div className='agree-wrap'>
+                    <div>
+                        <div className="login-check agree-box">
+                            <input type="checkbox" id="agree" className="login-idcheck screen-reader"/>
+                            <div className="label-box">
+                                <span className="check-icon" aria-hidden="true"></span>
+                                <label htmlFor="agree">이용약관에 동의합니다</label>
+                                <button>내용보기</button>
+                            </div>
+                        </div>
+                        <div className="login-check agree-box">
+                            <input type="checkbox" id="security" className="login-idcheck screen-reader"/>
+                            <div className="label-box">
+                                <span className="check-icon" aria-hidden="true"></span>
+                                <label htmlFor="security">개인정보 취급방침에 동의합니다</label>
+                                <button>내용보기</button>
+                            </div>
+                        </div>
+                        <div className="login-check agree-box">
+                            <input type="checkbox" id="merket" className="login-idcheck screen-reader"/>
+                            <div className="label-box">
+                                <span className="check-icon" aria-hidden="true"></span>
+                                <label htmlFor="merket">(선택)마케팅정보 수신 동의합니다</label>
+                                <button>내용보기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='input-btn-box'>
+                    <button className='input-btn'>회원가입하기</button>
+                </div>
             </form>
         </div>
     </div>
