@@ -3,6 +3,7 @@ import "../scss/Quality.scss"
 import SectionTitle from '../SectionTitle'
 import { Link } from 'react-router-dom'
 import Benefit from '../Benefit'
+import FadeInSection from '../FadeInSection'
 
 // 케이스티파이 Quality 특징관련 데이터
 const infoCardData = [
@@ -17,16 +18,18 @@ export default function Quality() {
         <section className="quality-info">
             <SectionTitle title={"Protection Quality"} subtitle={"케이스티파이만의 완벽한 기준"} />
             {/* Quality 특징 */}
-            <ul className="quality-card-wrap">
-                {infoCardData.map((item, i) => (
-                    <li key={i} className="quality-card">
-                        <img src={item.img} alt={`quality-img${i + 1}`} />
-                        <div className="text-box">{item.text}</div>
-                    </li>
-                ))}
-            </ul>
-            {/* Benefit */}
-            <Benefit />
+            <FadeInSection direction="up" delay={0.4}>
+                <ul className="quality-card-wrap">
+                    {infoCardData.map((item, i) => (
+                        <li key={i} className="quality-card">
+                            <img src={item.img} alt={`quality-img${i + 1}`} />
+                            <div className="text-box">{item.text}</div>
+                        </li>
+                    ))}
+                </ul>
+                {/* Benefit */}
+                <Benefit />
+            </FadeInSection>
         </section>
     )
 }
