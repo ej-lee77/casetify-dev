@@ -5,6 +5,7 @@ export const useCategoryProductStore = create((set, get) => ({
     items: [],
     categoryItems: [],
 
+
     mainMenuList: [
         {
             name: "케이스", link: "case",

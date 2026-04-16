@@ -5,13 +5,47 @@ export const brandDeviceOptions = {
 };
 
 export const deviceColorOptions = {
-    iphone17pro: ["실버", "코스믹 오렌지", "딥 블루"],
-    iphone17: ["화이트", "라벤더", "세이지", "미스트블루", "블랙"],
-    iphone16pro: ["화이트 티타늄", "블랙 티타늄", "내추럴 티타늄", "데저트 티타늄"],
-    iphone16: ["화이트", "핑크", "울트라마린", "틸", "블랙"],
-    GalaxyS26: ["화이트", "블랙", "스카이 블루", "코발트 바이올렛"],
-    GalaxyZFold7: ["실버 쉐도우", "블루 쉐도우", "제트 블랙"],
-    GalaxyZFlip7: ["코랄레드", "제트블랙", "블루 쉐도우"]
+    iphone17pro: [
+        { key: "Silver", label: "실버" },
+        { key: "Cosmic-Orange", label: "코스믹 오렌지" },
+        { key: "Deep-Blue", label: "딥 블루" },
+    ],
+    iphone17: [
+        { key: "White", label: "화이트" },
+        { key: "Lavendar", label: "라벤더" },
+        { key: "Sage", label: "세이지" },
+        { key: "Mist-Blue", label: "미스트블루" },
+        { key: "Black", label: "블랙" },
+    ],
+    iphone16pro: [
+        { key: "White", label: "화이트 티타늄" },
+        { key: "Black", label: "블랙 티타늄" },
+        { key: "Natural", label: "내추럴 티타늄" },
+        { key: "Desert", label: "데저트 티타늄" },
+    ],
+    iphone16: [
+        { key: "White", label: "화이트" },
+        { key: "Pink", label: "핑크" },
+        { key: "Marine", label: "울트라마린" },
+        { key: "Teal", label: "틸" },
+        { key: "Black", label: "블랙" },
+    ],
+    GalaxyS26: [
+        { key: "White", label: "화이트" },
+        { key: "Black", label: "블랙" },
+        { key: "Blue", label: "스카이 블루" },
+        { key: "Violet", label: "코발트 바이올렛" },
+    ],
+    GalaxyZFold7: [
+        { key: "Silver", label: "실버 쉐도우" },
+        { key: "Blue", label: "블루 쉐도우" },
+        { key: "Black", label: "제트 블랙" },
+    ],
+    GalaxyZFlip7: [
+        { key: "Red", label: "코랄레드" },
+        { key: "Black", label: "제트블랙" },
+        { key: "Blue", label: "블루 쉐도우" },
+    ],
 };
 
 export const items = [
@@ -39,8 +73,8 @@ export const items = [
         isColorCategory: true,
         caseColors: ["Black", "Orange", "Pink", "Lavendar", "Matte Black"],
         mainCaseColor: "Black",
-        recommendRank: 1,
-        popularity: 4,
+        recommendRank: null,
+        popularity: null,
     },
 
     {
