@@ -7,6 +7,7 @@ import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import "../scss/Collab.scss"
+import FadeInSection from '../FadeInSection'
 
 export default function Collab() {
     const slides = [
@@ -97,36 +98,38 @@ export default function Collab() {
     ]
     return (
         <section className='collab-wrap'>
-            <Swiper modules={[Autoplay,]}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false
-                }}
-                loop={true}
+            <FadeInSection direction="up" delay={0.4}>
+                <Swiper modules={[Autoplay,]}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false
+                    }}
+                    loop={true}
 
-                slidesPerView={5}
-                spaceBetween={30}>
+                    slidesPerView={5}
+                    spaceBetween={30}>
 
-                {slides.map((item) => (
-                    <SwiperSlide key={item.id}>
-                        <div className="card">
-                            <div className='card-brand'>
-                                <img src={item.themeImg} alt={item.title} className='theme-img' />
-                            </div>
-                            <div className="card-img">
-                                <img src={item.colImg} alt="" /></div>
-                            <div className="card-content">
-                                <div>
+                    {slides.map((item) => (
+                        <SwiperSlide key={item.id}>
+                            <div className="card">
+                                <div className='card-brand'>
                                     <img src={item.themeImg} alt={item.title} className='theme-img' />
-                                    <p>{item.title}</p>
                                 </div>
-                                <p className='price'>{item.price}</p>
+                                <div className="card-img">
+                                    <img src={item.colImg} alt="" /></div>
+                                <div className="card-content">
+                                    <div>
+                                        <img src={item.themeImg} alt={item.title} className='theme-img' />
+                                        <p>{item.title}</p>
+                                    </div>
+                                    <p className='price'>{item.price}</p>
+                                </div>
+                                <button className="more-btn">컬렉션 더보기 +</button>
                             </div>
-                            <button className="more-btn">컬렉션 더보기 +</button>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </FadeInSection>
 
         </section >
 

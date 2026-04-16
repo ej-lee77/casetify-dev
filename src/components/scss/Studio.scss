@@ -21,14 +21,6 @@
         z-index: -1;
     }
 
-    .bg {
-        // position: relative;
-        // border: 2px solid red;
-
-
-        
-    }
-
     .inner {
         @include g.myFlex($jc: center, $ai: center, $gap: unset);
         // margin-top: 36px;
