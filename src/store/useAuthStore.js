@@ -23,37 +23,40 @@ export const useAuthStore = create((set, get)=>({
     },
 
     // 회원가입
-    onMember: async({uName, nickname, email, password, phone, profile})=>{
+    onMember: async({username, email, password, phone, birthDate, zonecode, address, detailaddress})=>{
         try{
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
-            // const user = userCredential.user;
+            const user = userCredential.user;
 
-            // // 인증 메일 보내기
-            // await sendEmailVerification(user);
+            // 인증 메일 보내기
+            await sendEmailVerification(user);
 
-            // // Firestore에 저장하기
-            // // 1단계 - 저장위치 지정 doc(db정보, "컬렉션", 문서)
-            // const userRef = doc(db, "users", user.uid);
+            // Firestore에 저장하기
+            // 1단계 - 저장위치 지정 doc(db정보, "컬렉션", 문서)
+            const userRef = doc(db, "users", user.uid);
 
-            // // 2단계 - 저장할 사용자 정보 만들기
-            // const userInfo = {
-            //     uid: user.uid,
-            //     name: uName,
-            //     nickname,
-            //     email,
-            //     phone,
-            //     profile
-            // }
+            // 2단계 - 저장할 사용자 정보 만들기
+            const userInfo = {
+                uid: user.uid,
+                name: username,
+                email,
+                phone,
+                birthDate,
+                zonecode,
+                address,
+                detailaddress
+            }
 
-            // // 3단계 - firestore에 데이터 저장
-            // await setDoc(userRef, userInfo);
+            // 3단계 - firestore에 데이터 저장
+            await setDoc(userRef, userInfo);
 
-            // // 4단계 - zustand에 상태저장
-            // // set({user: userInfo});
-            // alert("회원가입성공! 이메일 인증을 완료해주세요");
+            // 4단계 - zustand에 상태저장
+            set({user: userInfo});
+            return true;
         }catch(err){
             alert(err.message);
+            return false;
         }
     },
 
@@ -88,9 +91,11 @@ export const useAuthStore = create((set, get)=>({
                     uid: user.uid,
                     email: user.email,
                     name: user.displayName,
-                    nickname: "",
                     phone: user.phoneNumber,
-                    profile: ""
+                    birthDate: "",
+                    zonecode: "",
+                    address: "",
+                    detailaddress: ""
                 }
 
                 await setDoc(userRef, userInfo);
@@ -98,8 +103,10 @@ export const useAuthStore = create((set, get)=>({
             }else{
                 set({user: userDoc.data()});
             }
+            return true;
         }catch(err){
             console.log(err.message);
+            return false;
         }
     },
 
