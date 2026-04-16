@@ -11,6 +11,7 @@ import Login from './pages/Login'
 import Mypage from './pages/Mypage'
 import CategoryPagePractice from './pages/CategoryPagePractice'
 import Join from './pages/Join'
+import Cart from './pages/Cart'
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -36,6 +37,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
         <Route path='/mypage' element={<Mypage />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
       <Footer />
     </>
