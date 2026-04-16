@@ -82,13 +82,20 @@ export default function Header() {
           <li>
             <Link><img src="/images/icon/search_var.svg" alt="검색" /></Link>
           </li>
-          <li>
-            {user ? (
-              <button className='logout-icon' onClick={handleLogout}><img src="/images/icon/user.svg" alt="로그아웃" /></button>
-            ):(
+          {user ? (
+            <>
+            <li>
+              <Link to="/mypage" className='mypage-icon'><img src="/images/icon/user.svg" alt="내정보" /></Link>
+            </li>
+            <li>
+              <a className='logout-icon' onClick={handleLogout}><img src="/images/icon/logout.svg" alt="로그아웃" /></a>
+            </li>
+            </>
+          ):(
+            <li>
               <Link to="/login" className='user-icon'><img src="/images/icon/login.svg" alt="로그인" /></Link>
-            )}
-          </li>
+            </li>
+          )}
           <li>
             <Link><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
           </li>
