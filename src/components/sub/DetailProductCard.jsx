@@ -21,7 +21,7 @@ export default function DetailProductCard({ item }) {
 
   return (
     <li className="product-card">
-      <Link to="/ProductDetailPage">
+      <Link to={`/product/${item.id}`}>
         <div className="card-img placeholder">
           <span>{item.selectedDevice}</span>
         </div>

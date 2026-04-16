@@ -1,7 +1,10 @@
 import React from 'react'
 import Productwrap from './Productwrap'
-import Recomand from './recomand'
-import TabWrap from './tabWrap'
+import Recommend from './Recommend'
+import TabWrap from './TabWrap'
+
+
+
 
 export default function ProductDetailPage() {
     return (
@@ -9,8 +12,8 @@ export default function ProductDetailPage() {
             <div className="inner">
 
                 <Productwrap />
-                {/* <Recomand />
-                <TabWrap /> */}
+                <Recommend />
+                <TabWrap />
 
             </div>
 

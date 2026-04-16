@@ -33,7 +33,7 @@ function App() {
 
         {/* <Route path='/:mainCate/:subCate' element={<CategoryPage />}/> */}
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
-        <Route path="/ProductDetailPage" element={<ProductDetailPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
