@@ -2,12 +2,14 @@ import React from 'react'
 import SectionTitle from '../SectionTitle'
 import "../scss/Studio.scss"
 import { Link } from 'react-router-dom'
+import FadeInSection from '../FadeInSection'
 
 export default function Studio() {
     return (
         <section className="studio-info">
             <SectionTitle title={"CASETiFY STUDiO"} subtitle={"전국 오프라인 매장에서 만나보세요!"} />
-            <div className="bg">
+            {/* <div className="bg"> */}
+            <FadeInSection direction="up" delay={0.4}>
                 <div className="inner">
                     <div className="img-box">
                         <img src="./images/main/studio/studio_pangyo.jpg" alt="판교지점" />
@@ -23,7 +25,8 @@ export default function Studio() {
                         {/* <Link className="studio-search">매장찾기</Link> */}
                     </div>
                 </div>
-            </div>
+            </FadeInSection>
+            {/* </div> */}
         </section>
     )
 }

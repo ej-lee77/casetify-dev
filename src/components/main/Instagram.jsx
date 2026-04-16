@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom'
 import SectionTitle from '../SectionTitle'
 import "../scss/maintravel.scss"
+import { StaggerContainer, StaggerItem, StaggerItemInsta } from '../StaggerList'
 
 export default function Instagram() {
     return (
@@ -12,8 +13,10 @@ export default function Instagram() {
                     subtitle="@casetify"
                     subLink="https://www.instagram.com/casetify_kr/"
                 />
-                <ul>
-                    <li>
+                {/* <ul> */}
+                <StaggerContainer>
+                    <StaggerItemInsta>
+                    {/* <li> */}
                         <p>#ILLIT_WONHEE</p>
                         <video
                             src="./video/main-instagram1.mp4"
@@ -23,8 +26,10 @@ export default function Instagram() {
                             playsInline
                             preload="auto"
                         />
-                    </li>
-                    <li>
+                    {/* </li> */}
+                    </StaggerItemInsta>
+                    <StaggerItemInsta>
+                    {/* <li> */}
                         <p>#Murakami World</p>
                         <video
                             src="./video/main-instagram2.mp4"
@@ -34,8 +39,10 @@ export default function Instagram() {
                             playsInline
                             preload="auto"
                         />
-                    </li>
-                    <li>
+                    {/* </li> */}
+                    </StaggerItemInsta>
+                    <StaggerItemInsta>
+                    {/* <li> */}
                         <p>#RISABAE</p>
                         <video
                             src="./video/main-instagram3.mp4"
@@ -45,8 +52,10 @@ export default function Instagram() {
                             playsInline
                             preload="auto"
                         />
-                    </li>
-                    <li>
+                    {/* </li> */}
+                    </StaggerItemInsta>
+                    <StaggerItemInsta>
+                    {/* <li> */}
                         <p>#Dex</p>
                         <video
                             src="./video/main-instagram4.mp4"
@@ -56,8 +65,10 @@ export default function Instagram() {
                             playsInline
                             preload="auto"
                         />
-                    </li>
-                    <li>
+                    {/* </li> */}
+                    </StaggerItemInsta>
+                    <StaggerItemInsta>
+                    {/* <li> */}
                         <p>#Girls Sweet Date</p>
                         <video
                             src="./video/main-instagram5.mp4"
@@ -67,8 +78,10 @@ export default function Instagram() {
                             playsInline
                             preload="auto"
                         />
-                    </li>
-                </ul>
+                    {/* </li> */}
+                    </StaggerItemInsta>
+                </StaggerContainer>
+                {/* </ul> */}
             </div>
         </section>
     )

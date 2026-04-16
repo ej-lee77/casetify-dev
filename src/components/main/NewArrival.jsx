@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SectionTitle from '../SectionTitle'
 import "../scss/NewArrival.scss"
 import { Link } from 'react-router-dom';
+import { StaggerContainer, StaggerItem } from '../StaggerList';
 
 // new arrival 데이터
 const newArrivalData = [
@@ -37,20 +38,29 @@ export default function NewArrival() {
             <SectionTitle title={"New Arrival"} subtitle={"케이스티파이의 새로운 제품"} />
             <div className="inner">
                 <div className="new-arr-inner-wrap">
-                    <ul className="new-arr-list">
+                    {/* <ul className="new-arr-list"> */}
+                        <StaggerContainer className='new-arr-list'>
                         {newArrivalData.map((arridata) => (
-                            <li
+                            <StaggerItem
                                 key={arridata.id}
                                 className={`arr-item ${activeTab === arridata.id ? "active" : ""}`}
                                 onClick={() => handleChange(arridata.id)}
-                                onMouseEnter={() => handleChange(arridata.id)}>
+                                onMouseEnter={() => handleChange(arridata.id)}
+                            >
+                            {/* <li
+                                key={arridata.id}
+                                className={`arr-item ${activeTab === arridata.id ? "active" : ""}`}
+                                onClick={() => handleChange(arridata.id)}
+                                onMouseEnter={() => handleChange(arridata.id)}> */}
                                 <Link to={"/"}>
                                     <img src={arridata.icon} alt={`icon_${arridata.itemColor}`} />
                                     <p className={`${arridata.itemColor}`}>{arridata.text}</p>
                                 </Link>
-                            </li>
+                            {/* </li> */}
+                            </StaggerItem>
                         ))}
-                    </ul>
+                        </StaggerContainer>
+                    {/* </ul> */}
                     <div className={`new-arr-img-box ${fade ? "fade-in" : "fade-out"}`}>
                         <Link to={"/"}>
                             <img src={activeItem.bigImg} alt={`big_img_${activeItem.text}`} />
