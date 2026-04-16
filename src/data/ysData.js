@@ -41,10 +41,9 @@ export const deviceColorOptions = {
         { key: "Blue", label: "블루 쉐도우" },
         { key: "Black", label: "제트 블랙" },
     ],
-    GalaxyZFlip7: [
-        { key: "Red", label: "코랄레드" },
-        { key: "Black", label: "제트블랙" },
-        { key: "Blue", label: "블루 쉐도우" },
+    GalaxyZFlip7: [{ key: "Black", label: "제트블랙" },
+    { key: "Red", label: "코랄레드" },
+    { key: "Blue", label: "블루 쉐도우" },
     ],
 };
 
