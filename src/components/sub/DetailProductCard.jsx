@@ -1,62 +1,53 @@
-import React from 'react'
-import "./scss/DetailProductCard.scss"
+import React from 'react';
+import "./scss/detailProductCard.scss";
 
 const colorMap = {
   Black: "#111111",
   Orange: "#ff8a00",
   Pink: "#f58bb6",
-  "Soft Blue": "#a9c9ff",
+  Lavendar: "#c8b4ff",
   "Matte Black": "#2b2b2b",
-  Frost: "#dfe7ef",
-  Silver: "#c0c0c0",
-  Multicolor: "linear-gradient(135deg, #ff7a7a, #ffd36e, #7ed6ff, #c79bff)",
-  "Matte Charcoal": "#4a4a4a",
-  "Matte Dusty Rose": "#c78f96",
-  "Matte Taupe": "#9b8b7a",
-  "Matte Deep Purple": "#5f4b8b",
-  "Glossy Primrose Pink": "#ff8fb1",
-  "Cobalt Blue": "#2457d6",
-  "Cherry Red": "#c91f37",
+  Clear: "#f1f1f1",
+  Purple: "#7b61ff",
+  Blue: "#4c8dff",
+  Navy: "#1f3b73",
 };
 
 export default function DetailProductCard({ item }) {
-  const colors = Array.isArray(item.color) ? item.color : [];
+  const colors = Array.isArray(item.caseColors) ? item.caseColors : [];
   const visibleColors = colors.slice(0, 5);
   const extraCount = colors.length - visibleColors.length;
 
   return (
-    <div className="product-card">
-      {/* 이미지 */}
-      <div className="card-img">
-        <img
-          src={`/images/category/case/${item.id}_${colors[0]}_0.jpg`}
-          alt={item.productName}
-        />
+    <li className="product-card">
+      <div className="card-img placeholder">
+        <span>{item.selectedDevice}</span>
       </div>
 
-      {/* 정보 */}
       <div className="card-info">
+        <p className="card-artist">{item.artist}</p>
         <p className="card-name">{item.productName}</p>
+        <p className="card-category">{item.caseCategory}</p>
         <p className="card-price">
-          {Number(item.price).toLocaleString()}원
+          {Number(item.price || 0).toLocaleString()}원
         </p>
+
+        <div className="card-meta">
+          <span>추천순 {item.recommendRank ?? "-"}</span>
+          <span>평점 {item.popularity ?? "-"}</span>
+        </div>
 
         {!!colors.length && (
           <div className="card-colors">
             {visibleColors.map((color) => {
               const bg = colorMap[color] || "#ddd";
-              const isGradient = bg.startsWith("linear-gradient");
 
               return (
                 <span
                   key={color}
                   className="color-chip"
                   title={color}
-                  style={
-                    isGradient
-                      ? { backgroundImage: bg }
-                      : { backgroundColor: bg }
-                  }
+                  style={{ backgroundColor: bg }}
                 />
               );
             })}
@@ -67,6 +58,6 @@ export default function DetailProductCard({ item }) {
           </div>
         )}
       </div>
-    </div>
-  )
+    </li>
+  );
 }
