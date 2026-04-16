@@ -1,0 +1,6 @@
+@use "../../../../App.scss" as g;
+
+.product-wrap {
+    @include g.myFlex($jc: normal, $ai: normal);
+
+}

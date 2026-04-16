@@ -45,8 +45,8 @@ export default function Reivew() {
                     <p>이 상품을 평가해주세요</p>
                     <i></i>
                     <div className="text-box">
-                        <input type="text">
-                            <button>리뷰등록</button>
+                        {/* <input type="text"> */}
+                        <button>리뷰등록</button>
                     </div>
                 </div>
 
@@ -58,8 +58,8 @@ export default function Reivew() {
                     <div class="best">베스트순</div>
                     <div class="new">최신순</div>
                     <div class="search-box">
-                        <input type="text" placeholder="궁금한 내용의 단어나 키워드로 검색하세요">
-                            <span class="icon">🔍</span>
+                        {/* <input type="text" placeholder="궁금한 내용의 단어나 키워드로 검색하세요"> */}
+                        <span class="icon">🔍</span>
                     </div>
                 </div>
                 <ul class="star detail">

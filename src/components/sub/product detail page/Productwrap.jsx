@@ -1,14 +1,17 @@
 import React from 'react'
-import { pdEx } from './data/pdEx'
+import { pdEx } from './data/pdEx';
+import "./scss/productwrap.scss"
+import "./css/productwrap.css"
 
 export default function Productwrap() {
     return (
         <>
-            {pd.map((P) => (
+            {pdEx.map((P) => (
                 <div className="product-wrap" key={P.id}>
 
                     {/* LEFT */}
                     <div className="left">
+
                         <div className="img-color-bar">
                             <div className="now-color">
                                 {P.colors?.[0]?.name}
@@ -25,7 +28,7 @@ export default function Productwrap() {
 
                         <div className="product-img">
                             <div className="product-main-img">
-                                <img src={P.mainImage} alt="" />
+                                <img src="" alt="" />
                             </div>
 
                             <div className="product-sub-img">
@@ -48,12 +51,12 @@ export default function Productwrap() {
                             <div className="raer">한정</div>
                         </div>
 
-                        <p className="product-title">{P.title}</p>
+                        <p className="product-title">{P.name}</p>
                         <p className="product-price">
                             {P.price.toLocaleString()}원
                         </p>
 
-                        <div className="product-number">{P.productNo}</div>
+                        <div className="product-number">{P.modelCode}</div>
 
                         {/* 기종 */}
                         <div className="model">
@@ -82,4 +85,5 @@ export default function Productwrap() {
                 </div>
             ))}
         </>
-    );
+    )
+};

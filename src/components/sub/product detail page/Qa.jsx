@@ -8,8 +8,8 @@ export default function Qa() {
                 <button>상품관련 문의</button>
                 <button>배송관련 문의</button>
                 <div className="search-box">
-                    <input type="text" placeholder="궁금한 내용의 단어나 키워드로 검색하세요">
-                        <span className="icon">🔍</span>
+                    {/* <input type="text" placeholder="궁금한 내용의 단어나 키워드로 검색하세요"> */}
+                    <span className="icon">🔍</span>
                 </div>
                 <div className="qa-list">
                     <div className="product-header">

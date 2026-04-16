@@ -11,6 +11,7 @@ import Login from './pages/Login'
 import Mypage from './pages/Mypage'
 import CategoryPagePractice from './pages/CategoryPagePractice'
 import Join from './pages/Join'
+import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -32,6 +33,7 @@ function App() {
 
         {/* <Route path='/:mainCate/:subCate' element={<CategoryPage />}/> */}
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
+        <Route path="/ProductDetailPage" element={<ProductDetailPage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />

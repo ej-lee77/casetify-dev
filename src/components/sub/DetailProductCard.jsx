@@ -1,5 +1,6 @@
 import React from 'react';
 import "./scss/detailProductCard.scss";
+import { Link } from 'react-router-dom';
 
 const colorMap = {
   Black: "#111111",
@@ -20,44 +21,45 @@ export default function DetailProductCard({ item }) {
 
   return (
     <li className="product-card">
-      <div className="card-img placeholder">
-        <span>{item.selectedDevice}</span>
-      </div>
-
-      <div className="card-info">
-        <p className="card-artist">{item.artist}</p>
-        <p className="card-name">{item.productName}</p>
-        <p className="card-category">{item.caseCategory}</p>
-        <p className="card-price">
-          {Number(item.price || 0).toLocaleString()}원
-        </p>
-
-        <div className="card-meta">
-          <span>추천순 {item.recommendRank ?? "-"}</span>
-          <span>평점 {item.popularity ?? "-"}</span>
+      <Link to="/ProductDetailPage">
+        <div className="card-img placeholder">
+          <span>{item.selectedDevice}</span>
         </div>
 
-        {!!colors.length && (
-          <div className="card-colors">
-            {visibleColors.map((color) => {
-              const bg = colorMap[color] || "#ddd";
+        <div className="card-info">
+          <p className="card-artist">{item.artist}</p>
+          <p className="card-name">{item.productName}</p>
+          <p className="card-category">{item.caseCategory}</p>
+          <p className="card-price">
+            {Number(item.price || 0).toLocaleString()}원
+          </p>
 
-              return (
-                <span
-                  key={color}
-                  className="color-chip"
-                  title={color}
-                  style={{ backgroundColor: bg }}
-                />
-              );
-            })}
-
-            {extraCount > 0 && (
-              <span className="color-more">+{extraCount}</span>
-            )}
+          <div className="card-meta">
+            <span>추천순 {item.recommendRank ?? "-"}</span>
+            <span>평점 {item.popularity ?? "-"}</span>
           </div>
-        )}
-      </div>
+
+          {!!colors.length && (
+            <div className="card-colors">
+              {visibleColors.map((color) => {
+                const bg = colorMap[color] || "#ddd";
+
+                return (
+                  <span
+                    key={color}
+                    className="color-chip"
+                    title={color}
+                    style={{ backgroundColor: bg }}
+                  />
+                );
+              })}
+
+              {extraCount > 0 && (
+                <span className="color-more">+{extraCount}</span>
+              )}
+            </div>
+          )}
+        </div></Link>
     </li>
   );
 }

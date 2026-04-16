@@ -6,16 +6,16 @@ import TabWrap from './tabWrap'
 export default function ProductDetailPage() {
     return (
         <>
-            <inner>
+            <div className="inner">
 
                 <Productwrap />
-                <Recomand />
-                <TabWrap />
+                {/* <Recomand />
+                <TabWrap /> */}
+
+            </div>
 
 
 
-
-            </inner>
 
 
         </>
