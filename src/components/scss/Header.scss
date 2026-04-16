@@ -10,6 +10,10 @@ header.white {
     .logo img {
         filter: none;
     }
+
+    .user-icon::after, .logout-icon::after{
+        color: #fff;
+    }
 }
 
 header {
@@ -101,8 +105,18 @@ header {
                     left: 50%;
                     transform: translateX(-50%);
                 }
+                .logout-icon::after{
+                    content: "로그아웃";
+                    display: none;
+                    position: absolute;
+                    width: 30px;
+                    height: 10px;
+                    font-size: 0.6em;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
 
-                &:hover .user-icon::after{
+                &:hover .user-icon::after, &:hover .logout-icon::after{
                     display: block;
                 }
             }
