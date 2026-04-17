@@ -55,8 +55,8 @@ export const useAuthStore = create((set, get)=>({
             set({user: userInfo});
             return true;
         }catch(err){
-            alert(err.message);
-            return false;
+            // alert(err.message);
+            return err.code;
         }
     },
 
@@ -227,8 +227,14 @@ export const useAuthStore = create((set, get)=>({
 
     // 로그아웃
     onLogout: async ()=>{
-        await signOut(auth);
-        set({user: null});
+        try{
+            await signOut(auth);
+            set({user: null});
+            return true;
+        }catch(err){
+            console.error('로그아웃 오류:', err);
+            return false;
+        }
     }
 
 }));

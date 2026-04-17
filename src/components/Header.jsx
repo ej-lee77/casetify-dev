@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useProductStore } from '../store/useProductStore';
 import "./scss/Header.scss"
 import { useMainSlider } from '../store/useMainSlider';
@@ -10,8 +10,7 @@ export default function Header() {
   const {user, onLogout} = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
 
-  //헤더글자색 변경
-  const headerColor = useMainSlider((state) => state.headerColor)
+  const navigate = useNavigate();
 
   // 스크롤 체크 변수
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,11 +18,15 @@ export default function Header() {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
+  //헤더글자색 변경
+  const {headerColor, setHeaderColor} = useMainSlider();
+
   // 윈도우 스크롤 이벤트 + 스크롤 위치 체크
   useEffect(() => {
     // 현재 위치 확인
     if (!isHome) {
       setIsScrolled(true);
+      setHeaderColor("#2f2f2f");
       return;
     }
 
@@ -39,9 +42,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome, MenuActive])
 
-  const handleLogout = ()=>{
-    onLogout();
-    navigate("/");
+  const handleLogout = async()=>{
+    const isLogout = await onLogout();
+
+    if(isLogout){
+      navigate("/");
+    }
   }
   console.log("here",user);
 

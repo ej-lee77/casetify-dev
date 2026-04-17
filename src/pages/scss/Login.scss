@@ -3,6 +3,7 @@
 .login-wrap{
     margin: 80px 0;
     padding-top: 100px;
+    position: relative;
 
     .inner{
         max-width: 500px;
@@ -19,7 +20,7 @@
                 width: 100%;
                 border: none;
                 border-bottom: solid #aaaaaa 1px;
-                padding-bottom: 10px;
+                padding: 10px 0;
                 padding-left: 10px;
                 position: relative;
                 background: none;
@@ -202,9 +203,77 @@
                 }
             }
         }
+        .err-box{
+            position: relative;
+            p{
+                position: absolute;
+                width: 100%;
+                height: 20px;
+                top: 20px;
+                left: 0;
+                font-size: 0.88em;
+                padding-left: 10px;
+                color: g.$text-sale;
+                text-align: center
+            }
+        }
+
+        .banner-item {
+            margin-top: 50px;
+            overflow: hidden;
+            width: 120%;
+            position: relative;
+            display: flex;
+            left: 50%;
+            transform: translateX(-50%);
+
+            .text-box {
+                padding: 24px;
+                white-space: pre-line;
+                position: absolute;
+                top: 50%;
+                left: 0%;
+                transform: translate(0%, -50%);
+
+                .text1 {
+                    // font-weight: 700;
+                    font-size: 1.25em;
+                }
+
+                .text2 {
+                    margin-top: 4px;
+                    font-weight: lighter;
+                    font-size: 0.88em;
+                }
+            }
+        }
 
     }
+    .modal-overlay{
+        @include g.pos-center();
+        @include g.myFlex($jc: center, $gap: unset);
+        width: 400px;
+        height: 200px;
+        border: 1px solid g.$text-strike;
+        background: #fff;
+        z-index: 10;
+        animation: fadeIn 0.5s ease-in-out forwards;
 
+        .modal-content{
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        &.active{
+            height: 200px;
+            border: 1px solid g.$text-strike;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 }
 
 .join-wrap{
@@ -221,7 +290,12 @@
             z-index: 1;
         }
 
+        input::placeholder { color: #aaaaaa; }
         input:focus { outline: none; }
+
+        input:read-only{
+            background: #ddd;
+        }
 
         .join-progress{
             @include g.myFlex($jc: center, $gap: 70px);
@@ -275,6 +349,11 @@
             .label-div{
                 width: 30%;
                 text-align: center;
+                span{
+                    color: g.$text-sale;
+                    font-size: 0.7em;
+                    padding-left: 5px;
+                }
             }
             .input-div{
                 width: 100%;
@@ -291,7 +370,6 @@
                     bottom: -25px;
                     left: 0;
                     font-size: 0.88em;
-                    color: g.$text-sub;
                     padding-left: 10px;
                     color: g.$text-sale;
                 }
@@ -314,9 +392,6 @@
             }
             .react-datepicker-wrapper{
                 width: 100%;
-                .react-datepicker__input-container{
-                    width: 80%;
-                }
             }
             .react-datepicker-popper {
                 z-index: 10;
@@ -351,8 +426,22 @@
         }
         .input-btn-box{
             text-align: center;
+            position: relative;
+
             .input-btn{
                 width: 500px;
+            }
+            
+            p{
+                position: absolute;
+                width: 100%;
+                height: 20px;
+                top: 20px;
+                left: 0;
+                font-size: 0.88em;
+                padding-left: 10px;
+                color: g.$text-sale;
+                text-align: center
             }
         }
         .post-modal{
@@ -360,5 +449,25 @@
                 margin: 5px 0;
             }
         }
+
+        .complete-msg{
+            margin: 180px 0;
+            text-align: center;
+            font-size: 2em;
+
+            &::after{
+                content: "";
+                background-image: url("/images/waveBg-orange.png");
+                display: block;
+                width: 100vw;
+                height: 500px;
+                position: absolute;
+                left: 0;
+            }
+            .input-btn{
+                width: 500px;
+            }
+        }
+
     }
 }
