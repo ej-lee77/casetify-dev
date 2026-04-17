@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./scss/categoryProductCard.scss";
 import { modelColorOptions, colorMap } from "../../data/finalData";
 
@@ -22,46 +23,48 @@ export default function CategoryPhoneProductCard({ item }) {
 
     return (
         <li className="product-card">
-            <div className="card-img">
-                {!isImageError ? (
-                    <img
-                        src={imagePath}
-                        alt={item.productName}
-                        onError={handleError}
-                    />
-                ) : (
-                    <p className="image-error-path">{imagePath}</p>
-                )}
-            </div>
+            <Link to={`/detail/${item.id}`} className="card-link">
+                <div className="card-img">
+                    {!isImageError ? (
+                        <img
+                            src={imagePath}
+                            alt={item.productName}
+                            onError={handleError}
+                        />
+                    ) : (
+                        <p className="image-error-path">{imagePath}</p>
+                    )}
+                </div>
 
-            <div className="card-info">
-                <p className="card-name">{item.productName}</p>
+                <div className="card-info">
+                    <p className="card-name">{item.productName}</p>
 
-                <p className="card-sub">
-                    {item.modelLabel} · {item.caseCategory}
-                </p>
+                    <p className="card-sub">
+                        {item.modelLabel} · {item.caseCategory}
+                    </p>
 
-                <p className="card-price">
-                    {Number(item.price || 0).toLocaleString()}원
-                </p>
+                    <p className="card-price">
+                        {Number(item.price || 0).toLocaleString()}원
+                    </p>
 
-                {!!colors.length && (
-                    <div className="card-colors">
-                        {visibleColors.map((color) => (
-                            <span
-                                key={color}
-                                className="color-chip"
-                                title={color}
-                                style={{ backgroundColor: colorMap[color] || "#ddd" }}
-                            />
-                        ))}
+                    {!!colors.length && (
+                        <div className="card-colors">
+                            {visibleColors.map((color) => (
+                                <span
+                                    key={color}
+                                    className="color-chip"
+                                    title={color}
+                                    style={{ backgroundColor: colorMap[color] || "#ddd" }}
+                                />
+                            ))}
 
-                        {extraCount > 0 && (
-                            <span className="color-more">+{extraCount}</span>
-                        )}
-                    </div>
-                )}
-            </div>
+                            {extraCount > 0 && (
+                                <span className="color-more">+{extraCount}</span>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </Link>
         </li>
     );
 }

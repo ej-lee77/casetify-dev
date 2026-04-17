@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./scss/categoryProductCard.scss";
 
 export default function CategoryEtcProductCard({ item }) {
@@ -20,37 +21,39 @@ export default function CategoryEtcProductCard({ item }) {
 
     return (
         <li className="product-card">
-            <div className="card-img">
-                {!isImageError ? (
-                    <img
-                        src={imagePath}
-                        alt={item.productName}
-                        onError={handleError}
-                    />
-                ) : (
-                    <p className="image-error-path">{imagePath}</p>
-                )}
-            </div>
+            <Link to={`/detail/${item.id}`} className="card-link">
+                <div className="card-img">
+                    {!isImageError ? (
+                        <img
+                            src={imagePath}
+                            alt={item.productName}
+                            onError={handleError}
+                        />
+                    ) : (
+                        <p className="image-error-path">{imagePath}</p>
+                    )}
+                </div>
 
-            <div className="card-info">
-                <p className="card-name">{item.productName}</p>
+                <div className="card-info">
+                    <p className="card-name">{item.productName}</p>
 
-                {!!item.caseCategory && (
-                    <p className="card-sub">{item.caseCategory}</p>
-                )}
+                    {!!item.caseCategory && (
+                        <p className="card-sub">{item.caseCategory}</p>
+                    )}
 
-                {!item.caseCategory && !!item.modelLabel && (
-                    <p className="card-sub">{item.modelLabel}</p>
-                )}
+                    {!item.caseCategory && !!item.modelLabel && (
+                        <p className="card-sub">{item.modelLabel}</p>
+                    )}
 
-                {!item.caseCategory && !item.modelLabel && compatibleModels.length > 0 && (
-                    <p className="card-sub">{compatibleModels[0]}</p>
-                )}
+                    {!item.caseCategory && !item.modelLabel && compatibleModels.length > 0 && (
+                        <p className="card-sub">{compatibleModels[0]}</p>
+                    )}
 
-                <p className="card-price">
-                    {Number(item.price || 0).toLocaleString()}원
-                </p>
-            </div>
+                    <p className="card-price">
+                        {Number(item.price || 0).toLocaleString()}원
+                    </p>
+                </div>
+            </Link>
         </li>
     );
 }
