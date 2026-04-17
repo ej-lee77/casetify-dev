@@ -100,10 +100,10 @@ export default function Collab() {
         <section className='collab-wrap'>
             <FadeInSection direction="up" delay={0.4}>
                 <Swiper modules={[Autoplay,]}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false
-                    }}
+                    // autoplay={{
+                    //     delay: 3000,
+                    //     disableOnInteraction: false
+                    // }}
                     loop={true}
 
                     slidesPerView={5}
@@ -119,10 +119,10 @@ export default function Collab() {
                                     <img src={item.colImg} alt="" /></div>
                                 <div className="card-content">
                                     <div>
-                                        <img src={item.themeImg} alt={item.title} className='theme-img' />
+                                        {/* <img src={item.themeImg} alt={item.title} className='theme-img' /> */}
                                         <p>{item.title}</p>
                                     </div>
-                                    <p className='price'>{item.price}</p>
+                                    {/* <p className='price'>{item.price}</p> */}
                                 </div>
                                 <button className="more-btn">컬렉션 더보기 +</button>
                             </div>
