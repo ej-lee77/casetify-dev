@@ -67,8 +67,8 @@ export const useCategoryStore = create((set, get) => ({
                 caseCategorySet.add(item.caseCategory);
             }
 
-            if (item.deviceBrand && item.selectedDevice && brandMap[item.deviceBrand]) {
-                brandMap[item.deviceBrand].add(item.selectedDevice);
+            if (item.brand && item.modelLabel && brandMap[item.brand]) {
+                brandMap[item.brand].add(item.modelLabel);
             }
         });
 
@@ -260,7 +260,7 @@ export const useCategoryStore = create((set, get) => ({
 
             if (
                 selectedFilters.devices.length > 0 &&
-                !selectedFilters.devices.includes(item.selectedDevice)
+                !selectedFilters.devices.includes(item.modelLabel)
             ) {
                 return false;
             }
