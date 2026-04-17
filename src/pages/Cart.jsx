@@ -198,13 +198,13 @@ export default function Cart() {
             </li>
             <li className="payment-progress-item">
               <div className="icon-box">
-                <img src="./images/icon/cart.svg" alt="장바구니" />
+                <img src="./images/cart/bank-card.svg" alt="주문/결제" />
               </div>
               <p>주문/결제</p>
             </li>
             <li className="payment-progress-item">
               <div className="icon-box">
-                <img src="./images/icon/cart.svg" alt="장바구니" />
+                <img src="./images/cart/order_completed.svg" alt="장바구니" />
               </div>
               <p>주문완료</p>
             </li>
@@ -217,7 +217,9 @@ export default function Cart() {
             {/* 장바구니 제목 */}
             <div className="cart-title">
               <div className="cart-title-left">
-                <input type="checkbox" />
+                <label>
+                  <input type="checkbox" />
+                </label>
                 <p>상품정보</p>
               </div>
               <div className="cart-title-right">
@@ -229,7 +231,9 @@ export default function Cart() {
             <ul className="cart-item-list">
               {tempItem.map((item) => (
                 <li key={item.id} className="cart-item">
-                  <input type="checkbox" />
+                  <label>
+                    <input type="checkbox" />
+                  </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
                       <div className="goods-img">
