@@ -1,21 +1,49 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { brandDeviceOptions } from "../data/ysData";
+import { phoneModelOptions, colorMap } from "../data/finalData";
 import { useCategoryProductStore } from "../store/useCategoryProductStore";
-import DetailProductCard from "../components/sub/DetailProductCard";
 import "./scss/CategoryPage.scss";
+import CategoryPhoneProductCard from "../components/sub/CategoryPhoneProductCard";
+import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
 
-const colorMap = {
-    Black: "#111111",
-    Orange: "#ff8a00",
-    Pink: "#f58bb6",
-    Lavendar: "#c8b4ff",
-    "Matte Black": "#2b2b2b",
-    Clear: "#f1f1f1",
-    Purple: "#7b61ff",
-    Blue: "#4c8dff",
-    Navy: "#1f3b73",
+const MINI_KEY_MAP = {
+    핸드폰: "phone",
+    이어폰: "earphone",
+    노트북: "laptop",
+    워치: "watch",
+    태블릿: "tablet",
+    컬러: "color",
+    패턴: "pattern",
+    시그니처: "signature",
+    캐릭터: "character",
+    아트: "art",
+    "영화&엔터": "movie",
+    "패션&라이프스타일": "fashion",
+    스포츠: "sports",
 };
+
+const MINI_ICON = {
+    핸드폰: "phone",
+    이어폰: "earphone",
+    노트북: "laptop",
+    워치: "watch",
+    태블릿: "tablet",
+    컬러: "color",
+    패턴: "pattern",
+    시그니처: "signature",
+    캐릭터: "character",
+    아트: "art",
+    "영화&엔터": "movie",
+    "패션&라이프스타일": "fashion",
+    스포츠: "sports",
+};
+
+const SORT_OPTIONS = [
+    { key: "recommend", label: "추천순" },
+    { key: "popular", label: "인기순" },
+    { key: "highPrice", label: "높은가격순" },
+    { key: "lowPrice", label: "낮은가격순" },
+];
 
 export default function CategoryPagePractice() {
     const { mainCate, subCate } = useParams();
@@ -28,7 +56,6 @@ export default function CategoryPagePractice() {
     } = useCategoryProductStore();
 
     const [activeMini, setActiveMini] = useState("");
-
     const [sortType, setSortType] = useState("recommend");
     const [isSortOpen, setIsSortOpen] = useState(false);
 
@@ -48,30 +75,8 @@ export default function CategoryPagePractice() {
     const subCateKo = currentSub?.name || "";
     const miniCate = currentSub?.mini || [];
 
-    const canSelectDevice = !!activeMini;
-
-    const MINI_ICON = {
-        핸드폰: "phone",
-        이어폰: "earphone",
-        노트북: "laptop",
-        워치: "watch",
-        태블릿: "tablet",
-        컬러: "color",
-        패턴: "pattern",
-        시그니처: "signature",
-        캐릭터: "character",
-        아트: "art",
-        "영화&엔터": "movie",
-        "패션&라이프스타일": "fashion",
-        스포츠: "sports",
-    };
-
-    const SORT_OPTIONS = [
-        { key: "recommend", label: "추천순" },
-        { key: "popular", label: "인기순" },
-        { key: "highPrice", label: "높은가격순" },
-        { key: "lowPrice", label: "낮은가격순" },
-    ];
+    const activeMiniKey = activeMini ? MINI_KEY_MAP[activeMini] : null;
+    const canSelectDevice = activeMiniKey === "phone";
 
     useEffect(() => {
         onFetchItems();
@@ -93,23 +98,21 @@ export default function CategoryPagePractice() {
     }, [mainCate, subCate]);
 
     useEffect(() => {
-        if (!mainCateKo || !subCateKo) return;
+        if (!mainCate || !subCate) return;
 
         if (activeMini) {
-            onFilterCategory(mainCateKo, subCateKo, activeMini);
+            onFilterCategory(mainCate, subCate, activeMini);
         } else {
-            onFilterCategory(mainCateKo, subCateKo);
+            onFilterCategory(mainCate, subCate);
         }
-    }, [mainCateKo, subCateKo, activeMini, onFilterCategory]);
+    }, [mainCate, subCate, activeMini, onFilterCategory]);
 
     const onHandleMiniCategory = (mini) => {
         const nextMini = activeMini === mini ? "" : mini;
 
         setActiveMini(nextMini);
-
         setSelectedDevice("");
         setIsDeviceOpen(false);
-
         setSelectedCaseCategory("");
         setSelectedMagSafe("");
         setSelectedColor("");
@@ -128,40 +131,85 @@ export default function CategoryPagePractice() {
         setSelectedDevice("");
     };
 
-    const caseCategoryOptions = [...new Set(categoryItems.map((item) => item.caseCategory))];
-    const colorOptions = Object.keys(colorMap);
+    const caseCategoryOptions = [
+        ...new Set(categoryItems.map((item) => item.caseCategory).filter(Boolean)),
+    ];
+
+    const colorOptions = [
+        ...new Set(
+            categoryItems.flatMap((item) =>
+                Array.isArray(item.caseColors) ? item.caseColors : []
+            )
+        ),
+    ];
+
+    const filteredBrandDeviceOptions = useMemo(() => {
+        if (!canSelectDevice) {
+            return { Apple: [], Samsung: [], Google: [] };
+        }
+
+        const result = {
+            Apple: new Set(),
+            Samsung: new Set(),
+            Google: new Set(),
+        };
+
+        categoryItems.forEach((item) => {
+            if (
+                item.productTarget === "phone" &&
+                item.brand &&
+                item.modelLabel &&
+                result[item.brand]
+            ) {
+                result[item.brand].add(item.modelLabel);
+            }
+        });
+
+        return {
+            Apple: [...result.Apple],
+            Samsung: [...result.Samsung],
+            Google: [...result.Google],
+        };
+    }, [categoryItems, canSelectDevice]);
 
     const deviceFilteredItems = selectedDevice
-        ? categoryItems.filter((item) => item.selectedDevice === selectedDevice)
+        ? categoryItems.filter((item) => item.modelLabel === selectedDevice)
         : categoryItems;
 
     const filteredItems = deviceFilteredItems.filter((item) => {
-        if (selectedCaseCategory && item.caseCategory !== selectedCaseCategory) return false;
+        if (selectedCaseCategory && item.caseCategory !== selectedCaseCategory) {
+            return false;
+        }
 
         if (selectedMagSafe !== "") {
             const isMagSafeValue = selectedMagSafe === "true";
             if (item.isMagSafe !== isMagSafeValue) return false;
         }
 
-        if (selectedColor && !(item.caseColors || []).includes(selectedColor)) return false;
+        if (
+            selectedColor &&
+            !(Array.isArray(item.caseColors) ? item.caseColors : []).includes(selectedColor)
+        ) {
+            return false;
+        }
 
         return true;
     });
 
     const sortedItems = [...filteredItems].sort((a, b) => {
         if (sortType === "popular") {
-            return b.popularity - a.popularity;
+            return Number(b.popularity || 0) - Number(a.popularity || 0);
         }
 
         if (sortType === "highPrice") {
-            return b.price - a.price;
+            return Number(b.price || 0) - Number(a.price || 0);
         }
 
         if (sortType === "lowPrice") {
-            return a.price - b.price;
+            return Number(a.price || 0) - Number(b.price || 0);
         }
 
-        return 0;
+        return (a.recommendRank ?? 9999) - (b.recommendRank ?? 9999);
     });
 
     const selectedFilterTags = useMemo(() => {
@@ -291,7 +339,9 @@ export default function CategoryPagePractice() {
                                                     type="button"
                                                     className={selectedMagSafe === "true" ? "active" : ""}
                                                     onClick={() =>
-                                                        setSelectedMagSafe((prev) => (prev === "true" ? "" : "true"))
+                                                        setSelectedMagSafe((prev) =>
+                                                            prev === "true" ? "" : "true"
+                                                        )
                                                     }
                                                 >
                                                     지원
@@ -300,7 +350,9 @@ export default function CategoryPagePractice() {
                                                     type="button"
                                                     className={selectedMagSafe === "false" ? "active" : ""}
                                                     onClick={() =>
-                                                        setSelectedMagSafe((prev) => (prev === "false" ? "" : "false"))
+                                                        setSelectedMagSafe((prev) =>
+                                                            prev === "false" ? "" : "false"
+                                                        )
                                                     }
                                                 >
                                                     미지원
@@ -321,7 +373,7 @@ export default function CategoryPagePractice() {
                                                                 prev === color ? "" : color
                                                             )
                                                         }
-                                                        style={{ backgroundColor: colorMap[color] }}
+                                                        style={{ backgroundColor: colorMap[color] || "#ddd" }}
                                                         title={color}
                                                         aria-label={color}
                                                     />
@@ -350,63 +402,60 @@ export default function CategoryPagePractice() {
                                 )}
                             </div>
 
-                            <div className="device-select-wrap">
-                                <button
-                                    type="button"
-                                    className={`device-select-btn ${!canSelectDevice ? "disabled" : ""}`}
-                                    onClick={() => {
-                                        if (!canSelectDevice) return;
-                                        setIsDeviceOpen((prev) => !prev);
-                                    }}
-                                >
-                                    {!canSelectDevice
-                                        ? "mini 먼저 선택"
-                                        : (selectedDevice || "기기 선택")}
-                                </button>
+                            {canSelectDevice && (
+                                <div className="device-select-wrap">
+                                    <button
+                                        type="button"
+                                        className="device-select-btn"
+                                        onClick={() => setIsDeviceOpen((prev) => !prev)}
+                                    >
+                                        {selectedDevice || "기기 선택"}
+                                    </button>
 
-                                {isDeviceOpen && canSelectDevice && (
-                                    <div className="device-select-panel">
-                                        <div className="device-brand-tabs">
-                                            {Object.keys(brandDeviceOptions).map((brand) => (
+                                    {isDeviceOpen && (
+                                        <div className="device-select-panel">
+                                            <div className="device-brand-tabs">
+                                                {Object.keys(phoneModelOptions).map((brand) => (
+                                                    <button
+                                                        key={brand}
+                                                        type="button"
+                                                        className={selectedBrand === brand ? "active" : ""}
+                                                        onClick={() => setSelectedBrand(brand)}
+                                                    >
+                                                        {brand}
+                                                    </button>
+                                                ))}
+                                            </div>
+
+                                            <div className="device-model-list">
+                                                {filteredBrandDeviceOptions[selectedBrand]?.map((device) => (
+                                                    <button
+                                                        key={device}
+                                                        type="button"
+                                                        className={selectedDevice === device ? "active" : ""}
+                                                        onClick={() => onHandleDeviceSelect(device)}
+                                                    >
+                                                        {device}
+                                                    </button>
+                                                ))}
+                                            </div>
+
+                                            <div className="device-panel-bottom">
                                                 <button
-                                                    key={brand}
                                                     type="button"
-                                                    className={selectedBrand === brand ? "active" : ""}
-                                                    onClick={() => setSelectedBrand(brand)}
+                                                    className="device-clear-btn"
+                                                    onClick={() => {
+                                                        setSelectedDevice("");
+                                                        setIsDeviceOpen(false);
+                                                    }}
                                                 >
-                                                    {brand}
+                                                    선택취소
                                                 </button>
-                                            ))}
+                                            </div>
                                         </div>
-
-                                        <div className="device-model-list">
-                                            {brandDeviceOptions[selectedBrand]?.map((device) => (
-                                                <button
-                                                    key={device}
-                                                    type="button"
-                                                    className={selectedDevice === device ? "active" : ""}
-                                                    onClick={() => onHandleDeviceSelect(device)}
-                                                >
-                                                    {device}
-                                                </button>
-                                            ))}
-                                        </div>
-
-                                        <div className="device-panel-bottom">
-                                            <button
-                                                type="button"
-                                                className="device-clear-btn"
-                                                onClick={() => {
-                                                    setSelectedDevice("");
-                                                    setIsDeviceOpen(false);
-                                                }}
-                                            >
-                                                선택취소
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                                    )}
+                                </div>
+                            )}
                         </div>
 
                         <div className="category-control-right">
@@ -473,9 +522,13 @@ export default function CategoryPagePractice() {
 
                     {sortedItems.length > 0 ? (
                         <ul className="product-list">
-                            {sortedItems.map((item) => (
-                                <DetailProductCard key={item.id} item={item} />
-                            ))}
+                            {sortedItems.map((item) =>
+                                item.productTarget === "phone" ? (
+                                    <CategoryPhoneProductCard key={item.id} item={item} />
+                                ) : (
+                                    <CategoryEtcProductCard key={item.id} item={item} />
+                                )
+                            )}
                         </ul>
                     ) : (
                         <p className="empty-message">해당 조건의 상품이 없습니다.</p>
