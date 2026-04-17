@@ -1,20 +1,20 @@
 import { create } from "zustand";
-import { items } from "../data/practiceData";
+import { items } from "../data/finalData";
 
 const MINI_KEY_MAP = {
-    "핸드폰": "phone",
-    "이어폰": "earphone",
-    "노트북": "laptop",
-    "워치": "watch",
-    "태블릿": "tablet",
-    "컬러": "color",
-    "패턴": "pattern",
-    "시그니처": "signature",
-    "캐릭터": "character",
-    "아트": "art",
+    핸드폰: "phone",
+    이어폰: "earphone",
+    노트북: "laptop",
+    워치: "watch",
+    태블릿: "tablet",
+    컬러: "color",
+    패턴: "pattern",
+    시그니처: "signature",
+    캐릭터: "character",
+    아트: "art",
     "영화&엔터": "movie",
     "패션&라이프스타일": "fashion",
-    "스포츠": "sports",
+    스포츠: "sports",
 };
 
 export const useCategoryProductStore = create((set, get) => ({
@@ -79,13 +79,21 @@ export const useCategoryProductStore = create((set, get) => ({
     },
 
     onFilterCategory: (mainCate, subCate, miniCate = null) => {
-        const items = get().items;
+        const allItems = get().items;
         const miniKey = miniCate ? MINI_KEY_MAP[miniCate] : null;
 
-        const filtered = items.filter((item) => {
+        const filtered = allItems.filter((item) => {
             if (item.mainCategory !== mainCate) return false;
+
+            // mini 선택 전: 해당 subCate 전체만 보여주기
+            if (miniKey === null) {
+                return item.displaySubCategories?.includes(subCate);
+            }
+
+            // mini 선택 후: sub + mini 모두 맞는 것만
             if (!item.displaySubCategories?.includes(subCate)) return false;
-            if (miniKey !== null && !item.displayMiniCategories?.includes(miniKey)) return false;
+            if (!item.displayMiniCategories?.includes(miniKey)) return false;
+
             return true;
         });
 
