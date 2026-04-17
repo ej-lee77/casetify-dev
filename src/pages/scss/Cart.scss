@@ -104,7 +104,7 @@
                             // border: 1px solid #989898;
                             @include g.myFlex($ai: center, $gap: 20px);
                             flex: 1;
-                            background-color: #eeeeee;
+                            background-color: #f5f5f5;
                             padding: 1.5em;
 
                             // 제품사진, 정보
@@ -202,7 +202,8 @@
                 // 가격 정보 영역
                 .price-info-wrap {
                     @include g.myFlex($fd: column, $ai: null);
-                    background-color: #eeeeee;
+                    // background-color: #eeeeee;
+                    border: 1px solid #b4b4b4;
                     padding: 1.5em;
                     margin-bottom: 1em;
 
