@@ -1,5 +1,6 @@
 import React from 'react';
 import "./scss/detailProductCard.scss";
+import { deviceColorOptions } from "../../data/ysData";
 import { Link } from 'react-router-dom';
 
 const colorMap = {
@@ -14,30 +15,33 @@ const colorMap = {
   Navy: "#1f3b73",
 };
 
+
 export default function DetailProductCard({ item }) {
+  if (!item) return null;
+
   const colors = Array.isArray(item.caseColors) ? item.caseColors : [];
+  const deviceColors = deviceColorOptions[item.deviceKey] || [];
+  const deviceColorKey = deviceColors[0]?.key || "Black";
   const visibleColors = colors.slice(0, 5);
   const extraCount = colors.length - visibleColors.length;
+  const imagePath = `/images/category/products/${item.id}_${item.deviceKey}_${deviceColorKey}_${item.mainCaseColor}_main.jpg`;
 
   return (
     <li className="product-card">
-      <Link to={`/product/${item.id}`}>
-        <div className="card-img placeholder">
-          <span>{item.selectedDevice}</span>
-        </div>
+      <div className="card-img">
+        <img
+          src={imagePath}
+          alt={item.productName}
+        />
+      </div>
+      <div className="card-info">
+        <p className="card-name">{item.productName}</p>
+        <p className="card-selectedDevice">{item.selectedDevice}</p>
+        <p className="card-category">{item.caseCategory}</p>
+        <p className="card-price">
+          {Number(item.price || 0).toLocaleString()}원
+        </p>
 
-        <div className="card-info">
-          <p className="card-artist">{item.artist}</p>
-          <p className="card-name">{item.productName}</p>
-          <p className="card-category">{item.caseCategory}</p>
-          <p className="card-price">
-            {Number(item.price || 0).toLocaleString()}원
-          </p>
-
-          <div className="card-meta">
-            <span>추천순 {item.recommendRank ?? "-"}</span>
-            <span>평점 {item.popularity ?? "-"}</span>
-          </div>
 
           {!!colors.length && (
             <div className="card-colors">
@@ -59,7 +63,7 @@ export default function DetailProductCard({ item }) {
               )}
             </div>
           )}
-        </div></Link>
+        </div>
     </li>
   );
 }
