@@ -171,6 +171,12 @@ footer {
     position: fixed;
     right: 32px;
     bottom: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+        transform: translateY(-5px);
+    }
 
     &.active{
         display: inline-flex;
