@@ -144,10 +144,11 @@ export default function BestProduct() {
     return (
         <section className='bp-wrap'>
             <div className="inner">
-                <SectionTitle
-                    title="Best Product"
-                    subtitle="지금 케이스티파이에서 가장핫한 제품" />
-
+                <FadeInSection direction="up" delay={0.2}>
+                    <SectionTitle
+                        title="Best Product"
+                        subtitle="지금 케이스티파이에서 가장핫한 제품" />
+                </FadeInSection>
                 <div className="all">
                     <div className="left">
                         <SlideInSection direction="left" delay={0.4}>

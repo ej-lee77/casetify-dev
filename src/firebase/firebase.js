@@ -14,7 +14,7 @@ const firebaseConfig = {
     projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
     storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
@@ -26,3 +26,6 @@ export const googleProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 // 파일업로드용, 상품 이미지 등록 ...
 export const storage = getStorage(app);
+
+export const kakaoProvider = import.meta.env.VITE_KAKAO_API_KEY;
+export const naverProvider = import.meta.env.VITE_NAVER_CLIENT_ID;

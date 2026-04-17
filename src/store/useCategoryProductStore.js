@@ -12,18 +12,24 @@ export const useCategoryProductStore = create((set, get) => ({
             sub: [
                 {
                     name: "디바이스", link: "device",
-                    mini: ["핸드폰"]
+                    mini: [
+                        "핸드폰", "이어폰", "노트북", "워치", "태블릿"
+                    ]
                 },
                 {
                     name: "디자인", link: "design",
-                    mini: ["컬러", "패턴", "시그니처"]
+                    mini: [
+                        "컬러", "패턴", "시그니처"
+                    ]
                 },
                 { name: "맥세이프", link: "magsafe" },
                 { name: "커스텀", link: "custom" },
                 { name: "세트", link: "set" },
                 {
                     name: "콜라보", link: "collabo",
-                    mini: ["캐릭터", "아트", "영화&엔터", "패션&라이프스타일", "스포츠"]
+                    mini: [
+                        '캐릭터', "아트", "영화&엔터", "패션&라이프스타일", "스포츠"
+                    ]
                 }
             ]
         },
