@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { create } from "zustand";
-import { auth, db, googleProvider } from "../firebase/firebase";
+import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export const useAuthStore = create((set, get)=>({
@@ -111,8 +111,118 @@ export const useAuthStore = create((set, get)=>({
     },
 
     // 카카오 로그인
-    onKakaoLogin: ()=>{
+    onKakaoLogin: async()=>{
+        try {
+            const kakaoKey = kakaoProvider;
+            // 1 카카오 SDK 초기화
+            if (!window.Kakao.isInitialized()) {
+                window.Kakao.init(kakaoKey);
+                // console.log(' Kakao SDK 초기화 완료');
+            }
 
+            // 2 로그인 요청 (Promise 변환)
+            const authObj = await new Promise((resolve, reject) => {
+                window.Kakao.Auth.login({
+                scope: 'profile_nickname, profile_image',
+                success: resolve,
+                fail: reject,
+                });
+            });
+            // console.log(' 카카오 로그인 성공:', authObj);
+
+            // 3 사용자 정보 요청 (Promise 기반)
+            const res = await window.Kakao.API.request({
+                url: '/v2/user/me',
+            });
+            // console.log(' 카카오 사용자 정보:', res);
+
+            // 4 사용자 정보 가공
+            const uid = res.id.toString();
+            const kakaoUser = {
+                uid,
+                email: res.kakao_account?.email || '',
+                name: res.kakao_account.profile?.nickname || '카카오사용자',
+                photoURL: res.kakao_account.profile?.profile_image_url || '',
+                provider: 'kakao',
+                // createdAt: new Date(),
+            };
+
+            // 5 Firestore에 저장
+            const userRef = doc(db, 'users', uid);
+            const userDoc = await getDoc(userRef);
+
+            if (!userDoc.exists()) {
+                await setDoc(userRef, kakaoUser);
+                // console.log(' 신규 카카오 회원 Firestore에 등록 완료');
+            } else {
+                // console.log('기존 카카오 회원 Firestore 데이터 있음');
+            }
+
+            // 6 Zustand 상태 업데이트
+            set({ user: kakaoUser });
+
+            // alert(`${kakaoUser.nickname}님, 카카오 로그인 성공! `);
+            // if (navigate) navigate('/dashboard');
+            return true;
+        } catch (err) {
+            console.error(' 카카오 로그인 중 오류:', err);
+            // alert('카카오 로그인 실패: ' + err.message);
+            return false;
+        }
+    },
+
+    // 네이버 로그인 로직 (카카오 로그인 코드와 비슷한 구조)
+    onNaverLogin: async () => {
+        try {
+            // 1. 네이버 로그인 팝업 열기
+            const clientId = naverProvider;
+            const callbackUrl = encodeURIComponent("http://localhost:5173/login/naver");
+            const state = "random_string"; 
+            const naverLoginUrl = `https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=${clientId}&redirect_uri=${callbackUrl}&state=${state}`;
+
+            // 1. 팝업 오픈
+            const popup = window.open(naverLoginUrl, 'naverlogin', 'width=600,height=700');
+            // 2. 팝업에서 토큰 받아오기
+            const token = await new Promise((resolve, reject) => {
+                const handleMessage = (e) => {
+                    // 보안을 위해 origin 확인
+                    if (e.origin !== window.location.origin) return;
+                    
+                    window.removeEventListener('message', handleMessage);
+                    resolve(e.data.token);
+                };
+                window.addEventListener('message', handleMessage);
+            });
+
+            // 3. 사용자 정보 요청 (네이버 API)
+            const res = await fetch('/v1/nid/me', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await res.json();
+            const userInfo = data.response;
+
+            // 4. 데이터 가공 및 Firestore 저장
+            const uid = `naver_${userInfo.id}`;
+            const naverUser = {
+                uid,
+                email: userInfo.email,
+                name: userInfo.name,
+                photoURL: userInfo.profile_image,
+                provider: 'naver',
+            };
+
+            const userRef = doc(db, 'users', uid);
+            const userDoc = await getDoc(userRef);
+            if (!userDoc.exists()) {
+                await setDoc(userRef, naverUser);
+            }
+
+            set({ user: naverUser });
+            return true;
+        } catch (err) {
+            console.error('네이버 로그인 오류:', err);
+            return false;
+        }
     },
 
     // 로그아웃
