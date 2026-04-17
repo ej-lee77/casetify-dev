@@ -1,0 +1,108 @@
+.qa {
+  margin-top: 60px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .btns {
+      display: flex;
+      gap: 10px;
+
+      button {
+        padding: 10px 16px;
+        border: 1px solid #ccc;
+        background: #fff;
+        cursor: pointer;
+
+        &.active {
+          border: 1px solid #111;
+        }
+      }
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      width: 300px;
+
+      input {
+        border: none;
+        outline: none;
+        flex: 1;
+        font-size: 13px;
+      }
+
+      .icon {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .qa-list {
+    border-top: 1px solid #ddd;
+
+    .product-header {
+      display: grid;
+      grid-template-columns: 150px 1fr 150px;
+      padding: 12px 10px;
+      font-size: 13px;
+      color: #888;
+      border-bottom: 1px solid #eee;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 150px 1fr 150px;
+      padding: 14px 10px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover {
+        background: #fafafa;
+      }
+
+      .status {
+        font-size: 12px;
+
+        &.done {
+          color: #555;
+        }
+
+        &.wait {
+          color: #aaa;
+        }
+      }
+
+      .title {
+        color: #333;
+      }
+
+      .date {
+        text-align: right;
+        color: #888;
+        font-size: 13px;
+      }
+
+      &.answer {
+        background: #f7f7f7;
+        cursor: default;
+
+        .title {
+          color: #666;
+        }
+      }
+    }
+  }
+}

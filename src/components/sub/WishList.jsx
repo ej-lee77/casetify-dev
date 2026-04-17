@@ -473,9 +473,9 @@ export default function WishList() {
                         <p className="color-list"></p>
                     </div>
                 </li> */}
-                {tempItem.map((item) => (<li key={item.id}>
-                    <DetailProductCard item={item} />
-                </li>))}
+                {tempItem.map((item) => (
+                    <DetailProductCard key={item.id} item={item} />
+                ))}
 
             </ul>
         </div>
