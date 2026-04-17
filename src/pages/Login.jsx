@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./scss/Login.scss"
 import SectionTitle from '../components/SectionTitle'
 import { Link } from 'react-router-dom'
@@ -8,21 +8,49 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loginErr, setLoginErr] = useState("");
+    const [rememberEmail, setRememberEmail] = useState(false);
 
-    const {onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
+    const {user, onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
 
     // 로그인하면 첫화면으로 이동하기
     const navigate = useNavigate();
+
+    useEffect(() => {
+      const savedEmail = localStorage.getItem('savedEmail');
+      if (savedEmail) {
+        setEmail(savedEmail);
+        setRememberEmail(true);
+      }
+    }, []);
 
     // 기본 로그인
     const handleSubmit = async(e)=>{
       e.preventDefault();
       console.log("이메일 로그인");
+
+      if (rememberEmail) {
+          // 체크박스가 체크되어 있으면 저장
+          localStorage.setItem('savedEmail', email);
+        } else {
+          // 체크 안 되어 있으면 기존 저장된 값 삭제
+          localStorage.removeItem('savedEmail');
+      }
+
       const isLogin = await onLogin(email, password);
 
       if(isLogin){
-        // 로그인되면 첫화면으로 이동
-        navigate("/");
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      } else {
+        // 실패: 에러 메시지
+        setLoginErr("이메일 또는 비밀번호가 올바르지 않습니다.");
       }
     }
 
@@ -32,8 +60,16 @@ export default function Login() {
       const isLogin = await onGoogleLogin();
 
       if(isLogin){
-        // 로그인되면 첫화면으로 이동
-        navigate("/");
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      } else {
+        // 실패: 에러 메시지
+        setLoginErr("구글로그인 실패");
       }
     }
 
@@ -43,8 +79,16 @@ export default function Login() {
       const isLogin = await onKakaoLogin();
 
       if(isLogin){
-        // 로그인되면 첫화면으로 이동
-        navigate("/");
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      } else {
+        // 실패: 에러 메시지
+        setLoginErr("카카오로그인 실패");
       }
     }
 
@@ -54,8 +98,16 @@ export default function Login() {
       const isLogin = await onNaverLogin();
 
       if(isLogin){
-        // 로그인되면 첫화면으로 이동
-        navigate("/");
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      } else {
+        // 실패: 에러 메시지
+        setLoginErr("네이버로그인 실패");
       }
     }
   return (
@@ -74,13 +126,16 @@ export default function Login() {
               <span></span>
           </div>
           <div className="login-check">
-              <input type="checkbox" id="login-idcheck" className="login-idcheck screen-reader"/>
+              <input type="checkbox" id="login-idcheck" className="login-idcheck screen-reader" checked={rememberEmail} onChange={(e) => setRememberEmail(e.target.checked)}/>
               <div className="label-box">
                   <span className="check-icon" aria-hidden="true"></span>
                   <label htmlFor="login-idcheck">아이디 저장</label>
               </div>
           </div>
-          <button className='input-btn'>로그인하기</button>
+          <div className='err-box'>
+            <p>{loginErr}</p>
+            <button className='input-btn'>로그인하기</button>
+          </div>
         </form>
         <div className='login-option'>
           <div><Link>아이디 찾기</Link></div>
@@ -96,7 +151,23 @@ export default function Login() {
             <button onClick={handleNaverLogin}><img src="/images/login/sns_btn_naver.png" alt="naver login" /></button>
           </div>
         </div>
+        <div className="banner-item">
+            <img src="/images/login/ad-bg.png" alt="casetify 광고" />
+            <div className="text-box">
+                <p className="text1">당신의 개성을 맘껏 펼쳐보세요</p>
+                <p className="text2">케이스티파이로 표현하는 독창성있는</p>
+                <p className='text2'>나만의 디자인</p>
+            </div>
+        </div>
       </div>
+      {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
+            <p>곧 홈으로 이동합니다...</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

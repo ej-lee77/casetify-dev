@@ -14,31 +14,31 @@ const BPmain = [
         Bpproduct: [
             {
                 id: 1,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Party Teddy Bears",
+                price: 89000,
                 BPimage: "./images/main/bestproduct/BpProduct001.png"
             },
             ,
 
             {
                 id: 2,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Daisy by Katie-s Collective",
+                price: 108000,
                 BPimage: "./images/main/bestproduct/BpProduct002.png"
             },
 
             {
                 id: 3,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Flower Phone Charm - Chrome Blossom",
+                price: 58000,
                 BPimage: "./images/main/bestproduct/BpProduct003.png"
             },
 
 
             {
                 id: 4,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "체리 폰 팔찌",
+                price: 26000,
                 BPimage: "./images/main/bestproduct/BpProduct004.png"
             }]
     },
@@ -48,28 +48,28 @@ const BPmain = [
         Bpproduct: [
             {
                 id: 5,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Kuromi Utility Cross-body Lanyard",
+                price: 83000,
                 BPimage: "./images/main/bestproduct/BpProduct005.png"
             },
             ,
 
             {
                 id: 6,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Snappy Grip Holder Customizer",
+                price: 45000,
                 BPimage: "./images/main/bestproduct/BpProduct006.png"
             },
             {
                 id: 7,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Stitch Earbuds Case",
+                price: 45000,
                 BPimage: "./images/main/bestproduct/BpProduct007.png"
             },
             {
                 id: 8,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Shiro Earbuds Case",
+                price: 45000,
                 BPimage: "./images/main/bestproduct/BpProduct008.png"
             }]
 
@@ -80,26 +80,26 @@ const BPmain = [
         Bpproduct: [
             {
                 id: 9,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "SOSO CAT&DOG",
+                price: 115000,
                 BPimage: "./images/main/bestproduct/BpProduct009.png"
             },
             {
                 id: 10,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "플라워 스티커 마니아 랩탑 케이스",
+                price: 108000,
                 BPimage: "./images/main/bestproduct/BpProduct010.png"
             },
             {
                 id: 11,
                 title: "Happiest KKOTKA in the world",
-                price: 29000,
+                price: 89000,
                 BPimage: "./images/main/bestproduct/BpProduct011.png"
             },
             {
                 id: 12,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Molecular Bubbles - Purple",
+                price: 89000,
                 BPimage: "./images/main/bestproduct/BpProduct012.png"
             }]
     },
@@ -108,27 +108,27 @@ const BPmain = [
         Bpproduct: [
             {
                 id: 13,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "Yoo Youngkuk Work 1940 SUITCASE",
+                price: 837000,
                 BPimage: "./images/main/bestproduct/BpProduct013.png"
             },
             ,
             {
                 id: 14,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "멀티 플라워 (레드) 바운스 캐빈",
+                price: 888000,
                 BPimage: "./images/main/bestproduct/BpProduct014.png"
             },
             {
                 id: 15,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "카이카이와 키키 - 하나미(글로시 프림로즈 핑크) 바운스 캐빈",
+                price: 888000,
                 BPimage: "./images/main/bestproduct/BpProduct015.png"
             },
             {
                 id: 16,
-                title: "Happiest KKOTKA in the world",
-                price: 29000,
+                title: "스마일 (블랙) 바운스 캐빈",
+                price: 888000,
                 BPimage: "./images/main/bestproduct/BpProduct016.png"
             }]
     }
