@@ -15,6 +15,7 @@ import NaverCallBack from './pages/NaverCallBack'
 import JoinMail from './pages/JoinMail'
 import Cart from './pages/Cart'
 import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
+import DetailPage from "./components/sub/DetailPage";
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -36,6 +37,7 @@ function App() {
 
         {/* <Route path='/:mainCate/:subCate' element={<CategoryPage />}/> */}
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
 
         <Route path='/login' element={<Login />} />
