@@ -5,7 +5,7 @@
         padding-top: 72px;
 
         .title-wrap {
-            border: 2px dashed darkblue;
+            // border: 2px dashed darkblue;
 
             h2 {
                 font-weight: normal;
@@ -19,6 +19,18 @@
 
                 .payment-progress-item {
                     @include g.myFlex($jc: normal, $fd: column, $ai: center, $gap: 1.25em);
+                    position: relative;
+
+                    &:not(:last-child)::after {
+                        content: "";
+                        position: absolute;
+                        top: 50px; // icon-box의 절반크기
+                        left: 50%; // 원형의 중심부터 시작
+                        width: calc(100% + 6.25em); // li tag + gap 크기 (calc(100% + 간격))
+                        height: 4px;
+                        background-color: #e8e8e8;
+                        z-index: -1;
+                    }
 
                     .icon-box {
                         @include g.myFlex($jc: center, $ai: center, $gap: null);
@@ -46,7 +58,7 @@
         }
 
         .cart-list-wrap {
-            border: 2px dashed green;
+            // border: 2px dashed green;
             @include g.myFlex($jc: normal, $ai: normal, $gap: 1.25em);
             margin-top: 6.25em;
 
@@ -82,7 +94,7 @@
                 // 장바구니 항목
                 .cart-item-list {
                     .cart-item {
-                        border: 1px solid #ccc;
+                        // border: 1px solid #ccc;
                         @include g.myFlex($jc: normal, $ai: flex-start, $gap: 1.5em);
                         padding-left: 1em;
                         margin-bottom: g.$title-gap;
@@ -92,7 +104,7 @@
                             // border: 1px solid #989898;
                             @include g.myFlex($ai: center, $gap: 20px);
                             flex: 1;
-                            background-color: #eeeeee;
+                            background-color: #f5f5f5;
                             padding: 1.5em;
 
                             // 제품사진, 정보
@@ -110,6 +122,7 @@
                                     @include g.myFlex($ai: flex-start, $fd: column, $gap: null);
 
                                     .title {
+                                        font-size: 1.25em;
                                         margin-top: 0.375em;
                                     }
 
@@ -139,7 +152,7 @@
 
                                 //수량 버튼
                                 .cart-count-ctrl {
-                                    border: 1px solid black;
+                                    // border: 1px solid black;
                                     padding: 0.25em 0.75em;
                                     background-color: #e6e6e6;
                                     font-family: "Pretendard", sans-serif;
@@ -178,7 +191,7 @@
 
             // 우측 - 주문 예상 금액 영역
             .payment-ctrl-area {
-                border: 1px dashed yellowgreen;
+                // border: 1px dashed yellowgreen;
                 width: 342px;
 
                 //제목
@@ -189,25 +202,48 @@
                 // 가격 정보 영역
                 .price-info-wrap {
                     @include g.myFlex($fd: column, $ai: null);
-                    background-color: #eeeeee;
+                    // background-color: #eeeeee;
+                    border: 1px solid #b4b4b4;
                     padding: 1.5em;
                     margin-bottom: 1em;
 
                     .price-detail {
+                        @include g.myFlex($fd: column, $ai: null, $gap: 0.75em);
+
                         p {
                             @include g.myFlex($gap: null);
+                            font-weight: 300;
+
+                            span {
+                                font-weight: 500;
+                            }
                         }
                     }
 
                     .price-total {
-                        @include g.myFlex($fd: column, $ai: null, $gap: 1em);
+                        @include g.myFlex($fd: column, $ai: null, $gap: 1.25em);
 
                         .free-info {
                             text-align: center;
+                            font-size: 0.75em;
+                            font-weight: 300;
+
+                            &::after {
+                                content: "";
+                                display: block;
+                                border-bottom: 1px solid #b4b4b4;
+                                margin-top: 1em;
+                            }
                         }
 
                         .est-price {
                             @include g.myFlex($gap: null);
+                            font-size: 1.125em;
+
+                            span {
+                                color: #ba0000;
+                                font-size: 1.25em;
+                            }
                         }
                     }
                 }
@@ -229,6 +265,41 @@
                         }
                     }
 
+                }
+            }
+        }
+
+        // 추천 상품 영역
+        .recommend-wrap {
+            // border: 1px dashed lightseagreen;
+            margin-top: 5em;
+
+            h3 {
+                font-weight: normal;
+                font-size: 1.5em;
+                margin-bottom: g.$title-gap;
+            }
+
+            .recommend-item-list {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 3.75em;
+
+                .goods-img {
+                    height: 240px;
+                    margin-bottom: 0.5em;
+                }
+
+                .goods-text {
+                    .item-name {
+                        @include g.multi-ellipsis($lines: 1);
+                        color: g.$text-sub;
+                        margin-bottom: 0.5em;
+                    }
+
+                    .item-price {
+                        color: g.$text-strike;
+                    }
                 }
             }
         }
