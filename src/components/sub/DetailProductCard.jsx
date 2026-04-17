@@ -28,19 +28,20 @@ export default function DetailProductCard({ item }) {
 
   return (
     <li className="product-card">
-      <div className="card-img">
-        <img
-          src={imagePath}
-          alt={item.productName}
-        />
-      </div>
-      <div className="card-info">
-        <p className="card-name">{item.productName}</p>
-        <p className="card-selectedDevice">{item.selectedDevice}</p>
-        <p className="card-category">{item.caseCategory}</p>
-        <p className="card-price">
-          {Number(item.price || 0).toLocaleString()}원
-        </p>
+      <Link to={`/product/${item.id}`}>
+        <div className="card-img">
+          <img
+            src={imagePath}
+            alt={item.productName}
+          />
+        </div>
+        <div className="card-info">
+          <p className="card-name">{item.productName}</p>
+          <p className="card-selectedDevice">{item.selectedDevice}</p>
+          <p className="card-category">{item.caseCategory}</p>
+          <p className="card-price">
+            {Number(item.price || 0).toLocaleString()}원
+          </p>
 
 
           {!!colors.length && (
@@ -64,6 +65,7 @@ export default function DetailProductCard({ item }) {
             </div>
           )}
         </div>
+      </Link>
     </li>
   );
 }
