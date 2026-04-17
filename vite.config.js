@@ -8,4 +8,14 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  // naver login테스트
+  server: {
+    proxy: {
+      '/v1': {
+        target: 'https://openapi.naver.com',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
+  }
 })

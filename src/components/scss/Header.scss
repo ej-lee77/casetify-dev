@@ -11,7 +11,7 @@ header.white {
         filter: none;
     }
 
-    .user-icon::after, .logout-icon::after{
+    .user-icon::after, .logout-icon::after, .mypage-icon::after{
         color: #fff;
     }
 }
@@ -109,14 +109,24 @@ header {
                     content: "로그아웃";
                     display: none;
                     position: absolute;
-                    width: 30px;
+                    width: 35px;
                     height: 10px;
-                    font-size: 0.6em;
+                    font-size: 0.5em;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .mypage-icon::after{
+                    content: "내정보";
+                    display: none;
+                    position: absolute;
+                    width: 27px;
+                    height: 10px;
+                    font-size: 0.5em;
                     left: 50%;
                     transform: translateX(-50%);
                 }
 
-                &:hover .user-icon::after, &:hover .logout-icon::after{
+                &:hover .user-icon::after, &:hover .logout-icon::after, &:hover .mypage-icon::after{
                     display: block;
                 }
             }

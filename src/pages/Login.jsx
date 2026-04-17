@@ -9,7 +9,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const {onLogin, onGoogleLogin} = useAuthStore();
+    const {onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
 
     // 로그인하면 첫화면으로 이동하기
     const navigate = useNavigate();
@@ -38,8 +38,25 @@ export default function Login() {
     }
 
     // 카카오 로그인
-    const handleKakaoLogin = ()=>{
+    const handleKakaoLogin = async()=>{
       console.log("카카오 로그인");
+      const isLogin = await onKakaoLogin();
+
+      if(isLogin){
+        // 로그인되면 첫화면으로 이동
+        navigate("/");
+      }
+    }
+
+    // 네이버 로그인
+    const handleNaverLogin = async()=>{
+      console.log("네이버 로그인");
+      const isLogin = await onNaverLogin();
+
+      if(isLogin){
+        // 로그인되면 첫화면으로 이동
+        navigate("/");
+      }
     }
   return (
     <div className='login-wrap'>
@@ -75,8 +92,8 @@ export default function Login() {
           <p>간편로그인으로 1초 회원가입</p>
           <div className='login-sns'>
             <button onClick={handleGoogleLogin}><img src="/images/login/sns_btn_google.png" alt="google login" /></button>
-            <button><img src="/images/login/sns_btn_kakao.png" alt="kakao login" /></button>
-            <button><img src="/images/login/sns_btn_naver.png" alt="naver login" /></button>
+            <button onClick={handleKakaoLogin}><img src="/images/login/sns_btn_kakao.png" alt="kakao login" /></button>
+            <button onClick={handleNaverLogin}><img src="/images/login/sns_btn_naver.png" alt="naver login" /></button>
           </div>
         </div>
       </div>
