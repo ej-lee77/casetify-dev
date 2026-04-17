@@ -3,16 +3,19 @@ import { Link } from 'react-router-dom'
 import SectionTitle from '../SectionTitle'
 import "../scss/maintravel.scss"
 import { StaggerContainer, StaggerItem, StaggerItemInsta } from '../StaggerList'
+import FadeInSection from '../FadeInSection'
 
 export default function Instagram() {
     return (
         <section className='instagram'>
             <div className="inner">
-                <SectionTitle
-                    title="INSTAGRAM"
-                    subtitle="@casetify"
-                    subLink="https://www.instagram.com/casetify_kr/"
-                />
+                <FadeInSection direction="up" delay={0.2}>
+                    <SectionTitle
+                        title="INSTAGRAM"
+                        subtitle="@casetify"
+                        subLink="https://www.instagram.com/casetify_kr/"
+                    />
+                </FadeInSection>
                 {/* <ul> */}
                 <StaggerContainer>
                     <StaggerItemInsta>

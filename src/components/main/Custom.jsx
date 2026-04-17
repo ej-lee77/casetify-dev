@@ -6,6 +6,7 @@ import "../scss/custom.scss"
 import { Autoplay, Pagination } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 import SlideInSection from '../SlideInSection';
+import FadeInSection from '../FadeInSection';
 
 const CUmain = [
     {
@@ -92,9 +93,7 @@ export default function Custom() {
     return (
         <section className='custom-wrap bp-wrap'>
             <div className="inner">
-
                 <div className="all">
-
                     <div className="left">
                         <Swiper modules={[Autoplay, Pagination]}
                             autoplay={{
@@ -115,10 +114,12 @@ export default function Custom() {
                         </Swiper>
                     </div>
                     <div className="right">
-                        <SectionTitle
-                            title="Customize Your Case"
-                            subtitle="케이스티파이에서 나만의 케이스를 제작해보세요" />
-                        <SlideInSection direction="right" delay={0.4}>
+                        <FadeInSection direction="up" delay={0.2}>
+                            <SectionTitle
+                                title="Customize Your Case"
+                                subtitle="케이스티파이에서 나만의 케이스를 제작해보세요" />
+                        </FadeInSection>
+                        <SlideInSection direction="right" delay={0.4} className='w-100'>
                             <ul >
                                 {CUmain[activeIndex]?.Cuproduct.map((item) => (
                                     <li key={item.id}>
