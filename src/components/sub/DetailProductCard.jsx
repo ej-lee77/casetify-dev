@@ -1,6 +1,7 @@
 import React from 'react';
 import "./scss/detailProductCard.scss";
 import { deviceColorOptions } from "../../data/ysData";
+import { Link } from 'react-router-dom';
 
 const colorMap = {
   Black: "#111111",
@@ -42,27 +43,27 @@ export default function DetailProductCard({ item }) {
         </p>
 
 
-        {!!colors.length && (
-          <div className="card-colors">
-            {visibleColors.map((color) => {
-              const bg = colorMap[color] || "#ddd";
+          {!!colors.length && (
+            <div className="card-colors">
+              {visibleColors.map((color) => {
+                const bg = colorMap[color] || "#ddd";
 
-              return (
-                <span
-                  key={color}
-                  className="color-chip"
-                  title={color}
-                  style={{ backgroundColor: bg }}
-                />
-              );
-            })}
+                return (
+                  <span
+                    key={color}
+                    className="color-chip"
+                    title={color}
+                    style={{ backgroundColor: bg }}
+                  />
+                );
+              })}
 
-            {extraCount > 0 && (
-              <span className="color-more">+{extraCount}</span>
-            )}
-          </div>
-        )}
-      </div>
+              {extraCount > 0 && (
+                <span className="color-more">+{extraCount}</span>
+              )}
+            </div>
+          )}
+        </div>
     </li>
   );
 }

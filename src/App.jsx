@@ -14,6 +14,8 @@ import Join from './pages/Join'
 import NaverCallBack from './pages/NaverCallBack'
 import JoinMail from './pages/JoinMail'
 import LoginFindId from './pages/LoginFindId'
+import Cart from './pages/Cart'
+import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -35,6 +37,7 @@ function App() {
 
         {/* <Route path='/:mainCate/:subCate' element={<CategoryPage />}/> */}
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
@@ -42,6 +45,7 @@ function App() {
         <Route path='/join' element={<Join />} />
         <Route path='/join/mail' element={<JoinMail />} />
         <Route path='/mypage' element={<Mypage />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
       <Footer />
     </>
