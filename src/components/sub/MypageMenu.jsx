@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 
 // 마이페이지 메뉴 데이터
 const mypageMenuData = [
-    { id: 1, icon: "./images/icon/mypage_id.svg", name: "회원정보", tabicon: true, islink: false },
-    { id: 2, icon: "./images/icon/mypage_order.svg", name: "주문", tabicon: true, islink: false },
-    { id: 3, icon: "./images/icon/mypage_favorite.svg", name: "위시리스트", tabicon: true, islink: false },
+    { id: 1, icon: "./images/mypage/mypage_id.svg", name: "회원정보", tabicon: true, islink: false },
+    { id: 2, icon: "./images/mypage/mypage_order.svg", name: "주문", tabicon: true, islink: false },
+    { id: 3, icon: "./images/mypage/mypage_favorite.svg", name: "위시리스트", tabicon: true, islink: false },
     { id: 4, icon: null, name: "케이스티파이 정품 인증", tabicon: false, islink: true },
-    { id: 5, icon: "./images/icon/mypage_present.svg", name: "기프트 카드", tabicon: true, islink: false },
-    { id: 6, icon: "./images/icon/mypage_logout.svg", name: "로그아웃", tabicon: true, islink: false },
+    { id: 5, icon: "./images/mypage/mypage_present.svg", name: "기프트 카드", tabicon: true, islink: false },
+    { id: 6, icon: "./images/mypage/mypage_logout.svg", name: "로그아웃", tabicon: true, islink: false },
 ]
 
 export default function MypageMenu({ sendSelect, selectMenu }) {

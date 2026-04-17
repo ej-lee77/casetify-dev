@@ -15,32 +15,32 @@ const CUmain = [
         Cuproduct: [
             {
                 id: 1,
-                title: "핸드폰 케이스 텍스트 커스터마이징",
+                title: "S26 포토 커스텀 케이스",
                 price: 102000,
-                CUimage: "./images/main/custom/CUProduct05.png"
+                CUimage: "./images/main/custom/CUproduct05.png"
             },
             ,
 
             {
                 id: 2,
-                title: "이어폰 케이스 텍스트 커스터마이징",
+                title: "아이폰 텍스트 커스텀 케이스",
                 price: 58000,
-                CUimage: "./images/main/custom/CUProduct06.png"
+                CUimage: "./images/main/custom/CUproduct06.png"
             },
 
             {
                 id: 3,
-                title: "노트북 케이스 텍스트 커스터마이징",
+                title: "아이폰 스티커 커스텀 케이스",
                 price: 83000,
-                CUimage: "./images/main/custom/CUProduct07.png"
+                CUimage: "./images/main/custom/CUproduct07.png"
             },
 
 
             {
                 id: 4,
-                title: "태블릿 케이스 텍스트 커스터마이징",
+                title: "태블릿 스티커 커스텀 케이스",
                 price: 101000,
-                CUimage: "./images/main/custom/CUProduct08.png"
+                CUimage: "./images/main/custom/CUproduct08.png"
             }]
     },
     {
@@ -49,32 +49,32 @@ const CUmain = [
         Cuproduct: [
             {
                 id: 5,
-                title: "핸드폰 케이스 포토 커스터마이징",
+                title: "랩탑 케이스 커스터마이징",
                 price: 89000,
-                CUimage: "./images/main/custom/CUProduct09.png"
+                CUimage: "./images/main/custom/CUproduct09.png"
             },
             ,
 
             {
                 id: 6,
-                title: "그립 스탠드 포토 커스터마이징",
+                title: "울트라 바운스 케이스 커스터마이징",
                 price: 45000,
-                CUimage: "./images/main/custom/CUProduct10.png"
+                CUimage: "./images/main/custom/CUproduct10.png"
             },
 
             {
                 id: 7,
-                title: "카드홀더 스탠드 포토 커스터마이징",
+                title: "울트라 바운스 케이스 커스터마이징",
                 price: 51000,
-                CUimage: "./images/main/custom/CUProduct11.png"
+                CUimage: "./images/main/custom/CUproduct11.png"
             },
 
 
             {
                 id: 8,
-                title: "노트북 케이스 포토 커스터마이징",
+                title: "아이폰 포토 커스터마이징 케이스",
                 price: 83000,
-                CUimage: "./images/main/custom/CUProduct12.png"
+                CUimage: "./images/main/custom/CUproduct12.png"
             }]
 
     }
