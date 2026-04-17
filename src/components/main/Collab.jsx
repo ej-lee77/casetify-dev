@@ -98,7 +98,7 @@ export default function Collab() {
     ]
     return (
         <section className='collab-wrap'>
-            <FadeInSection direction="up" delay={0.4}>
+            <FadeInSection direction="up" delay={0.2}>
                 <Swiper modules={[Autoplay,]}
                     // autoplay={{
                     //     delay: 3000,

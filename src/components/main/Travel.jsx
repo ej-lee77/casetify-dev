@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import "../scss/maintravel.scss";
 import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle";
+import FadeInSection from "../FadeInSection";
 
 export default function MainTravel() {
 
@@ -51,7 +52,9 @@ export default function MainTravel() {
                             poster="./images/main/travel.png"
                         />
                         <div className="travel-text">
-                            <SectionTitle title={"Travel"} subtitle={"발걸음마다 예술이 되는 나만의 움직이는 캔버스"} />
+                            <FadeInSection direction="up" delay={0.2}>
+                                <SectionTitle title={"Travel"} subtitle={"발걸음마다 예술이 되는 나만의 움직이는 캔버스"} />
+                            </FadeInSection>
                         </div>
                     </Link>
                     <div className="logo-wrap">
