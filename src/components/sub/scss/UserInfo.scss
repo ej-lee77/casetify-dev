@@ -1,6 +1,73 @@
-.user-card {
-    width: 480px;
-    height: 290px;
-    background-color: #135EAB;
-    border-radius: 16px;
+div {
+
+    .title {
+        font-size: 12px;
+    }
+
+    .content {
+        font-size: 24px;
+    }
+
+    .user-card-wrap {
+        border: 3px dashed darkgoldenrod;
+        // width: 524px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        >img {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            bottom: 0;
+            right: 18%;
+        }
+
+        .user-card {
+            width: 480px;
+            height: 290px;
+            background-color: #135EAB;
+            border-radius: 16px;
+            color: #fff;
+            padding: 15px;
+
+            // display: flex;
+            // flex-direction: column;
+            position: relative;
+
+            .user-info1 {
+                position: absolute;
+                width: 450px;
+                border: 2px solid red;
+                display: flex;
+                flex-direction: column;
+                gap: 48px;
+
+
+                >div {
+                    border: 2px solid aquamarine;
+                }
+
+                .user-card-logo {
+                    width: 117px;
+                    height: 40px;
+                }
+
+                .user-qr {
+                    position: absolute;
+                    top: 0px;
+                    right: 0;
+                }
+
+            }
+
+            .user-info2 {
+                border: 2px dashed skyblue;
+                color: #fff;
+                position: absolute;
+                bottom: 0;
+
+            }
+        }
+    }
 }
