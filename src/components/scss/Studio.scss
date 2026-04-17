@@ -1,13 +1,13 @@
 @use "../../App.scss" as g;
 
 .studio-info {
-    margin-top: g.$section-gap;
+    margin-top: 200px;
     position: relative;
     height: 750px;
 
     &::after {
         content: "";
-        background-image: url("./images/waveBg-yellow.png");
+        background-image: url("/images/waveBg-yellow.png");
         background-position-x: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -33,8 +33,8 @@
             // border-radius: 20px;
             overflow: hidden;
             img{
-                width: 600px;
-                aspect-ratio: 1 / 1;
+                width: 720px;
+                aspect-ratio: 1 / 0.83;
                 object-fit: cover;
             }
         }

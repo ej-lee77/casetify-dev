@@ -11,6 +11,7 @@
             .new-arr-list {
                 flex-basis: 45%;
                 @include g.myFlex($fd: column, $ai: normal, $gap: 6.25em);
+                padding-left: 50px;
 
                 .arr-item {
                     a {
@@ -73,7 +74,7 @@
             }
 
             .new-arr-img-box {
-                width: 50%;
+                width: 43%;
                 position: relative;
 
                 img {
