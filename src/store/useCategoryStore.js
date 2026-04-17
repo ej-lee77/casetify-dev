@@ -26,7 +26,6 @@ export const useCategoryStore = create((set, get) => ({
         Samsung: [],
         Google: [],
     },
-    deviceOptions: [],
 
     setBaseItems: (items, currentMiniCategory = null) => {
         set({
@@ -67,7 +66,12 @@ export const useCategoryStore = create((set, get) => ({
                 caseCategorySet.add(item.caseCategory);
             }
 
-            if (item.brand && item.modelLabel && brandMap[item.brand]) {
+            if (
+                item.productTarget === "phone" &&
+                item.brand &&
+                item.modelLabel &&
+                brandMap[item.brand]
+            ) {
                 brandMap[item.brand].add(item.modelLabel);
             }
         });
@@ -80,7 +84,6 @@ export const useCategoryStore = create((set, get) => ({
                 Samsung: [...brandMap.Samsung],
                 Google: [...brandMap.Google],
             },
-            deviceOptions: [],
         });
     },
 

@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { phoneModelOptions, colorMap } from "../data/practiceData";
+import { phoneModelOptions, colorMap } from "../data/finalData";
 import { useCategoryProductStore } from "../store/useCategoryProductStore";
 import "./scss/CategoryPage.scss";
-import CategoryProductCard from "../components/sub/CategoryProductCard";
+import CategoryPhoneProductCard from "../components/sub/CategoryPhoneProductCard";
+import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
 
 const MINI_KEY_MAP = {
     핸드폰: "phone",
@@ -20,6 +21,29 @@ const MINI_KEY_MAP = {
     "패션&라이프스타일": "fashion",
     스포츠: "sports",
 };
+
+const MINI_ICON = {
+    핸드폰: "phone",
+    이어폰: "earphone",
+    노트북: "laptop",
+    워치: "watch",
+    태블릿: "tablet",
+    컬러: "color",
+    패턴: "pattern",
+    시그니처: "signature",
+    캐릭터: "character",
+    아트: "art",
+    "영화&엔터": "movie",
+    "패션&라이프스타일": "fashion",
+    스포츠: "sports",
+};
+
+const SORT_OPTIONS = [
+    { key: "recommend", label: "추천순" },
+    { key: "popular", label: "인기순" },
+    { key: "highPrice", label: "높은가격순" },
+    { key: "lowPrice", label: "낮은가격순" },
+];
 
 export default function CategoryPagePractice() {
     const { mainCate, subCate } = useParams();
@@ -52,31 +76,7 @@ export default function CategoryPagePractice() {
     const miniCate = currentSub?.mini || [];
 
     const activeMiniKey = activeMini ? MINI_KEY_MAP[activeMini] : null;
-
     const canSelectDevice = activeMiniKey === "phone";
-
-    const MINI_ICON = {
-        핸드폰: "phone",
-        이어폰: "earphone",
-        노트북: "laptop",
-        워치: "watch",
-        태블릿: "tablet",
-        컬러: "color",
-        패턴: "pattern",
-        시그니처: "signature",
-        캐릭터: "character",
-        아트: "art",
-        "영화&엔터": "movie",
-        "패션&라이프스타일": "fashion",
-        스포츠: "sports",
-    };
-
-    const SORT_OPTIONS = [
-        { key: "recommend", label: "추천순" },
-        { key: "popular", label: "인기순" },
-        { key: "highPrice", label: "높은가격순" },
-        { key: "lowPrice", label: "낮은가격순" },
-    ];
 
     useEffect(() => {
         onFetchItems();
@@ -155,7 +155,12 @@ export default function CategoryPagePractice() {
         };
 
         categoryItems.forEach((item) => {
-            if (item.brand && item.modelLabel && result[item.brand]) {
+            if (
+                item.productTarget === "phone" &&
+                item.brand &&
+                item.modelLabel &&
+                result[item.brand]
+            ) {
                 result[item.brand].add(item.modelLabel);
             }
         });
@@ -397,63 +402,60 @@ export default function CategoryPagePractice() {
                                 )}
                             </div>
 
-                            <div className="device-select-wrap">
-                                <button
-                                    type="button"
-                                    className={`device-select-btn ${!canSelectDevice ? "disabled" : ""}`}
-                                    onClick={() => {
-                                        if (!canSelectDevice) return;
-                                        setIsDeviceOpen((prev) => !prev);
-                                    }}
-                                >
-                                    {!canSelectDevice
-                                        ? "핸드폰 mini 선택"
-                                        : (selectedDevice || "기기 선택")}
-                                </button>
+                            {canSelectDevice && (
+                                <div className="device-select-wrap">
+                                    <button
+                                        type="button"
+                                        className="device-select-btn"
+                                        onClick={() => setIsDeviceOpen((prev) => !prev)}
+                                    >
+                                        {selectedDevice || "기기 선택"}
+                                    </button>
 
-                                {isDeviceOpen && canSelectDevice && (
-                                    <div className="device-select-panel">
-                                        <div className="device-brand-tabs">
-                                            {Object.keys(phoneModelOptions).map((brand) => (
+                                    {isDeviceOpen && (
+                                        <div className="device-select-panel">
+                                            <div className="device-brand-tabs">
+                                                {Object.keys(phoneModelOptions).map((brand) => (
+                                                    <button
+                                                        key={brand}
+                                                        type="button"
+                                                        className={selectedBrand === brand ? "active" : ""}
+                                                        onClick={() => setSelectedBrand(brand)}
+                                                    >
+                                                        {brand}
+                                                    </button>
+                                                ))}
+                                            </div>
+
+                                            <div className="device-model-list">
+                                                {filteredBrandDeviceOptions[selectedBrand]?.map((device) => (
+                                                    <button
+                                                        key={device}
+                                                        type="button"
+                                                        className={selectedDevice === device ? "active" : ""}
+                                                        onClick={() => onHandleDeviceSelect(device)}
+                                                    >
+                                                        {device}
+                                                    </button>
+                                                ))}
+                                            </div>
+
+                                            <div className="device-panel-bottom">
                                                 <button
-                                                    key={brand}
                                                     type="button"
-                                                    className={selectedBrand === brand ? "active" : ""}
-                                                    onClick={() => setSelectedBrand(brand)}
+                                                    className="device-clear-btn"
+                                                    onClick={() => {
+                                                        setSelectedDevice("");
+                                                        setIsDeviceOpen(false);
+                                                    }}
                                                 >
-                                                    {brand}
+                                                    선택취소
                                                 </button>
-                                            ))}
+                                            </div>
                                         </div>
-
-                                        <div className="device-model-list">
-                                            {filteredBrandDeviceOptions[selectedBrand]?.map((device) => (
-                                                <button
-                                                    key={device}
-                                                    type="button"
-                                                    className={selectedDevice === device ? "active" : ""}
-                                                    onClick={() => onHandleDeviceSelect(device)}
-                                                >
-                                                    {device}
-                                                </button>
-                                            ))}
-                                        </div>
-
-                                        <div className="device-panel-bottom">
-                                            <button
-                                                type="button"
-                                                className="device-clear-btn"
-                                                onClick={() => {
-                                                    setSelectedDevice("");
-                                                    setIsDeviceOpen(false);
-                                                }}
-                                            >
-                                                선택취소
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                                    )}
+                                </div>
+                            )}
                         </div>
 
                         <div className="category-control-right">
@@ -520,9 +522,13 @@ export default function CategoryPagePractice() {
 
                     {sortedItems.length > 0 ? (
                         <ul className="product-list">
-                            {sortedItems.map((item) => (
-                                <CategoryProductCard key={item.id} item={item} />
-                            ))}
+                            {sortedItems.map((item) =>
+                                item.productTarget === "phone" ? (
+                                    <CategoryPhoneProductCard key={item.id} item={item} />
+                                ) : (
+                                    <CategoryEtcProductCard key={item.id} item={item} />
+                                )
+                            )}
                         </ul>
                     ) : (
                         <p className="empty-message">해당 조건의 상품이 없습니다.</p>
