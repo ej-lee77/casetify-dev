@@ -247,32 +247,35 @@
                 }
             }
         }
-
-    }
-    .modal-overlay{
-        @include g.pos-center();
-        @include g.myFlex($jc: center, $gap: unset);
-        width: 400px;
-        height: 200px;
-        border: 1px solid g.$text-strike;
-        background: #fff;
-        z-index: 10;
-        animation: fadeIn 0.5s ease-in-out forwards;
-
-        .modal-content{
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-        &.active{
+        .modal-overlay{
+            @include g.pos-center();
+            @include g.myFlex($jc: center, $gap: unset);
+            width: 500px;
             height: 200px;
             border: 1px solid g.$text-strike;
-        }
-    }
+            background: #fff;
+            z-index: 10;
+            animation: fadeIn 0.5s ease-in-out forwards;
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+            .modal-content{
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+
+                .input-btn{
+                    margin: 10px 0;
+                }
+            }
+            &.active{
+                height: 200px;
+                border: 1px solid g.$text-strike;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     }
 }
 
