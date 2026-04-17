@@ -102,6 +102,83 @@ const tempItem = [
   },
 ];
 
+const tempRecoItem = [
+  {
+    id: "CTF-34942803-16006188",
+    badge: [
+      "무료 배송"
+    ],
+    price: "127000",
+    productName: "Enjoy Where I Am",
+    caseCategory: "2-in-1 충전 스탠드",
+    color: [
+      "White"
+    ],
+    collabo: "By nothing here",
+    mainCategory: "악세서리",
+    subCategory: "충전기",
+    miniCategory: "충전기",
+    lastCategory: "charger",
+    deviceCategory: ""
+  },
+  {
+    id: "CTF-35069870-16009970",
+    badge: [
+      "무료 배송"
+    ],
+    price: "51000",
+    productName: "Pearl Phone Charm - Classic Pearl",
+    caseCategory: "",
+    color: [
+      "Classic Pearl (Silver)",
+      "Pearly Heart",
+      "Classic Pearl"
+    ],
+    collabo: "",
+    mainCategory: "악세서리",
+    subCategory: "스트랩",
+    miniCategory: "스트랩",
+    lastCategory: "strap",
+    deviceCategory: ""
+  },
+  {
+    id: "CTF-37181334-16010330",
+    badge: [],
+    price: "45000",
+    productName: "Black Sakura Bloom",
+    caseCategory: "데스크 매트",
+    color: [
+      "White"
+    ],
+    collabo: "",
+    mainCategory: "악세서리",
+    subCategory: "기타",
+    miniCategory: "기타",
+    lastCategory: "etc",
+    deviceCategory: ""
+  },
+  {
+    id: "CTF-34735868-16010810",
+    badge: [],
+    price: "45000",
+    productName: "Snappy Grip Holder Customizer",
+    caseCategory: "",
+    color: [
+      "Pink",
+      "Glitter Black",
+      "Clear",
+      "Matte Black",
+      "Soft Blue"
+    ],
+    collabo: "",
+    mainCategory: "악세서리",
+    subCategory: "맥세이프",
+    miniCategory: "맥세이프",
+    lastCategory: "magsafe",
+    deviceCategory: ""
+  },
+]
+
 export default function Cart() {
   return (
     <div className="sub-page-wrap cart-page-wrap">
@@ -121,13 +198,13 @@ export default function Cart() {
             </li>
             <li className="payment-progress-item">
               <div className="icon-box">
-                <img src="./images/icon/cart.svg" alt="장바구니" />
+                <img src="./images/cart/bank-card.svg" alt="주문/결제" />
               </div>
               <p>주문/결제</p>
             </li>
             <li className="payment-progress-item">
               <div className="icon-box">
-                <img src="./images/icon/cart.svg" alt="장바구니" />
+                <img src="./images/cart/order_completed.svg" alt="장바구니" />
               </div>
               <p>주문완료</p>
             </li>
@@ -140,7 +217,9 @@ export default function Cart() {
             {/* 장바구니 제목 */}
             <div className="cart-title">
               <div className="cart-title-left">
-                <input type="checkbox" />
+                <label>
+                  <input type="checkbox" />
+                </label>
                 <p>상품정보</p>
               </div>
               <div className="cart-title-right">
@@ -152,7 +231,9 @@ export default function Cart() {
             <ul className="cart-item-list">
               {tempItem.map((item) => (
                 <li key={item.id} className="cart-item">
-                  <input type="checkbox" />
+                  <label>
+                    <input type="checkbox" />
+                  </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
                       <div className="goods-img">
@@ -203,7 +284,7 @@ export default function Cart() {
               </div>
               <div className="price-total">
                 <p className="free-info">₩ 50,000원 이상 배송비 무료</p>
-                <p className="est-price"><span>결제예정금액</span><span>₩ {Number("100000").toLocaleString()}</span></p>
+                <p className="est-price">결제예정금액<span>₩ {Number("100000").toLocaleString()}</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
@@ -215,7 +296,23 @@ export default function Cart() {
         </div>
         {/* 추천상품 */}
         <div className="recommend-wrap">
-          추천상품
+          <h3>추천 상품</h3>
+          {/* 추천 상품 목록 */}
+          <ul className="recommend-item-list">
+            {tempRecoItem.map((item) => (
+              <li key={item.id} className="recommend-item">
+                <div className="goods-img">
+                  <img
+                    src={`/images/category/accessory/${item.id}_${item.color[0]}_0.jpg`}
+                    alt={item.productName} />
+                </div>
+                <div className="goods-text">
+                  <p className="item-name">{item.productName}</p>
+                  <p className="item-price">₩ {Number(item.price).toLocaleString()}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
