@@ -122,6 +122,7 @@
                                     @include g.myFlex($ai: flex-start, $fd: column, $gap: null);
 
                                     .title {
+                                        font-size: 1.25em;
                                         margin-top: 0.375em;
                                     }
 
