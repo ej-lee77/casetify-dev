@@ -93,7 +93,7 @@ export default function Header() {
             </>
           ):(
             <li>
-              <Link to="/login" className='user-icon'><img src="/images/icon/login.svg" alt="로그인" /></Link>
+              <Link to="/login" className='user-icon'><img src="/images/icon/user.svg" alt="로그인" /></Link>
             </li>
           )}
           <li>

@@ -3,6 +3,7 @@ import SectionTitle from '../SectionTitle'
 import "../scss/NewArrival.scss"
 import { Link } from 'react-router-dom';
 import { StaggerContainer, StaggerItem } from '../StaggerList';
+import FadeInSection from '../FadeInSection';
 
 // new arrival 데이터
 const newArrivalData = [
@@ -35,7 +36,9 @@ export default function NewArrival() {
 
     return (
         <section className="new-arrival">
-            <SectionTitle title={"New Arrival"} subtitle={"케이스티파이의 새로운 제품"} />
+            <FadeInSection direction="up" delay={0.4}> 
+                <SectionTitle title={"New Arrival"} subtitle={"케이스티파이의 새로운 제품"} />
+            </FadeInSection>
             <div className="inner">
                 <div className="new-arr-inner-wrap">
                     {/* <ul className="new-arr-list"> */}
