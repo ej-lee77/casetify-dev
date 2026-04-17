@@ -36,7 +36,7 @@ export default function NewArrival() {
 
     return (
         <section className="new-arrival">
-            <FadeInSection direction="up" delay={0.4}> 
+            <FadeInSection direction="up" delay={0.3}> 
                 <SectionTitle title={"New Arrival"} subtitle={"케이스티파이의 새로운 제품"} />
             </FadeInSection>
             <div className="inner">
