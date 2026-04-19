@@ -146,8 +146,8 @@ export default function Login() {
           </div>
         </form>
         <div className='login-option'>
-          <div><Link>아이디 찾기</Link></div>
-          <div><Link>비밀번호 찾기</Link></div>
+          <div><Link to="/login/find/id">아이디 찾기</Link></div>
+          <div><Link to="/login/find/pass">비밀번호 찾기</Link></div>
           <div><Link to="/join">회원가입</Link></div>
         </div>
         <p className='or-line'>또는</p>
