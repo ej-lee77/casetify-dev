@@ -11,6 +11,7 @@ export default function Login() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [loginErr, setLoginErr] = useState("");
     const [rememberEmail, setRememberEmail] = useState(false);
+    const [emailVerified, setEmailVerified] = useState(false);
 
     const {user, onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
 
@@ -30,6 +31,9 @@ export default function Login() {
       e.preventDefault();
       console.log("이메일 로그인");
 
+      setLoginErr("");
+      setEmailVerified(false);
+
       if (rememberEmail) {
           // 체크박스가 체크되어 있으면 저장
           localStorage.setItem('savedEmail', email);
@@ -40,7 +44,7 @@ export default function Login() {
 
       const isLogin = await onLogin(email, password);
 
-      if(isLogin){
+      if(isLogin === true){
         // 1. 로그인 성공 가정
         setIsModalOpen(true);
 
@@ -48,6 +52,10 @@ export default function Login() {
         setTimeout(() => {
           navigate("/");
         }, 1000);
+      }else if(isLogin === "메일인증"){
+        console.log("here veri")
+        setIsModalOpen(true);
+        setEmailVerified(true);
       } else {
         // 실패: 에러 메시지
         setLoginErr("이메일 또는 비밀번호가 올바르지 않습니다.");
@@ -138,8 +146,8 @@ export default function Login() {
           </div>
         </form>
         <div className='login-option'>
-          <div><Link>아이디 찾기</Link></div>
-          <div><Link>비밀번호 찾기</Link></div>
+          <div><Link to="/login/find/id">아이디 찾기</Link></div>
+          <div><Link to="/login/find/pass">비밀번호 찾기</Link></div>
           <div><Link to="/join">회원가입</Link></div>
         </div>
         <p className='or-line'>또는</p>
@@ -159,15 +167,21 @@ export default function Login() {
                 <p className='text2'>나만의 디자인</p>
             </div>
         </div>
-      </div>
-      {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
-            <p>곧 홈으로 이동합니다...</p>
+        {isModalOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              {emailVerified ? 
+                (<><p>인증 이메일이 재발송되었습니다.</p>
+                <p>계정을 활성화하려면 인증 이메일을 확인해주세요.</p>
+                <button className='input-btn' onClick={() => setIsModalOpen(false)}>닫기</button></>)
+              :
+                (<><p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
+                <p>곧 홈으로 이동합니다...</p></>)
+              }
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

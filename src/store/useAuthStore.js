@@ -65,9 +65,25 @@ export const useAuthStore = create((set, get)=>({
         try{
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             console.log(userCredential);
+            const user = userCredential.user;
 
-            set({user: userCredential.user});
-            return true;
+            if (user.emailVerified) {
+                console.log("인증됨")
+                // 1. 인증 완료된 경우
+                set({user: userCredential.user});
+                return true;
+            } else {
+                console.log("인증안됨")
+                // 2. 인증 안 된 경우: 에러 상태 설정 및 재발송
+                try {
+                    await sendEmailVerification(user);
+                    console.log("인증 이메일이 재발송되었습니다.");
+                } catch (err) {
+                    console.log(err.message);
+                    // console.log("재발송 중 오류가 발생했습니다.");
+                }
+                return "메일인증";
+            }
         }catch(err){
             console.log(err.message);
             return false;
@@ -235,6 +251,31 @@ export const useAuthStore = create((set, get)=>({
             console.error('로그아웃 오류:', err);
             return false;
         }
-    }
+    },
 
+    onFindId: async(formdata)=>{
+        try {
+            const {username, phone, birthDate} = formdata;
+            const usersRef = collection(db, "users");
+
+            const q = query(
+                usersRef, 
+                where("name", "==", username), 
+                where("phone", "==", phone),
+                where("birthDate", "==", birthDate)
+            );
+            const querySnapshot = await getDocs(q);
+
+            if (querySnapshot.empty) {
+                return false;
+            }
+
+            // 일치하는 첫 번째 계정의 이메일 가져오기
+            const userData = querySnapshot.docs[0].data();
+            return userData.email;
+
+        } catch (error) {
+            return false;
+        }
+    }
 }));
