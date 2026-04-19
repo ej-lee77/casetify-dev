@@ -89,7 +89,7 @@ export default function Join() {
         }
         if (name === 'phone'){
             const numberRegex = /^[0-9]+$/;
-            if(!numberRegex.test(value) && value.includes('-') || !value || value.trim() === '') error = '-없이 숫자만 입력해주세요.';
+            if(!numberRegex.test(value) || value.includes('-') || !value || value.trim() === '') error = '-없이 숫자만 입력해주세요.';
         }
         if (name === 'password') {
             const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,12}$/;
@@ -216,7 +216,7 @@ export default function Join() {
                         <div className='input-box'>
                             <div className='label-div'><label htmlFor='phone'>휴대전화</label><span>(필수)</span></div>
                             <div className='input-div'>
-                                <input type="number" id='phone' name='phone' placeholder='-없이 입력' onBlur={handleBlur} onChange={handleChange}/>
+                                <input type="text" id='phone' name='phone' placeholder='-없이 입력' onBlur={handleBlur} onChange={handleChange}/>
                                 <p className='err-box'>{touched.phone && joinAllErr.phone}</p>
                             </div>
                         </div>

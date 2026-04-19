@@ -5,13 +5,19 @@ import { useAuthStore } from '../store/useAuthStore';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/locale';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function LoginFindId() {
-    const {onFindId} = useAuthStore();
+    const {onFindId, onFindPass} = useAuthStore();
+    const {content} = useParams(); //id이면 아이디 찾기, pass면 비밀번호 찾기
     const [findEmail, setFindEmail] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isJoin, setIsJoin] = useState("");
 
     const [formData, setFormData] = useState({
         username: "",
+        email: "",
         phone: "",
         birthDate: ""
     });
@@ -20,10 +26,12 @@ export default function LoginFindId() {
     const [joinErr, setJoinErr] = useState("");
     const [joinAllErr, setJoinAllErr] = useState({
         username: "",
+        email: "",
         phone: ""
     });
     const [touched, setTouched] = useState({
         username: false,
+        email: false,
         phone: false
     });
 
@@ -56,9 +64,12 @@ export default function LoginFindId() {
         if (name === 'username') {
             if (!value || value.trim() === '') error = '필수 입력 항목입니다.';
         }
+        if (content === 'pass' && name === 'email'){
+            if(!value.includes('@') || !value || value.trim() === '') error = '이메일 형식이 올바르지 않습니다.';
+        }
         if (name === 'phone'){
             const numberRegex = /^[0-9]+$/;
-            if(!numberRegex.test(value) && value.includes('-') || !value || value.trim() === '') error = '-없이 숫자만 입력해주세요.';
+            if(!numberRegex.test(value) || value.includes('-') || !value || value.trim() === '') error = '-없이 숫자만 입력해주세요.';
         }
         return error;
     };
@@ -75,6 +86,7 @@ export default function LoginFindId() {
 
         const allTouched = {
             username: true,
+            email: true,
             phone: true
         };
         setTouched(allTouched);
@@ -92,17 +104,27 @@ export default function LoginFindId() {
             return;
         }
 
-        const isJoin = await onFindId(formData);
+        if(content === "id"){
+            setIsJoin( await onFindId(formData));
+        }else{
+            setIsJoin( await onFindPass(formData));
+        }
 
         if(isJoin === false){
             setJoinErr("일치하는 회원 정보를 찾을 수 없습니다.");
         }else{
-            const [localPart, domain] = isJoin.split('@');
-            if (localPart.length <= 3){
-                setFindEmail(`${localPart[0]}**@${domain}`);
+            if(content == "id"){
+                const [localPart, domain] = isJoin.split('@');
+                if (localPart.length <= 3){
+                    setFindEmail(`${localPart[0]}**@${domain}`);
+                }else{
+                    // 앞 3글자만 보여주고 나머지는 *로 표시
+                    setFindEmail(`${localPart.substring(0, 3)}****@${domain}`);
+                }
+                setIsModalOpen(true);
             }else{
-                // 앞 3글자만 보여주고 나머지는 *로 표시
-                setFindEmail(`${localPart.substring(0, 3)}****@${domain}`);
+                setFindEmail(`이메일로 비밀번호 재설정 메일을 보냈습니다`);
+                setIsModalOpen(true);
             }
         }
     }
@@ -110,7 +132,7 @@ export default function LoginFindId() {
   return (
     <div className='login-wrap join-wrap find-wrap'>
         <div className="inner">
-            <SectionTitle title={"아이디 찾기"} subtitle={""} />
+            <SectionTitle title={content === "id" ? "아이디 찾기" : "비밀번호 찾기"} subtitle={""} />
             <form onSubmit={handleSubmit}>
                 <div className='input-box'>
                     <div className='label-div'><label htmlFor='username'>이름</label><span>(필수)</span></div>
@@ -119,10 +141,19 @@ export default function LoginFindId() {
                         <p className='err-box'>{touched.username && joinAllErr.username}</p>
                     </div>
                 </div>
+                {content === "pass" ? 
+                    <div className='input-box'>
+                        <div className='label-div'><label htmlFor='email'>이메일</label><span>(필수)</span></div>
+                        <div className='input-div'>
+                            <input type="email" id='email' name='email' placeholder='casetifyuser@casetify.com' onBlur={handleBlur} onChange={handleChange}/>
+                            <p className='err-box'>{touched.email && joinAllErr.email}</p>    
+                        </div>
+                    </div>
+                : ""}
                 <div className='input-box'>
                     <div className='label-div'><label htmlFor='phone'>휴대전화</label><span>(필수)</span></div>
                     <div className='input-div'>
-                        <input type="number" id='phone' name='phone' placeholder='-없이 입력' onBlur={handleBlur} onChange={handleChange}/>
+                        <input type="text" id='phone' name='phone' placeholder='-없이 입력' onBlur={handleBlur} onChange={handleChange}/>
                         <p className='err-box'>{touched.phone && joinAllErr.phone}</p>
                     </div>
                 </div>
@@ -145,9 +176,18 @@ export default function LoginFindId() {
                 </div>
                 <div className='input-btn-box'>
                     <p>{joinErr}</p>
-                    <button className='input-btn'>아이디 찾기</button>
+                    <button className='input-btn'>{content === "id" ? "아이디 찾기" : "비밀번호 찾기"}</button>
                 </div>
             </form>
+            {isModalOpen && (
+            <div className="modal-overlay">
+                <div className="modal-content">
+                    {content === 'id' ? <p>입력한 정보와 일치하는 아이디입니다.</p> : ""}                    
+                    <p>{findEmail}</p>
+                    <Link to="/login"><button className='input-btn'>로그인으로 이동하기</button></Link>
+                </div>
+            </div>
+            )}
         </div>
     </div>
   )
