@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
@@ -96,21 +96,26 @@ export default function Collab() {
             price: "₩119,000"
         },
     ]
+
+    const swiperRef = useRef(null);
+
     return (
         <section className='collab-wrap'>
             <Swiper modules={[Autoplay,]}
-                // autoplay={{
-                //     delay: 3000,
-                //     disableOnInteraction: false
-                // }}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false
+                }}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
                 loop={true}
-
                 slidesPerView={5}
                 spaceBetween={30}>
 
                 {slides.map((item) => (
                     <SwiperSlide key={item.id}>
-                        <div className="card">
+                        <div className="card"
+                            onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+                            onMouseLeave={() => swiperRef.current?.autoplay.start()}>
                             <div className="card-inner">
                                 <div className='card-brand'>
                                     <img src={item.themeImg} alt={item.title} className='theme-img' />
