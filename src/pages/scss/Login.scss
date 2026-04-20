@@ -461,16 +461,144 @@
             &::after{
                 content: "";
                 background-image: url("/images/waveBg-orange.png");
+                background-size: cover;
                 display: block;
                 width: 100vw;
                 height: 500px;
                 position: absolute;
                 left: 0;
             }
+            &.join-complete::after{
+                background-image: url(/images/waveBg-yellow.png);
+                top: 30%;
+                transform: rotate(10deg) scale(1.1);
+                height: 800px;
+                z-index: -1;
+                opacity: 0.5;
+            }
             .input-btn{
                 width: 500px;
             }
+            .coupon{
+                font-size: 0.88em;
+                color: g.$text-sale;
+                background: #FFE3E3;
+                padding: 5px 15px;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
         }
 
+        .modal-agree{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            @include g.myFlex($jc: center, $gap: unset);
+            width: 500px;
+            height: 500px;
+            border: 1px solid g.$text-strike;
+            background: #fff;
+            z-index: 10;
+            animation: fadeIn 0.5s ease-in-out forwards;
+
+            .modal-agree-content{
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+
+                .modal-div{
+                    height: 280px;
+                    overflow: scroll;
+                }
+
+                ul{
+                    li{
+                        margin-bottom: 20px;
+                        button{
+                            width: 100%;
+                            border: 1px solid g.$text-strike;
+                            padding: 10px 0;
+                            position: relative;
+
+                            &::after{
+                                content: "";
+                                position: absolute;
+                                left: 90%;
+                                width: 20px;
+                                height: 20px;
+                                transform: rotate(90deg) translateY(-50%);
+                                background: url(/images/icon/icon-arrow-right.svg) no-repeat;
+                            }
+                        }
+                        >div{
+                            height: 0;
+                            overflow: hidden;
+
+                            &.active{
+                                height: 280px;
+                                overflow: scroll;
+                            }
+                        }
+                    }
+                }
+                .input-btn{
+                    margin: 10px 0;
+                }
+            }
+            &.active{
+                height: 200px;
+                border: 1px solid g.$text-strike;
+            }
+        }
     }
+}
+
+.join-complete-wrap{
+    position: relative;
+    .case1{
+        position: absolute;
+        width: 630px;
+        height: 630px;
+        left: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        img{
+            animation: float-up 2s ease-in-out infinite;
+        }
+    }
+    .case2{
+        position: absolute;
+        width: 315px;
+        height: 315px;
+        left: 10%;
+        top: 60%;
+        img{
+            animation: float-down 2s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* 위로 20px 이동 */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px); /* 아래로 20px 이동 */
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
