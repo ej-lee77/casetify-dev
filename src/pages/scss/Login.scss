@@ -472,5 +472,67 @@
             }
         }
 
+        .modal-agree{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            @include g.myFlex($jc: center, $gap: unset);
+            width: 500px;
+            height: 500px;
+            border: 1px solid g.$text-strike;
+            background: #fff;
+            z-index: 10;
+            animation: fadeIn 0.5s ease-in-out forwards;
+
+            .modal-agree-content{
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+
+                .modal-div{
+                    height: 280px;
+                    overflow: scroll;
+                }
+
+                ul{
+                    li{
+                        margin-bottom: 20px;
+                        button{
+                            width: 100%;
+                            border: 1px solid g.$text-strike;
+                            padding: 10px 0;
+                            position: relative;
+
+                            &::after{
+                                content: "";
+                                position: absolute;
+                                left: 90%;
+                                width: 20px;
+                                height: 20px;
+                                transform: rotate(90deg) translateY(-50%);
+                                background: url(/images/icon/icon-arrow-right.svg) no-repeat;
+                            }
+                        }
+                        >div{
+                            height: 0;
+                            overflow: hidden;
+
+                            &.active{
+                                height: 280px;
+                                overflow: scroll;
+                            }
+                        }
+                    }
+                }
+                .input-btn{
+                    margin: 10px 0;
+                }
+            }
+            &.active{
+                height: 200px;
+                border: 1px solid g.$text-strike;
+            }
+        }
     }
 }
