@@ -42,6 +42,7 @@ export default function DetailPage() {
             <div className="detail-inner">
                 <div className="detail-left">
                     <div className="detail-main-image">
+                        <img src={mainImage} alt="" />
                         <p className="image-error-path">{mainImage}</p>
                     </div>
 
@@ -55,6 +56,7 @@ export default function DetailPage() {
                                     type="button"
                                     onClick={() => setSelectedThumb(img.key)}
                                 >
+                                    <img src={img.src} alt="" />
                                     <p className="image-error-path">{img.src}</p>
                                 </button>
                             </li>
