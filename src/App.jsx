@@ -13,6 +13,7 @@ import CategoryPagePractice from './pages/CategoryPagePractice'
 import Join from './pages/Join'
 import NaverCallBack from './pages/NaverCallBack'
 import JoinMail from './pages/JoinMail'
+import JoinComplete from './pages/JoinComplete'
 import LoginFind from './pages/LoginFind'
 import Cart from './pages/Cart'
 import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
@@ -46,6 +47,7 @@ function App() {
         <Route path='/login/find/:content' element={<LoginFind />} />
         <Route path='/join' element={<Join />} />
         <Route path='/join/mail' element={<JoinMail />} />
+        <Route path='/join/complete' element={<JoinComplete />}/>
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/cart' element={<Cart />} />
       </Routes>
