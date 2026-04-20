@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Detail from "./Detail";
-import Reivew from "./Reivew";
+
 import Qa from "./Qa";
 import Change from "./Change";
 import Recommend from "./Recommend";
 import "./scss/tab.scss";
+import Reivew from "./Reivew";
 
-export default function TabWrap() {
+export default function TabWrap({ item }) {
     const [active, setActive] = useState(0);
 
     const tabs = [
@@ -52,6 +53,9 @@ export default function TabWrap() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+
+
+    
     return (
         <div className="tab-wrap">
             <ul className="tab-menu">
@@ -89,10 +93,13 @@ export default function TabWrap() {
             <div id="detail">
                 <Detail />
             </div>
-            <Recommend />
-            <div id="review">
-                <Reivew />
-            </div>
+       <Recommend item={item} />
+           <div id="review">
+    <Reivew 
+        popularity={item.popularity} 
+        productId={item.id} 
+    />
+</div>
 
             <div id="qa">
                 <Qa />
