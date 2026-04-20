@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, setDoc } from "firebase/firestore";
 
 export const useAuthStore = create((set, get)=>({
     // 로그인, 회원가입
@@ -36,13 +36,18 @@ export const useAuthStore = create((set, get)=>({
             // 1단계 - 저장위치 지정 doc(db정보, "컬렉션", 문서)
             const userRef = doc(db, "users", user.uid);
 
+            const year = birthDate.getFullYear();
+            const month = String(birthDate.getMonth() + 1).padStart(2, '0');
+            const day = String(birthDate.getDate()).padStart(2, '0');
+            const dateString = `${year}-${month}-${day}`;
+
             // 2단계 - 저장할 사용자 정보 만들기
             const userInfo = {
                 uid: user.uid,
                 name: username,
                 email,
                 phone,
-                birthDate,
+                birthDate: dateString,
                 zonecode,
                 address,
                 detailaddress
@@ -253,16 +258,22 @@ export const useAuthStore = create((set, get)=>({
         }
     },
 
+    // 아이디찾기
     onFindId: async(formdata)=>{
         try {
             const {username, phone, birthDate} = formdata;
-            const usersRef = collection(db, "users");
+            const usersRef = collection(db, 'users');
+
+            const year = birthDate.getFullYear();
+            const month = String(birthDate.getMonth() + 1).padStart(2, '0');
+            const day = String(birthDate.getDate()).padStart(2, '0');
+            const dateString = `${year}-${month}-${day}`;
 
             const q = query(
                 usersRef, 
                 where("name", "==", username), 
                 where("phone", "==", phone),
-                where("birthDate", "==", birthDate)
+                where("birthDate", "==", dateString)
             );
             const querySnapshot = await getDocs(q);
 
@@ -276,6 +287,37 @@ export const useAuthStore = create((set, get)=>({
 
         } catch (error) {
             return false;
+        }
+    },
+    // 비밀번호 찾기
+    onFindPass: async(formdata)=>{
+        try {
+            const {username, email, phone, birthDate} = formdata;
+            const usersRef = collection(db, 'users');
+
+            const year = birthDate.getFullYear();
+            const month = String(birthDate.getMonth() + 1).padStart(2, '0');
+            const day = String(birthDate.getDate()).padStart(2, '0');
+            const dateString = `${year}-${month}-${day}`;
+
+            const q = query(
+                usersRef, 
+                where("name", "==", username), 
+                where("email", "==", email),
+                where("phone", "==", phone),
+                where("birthDate", "==", dateString)
+            );
+            const querySnapshot = await getDocs(q);
+
+            if (querySnapshot.empty) {
+                return false;
+            }
+
+            await sendPasswordResetEmail(auth, email);
+            return true;
+        } catch (error) {
+            console.log(error.message);
+            return error.code;
         }
     }
 }));

@@ -252,7 +252,7 @@
             @include g.myFlex($jc: center, $gap: unset);
             width: 500px;
             height: 200px;
-            border: 1px solid g.$text-strike;
+            border: 10px solid g.$text-strike;
             background: #fff;
             z-index: 10;
             animation: fadeIn 0.5s ease-in-out forwards;
