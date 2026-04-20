@@ -33,27 +33,28 @@ export default function CategoryEtcProductCard({ item }) {
                         <p className="image-error-path">{imagePath}</p>
                     )}
                 </div>
-
-                <div className="card-info">
-                    <p className="card-name">{item.productName}</p>
-
-                    {!!item.caseCategory && (
-                        <p className="card-sub">{item.caseCategory}</p>
-                    )}
-
-                    {!item.caseCategory && !!item.modelLabel && (
-                        <p className="card-sub">{item.modelLabel}</p>
-                    )}
-
-                    {!item.caseCategory && !item.modelLabel && compatibleModels.length > 0 && (
-                        <p className="card-sub">{compatibleModels[0]}</p>
-                    )}
-
-                    <p className="card-price">
-                        {Number(item.price || 0).toLocaleString()}원
-                    </p>
-                </div>
             </Link>
+            <div className="card-info">
+                <p className="card-name">{item.productName}</p>
+                <p className="temporary">{imagePath}</p>
+
+                {!!item.caseCategory && (
+                    <p className="card-sub">{item.caseCategory}</p>
+                )}
+
+                {!item.caseCategory && !!item.modelLabel && (
+                    <p className="card-sub">{item.modelLabel}</p>
+                )}
+
+                {!item.caseCategory && !item.modelLabel && compatibleModels.length > 0 && (
+                    <p className="card-sub">{compatibleModels[0]}</p>
+                )}
+
+                <p className="card-price">
+                    {Number(item.price || 0).toLocaleString()}원
+                </p>
+            </div>
+
         </li>
     );
 }

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { Link } from 'react-router-dom'
 
 
 import 'swiper/css'
@@ -49,7 +50,7 @@ export default function Collab() {
         {
             id: "6",
             colImg: "./images/main/collab/collab-prod6.png",
-            title: "SUSAN FANG Lavender Mist Special Set",
+            title: "SUSAN FANG Lavender Mist Spe cial Set",
             themeImg: "./images/main/collab/collab-th6.png",
             price: "₩215,000"
         },
@@ -96,41 +97,47 @@ export default function Collab() {
             price: "₩119,000"
         },
     ]
+
+    const swiperRef = useRef(null);
+
     return (
         <section className='collab-wrap'>
-            {/* <FadeInSection direction="up" delay={0.2}> */}
-                <Swiper modules={[Autoplay,]}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false
-                    }}
-                    loop={true}
+            <Swiper modules={[Autoplay,]}
+                // autoplay={{
+                //     delay: 3000,
+                //     disableOnInteraction: false
+                // }}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                loop={true}
+                slidesPerView={5}
+                spaceBetween={30}>
 
-                    slidesPerView={5}
-                    spaceBetween={30}>
-
-                    {slides.map((item) => (
-                        <SwiperSlide key={item.id}>
-                            <div className="card">
-                                <div className='card-brand'>
-                                    <img src={item.themeImg} alt={item.title} className='theme-img' />
-                                </div>
-                                <div className="card-img">
-                                    <img src={item.colImg} alt="" /></div>
-                                <div className="card-content">
-                                    <div>
+                {slides.map((item) => (
+                    <SwiperSlide key={item.id}>
+                        <div className="card"
+                            onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+                            onMouseLeave={() => swiperRef.current?.autoplay.start()}>
+                            <Link>
+                                <div className="card-inner">
+                                    <div className='card-brand'>
                                         <img src={item.themeImg} alt={item.title} className='theme-img' />
-                                        <p>{item.title}</p>
                                     </div>
-                                    <p className='price'>{item.price}</p>
+                                    <div className="card-back">
+                                        <div className="card-img">
+                                            <img src={item.colImg} alt="" /></div>
+                                        <div className="card-content">
+                                            <div>
+                                                <p>{item.title}</p>
+                                            </div>
+                                        </div>
+                                        <button className="more-btn">컬렉션 더보기 +</button>
+                                    </div>
                                 </div>
-                                <button className="more-btn">컬렉션 더보기 +</button>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            {/* </FadeInSection> */}
-
+                            </Link>
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </section >
 
     )
