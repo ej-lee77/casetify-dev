@@ -35,11 +35,11 @@ export default function Footer() {
               <div className="sns-list-wrap">
                 <p>케이스티파이를 팔로우 해주세요!</p>
                 <ul className="sns-list">
-                  <li><Link><img src="/images/header-footer/sns_instagram.png" alt="인스타그램" /></Link></li>
-                  <li><Link><img src="/images/header-footer/sns_facebook.png" alt="페이스북" /></Link></li>
-                  <li><Link><img src="/images/header-footer/sns_twitter.png" alt="인스타그램" /></Link></li>
-                  <li><Link><img src="/images/header-footer/sns_pinterest.png" alt="핀터레스트" /></Link></li>
-                  <li><Link><img src="/images/header-footer/sns_tiktok.png" alt="틱톡" /></Link></li>
+                  <li><a href="https://www.instagram.com/casetify_kr/" target='_blank'><img src="/images/header-footer/sns_instagram.png" alt="인스타그램" /></a></li>
+                  <li><a href="https://www.facebook.com/casetify" target='_blank'><img src="/images/header-footer/sns_facebook.png" alt="페이스북" /></a></li>
+                  <li><a href="https://twitter.com/casetify" target='_blank'><img src="/images/header-footer/sns_twitter.png" alt="인스타그램" /></a></li>
+                  <li><a href="https://www.pinterest.com/casetify/" target='_blank'><img src="/images/header-footer/sns_pinterest.png" alt="핀터레스트" /></a></li>
+                  <li><a href="https://www.tiktok.com/@casetify?lang=en" target='_blank'><img src="/images/header-footer/sns_tiktok.png" alt="틱톡" /></a></li>
                 </ul>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function Footer() {
                   <p>독점 콜라보제품 구매하기</p>
                 </div>
                 <ul className="app-store-bedge">
-                  <li><Link><img src="/images/header-footer/badge_getapp_apple.svg" alt="애플스토어" /></Link></li>
+                  <li><a href='https://casetify.onelink.me/x0vh?af_js_web=true&af_ss_ver=2_10_0&pid=null&af_ss_ui=true&af_ss_gtm_ui=true' target='_blank'><img src="/images/header-footer/badge_getapp_apple.svg" alt="애플스토어" /></a></li>
                 </ul>
               </div>
               <div className="mobile-app">
@@ -61,8 +61,8 @@ export default function Footer() {
                   <p>나만의 커스텀 케이스 만들기</p>
                 </div>
                 <ul className="app-store-bedge">
-                  <li><Link><img src="/images/header-footer/badge_getapp_apple.svg" alt="애플스토어" /></Link></li>
-                  <li><Link><img src="/images/header-footer/badge_getapp_google.svg" alt="구글스토어" /></Link></li>
+                  <li><a href='https://casetify.onelink.me/x0vh?af_js_web=true&af_ss_ver=2_10_0&pid=null&af_ss_ui=true&af_ss_gtm_ui=true' target='_blank'><img src="/images/header-footer/badge_getapp_apple.svg" alt="애플스토어" /></a></li>
+                  <li><a href='https://play.google.com/store/apps/details?id=com.casetagram.casetagram&pt=1616560&ct=casetify_club_landing&mt=8' target='_blank'><img src="/images/header-footer/badge_getapp_google.svg" alt="구글스토어" /></a></li>
                 </ul>
               </div>
             </div>
