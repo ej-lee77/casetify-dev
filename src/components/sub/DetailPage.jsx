@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { items, modelColorOptions, colorMap } from "../../data/finalData";
 import "./scss/DetailPage.scss";
@@ -8,42 +8,78 @@ export default function DetailPage() {
 
     const item = items.find((data) => data.id === id);
 
-    const [selectedColor, setSelectedColor] = useState(
-        item?.mainCaseColor || item?.caseColors?.[0] || ""
-    );
-
-    const [selectedThumb, setSelectedThumb] = useState("main");
-
     if (!item) {
-        return <div className="detail-page"><p>상품을 찾을 수 없습니다.</p></div>;
+        return (
+            <div className="detail-page">
+                <p>상품을 찾을 수 없습니다.</p>
+            </div>
+        );
     }
 
     const isPhone = item.productTarget === "phone";
     const modelColors = isPhone ? modelColorOptions[item.modelKey] || [] : [];
-    const deviceColorKey = isPhone ? modelColors[0]?.key || "Black" : "";
 
-    const basePath = isPhone
-        ? `/images/category/products/${item.id}_${item.modelKey}_${deviceColorKey}_${selectedColor}`
+    // 선택 케이스 컬러
+    const [selectedColor, setSelectedColor] = useState(
+        item?.mainCaseColor || item?.caseColors?.[0] || ""
+    );
+
+    // 선택 기기 컬러 (메인 이미지용)
+    const [selectedDeviceColor, setSelectedDeviceColor] = useState(
+        isPhone ? modelColors[0]?.key || "" : ""
+    );
+
+    // 썸네일 선택 상태
+    const [selectedThumb, setSelectedThumb] = useState("main");
+
+    // 썸네일용 대표 기기컬러 고정
+    const fixedThumbDeviceColor = isPhone ? modelColors[0]?.key || "" : "";
+
+    // 메인 이미지 경로
+    const mainImagePath = isPhone
+        ? `/images/category/products/${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
         : item.modelKey
-            ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}`
-            : `/images/category/products/${item.id}_${selectedColor}`;
+            ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
+            : `/images/category/products/${item.id}_${selectedColor}_main.jpg`;
 
+    // 썸네일 이미지 경로들
     const imageList = [
-        { key: "main", src: `${basePath}_main.jpg` },
-        { key: "1", src: `${basePath}_1.jpg` },
-        { key: "2", src: `${basePath}_2.jpg` },
-        { key: "3", src: `${basePath}_3.jpg` },
+        { key: "main", src: mainImagePath },
+        {
+            key: "1",
+            src: isPhone
+                ? `/images/category/products/${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
+                : item.modelKey
+                    ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
+                    : `/images/category/products/${item.id}_${selectedColor}_1.jpg`,
+        },
+        {
+            key: "2",
+            src: isPhone
+                ? `/images/category/products/${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
+                : item.modelKey
+                    ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
+                    : `/images/category/products/${item.id}_${selectedColor}_2.jpg`,
+        },
+        {
+            key: "3",
+            src: isPhone
+                ? `/images/category/products/${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_3.jpg`
+                : item.modelKey
+                    ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_3.jpg`
+                    : `/images/category/products/${item.id}_${selectedColor}_3.jpg`,
+        },
     ];
 
-    const mainImage = imageList.find((img) => img.key === selectedThumb)?.src || imageList[0].src;
+    const mainImage =
+        imageList.find((img) => img.key === selectedThumb)?.src || imageList[0].src;
 
     return (
         <section className="detail-page">
             <div className="detail-inner">
                 <div className="detail-left">
                     <div className="detail-main-image">
-                        <img src={mainImage} alt="" />
-                        <p className="image-error-path">{mainImage}</p>
+                        <img src={mainImage} alt={item.productName} />
                     </div>
 
                     <ul className="detail-thumb-list">
@@ -56,8 +92,7 @@ export default function DetailPage() {
                                     type="button"
                                     onClick={() => setSelectedThumb(img.key)}
                                 >
-                                    <img src={img.src} alt="" />
-                                    <p className="image-error-path">{img.src}</p>
+                                    <img src={img.src} alt={`${item.productName} 썸네일`} />
                                 </button>
                             </li>
                         ))}
@@ -67,7 +102,9 @@ export default function DetailPage() {
                 <div className="detail-right">
                     <p className="detail-artist">{item.artist || "CASETiFY"}</p>
                     <h2 className="detail-title">{item.productName}</h2>
-                    <p className="detail-price">{Number(item.price || 0).toLocaleString()}원</p>
+                    <p className="detail-price">
+                        {Number(item.price || 0).toLocaleString()}원
+                    </p>
 
                     {!!item.modelLabel && (
                         <div className="detail-info-box">
@@ -83,9 +120,32 @@ export default function DetailPage() {
                         </div>
                     )}
 
+                    {isPhone && !!modelColors.length && (
+                        <div className="detail-info-box">
+                            <p className="label">기기 컬러</p>
+                            <div className="detail-device-colors">
+                                {modelColors.map((deviceColor) => (
+                                    <button
+                                        key={deviceColor.key}
+                                        type="button"
+                                        className={
+                                            selectedDeviceColor === deviceColor.key ? "active" : ""
+                                        }
+                                        onClick={() => {
+                                            setSelectedDeviceColor(deviceColor.key);
+                                            setSelectedThumb("main");
+                                        }}
+                                    >
+                                        {deviceColor.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                     {!!item.caseColors?.length && (
                         <div className="detail-info-box">
-                            <p className="label">컬러</p>
+                            <p className="label">케이스 컬러</p>
                             <div className="detail-colors">
                                 {item.caseColors.map((color) => (
                                     <button
@@ -99,7 +159,9 @@ export default function DetailPage() {
                                     >
                                         <span
                                             className="color-chip"
-                                            style={{ backgroundColor: colorMap[color] || "#ddd" }}
+                                            style={{
+                                                backgroundColor: colorMap[color] || "#ddd",
+                                            }}
                                         />
                                         {color}
                                     </button>
@@ -125,34 +187,36 @@ export default function DetailPage() {
                         <h3>상품 안내</h3>
                         <p>
                             현재 이 페이지는 데이터 연결과 이미지 경로 확인용 임시 상세페이지야.
-                            <br />
-                            이미지 파일명:
+                            <br /><br />
+
+                            {/* 메인 */}
+                            메인 이미지:
                             <br />
                             {isPhone
-                                ? `${item.id}_${item.modelKey}_${deviceColorKey}_${selectedColor}_main.jpg`
-                                : `${item.id}_${selectedColor}_main.jpg`}
+                                ? `${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
+                                : item.modelKey
+                                    ? `${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
+                                    : `${item.id}_${selectedColor}_main.jpg`}
+                            <br /><br />
+
+                            {/* 상세 */}
+                            상세 이미지:
+                            <br />
+                            {isPhone
+                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
+                                : item.modelKey
+                                    ? `${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
+                                    : `${item.id}_${selectedColor}_1.jpg`}
+                            <br />
+                            {isPhone
+                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
+                                : item.modelKey
+                                    ? `${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
+                                    : `${item.id}_${selectedColor}_2.jpg`}
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-    );
-}
-
-function DetailThumb({ img, isActive, onClick }) {
-    const [isVisible, setIsVisible] = useState(true);
-
-    if (!isVisible) return null;
-
-    return (
-        <li className={isActive ? "active" : ""}>
-            <button type="button" onClick={onClick}>
-                <img
-                    src={img.src}
-                    alt=""
-                    onError={() => setIsVisible(false)}
-                />
-            </button>
-        </li>
     );
 }
