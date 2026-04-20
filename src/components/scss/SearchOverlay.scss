@@ -1,0 +1,21 @@
+@use "../../App.scss" as g;
+
+.search-overlay-wrap {
+    width: 100%;
+    height: 400px; //임시 높이
+    background: rgb(255, 223, 223);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    //header보다 위로 보이게 설정
+    z-index: 1000;
+
+    //슬라이드 애니메이션
+    transform: translateY(-100%);
+    transition: transform 0.25s ease-in-out;
+
+    &.active {
+        transform: translateY(0);
+    }
+}
