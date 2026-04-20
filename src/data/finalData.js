@@ -23,8 +23,8 @@ export const modelColorOptions = {
     GalaxyZFold6: [{ key: "Silver", label: "실버 쉐도우" }, { key: "Pink", label: "핑크" }, { key: "Navy", label: "네이비" }],
     GalaxyZFlip6: [{ key: "Silver", label: "실버 쉐도우" }, { key: "Blue", label: "블루" }, { key: "Yellow", label: "옐로" }, { key: "Mint", label: "민트" }],
 
-    Pixel10Pro: [{ key: "Obsidian", label: "Obsidian" }, { key: "Jade", label: "Jade" }, { key: "Moonstone", label: "Moonstone" }, { key: "Porcelain", label: "Porcelain" }],
-    Pixel10: [{ key: "Obsidian", label: "Obsidian" }, { key: "Frost", label: "Frost" }, { key: "Indigo", label: "Indigo" }, { key: "Lemongrass", label: "Lemongrass" }],
+    Pixel10Pro: [{ key: "Porcelain", label: "Porcelain" }, { key: "Obsidian", label: "Obsidian" }, { key: "Jade", label: "Jade" }, { key: "Moonstone", label: "Moonstone" },],
+    Pixel10: [{ key: "Frost", label: "Frost" }, { key: "Obsidian", label: "Obsidian" }, { key: "Indigo", label: "Indigo" }, { key: "Lemongrass", label: "Lemongrass" }],
     Pixel9Pro: [{ key: "Porcelain", label: "포슬린" }, { key: "RoseQuartz", label: "로즈 쿼츠" }, { key: "Hazel", label: "하젤" }, { key: "Obsidian", label: "옵시디안" }],
     Pixel9: [{ key: "Porcelain", label: "포슬린" }, { key: "Peony", label: "Peony" }, { key: "Wintergreen", label: "Wintergreen" }, { key: "Obsidian", label: "옵시디안" }]
 };
