@@ -1,7 +1,7 @@
 import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
-import { collection, query, where, getDocs, doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
 export const useAuthStore = create((set, get)=>({
     // 로그인, 회원가입
@@ -50,7 +50,8 @@ export const useAuthStore = create((set, get)=>({
                 birthDate: dateString,
                 zonecode,
                 address,
-                detailaddress
+                detailaddress,
+                isFirstLogin: true
             }
 
             // 3단계 - firestore에 데이터 저장
@@ -73,9 +74,28 @@ export const useAuthStore = create((set, get)=>({
             const user = userCredential.user;
 
             if (user.emailVerified) {
-                console.log("인증됨")
+                console.log("인증됨") 
+
+                // 첫 로그인 확인
+                const userDocRef = doc(db, "users", user.uid);
+                const userSnap = await getDoc(userDocRef);
+
+                if (userSnap.exists()) {
+                    const userData = userSnap.data();
+                    
+                    if (userData.isFirstLogin) {
+                        console.log("첫 로그인 확인됨");
+                        
+                        // 다시는 실행되지 않도록 플래그 업데이트
+                        await updateDoc(userDocRef, { isFirstLogin: false });
+
+                        set({user: user});
+                        return "첫로그인"
+                    }
+                }
+                
                 // 1. 인증 완료된 경우
-                set({user: userCredential.user});
+                set({user: user});
                 return true;
             } else {
                 console.log("인증안됨")
