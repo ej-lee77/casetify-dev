@@ -52,6 +52,8 @@ export default function Login() {
         setTimeout(() => {
           navigate("/");
         }, 1000);
+      }else if(isLogin === "첫로그인"){
+        navigate("/join/complete");
       }else if(isLogin === "메일인증"){
         console.log("here veri")
         setIsModalOpen(true);
