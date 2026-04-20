@@ -7,10 +7,18 @@ import AddressSearch from '../components/sub/AddressSearch'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/locale';
+import Terms from '../components/Terms'
+import CasetifyClubTerms from '../components/CasetifyClubTerms'
+import Privacy from '../components/Privacy'
+import Marketing from '../components/Marketing'
 
 export default function Join() {
     const {onMember} = useAuthStore();
     const navigate = useNavigate();
+    const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+    const [isSecurityModalOpen, setIsSecurityModalOpen] = useState(false);
+    const [isMarketModalOpen, setIsMarketModalOpen] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(null);
 
     const [formData, setFormData] = useState({
         username: "",
@@ -44,7 +52,7 @@ export default function Join() {
     const [agreements, setAgreements] = useState({
         agree: false,
         security: false,
-        merket: false
+        market: false
     });
     
     const setAddressData = (data) => {
@@ -162,6 +170,11 @@ export default function Join() {
         }
     }
 
+    const handleToggle = (index) => {
+        // 이미 열려있는 걸 다시 누르면 닫고, 아니면 해당 인덱스를 켬
+        setActiveIndex(activeIndex === index ? null : index);
+    };
+
   return (
     <div className='login-wrap join-wrap'>
         <div className="inner">
@@ -257,7 +270,7 @@ export default function Join() {
                             <div className="label-box">
                                 <span className="check-icon" aria-hidden="true"></span>
                                 <label htmlFor="agree">이용약관에 동의합니다</label>
-                                <button>내용보기</button>
+                                <button type='button' onClick={() => setIsTermsModalOpen(true)}>내용보기</button>
                             </div>
                         </div>
                         <div className="login-check agree-box">
@@ -265,15 +278,15 @@ export default function Join() {
                             <div className="label-box">
                                 <span className="check-icon" aria-hidden="true"></span>
                                 <label htmlFor="security">개인정보 취급방침에 동의합니다</label>
-                                <button>내용보기</button>
+                                <button type='button' onClick={() => setIsSecurityModalOpen(true)}>내용보기</button>
                             </div>
                         </div>
                         <div className="login-check agree-box">
-                            <input type="checkbox" id="merket" className="login-idcheck screen-reader" checked={agreements.merket} onChange={handleCheckboxChange}/>
+                            <input type="checkbox" id="market" className="login-idcheck screen-reader" checked={agreements.market} onChange={handleCheckboxChange}/>
                             <div className="label-box">
                                 <span className="check-icon" aria-hidden="true"></span>
-                                <label htmlFor="merket">(선택)마케팅정보 수신 동의합니다</label>
-                                <button>내용보기</button>
+                                <label htmlFor="market">(선택)마케팅정보 수신 동의합니다</label>
+                                <button type='button' onClick={() => setIsMarketModalOpen(true)}>내용보기</button>
                             </div>
                         </div>
                     </div>
@@ -283,6 +296,47 @@ export default function Join() {
                     <button className='input-btn'>회원가입하기</button>
                 </div>
             </form>
+            {isTermsModalOpen && (
+            <div className="modal-agree">
+                <div className="modal-agree-content">
+                    <ul>
+                        <li>
+                            <button type='button' onClick={() => handleToggle(0)}>웹사이트 이용약관</button>
+                            <div className={`modal-select ${activeIndex === 0 ? 'active' : ''}`}>
+                                <Terms />
+                            </div>
+                        </li>
+                        <li>
+                            <button type='button' onClick={() => handleToggle(1)}>CASETiFY Club 이용약관</button>
+                            <div className={`modal-select ${activeIndex === 1 ? 'active' : ''}`}>
+                                <CasetifyClubTerms />
+                            </div>
+                        </li>
+                    </ul>
+                    <button type='button' className='input-btn' onClick={() => setIsTermsModalOpen(false)}>닫기</button>
+                </div>
+            </div>
+            )}
+            {isSecurityModalOpen && (
+            <div className="modal-agree">
+                <div className="modal-agree-content">
+                    <div className='modal-div'>
+                        <Privacy />
+                    </div>
+                    <button type='button' className='input-btn' onClick={() => setIsSecurityModalOpen(false)}>닫기</button>
+                </div>
+            </div>
+            )}
+            {isMarketModalOpen && (
+            <div className="modal-agree">
+                <div className="modal-agree-content">
+                    <div className='modal-div'>
+                        <Marketing />
+                    </div>
+                    <button type='button' className='input-btn' onClick={() => setIsMarketModalOpen(false)}>닫기</button>
+                </div>
+            </div>
+            )}
         </div>
     </div>
   )
