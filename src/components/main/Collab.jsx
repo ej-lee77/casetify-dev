@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { Link } from 'react-router-dom'
 
 
 import 'swiper/css'
@@ -102,10 +103,10 @@ export default function Collab() {
     return (
         <section className='collab-wrap'>
             <Swiper modules={[Autoplay,]}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false
-                }}
+                // autoplay={{
+                //     delay: 3000,
+                //     disableOnInteraction: false
+                // }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 loop={true}
                 slidesPerView={5}
@@ -116,21 +117,23 @@ export default function Collab() {
                         <div className="card"
                             onMouseEnter={() => swiperRef.current?.autoplay.stop()}
                             onMouseLeave={() => swiperRef.current?.autoplay.start()}>
-                            <div className="card-inner">
-                                <div className='card-brand'>
-                                    <img src={item.themeImg} alt={item.title} className='theme-img' />
-                                </div>
-                                <div className="card-back">
-                                    <div className="card-img">
-                                        <img src={item.colImg} alt="" /></div>
-                                    <div className="card-content">
-                                        <div>
-                                            <p>{item.title}</p>
-                                        </div>
+                            <Link>
+                                <div className="card-inner">
+                                    <div className='card-brand'>
+                                        <img src={item.themeImg} alt={item.title} className='theme-img' />
                                     </div>
-                                    <button className="more-btn">컬렉션 더보기 +</button>
+                                    <div className="card-back">
+                                        <div className="card-img">
+                                            <img src={item.colImg} alt="" /></div>
+                                        <div className="card-content">
+                                            <div>
+                                                <p>{item.title}</p>
+                                            </div>
+                                        </div>
+                                        <button className="more-btn">컬렉션 더보기 +</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     </SwiperSlide>
                 ))}
