@@ -1,0 +1,47 @@
+export const MINI_QUERY_MAP = {
+    핸드폰: "phone",
+    이어폰: "earphone",
+    노트북: "laptop",
+    워치: "watch",
+    태블릿: "tablet",
+    컬러: "color",
+    패턴: "pattern",
+    시그니처: "signature",
+    캐릭터: "character",
+    아트: "art",
+    "영화&엔터": "movie",
+    "패션&라이프스타일": "fashion",
+    스포츠: "sports",
+};
+
+export const MINI_REVERSE_MAP = {
+    phone: "핸드폰",
+    earphone: "이어폰",
+    laptop: "노트북",
+    watch: "워치",
+    tablet: "태블릿",
+    color: "컬러",
+    pattern: "패턴",
+    signature: "시그니처",
+    character: "캐릭터",
+    art: "아트",
+    movie: "영화&엔터",
+    fashion: "패션&라이프스타일",
+    sports: "스포츠",
+};
+
+export const MINI_ICON_MAP = {
+    핸드폰: "phone",
+    이어폰: "earphone",
+    노트북: "laptop",
+    워치: "watch",
+    태블릿: "tablet",
+    컬러: "color",
+    패턴: "pattern",
+    시그니처: "signature",
+    캐릭터: "character",
+    아트: "art",
+    "영화&엔터": "movie",
+    "패션&라이프스타일": "fashion",
+    스포츠: "sports",
+};
