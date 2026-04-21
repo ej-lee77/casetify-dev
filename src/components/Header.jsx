@@ -90,8 +90,22 @@ export default function Header() {
           </li>
           {user ? (
             <>
-            <li>
-              <Link to="/mypage" className='mypage-icon'><img src="/images/icon/user.svg" alt="내정보" /></Link>
+            <li onMouseEnter={() => setMenuActive("gnb")} onMouseLeave={() => setMenuActive(null)}>
+              <Link className='mypage-icon'><img src="/images/icon/user.svg" alt="내정보" /></Link>
+              <ul className={`user-menu ${MenuActive === "gnb" ? "active" : "" }`}>
+                <li>
+                  <Link to="/mypage" state={{ menu: "회원정보" }}>회원정보</Link>
+                </li>
+                <li>
+                  <Link to="/mypage" state={{ menu: "주문" }}>주문</Link>
+                </li>
+                <li>
+                  <Link to="/mypage" state={{ menu: "케이스티파이 정품 인증" }}>정품인증</Link>
+                </li>
+                <li>
+                  <Link to="/mypage" state={{ menu: "기프트 카드" }}>기프트카드</Link>
+                </li>
+              </ul>
             </li>
             <li>
               <a className='logout-icon' onClick={handleLogout}><img src="/images/icon/logout.svg" alt="로그아웃" /></a>
@@ -103,10 +117,10 @@ export default function Header() {
             </li>
           )}
           <li>
-            <Link><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
+            <Link to="/cart"><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
           </li>
           <li>
-            <Link><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
+            <Link to="/mypage" state={{ menu: "위시리스트" }}><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
           </li>
         </ul>
       </div>
