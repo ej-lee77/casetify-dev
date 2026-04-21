@@ -6,6 +6,7 @@ import { Autoplay, Pagination } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 import SlideInSection from '../SlideInSection';
 import FadeInSection from '../FadeInSection';
+import { Link } from 'react-router-dom';
 
 const BPmain = [
     {
@@ -28,7 +29,7 @@ const BPmain = [
             },
 
             {
-                id: 3,
+                id: "CTF-36679186-16011071",
                 title: "Flower Phone Charm - Chrome Blossom",
                 price: 58000,
                 BPimage: "./images/main/bestproduct/BpProduct003.png"
@@ -36,7 +37,7 @@ const BPmain = [
 
 
             {
-                id: 4,
+                id: "CTF-36452952-16011010",
                 title: "체리 폰 팔찌",
                 price: 26000,
                 BPimage: "./images/main/bestproduct/BpProduct004.png"
@@ -52,10 +53,8 @@ const BPmain = [
                 price: 83000,
                 BPimage: "./images/main/bestproduct/BpProduct005.png"
             },
-            ,
-
             {
-                id: 6,
+                id: "CTF-34735868-16010810",
                 title: "Snappy Grip Holder Customizer",
                 price: 45000,
                 BPimage: "./images/main/bestproduct/BpProduct006.png"
@@ -79,19 +78,19 @@ const BPmain = [
         alt: "slider3",
         Bpproduct: [
             {
-                id: 9,
+                id: "CTF-29949652-16007368",
                 title: "SOSO CAT&DOG",
                 price: 115000,
                 BPimage: "./images/main/bestproduct/BpProduct009.png"
             },
             {
-                id: 10,
+                id: "CTF-35969300-16006863",
                 title: "플라워 스티커 마니아 랩탑 케이스",
                 price: 108000,
                 BPimage: "./images/main/bestproduct/BpProduct010.png"
             },
             {
-                id: 11,
+                id: "CTF-30331173-16009649",
                 title: "Happiest KKOTKA in the world",
                 price: 89000,
                 BPimage: "./images/main/bestproduct/BpProduct011.png"
@@ -107,26 +106,26 @@ const BPmain = [
         src: "./images/main/bestproduct/BP/Bp01.png", alt: "slider4",
         Bpproduct: [
             {
-                id: 13,
+                id: "CTF-36811745-16008063",
                 title: "Yoo Youngkuk Work 1940 SUITCASE",
                 price: 837000,
                 BPimage: "./images/main/bestproduct/BpProduct013.png"
             },
             ,
             {
-                id: 14,
+                id: "CTF-36130084-16010001",
                 title: "멀티 플라워 (레드) 바운스 캐빈",
                 price: 888000,
                 BPimage: "./images/main/bestproduct/BpProduct014.png"
             },
             {
-                id: 15,
+                id: "CTF-35270620-16010001",
                 title: "카이카이와 키키 - 하나미(글로시 프림로즈 핑크) 바운스 캐빈",
                 price: 888000,
                 BPimage: "./images/main/bestproduct/BpProduct015.png"
             },
             {
-                id: 16,
+                id: "CTF-36130099-16008065",
                 title: "스마일 (블랙) 바운스 캐빈",
                 price: 888000,
                 BPimage: "./images/main/bestproduct/BpProduct016.png"
@@ -182,18 +181,17 @@ export default function BestProduct() {
                         <SlideInSection className="right" direction="right" delay={0.4}>
                             <ul >
                                 {BPmain[activeIndex]?.Bpproduct.map((item) => ( 
-
                                     <li key={item.id}>
-                                        <div>
-                                            <img src={item.BPimage} alt="" />
-                                        </div>
-                                        <div>
-                                            <p className='name'>{item.title}</p>
-                                            <p className='price'> ₩{item.price.toLocaleString()}</p>
-                                        </div>
-
+                                         <Link to={`/detail/${item.id}`}>
+                                            <div>
+                                                <img src={item.BPimage} alt="" />
+                                            </div>
+                                            <div>
+                                                <p className='name'>{item.title}</p>
+                                                <p className='price'> ₩{item.price.toLocaleString()}</p>
+                                            </div>
+                                        </Link>
                                     </li>
-
                                 ))}
                             </ul>
                             <button>더보기</button>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./scss/Mypage.scss"
 import Benefit from '../components/Benefit'
 import WishList from '../components/sub/WishList'
 import MypageMenu from '../components/sub/MypageMenu'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import UserInfo from '../components/sub/UserInfo'
 import OrderInfo from '../components/sub/OrderInfo'
 import Giftcard from '../components/sub/Giftcard'
@@ -13,7 +13,7 @@ export default function Mypage() {
   const location = useLocation();
 
   // 왼쪽 메뉴 체크 변수
-  const [selectMenu, setSelectMenu] = useState(location.state?.menu || "위시리스트");
+  const [selectMenu, setSelectMenu] = useState(location.state?.menu || "회원정보");
 
   // 왼쪽 메뉴를 클릭하면 메뉴 변경
   const handleMenuClick = ((menu) => {
@@ -32,6 +32,12 @@ export default function Mypage() {
       case "로그아웃": return <p>로그아웃 + 메인페이지 이동</p>
     }
   }
+  
+  useEffect(() => {
+    if (location.state?.menu) {
+      setSelectMenu(location.state.menu);
+    }
+  }, [location.state]); 
 
   return (
     <div className="sub-page-wrap">
