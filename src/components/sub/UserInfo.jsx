@@ -128,7 +128,9 @@ export default function UserInfo() {
                     <p className='postcode'>
                         <label ><input type="text" value={formData?.zonecode} readOnly placeholder='우편번호' />
                             <span>우편번호</span>
-                            <AddressSearch setAddressData={setAddressData} />
+                            <div className="address-btn">
+                                <AddressSearch setAddressData={setAddressData} />
+                            </div>
                         </label>
                     </p>
                     <p><label ><input type="text" value={formData?.address} readOnly placeholder='기본주소' />
@@ -155,17 +157,3 @@ export default function UserInfo() {
         </div >
     )
 }
-
-//팝업 스타일
-const popupStyle = {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '500px',
-    height: '500px',
-    backgroundColor: 'white',
-    padding: '20px',
-    boxShadow: '0 0 10px rgba(0,0,0,0.5)',
-    zIndex: 10
-};
