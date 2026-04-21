@@ -49,7 +49,7 @@ export default function Header() {
       navigate("/");
     }
   }
-  console.log("here",user);
+  // console.log("here",user);
 
   return (
     <header className={`${isScrolled || MenuActive !== null ? "active" : ""} ${headerColor}`}>
