@@ -22,7 +22,7 @@ export default function UserInfo() {
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
                             <span className='content'>Basic</span>
-                            <span className='content'>{user.uid}</span>
+                            <span className='content'>{user.email.split('@')[0]}</span>
                         </div>
                     </div>
                 </div>
