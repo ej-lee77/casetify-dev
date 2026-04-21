@@ -23,6 +23,17 @@ export default function DetailPage({ item }) {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
+
+useEffect(() => {
+    if (!item) return;
+    setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
+    setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || ""); // ✅ 추가
+    setQuantity(1);
+    setUserSelected(false);
+    setSelectedBundles({});
+}, [item]);
+
+
     // 번들 상품 랜덤 3개
     const bundleItems = useMemo(() => {
         if (!items || !item) return [];
@@ -371,9 +382,10 @@ export default function DetailPage({ item }) {
                                                     }}
                                                 >+</button>
                                             </div>
-                                            <span className="order-row-price">
-                                                {(bundlePrice * qty).toLocaleString()}원
-                                            </span>
+                                           <span className="order-row-price">
+    <em className="bundle-row-origin">{b.price.toLocaleString()}원</em>
+    {(bundlePrice * qty).toLocaleString()}원
+</span>
                                         </div>
                                     );
                                 })}

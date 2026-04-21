@@ -68,6 +68,10 @@
         }
     }
 
+    .label{
+        font-weight: bold;
+    }
+
     .image-error-path {
         max-width: 100%;
         padding: 12px;
@@ -105,7 +109,7 @@
         font-weight: 700;
         margin-bottom: 30px;
     }
-
+// ==========================  ~아코디언  =============================
     // .detail-info-box {
     //     margin-bottom: 24px;
 
@@ -244,6 +248,14 @@
     font-size: 14px;
     font-weight: 600;
     white-space: nowrap;
+}
+
+.bundle-row-origin {
+    font-size: 11px;
+    color: #aaa;
+    text-decoration: line-through;
+    font-style: normal;
+    margin-right: 6px;
 }
 
 .order-total {
