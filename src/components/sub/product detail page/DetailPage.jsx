@@ -2,9 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./scss/DetailPage.scss";
 import { modelColorOptions, colorMap } from "../../../data/finalData";
 
+
+
+
+
+
+
 export default function DetailPage({ item }) {
 
-
+    // ✅ 아코디언 상태만 추가
+    const [accordionOpen, setAccordionOpen] = useState(false);
+    // ✅ state 추가 (다른 useState들 옆에)
+const [selectedModel, setSelectedModel] = useState(
+    item?.compatibleModels?.[0] || ""
+);
   
     if (!item) {
         return (
@@ -30,6 +41,7 @@ export default function DetailPage({ item }) {
 
     // 썸네일 선택 상태
     const [selectedThumb, setSelectedThumb] = useState("main");
+
 
 
 
@@ -173,18 +185,47 @@ export default function DetailPage({ item }) {
                         </div>
                     )}
 
-                    {!!item.compatibleModels?.length && (
-                        <div className="detail-info-box">
-                            <p className="label">호환 모델</p>
-                            <ul className="compatible-list">
-                                {item.compatibleModels.map((model) => (
-                                    <li key={model}>{model}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+                 {/* ✅ 아코디언 인라인으로 */}
+                   {!!item.compatibleModels?.length && (
+    <div className="detail-info-box">
+        <div className="accordion">
+            <button
+                type="button"
+                className="accordion-trigger"
+                onClick={() => setAccordionOpen((prev) => !prev)}
+            >
+                <span>호환 모델 — <strong>{selectedModel}</strong></span>
+                <span className={`accordion-arrow ${accordionOpen ? "open" : ""}`}>▼</span>
+            </button>
+            {accordionOpen && (
+                <ul className="accordion-list">
+                    {item.compatibleModels.map((model) => (
+                        <li
+                            key={model}
+                            className={selectedModel === model ? "active" : ""}
+                            onClick={() => {
+                                setSelectedModel(model);
+                                setAccordionOpen(false); // 선택하면 닫힘
+                            }}
+                        >
+                            {model}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    </div>
+)}
 
-                    <button className="buy-btn">장바구니 담기</button>
+<div className="order-result">
+<hr className="left-line"/>
+</div>
+<div className="button-list">
+
+           <button className="sub-btn">♡</button>
+                  <button className="sub-btn">장바구니 담기</button>
+</div>
+                    <button className="buy-btn">바로 구매</button>
 
                     <div className="detail-desc">
                         <h3>상품 안내</h3>
