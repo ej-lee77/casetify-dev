@@ -18,10 +18,16 @@ import LoginFind from './pages/LoginFind'
 import Cart from './pages/Cart'
 import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
 import CustomPage from './pages/CustomPage'
+import { useAuthStore } from './store/useAuthStore'
 
 function App() {
   const { onFetchItems } = useProductStore();
   const { pathname } = useLocation();
+  const { initAuth }  = useAuthStore();
+
+  useEffect(()=>{
+    initAuth();
+  },[initAuth]);
 
   useEffect(() => {
     // 경로가 변경될 때마다 최상단으로 이동

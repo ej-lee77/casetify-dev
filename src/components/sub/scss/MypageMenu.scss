@@ -4,10 +4,9 @@
     // border: 1px dashed black;
     padding: 1em 0;
     background-color: #eee;
-    width: 400px;
+    width: 300px;
 
     .menu-item {
-
         button {
             @include g.myFlex($jc: normal, $ai: center, $gap: 0);
             width: 100%;
@@ -15,7 +14,7 @@
             border: none;
             font-size: 1.125em;
             font-family: inherit;
-            padding: 1.125em 1.5em;
+            padding: 1em;
             background-color: inherit;
             transition: 0.25s ease-in-out;
 

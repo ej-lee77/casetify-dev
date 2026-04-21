@@ -2,8 +2,10 @@ import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChan
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
 import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { persist } from "zustand/middleware";
 
-export const useAuthStore = create((set, get)=>({
+export const useAuthStore = create(
+    persist((set, get)=>({
     // 로그인, 회원가입
     user: null,
 
@@ -12,12 +14,15 @@ export const useAuthStore = create((set, get)=>({
     initAuth: ()=>{
         onAuthStateChanged(auth, async (firebaseUser)=>{
             if(firebaseUser){
-                if(!firebaseUser.emailVerified){
-                    alert("이메일 인증을 먼저 해주세요!!");
-                    await signOut(auth);
-                    set({user:null});
-                    return
+                const userDocRef = doc(db, "users", firebaseUser.uid);
+                const userSnap = await getDoc(userDocRef);
+
+                if (userSnap.exists()) {
+                    const userData = userSnap.data();
+                    set({ user: userData });
                 }
+            }else{
+                set({ user: null });
             }
         })
     },
@@ -342,5 +347,75 @@ export const useAuthStore = create((set, get)=>({
             console.log(error.message);
             return error.code;
         }
+    },
+
+    wishlist: [],
+
+    // 위시리스트 추가
+    onAddWishlist: async(wishItem)=>{
+        const user = get().user;
+
+        const productData = {
+            productId: wishItem.id,
+            device: wishItem.device,
+            color: wishItem.color,
+            title: wishItem.productName,
+            price: wishItem.price
+        };
+
+        try {
+            const userWishRef = doc(db, "wishlists", user.uid);
+            
+            await setDoc(userWishRef, {
+                items: arrayUnion(productData)
+            }, { merge: true });
+
+            console.log("Firebase 위시리스트에 저장 완료!");
+        } catch (err) {
+            console.log(err.message);
+        }
+    },
+    // 위시리스트 삭제
+    onRemoveWishlist: async (targetItem) => {
+        const user = get().user;
+        const userWishRef = doc(db, "wishlists", user.uid);
+        
+        try{
+            await updateDoc(userWishRef, {
+                items: arrayRemove(targetItem)
+            });
+        }catch(err){
+            console.log(err.message);
+        }
+    },
+    // 위시리스트 가져오기
+    onFetchWishlist: async () => {
+        const user = get().user; // 현재 로그인된 유저 정보
+        if (!user) return;
+
+        try {
+            const userWishRef = doc(db, "wishlists", user.uid);
+            const docSnap = await getDoc(userWishRef);
+
+            if (docSnap.exists()) {
+                // 문서가 있으면 그 안의 items 배열을 저장
+                set({ wishlist: docSnap.data().items || [] });
+            } else {
+                // 문서 자체가 없으면 빈 배열
+                set({ wishlist: [] });
+            }
+        } catch (err) {
+            console.log("위시리스트 로딩 실패:", err.message);
+        }
+    },
+    
+    }),
+    {
+        name: 'auth-storage',
+        partialize: (state) => ({
+            user: state.user ? { 
+            uid: state.user.uid
+            } : null
+        })
     }
-}));
+));
