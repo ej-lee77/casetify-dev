@@ -68,6 +68,23 @@
         }
     }
 
+    // ======== ~오른쪽 ====================================================
+
+
+.right-info-wrap{
+ display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+
+    .label{
+        font-weight: bold;
+        font-size: 20px;
+    }
+
     .image-error-path {
         max-width: 100%;
         padding: 12px;
@@ -105,7 +122,7 @@
         font-weight: 700;
         margin-bottom: 30px;
     }
-
+// ==========================  ~아코디언  =============================
     // .detail-info-box {
     //     margin-bottom: 24px;
 
@@ -246,6 +263,14 @@
     white-space: nowrap;
 }
 
+.bundle-row-origin {
+    font-size: 11px;
+    color: #aaa;
+    text-decoration: line-through;
+    font-style: normal;
+    margin-right: 6px;
+}
+
 .order-total {
     display: flex;
     justify-content: space-between;
@@ -266,7 +291,107 @@
 
 
 
+// ================================================================================
+// ✅ 할인가 일렬 표시
+.detail-price {
+    .price-discount-rate { color: #2563eb; margin-right: 6px; }
+    .price-discounted { color: #e02020; margin-right: 8px; }
+    .price-origin {
+        color: #aaa;
+        font-size: 0.85em;
+        text-decoration: line-through;
+    }
+}
 
+// ✅ 위시 버튼
+.wish-btn {
+    img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        transition: filter 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    &:hover img {
+        filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
+    }
+
+    &.wished img {
+        filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
+        transform: scale(1.15);
+    }
+}
+
+    &:img(.wished) img {
+        transform: scale(1);
+    }
+}
+
+// ✅ 번들 섹션 - 가로 3열
+.bundle-section {
+    margin-top: 24px;
+
+    .bundle-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #e02020;
+        margin-bottom: 12px;
+    }
+
+    .bundle-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .bundle-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        position: relative;
+
+        .bundle-checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .bundle-img-wrap {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f0f0f0;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        &.selected .bundle-img-wrap { border-color: #111; }
+
+        .bundle-name {
+            font-size: 12px;
+            text-align: center;
+            color: #333;
+            line-height: 1.4;
+            word-break: break-all;
+        }
+    }
+}
 
 // =================================================================================
 
@@ -320,7 +445,7 @@
             word-break: break-all;
         }
     }
-}
+
 
 .detail-device-colors,
 .detail-colors {

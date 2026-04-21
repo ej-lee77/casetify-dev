@@ -102,7 +102,7 @@ export default function Recommend({ item }) {
 
     return (
         <div className="recommend-list">
-            <h3 className="title">추천 번들 상품</h3>
+            <h3 className="title">추천 상품</h3>
             <Swiper slidesPerView={5} spaceBetween={20} grabCursor={true}>
                 {recommendedItems.map((p) => (
                     <SwiperSlide key={p.id}>
