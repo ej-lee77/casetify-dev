@@ -8,6 +8,7 @@ import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
 import { items } from "../../../data/finalData"; 
+import { useAuthStore } from "../../../store/useAuthStore";
 
 export default function DetailPage({ item }) {
 
@@ -22,6 +23,7 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const {onAddWishlist} = useAuthStore();
 
 
 useEffect(() => {
@@ -61,27 +63,41 @@ useEffect(() => {
     }, [item]);
 
     // 위시 핸들러 — 비회원이면 alert 후 로그인 페이지 이동
-    const handleWish = async () => {
-        if (!user) {
-            alert("로그인이 필요한 서비스입니다.");
-            navigate("/login");
-            return;
+    // const handleWish = async () => {
+    //     if (!user) {
+    //         alert("로그인이 필요한 서비스입니다.");
+    //         navigate("/login");
+    //         return;
+    //     }
+    //     const ref = doc(db, "wishlist", `${user.uid}_${item.id}`);
+    //     if (isWished) {
+    //         await deleteDoc(ref);
+    //         setIsWished(false);
+    //     } else {
+    //         await setDoc(ref, {
+    //             userId: user.uid,
+    //             productId: item.id,
+    //             productName: item.productName,
+    //             price: item.price,
+    //             createdAt: new Date(),
+    //         });
+    //         setIsWished(true);
+    //     }
+    // };
+
+    const handleAddWish = (item)=>{
+
+        const wishItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: "iphone17pro", //selectedModel
+            color: `${selectedDeviceColor}_${selectedColor}`
         }
-        const ref = doc(db, "wishlist", `${user.uid}_${item.id}`);
-        if (isWished) {
-            await deleteDoc(ref);
-            setIsWished(false);
-        } else {
-            await setDoc(ref, {
-                userId: user.uid,
-                productId: item.id,
-                productName: item.productName,
-                price: item.price,
-                createdAt: new Date(),
-            });
-            setIsWished(true);
-        }
-    };
+
+        onAddWishlist(wishItem);
+    }
+
 
     // 번들 체크박스 토글
     const handleBundleToggle = (bundleItem) => {
@@ -197,7 +213,7 @@ useEffect(() => {
                     <div className="detail-main-image">
                         <img src={mainImage} alt={item.productName} />
                     </div>
-                    <ul className="detail-thumb-list">
+                    {/* <ul className="detail-thumb-list">
                         {imageList.map((img) => (
                             <li key={img.key} className={selectedThumb === img.key ? "active" : ""}>
                                 <button type="button" onClick={() => setSelectedThumb(img.key)}>
@@ -205,23 +221,37 @@ useEffect(() => {
                                 </button>
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
+                    <ul className="detail-thumb-list">
+    {imageList.map((img) => (
+        <li key={img.key} className={selectedThumb === img.key ? "active" : ""}
+            style={{ display: img.key === "main" ? "block" : "none" }}
+            ref={(el) => {
+                if (el && img.key !== "main") {
+                    const image = el.querySelector("img");
+                    if (image) {
+                        image.onload = () => { el.style.display = "block"; };
+                        image.onerror = () => { el.style.display = "none"; };
+                    }
+                }
+            }}
+        >
+            <button type="button" onClick={() => setSelectedThumb(img.key)}>
+                <img src={img.src} alt={`${item.productName} 썸네일`} />
+            </button>
+        </li>
+    ))}
+</ul>
                 </div>
 
                 <div className="detail-right">
+                   
                     <p className="detail-artist">{item.artist || "CASETiFY"}</p>
                     <h2 className="detail-title">{item.productName}</h2>
                     <p className="detail-price">
                         {Number(item.price || 0).toLocaleString()}원
                     </p>
-
-                    {!!item.modelLabel && (
-                        <div className="detail-info-box">
-                            <p className="label">기종</p>
-                            <p>{item.modelLabel}</p>
-                        </div>
-                    )}
-
+ <div className="right-info-wrap">
                     {!!item.caseCategory && (
                         <div className="detail-info-box">
                             <p className="label">종류</p>
@@ -308,7 +338,7 @@ useEffect(() => {
                             </div>
                         </div>
                     )}
-
+</div>
                     {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
                     {userSelected && (
                         <div className="order-result">
@@ -399,14 +429,20 @@ useEffect(() => {
                     )}
 
                     {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
-
+<div className="right-btn-wrap">
                     <div className="button-list">
-                        {/* ✅ 위시 버튼 */}
-                        <button className={`sub-btn wish-btn ${isWished ? "wished" : ""}`} onClick={handleWish}>
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                            </svg>
-                        </button>
+  <button
+    className={`sub-btn wish-btn ${isWished ? "wished" : ""}`}
+    onClick={() => {
+        handleAddWish(item);
+        setIsWished((prev) => !prev);
+    }}
+>
+    <img
+        src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
+        alt="위시"
+    />
+</button>
                         {/* ✅ 장바구니 버튼 - 미선택 시 alert */}
                         <button className="sub-btn" onClick={() => {
                             if (!userSelected) {
@@ -416,12 +452,16 @@ useEffect(() => {
                         }}>장바구니 담기</button>
                     </div>
                     {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
-                    <button className="buy-btn" onClick={() => {
-                        if (!userSelected) {
-                            alert("제품을 선택해주세요.");
-                            return;
-                        }
-                    }}>바로 구매</button>
+  <button className="buy-btn" onClick={() => {
+    if (!userSelected) {
+        alert("제품을 선택해주세요.");
+        return;
+    }
+}}>
+    {Object.keys(selectedBundles).length > 0
+        ? `함께 구매하기 (${Object.keys(selectedBundles).length})`
+        : "바로 구매하기"}
+</button>
 
                     {/* 번들 섹션 — 가로 3열 그리드 */}
                     {bundleItems.length > 0 && (
@@ -455,7 +495,7 @@ useEffect(() => {
                     )}
 
                 </div>
-            </div>
+            </div></div>
         </section>
     );
 }
