@@ -13,18 +13,18 @@ const generateInitialReviews = (popularity) => {
 
     for (let i = 0; i < 7; i++) {
         result.push({
-            user: "초기유저",
+            user: "장원영",
             rating: base,
-            content: "기본 리뷰",
+            content: "기본 리뷰입니다, 너무멋지고 맘에들어요",
             date: "2026-01-01",
         });
     }
 
     for (let i = 0; i < Math.round(decimal * 10); i++) {
         result.push({
-            user: "초기유저",
+            user: "필릭스",
             rating: base + 1,
-            content: "상위 리뷰",
+            content: "상위 리뷰! 기대하던 상품입니다",
             date: "2026-01-01",
         });
     }
@@ -61,6 +61,7 @@ const [rating, setRating] = useState(5);
 const [hover, setHover] = useState(0);
 const [search, setSearch] = useState("");
 const [sort, setSort] = useState("latest");
+const [userName, setUserName] = useState("");
 
 // ⭐ 평균 점수
 const total = reviews.length;
@@ -100,12 +101,11 @@ const sortedReviews = [...filtered].sort((a, b) => {
     return 0;
 });
 
-// 리뷰 추가
 const handleAddReview = () => {
     if (!input.trim()) return;
 
     const newReview = {
-        user: "고객명",
+        user: userName.trim() || "익명",  // ✅ 입력한 이름, 없으면 익명
         rating,
         content: input,
         date: new Date().toISOString().slice(0, 10),
@@ -114,8 +114,15 @@ const handleAddReview = () => {
     setReviews([newReview, ...reviews]);
     setInput("");
     setRating(5);
+    setUserName("");  // ✅ 초기화
 };
 
+
+
+const handleDeleteReview = (index) => {
+    const updated = reviews.filter((_, i) => i !== index);
+    setReviews(updated);
+};
     
 
     return (
@@ -173,6 +180,12 @@ const handleAddReview = () => {
                     </div>
 
                     <div className="text-box">
+                            <input
+        type="text"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="이름을 입력해주세요."
+    />
                         <textarea
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
@@ -210,20 +223,18 @@ const handleAddReview = () => {
 
                 <ul className="star detail">
                     {sortedReviews.map((r, i) => (
-                        <li key={i}>
-                            <div className="user info">
-                                <p className="user">{r.user}</p>
-
-                                <div className="star-core">
-                                    {"★".repeat(r.rating)}
-                                    {"☆".repeat(5 - r.rating)}
-                                </div>
-
-                                <p className="date">{r.date}</p>
-                            </div>
-
-                            <div className="user-review">{r.content}</div>
-                        </li>
+                   <li key={i}>
+    <div className="user info">
+        <p className="user">{r.user}</p>
+        <div className="star-core">
+            {"★".repeat(r.rating)}
+            {"☆".repeat(5 - r.rating)}
+        </div>
+        <p className="date">{r.date}</p>
+        <button onClick={() => handleDeleteReview(i)}>삭제</button> {/* ✅ 추가 */}
+    </div>
+    <div className="user-review">{r.content}</div>
+</li>
                     ))}
                 </ul>
             </div>
