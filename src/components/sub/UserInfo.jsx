@@ -2,21 +2,28 @@ import React, { useEffect, useState } from 'react'
 import MypageTitle from './MypageTitle'
 import "./scss/UserInfo.scss"
 import { useAuthStore } from '../../store/useAuthStore'
+import AddressSearch from './AddressSearch';
 
 export default function UserInfo() {
-    const { user } = useAuthStore();
-    const [form, setForm] = useState({
-        email: '',
-        name: '',
-        phone: '',
-        zonecode: '',
-        address: '',
-        detailaddress: ''
+    const { user, onUpdateUser } = useAuthStore();
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        zonecode: "",
+        address: "",
+        detailaddress: ""
     });
-
+    const setAddressData = (data) => {
+        setFormData((prev) => ({
+            ...prev,
+            zonecode: data.zonecode,
+            address: data.address,
+        }));
+    };
     useEffect(() => {
         if (user) {
-            setForm({
+            setFormData({
                 email: user.email || '',
                 name: user.name || '',
                 phone: user.phone || '',
@@ -26,10 +33,18 @@ export default function UserInfo() {
             });
         }
     }, [user]);
+    const handleSave = async () => {
+        const result = await onUpdateUser(formData);
 
+        if (result) {
+            alert("회원정보가 수정되었습니다 👍");
+        } else {
+            alert("저장 실패 😢");
+        }
+    };
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm((prev) => ({
+        setFormData((prev) => ({
             ...prev,
             [name]: value
         }));
@@ -45,14 +60,14 @@ export default function UserInfo() {
                         <img className='user-qr' src="./images/userinfo/qr-code.png" alt="큐알" />
                         <div>
                             <p className='title'>MENBER NAME</p>
-                            <p className='content'>{user.name}</p>
+                            <p className='content'>{formData?.name}</p>
                         </div>
                     </div>
                     <div className='user-info2'>
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
                             <span className='content'>Basic</span>
-                            <span className='content'>{user.email.split('@')[0]}</span>
+                            <span className='content'>{formData?.email.split('@')[0]}</span>
                         </div>
                     </div>
                 </div>
@@ -66,7 +81,7 @@ export default function UserInfo() {
                         <label>
                             <input type="text"
                                 name="email"
-                                value={form.email}
+                                value={formData.email}
                                 onChange={handleChange}
                                 placeholder='' />
                             <span>이메일</span></label>
@@ -74,7 +89,7 @@ export default function UserInfo() {
                             <input
                                 type="text"
                                 name="name"
-                                value={form.name}
+                                value={formData.name}
                                 onChange={handleChange}
                                 placeholder=''
                             />
@@ -85,7 +100,7 @@ export default function UserInfo() {
                             <input
                                 type="text"
                                 name="phone"
-                                value={form.phone}
+                                value={formData.phone}
                                 onChange={handleChange}
                                 placeholder=''
                             />
@@ -111,22 +126,24 @@ export default function UserInfo() {
             <div className='address-info'>
                 <form>
                     <p className='postcode'>
-                        <label ><input type="text" value={user.zonecode} readOnly placeholder='우편번호' />
+                        <label ><input type="text" value={formData?.zonecode} readOnly placeholder='우편번호' />
                             <span>우편번호</span>
-                            <button>주소 찾기</button>
+                            <AddressSearch setAddressData={setAddressData} />
                         </label>
                     </p>
-                    <p><label ><input type="text" value={user.address} readOnly placeholder='기본주소' />
+                    <p><label ><input type="text" value={formData?.address} readOnly placeholder='기본주소' />
                         <span>기본주소</span>
                     </label></p>
                     <p><label ><input
                         name="detailaddress"
-                        value={form.detailaddress}
+                        value={formData.detailaddress}
                         onChange={handleChange} placeholder='' />
                         <span className='always'>상세주소</span></label></p>
                 </form>
                 <div className="btn-wrap">
-                    <button>회원 정보 저장</button>
+                    <button type="button" onClick={handleSave}>
+                        회원 정보 저장
+                    </button>
                 </div>
             </div>
             <div className='delete-wrap'>
@@ -138,3 +155,17 @@ export default function UserInfo() {
         </div >
     )
 }
+
+//팝업 스타일
+const popupStyle = {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '500px',
+    height: '500px',
+    backgroundColor: 'white',
+    padding: '20px',
+    boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+    zIndex: 10
+};
