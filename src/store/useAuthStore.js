@@ -89,14 +89,17 @@ export const useAuthStore = create((set, get)=>({
                         // 다시는 실행되지 않도록 플래그 업데이트
                         await updateDoc(userDocRef, { isFirstLogin: false });
 
-                        set({user: user});
+                        set({user: userData});
                         return "첫로그인"
                     }
+
+                    // 1. 인증 완료된 경우
+                    set({user: userData});
+                    return true;
+                }else{
+                    return false;
                 }
-                
-                // 1. 인증 완료된 경우
-                set({user: user});
-                return true;
+
             } else {
                 console.log("인증안됨")
                 // 2. 인증 안 된 경우: 에러 상태 설정 및 재발송

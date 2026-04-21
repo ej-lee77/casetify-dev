@@ -17,6 +17,8 @@ import JoinComplete from './pages/JoinComplete'
 import LoginFind from './pages/LoginFind'
 import Cart from './pages/Cart'
 import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
+import DetailPage from "./components/sub/DetailPage";
+import CustomPage from './pages/CustomPage'
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -38,7 +40,10 @@ function App() {
 
         {/* <Route path='/:mainCate/:subCate' element={<CategoryPage />}/> */}
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
-         <Route path="/detail/:id" element={<ProductDetailPage />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path='/custom' element={<CustomPage />}/>
+
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
         <Route path='/login/find/:content' element={<LoginFind />} />

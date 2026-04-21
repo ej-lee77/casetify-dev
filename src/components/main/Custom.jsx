@@ -7,6 +7,7 @@ import { Autoplay, Pagination } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 import SlideInSection from '../SlideInSection';
 import FadeInSection from '../FadeInSection';
+import { Link } from 'react-router-dom';
 
 const CUmain = [
     {
@@ -113,13 +114,15 @@ export default function Custom() {
                             <ul >
                                 {CUmain[activeIndex]?.Cuproduct.map((item) => (
                                     <li key={item.id}>
-                                        <div>
-                                            <img src={item.CUimage} alt="" />
-                                        </div>
-                                        <div>
-                                            <p className='name'>{item.title}</p>
-                                            <p className='price'> ₩{item.price.toLocaleString()}</p>
-                                        </div>
+                                        <Link to="/custom">
+                                            <div>
+                                                <img src={item.CUimage} alt="" />
+                                            </div>
+                                            <div>
+                                                <p className='name'>{item.title}</p>
+                                                <p className='price'> ₩{item.price.toLocaleString()}</p>
+                                            </div>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
