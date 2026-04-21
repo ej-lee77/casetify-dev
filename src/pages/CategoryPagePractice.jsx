@@ -20,7 +20,6 @@ export default function CategoryPagePractice() {
         items,
         mainMenuList,
         categoryItems,
-        onFetchItems,
         onFilterCategory,
     } = useCategoryProductStore();
 
@@ -31,10 +30,6 @@ export default function CategoryPagePractice() {
     const subCateKo = currentSub?.name || "";
     const mainSubList = currentMain?.sub || [];
     const miniCate = currentSub?.mini || [];
-
-    useEffect(() => {
-        onFetchItems();
-    }, [onFetchItems]);
 
     useEffect(() => {
         if (!mainCate || !subCate) return;
@@ -60,7 +55,9 @@ export default function CategoryPagePractice() {
                     mainSubList={mainSubList}
                 />
 
-                <CategorySubSlider miniCate={miniCate} />
+                {miniCate.length > 0 && (
+                    <CategorySubSlider miniCate={miniCate} />
+                )}
 
                 <ul className="category-product-list">
                     {categoryItems.map((item) =>

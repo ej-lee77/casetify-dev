@@ -8,19 +8,14 @@ export default function CategoryMenuMap({
     mainSubList = [],
 }) {
     const firstSub = mainSubList[0];
-
-    const mainTargetPath = firstSub
-        ? `/${mainCate}/${firstSub.link}`
-        : `/${mainCate}`;
+    const mainTargetPath = firstSub ? `/${mainCate}/${firstSub.link}` : "/";
 
     return (
         <div className="menu-map">
             <Link to="/">홈</Link>
             <span> &gt; </span>
-
             <Link to={mainTargetPath}>{mainCateKo}</Link>
             <span> &gt; </span>
-
             <span className="current">{subCateKo}</span>
         </div>
     );

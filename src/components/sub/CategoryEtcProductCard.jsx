@@ -12,8 +12,12 @@ export default function CategoryEtcProductCard({ item }) {
     const compatibleModels = Array.isArray(item.compatibleModels) ? item.compatibleModels : [];
 
     const imagePath = mainColor
-        ? `/images/category/products/${item.id}_${mainColor}_main.jpg`
-        : `/images/category/products/${item.id}_main.jpg`;
+        ? item.modelKey
+            ? `/images/category/products/${item.id}_${item.modelKey}_${mainColor}_main.jpg`
+            : `/images/category/products/${item.id}_${mainColor}_main.jpg`
+        : item.modelKey
+            ? `/images/category/products/${item.id}_${item.modelKey}_main.jpg`
+            : `/images/category/products/${item.id}_main.jpg`;
 
     const handleError = () => {
         setIsImageError(true);
@@ -34,12 +38,12 @@ export default function CategoryEtcProductCard({ item }) {
                     )}
                 </div>
             </Link>
+
             <div className="card-info">
                 <p className="card-name">{item.productName}</p>
-                <p className="temporary">{imagePath}</p>
 
                 {!!item.caseCategory && (
-                    <p className="card-sub">{item.caseCategory}</p>
+                    <p className="card-sub">{item.modelLabel ? `${item.modelLabel} · ${item.caseCategory}` : item.caseCategory}</p>
                 )}
 
                 {!item.caseCategory && !!item.modelLabel && (
@@ -54,7 +58,6 @@ export default function CategoryEtcProductCard({ item }) {
                     {Number(item.price || 0).toLocaleString()}원
                 </p>
             </div>
-
         </li>
     );
 }
