@@ -24,7 +24,7 @@ export default function DetailProductCard({ item }) {
   const deviceColorKey = deviceColors[0]?.key || "Black";
   const visibleColors = colors.slice(0, 5);
   const extraCount = colors.length - visibleColors.length;
-  const imagePath = `/images/category/products/${item.id}_${item.deviceKey}_${deviceColorKey}_${item.mainCaseColor}_main.jpg`;
+  const imagePath = `/images/category/products/${item.id}_${item.device}_${item.color}_main.jpg`;
 
   return (
     <li className="product-card">
