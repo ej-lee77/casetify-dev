@@ -52,7 +52,7 @@
                         .icon-box {
                             background-color: #222222;
 
-                            img{
+                            img {
                                 filter: brightness(0) invert(1); //아이콘 흰색 처리
                             }
                         }
@@ -81,6 +81,28 @@
             .cart-list-area {
                 // border: 1px dashed pink;
                 flex: 1;
+
+                // 체크박스
+                .checkbox-label {
+                    input {
+                        display: none;
+                    }
+
+                    .checkbox-icon {
+                        display: inline-block;
+                        width: 24px;
+                        height: 24px;
+
+                        &.off {
+                            background: url("./images/icon/btn_checkbox_off.svg") no-repeat center/contain;
+                        }
+
+                        &.on {
+                            background: url("./images/icon/btn_checkbox_on.svg") no-repeat center/contain;
+                        }
+                    }
+                }
+
 
                 // 제목
                 .cart-title {

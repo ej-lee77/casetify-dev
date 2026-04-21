@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./scss/Cart.scss"
 
 // 임시 배열
@@ -72,6 +72,102 @@ const tempItem = [
     miniCategory: "핸드폰",
     lastCategory: [
       "iPhone 17 Pro"
+    ],
+    deviceCategory: {
+      Apple: [
+        "아이폰 17 Pro",
+        "아이폰 17",
+        "아이폰 16 Pro",
+        "아이폰 16",
+        "아이폰 15 Pro",
+        "아이폰 15"
+      ],
+      Samsung: [
+        "갤럭시 S26",
+        "갤럭시 S26+",
+        "갤럭시 Z 폴드7",
+        "갤럭시 Z 플립7",
+        "갤럭시 S25",
+        "갤럭시 S25+",
+        "갤럭시 Z 폴드6",
+        "갤럭시 Z 플립6"
+      ],
+      Google: [
+        "Pixel 10 Pro",
+        "Pixel 10",
+        "Pixel 9 Pro",
+        "Pixel 9"
+      ]
+    }
+  },
+  {
+    id: "CTF-32503883-16007156",
+    badge: [
+      "무료 배송"
+    ],
+    price: "83000",
+    productName: "Party Teddy Bears",
+    caseCategory: "맥세이프 호환 임팩트 케이스",
+    color: [
+      "Black",
+      "Matte Black"
+    ],
+    collabo: "By Eggsdoodz",
+    mainCategory: "케이스",
+    subCategory: "디바이스",
+    miniCategory: "핸드폰",
+    lastCategory: [
+      "iPhone 16"
+    ],
+    deviceCategory: {
+      Apple: [
+        "아이폰 17 Pro",
+        "아이폰 17",
+        "아이폰 16 Pro",
+        "아이폰 16",
+        "아이폰 15 Pro",
+        "아이폰 15"
+      ],
+      Samsung: [
+        "갤럭시 S26",
+        "갤럭시 S26+",
+        "갤럭시 Z 폴드7",
+        "갤럭시 Z 플립7",
+        "갤럭시 S25",
+        "갤럭시 S25+",
+        "갤럭시 Z 폴드6",
+        "갤럭시 Z 플립6"
+      ],
+      Google: [
+        "Pixel 10 Pro",
+        "Pixel 10",
+        "Pixel 9 Pro",
+        "Pixel 9"
+      ]
+    }
+  },
+  {
+    id: "CTF-16583393-16007163",
+    badge: [
+      "무료 배송"
+    ],
+    price: "83000",
+    productName: "bright spring flowers - daisy floral pattern",
+    caseCategory: "맥세이프 호환 임팩트 케이스",
+    color: [
+      "Black",
+      "Pink Fizz",
+      "Purple",
+      "Matte Black",
+      "Glitter Purple",
+      "Glitter Indigo"
+    ],
+    collabo: "By Marta Olga Klara",
+    mainCategory: "케이스",
+    subCategory: "디바이스",
+    miniCategory: "핸드폰",
+    lastCategory: [
+      "iPhone 16 Pro"
     ],
     deviceCategory: {
       Apple: [
@@ -180,6 +276,23 @@ const tempRecoItem = [
 ]
 
 export default function Cart() {
+  // 체크박스 선택 확인
+  const [chekedItems, setCheckedItems] = useState([]);
+  // 체크박스 실행 메서드
+  const handleChecked = (item) => {
+    console.log(item);
+    const key = item.id;
+    setCheckedItems((prev) =>
+      prev.includes(key) ? prev.filter((v) => v !== key) : [...prev, key])
+  }
+  // 전체 체크 메서드
+  const handleAllChecked = (e) => {
+    if (e.target.checked) {
+      const allKeys = tempItem.map((item) => item.id)
+      setCheckedItems(allKeys)
+    } else { setCheckedItems([]) }
+  }
+
   return (
     <div className="sub-page-wrap cart-page-wrap">
       {/* 페이지 상단 제목 */}
@@ -217,8 +330,11 @@ export default function Cart() {
             {/* 장바구니 제목 */}
             <div className="cart-title">
               <div className="cart-title-left">
-                <label>
-                  <input type="checkbox" />
+                <label className="checkbox-label">
+                  <input type="checkbox"
+                    checked={chekedItems.length === tempItem.length}
+                    onChange={handleAllChecked} />
+                  <span className={`checkbox-icon ${chekedItems.length === tempItem.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -231,8 +347,11 @@ export default function Cart() {
             <ul className="cart-item-list">
               {tempItem.map((item) => (
                 <li key={item.id} className="cart-item">
-                  <label>
-                    <input type="checkbox" />
+                  <label className="checkbox-label">
+                    <input type="checkbox"
+                      checked={chekedItems.includes(item.id)}
+                      onChange={() => handleChecked(item)} />
+                    <span className={`checkbox-icon ${chekedItems.includes(item.id) ? "on" : "off"}`}></span>
                   </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
