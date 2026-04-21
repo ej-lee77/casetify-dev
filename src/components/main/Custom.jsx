@@ -126,7 +126,7 @@ export default function Custom() {
                                     </li>
                                 ))}
                             </ul>
-                        <button>커스텀하기</button>
+                        <button><Link to="/custom">커스텀하기</Link></button>
                         </SlideInSection>
                     </div>
                 </div>

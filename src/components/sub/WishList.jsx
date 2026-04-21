@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./scss/WishList.scss"
 import MypageTitle from './MypageTitle'
 import DetailProductCard from './DetailProductCard';
+import { useAuthStore } from '../../store/useAuthStore';
 
 
 // 임시 배열
@@ -457,26 +458,22 @@ const tempItem = [
 ];
 
 export default function WishList() {
+    const [wishItemList, setWishItemList] = useState([]);
+    const { user, wishlist, onFetchWishlist, onRemoveWishlist } = useAuthStore();
+
+    useEffect(()=>{
+        if (!user) return;
+        onFetchWishlist();
+        setWishItemList(wishlist);
+    }, [user]);
+
     return (
         <div>
             <MypageTitle title={"위시리스트"} />
             <ul className="wish-list">
-                {/* component item */}
-                {/* <li>
-                    <div className="img-box">
-                        <img src="./images/main/bestproduct/BpProduct001.png" alt="test-img" />
-                        <span className="fav-icon"><img src="./images/icon/icon_favorite_fill.svg" alt="" /> </span>
-                    </div>
-                    <div className="text-box">
-                        <p className="item-name">Happiest KKOTKA in the world</p>
-                        <p className="item-price">₩{Number("29000").toLocaleString()} <span className="free-shipping">#무료배송</span></p>
-                        <p className="color-list"></p>
-                    </div>
-                </li> */}
-                {tempItem.map((item) => (
+                {wishItemList.map((item) => (
                     <DetailProductCard key={item.id} item={item} />
                 ))}
-
             </ul>
         </div>
     )
