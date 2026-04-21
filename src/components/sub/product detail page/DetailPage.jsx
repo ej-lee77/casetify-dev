@@ -5,18 +5,18 @@ import { modelColorOptions, colorMap } from "../../../data/finalData";
 export default function DetailPage({ item }) {
 
     const [accordionOpen, setAccordionOpen] = useState(false);
-    const [selectedModel, setSelectedModel] = useState(
-        item?.compatibleModels?.[0] || ""
-    );
+    const [selectedModel, setSelectedModel] = useState(""); // ✅ 빈값으로
     const [selectedColor, setSelectedColor] = useState("");
     const [selectedDeviceColor, setSelectedDeviceColor] = useState("");
     const [selectedThumb, setSelectedThumb] = useState("main");
-    // ✅ 수량 state 추가
     const [quantity, setQuantity] = useState(1);
+    const [userSelected, setUserSelected] = useState(false); // ✅ 추가
 
     useEffect(() => {
         if (!item) return;
         setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
+        setQuantity(1);           // ✅ 추가
+        setUserSelected(false);   // ✅ 추가
     }, [item]);
 
     if (!item) {
@@ -69,7 +69,6 @@ export default function DetailPage({ item }) {
     const mainImage =
         imageList.find((img) => img.key === selectedThumb)?.src || imageList[0].src;
 
-    // ✅ 선택 옵션 요약 텍스트
     const optionSummary = [
         item.modelLabel,
         selectedDeviceColor,
@@ -130,6 +129,7 @@ export default function DetailPage({ item }) {
                                         onClick={() => {
                                             setSelectedDeviceColor(deviceColor.key);
                                             setSelectedThumb("main");
+                                            setUserSelected(true); // ✅
                                         }}
                                     >
                                         {deviceColor.label}
@@ -151,6 +151,7 @@ export default function DetailPage({ item }) {
                                         onClick={() => {
                                             setSelectedColor(color);
                                             setSelectedThumb("main");
+                                            setUserSelected(true); // ✅
                                         }}
                                     >
                                         <span
@@ -184,6 +185,7 @@ export default function DetailPage({ item }) {
                                                 onClick={() => {
                                                     setSelectedModel(model);
                                                     setAccordionOpen(false);
+                                                    setUserSelected(true); // ✅
                                                 }}
                                             >
                                                 {model}
@@ -195,40 +197,53 @@ export default function DetailPage({ item }) {
                         </div>
                     )}
 
-                    {/* ✅ 주문 결과 영역 */}
-                    <div className="order-result">
-                        <hr className="left-line" />
-
-                        {/* 선택된 옵션 + 수량 + 가격 한 줄 */}
-                        <div className="order-result-row">
-                            <span className="order-option-name">
-                                {item.productName}
-                                {optionSummary && (
-                                    <em className="order-option-detail"> / {optionSummary}</em>
-                                )}
-                            </span>
-                            <div className="order-quantity">
-                                <button
-                                    type="button"
-                                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                                >−</button>
-                                <span>{quantity}</span>
-                                <button
-                                    type="button"
-                                    onClick={() => setQuantity((q) => q + 1)}
-                                >+</button>
+                    {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
+                    {userSelected && (
+                        <div className="order-result">
+                            <hr className="left-line" />
+                            <div className="order-result-row">
+                                <span className="order-option-name">
+                                    {item.productName}
+                                    {optionSummary && (
+                                        <em className="order-option-detail"> / {optionSummary}</em>
+                                    )}
+                                </span>
+                                <div className="order-quantity">
+                                    <button
+                                        type="button"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            if (quantity <= 1) {
+                                                setUserSelected(false); // ✅ 사라짐
+                                                setQuantity(1);
+                                            } else {
+                                                setQuantity((q) => q - 1);
+                                            }
+                                        }}
+                                    >−</button>
+                                    <span>{quantity}</span>
+                                    <button
+                                        type="button"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            setQuantity((q) => q + 1);
+                                        }}
+                                    >+</button>
+                                </div>
+                                <span className="order-row-price">
+                                    {totalPrice.toLocaleString()}원
+                                </span>
                             </div>
-                            <span className="order-row-price">
-                                {totalPrice.toLocaleString()}원
-                            </span>
+                            <div className="order-total">
+                                <span>총 상품금액 (수량 {quantity}개)</span>
+                                <strong>{totalPrice.toLocaleString()}원</strong>
+                            </div>
                         </div>
+                    )}
 
-                        {/* 총 상품금액 */}
-                        <div className="order-total">
-                            <span>총 상품금액 (수량 {quantity}개)</span>
-                            <strong>{totalPrice.toLocaleString()}원</strong>
-                        </div>ㄴ
-                    </div>
+                    {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
 
                     <div className="button-list">
                         <button className="sub-btn">♡</button>
