@@ -117,10 +117,10 @@ export default function Header() {
             </li>
           )}
           <li>
-            <Link><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
+            <Link to="/cart"><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
           </li>
           <li>
-            <Link><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
+            <Link to="/mypage" state={{ menu: "위시리스트" }}><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
           </li>
         </ul>
       </div>
