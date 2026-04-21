@@ -1,10 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MypageTitle from './MypageTitle'
 import "./scss/UserInfo.scss"
 import { useAuthStore } from '../../store/useAuthStore'
 
 export default function UserInfo() {
     const { user } = useAuthStore();
+    const [form, setForm] = useState({
+        email: '',
+        name: '',
+        phone: '',
+        zonecode: '',
+        address: '',
+        detailaddress: ''
+    });
+
+    useEffect(() => {
+        if (user) {
+            setForm({
+                email: user.email || '',
+                name: user.name || '',
+                phone: user.phone || '',
+                zonecode: user.zonecode || '',
+                address: user.address || '',
+                detailaddress: user.detailaddress || ''
+            });
+        }
+    }, [user]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
     return (
         <div>
             <MypageTitle title={"회원 카드"} />
@@ -33,13 +63,32 @@ export default function UserInfo() {
             <div className="acount-info">
                 <form>
                     <p>
-                        <label><input type="text" value={user.email} placeholder='' />
+                        <label>
+                            <input type="text"
+                                name="email"
+                                value={form.email}
+                                onChange={handleChange}
+                                placeholder='' />
                             <span>이메일</span></label>
-                        <label><input type="text" value={user.name} placeholder='' />
+                        <label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={form.name}
+                                onChange={handleChange}
+                                placeholder=''
+                            />
                             <span>이름</span></label>
                     </p>
                     <p>
-                        <label><input type="text" value={user.phone} placeholder='' />
+                        <label>
+                            <input
+                                type="text"
+                                name="phone"
+                                value={form.phone}
+                                onChange={handleChange}
+                                placeholder=''
+                            />
                             <span>전화번호</span></label>
                     </p>
                     <p>
@@ -68,9 +117,13 @@ export default function UserInfo() {
                         </label>
                     </p>
                     <p><label ><input type="text" value={user.address} readOnly placeholder='기본주소' />
-                        <span>기본주소</span></label></p>
-                    <p><label ><input type="text" value={user.detailaddress} placeholder='상세주소' />
-                        <span>상세주소</span></label></p>
+                        <span>기본주소</span>
+                    </label></p>
+                    <p><label ><input
+                        name="detailaddress"
+                        value={form.detailaddress}
+                        onChange={handleChange} placeholder='' />
+                        <span className='always'>상세주소</span></label></p>
                 </form>
                 <div className="btn-wrap">
                     <button>회원 정보 저장</button>
