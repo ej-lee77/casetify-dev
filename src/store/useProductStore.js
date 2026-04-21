@@ -34,14 +34,7 @@ export const useProductStore = create((set, get) => ({
                     ]
                 },
                 { name: "맥세이프", link: "magsafe" },
-                { name: "커스텀", link: "custom" },
-                { name: "세트", link: "set" },
-                {
-                    name: "콜라보", link: "collabo",
-                    mini: [
-                        '캐릭터', "아트", "영화&엔터", "패션&라이프스타일", "스포츠"
-                    ]
-                }
+                { name: "커스텀", link: "custom" }
             ]
         },
         {
@@ -59,6 +52,16 @@ export const useProductStore = create((set, get) => ({
             sub: [
                 { name: "캐리어", link: "suitcase" },
                 { name: "테크파우치", link: "pouch" }
+            ]
+        },
+        { 
+            name: "콜라보", link: "colab", 
+            sub: [
+                {name: "캐릭터", link: "character"},
+                {name: "아트", link: "art"},
+                {name: "영화&엔터", link: "movie"},
+                {name: "패션&라이프스타일", link: "fashion"},
+                {name: "스포츠", link: "sports"}
             ]
         },
         { name: "기프트카드", link: "giftcard" },
