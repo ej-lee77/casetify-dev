@@ -1,7 +1,7 @@
 import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
-import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { persist } from "zustand/middleware";
 
 export const useAuthStore = create(
