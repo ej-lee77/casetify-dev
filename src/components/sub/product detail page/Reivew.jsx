@@ -1,75 +1,122 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "./scss/review.scss";
 
-export default function Reivew() {
-    const [reviews, setReviews] = useState([
-        {
-            user: "kana takamatsu",
-            rating: 4,
-            content: "케이스 품질이 생각보다 좋아요",
-            date: "2026.03.04",
-        },
-    ]);
+export default function Reivew({ popularity, productId }) {
 
-    const [input, setInput] = useState("");
-    const [rating, setRating] = useState(5);
-    const [hover, setHover] = useState(0);
-    const [search, setSearch] = useState("");
-    const [sort, setSort] = useState("latest"); // 최신 / 베스트
+const generateInitialReviews = (popularity) => {
+    if (!popularity) return [];
 
-    // ⭐ 평균 점수
-    const total = reviews.length;
+    const base = Math.floor(popularity);
+    const decimal = popularity - base;
 
-    const avg =
-        total === 0
-            ? 0
-            : reviews.reduce((sum, r) => sum + r.rating, 0) / total;
+    const result = [];
 
-    const rounded = Math.round(avg * 2) / 2;
+    for (let i = 0; i < 7; i++) {
+        result.push({
+            user: "초기유저",
+            rating: base,
+            content: "기본 리뷰",
+            date: "2026-01-01",
+        });
+    }
 
-    // ⭐ 분포
-    const distribution = [5, 4, 3, 2, 1].map((star) => {
-        const count = reviews.filter((r) => r.rating === star).length;
-        return {
-            star,
-            count,
-            percent: total ? (count / total) * 100 : 0,
-        };
-    });
+    for (let i = 0; i < Math.round(decimal * 10); i++) {
+        result.push({
+            user: "초기유저",
+            rating: base + 1,
+            content: "상위 리뷰",
+            date: "2026-01-01",
+        });
+    }
 
-    // ⭐ 검색
-    const filtered = useMemo(() => {
-        return reviews.filter((r) =>
-            r.content.toLowerCase().includes(search.toLowerCase())
+    return result;
+};
+
+// 🔥 최소 수정 핵심
+const [reviews, setReviews] = useState([]);
+
+// 🔥 로딩 (localStorage + 초기값)
+useEffect(() => {
+    const saved = localStorage.getItem(`reviews_${productId}`);
+
+    if (saved) {
+        setReviews(JSON.parse(saved));
+    } else {
+        setReviews(generateInitialReviews(popularity));
+    }
+}, [productId, popularity]);
+
+// 🔥 저장
+useEffect(() => {
+    if (productId && reviews.length > 0) {
+        localStorage.setItem(
+            `reviews_${productId}`,
+            JSON.stringify(reviews)
         );
-    }, [reviews, search]);
+    }
+}, [reviews, productId]);
 
-    // ⭐ 정렬
-    const sortedReviews = [...filtered].sort((a, b) => {
-        if (sort === "latest") {
-            return new Date(b.date) - new Date(a.date);
-        }
-        if (sort === "best") {
-            return b.rating - a.rating;
-        }
-        return 0;
-    });
+const [input, setInput] = useState("");
+const [rating, setRating] = useState(5);
+const [hover, setHover] = useState(0);
+const [search, setSearch] = useState("");
+const [sort, setSort] = useState("latest");
 
-    // 리뷰 추가
-    const handleAddReview = () => {
-        if (!input.trim()) return;
+// ⭐ 평균 점수
+const total = reviews.length;
 
-        const newReview = {
-            user: "고객명",
-            rating,
-            content: input,
-            date: new Date().toISOString().slice(0, 10),
-        };
+const avg =
+    total === 0
+        ? 0
+        : reviews.reduce((sum, r) => sum + r.rating, 0) / total;
 
-        setReviews([newReview, ...reviews]);
-        setInput("");
-        setRating(5);
+const rounded = Math.round(avg * 2) / 2;
+
+// ⭐ 분포
+const distribution = [5, 4, 3, 2, 1].map((star) => {
+    const count = reviews.filter((r) => r.rating === star).length;
+    return {
+        star,
+        count,
+        percent: total ? (count / total) * 100 : 0,
     };
+});
+
+// ⭐ 검색
+const filtered = useMemo(() => {
+    return reviews.filter((r) =>
+        r.content.toLowerCase().includes(search.toLowerCase())
+    );
+}, [reviews, search]);
+
+// ⭐ 정렬
+const sortedReviews = [...filtered].sort((a, b) => {
+    if (sort === "latest") {
+        return new Date(b.date) - new Date(a.date);
+    }
+    if (sort === "best") {
+        return b.rating - a.rating;
+    }
+    return 0;
+});
+
+// 리뷰 추가
+const handleAddReview = () => {
+    if (!input.trim()) return;
+
+    const newReview = {
+        user: "고객명",
+        rating,
+        content: input,
+        date: new Date().toISOString().slice(0, 10),
+    };
+
+    setReviews([newReview, ...reviews]);
+    setInput("");
+    setRating(5);
+};
+
+    
 
     return (
         <div className="review">
