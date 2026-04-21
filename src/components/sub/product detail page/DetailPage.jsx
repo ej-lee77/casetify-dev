@@ -21,9 +21,9 @@ export default function DetailPage({ item }) {
     const [userSelected, setUserSelected] = useState(false); 
 
     const [isWished, setIsWished] = useState(false);
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    const {onAddWishlist} = useAuthStore();
+    const {user, onAddWishlist} = useAuthStore();
 
 
 useEffect(() => {
@@ -48,19 +48,19 @@ useEffect(() => {
     const [selectedBundles, setSelectedBundles] = useState({});
 
     // 로그인 상태 감지 + 위시 여부 확인
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-            setUser(currentUser);
-            if (currentUser && item?.id) {
-                const ref = doc(db, "wishlist", `${currentUser.uid}_${item.id}`);
-                const snap = await getDoc(ref);
-                setIsWished(snap.exists());
-            } else {
-                setIsWished(false);
-            }
-        });
-        return () => unsubscribe();
-    }, [item]);
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    //         setUser(currentUser);
+    //         if (currentUser && item?.id) {
+    //             const ref = doc(db, "wishlist", `${currentUser.uid}_${item.id}`);
+    //             const snap = await getDoc(ref);
+    //             setIsWished(snap.exists());
+    //         } else {
+    //             setIsWished(false);
+    //         }
+    //     });
+    //     return () => unsubscribe();
+    // }, [item]);
 
     // 위시 핸들러 — 비회원이면 alert 후 로그인 페이지 이동
     // const handleWish = async () => {
@@ -84,19 +84,6 @@ useEffect(() => {
     //         setIsWished(true);
     //     }
     // };
-
-    const handleAddWish = (item)=>{
-
-        const wishItem = {
-            id: item.id,
-            productName: item.productName,
-            price: item.price,
-            device: "iphone17pro", //selectedModel
-            color: `${selectedDeviceColor}_${selectedColor}`
-        }
-
-        onAddWishlist(wishItem);
-    }
 
 
     // 번들 체크박스 토글
@@ -153,6 +140,19 @@ useEffect(() => {
     const isPhone = item?.productTarget === "phone";
     const modelColors = isPhone ? modelColorOptions?.[item?.modelKey] || [] : [];
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
+
+    const handleAddWish = (item)=>{
+
+        const wishItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: selectedModel === "" ? item.modelKey : selectedModel,
+            color: isPhone ? `${fixedThumbDeviceColor}_${selectedColor}` : selectedColor
+        }
+        
+        onAddWishlist(wishItem);
+    }
 
     const mainImagePath = isPhone
         ? `/images/category/products/${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
