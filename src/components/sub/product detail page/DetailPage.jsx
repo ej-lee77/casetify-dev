@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
-import { modelColorOptions, colorMap } from "../../../data/finalData";
+import { modelColorOptions, colorMap, phoneModelOptions  } from "../../../data/finalData";
 
 
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ import { useAuthStore } from "../../../store/useAuthStore";
 export default function DetailPage({ item }) {
 
     const [accordionOpen, setAccordionOpen] = useState(false);
+    const [modelAccordionOpen, setModelAccordionOpen] = useState(false);
     const [selectedModel, setSelectedModel] = useState(""); // ✅ 빈값으로
     const [selectedColor, setSelectedColor] = useState("");
     const [selectedDeviceColor, setSelectedDeviceColor] = useState("");
@@ -33,6 +34,9 @@ useEffect(() => {
     setQuantity(1);
     setUserSelected(false);
     setSelectedBundles({});
+     setAccordionOpen(false);        // ✅ 추가
+    setModelAccordionOpen(false);   // ✅ 추가
+    setSelectedModel("");    
 }, [item]);
 
 
@@ -46,44 +50,6 @@ useEffect(() => {
 
     // 선택된 번들 (id -> quantity 맵)
     const [selectedBundles, setSelectedBundles] = useState({});
-
-    // 로그인 상태 감지 + 위시 여부 확인
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-    //         setUser(currentUser);
-    //         if (currentUser && item?.id) {
-    //             const ref = doc(db, "wishlist", `${currentUser.uid}_${item.id}`);
-    //             const snap = await getDoc(ref);
-    //             setIsWished(snap.exists());
-    //         } else {
-    //             setIsWished(false);
-    //         }
-    //     });
-    //     return () => unsubscribe();
-    // }, [item]);
-
-    // 위시 핸들러 — 비회원이면 alert 후 로그인 페이지 이동
-    // const handleWish = async () => {
-    //     if (!user) {
-    //         alert("로그인이 필요한 서비스입니다.");
-    //         navigate("/login");
-    //         return;
-    //     }
-    //     const ref = doc(db, "wishlist", `${user.uid}_${item.id}`);
-    //     if (isWished) {
-    //         await deleteDoc(ref);
-    //         setIsWished(false);
-    //     } else {
-    //         await setDoc(ref, {
-    //             userId: user.uid,
-    //             productId: item.id,
-    //             productName: item.productName,
-    //             price: item.price,
-    //             createdAt: new Date(),
-    //         });
-    //         setIsWished(true);
-    //     }
-    // };
 
 
     // 번들 체크박스 토글
@@ -210,18 +176,49 @@ useEffect(() => {
         <section className="detail-page">
             <div className="detail-inner">
                 <div className="detail-left">
-                    <div className="detail-main-image">
-                        <img src={mainImage} alt={item.productName} />
-                    </div>
-                    {/* <ul className="detail-thumb-list">
-                        {imageList.map((img) => (
-                            <li key={img.key} className={selectedThumb === img.key ? "active" : ""}>
-                                <button type="button" onClick={() => setSelectedThumb(img.key)}>
-                                    <img src={img.src} alt={`${item.productName} 썸네일`} />
-                                </button>
-                            </li>
-                        ))}
-                    </ul> */}
+                <div className="detail-main-image" style={{ position: "relative" }}>
+        <img src={mainImage} alt={item.productName} />
+
+        {/* ✅ 컬러 리모콘 오버레이 */}
+        {isPhone && !!modelColors.length && (
+            <div className="color-remote">
+                {modelColors.map((deviceColor) => (
+                    <button
+                        key={deviceColor.key}
+                        type="button"
+                        className={selectedDeviceColor === deviceColor.key ? "active" : ""}
+                        onClick={() => {
+                            setSelectedDeviceColor(deviceColor.key);
+                            setSelectedThumb("main");
+                            setUserSelected(true);
+                        }}
+                    >
+                        <span
+                            className="remote-chip"
+                            style={{ backgroundColor: colorMap[deviceColor.key] || "#ddd" }}
+                        />
+                        <span className="remote-label">{deviceColor.label}</span>
+                    </button>
+                ))}
+            </div>
+        )}
+
+ {/* ✅ 왼쪽 하단 위시 버튼 */}
+<button
+    className={`image-wish-btn ${isWished ? "wished" : ""}`}
+    onClick={() => {
+        handleAddWish(item);
+        setIsWished((prev) => !prev);
+    }}
+>
+    <img
+        src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
+        alt="위시"
+    />
+    </button>
+
+    </div>
+                   
                     <ul className="detail-thumb-list">
     {imageList.map((img) => (
         <li key={img.key} className={selectedThumb === img.key ? "active" : ""}
@@ -254,32 +251,43 @@ useEffect(() => {
  <div className="right-info-wrap">
                     {!!item.caseCategory && (
                         <div className="detail-info-box">
-                            <p className="label">종류</p>
-                            <p>{item.caseCategory}</p>
+                            <p className="label">종류           <span className="label">{item.caseCategory}</span></p>
+                 
                         </div>
                     )}
 
-                    {isPhone && !!modelColors.length && (
-                        <div className="detail-info-box">
-                            <p className="label">기기 컬러</p>
-                            <div className="detail-device-colors">
-                                {modelColors.map((deviceColor) => (
-                                    <button
-                                        key={deviceColor.key}
-                                        type="button"
-                                        className={selectedDeviceColor === deviceColor.key ? "active" : ""}
-                                        onClick={() => {
-                                            setSelectedDeviceColor(deviceColor.key);
-                                            setSelectedThumb("main");
-                                            setUserSelected(true); // ✅
-                                        }}
-                                    >
-                                        {deviceColor.label}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+{isPhone && item.brand && phoneModelOptions[item.brand] && (
+    <div className="detail-info-box">
+        <div className="accordion">
+            <button
+                type="button"
+                className="accordion-trigger"
+                onClick={() => setModelAccordionOpen((prev) => !prev)}
+            >
+                <span>{selectedModel || "기종을 고르세요"}</span>
+                <span className={`accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
+            </button>
+            {modelAccordionOpen && (
+                <ul className="accordion-list">
+                    {phoneModelOptions[item.brand].map((model) => (
+                        <li
+                            key={model.key}
+                            className={selectedModel === model.label ? "active" : ""}
+                            onClick={() => {
+                                setSelectedModel(model.label);
+                                setModelAccordionOpen(false);
+                                setUserSelected(true);
+                            }}
+                        >
+                            {model.label}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    </div>
+)}
+               
 
                     {!!item.caseColors?.length && (
                         <div className="detail-info-box">
@@ -315,7 +323,7 @@ useEffect(() => {
                                     className="accordion-trigger"
                                     onClick={() => setAccordionOpen((prev) => !prev)}
                                 >
-                                    <span>호환 모델 — <strong>{selectedModel}</strong></span>
+                                    <span>{selectedModel || "사이즈를 고르세요"}</span>
                                     <span className={`accordion-arrow ${accordionOpen ? "open" : ""}`}>▼</span>
                                 </button>
                                 {accordionOpen && (
@@ -339,7 +347,51 @@ useEffect(() => {
                         </div>
                     )}
 </div>
-                    {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
+               
+                    {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
+<div className="right-btn-wrap">
+                   
+                    {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
+  <button className="buy-btn" onClick={() => {
+    if (!userSelected) {
+        alert("제품을 선택해주세요.");
+        return;
+    }
+}}>
+    바로 구매하기
+</button>
+<div className="budle-buy">
+    {/* 3개상품 */}
+                    {bundleItems.length > 0 && (
+                        <div className="bundle-section">
+                            <p className="bundle-title">번들 할인</p>
+                            <ul className="bundle-list">
+                                {bundleItems.map((b) => {
+                                    const isChecked = !!selectedBundles[b.id];
+                                    return (
+                                        <li
+                                            key={b.id}
+                                            className={`bundle-item ${isChecked ? "selected" : ""}`}
+                                            onClick={() => handleBundleToggle(b)}
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                className="bundle-checkbox"
+                                                checked={isChecked}
+                                                onChange={() => handleBundleToggle(b)}
+                                                onClick={(e) => e.stopPropagation()}
+                                            />
+                                            <div className="bundle-img-wrap">
+                                                <img src={getBundleImagePath(b)} alt={b.productName} />
+                                            </div>
+                                            <span className="bundle-name">{b.productName}</span>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    )}
+     {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
                     {userSelected && (
                         <div className="order-result">
                             <hr className="left-line" />
@@ -428,30 +480,8 @@ useEffect(() => {
                         </div>
                     )}
 
-                    {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
-<div className="right-btn-wrap">
-                    <div className="button-list">
-  <button
-    className={`sub-btn wish-btn ${isWished ? "wished" : ""}`}
-    onClick={() => {
-        handleAddWish(item);
-        setIsWished((prev) => !prev);
-    }}
->
-    <img
-        src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
-        alt="위시"
-    />
-</button>
-                        {/* ✅ 장바구니 버튼 - 미선택 시 alert */}
-                        <button className="sub-btn" onClick={() => {
-                            if (!userSelected) {
-                                alert("제품을 선택해주세요.");
-                                return;
-                            }
-                        }}>장바구니 담기</button>
-                    </div>
-                    {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
+
+ {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
   <button className="buy-btn" onClick={() => {
     if (!userSelected) {
         alert("제품을 선택해주세요.");
@@ -462,39 +492,7 @@ useEffect(() => {
         ? `함께 구매하기 (${Object.keys(selectedBundles).length})`
         : "바로 구매하기"}
 </button>
-
-                    {/* 번들 섹션 — 가로 3열 그리드 */}
-                    {bundleItems.length > 0 && (
-                        <div className="bundle-section">
-                            <p className="bundle-title">번들 할인상품</p>
-                            <ul className="bundle-list">
-                                {bundleItems.map((b) => {
-                                    const isChecked = !!selectedBundles[b.id];
-                                    return (
-                                        <li
-                                            key={b.id}
-                                            className={`bundle-item ${isChecked ? "selected" : ""}`}
-                                            onClick={() => handleBundleToggle(b)}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                className="bundle-checkbox"
-                                                checked={isChecked}
-                                                onChange={() => handleBundleToggle(b)}
-                                                onClick={(e) => e.stopPropagation()}
-                                            />
-                                            <div className="bundle-img-wrap">
-                                                <img src={getBundleImagePath(b)} alt={b.productName} />
-                                            </div>
-                                            <span className="bundle-name">{b.productName}</span>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    )}
-
-                </div>
+                </div></div>
             </div></div>
         </section>
     );
