@@ -20,9 +20,30 @@ export default function SearchOverlay({ isActive, onClose }) {
                             </button>
                             <button className="btn-reset">초기화</button>
                         </div>
-                        <div className="recent-search-wrap">최근 검색어</div>
-                        <div className="fav-search-wrap">인기 검색어</div>
-                        <div className="recommend-wrap">추천 상품</div>
+                        <div className="recent-search-wrap">
+                            <div className="inner-title">최근 검색어</div>
+                            <p className="txt-recent">최근 검색어가 없습니다.</p>
+                            <ul className="recent-result-list">
+                            </ul>
+                        </div>
+                        <div className="pop-search-wrap">
+                            <div className="inner-title">인기 검색어</div>
+                            <ol className="pop-search-list">
+                                <li>클리어 케이스</li>
+                                <li>맥세이프 케이스</li>
+                                <li>블루 스트랩 케이스</li>
+                                <li>아이폰 17 Pro Max</li>
+                                <li>gdragon</li>
+                                <li>아이폰 17 Pro</li>
+                                <li>크롬</li>
+                                <li>아이폰 17</li>
+                                <li>아이폰 Air</li>
+                                <li>메탈 참 큐브</li>
+                            </ol>
+                        </div>
+                        <div className="recommend-wrap">
+                            <div className="inner-title">추천 상품</div>
+                        </div>
                     </div>
                     <div className="img-search">이미지 검색</div>
                 </div>
