@@ -2,12 +2,12 @@ import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
 import { modelColorOptions, colorMap } from "../../../data/finalData";
 
-// ✅ 추가
+
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
-import { items } from "../../../data/finalData"; // ✅ 추가
+import { items } from "../../../data/finalData"; 
 
 export default function DetailPage({ item }) {
 
@@ -17,14 +17,13 @@ export default function DetailPage({ item }) {
     const [selectedDeviceColor, setSelectedDeviceColor] = useState("");
     const [selectedThumb, setSelectedThumb] = useState("main");
     const [quantity, setQuantity] = useState(1);
-    const [userSelected, setUserSelected] = useState(false); // ✅ 추가
+    const [userSelected, setUserSelected] = useState(false); 
 
-    // ✅ 추가
     const [isWished, setIsWished] = useState(false);
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
-    // ✅ 추가: 번들 상품 랜덤 3개
+    // 번들 상품 랜덤 3개
     const bundleItems = useMemo(() => {
         if (!items || !item) return [];
         const others = items.filter((d) => d.id !== item.id);
@@ -32,31 +31,10 @@ export default function DetailPage({ item }) {
         return shuffled.slice(0, 3);
     }, [item]);
 
-    // ✅ 추가: 선택된 번들 (id -> quantity 맵)
+    // 선택된 번들 (id -> quantity 맵)
     const [selectedBundles, setSelectedBundles] = useState({});
 
-    // ✅ 추가: 할인율 랜덤 (50% 확률로 없음, 최대 50%)
-    const discountRate = useMemo(() => {
-        if (!item) return 0;
-        const hasDiscount = Math.random() > 0.5;
-        if (!hasDiscount) return 0;
-        const rates = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
-        return rates[Math.floor(Math.random() * rates.length)];
-    }, [item]);
-
-    const discountedPrice = discountRate
-        ? Math.round(item?.price * (1 - discountRate / 100) / 100) * 100
-        : item?.price;
-
-    useEffect(() => {
-        if (!item) return;
-        setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
-        setQuantity(1);           // ✅ 추가
-        setUserSelected(false);   // ✅ 추가
-        setSelectedBundles({});   // ✅ 추가
-    }, [item]);
-
-    // ✅ 추가: 로그인 상태 감지 + 위시 여부 확인
+    // 로그인 상태 감지 + 위시 여부 확인
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
@@ -71,7 +49,7 @@ export default function DetailPage({ item }) {
         return () => unsubscribe();
     }, [item]);
 
-    // ✅ 추가: 위시 핸들러 — 비회원이면 alert 후 로그인 페이지 이동
+    // 위시 핸들러 — 비회원이면 alert 후 로그인 페이지 이동
     const handleWish = async () => {
         if (!user) {
             alert("로그인이 필요한 서비스입니다.");
@@ -94,7 +72,7 @@ export default function DetailPage({ item }) {
         }
     };
 
-    // ✅ 추가: 번들 체크박스 토글
+    // 번들 체크박스 토글
     const handleBundleToggle = (bundleItem) => {
         setSelectedBundles((prev) => {
             const next = { ...prev };
@@ -108,7 +86,7 @@ export default function DetailPage({ item }) {
         });
     };
 
-    // ✅ 추가: 번들 수량 변경
+    // 번들 수량 변경
     const handleBundleQty = (bundleId, delta) => {
         setSelectedBundles((prev) => {
             const next = { ...prev };
@@ -123,7 +101,7 @@ export default function DetailPage({ item }) {
         });
     };
 
-    // ✅ 추가: 번들 이미지 경로 (mainImagePath 방식 동일)
+    // 번들 이미지 경로 (mainImagePath 방식 동일)
     const getBundleImagePath = (b) => {
         const isPhoneB = b?.productTarget === "phone";
         const modelColorsB = isPhoneB ? modelColorOptions?.[b?.modelKey] || [] : [];
@@ -193,12 +171,12 @@ export default function DetailPage({ item }) {
         selectedModel,
     ].filter(Boolean).join(" / ");
 
-    // ✅ 총액: 메인(할인가 * 수량) + 번들(원가 * 0.9 * 수량)
+    // ✅ 번들 선택 여부에 따라 총액에만 10% 할인 반영 (원래 가격은 고정)
     const bundleTotal = bundleItems.reduce((acc, b) => {
         const qty = selectedBundles[b.id] || 0;
         return acc + Math.round(b.price * 0.9) * qty;
     }, 0);
-    const totalPrice = (discountedPrice || 0) * quantity + bundleTotal;
+    const totalPrice = (item.price || 0) * quantity + bundleTotal;
     const totalQty = quantity + Object.values(selectedBundles).reduce((a, q) => a + q, 0);
 
     return (
@@ -222,19 +200,9 @@ export default function DetailPage({ item }) {
                 <div className="detail-right">
                     <p className="detail-artist">{item.artist || "CASETiFY"}</p>
                     <h2 className="detail-title">{item.productName}</h2>
-
-                    {/* ✅ 추가: 할인율 있으면 할인가/원가 일렬 표시 */}
-                    {discountRate > 0 ? (
-                        <p className="detail-price">
-                            <span className="price-discount-rate">{discountRate}%</span>
-                            <span className="price-discounted">{Number(discountedPrice).toLocaleString()}원</span>
-                            <span className="price-origin">{Number(item.price).toLocaleString()}원</span>
-                        </p>
-                    ) : (
-                        <p className="detail-price">
-                            {Number(item.price || 0).toLocaleString()}원
-                        </p>
-                    )}
+                    <p className="detail-price">
+                        {Number(item.price || 0).toLocaleString()}원
+                    </p>
 
                     {!!item.modelLabel && (
                         <div className="detail-info-box">
@@ -368,11 +336,11 @@ export default function DetailPage({ item }) {
                                     >+</button>
                                 </div>
                                 <span className="order-row-price">
-                                    {((discountedPrice || 0) * quantity).toLocaleString()}원
+                                    {((item.price || 0) * quantity).toLocaleString()}원
                                 </span>
                             </div>
 
-                            {/* ✅ 추가: 선택된 번들 행 */}
+                            {/* 선택된 번들 행 */}
                             {bundleItems
                                 .filter((b) => selectedBundles[b.id])
                                 .map((b) => {
@@ -410,6 +378,7 @@ export default function DetailPage({ item }) {
                                     );
                                 })}
 
+                            {/* ✅ 번들 선택 시 총액에 할인 반영 */}
                             <div className="order-total">
                                 <span>총 상품금액 (수량 {totalQty}개)</span>
                                 <strong>{totalPrice.toLocaleString()}원</strong>
@@ -420,17 +389,29 @@ export default function DetailPage({ item }) {
                     {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
 
                     <div className="button-list">
-                        {/* ✅ 수정: 위시 버튼 */}
+                        {/* ✅ 위시 버튼 */}
                         <button className={`sub-btn wish-btn ${isWished ? "wished" : ""}`} onClick={handleWish}>
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                             </svg>
                         </button>
-                        <button className="sub-btn">장바구니 담기</button>
+                        {/* ✅ 장바구니 버튼 - 미선택 시 alert */}
+                        <button className="sub-btn" onClick={() => {
+                            if (!userSelected) {
+                                alert("제품을 선택해주세요.");
+                                return;
+                            }
+                        }}>장바구니 담기</button>
                     </div>
-                    <button className="buy-btn">바로 구매</button>
+                    {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
+                    <button className="buy-btn" onClick={() => {
+                        if (!userSelected) {
+                            alert("제품을 선택해주세요.");
+                            return;
+                        }
+                    }}>바로 구매</button>
 
-                    {/* ✅ 추가: 번들 섹션 — 가로 3열 그리드 */}
+                    {/* 번들 섹션 — 가로 3열 그리드 */}
                     {bundleItems.length > 0 && (
                         <div className="bundle-section">
                             <p className="bundle-title">번들 할인상품</p>
@@ -460,33 +441,7 @@ export default function DetailPage({ item }) {
                             </ul>
                         </div>
                     )}
-{/* 
-                    <div className="detail-desc">
-                        <h3>상품 안내</h3>
-                        <p>
-                            현재 이 페이지는 데이터 연결과 이미지 경로 확인용 임시 상세페이지야.
-                            <br /><br />
-                            메인 이미지:<br />
-                            {isPhone
-                                ? `${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
-                                    : `${item.id}_${selectedColor}_main.jpg`}
-                            <br /><br />
-                            상세 이미지:<br />
-                            {isPhone
-                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
-                                    : `${item.id}_${selectedColor}_1.jpg`}
-                            <br />
-                            {isPhone
-                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
-                                    : `${item.id}_${selectedColor}_2.jpg`}
-                        </p>
-                    </div> */}
+
                 </div>
             </div>
         </section>
