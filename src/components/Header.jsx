@@ -50,7 +50,7 @@ export default function Header() {
       navigate("/");
     }
   }
-  console.log("here",user);
+  // console.log("here",user);
 
   // 검색창 열림/닫힘 확인
   const [isSearchOpen, setIsSearchOpen] = useState(false);
