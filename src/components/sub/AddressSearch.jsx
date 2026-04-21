@@ -20,11 +20,11 @@ export default function AddressSearch({ setAddressData }) {
       zonecode: data.zonecode, // 우편번호
       address: fullAddress,    // 주소
     });
-    
+
     setIsOpen(false); // 팝업 닫기
   };
 
-  const handleClose = ()=>{
+  const handleClose = () => {
     setIsOpen(false); // 팝업 닫기
   }
 
@@ -33,12 +33,12 @@ export default function AddressSearch({ setAddressData }) {
       <button type="button" className="zonecode-btn" onClick={() => setIsOpen(true)}>주소 검색</button>
       {isOpen && (
         <div className='post-modal' style={popupStyle}>
-            {/* <DaumPostcode onComplete={handleComplete} style={{ width: '100%', height: '100%' }}/> */}
-            <DaumPostcode
-                className="postmodal"
-                autoClose
-                onComplete={handleComplete} />
-            <button className='input-btn close-btn' onClick={handleClose}>닫기</button>
+          {/* <DaumPostcode onComplete={handleComplete} style={{ width: '100%', height: '100%' }}/> */}
+          <DaumPostcode
+            className="postmodal"
+            autoClose
+            onComplete={handleComplete} />
+          <button className='input-btn close-btn' onClick={handleClose}>닫기</button>
         </div>
       )}
     </div>
