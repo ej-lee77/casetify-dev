@@ -1,8 +1,10 @@
 import React from 'react'
 import MypageTitle from './MypageTitle'
 import "./scss/UserInfo.scss"
+import { useAuthStore } from '../../store/useAuthStore'
 
 export default function UserInfo() {
+    const { user } = useAuthStore();
     return (
         <div>
             <MypageTitle title={"회원 카드"} />
@@ -13,14 +15,14 @@ export default function UserInfo() {
                         <img className='user-qr' src="./images/userinfo/qr-code.png" alt="큐알" />
                         <div>
                             <p className='title'>MENBER NAME</p>
-                            <p className='content'>Lee Eunji</p>
+                            <p className='content'>{user.name}</p>
                         </div>
                     </div>
                     <div className='user-info2'>
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
                             <span className='content'>Basic</span>
-                            <span className='content'>000 022 156</span>
+                            <span className='content'>{user.uid}</span>
                         </div>
                     </div>
                 </div>
@@ -31,18 +33,21 @@ export default function UserInfo() {
             <div className="acount-info">
                 <form>
                     <p>
-                        <label><input type="text" required /><span>이메일 주소</span></label>
-                        <label><input type="text" required /><span>이름</span></label>
+                        <label><input type="text" value={user.email} placeholder='' />
+                            <span>이메일</span></label>
+                        <label><input type="text" value={user.name} placeholder='' />
+                            <span>이름</span></label>
                     </p>
                     <p>
-                        <label><input type="text" required /><span>전화번호</span></label>
+                        <label><input type="text" value={user.phone} placeholder='' />
+                            <span>전화번호</span></label>
                     </p>
                     <p>
-                        <label><input type="text" required /><span>사용 중인 비밀번호</span></label>
+                        <label><input type="text" placeholder='' /><span>사용 중인 비밀번호</span></label>
                     </p>
                     <p>
-                        <label><input type="text" required /><span>새 비밀번호</span></label>
-                        <label><input type="text" required /><span>비밀번호 확인</span></label>
+                        <label><input type="text" placeholder='' /><span>새 비밀번호</span></label>
+                        <label><input type="text" placeholder='' /><span>비밀번호 확인</span></label>
                     </p>
                 </form>
             </div >
@@ -57,11 +62,15 @@ export default function UserInfo() {
             <div className='address-info'>
                 <form>
                     <p className='postcode'>
-                        <label ><input type="text" required /><span>우편번호</span><button>주소 찾기</button>
+                        <label ><input type="text" value={user.zonecode} readOnly placeholder='우편번호' />
+                            <span>우편번호</span>
+                            <button>주소 찾기</button>
                         </label>
                     </p>
-                    <p><label ><input type="text" required /><span>기본 주소</span></label></p>
-                    <p><label ><input type="text" required /><span>상세 주소</span></label></p>
+                    <p><label ><input type="text" value={user.address} readOnly placeholder='기본주소' />
+                        <span>기본주소</span></label></p>
+                    <p><label ><input type="text" value={user.detailaddress} placeholder='상세주소' />
+                        <span>상세주소</span></label></p>
                 </form>
                 <div className="btn-wrap">
                     <button>회원 정보 저장</button>
