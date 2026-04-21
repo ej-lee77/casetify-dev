@@ -51,6 +51,10 @@
                     &.active {
                         .icon-box {
                             background-color: #222222;
+
+                            img{
+                                filter: brightness(0) invert(1); //아이콘 흰색 처리
+                            }
                         }
                     }
                 }

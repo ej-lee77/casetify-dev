@@ -86,6 +86,31 @@
                     transform: translateY(-50%);
                 }
             }
+
+            // 최근 검색어
+            .recent-search-wrap {
+                @include g.myFlex($jc: null, $ai: null, $gap: 1.5rem);
+                border-bottom: 1px solid g.$card-border;
+                padding: 2rem 0;
+            }
+
+            // 인기 검색어
+            .pop-search-wrap {
+                @include g.myFlex($jc: null, $ai: null, $gap: 1.5rem);
+                padding: 2rem 0;
+
+                .pop-search-list {
+                    display: grid;
+                    grid-template-rows: repeat(5, auto);
+                    grid-auto-flow: column;
+                    column-gap: 10rem;
+
+                    li {
+                        list-style: decimal;
+                    }
+
+                }
+            }
         }
     }
 

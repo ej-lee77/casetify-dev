@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { items, modelColorOptions, colorMap } from "../../data/finalData";
-import "./scss/DetailPage.scss";
+// import "./scss/DetailPage.scss";
 
 export default function DetailPage() {
     const { id } = useParams();
