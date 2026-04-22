@@ -1,70 +1,37 @@
 export const filterConfigMap = {
     case: {
         device: {
-            phone: [
-                "model",
-                "magsafe",
-                "price",
-                "color",
-                "stock",
-            ],
-            earphone: [
-                "model",
-                "price",
-                "color",
-                "stock",
-            ],
-            laptop: [
-                "model",
-                "price",
-                "color",
-                "stock",
-            ],
-            watch: [
-                "model",
-                "price",
-                "color",
-                "stock",
-            ],
-            tablet: [
-                "model",
-                "price",
-                "color",
-                "stock",
-            ],
+            phone: ["model", "magsafe", "price", "color", "stock"],
+            earphone: ["model", "price", "color", "stock"],
+            laptop: ["model", "price", "color", "stock"],
+            watch: ["model", "price", "color", "stock"],
+            tablet: ["model", "price", "color", "stock"],
         },
         design: {
-            color: [
-                "model",
-                "magsafe",
-                "price",
-                "color",
-                "stock",
-            ],
-            pattern: [
-                "model",
-                "magsafe",
-                "price",
-                "color",
-                "stock",
-            ],
-            signature: [
-                "model",
-                "magsafe",
-                "price",
-                "color",
-                "stock",
-            ],
+            color: ["model", "magsafe", "price", "color", "stock"],
+            pattern: ["model", "magsafe", "price", "color", "stock"],
+            signature: ["model", "magsafe", "price", "color", "stock"],
+        },
+        magsafe: {
+            default: ["model", "price", "color", "stock"],
+        },
+        screenprotector: {
+            default: ["model", "price", "stock"],
         },
     },
 
     accessory: {
         strap: {
-            default: [
-                "price",
-                "color",
-                "stock",
-            ],
+            default: ["price", "color", "stock"],
+        },
+        magsafe: {
+            default: ["price", "color", "stock"],
+        },
+        carrier: {
+            default: ["price", "color", "stock"],
+        },
+        etc: {
+            default: ["price", "color", "stock"],
         },
     },
 };
