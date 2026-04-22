@@ -41,12 +41,13 @@ useEffect(() => {
 
 
     // 번들 상품 랜덤 3개
-    const bundleItems = useMemo(() => {
-        if (!items || !item) return [];
-        const others = items.filter((d) => d.id !== item.id);
-        const shuffled = [...others].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, 3);
-    }, [item]);
+const bundleItems = useMemo(() => {
+    if (!items || !item) return [];
+    const others = items.filter((d) => d.id !== item.id);
+    const shuffled = [...others].sort(() => Math.random() - 0.5);
+    // ✅ 현재 페이지 상품 고정 + 랜덤 2개
+    return [item, ...shuffled.slice(0, 2)];
+}, [item]);
 
     // 선택된 번들 (id -> quantity 맵)
     const [selectedBundles, setSelectedBundles] = useState({});
@@ -176,6 +177,7 @@ useEffect(() => {
         <section className="detail-page">
             <div className="detail-inner">
                 <div className="detail-left">
+                    <div className="detail-image-wrap">
                 <div className="detail-main-image" style={{ position: "relative" }}>
         <img src={mainImage} alt={item.productName} />
 
@@ -240,10 +242,16 @@ useEffect(() => {
     ))}
 </ul>
                 </div>
-
+</div>
                 <div className="detail-right">
-                   
-                    <p className="detail-artist">{item.artist || "CASETiFY"}</p>
+                  {/* ✅ 1. 무료배송 뱃지 + 2. 상품 ID */}
+    <div className="detail-meta">
+        {item.badge?.includes("무료 배송") && (
+            <span className="badge-free-ship">무료 배송</span>
+        )}
+        <span className="detail-product-id">{item.id}</span>
+    </div>
+                    {/* <p className="detail-artist">{item.artist || "CASETiFY"}</p> */}
                     <h2 className="detail-title">{item.productName}</h2>
                     <p className="detail-price">
                         {Number(item.price || 0).toLocaleString()}원
@@ -359,7 +367,7 @@ useEffect(() => {
     }
 }}>
     바로 구매하기
-</button>
+</button></div>
 <div className="budle-buy">
     {/* 3개상품 */}
                     {bundleItems.length > 0 && (
@@ -492,7 +500,7 @@ useEffect(() => {
         ? `함께 구매하기 (${Object.keys(selectedBundles).length})`
         : "바로 구매하기"}
 </button>
-                </div></div>
+                </div>
             </div></div>
         </section>
     );

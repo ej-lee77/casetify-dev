@@ -1,3 +1,6 @@
+@use "../../../../App.scss" as g;
+
+
 .detail-page {
     padding: 60px 0;
 
@@ -8,18 +11,24 @@
         display: flex;
         gap: 60px;
         align-items: flex-start;
+        flex-wrap: wrap;
     }
 
     .detail-left {
         flex: 1;
     }
 
+.detail-image-wrap {
+    position: relative; 
+    margin-bottom: 50px;
+
     .detail-main-image {
         width: 100%;
-        min-height: 500px;
+        min-width: 300px;
+        min-height: 300px;
         background: #f7f7f7;
         border-radius: 12px;
-        overflow: hidden;
+        // overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -30,8 +39,87 @@
             object-fit: cover;
         }
     }
+.image-wish-btn {
+    position: absolute;
+    // width: 50px;
+    bottom: 30px;
+    left: 35px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
 
-.color-remote {
+    img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        transition: filter 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    &:hover img {
+        filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
+        transform: scale(1.1);
+    }
+
+    &.wished img {
+        filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
+        transform: scale(1.15);
+    }
+}
+
+    .detail-thumb-list {
+        margin-top: 60px;
+ position: absolute;
+
+    left: 50%;                      // 기준을 가운데로 이동
+    transform: translateX(-50%);    // 자기 너비의 절반만큼 왼쪽 이동 → 진짜 중앙
+
+    bottom: -100px;                  // 메인이미지 아래로 위치
+
+    display: flex;
+    // flex-wrap: wrap;
+    gap: 12px;
+     
+
+        li {
+
+            width: 80px;
+            min-height: 80px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f7f7f7;
+
+            &.active {
+                border-color: #111;
+            }
+
+            button {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                background: none;
+                padding: 0;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+    .color-remote {
     position: absolute;
     top: 16px;
     left: 16px;
@@ -80,39 +168,10 @@
 }
 
 
-.image-wish-btn {
-    position: absolute;
-    bottom: 30px;
-    left: 35px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(6px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-
-    img {
-        width: 40px;
-        height: 40px;
-        object-fit: contain;
-        transition: filter 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    &:hover img {
-        filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
-        transform: scale(1.1);
-    }
-
-    &.wished img {
-        filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
-        transform: scale(1.15);
-    }
 }
+
+
+
 
 
 
@@ -122,42 +181,42 @@
 // =======================
 
 
-    .detail-thumb-list {
-        margin-top: 20px;
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
+    // .detail-thumb-list {
+    //     margin-top: 20px;
+    //     display: flex;
+    //     gap: 12px;
+    //     flex-wrap: wrap;
 
-        li {
-            width: 80px;
-            min-height: 80px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #f7f7f7;
+    //     li {
+    //         width: 80px;
+    //         min-height: 80px;
+    //         border: 1px solid #ddd;
+    //         border-radius: 8px;
+    //         overflow: hidden;
+    //         background: #f7f7f7;
 
-            &.active {
-                border-color: #111;
-            }
+    //         &.active {
+    //             border-color: #111;
+    //         }
 
-            button {
-                width: 100%;
-                height: 100%;
-                border: 0;
-                background: none;
-                padding: 0;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+    //         button {
+    //             width: 100%;
+    //             height: 100%;
+    //             border: 0;
+    //             background: none;
+    //             padding: 0;
+    //             cursor: pointer;
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: center;
+    //         }
 
-            img {
-                width: 100%;
-                display: block;
-            }
-        }
-    }
+    //         img {
+    //             width: 100%;
+    //             display: block;
+    //         }
+    //     }
+    // }
 
     // ======== ~오른쪽 ====================================================
 
@@ -195,6 +254,33 @@ p{
         flex-shrink: 0;
 
     }
+
+
+.detail-meta {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .badge-free-ship {
+        font-size: 12px;
+        font-weight: 400;
+        color: g.$color-blue;
+        background: transparent;
+        border: 1px g.$color-blue solid;
+        padding: 3px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.3px;
+    }
+
+    .detail-product-id {
+        font-size: 11px;
+        color: #aaa;
+        letter-spacing: 0.5px;
+    }
+}
+
 
     .detail-artist {
         font-size: 14px;
@@ -410,6 +496,31 @@ p{
             height: 16px;
             cursor: pointer;
             z-index: 1;
+              // ✅ 기본 체크박스 숨기기
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1.5px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    transition: background 0.2s, border-color 0.2s;
+
+    // ✅ 체크됐을 때 검정 배경 + 흰 체크
+    &:checked {
+        background: #111;
+        border-color: #111;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 8px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+            margin: 1px auto 0;
+        }
+    }
         }
 
         .bundle-img-wrap {
@@ -429,7 +540,7 @@ p{
             }
         }
 
-        &.selected .bundle-img-wrap { border-color: #f7b0c2; }
+        &.selected .bundle-img-wrap { border-color: #ffa2a2; }
 
         .bundle-name {
             font-size: 12px;
