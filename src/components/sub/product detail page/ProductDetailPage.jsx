@@ -23,7 +23,9 @@ const item = items.find((data) => String(data.id) === String(id));
             <div className="inner">
 
             <DetailPage item={item} />
+  
              <Recommend item={item} />
+                    <br />
           <TabWrap item={item} />
 
             </div>
