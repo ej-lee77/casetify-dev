@@ -3,9 +3,12 @@ import MypageTitle from './MypageTitle'
 import "./scss/UserInfo.scss"
 import { useAuthStore } from '../../store/useAuthStore'
 import AddressSearch from './AddressSearch';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserInfo() {
-    const { user, onUpdateUser } = useAuthStore();
+    // const isSocialLogin = user?.provider; //provider조건체크
+    const Navigate = useNavigate();
+    const { user, onUpdateUser, onDeleteUser, onLogout } = useAuthStore();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -49,6 +52,33 @@ export default function UserInfo() {
             [name]: value
         }));
     };
+    const handleDelete = async () => {
+        const confirmDelete = window.confirm("정말 계정을 삭제하시겠습니까?");
+        if (!confirmDelete) return;
+
+        const result = await onDeleteUser();
+
+        if (result === true) {
+            alert("계정이 삭제되었습니다");
+            //바로 이어서 실행
+            const isLogout = await onLogout();
+
+            if (isLogout) {
+                Navigate("/");
+            }
+        } else if (result === "auth/requires-recent-login") {
+            alert("보안을 위해 다시 로그인 후 삭제해주세요");
+        } else {
+            alert("삭제 실패");
+        }
+    };
+    // const handleDeleteUser = async () => {
+    //     const isLogout = await onLogout();
+
+    //     if (isLogout) {
+    //         navigate("/");
+    //     }
+    // }
 
     return (
         <div>
@@ -106,13 +136,15 @@ export default function UserInfo() {
                             />
                             <span>전화번호</span></label>
                     </p>
-                    <p>
-                        <label><input type="text" placeholder='' /><span>사용 중인 비밀번호</span></label>
-                    </p>
-                    <p>
-                        <label><input type="text" placeholder='' /><span>새 비밀번호</span></label>
-                        <label><input type="text" placeholder='' /><span>비밀번호 확인</span></label>
-                    </p>
+                    <div className="password-wrap">
+                        <p>
+                            <label><input type="text" placeholder='' /><span>사용 중인 비밀번호</span></label>
+                        </p>
+                        <p>
+                            <label><input type="text" placeholder='' /><span>새 비밀번호</span></label>
+                            <label><input type="text" placeholder='' /><span>비밀번호 확인</span></label>
+                        </p>
+                    </div>
                 </form>
             </div >
             <div className='pass-notice'>
@@ -152,7 +184,7 @@ export default function UserInfo() {
                 <MypageTitle title={"계정 삭제"} />
                 <p>주문 정보를 포함한 모든 프로필이 영구적으로 삭제됩니다.</p>
                 <p>계정 삭제 후에는 주문 정보 및 케이스티파이 클럽 포인트를 복원할 수 없습니다</p>
-                <button>내 계정 삭제</button>
+                <button onClick={handleDelete}>내 계정 삭제</button>
             </div>
         </div >
     )

@@ -1,8 +1,9 @@
 import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
-import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, deleteDoc } from "firebase/firestore";
 import { persist } from "zustand/middleware";
+import { deleteUser as firebaseDeleteUser } from "firebase/auth";
 
 export const useAuthStore = create(
     persist((set, get) => ({
@@ -144,7 +145,8 @@ export const useAuthStore = create(
                         birthDate: "",
                         zonecode: "",
                         address: "",
-                        detailaddress: ""
+                        detailaddress: "",
+                        provider: 'google'
                     }
 
                     await setDoc(userRef, userInfo);
@@ -439,7 +441,30 @@ export const useAuthStore = create(
                 return false;
             }
         },
+        // 계정 삭제
+        onDeleteUser: async () => {
+            try {
+                const user = get().user;
+                const currentUser = auth.currentUser;
 
+                if (!user || !currentUser) return false;
+
+                // 1. Firestore 데이터 삭제
+                const userRef = doc(db, "users", user.uid);
+                await deleteDoc(userRef);
+
+                // 2. Auth 계정 삭제
+                await firebaseDeleteUser(currentUser);
+
+                // 3. 상태 초기화
+                set({ user: null });
+
+                return true;
+            } catch (err) {
+                console.log(err.message);
+                return err.code;
+            }
+        },
     }),
         {
             name: 'auth-storage',
