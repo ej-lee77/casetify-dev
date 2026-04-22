@@ -32,24 +32,46 @@ const [selectedBrandTab, setSelectedBrandTab] = useState(item?.brand || "Apple")
 useEffect(() => {
     if (!item) return;
     setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
-    setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || ""); // ✅ 추가
+    setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || ""); 
     setQuantity(1);
-    setUserSelected(false);
     setSelectedBundles({});
-     setAccordionOpen(false);        // ✅ 추가
-    setModelAccordionOpen(false);   // ✅ 추가
-    setSelectedModel("");    
+     setAccordionOpen(false);        
+    setModelAccordionOpen(false);   
+       setSelectedModel("");
+
+// ✅ 선택할 옵션이 없는 상품은 바로 선택된 상태로
+    const hasNoOption =
+        !phoneModelOptions[item?.brand] &&
+        !item?.compatibleModels?.length &&
+        !item?.caseColors?.length;
+
+    setUserSelected(hasNoOption);
+
+
 }, [item]);
 
 
     // 번들 상품 랜덤 3개
 const bundleItems = useMemo(() => {
     if (!items || !item) return [];
-    const others = items.filter((d) => d.id !== item.id);
-    const shuffled = [...others].sort(() => Math.random() - 0.5);
-    // ✅ 현재 페이지 상품 고정 + 랜덤 2개
-    return [item, ...shuffled.slice(0, 2)];
+
+    // ✅ accessory만 필터
+    const accessories = items.filter((d) => d.mainCategory === "accessory");
+
+    // ✅ item.id에서 숫자 합산으로 고유 시드 생성
+    const seed = item.id.replace(/\D/g, "").split("").reduce((acc, n) => acc + Number(n), 0);
+
+    // ✅ 시드로 서로 다른 인덱스 2개 선택
+    const len = accessories.length;
+    const idx1 = seed % len;
+    const idx2 = (seed * 3 + 7) % len === idx1 
+        ? (seed * 3 + 8) % len 
+        : (seed * 3 + 7) % len;
+
+    // ✅ 첫번째 현재 상품 고정 + 액세서리 2개
+    return [item, accessories[idx1], accessories[idx2]];
 }, [item]);
+
 
     // 선택된 번들 (id -> quantity 맵)
     const [selectedBundles, setSelectedBundles] = useState({});
@@ -63,7 +85,7 @@ const bundleItems = useMemo(() => {
                 delete next[bundleItem.id];
             } else {
                 next[bundleItem.id] = 1;
-                setUserSelected(true);
+             
             }
             return next;
         });
@@ -161,7 +183,7 @@ const bundleItems = useMemo(() => {
         imageList.find((img) => img.key === selectedThumb)?.src || imageList[0].src;
 
     const optionSummary = [
-        item.modelLabel,
+        // item.modelLabel,
         selectedDeviceColor,
         selectedColor,
         selectedModel,
@@ -261,11 +283,12 @@ const bundleItems = useMemo(() => {
  <div className="right-info-wrap">
                     {!!item.caseCategory && (
                         <div className="detail-info-box">
-                            <p className="label">종류           <span className="label">{item.caseCategory}</span></p>
+                            <p className="label"> <span className="label">{item.caseCategory}</span></p>
                  
                         </div>
                     )}
-
+                    <div className="model-select-box">
+<p className="label">기종</p>
 {isPhone && item.brand && phoneModelOptions[item.brand] && (
     <div className="detail-info-box">
         <div className="model-accordion">
@@ -310,7 +333,7 @@ const bundleItems = useMemo(() => {
             )}
         </div>
     </div>
-)}
+)}</div>
                
 
                     {!!item.caseColors?.length && (
@@ -374,149 +397,150 @@ const bundleItems = useMemo(() => {
                
                     {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
 <div className="right-btn-wrap">
-                   
-                    {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
+                    {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
+  {userSelected && (isPhone || !!item.compatibleModels?.length || !!item.caseColors?.length) && (
+    <div className="order-result">
+        <hr className="left-line" />
+
+        {/* ✅ 메인 상품 행만 */}
+        <div className="order-result-row">
+            <span className="order-option-name">
+                {item.productName}
+                {optionSummary && (
+                    <em className="order-option-detail"> / {optionSummary}</em>
+                )}
+            </span>
+            <div className="order-quantity">
+                <button
+                    type="button"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (quantity <= 1) {
+                            setUserSelected(false);
+                            setQuantity(1);
+                        } else {
+                            setQuantity((q) => q - 1);
+                        }
+                    }}
+                >−</button>
+                <span>{quantity}</span>
+                <button
+                    type="button"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setQuantity((q) => q + 1);
+                    }}
+                >+</button>
+            </div>
+            <span className="order-row-price">
+                {((item.price || 0) * quantity).toLocaleString()}원
+            </span>
+        </div>
+
+        {/* ✅ 총액 - 메인 상품만 */}
+        <div className="order-total">
+            <span>총 상품금액 (수량 {quantity}개)</span>
+            <strong>{((item.price || 0) * quantity).toLocaleString()}원</strong>
+        </div>
+    </div>
+)}
+
+                    {/* ✅ 장바구니 버튼 - 미선택 시 alert */}
   <button className="buy-btn" onClick={() => {
     if (!userSelected) {
         alert("제품을 선택해주세요.");
         return;
     }
 }}>
-     <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>  바로 구매하기  
+     <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>  장바구니에 담기  
 </button></div>
-<div className="budle-buy">
+
     {/* 3개상품 */}
-                    {bundleItems.length > 0 && (
-                        <div className="bundle-section">
-                            <p className="bundle-title">번들 할인</p>
-                            <ul className="bundle-list">
-                                {bundleItems.map((b) => {
-                                    const isChecked = !!selectedBundles[b.id];
-                                    return (
-                                        <li
-                                            key={b.id}
-                                            className={`bundle-item ${isChecked ? "selected" : ""}`}
-                                            onClick={() => handleBundleToggle(b)}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                className="bundle-checkbox"
-                                                checked={isChecked}
-                                                onChange={() => handleBundleToggle(b)}
-                                                onClick={(e) => e.stopPropagation()}
-                                            />
-                                            <div className="bundle-img-wrap">
-                                                <img src={getBundleImagePath(b)} alt={b.productName} />
-                                            </div>
-                                            <span className="bundle-name">{b.productName}</span>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    )}
-     {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
-                    {/* {userSelected && (
-                        <div className="order-result">
-                            <hr className="left-line" /> */}
+                <div className="budle-buy">
+    {bundleItems.length > 0 && (
+        <div className="bundle-section">
+            <p className="bundle-title">번들 할인</p>
+            <ul className="bundle-list">
+                {bundleItems.map((b, index) => {
+                    const isChecked = index === 0 || !!selectedBundles[b.id];
+                    const isFirst = index === 0;
+                    const bundlePrice = Math.round(b.price * 0.9);
+                    const isSelected = !!selectedBundles[b.id];
 
-                            {/* 메인 상품 행 */}
-                            {/* <div className="order-result-row">
-                                <span className="order-option-name">
-                                    {item.productName}
-                                    {optionSummary && (
-                                        <em className="order-option-detail"> / {optionSummary}</em>
-                                    )}
-                                </span>
-                                <div className="order-quantity">
-                                    <button
-                                        type="button"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            if (quantity <= 1) {
-                                                setUserSelected(false); // ✅ 사라짐
-                                                setQuantity(1);
-                                            } else {
-                                                setQuantity((q) => q - 1);
-                                            }
-                                        }}
-                                    >−</button>
-                                    <span>{quantity}</span>
-                                    <button
-                                        type="button"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            setQuantity((q) => q + 1);
-                                        }}
-                                    >+</button>
-                                </div>
-                                <span className="order-row-price">
-                                    {((item.price || 0) * quantity).toLocaleString()}원
-                                </span>
-                            </div> */}
-
-                            {/* 선택된 번들 행 */}
-                            {/* {bundleItems
-                                .filter((b) => selectedBundles[b.id])
-                                .map((b) => {
-                                    const qty = selectedBundles[b.id] || 1;
-                                    const bundlePrice = Math.round(b.price * 0.9);
-                                    return (
-                                        <div key={b.id} className="order-result-row">
-                                            <span className="order-option-name">
-                                                {b.productName}
-                                                <em className="order-option-detail"> / 함께 구매 할인</em>
-                                            </span>
-                                            <div className="order-quantity">
-                                                <button
-                                                    type="button"
-                                                    onClick={(e) => {
-                                                        e.preventDefault();
-                                                        e.stopPropagation();
-                                                        handleBundleQty(b.id, -1);
-                                                    }}
-                                                >−</button>
-                                                <span>{qty}</span>
-                                                <button
-                                                    type="button"
-                                                    onClick={(e) => {
-                                                        e.preventDefault();
-                                                        e.stopPropagation();
-                                                        handleBundleQty(b.id, 1);
-                                                    }}
-                                                >+</button>
-                                            </div>
-                                           <span className="order-row-price">
-    <em className="bundle-row-origin">{b.price.toLocaleString()}원</em>
-    {(bundlePrice * qty).toLocaleString()}원
-</span>
-                                        </div>
-                                    );
-                                })} */}
-
-                            {/* ✅ 번들 선택 시 총액에 할인 반영 */}
-                            {/* <div className="order-total">
-                                <span>총 상품금액 (수량 {totalQty}개)</span>
-                                <strong>{totalPrice.toLocaleString()}원</strong>
+                    return (
+                        <li
+                            key={b.id}
+                            className={`bundle-item ${isChecked ? "selected" : ""} ${isFirst ? "current" : ""}`}
+                            onClick={() => !isFirst && handleBundleToggle(b)}
+                        >
+                            <input
+                                type="checkbox"
+                                className="bundle-checkbox"
+                                checked={isChecked}
+                                onChange={() => {}}
+                                disabled={isFirst}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (!isFirst) handleBundleToggle(b);
+                                }}
+                            />
+                            <div className="bundle-img-wrap">
+                                <img src={getBundleImagePath(b)} alt={b.productName} />
                             </div>
-                        </div>
-                    )} */}
+                            <span className="bundle-name">{b.productName}</span>
+                            
+{/* ✅ 가격 표시 - 항상 원래 가격만 */}
+<div className="bundle-price-wrap">
+    <span className="bundle-default-price">{b.price.toLocaleString()}원</span>
+</div>
+                        </li>
+                    );
+                })}
+            </ul>
 
+            {/* ✅ 번들 선택 시 총 할인 금액 표시 */}
+{Object.keys(selectedBundles).length > 0 && (
+    <div className="bundle-total-wrap">
+        <span className="bundle-total-label">번들 할인 총액</span>
+        <div className="bundle-total-right">
+            <em className="bundle-total-origin">
+                {(
+                    (item.price || 0) +
+                    bundleItems
+                        .filter((b) => selectedBundles[b.id])
+                        .reduce((acc, b) => acc + b.price * (selectedBundles[b.id] || 1), 0)
+                ).toLocaleString()}원
+            </em>
+            <strong className="bundle-total-discount">
+                {(
+                    (item.price || 0) +
+                    bundleItems
+                        .filter((b) => selectedBundles[b.id])
+                        .reduce((acc, b) => acc + Math.round(b.price * 0.9) * (selectedBundles[b.id] || 1), 0)
+                ).toLocaleString()}원
+            </strong>
+        </div>
+    </div>
+)}
+        </div>
+    )}
+    
 
  {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
-  <button className="buy-btn" onClick={() => {
-    if (!userSelected) {
-        alert("제품을 선택해주세요.");
-        return;
-    }
-}}> <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span> 
-    {Object.keys(selectedBundles).length > 0
-        ? `함께 구매하기 (${Object.keys(selectedBundles).length})`
-        : "바로 구매하기"}
-</button>
-                </div>
+    <button className="buy-btn" onClick={() => {
+        if (!userSelected) {
+            alert("제품을 선택해주세요.");
+            return;
+        }
+    }}>
+        <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>
+        {Object.keys(selectedBundles).length > 0
+            ? `번들 장바구니에 담기 (${Object.keys(selectedBundles).length})`
+            : "장바구니에 담기"}
+    </button>
+</div>
             </div></div>
         </section>
     );
