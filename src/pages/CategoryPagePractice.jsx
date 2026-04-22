@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
-
+import { filterConfigMap, filterLabelMap } from "../data/filterConfigMap";
 import { useCategoryProductStore } from "../store/useCategoryProductStore";
 
 import CategoryHero from "../components/sub/CategoryHero";
@@ -56,7 +56,10 @@ export default function CategoryPagePractice() {
     const handleToggleFilter = () => {
         setIsFilterOpen((prev) => !prev);
     };
-
+    const currentFilterConfig =
+        filterConfigMap?.[mainCate]?.[subCate]?.[activeMini] ||
+        filterConfigMap?.[mainCate]?.[subCate]?.default ||
+        [];
     return (
         <div className="sub-page-wrap category-wrap">
             <div className="inner">
@@ -84,6 +87,16 @@ export default function CategoryPagePractice() {
                         isOpen={isFilterOpen}
                     />
                 </div>
+                {isFilterOpen && (
+                    <div className="filter-panel-dummy">
+                        <h3>필터 내용</h3>
+                        <ul>
+                            {currentFilterConfig.map((filterKey) => (
+                                <li key={filterKey}>{filterLabelMap[filterKey]}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
 
                 <ul className="category-product-list">
                     {visibleCategoryItems.map((item) =>
