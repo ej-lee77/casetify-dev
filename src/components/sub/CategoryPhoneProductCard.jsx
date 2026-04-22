@@ -14,8 +14,9 @@ export default function CategoryPhoneProductCard({ item }) {
 
     const modelColors = modelColorOptions[item.modelKey] || [];
     const deviceColorKey = modelColors[0]?.key || "Black";
+    const caseColorKey = item.mainCaseColor || colors[0] || "Black";
 
-    const imagePath = `/images/category/products/${item.id}_${item.modelKey}_${deviceColorKey}_${item.mainCaseColor}_main.jpg`;
+    const imagePath = `/images/category/products/${item.id}_${item.modelKey}_${deviceColorKey}_${caseColorKey}_main.jpg`;
 
     const handleError = () => {
         setIsImageError(true);
@@ -36,9 +37,9 @@ export default function CategoryPhoneProductCard({ item }) {
                     )}
                 </div>
             </Link>
+
             <div className="card-info">
                 <p className="card-name">{item.productName}</p>
-                <p className="temporary">{imagePath}</p>
 
                 <p className="card-sub">
                     {item.modelLabel} · {item.caseCategory}
@@ -65,7 +66,6 @@ export default function CategoryPhoneProductCard({ item }) {
                     </div>
                 )}
             </div>
-
         </li>
     );
 }

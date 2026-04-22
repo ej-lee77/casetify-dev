@@ -88,7 +88,7 @@ export default function TabWrap({ item }) {
                 </li>
             </ul>
 
-
+       <br />
 
             <div id="detail">
                 <Detail />

@@ -5,6 +5,7 @@
 
     .my-page-wrap {
         @include g.myFlex($jc: normal, $ai: normal, $gap: 3.75em);
+        margin-bottom: 100px;
 
         .my-page-content {
             flex: 1;

@@ -1,106 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./scss/Cart.scss"
+import { useAuthStore } from '../store/useAuthStore';
 
 // 임시 배열
 const tempItem = [
-  {
-    id: "CTF-28302256-16009387",
-    badge: [
-      "무료 배송"
-    ],
-    price: "89000",
-    productName: "Punny Orange&Berry",
-    caseCategory: "맥세이프 호환 임팩트 케이스",
-    color: [
-      "Black",
-      "Orange",
-      "Pink",
-      "Soft Blue",
-      "Matte Black"
-    ],
-    collabo: "By Number D",
-    mainCategory: "케이스",
-    subCategory: "디바이스",
-    miniCategory: "핸드폰",
-    lastCategory: [
-      "iPhone 17 Pro"
-    ],
-    deviceCategory: {
-      Apple: [
-        "아이폰 17 Pro",
-        "아이폰 17",
-        "아이폰 16 Pro",
-        "아이폰 16",
-        "아이폰 15 Pro",
-        "아이폰 15"
-      ],
-      Samsung: [
-        "갤럭시 S26",
-        "갤럭시 S26+",
-        "갤럭시 Z 폴드7",
-        "갤럭시 Z 플립7",
-        "갤럭시 S25",
-        "갤럭시 S25+",
-        "갤럭시 Z 폴드6",
-        "갤럭시 Z 플립6"
-      ],
-      Google: [
-        "Pixel 10 Pro",
-        "Pixel 10",
-        "Pixel 9 Pro",
-        "Pixel 9"
-      ]
-    }
-  },
-  {
-    id: "CTF-30073724-16009386",
-    badge: [
-      "무료 배송"
-    ],
-    price: "89000",
-    productName: "Cheek-to-cheek",
-    caseCategory: "맥세이프 호환 임팩트 케이스",
-    color: [
-      "Black",
-      "Orange",
-      "Pink",
-      "Soft Blue"
-    ],
-    collabo: "By matsui",
-    mainCategory: "케이스",
-    subCategory: "디바이스",
-    miniCategory: "핸드폰",
-    lastCategory: [
-      "iPhone 17 Pro"
-    ],
-    deviceCategory: {
-      Apple: [
-        "아이폰 17 Pro",
-        "아이폰 17",
-        "아이폰 16 Pro",
-        "아이폰 16",
-        "아이폰 15 Pro",
-        "아이폰 15"
-      ],
-      Samsung: [
-        "갤럭시 S26",
-        "갤럭시 S26+",
-        "갤럭시 Z 폴드7",
-        "갤럭시 Z 플립7",
-        "갤럭시 S25",
-        "갤럭시 S25+",
-        "갤럭시 Z 폴드6",
-        "갤럭시 Z 플립6"
-      ],
-      Google: [
-        "Pixel 10 Pro",
-        "Pixel 10",
-        "Pixel 9 Pro",
-        "Pixel 9"
-      ]
-    }
-  },
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
+    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
 ];
+
 
 const tempRecoItem = [
   {
@@ -180,6 +97,33 @@ const tempRecoItem = [
 ]
 
 export default function Cart() {
+  // 체크박스 선택 확인
+  const [chekedItems, setCheckedItems] = useState([]);
+  // 체크박스 실행 메서드
+  const handleChecked = (item) => {
+    console.log(item);
+    const key = item.id;
+    setCheckedItems((prev) =>
+      prev.includes(key) ? prev.filter((v) => v !== key) : [...prev, key])
+  }
+  // 전체 체크 메서드
+  const handleAllChecked = (e) => {
+    if (e.target.checked) {
+      const allKeys = tempItem.map((item) => item.id)
+      setCheckedItems(allKeys)
+    } else { setCheckedItems([]) }
+  }
+
+  const {user, cartlist, onFetchCartList} = useAuthStore();
+  const [cartItemList, setCartItemList] = useState([]);
+  
+  useEffect(()=>{ 
+      if (!user) return;
+      onFetchCartList();
+      // setCartItemList(wishlist);
+      setCartItemList(tempItem);
+  }, [user, cartlist]);
+
   return (
     <div className="sub-page-wrap cart-page-wrap">
       {/* 페이지 상단 제목 */}
@@ -192,7 +136,7 @@ export default function Cart() {
           <ul className="payment-progress-wrap">
             <li className="payment-progress-item active">
               <div className="icon-box">
-                <img src="./images/icon/cart_white.svg" alt="장바구니" />
+                <img src="./images/cart/cart-bag.svg" alt="장바구니" />
               </div>
               <p>장바구니</p>
             </li>
@@ -217,8 +161,11 @@ export default function Cart() {
             {/* 장바구니 제목 */}
             <div className="cart-title">
               <div className="cart-title-left">
-                <label>
-                  <input type="checkbox" />
+                <label className="checkbox-label">
+                  <input type="checkbox"
+                    checked={chekedItems.length === tempItem.length}
+                    onChange={handleAllChecked} />
+                  <span className={`checkbox-icon ${chekedItems.length === tempItem.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -229,24 +176,26 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-              {tempItem.map((item) => (
+              {cartItemList.map((item) => (
                 <li key={item.id} className="cart-item">
-                  <label>
-                    <input type="checkbox" />
+                  <label className="checkbox-label">
+                    <input type="checkbox"
+                      checked={chekedItems.includes(item.id)}
+                      onChange={() => handleChecked(item)} />
+                    <span className={`checkbox-icon ${chekedItems.includes(item.id) ? "on" : "off"}`}></span>
                   </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
                       <div className="goods-img">
                         <img
-                          src={`/images/category/case/${item.id}_${item.color[0]}_0.jpg`}
-                          alt={item.productName} />
+                          src={`/images/category/products/${item.id}_${item.device}_${item.imgUrl}_main.jpg`}
+                          alt={item.title} />
                       </div>
                       <div className="goods-text">
-                        <p className="title">{item.productName}</p>
+                        <p className="title">{item.title}</p>
                         <div className="goods-detail-product">
-                          <p>{item.lastCategory}</p>
-                          <p>{item.caseCategory}</p>
-                          <p>{item.color[0]}</p>
+                          <p>{item.device}</p>
+                          <p>{item.color}</p>
                         </div>
                         <button>옵션변경</button>
                       </div>
@@ -257,7 +206,7 @@ export default function Cart() {
                         <span>1</span>
                         <button>+</button>
                       </div>
-                      <p className="price">₩ <span>{Number(item.price).toLocaleString()}</span></p>
+                      <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
                     </div>
                   </div>
                 </li>
@@ -278,13 +227,13 @@ export default function Cart() {
             <div className="price-info-wrap">
               {/* 총 금액 */}
               <div className="price-detail">
-                <p className="price-sum">총 금액<span>₩ {Number("100000").toLocaleString()}</span></p>
-                <p className="price-discount">할인 금액<span>- ₩ {Number("100000").toLocaleString()}</span></p>
-                <p className="price-delevery">배송비<span>₩ {Number("100000").toLocaleString()}</span></p>
+                <p className="price-sum">총 금액<span>{Number("100000").toLocaleString()}원</span></p>
+                <p className="price-discount">할인 금액<span>-{Number("100000").toLocaleString()}원</span></p>
+                <p className="price-delevery">배송비<span>{Number("100000").toLocaleString()}원</span></p>
               </div>
               <div className="price-total">
-                <p className="free-info">₩ 50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>₩ {Number("100000").toLocaleString()}</span></p>
+                <p className="free-info">50,000원 이상 배송비 무료</p>
+                <p className="est-price">결제예정금액<span>{Number("100000").toLocaleString()}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
@@ -308,7 +257,7 @@ export default function Cart() {
                 </div>
                 <div className="goods-text">
                   <p className="item-name">{item.productName}</p>
-                  <p className="item-price">₩ {Number(item.price).toLocaleString()}</p>
+                  <p className="item-price">{Number(item.price).toLocaleString()}원</p>
                 </div>
               </li>
             ))}
