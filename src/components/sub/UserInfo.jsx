@@ -6,9 +6,9 @@ import AddressSearch from './AddressSearch';
 import { useNavigate } from 'react-router-dom';
 
 export default function UserInfo() {
-    // const isSocialLogin = user?.provider; //provider조건체크
     const Navigate = useNavigate();
     const { user, onUpdateUser, onDeleteUser, onLogout } = useAuthStore();
+    // console.log("현재 user:", user);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -97,7 +97,7 @@ export default function UserInfo() {
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
                             <span className='content'>Basic</span>
-                            <span className='content'>{formData?.email.split('@')[0]}</span>
+                            <span className='content'>{formData?.email.split('@')[0] || user?.uid}</span>
                         </div>
                     </div>
                 </div>
@@ -136,24 +136,27 @@ export default function UserInfo() {
                             />
                             <span>전화번호</span></label>
                     </p>
-                    <div className="password-wrap">
-                        <p>
-                            <label><input type="text" placeholder='' /><span>사용 중인 비밀번호</span></label>
-                        </p>
-                        <p>
-                            <label><input type="text" placeholder='' /><span>새 비밀번호</span></label>
-                            <label><input type="text" placeholder='' /><span>비밀번호 확인</span></label>
-                        </p>
-                    </div>
+                    {!user?.provider && (
+                        <div className="password-wrap">
+                            <p>
+                                <label><input type="password" placeholder='' /><span>사용 중인 비밀번호</span></label>
+                            </p>
+                            <p>
+                                <label><input type="password" placeholder='' /><span>새 비밀번호</span></label>
+                                <label><input type="password" placeholder='' /><span>비밀번호 확인</span></label>
+                            </p>
+                        </div>
+                    )}
                 </form>
             </div >
-            <div className='pass-notice'>
-                <p>비밀번호는 다음 조건을 충족해야 합니다.</p>
-                <p>8~36자 사이<br />
-                    하나 이상의 대문자 포함<br />
-                    하나 이상의 숫자 포함</p>
-            </div>
-
+            {!user?.provider && (
+                <div className='pass-notice'>
+                    <p>비밀번호는 다음 조건을 충족해야 합니다.</p>
+                    <p>8~36자 사이<br />
+                        하나 이상의 대문자 포함<br />
+                        하나 이상의 숫자 포함</p>
+                </div>
+            )}
             <MypageTitle title={"배송 주소"} />
             <div className='address-info'>
                 <form>
