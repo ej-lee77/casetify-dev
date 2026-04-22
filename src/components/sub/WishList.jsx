@@ -4,23 +4,6 @@ import MypageTitle from './MypageTitle'
 import { useAuthStore } from '../../store/useAuthStore';
 import { Link } from 'react-router-dom';
 
-
-// 임시 배열
-const tempItem = [
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", productName: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Deep-Blue_Black"},
-];
-
 export default function WishList() {
     const [wishItemList, setWishItemList] = useState([]);
     const { user, wishlist, onFetchWishlist, onRemoveWishlist } = useAuthStore();
@@ -29,7 +12,6 @@ export default function WishList() {
         if (!user) return;
         onFetchWishlist();
         setWishItemList(wishlist);
-        // setWishItemList(tempItem);
     }, [user, wishlist]);
 
     return (
@@ -40,7 +22,7 @@ export default function WishList() {
                     <li key={item.productId} className="wish-product-card">
                         <Link to={`/detail/${item.productId}`}>
                             <div className="card-img">
-                                <img src={`/images/category/products/${item.productId}_${item.device}_${item.color}_main.jpg`} alt={item.title}/>
+                                <img src={`/images/category/products/${item.productId}_${item.device}_${item.imgUrl}_main.jpg`} alt={item.title}/>
                             </div>
                             <div className="card-info">
                             <p className="card-name">{item.title}</p>
