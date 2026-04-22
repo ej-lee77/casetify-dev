@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
 
@@ -9,10 +9,12 @@ import CategoryMenuMap from "../components/sub/CategoryMenuMap";
 import CategorySubSlider from "../components/sub/CategorySubSlider";
 import CategoryPhoneProductCard from "../components/sub/CategoryPhoneProductCard";
 import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
+import CategoryFilterButton from "../components/sub/CategoryFilterButton";
 
 export default function CategoryPagePractice() {
     const { mainCate, subCate } = useParams();
     const [searchParams] = useSearchParams();
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     const activeMini = searchParams.get("mini") || null;
 
@@ -38,6 +40,23 @@ export default function CategoryPagePractice() {
         onFilterCategory(mainCate, subCate, activeMini);
     }, [items, mainCate, subCate, activeMini, onFilterCategory]);
 
+    const visibleCategoryItems = useMemo(() => {
+        const seen = new Set();
+
+        return categoryItems.filter((item) => {
+            const key = `${item.productName}_${item.caseCategory}`;
+
+            if (seen.has(key)) return false;
+
+            seen.add(key);
+            return true;
+        });
+    }, [categoryItems]);
+
+    const handleToggleFilter = () => {
+        setIsFilterOpen((prev) => !prev);
+    };
+
     return (
         <div className="sub-page-wrap category-wrap">
             <div className="inner">
@@ -59,8 +78,15 @@ export default function CategoryPagePractice() {
                     <CategorySubSlider miniCate={miniCate} />
                 )}
 
+                <div className="filter-btn-wrap">
+                    <CategoryFilterButton
+                        onClick={handleToggleFilter}
+                        isOpen={isFilterOpen}
+                    />
+                </div>
+
                 <ul className="category-product-list">
-                    {categoryItems.map((item) =>
+                    {visibleCategoryItems.map((item) =>
                         item.productTarget === "phone" ? (
                             <CategoryPhoneProductCard key={item.id} item={item} />
                         ) : (
