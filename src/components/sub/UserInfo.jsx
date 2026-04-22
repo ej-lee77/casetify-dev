@@ -1,8 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MypageTitle from './MypageTitle'
 import "./scss/UserInfo.scss"
+import { useAuthStore } from '../../store/useAuthStore'
+import AddressSearch from './AddressSearch';
 
 export default function UserInfo() {
+    const { user, onUpdateUser } = useAuthStore();
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        zonecode: "",
+        address: "",
+        detailaddress: ""
+    });
+    const setAddressData = (data) => {
+        setFormData((prev) => ({
+            ...prev,
+            zonecode: data.zonecode,
+            address: data.address,
+        }));
+    };
+    useEffect(() => {
+        if (user) {
+            setFormData({
+                email: user.email || '',
+                name: user.name || '',
+                phone: user.phone || '',
+                zonecode: user.zonecode || '',
+                address: user.address || '',
+                detailaddress: user.detailaddress || ''
+            });
+        }
+    }, [user]);
+    const handleSave = async () => {
+        const result = await onUpdateUser(formData);
+
+        if (result) {
+            alert("회원정보가 수정되었습니다 👍");
+        } else {
+            alert("저장 실패 😢");
+        }
+    };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
     return (
         <div>
             <MypageTitle title={"회원 카드"} />
@@ -13,14 +60,14 @@ export default function UserInfo() {
                         <img className='user-qr' src="./images/userinfo/qr-code.png" alt="큐알" />
                         <div>
                             <p className='title'>MENBER NAME</p>
-                            <p className='content'>Lee Eunji</p>
+                            <p className='content'>{formData?.name}</p>
                         </div>
                     </div>
                     <div className='user-info2'>
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
                             <span className='content'>Basic</span>
-                            <span className='content'>000 022 156</span>
+                            <span className='content'>{formData?.email.split('@')[0]}</span>
                         </div>
                     </div>
                 </div>
@@ -31,18 +78,40 @@ export default function UserInfo() {
             <div className="acount-info">
                 <form>
                     <p>
-                        <label><input type="text" required /><span>이메일 주소</span></label>
-                        <label><input type="text" required /><span>이름</span></label>
+                        <label>
+                            <input type="text"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder='' />
+                            <span>이메일</span></label>
+                        <label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder=''
+                            />
+                            <span>이름</span></label>
                     </p>
                     <p>
-                        <label><input type="text" required /><span>전화번호</span></label>
+                        <label>
+                            <input
+                                type="text"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                placeholder=''
+                            />
+                            <span>전화번호</span></label>
                     </p>
                     <p>
-                        <label><input type="text" required /><span>사용 중인 비밀번호</span></label>
+                        <label><input type="text" placeholder='' /><span>사용 중인 비밀번호</span></label>
                     </p>
                     <p>
-                        <label><input type="text" required /><span>새 비밀번호</span></label>
-                        <label><input type="text" required /><span>비밀번호 확인</span></label>
+                        <label><input type="text" placeholder='' /><span>새 비밀번호</span></label>
+                        <label><input type="text" placeholder='' /><span>비밀번호 확인</span></label>
                     </p>
                 </form>
             </div >
@@ -57,14 +126,26 @@ export default function UserInfo() {
             <div className='address-info'>
                 <form>
                     <p className='postcode'>
-                        <label ><input type="text" required /><span>우편번호</span><button>주소 찾기</button>
+                        <label ><input type="text" value={formData?.zonecode} readOnly placeholder='우편번호' />
+                            <span>우편번호</span>
+                            <div className="address-btn">
+                                <AddressSearch setAddressData={setAddressData} />
+                            </div>
                         </label>
                     </p>
-                    <p><label ><input type="text" required /><span>기본 주소</span></label></p>
-                    <p><label ><input type="text" required /><span>상세 주소</span></label></p>
+                    <p><label ><input type="text" value={formData?.address} readOnly placeholder='기본주소' />
+                        <span>기본주소</span>
+                    </label></p>
+                    <p><label ><input
+                        name="detailaddress"
+                        value={formData.detailaddress}
+                        onChange={handleChange} placeholder='' />
+                        <span className='always'>상세주소</span></label></p>
                 </form>
                 <div className="btn-wrap">
-                    <button>회원 정보 저장</button>
+                    <button type="button" onClick={handleSave}>
+                        회원 정보 저장
+                    </button>
                 </div>
             </div>
             <div className='delete-wrap'>

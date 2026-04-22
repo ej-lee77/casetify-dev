@@ -4,6 +4,7 @@ import { useProductStore } from '../store/useProductStore';
 import "./scss/Header.scss"
 import { useMainSlider } from '../store/useMainSlider';
 import { useAuthStore } from '../store/useAuthStore';
+import SearchOverlay from './SearchOverlay';
 
 export default function Header() {
   const { mainMenuList } = useProductStore();
@@ -51,7 +52,12 @@ export default function Header() {
   }
   // console.log("here",user);
 
+  // 검색창 열림/닫힘 확인
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const toggleSearch = () => { setIsSearchOpen((prev) => !prev) }
+
   return (
+    <>
     <header className={`${isScrolled || MenuActive !== null ? "active" : ""} ${headerColor}`}>
       <div className="header-left">
         <h1 className="logo"><Link to="/"><img src="/images/casetify-logo-15th.png" alt="casetify" /></Link></h1>
@@ -86,8 +92,8 @@ export default function Header() {
       <div className="header-right">
         <ul className="gnb-list">
           <li>
-            <Link><img src="/images/icon/search_var.svg" alt="검색" /></Link>
-          </li>
+              <Link className={`search-icon ${isSearchOpen ? "active" : ""}`} onClick={toggleSearch} ><img src={isSearchOpen ? "/images/icon/close-24dp.svg" : "/images/icon/search_var.svg"} alt={isSearchOpen ? "검색닫기" : "검색"} /></Link>
+            </li>
           {user ? (
             <>
             <li onMouseEnter={() => setMenuActive("gnb")} onMouseLeave={() => setMenuActive(null)}>
@@ -125,5 +131,7 @@ export default function Header() {
         </ul>
       </div>
     </header>
+    <SearchOverlay isActive={isSearchOpen} onClose={toggleSearch} />
+    </>
   )
 }
