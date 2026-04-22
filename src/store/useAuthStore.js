@@ -488,7 +488,7 @@ export const useAuthStore = create(
         },
         // 장바구니 선택 삭제
         onRemoveSelected: async (selectedItems) => {
-            const user = get().user;
+            const {user, cart} = get();
             if (!user) return;
 
             // selectedItems에 포함되지 않은 아이템들만 남기기
