@@ -288,9 +288,10 @@ const bundleItems = useMemo(() => {
                         </div>
                     )}
                     <div className="model-select-box">
-<p className="label">기종</p>
+
 {isPhone && item.brand && phoneModelOptions[item.brand] && (
     <div className="detail-info-box">
+        <p className="label">기종</p>
         <div className="model-accordion">
             <button
                 type="button"
@@ -364,6 +365,7 @@ const bundleItems = useMemo(() => {
 
                     {!!item.compatibleModels?.length && (
                         <div className="detail-info-box">
+                               <p className="label">옵션</p>
                             <div className="accordion">
                                 <button
                                     type="button"
