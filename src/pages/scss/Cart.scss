@@ -84,14 +84,15 @@
 
                 // 체크박스
                 .checkbox-label {
+                    height: 22px;
                     input {
                         display: none;
                     }
 
                     .checkbox-icon {
                         display: inline-block;
-                        width: 24px;
-                        height: 24px;
+                        width: 21px;
+                        height: 21px;
 
                         &.off {
                             background: url("./images/icon/btn_checkbox_off.svg") no-repeat center/contain;

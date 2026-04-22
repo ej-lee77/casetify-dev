@@ -120,7 +120,7 @@ export default function Custom() {
                                             </div>
                                             <div>
                                                 <p className='name'>{item.title}</p>
-                                                <p className='price'> ₩{item.price.toLocaleString()}</p>
+                                                <p className='price'>{item.price.toLocaleString()}원</p>
                                             </div>
                                         </Link>
                                     </li>
