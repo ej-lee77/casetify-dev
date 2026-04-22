@@ -413,9 +413,9 @@ export const useAuthStore = create(
         },
 
         // 장바구니
-        cartlist: [],
+        cart: [],
         // 장바구니 가져오기
-        onFetchCartList: async () => {
+        onFetchCart: async () => {
             const user = get().user;
             if (!user) return;
 
@@ -434,7 +434,7 @@ export const useAuthStore = create(
         },
         // 장바구니 추가
         onAddToCart: async (product) => {
-            const user = get().user;
+            const {user, cart} = get();
             if (!user) return;
 
             const currentCart = [...get().cart];
@@ -453,7 +453,7 @@ export const useAuthStore = create(
                 // 없다면 새로 추가
                 currentCart.push({
                     productId: product.id,
-                    title: product.title,
+                    title: product.productName,
                     price: product.price,
                     imgUrl: product.imgUrl,
                     device: product.device,
@@ -464,6 +464,7 @@ export const useAuthStore = create(
                     quantity: 1
                 });
             }
+            console.log(currentCart);
 
             // DB 업데이트
             try {
@@ -489,7 +490,7 @@ export const useAuthStore = create(
         },
         // 장바구니 선택 삭제
         onRemoveSelected: async (selectedItems) => {
-            const user = get().user;
+            const {user, cart} = get();
             if (!user) return;
 
             // selectedItems에 포함되지 않은 아이템들만 남기기
