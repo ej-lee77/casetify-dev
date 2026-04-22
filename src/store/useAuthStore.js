@@ -349,8 +349,8 @@ export const useAuthStore = create(
             }
         },
 
+        // 위시리스트
         wishlist: [],
-
         // 위시리스트 추가
         onAddWishlist: async (wishItem) => {
             const user = get().user;
@@ -360,7 +360,8 @@ export const useAuthStore = create(
                 device: wishItem.device,
                 color: wishItem.color,
                 title: wishItem.productName,
-                price: wishItem.price
+                price: wishItem.price,
+                imgUrl: wishItem.imgUrl
             };
 
             try {
@@ -408,6 +409,119 @@ export const useAuthStore = create(
                 console.log("위시리스트 로딩 실패:", err.message);
             }
         },
+
+        // 장바구니
+        cartlist: [],
+        // 장바구니 가져오기
+        onFetchCartList: async () => {
+            const user = get().user;
+            if (!user) return;
+
+            try{
+                const cartRef = doc(db, "carts", user.uid);
+                const snap = await getDoc(cartRef);
+                
+                if (snap.exists()) {
+                    set({ cart: snap.data().items });
+                } else {
+                    set({ cart: [] });
+                }
+            }catch(err){
+                console.log(err.message);
+            }
+        },
+        // 장바구니 추가
+        onAddToCart: async (product) => {
+            const user = get().user;
+            if (!user) return;
+
+            const currentCart = [...get().cart];
+            
+            // 동일 상품(아이디 + 옵션까지 같은지) 찾기
+            const existingItemIndex = currentCart.findIndex(item => 
+                item.productId === product.id && 
+                item.device === product.device && 
+                item.color === product.color
+            );
+
+            if (existingItemIndex > -1) {
+                // 이미 있다면 수량만 증가
+                currentCart[existingItemIndex].quantity += 1;
+            } else {
+                // 없다면 새로 추가
+                currentCart.push({
+                    productId: product.id,
+                    title: product.title,
+                    price: product.price,
+                    imgUrl: product.imgUrl,
+                    device: product.device,
+                    color: product.color,
+                    imgUrl: product.imgUrl,
+                    colorList: product.colorList,
+                    deviceList: product.deviceList,
+                    quantity: 1
+                });
+            }
+
+            // DB 업데이트
+            try {
+                const cartRef = doc(db, "carts", user.uid);
+                await setDoc(cartRef, { items: currentCart }, { merge: true });
+                set({ cart: currentCart }); // 로컬 스토어 동기화
+                console.log("장바구니에 담겼습니다!");
+            } catch (e) {
+                console.log(e.message);
+            }
+        },
+        // 장바구니 수량변경
+        updateQuantity: async (index, amount) => {
+            const newCart = [...get().cart];
+            newCart[index].quantity += amount;
+
+            // 수량이 0 이하면 삭제 처리하거나 1로 고정
+            if (newCart[index].quantity < 1) return;
+
+            const user = get().user;
+            await setDoc(doc(db, "carts", user.uid), { items: newCart }, { merge: true });
+            set({ cart: newCart });
+        },
+        // 장바구니 선택 삭제
+        onRemoveSelected: async (selectedItems) => {
+            const user = get().user;
+            if (!user) return;
+
+            // selectedItems에 포함되지 않은 아이템들만 남기기
+            const updatedCart = get().cart.filter(cartItem => 
+                !selectedItems.some(selected => 
+                    selected.productId === cartItem.productId && 
+                    selected.device === cartItem.device && 
+                    selected.color === cartItem.color
+                )
+            );
+
+            try {
+                const cartRef = doc(db, "carts", user.uid);
+                await setDoc(cartRef, { items: updatedCart }, { merge: true });
+                set({ cart: updatedCart });
+                console.log("선택한 상품이 삭제되었습니다.");
+            } catch (e) {
+                console.log("일괄 삭제 실패:", e.message);
+            }
+        },
+        // 장바구니 전체 비우기
+        onClearCart: async () => {
+            const user = get().user;
+            if (!user) return;
+
+            try {
+                const cartRef = doc(db, "carts", user.uid);
+                await setDoc(cartRef, { items: [] }, { merge: true });
+                set({ cart: [] });
+            } catch (e) {
+                console.log("장바구니 비우기 실패:", e.message);
+            }
+        },
+
         // 회원정보 수정
         onUpdateUser: async (formData) => {
             try {
