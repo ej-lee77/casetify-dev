@@ -97,32 +97,32 @@ const tempRecoItem = [
 ]
 
 export default function Cart() {
+  const {user, cart, onFetchCart} = useAuthStore();
+  const [cartItemList, setCartItemList] = useState([]);
+
   // 체크박스 선택 확인
   const [chekedItems, setCheckedItems] = useState([]);
   // 체크박스 실행 메서드
   const handleChecked = (item) => {
     console.log(item);
-    const key = item.id;
+    const key = item.productId;
     setCheckedItems((prev) =>
       prev.includes(key) ? prev.filter((v) => v !== key) : [...prev, key])
   }
   // 전체 체크 메서드
   const handleAllChecked = (e) => {
     if (e.target.checked) {
-      const allKeys = tempItem.map((item) => item.id)
+      const allKeys = cartItemList.map((item) => item.productId)
       setCheckedItems(allKeys)
     } else { setCheckedItems([]) }
   }
-
-  const {user, cartlist, onFetchCartList} = useAuthStore();
-  const [cartItemList, setCartItemList] = useState([]);
   
   useEffect(()=>{ 
       if (!user) return;
-      onFetchCartList();
-      // setCartItemList(wishlist);
-      setCartItemList(tempItem);
-  }, [user, cartlist]);
+      onFetchCart();
+      setCartItemList(cart);
+      // setCartItemList(tempItem);
+  }, [user, cart]);
 
   return (
     <div className="sub-page-wrap cart-page-wrap">
@@ -163,9 +163,9 @@ export default function Cart() {
               <div className="cart-title-left">
                 <label className="checkbox-label">
                   <input type="checkbox"
-                    checked={chekedItems.length === tempItem.length}
+                    checked={chekedItems.length === cartItemList.length}
                     onChange={handleAllChecked} />
-                  <span className={`checkbox-icon ${chekedItems.length === tempItem.length ? "on" : "off"}`}></span>
+                  <span className={`checkbox-icon ${chekedItems.length === cartItemList.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -177,18 +177,18 @@ export default function Cart() {
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
               {cartItemList.map((item) => (
-                <li key={item.id} className="cart-item">
+                <li key={item.productId} className="cart-item">
                   <label className="checkbox-label">
                     <input type="checkbox"
-                      checked={chekedItems.includes(item.id)}
+                      checked={chekedItems.includes(item.productId)}
                       onChange={() => handleChecked(item)} />
-                    <span className={`checkbox-icon ${chekedItems.includes(item.id) ? "on" : "off"}`}></span>
+                    <span className={`checkbox-icon ${chekedItems.includes(item.productId) ? "on" : "off"}`}></span>
                   </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
                       <div className="goods-img">
                         <img
-                          src={`/images/category/products/${item.id}_${item.device}_${item.imgUrl}_main.jpg`}
+                          src={`/images/category/products/${item.productId}_${item.device}_${item.imgUrl}_main.jpg`}
                           alt={item.title} />
                       </div>
                       <div className="goods-text">
@@ -203,7 +203,7 @@ export default function Cart() {
                     <div className="cart-goods-count-price">
                       <div className="cart-count-ctrl">
                         <button>-</button>
-                        <span>1</span>
+                        <span>{item.quantity}</span>
                         <button>+</button>
                       </div>
                       <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
