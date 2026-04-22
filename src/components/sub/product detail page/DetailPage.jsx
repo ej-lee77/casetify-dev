@@ -20,6 +20,8 @@ export default function DetailPage({ item }) {
     const [selectedThumb, setSelectedThumb] = useState("main");
     const [quantity, setQuantity] = useState(1);
     const [userSelected, setUserSelected] = useState(false); 
+const [selectedBrandTab, setSelectedBrandTab] = useState(item?.brand || "Apple");
+
 
     const [isWished, setIsWished] = useState(false);
     // const [user, setUser] = useState(null);
@@ -266,31 +268,45 @@ const bundleItems = useMemo(() => {
 
 {isPhone && item.brand && phoneModelOptions[item.brand] && (
     <div className="detail-info-box">
-        <div className="accordion">
+        <div className="model-accordion">
             <button
                 type="button"
-                className="accordion-trigger"
+                className="model-accordion-trigger"
                 onClick={() => setModelAccordionOpen((prev) => !prev)}
             >
-                <span>{selectedModel || "기종을 고르세요"}</span>
-                <span className={`accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
+                <span>{selectedModel || "기종을 선택하세요"}</span>
+                <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
             </button>
             {modelAccordionOpen && (
-                <ul className="accordion-list">
-                    {phoneModelOptions[item.brand].map((model) => (
-                        <li
-                            key={model.key}
-                            className={selectedModel === model.label ? "active" : ""}
-                            onClick={() => {
-                                setSelectedModel(model.label);
-                                setModelAccordionOpen(false);
-                                setUserSelected(true);
-                            }}
-                        >
-                            {model.label}
-                        </li>
-                    ))}
-                </ul>
+                <div className="model-accordion-list">
+                    <div className="model-brand-tabs">
+                        {Object.keys(phoneModelOptions).map((brand) => (
+                            <button
+                                key={brand}
+                                type="button"
+                                className={selectedBrandTab === brand ? "active" : ""}
+                                onClick={() => setSelectedBrandTab(brand)}
+                            >
+                                {brand}
+                            </button>
+                        ))}
+                    </div>
+                    <ul className="model-sub-list">
+                        {(phoneModelOptions[selectedBrandTab] || []).map((model) => (
+                            <li
+                                key={model.key}
+                                className={selectedModel === model.label ? "active" : ""}
+                                onClick={() => {
+                                    setSelectedModel(model.label);
+                                    setModelAccordionOpen(false);
+                                    setUserSelected(true);
+                                }}
+                            >
+                                {model.label}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
         </div>
     </div>
@@ -331,7 +347,7 @@ const bundleItems = useMemo(() => {
                                     className="accordion-trigger"
                                     onClick={() => setAccordionOpen((prev) => !prev)}
                                 >
-                                    <span>{selectedModel || "사이즈를 고르세요"}</span>
+                                    <span>{selectedModel || "옵션을 고르세요"}</span>
                                     <span className={`accordion-arrow ${accordionOpen ? "open" : ""}`}>▼</span>
                                 </button>
                                 {accordionOpen && (
@@ -366,7 +382,7 @@ const bundleItems = useMemo(() => {
         return;
     }
 }}>
-    바로 구매하기
+     <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>  바로 구매하기  
 </button></div>
 <div className="budle-buy">
     {/* 3개상품 */}
@@ -400,12 +416,12 @@ const bundleItems = useMemo(() => {
                         </div>
                     )}
      {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
-                    {userSelected && (
+                    {/* {userSelected && (
                         <div className="order-result">
-                            <hr className="left-line" />
+                            <hr className="left-line" /> */}
 
                             {/* 메인 상품 행 */}
-                            <div className="order-result-row">
+                            {/* <div className="order-result-row">
                                 <span className="order-option-name">
                                     {item.productName}
                                     {optionSummary && (
@@ -439,10 +455,10 @@ const bundleItems = useMemo(() => {
                                 <span className="order-row-price">
                                     {((item.price || 0) * quantity).toLocaleString()}원
                                 </span>
-                            </div>
+                            </div> */}
 
                             {/* 선택된 번들 행 */}
-                            {bundleItems
+                            {/* {bundleItems
                                 .filter((b) => selectedBundles[b.id])
                                 .map((b) => {
                                     const qty = selectedBundles[b.id] || 1;
@@ -478,15 +494,15 @@ const bundleItems = useMemo(() => {
 </span>
                                         </div>
                                     );
-                                })}
+                                })} */}
 
                             {/* ✅ 번들 선택 시 총액에 할인 반영 */}
-                            <div className="order-total">
+                            {/* <div className="order-total">
                                 <span>총 상품금액 (수량 {totalQty}개)</span>
                                 <strong>{totalPrice.toLocaleString()}원</strong>
                             </div>
                         </div>
-                    )}
+                    )} */}
 
 
  {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
@@ -495,7 +511,7 @@ const bundleItems = useMemo(() => {
         alert("제품을 선택해주세요.");
         return;
     }
-}}>
+}}> <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span> 
     {Object.keys(selectedBundles).length > 0
         ? `함께 구매하기 (${Object.keys(selectedBundles).length})`
         : "바로 구매하기"}
