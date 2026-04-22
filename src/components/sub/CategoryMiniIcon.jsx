@@ -6,7 +6,7 @@ export default function CategoryMiniIcon({
     isActive = false,
     onClick,
 }) {
-    const iconName = MINI_ICON_MAP[mini];
+    const iconName = MINI_ICON_MAP[mini] || "etc";
 
     return (
         <li

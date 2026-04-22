@@ -32,7 +32,7 @@ export default function Qa() {
                 </div>
 
                 <div className="search-box">
-                    <span className="icon">🔍</span>
+                    <span className="icon"><img src="/images/icon/search_var.svg" alt="" /></span>
                     <input
                         type="text"
                         placeholder="궁금한 내용의 단어나 키워드로 검색하세요"
