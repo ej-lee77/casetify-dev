@@ -97,32 +97,41 @@ const tempRecoItem = [
 ]
 
 export default function Cart() {
+  const {user, cart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity} = useAuthStore();
+  const [cartItemList, setCartItemList] = useState([]);
+
   // 체크박스 선택 확인
   const [chekedItems, setCheckedItems] = useState([]);
   // 체크박스 실행 메서드
   const handleChecked = (item) => {
     console.log(item);
-    const key = item.id;
+    const key = `${item.productId}-${item.device}-${item.color}`;
     setCheckedItems((prev) =>
       prev.includes(key) ? prev.filter((v) => v !== key) : [...prev, key])
   }
   // 전체 체크 메서드
   const handleAllChecked = (e) => {
     if (e.target.checked) {
-      const allKeys = tempItem.map((item) => item.id)
+      const allKeys = cartItemList.map((item) => item.productId)
       setCheckedItems(allKeys)
     } else { setCheckedItems([]) }
   }
-
-  const {user, cartlist, onFetchCartList} = useAuthStore();
-  const [cartItemList, setCartItemList] = useState([]);
   
   useEffect(()=>{ 
       if (!user) return;
-      onFetchCartList();
-      // setCartItemList(wishlist);
-      setCartItemList(tempItem);
-  }, [user, cartlist]);
+      onFetchCart();
+      setCartItemList(cart);
+      // setCartItemList(tempItem);
+  }, [user, cart]);
+
+  const selectedItems = cartItemList.filter((item) =>
+    chekedItems.includes(`${item.productId}-${item.device}-${item.color}`))
+
+  const selectedTotal = selectedItems.reduce((acc, cur) =>
+    acc + cur.price * cur.quantity, 0);
+
+  // 할인 로직 더 
+  const discount = selectedTotal * 0.1;
 
   return (
     <div className="sub-page-wrap cart-page-wrap">
@@ -163,9 +172,9 @@ export default function Cart() {
               <div className="cart-title-left">
                 <label className="checkbox-label">
                   <input type="checkbox"
-                    checked={chekedItems.length === tempItem.length}
+                    checked={chekedItems.length === cartItemList.length}
                     onChange={handleAllChecked} />
-                  <span className={`checkbox-icon ${chekedItems.length === tempItem.length ? "on" : "off"}`}></span>
+                  <span className={`checkbox-icon ${chekedItems.length === cartItemList.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -176,19 +185,19 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-              {cartItemList.map((item) => (
-                <li key={item.id} className="cart-item">
+              {cartItemList.map((item, id) => (
+                <li key={`${item.productId}-${item.device}-${item.color}`} className="cart-item">
                   <label className="checkbox-label">
                     <input type="checkbox"
-                      checked={chekedItems.includes(item.id)}
+                      checked={chekedItems.includes(`${item.productId}-${item.device}-${item.color}`)}
                       onChange={() => handleChecked(item)} />
-                    <span className={`checkbox-icon ${chekedItems.includes(item.id) ? "on" : "off"}`}></span>
+                    <span className={`checkbox-icon ${chekedItems.includes(`${item.productId}-${item.device}-${item.color}`) ? "on" : "off"}`}></span>
                   </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
                       <div className="goods-img">
                         <img
-                          src={`/images/category/products/${item.id}_${item.device}_${item.imgUrl}_main.jpg`}
+                          src={`/images/category/products/${item.productId}_${item.device}_${item.imgUrl}_main.jpg`}
                           alt={item.title} />
                       </div>
                       <div className="goods-text">
@@ -202,9 +211,9 @@ export default function Cart() {
                     </div>
                     <div className="cart-goods-count-price">
                       <div className="cart-count-ctrl">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button onClick={()=>updateQuantity(id, -1)}>-</button>
+                        <span>{item.quantity}</span>
+                        <button onClick={()=>updateQuantity(id, 1)}>+</button>
                       </div>
                       <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
                     </div>
@@ -214,8 +223,8 @@ export default function Cart() {
             </ul>
             {/* 체크박스 취소 버튼 */}
             <div className="cart-cancel-btn-wrap">
-              <button>선택 상품 삭제</button>
-              <button>전체 상품 삭제</button>
+              <button onClick={()=>onRemoveSelected(selectedItems)}>선택 상품 삭제</button>
+              <button onClick={()=>onClearCart()}>전체 상품 삭제</button>
             </div>
           </div>
           {/* 우측 - 주문 컨트롤 */}
@@ -227,13 +236,13 @@ export default function Cart() {
             <div className="price-info-wrap">
               {/* 총 금액 */}
               <div className="price-detail">
-                <p className="price-sum">총 금액<span>{Number("100000").toLocaleString()}원</span></p>
-                <p className="price-discount">할인 금액<span>-{Number("100000").toLocaleString()}원</span></p>
-                <p className="price-delevery">배송비<span>{Number("100000").toLocaleString()}원</span></p>
+                <p className="price-sum">총 금액<span>{selectedTotal}원</span></p>
+                <p className="price-discount">할인 금액<span>-{discount}원</span></p>
+                <p className="price-delevery">배송비<span>{selectedTotal - discount <= 50000 ? 7000 : 0}원</span></p>
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>{Number("100000").toLocaleString()}원</span></p>
+                <p className="est-price">결제예정금액<span>{selectedTotal - discount >= 50000 ? selectedTotal - discount + 7000 : selectedTotal - discount}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}

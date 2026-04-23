@@ -26,7 +26,7 @@ const [selectedBrandTab, setSelectedBrandTab] = useState(item?.brand || "Apple")
     const [isWished, setIsWished] = useState(false);
     // const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    const {user, onAddWishlist} = useAuthStore();
+    const {user, onAddWishlist, onAddToCart} = useAuthStore();
 
 
 useEffect(() => {
@@ -139,10 +139,27 @@ const bundleItems = useMemo(() => {
             productName: item.productName,
             price: item.price,
             device: selectedModel === "" ? item.modelKey : selectedModel,
-            color: isPhone ? `${fixedThumbDeviceColor}_${selectedColor}` : selectedColor
+            color: selectedColor,
+            imgUrl: isPhone ? `${fixedThumbDeviceColor}_${selectedColor}` : selectedColor
         }
         
         onAddWishlist(wishItem);
+    }
+
+    const handleAddCart = (item)=>{
+
+        const cartItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: selectedModel === "" ? item.modelKey : selectedModel,
+            color: selectedColor,
+            imgUrl: isPhone ? `${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+            colorList: item.caseColors,
+            deviceList: item.compatibleModels ? "" : ""
+        }
+        
+        onAddToCart(cartItem);
     }
 
     const mainImagePath = isPhone
@@ -455,6 +472,7 @@ const bundleItems = useMemo(() => {
         alert("제품을 선택해주세요.");
         return;
     }
+    handleAddCart(item)
 }}>
      <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>  장바구니에 담기  
 </button></div>
