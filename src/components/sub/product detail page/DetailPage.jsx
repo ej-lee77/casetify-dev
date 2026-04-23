@@ -184,28 +184,6 @@ const handleAddCart = (item) => {
     onAddToCart(cartItem);
 };
 
-    const handleAddCart = (item)=>{
-        const modelKey = isPhone
-        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
-        : "";
-
-        const cartItem = {
-            id: item.id,
-            productName: item.productName,
-            price: item.price,
-            device: selectedModel,
-            deviceKey: isPhone ? modelKey : selectedModel,
-            color: selectedColor,
-            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
-            colorList: item.caseColors,
-         deviceList: item.compatibleModels?.length ? item.compatibleModels : "",
-            isPhone: isPhone,
-            deviceBrand: selectedBrandTab
-        }
-        
-        onAddToCart(cartItem);
-    }
-
     const mainImagePath = isPhone
         ? `/images/category/products/${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
         : item.modelKey
