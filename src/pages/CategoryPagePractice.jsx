@@ -10,13 +10,17 @@ import CategorySubSlider from "../components/sub/CategorySubSlider";
 import CategoryPhoneProductCard from "../components/sub/CategoryPhoneProductCard";
 import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
 import CategoryFilterButton from "../components/sub/CategoryFilterButton";
+import CategoryFilterPanel from "../components/sub/CategoryFilterPanel";
 
 export default function CategoryPagePractice() {
     const { mainCate, subCate } = useParams();
     const [searchParams] = useSearchParams();
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     const activeMini = searchParams.get("mini") || null;
+
+    const [panelType, setPanelType] = useState(null);
+    const [selectedDevice, setSelectedDevice] = useState(null);
+    // { brand, modelKey, modelLabel } | null
 
     const {
         items,
@@ -40,21 +44,49 @@ export default function CategoryPagePractice() {
         onFilterCategory(mainCate, subCate, activeMini);
     }, [items, mainCate, subCate, activeMini, onFilterCategory]);
 
+    useEffect(() => {
+        setSelectedDevice(null);
+    }, [mainCate, subCate, activeMini]);
+
+    const filteredCategoryItems = useMemo(() => {
+        if (!selectedDevice?.modelKey) return categoryItems;
+
+        return categoryItems.filter(
+            (item) => item.modelKey === selectedDevice.modelKey
+        );
+    }, [categoryItems, selectedDevice]);
+
     const visibleCategoryItems = useMemo(() => {
         const seen = new Set();
 
-        return categoryItems.filter((item) => {
+        return filteredCategoryItems.filter((item) => {
             const key = `${item.productName}_${item.caseCategory}`;
 
             if (seen.has(key)) return false;
-
             seen.add(key);
             return true;
         });
-    }, [categoryItems]);
+    }, [filteredCategoryItems]);
 
-    const handleToggleFilter = () => {
-        setIsFilterOpen((prev) => !prev);
+    const handleOpenFilter = () => {
+        setPanelType("filter");
+    };
+
+    const handleOpenDevice = () => {
+        setPanelType("device");
+    };
+
+    const handleClosePanel = () => {
+        setPanelType(null);
+    };
+
+    const handleSelectDevice = (device) => {
+        setSelectedDevice(device);
+        setPanelType(null);
+    };
+
+    const handleResetDevice = () => {
+        setSelectedDevice(null);
     };
 
     return (
@@ -78,19 +110,58 @@ export default function CategoryPagePractice() {
                     <CategorySubSlider miniCate={miniCate} />
                 )}
 
-                <div className="filter-btn-wrap">
-                    <CategoryFilterButton
-                        onClick={handleToggleFilter}
-                        isOpen={isFilterOpen}
-                    />
+                <div className="category-action-row">
+                    {activeMini && (
+                        <>
+                            <button
+                                type="button"
+                                className={`device-select-btn ${panelType === "device" ? "on" : ""}`}
+                                onClick={handleOpenDevice}
+                            >
+                                {selectedDevice?.modelLabel || "모델 선택"}
+                            </button>
+
+                            {selectedDevice && (
+                                <button
+                                    type="button"
+                                    className="device-reset-btn"
+                                    onClick={handleResetDevice}
+                                >
+                                    선택취소
+                                </button>
+                            )}
+                        </>
+                    )}
+
+                    <div className="filter-btn-wrap">
+                        <CategoryFilterButton
+                            onClick={handleOpenFilter}
+                            isOpen={panelType === "filter"}
+                        />
+                    </div>
                 </div>
+
+                <CategoryFilterPanel
+                    isOpen={!!panelType}
+                    onClose={handleClosePanel}
+                    panelType={panelType}
+                    activeMini={activeMini}
+                    items={categoryItems}
+                    onSelectDevice={handleSelectDevice}
+                />
 
                 <ul className="category-product-list">
                     {visibleCategoryItems.map((item) =>
                         item.productTarget === "phone" ? (
-                            <CategoryPhoneProductCard key={item.id} item={item} />
+                            <CategoryPhoneProductCard
+                                key={item.id}
+                                item={item}
+                            />
                         ) : (
-                            <CategoryEtcProductCard key={item.id} item={item} />
+                            <CategoryEtcProductCard
+                                key={item.id}
+                                item={item}
+                            />
                         )
                     )}
                 </ul>
