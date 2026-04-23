@@ -455,6 +455,7 @@ export const useAuthStore = create(
                     price: product.price,
                     imgUrl: product.imgUrl,
                     device: product.device,
+                    deviceKey: product.deviceKey,
                     color: product.color,
                     imgUrl: product.imgUrl,
                     colorList: product.colorList,
