@@ -30,8 +30,19 @@ function App() {
   },[initAuth]);
 
   useEffect(() => {
-    // 경로가 변경될 때마다 최상단으로 이동
+    if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+    }
+    
+    // 페이지 이동 직후 실행
     window.scrollTo(0, 0);
+
+    // 팝업 렌더링 대비한
+    const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 50); 
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   useEffect(() => {

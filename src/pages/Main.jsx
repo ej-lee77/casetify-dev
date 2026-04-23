@@ -10,6 +10,7 @@ import MainSlider from '../components/main/MainSlider'
 import Collab from '../components/main/Collab'
 
 import { motion } from "framer-motion";
+import Popup from '../components/main/Popup'
 
 const FadeInSection = ({ children }) => {
   return (
@@ -27,7 +28,8 @@ const FadeInSection = ({ children }) => {
 export default function Main() {
   return (
     <div className='main-wrap'>
-      <MainSlider />
+        <Popup />
+        <MainSlider />
         <BestProduct />
         <Collab />
         <NewArrival />
