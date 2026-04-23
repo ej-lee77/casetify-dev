@@ -493,7 +493,7 @@ const bundleItems = useMemo(() => {
                             </div>
                             <span className="bundle-name">{b.productName}</span>
                             
-{/* ✅ 가격 표시 - 항상 원래 가격만 */}
+{/*  번들 가격 */}
 <div className="bundle-price-wrap">
     <span className="bundle-default-price">{b.price.toLocaleString()}원</span>
 </div>
@@ -502,7 +502,7 @@ const bundleItems = useMemo(() => {
                 })}
             </ul>
 
-            {/* ✅ 번들 선택 시 총 할인 금액 표시 */}
+            {/*번들 선택 총 할인금액  */}
 {Object.keys(selectedBundles).length > 0 && (
     <div className="bundle-total-wrap">
         <span className="bundle-total-label">번들 할인 총액</span>
@@ -530,7 +530,7 @@ const bundleItems = useMemo(() => {
     )}
     
 
- {/* ✅ 바로구매 버튼 - 미선택 시 alert */}
+ {/* 장바구니 버튼 ++ 미선택 시 alert */}
     <button className="buy-btn" onClick={() => {
         if (!userSelected) {
             alert("제품을 선택해주세요.");
@@ -543,6 +543,36 @@ const bundleItems = useMemo(() => {
             : "장바구니에 담기"}
     </button>
 </div>
+
+
+                    <div className="detail-desc">
+                        <h3>상품 안내</h3>
+                        <p>
+                            현재 이 페이지는 데이터 연결과 이미지 경로 확인용 임시 상세페이지야.
+                            <br /><br />
+                            메인 이미지:<br />
+                            {isPhone
+                                ? `${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
+                                : item.modelKey
+                                    ? `${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
+                                    : `${item.id}_${selectedColor}_main.jpg`}
+                            <br /><br />
+                            상세 이미지:<br />
+                            {isPhone
+                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
+                                : item.modelKey
+                                    ? `${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
+                                    : `${item.id}_${selectedColor}_1.jpg`}
+                            <br />
+                            {isPhone
+                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
+                                : item.modelKey
+                                    ? `${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
+                                    : `${item.id}_${selectedColor}_2.jpg`}
+                        </p>
+                    </div>
+
+
             </div></div>
         </section>
     );
