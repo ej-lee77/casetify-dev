@@ -1,5 +1,5 @@
 import React from "react";
-import "./scss/CategoryPage.scss"
+import "./scss/CategoryPageFilter.scss"
 
 export default function CategoryFilterButton({ onClick, isOpen = false }) {
     return (
