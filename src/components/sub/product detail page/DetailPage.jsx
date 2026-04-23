@@ -214,6 +214,11 @@ const bundleItems = useMemo(() => {
     const totalPrice = (item.price || 0) * quantity + bundleTotal;
     const totalQty = quantity + Object.values(selectedBundles).reduce((a, q) => a + q, 0);
 
+
+
+
+
+    
     return (
         <section className="detail-page">
             <div className="detail-inner">
