@@ -34,6 +34,7 @@ export const colorMap = {
     Black: "#111111",
     Orange: "#ff8a00",
     Pink: "#f58bb6",
+
     Lavendar: "#c8b4ff",
     "Matte Black": "#2b2b2b",
     Clear: "#f1f1f1",
