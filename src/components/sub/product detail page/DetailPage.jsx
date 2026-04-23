@@ -131,14 +131,16 @@ export default function DetailPage({ item }) {
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
     const handleAddWish = (item)=>{
-        const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key
+        if(isPhone){
+            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
+        }
 
         const wishItem = {
             id: item.id,
             productName: item.productName,
             price: item.price,
             device: selectedModel,
-            deviceKey: modelKey,
+            deviceKey: isPhone ? modelKey : selectedModel,
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor
         }
@@ -147,18 +149,20 @@ export default function DetailPage({ item }) {
     }
 
     const handleAddCart = (item)=>{
-        const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key
+        if(isPhone){
+            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
+        }
 
         const cartItem = {
             id: item.id,
             productName: item.productName,
             price: item.price,
             device: selectedModel,
-            deviceKey: modelKey,
+            deviceKey: isPhone ? modelKey : selectedModel,
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
             colorList: item.caseColors,
-            deviceList: item.compatibleModels ? "" : "",
+            deviceList: item.compatibleModels.length ? item.compatibleModels : "",
             isPhone: isPhone,
             deviceBrand: selectedBrandTab
         }
