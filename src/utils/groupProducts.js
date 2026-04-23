@@ -36,7 +36,7 @@ export function groupModelsByProductName(items = []) {
     );
 }
 
-export function getModelsByProductGroup(items, targetItem) {
+export function getModelsByProductGroup(items = [], targetItem) {
     if (!targetItem) return [];
 
     const matchedItems = items.filter((item) => {

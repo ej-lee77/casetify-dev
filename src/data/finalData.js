@@ -30,7 +30,7 @@ export const modelColorOptions = {
 };
 
 export const colorMap = {
-     // 기존
+    // 기존
     Black: "#111111",
     Orange: "#ff8a00",
     Pink: "#f58bb6",
@@ -80,7 +80,7 @@ export const colorMap = {
     Peony: "#d4789a",
     Wintergreen: "#4a8c72",
 
-// caseColors 추가
+    // caseColors 추가
     "Glossy Primrose Pink": "#f9c8d0",
     "Cobalt Blue": "#1a4bbd",
     "Cherry Red": "#c0392b",
