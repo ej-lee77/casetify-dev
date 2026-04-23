@@ -1,8 +1,9 @@
 import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
-import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, deleteDoc } from "firebase/firestore";
 import { persist } from "zustand/middleware";
+import { deleteUser as firebaseDeleteUser } from "firebase/auth";
 
 export const useAuthStore = create(
     persist((set, get) => ({
@@ -144,7 +145,8 @@ export const useAuthStore = create(
                         birthDate: "",
                         zonecode: "",
                         address: "",
-                        detailaddress: ""
+                        detailaddress: "",
+                        provider: 'google'
                     }
 
                     await setDoc(userRef, userInfo);
@@ -417,16 +419,16 @@ export const useAuthStore = create(
             const user = get().user;
             if (!user) return;
 
-            try{
+            try {
                 const cartRef = doc(db, "carts", user.uid);
                 const snap = await getDoc(cartRef);
-                
+
                 if (snap.exists()) {
                     set({ cart: snap.data().items });
                 } else {
                     set({ cart: [] });
                 }
-            }catch(err){
+            } catch (err) {
                 console.log(err.message);
             }
         },
@@ -436,11 +438,11 @@ export const useAuthStore = create(
             if (!user) return;
 
             const currentCart = [...get().cart];
-            
+
             // 동일 상품(아이디 + 옵션까지 같은지) 찾기
-            const existingItemIndex = currentCart.findIndex(item => 
-                item.productId === product.id && 
-                item.device === product.device && 
+            const existingItemIndex = currentCart.findIndex(item =>
+                item.productId === product.id &&
+                item.device === product.device &&
                 item.color === product.color
             );
 
@@ -547,10 +549,10 @@ export const useAuthStore = create(
             if (!user) return;
 
             // selectedItems에 포함되지 않은 아이템들만 남기기
-            const updatedCart = get().cart.filter(cartItem => 
-                !selectedItems.some(selected => 
-                    selected.productId === cartItem.productId && 
-                    selected.device === cartItem.device && 
+            const updatedCart = get().cart.filter(cartItem =>
+                !selectedItems.some(selected =>
+                    selected.productId === cartItem.productId &&
+                    selected.device === cartItem.device &&
                     selected.color === cartItem.color
                 )
             );
@@ -609,13 +611,37 @@ export const useAuthStore = create(
                 return false;
             }
         },
+        // 계정 삭제
+        onDeleteUser: async () => {
+            try {
+                const user = get().user;
+                const currentUser = auth.currentUser;
 
+                if (!user || !currentUser) return false;
+
+                // 1. Auth 계정 삭제
+                await firebaseDeleteUser(currentUser);
+
+                // 2. Firestore 데이터 삭제
+                const userRef = doc(db, "users", user.uid);
+                await deleteDoc(userRef);
+
+                // 3. 상태 초기화
+                set({ user: null });
+
+                return true;
+            } catch (err) {
+                console.log(err.message);
+                return err.code;
+            }
+        },
     }),
         {
             name: 'auth-storage',
             partialize: (state) => ({
                 user: state.user ? {
-                    uid: state.user.uid
+                    uid: state.user.uid,
+                    provider: state.user.provider
                 } : null
             })
         }

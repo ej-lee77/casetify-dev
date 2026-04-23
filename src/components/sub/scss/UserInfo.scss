@@ -242,11 +242,18 @@ div {
         padding: 50px 0 70px;
 
         button {
+            border: 1px solid #000;
             background-color: #000;
             color: #fff;
             white-space: nowrap;
             padding: 10px 38px;
             font-size: 1rem;
+
+            &:hover {
+                background: #fff;
+                color: #000;
+                border: 1px solid #000;
+            }
         }
     }
 }
@@ -272,6 +279,10 @@ div {
         display: block;
         margin: 40px auto 0px;
 
+        &:hover {
+            background: #FF3535;
+            color: #fff;
+        }
     }
 }
 
