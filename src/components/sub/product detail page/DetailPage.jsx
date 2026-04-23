@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
 import { modelColorOptions, colorMap, phoneModelOptions  } from "../../../data/finalData";
-
+import { getModelsByProductGroup } from "../../../utils/groupProducts";
 
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
@@ -39,13 +39,22 @@ export default function DetailPage({ item }) {
         setModelAccordionOpen(false);   
         setSelectedModel("");
 
-        // ✅ 선택할 옵션이 없는 상품은 바로 선택된 상태로
+        //선택할 옵션이 없는 상품은 바로 장바구니버튼눌러도 로그인경고 안뜸 
         const hasNoOption =
             !phoneModelOptions[item?.brand] &&
             !item?.compatibleModels?.length &&
             !item?.caseColors?.length;
 
         setUserSelected(hasNoOption);
+
+const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
+        phoneModelOptions[brand].some((m) =>
+            getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
+        )
+    );
+    if (availableBrand) setSelectedBrandTab(availableBrand);
+
+
 
     }, [item]);
 
@@ -70,6 +79,11 @@ export default function DetailPage({ item }) {
         // ✅ 첫번째 현재 상품 고정 + 액세서리 2개
         return [item, accessories[idx1], accessories[idx2]];
     }, [item]);
+
+const modelOptions = useMemo(() => {
+    return getModelsByProductGroup(items, item);
+}, [item]);
+
 
 
     // 선택된 번들 (id -> quantity 맵)
@@ -131,9 +145,9 @@ export default function DetailPage({ item }) {
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
     const handleAddWish = (item)=>{
-        if(isPhone){
-            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
-        }
+         const modelKey = isPhone
+        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+        : "";
 
         const wishItem = {
             id: item.id,
@@ -149,9 +163,9 @@ export default function DetailPage({ item }) {
     }
 
     const handleAddCart = (item)=>{
-        if(isPhone){
-            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
-        }
+        const modelKey = isPhone
+        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+        : "";
 
         const cartItem = {
             id: item.id,
@@ -235,7 +249,7 @@ export default function DetailPage({ item }) {
                         <div className="detail-main-image" style={{ position: "relative" }}>
                             <img src={mainImage} alt={item.productName} />
 
-                            {/* ✅ 컬러 리모콘 오버레이 */}
+                            {/* 디바이스 컬러 리모콘 */}
                             {isPhone && !!modelColors.length && (
                                 <div className="color-remote">
                                     {modelColors.map((deviceColor) => (
@@ -259,7 +273,7 @@ export default function DetailPage({ item }) {
                                 </div>
                             )}
 
-                            {/* ✅ 왼쪽 하단 위시 버튼 */}
+                            {/* 위시 하트 버튼 */}
                             <button
                                 className={`image-wish-btn ${isWished ? "wished" : ""}`}
                                 onClick={() => {
@@ -296,8 +310,10 @@ export default function DetailPage({ item }) {
                         </ul>
                     </div>
                 </div>
+
+
                 <div className="detail-right">
-                    {/* ✅ 1. 무료배송 뱃지 + 2. 상품 ID */}
+                    {/*  1. 무료배송 뱃지 + 2. 상품 ID */}
                     <div className="detail-meta">
                         {item.badge?.includes("무료 배송") && (
                             <span className="badge-free-ship">무료 배송</span>
@@ -315,55 +331,66 @@ export default function DetailPage({ item }) {
                             <p className="label"> <span className="label">{item.caseCategory}</span></p>
                         </div>
                     )}
-                    <div className="model-select-box">
-
-                        {isPhone && item.brand && phoneModelOptions[item.brand] && (
-                            <div className="detail-info-box">
-                                <p className="label">기종</p>
-                                <div className="model-accordion">
+              <div className="model-select-box">
+    {isPhone && modelOptions.length > 0 && (
+        <div className="detail-info-box">
+            <p className="label">기종</p>
+            <div className="model-accordion">
+                <button
+                    type="button"
+                    className="model-accordion-trigger"
+                    onClick={() => setModelAccordionOpen((prev) => !prev)}
+                >
+                    <span>{selectedModel || "기종을 선택하세요"}</span>
+                    <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
+                </button>
+                {modelAccordionOpen && (
+                    <div className="model-accordion-list">
+                        <div className="model-brand-tabs">
+                            {Object.keys(phoneModelOptions)
+                                .filter((brand) =>
+                                    phoneModelOptions[brand].some((m) =>
+                                        modelOptions.some((mo) => mo.key === m.key)
+                                    )
+                                )
+                                .map((brand) => (
                                     <button
+                                        key={brand}
                                         type="button"
-                                        className="model-accordion-trigger"
-                                        onClick={() => setModelAccordionOpen((prev) => !prev)}
+                                        className={selectedBrandTab === brand ? "active" : ""}
+                                        onClick={() => setSelectedBrandTab(brand)}
                                     >
-                                        <span>{selectedModel || "기종을 선택하세요"}</span>
-                                        <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
+                                        {brand}
                                     </button>
-                                    {modelAccordionOpen && (
-                                        <div className="model-accordion-list">
-                                            <div className="model-brand-tabs">
-                                                {Object.keys(phoneModelOptions).map((brand) => (
-                                                    <button
-                                                        key={brand}
-                                                        type="button"
-                                                        className={selectedBrandTab === brand ? "active" : ""}
-                                                        onClick={() => setSelectedBrandTab(brand)}
-                                                    >
-                                                        {brand}
-                                                    </button>
-                                                ))}
-                                            </div>
-                                            <ul className="model-sub-list">
-                                                {(phoneModelOptions[selectedBrandTab] || []).map((model) => (
-                                                    <li
-                                                        key={model.key}
-                                                        className={selectedModel === model.label ? "active" : ""}
-                                                        onClick={() => {
-                                                            setSelectedModel(model.label);
-                                                            setModelAccordionOpen(false);
-                                                            setUserSelected(true);
-                                                        }}
-                                                    >
-                                                        {model.label}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        )}
+                                ))}
+                        </div>
+                        <ul className="model-sub-list">
+                            {modelOptions
+                                .filter((mo) =>
+                                    (phoneModelOptions[selectedBrandTab] || []).some(
+                                        (m) => m.key === mo.key
+                                    )
+                                )
+                                .map((model) => (
+                                    <li
+                                        key={model.key}
+                                        className={selectedModel === model.label ? "active" : ""}
+                                        onClick={() => {
+                                            setSelectedModel(model.label);
+                                            setModelAccordionOpen(false);
+                                            setUserSelected(true);
+                                        }}
+                                    >
+                                        {model.label}
+                                    </li>
+                                ))}
+                        </ul>
                     </div>
+                )}
+            </div>
+        </div>
+    )}
+</div>
 
                     {!!item.caseColors?.length && (
                         <div className="detail-info-box">
