@@ -4,7 +4,7 @@ import "./scss/UserInfo.scss"
 import { useAuthStore } from '../../store/useAuthStore'
 import AddressSearch from './AddressSearch';
 import { useNavigate } from 'react-router-dom';
-import html2canvas from 'html2canvas';
+  import { jsxDEV as _jsxDEV } from "react/jsx-dev-runtime";
 
 export default function UserInfo() {
     const Navigate = useNavigate();
