@@ -84,7 +84,6 @@ export default function DetailPage({ item }) {
                 delete next[bundleItem.id];
             } else {
                 next[bundleItem.id] = 1;
-             
             }
             return next;
         });
@@ -159,7 +158,9 @@ export default function DetailPage({ item }) {
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
             colorList: item.caseColors,
-            deviceList: item.compatibleModels ? "" : ""
+            deviceList: item.compatibleModels ? "" : "",
+            isPhone: isPhone,
+            deviceBrand: selectedBrandTab
         }
         
         onAddToCart(cartItem);
@@ -303,7 +304,6 @@ export default function DetailPage({ item }) {
                     {!!item.caseCategory && (
                         <div className="detail-info-box">
                             <p className="label"> <span className="label">{item.caseCategory}</span></p>
-                 
                         </div>
                     )}
                     <div className="model-select-box">
@@ -355,7 +355,6 @@ export default function DetailPage({ item }) {
                             </div>
                         )}
                     </div>
-               
 
                     {!!item.caseColors?.length && (
                         <div className="detail-info-box">
@@ -385,7 +384,7 @@ export default function DetailPage({ item }) {
 
                     {!!item.compatibleModels?.length && (
                         <div className="detail-info-box">
-                               <p className="label">옵션</p>
+                            <p className="label">옵션</p>
                             <div className="accordion">
                                 <button
                                     type="button"
@@ -416,7 +415,6 @@ export default function DetailPage({ item }) {
                         </div>
                     )}
                 </div>
-               
                 {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
                 <div className="right-btn-wrap">
                     {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
