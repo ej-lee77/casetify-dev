@@ -51,6 +51,7 @@
             // 내부 제목
             .inner-title {
                 font-size: 1.25rem;
+                flex-shrink: 0;
             }
 
             // 검색 상자
@@ -110,6 +111,36 @@
                     font-weight: 300;
                     font-size: 1rem;
                     color: g.$text-sub;
+                }
+
+                .recent-result-wrap {
+                    @include g.myFlex($jc: null, $ai: center, $gap: 1rem);
+                    font-size: 1rem;
+                    // font-weight: 300;
+                    color: g.$text-strike;
+
+                    button {
+                        font-family: inherit;
+                        font-size: 1rem;
+                        color: g.$text-sub;
+                    }
+
+                    .remove-all {
+                        border: 1px solid #585858;
+                        padding: 0.25em 0.5em;
+                    }
+
+                    .recent-result-list {
+                        @include g.myFlex($jc: null, $ai: center, $gap: null);
+                        row-gap: 0.625em;
+                        column-gap: 1em;
+                        flex: 1;
+                        flex-wrap: wrap;
+
+                        li {
+                            @include g.myFlex($jc: null, $ai: center, $gap: 0.25rem);
+                        }
+                    }
                 }
             }
 

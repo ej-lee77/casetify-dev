@@ -120,17 +120,17 @@ export default function SearchOverlay({ isActive, onClose }) {
                         </div>
                         <div className="recent-search-wrap">
                             <div className="inner-title">최근 검색어</div>
-                            <div>
-                                {searchCheck ?
-                                    (<ul className="recent-result-list">
-
-                                        <button onClick={onRemoveAllSearch}>모두 지우기</button>
+                            {searchCheck ?
+                                (<div className="recent-result-wrap">
+                                    <button className="remove-all" onClick={onRemoveAllSearch}>모두 지우기</button>
+                                    <ul className="recent-result-list">
                                         {searchWordList.map((s) => (
-                                            <li>{s.text} <button onClick={(e) => onRemoveSearchList(s.id)}>삭제</button></li>
+                                            <li>{s.text} <button onClick={(e) => onRemoveSearchList(s.id)}><img src="/images/icon/close-24dp.svg" alt="해당 검색 삭제" /></button></li>
                                         ))}
-                                    </ul>)
-                                    : (<p className="txt-recent">최근 검색어가 없습니다.</p>)}
-                            </div>
+                                    </ul>
+                                </div>
+                                )
+                                : (<p className="txt-recent">최근 검색어가 없습니다.</p>)}
                         </div>
                         <div className="pop-search-wrap">
                             <div className="inner-title">인기 검색어</div>
