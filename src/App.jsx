@@ -19,6 +19,7 @@ import Cart from './pages/Cart'
 import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
 import CustomPage from './pages/CustomPage'
 import { useAuthStore } from './store/useAuthStore'
+import Payment from './pages/Payment'
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -30,8 +31,19 @@ function App() {
   },[initAuth]);
 
   useEffect(() => {
-    // 경로가 변경될 때마다 최상단으로 이동
+    if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+    }
+    
+    // 페이지 이동 직후 실행
     window.scrollTo(0, 0);
+
+    // 팝업 렌더링 대비한
+    const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 50); 
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   useEffect(() => {
@@ -43,18 +55,20 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
 
-        {/* <Route path='/:mainCate/:subCate' element={<CategoryPage />}/> */}
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
         <Route path='/custom' element={<CustomPage />}/>
+
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
         <Route path='/login/find/:content' element={<LoginFind />} />
         <Route path='/join' element={<Join />} />
         <Route path='/join/mail' element={<JoinMail />} />
         <Route path='/join/complete' element={<JoinComplete />}/>
+
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/payment' element={<Payment />}/>
       </Routes>
       <Footer />
     </>
