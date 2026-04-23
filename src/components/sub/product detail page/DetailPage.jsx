@@ -201,7 +201,7 @@ const bundleItems = useMemo(() => {
 
     const optionSummary = [
         // item.modelLabel,
-        selectedDeviceColor,
+        // selectedDeviceColor,
         selectedColor,
         selectedModel,
     ].filter(Boolean).join(" / ");
