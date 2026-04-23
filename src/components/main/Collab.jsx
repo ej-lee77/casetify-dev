@@ -1,144 +1,152 @@
-import React, { useRef } from 'react'
+import React, { useMemo, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
-import { Link } from 'react-router-dom'
-
-
-import 'swiper/css'
-import 'swiper/css/pagination'
-import "../scss/Collab.scss"
-import FadeInSection from '../FadeInSection'
+import "swiper/css";
+import "swiper/css/pagination";
+import "../scss/Collab.scss";
+import { items } from "../../data/finalData";
 
 export default function Collab() {
     const slides = [
         {
-            id: "1",
+            id: "CTF-37408746-16011285",
             colImg: "./images/main/collab/collab-prod1.png",
-            title: "The Powerpuff Girls Special Set",
             themeImg: "./images/main/collab/collab-th1.png",
-            price: "₩165,000"
         },
         {
-            id: "2",
+            id: "CTF-36428690-16010993",
             colImg: "./images/main/collab/collab-prod2.png",
-            title: "Zootopia 2 Special Set",
             themeImg: "./images/main/collab/collab-th2.png",
-            price: "₩197,000"
         },
         {
-            id: "3",
+            id: "CTF-35993212-16010877",
             colImg: "./images/main/collab/collab-prod3.png",
-            title: "70 Years of Miffy Joy Set",
             themeImg: "./images/main/collab/collab-th3.png",
-            price: "₩184,000"
         },
         {
-            id: "4",
+            id: "CTF-37499781-16011325",
             colImg: "./images/main/collab/collab-prod4.png",
-            title: "Bridgerton Secrecy in the Garden Set",
             themeImg: "./images/main/collab/collab-th4.png",
-            price: "₩172,000"
         },
         {
-            id: "5",
+            id: "CTF-36419745-16010991",
             colImg: "./images/main/collab/collab-prod5.png",
-            title: "Maison Kitsune Black Fox Special Set",
             themeImg: "./images/main/collab/collab-th5.png",
-            price: "₩213,000"
         },
         {
-            id: "6",
+            id: "CTF-37898905-16011462",
             colImg: "./images/main/collab/collab-prod6.png",
-            title: "SUSAN FANG Lavender Mist Spe cial Set",
             themeImg: "./images/main/collab/collab-th6.png",
-            price: "₩215,000"
         },
         {
-            id: "7",
+            id: "CTF-36136601-16010921",
             colImg: "./images/main/collab/collab-prod7.png",
-            title: "FLOWERS STICKER MANIA SET",
             themeImg: "./images/main/collab/collab-th7.png",
-            price: "₩191,000"
         },
         {
-            id: "8",
+            id: "CTF-37473568-16011322",
             colImg: "./images/main/collab/collab-prod8.png",
-            title: "Meri Meri Special Set",
             themeImg: "./images/main/collab/collab-th8.png",
-            price: "₩165,000"
         },
         {
-            id: "9",
+            id: "CTF-34890170-16009687",
             colImg: "./images/main/collab/collab-prod9.png",
-            title: "Mickey Mouse & Rose Case Special Set",
             themeImg: "./images/main/collab/collab-th9.png",
-            price: "₩224,000"
         },
         {
-            id: "10",
+            id: "CTF-37354478-16011267",
             colImg: "./images/main/collab/collab-prod10.png",
-            title: "FIFA WORLD CUP 26™ 스페셜 세트",
             themeImg: "./images/main/collab/collab-th10.png",
-            price: "₩178,000"
         },
         {
-            id: "11",
+            id: "CTF-37880847-16011447",
             colImg: "./images/main/collab/collab-prod11.png",
-            title: "BBNEXDO Festival Special Set",
             themeImg: "./images/main/collab/collab-th11.png",
-            price: "₩102,000"
         },
         {
-            id: "12",
+            id: "CTF-35114497-16009996",
             colImg: "./images/main/collab/collab-prod12.png",
-            title: "KBO Collage 스페셜 세트",
             themeImg: "./images/main/collab/collab-th12.png",
-            price: "₩119,000"
         },
-    ]
+    ];
 
     const swiperRef = useRef(null);
 
+    const productMap = useMemo(() => {
+        const map = {};
+        items.forEach((item) => {
+            map[String(item.id)] = item;
+        });
+        return map;
+    }, []);
+
     return (
-        <section className='collab-wrap'>
-            <Swiper modules={[Autoplay,]}
+        <section className="collab-wrap">
+            <Swiper
+                modules={[Autoplay]}
                 autoplay={{
                     delay: 3000,
-                    disableOnInteraction: false
+                    disableOnInteraction: false,
                 }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 loop={true}
                 slidesPerView={5}
-                spaceBetween={30}>
+                spaceBetween={30}
+            >
+                {slides.map((item) => {
+                    const product = productMap[String(item.id)];
 
-                {slides.map((item) => (
-                    <SwiperSlide key={item.id}>
-                        <div className="card"
-                            onMouseEnter={() => swiperRef.current?.autoplay.stop()}
-                            onMouseLeave={() => swiperRef.current?.autoplay.start()}>
-                            <Link>
-                                <div className="card-inner">
-                                    <div className='card-brand'>
-                                        <img src={item.themeImg} alt={item.title} className='theme-img' />
-                                    </div>
-                                    <div className="card-back">
-                                        <div className="card-img">
-                                            <img src={item.colImg} alt="" /></div>
-                                        <div className="card-content">
-                                            <div>
-                                                <p>{item.title}</p>
-                                            </div>
+                    return (
+                        <SwiperSlide key={item.id}>
+                            <div
+                                className="card"
+                                onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+                                onMouseLeave={() => swiperRef.current?.autoplay.start()}
+                            >
+                                <Link to={`/detail/${item.id}`}>
+                                    <div className="card-inner">
+                                        <div className="card-brand">
+                                            <img
+                                                src={item.themeImg}
+                                                alt={product?.productName || "collab brand"}
+                                                className="theme-img"
+                                            />
                                         </div>
-                                        <button className="more-btn">컬렉션 더보기 +</button>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </section >
 
-    )
+                                        <div className="card-back">
+                                            <div className="card-img">
+                                                <img
+                                                    src={item.colImg}
+                                                    alt={product?.productName || "collab product"}
+                                                />
+                                            </div>
+
+                                            <div className="card-content">
+                                                <div>
+                                                    <p>
+                                                        {product?.productName || "상품명 없음"}
+                                                    </p>
+                                                    <p className="price">
+                                                        {product?.price != null
+                                                            ? `${Number(product.price).toLocaleString()}원`
+                                                            : "가격 정보 없음"}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <button type="button" className="more-btn">
+                                                컬렉션 더보기 +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
+        </section>
+    );
 }
