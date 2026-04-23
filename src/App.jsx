@@ -19,6 +19,7 @@ import Cart from './pages/Cart'
 import ProductDetailPage from './components/sub/product detail page/ProductDetailPage'
 import CustomPage from './pages/CustomPage'
 import { useAuthStore } from './store/useAuthStore'
+import Payment from './pages/Payment'
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -54,18 +55,20 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
 
-        {/* <Route path='/:mainCate/:subCate' element={<CategoryPage />}/> */}
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
         <Route path='/custom' element={<CustomPage />}/>
+
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
         <Route path='/login/find/:content' element={<LoginFind />} />
         <Route path='/join' element={<Join />} />
         <Route path='/join/mail' element={<JoinMail />} />
         <Route path='/join/complete' element={<JoinComplete />}/>
+
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/payment' element={<Payment />}/>
       </Routes>
       <Footer />
     </>
