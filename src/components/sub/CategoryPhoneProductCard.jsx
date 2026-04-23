@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./scss/categoryProductCard.scss";
 import { modelColorOptions, colorMap } from "../../data/finalData";
 
-export default function CategoryPhoneProductCard({ item, modelLabels = [] }) {
+export default function CategoryPhoneProductCard({ item }) {
     const [isImageError, setIsImageError] = useState(false);
 
     if (!item) return null;
@@ -18,20 +18,6 @@ export default function CategoryPhoneProductCard({ item, modelLabels = [] }) {
 
     const imagePath = `/images/category/products/${item.id}_${item.modelKey}_${deviceColorKey}_${caseColorKey}_main.jpg`;
 
-    const displayModelText = useMemo(() => {
-        if (modelLabels.length > 0) {
-            return modelLabels.length > 2
-                ? `${modelLabels[0]} 외 ${modelLabels.length - 1}`
-                : modelLabels.join(" / ");
-        }
-
-        return item.modelLabel || "";
-    }, [modelLabels, item.modelLabel]);
-
-    const handleError = () => {
-        setIsImageError(true);
-    };
-
     return (
         <article className="product-card">
             <Link to={`/detail/${item.id}`} className="card-link">
@@ -40,7 +26,7 @@ export default function CategoryPhoneProductCard({ item, modelLabels = [] }) {
                         <img
                             src={imagePath}
                             alt={item.productName}
-                            onError={handleError}
+                            onError={() => setIsImageError(true)}
                         />
                     ) : (
                         <p className="image-error-path">{imagePath}</p>
@@ -51,10 +37,9 @@ export default function CategoryPhoneProductCard({ item, modelLabels = [] }) {
             <div className="card-info">
                 <p className="card-name">{item.productName}</p>
 
-                <p className="card-sub">
-                    {displayModelText}
-                    {item.caseCategory ? ` · ${item.caseCategory}` : ""}
-                </p>
+                {!!item.caseCategory && (
+                    <p className="card-sub">{item.caseCategory}</p>
+                )}
 
                 <p className="card-price">
                     {Number(item.price || 0).toLocaleString()}원

@@ -1,5 +1,4 @@
 import React from "react";
-import { MINI_ICON_MAP } from "../../data/categoryMap";
 
 export default function CategoryMiniIcon({
     miniKey,

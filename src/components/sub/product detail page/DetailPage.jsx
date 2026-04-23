@@ -144,23 +144,45 @@ const modelOptions = useMemo(() => {
     const modelColors = isPhone ? modelColorOptions?.[item?.modelKey] || [] : [];
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
-    const handleAddWish = (item)=>{
-         const modelKey = isPhone
+const handleAddWish = (item) => {
+    const modelKey = isPhone
         ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
         : "";
 
-        const wishItem = {
-            id: item.id,
-            productName: item.productName,
-            price: item.price,
-            device: selectedModel,
-            deviceKey: isPhone ? modelKey : selectedModel,
-            color: selectedColor,
-            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor
-        }
-        
-        onAddWishlist(wishItem);
-    }
+    const wishItem = {
+        id: item.id,
+        productName: item.productName,
+        price: item.price,
+        device: selectedModel,
+        deviceKey: isPhone ? modelKey : selectedModel,
+        color: selectedColor,
+        imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+    };
+
+    onAddWishlist(wishItem);
+};
+
+const handleAddCart = (item) => {
+    const modelKey = isPhone
+        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+        : "";
+
+    const cartItem = {
+        id: item.id,
+        productName: item.productName,
+        price: item.price,
+        device: selectedModel,
+        deviceKey: isPhone ? modelKey : selectedModel,
+        color: selectedColor,
+        imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+        colorList: item.caseColors,
+        deviceList: item.compatibleModels?.length ? item.compatibleModels : "", // ✅ 옵셔널
+        isPhone: isPhone,
+        deviceBrand: selectedBrandTab,
+    };
+
+    onAddToCart(cartItem);
+};
 
     const handleAddCart = (item)=>{
         const modelKey = isPhone
@@ -176,7 +198,7 @@ const modelOptions = useMemo(() => {
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
             colorList: item.caseColors,
-            deviceList: item.compatibleModels.length ? item.compatibleModels : "",
+         deviceList: item.compatibleModels?.length ? item.compatibleModels : "",
             isPhone: isPhone,
             deviceBrand: selectedBrandTab
         }
