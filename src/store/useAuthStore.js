@@ -3,7 +3,9 @@ import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
 import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, deleteDoc } from "firebase/firestore";
 import { persist } from "zustand/middleware";
-import { deleteUser as firebaseDeleteUser } from "firebase/auth";
+import {
+    deleteUser as firebaseDeleteUser, EmailAuthProvider, reauthenticateWithCredential, updatePassword
+} from "firebase/auth";
 
 export const useAuthStore = create(
     persist((set, get) => ({
@@ -597,7 +599,7 @@ export const useAuthStore = create(
                     detailaddress: formData.detailaddress
                 });
 
-                // Zustand 상태도 업데이트 (중요🔥)
+                // Zustand 상태도 업데이트 
                 set({
                     user: {
                         ...user,
@@ -646,3 +648,44 @@ export const useAuthStore = create(
             })
         }
     ));
+//비밀번호 변경
+const handleChangePassword = async () => {
+    const user = auth.currentUser;
+
+    if (!user) {
+        alert("로그인이 필요합니다");
+        return;
+    }
+
+    if (passwordData.newPassword !== passwordData.confirmPassword) {
+        alert("비밀번호가 일치하지 않습니다");
+        return;
+    }
+
+    try {
+        // 1. 재인증
+        const credential = EmailAuthProvider.credential(
+            user.email,
+            passwordData.currentPassword
+        );
+
+        await reauthenticateWithCredential(user, credential);
+
+        // 2. 비밀번호 변경
+        await updatePassword(user, passwordData.newPassword);
+
+        alert("비밀번호 변경 완료");
+    } catch (err) {
+        console.log(err.code);
+
+        if (err.code === "auth/wrong-password") {
+            alert("현재 비밀번호가 틀렸습니다");
+        } else if (err.code === "auth/weak-password") {
+            alert("비밀번호가 너무 약합니다");
+        } else if (err.code === "auth/requires-recent-login") {
+            alert("다시 로그인 후 시도해주세요");
+        } else {
+            alert("비밀번호 변경 실패");
+        }
+    }
+};
