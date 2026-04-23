@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./scss/SearchOverlay.scss";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 
 // 임시 배열
@@ -89,9 +89,18 @@ export default function SearchOverlay({ isActive, onClose }) {
         if (searchWordList.length === 0) { setSearchCheck(false) } else { setSearchCheck(true) }
     })
 
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+        // 검색어 빈 값 방지
+        if (!searchWord.trim()) return;
+
         onAddSearchList();
+
+        // 검색어 페이지로 이동
+        navigate();
+
         console.log("찾는 단어 있음", searchWordList);
     }
     const [searchCheck, setSearchCheck] = useState(false);
@@ -104,20 +113,22 @@ export default function SearchOverlay({ isActive, onClose }) {
                 </h1>
                 <div className="search-center-wrap">
                     <div className="search-content-inner-wrap">
-                        <div className="search-bar">
+                        <form className="search-bar" onSubmit={handleSubmit}>
                             <label>
                                 <input type="text" placeholder="궁금한 내용의 단어나 키워드로 검색하세요"
                                     value={searchWord}
                                     onChange={(e) => onSetSearchWord(e.target.value)}
                                 />
                             </label>
-                            <button className="btn-search" onClick={handleSubmit}>
+                            <button className="btn-search">
                                 <img src="/images/icon/search_var.svg" alt="검색" />
                             </button>
-                            <button className="btn-reset">
-                                <img src="/images/icon/btn_reset.svg" alt="검색초기화" />
-                            </button>
-                        </div>
+                            {searchWord.length > 0 && (
+                                <button className="btn-reset" onClick={() => onSetSearchWord("")}>
+                                    <img src="/images/icon/btn_reset.svg" alt="검색초기화" />
+                                </button>
+                            )}
+                        </form>
                         <div className="recent-search-wrap">
                             <div className="inner-title">최근 검색어</div>
                             {searchCheck ?
@@ -125,7 +136,7 @@ export default function SearchOverlay({ isActive, onClose }) {
                                     <button className="remove-all" onClick={onRemoveAllSearch}>모두 지우기</button>
                                     <ul className="recent-result-list">
                                         {searchWordList.map((s) => (
-                                            <li>{s.text} <button onClick={(e) => onRemoveSearchList(s.id)}><img src="/images/icon/close-24dp.svg" alt="해당 검색 삭제" /></button></li>
+                                            <li key={s.id}>{s.text} <button onClick={(e) => onRemoveSearchList(s.id)}> ×</button></li>
                                         ))}
                                     </ul>
                                 </div>
@@ -151,7 +162,7 @@ export default function SearchOverlay({ isActive, onClose }) {
                             <div className="inner-title">추천 상품</div>
                             <ul className="s-overlay-reco-item-list">
                                 {tempRecoItem.map((item) => (
-                                    <li className="s-reommend-item">
+                                    <li key={item.id} className="s-reommend-item">
                                         <div className="goods-img">
                                             <img
                                                 src={`/images/category/accessory/${item.id}_${item.color[0]}_0.jpg`}
