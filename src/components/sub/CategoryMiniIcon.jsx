@@ -2,11 +2,12 @@ import React from "react";
 import { MINI_ICON_MAP } from "../../data/categoryMap";
 
 export default function CategoryMiniIcon({
-    mini,
+    miniKey,
+    label,
     isActive = false,
     onClick,
 }) {
-    const iconName = MINI_ICON_MAP[mini] || "etc";
+    const iconName = miniKey || "etc";
 
     return (
         <li
@@ -16,10 +17,10 @@ export default function CategoryMiniIcon({
             <div className="mini-icon-img">
                 <img
                     src={`/images/category/mini/${iconName}.png`}
-                    alt={mini}
+                    alt={label}
                 />
             </div>
-            <p className="mini-icon-text">{mini}</p>
+            <p className="mini-icon-text">{label}</p>
         </li>
     );
 }
