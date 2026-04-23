@@ -64,6 +64,7 @@ const includesAlias = (values, key, aliasMap) => {
 export const useCategoryProductStore = create((set, get) => ({
     items,
     categoryItems: [],
+    groupedItems: [],
 
     mainMenuList: [
         {
@@ -120,34 +121,23 @@ export const useCategoryProductStore = create((set, get) => ({
         }
     ],
 
-    onFilterCategory: (mainCate, subCate, activeMini) => {
-        const allItems = get().items;
+    onFilterCategory: (mainCate, subCate, mini) => {
+        const { items } = get();
 
-        const filtered = allItems.filter((item) => {
-            const mainValues = toArray(item.mainCategories?.length ? item.mainCategories : item.mainCategory);
-            const subValues = toArray(item.displaySubCategories);
-            const miniValues = toArray(item.displayMiniCategories);
+        const filtered = items.filter((item) => {
+            const matchMain =
+                item.mainCategory === mainCate ||
+                (Array.isArray(item.mainCategory) && item.mainCategory.includes(mainCate));
 
-            const hasMain = includesAlias(mainValues, mainCate, MAIN_ALIAS_MAP);
-
-            let hasSub = true;
-
-            if (subCate) {
-                if (mainCate === "colab") {
-                    hasSub =
-                        includesAlias(subValues, subCate, SUB_ALIAS_MAP) ||
-                        includesAlias(miniValues, subCate, MINI_ALIAS_MAP) ||
-                        includesAlias(toArray(item.collaboCategory), subCate, SUB_ALIAS_MAP);
-                } else {
-                    hasSub = includesAlias(subValues, subCate, SUB_ALIAS_MAP);
-                }
-            }
-
-            const hasMini = activeMini
-                ? includesAlias(miniValues, activeMini, MINI_ALIAS_MAP)
+            const matchSub = subCate
+                ? (item.displaySubCategories || []).includes(subCate)
                 : true;
 
-            return hasMain && hasSub && hasMini;
+            const matchMini = mini
+                ? (item.displayMiniCategories || []).includes(mini)
+                : true;
+
+            return matchMain && matchSub && matchMini;
         });
 
         set({ categoryItems: filtered });
