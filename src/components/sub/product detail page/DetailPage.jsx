@@ -47,7 +47,7 @@ export default function DetailPage({ item }) {
 
         setUserSelected(hasNoOption);
 
-const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
+    const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
         phoneModelOptions[brand].some((m) =>
             getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
         )
@@ -80,9 +80,9 @@ const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
         return [item, accessories[idx1], accessories[idx2]];
     }, [item]);
 
-const modelOptions = useMemo(() => {
-    return getModelsByProductGroup(items, item);
-}, [item]);
+    const modelOptions = useMemo(() => {
+        return getModelsByProductGroup(items, item);
+    }, [item]);
 
 
 
@@ -144,50 +144,28 @@ const modelOptions = useMemo(() => {
     const modelColors = isPhone ? modelColorOptions?.[item?.modelKey] || [] : [];
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
-const handleAddWish = (item) => {
-    const modelKey = isPhone
-        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
-        : "";
-
-    const wishItem = {
-        id: item.id,
-        productName: item.productName,
-        price: item.price,
-        device: selectedModel,
-        deviceKey: isPhone ? modelKey : selectedModel,
-        color: selectedColor,
-        imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
-    };
-
-    onAddWishlist(wishItem);
-};
-
-const handleAddCart = (item) => {
-    const modelKey = isPhone
-        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
-        : "";
-
-    const cartItem = {
-        id: item.id,
-        productName: item.productName,
-        price: item.price,
-        device: selectedModel,
-        deviceKey: isPhone ? modelKey : selectedModel,
-        color: selectedColor,
-        imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
-        colorList: item.caseColors,
-        deviceList: item.compatibleModels?.length ? item.compatibleModels : "", // ✅ 옵셔널
-        isPhone: isPhone,
-        deviceBrand: selectedBrandTab,
-    };
-
-    onAddToCart(cartItem);
-};
-
-    const handleAddCart = (item)=>{
+    const handleAddWish = (item) => {
         const modelKey = isPhone
-        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
-        : "";
+            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+            : "";
+
+        const wishItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: selectedModel,
+            deviceKey: isPhone ? modelKey : selectedModel,
+            color: selectedColor,
+            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+        };
+
+        onAddWishlist(wishItem);
+    };
+
+    const handleAddCart = (item) => {
+        const modelKey = isPhone
+            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+            : "";
 
         const cartItem = {
             id: item.id,
@@ -198,13 +176,13 @@ const handleAddCart = (item) => {
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
             colorList: item.caseColors,
-         deviceList: item.compatibleModels?.length ? item.compatibleModels : "",
+            deviceList: item.compatibleModels?.length ? item.compatibleModels : "", // ✅ 옵셔널
             isPhone: isPhone,
-            deviceBrand: selectedBrandTab
-        }
-        
+            deviceBrand: selectedBrandTab,
+        };
+
         onAddToCart(cartItem);
-    }
+    };
 
     const mainImagePath = isPhone
         ? `/images/category/products/${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
