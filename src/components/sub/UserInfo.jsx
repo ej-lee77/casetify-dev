@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import MypageTitle from './MypageTitle'
 import "./scss/UserInfo.scss"
 import { useAuthStore } from '../../store/useAuthStore'
 import AddressSearch from './AddressSearch';
 import { useNavigate } from 'react-router-dom';
+import html2canvas from 'html2canvas';
 
 export default function UserInfo() {
     const Navigate = useNavigate();
-    const { user, onUpdateUser, onDeleteUser, onLogout } = useAuthStore();
+    const { user, onUpdateUser, onDeleteUser, onLogout, handleChangePassword } = useAuthStore();
     // console.log("현재 user:", user);
+    console.log("비밀번호:", handleChangePassword)
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -80,11 +82,41 @@ export default function UserInfo() {
     //     }
     // }
 
+    const cardRef = useRef(null);
+    // 다운로드 핸들러 추가
+    const handleDownload = async () => {
+        if (!cardRef.current) return;
+
+        const canvas = await html2canvas(cardRef.current, {
+            scale: 2,           // 고해상도 (2배)
+            useCORS: true,      // 외부 이미지 허용
+            backgroundColor: null  // 투명 배경 유지
+        });
+
+        const link = document.createElement('a');
+        link.download = `${formData.name || 'member'}-card.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    };
+
+    //비밀번호 변경
+    const [passwordData, setPasswordData] = useState({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: ""
+    });
+    const handlePasswordChange = (e) => {
+        const { name, value } = e.target;
+        setPasswordData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
     return (
         <div>
             <MypageTitle title={"회원 카드"} />
             <div className='user-card-wrap'>
-                <div className="user-card">
+                <div className="user-card" ref={cardRef}>
                     <div className='user-info1'>
                         <img className="user-card-logo" src="./images/header-footer/casetify-logo.png" alt="로고" />
                         <img className='user-qr' src="./images/userinfo/qr-code.png" alt="큐알" />
@@ -101,7 +133,11 @@ export default function UserInfo() {
                         </div>
                     </div>
                 </div>
-                <img src="./images/userinfo/user-download.png" alt="" />
+                <img
+                    src="./images/userinfo/user-download.png"
+                    alt="다운로드"
+                    onClick={handleDownload}
+                    style={{ cursor: 'pointer' }} />
             </div>
 
             <MypageTitle title={"계정 정보"} />
@@ -139,12 +175,30 @@ export default function UserInfo() {
                     {!user?.provider && (
                         <div className="password-wrap">
                             <p>
-                                <label><input type="password" placeholder='' /><span>사용 중인 비밀번호</span></label>
+                                <label>
+                                    <input type="password" placeholder=''
+                                        name="currentPassword"
+                                        value={passwordData.currentPassword}
+                                        onChange={handlePasswordChange} />
+                                    <span>사용 중인 비밀번호</span></label>
                             </p>
                             <p>
-                                <label><input type="password" placeholder='' /><span>새 비밀번호</span></label>
-                                <label><input type="password" placeholder='' /><span>비밀번호 확인</span></label>
+                                <label>
+                                    <input type="password" placeholder=''
+                                        name="newPassword"
+                                        value={passwordData.newPassword}
+                                        onChange={handlePasswordChange} />
+                                    <span>새 비밀번호</span></label>
+                                <label>
+                                    <input type="password" placeholder=''
+                                        name="confirmPassword"
+                                        value={passwordData.confirmPassword}
+                                        onChange={handlePasswordChange} />
+                                    <span>비밀번호 확인</span></label>
                             </p>
+                            <div className="pass-change-btn">
+                                <button>비밀번호 변경</button>
+                            </div>
                         </div>
                     )}
                 </form>
@@ -157,6 +211,7 @@ export default function UserInfo() {
                         하나 이상의 숫자 포함</p>
                 </div>
             )}
+
             <MypageTitle title={"배송 주소"} />
             <div className='address-info'>
                 <form>
