@@ -84,7 +84,6 @@ export default function DetailPage({ item }) {
                 delete next[bundleItem.id];
             } else {
                 next[bundleItem.id] = 1;
-             
             }
             return next;
         });
@@ -159,7 +158,9 @@ export default function DetailPage({ item }) {
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
             colorList: item.caseColors,
-            deviceList: item.compatibleModels ? "" : ""
+            deviceList: item.compatibleModels ? "" : "",
+            isPhone: isPhone,
+            deviceBrand: selectedBrandTab
         }
         
         onAddToCart(cartItem);
@@ -308,7 +309,6 @@ export default function DetailPage({ item }) {
                     {!!item.caseCategory && (
                         <div className="detail-info-box">
                             <p className="label"> <span className="label">{item.caseCategory}</span></p>
-                 
                         </div>
                     )}
                     <div className="model-select-box">
@@ -360,7 +360,6 @@ export default function DetailPage({ item }) {
                             </div>
                         )}
                     </div>
-               
 
                     {!!item.caseColors?.length && (
                         <div className="detail-info-box">
@@ -390,7 +389,7 @@ export default function DetailPage({ item }) {
 
                     {!!item.compatibleModels?.length && (
                         <div className="detail-info-box">
-                               <p className="label">옵션</p>
+                            <p className="label">옵션</p>
                             <div className="accordion">
                                 <button
                                     type="button"
@@ -421,7 +420,6 @@ export default function DetailPage({ item }) {
                         </div>
                     )}
                 </div>
-               
                 {/* ====================  ~~ 아래부터 버튼 ~~======================== */}
                 <div className="right-btn-wrap">
                     {/* ✅ userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
@@ -488,117 +486,116 @@ export default function DetailPage({ item }) {
 
                 {/* 3개상품 */}
                 <div className="budle-buy">
-                {bundleItems.length > 0 && (
-                    <div className="bundle-section">
-                        <p className="bundle-title">번들 할인</p>
-                        <ul className="bundle-list">
-                            {bundleItems.map((b, index) => {
-                                const isChecked = index === 0 || !!selectedBundles[b.id];
-                                const isFirst = index === 0;
-                                const bundlePrice = Math.round(b.price * 0.9);
-                                const isSelected = !!selectedBundles[b.id];
+                    {bundleItems.length > 0 && (
+                        <div className="bundle-section">
+                            <p className="bundle-title">번들 할인</p>
+                            <ul className="bundle-list">
+                                {bundleItems.map((b, index) => {
+                                    const isChecked = index === 0 || !!selectedBundles[b.id];
+                                    const isFirst = index === 0;
+                                    const bundlePrice = Math.round(b.price * 0.9);
+                                    const isSelected = !!selectedBundles[b.id];
 
-                                return (
-                                    <li
-                                        key={b.id}
-                                        className={`bundle-item ${isChecked ? "selected" : ""} ${isFirst ? "current" : ""}`}
-                                        onClick={() => !isFirst && handleBundleToggle(b)}
-                                    >
-                                        <input
-                                            type="checkbox"
-                                            className="bundle-checkbox"
-                                            checked={isChecked}
-                                            onChange={() => {}}
-                                            disabled={isFirst}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                if (!isFirst) handleBundleToggle(b);
-                                            }}
-                                        />
-                                        <div className="bundle-img-wrap">
-                                            <img src={getBundleImagePath(b)} alt={b.productName} />
-                                        </div>
-                                        <span className="bundle-name">{b.productName}</span>
+                                    return (
+                                        <li
+                                            key={b.id}
+                                            className={`bundle-item ${isChecked ? "selected" : ""} ${isFirst ? "current" : ""}`}
+                                            onClick={() => !isFirst && handleBundleToggle(b)}
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                className="bundle-checkbox"
+                                                checked={isChecked}
+                                                onChange={() => {}}
+                                                disabled={isFirst}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    if (!isFirst) handleBundleToggle(b);
+                                                }}
+                                            />
+                                            <div className="bundle-img-wrap">
+                                                <img src={getBundleImagePath(b)} alt={b.productName} />
+                                            </div>
+                                            <span className="bundle-name">{b.productName}</span>
 
-                                        {/*  번들 가격 */}
-                                        <div className="bundle-price-wrap">
-                                            <span className="bundle-default-price">{b.price.toLocaleString()}원</span>
-                                        </div>
-                                    </li>
-                                );
-                })}
-                        </ul>
+                                            {/*  번들 가격 */}
+                                            <div className="bundle-price-wrap">
+                                                <span className="bundle-default-price">{b.price.toLocaleString()}원</span>
+                                            </div>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
 
-            {/*번들 선택 총 할인금액  */}
-{Object.keys(selectedBundles).length > 0 && (
-    <div className="bundle-total-wrap">
-        <span className="bundle-total-label">번들 할인 총액</span>
-        <div className="bundle-total-right">
-            <em className="bundle-total-origin">
-                {(
-                    (item.price || 0) +
-                    bundleItems
-                        .filter((b) => selectedBundles[b.id])
-                        .reduce((acc, b) => acc + b.price * (selectedBundles[b.id] || 1), 0)
-                ).toLocaleString()}원
-            </em>
-            <strong className="bundle-total-discount">
-                {(
-                    (item.price || 0) +
-                    bundleItems
-                        .filter((b) => selectedBundles[b.id])
-                        .reduce((acc, b) => acc + Math.round(b.price * 0.9) * (selectedBundles[b.id] || 1), 0)
-                ).toLocaleString()}원
-            </strong>
-        </div>
-    </div>
-)}
-        </div>
-    )}
-    
+                            {/*번들 선택 총 할인금액  */}
+                            {Object.keys(selectedBundles).length > 0 && (
+                                <div className="bundle-total-wrap">
+                                    <span className="bundle-total-label">번들 할인 총액</span>
+                                    <div className="bundle-total-right">
+                                        <em className="bundle-total-origin">
+                                            {(
+                                                (item.price || 0) +
+                                                bundleItems
+                                                    .filter((b) => selectedBundles[b.id])
+                                                    .reduce((acc, b) => acc + b.price * (selectedBundles[b.id] || 1), 0)
+                                            ).toLocaleString()}원
+                                        </em>
+                                        <strong className="bundle-total-discount">
+                                            {(
+                                                (item.price || 0) +
+                                                bundleItems
+                                                    .filter((b) => selectedBundles[b.id])
+                                                    .reduce((acc, b) => acc + Math.round(b.price * 0.9) * (selectedBundles[b.id] || 1), 0)
+                                            ).toLocaleString()}원
+                                        </strong>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+            
 
- {/* 장바구니 버튼 ++ 미선택 시 alert */}
-    <button className="buy-btn" onClick={() => {
-        if (!userSelected) {
-            alert("제품을 선택해주세요.");
-            return;
-        }
-    }}>
-        <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>
-        {Object.keys(selectedBundles).length > 0
-            ? `번들 장바구니에 담기 (${Object.keys(selectedBundles).length})`
-            : "장바구니에 담기"}
-    </button>
-</div>
+                    {/* 장바구니 버튼 ++ 미선택 시 alert */}
+                    <button className="buy-btn" onClick={() => {
+                        if (!userSelected) {
+                            alert("제품을 선택해주세요.");
+                            return;
+                        }
+                    }}>
+                        <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>
+                        {Object.keys(selectedBundles).length > 0
+                            ? `번들 장바구니에 담기 (${Object.keys(selectedBundles).length})`
+                            : "장바구니에 담기"}
+                    </button>
+                </div>
 
 
-                    <div className="detail-desc">
-                        <h3>상품 안내</h3>
-                        <p>
-                            현재 이 페이지는 데이터 연결과 이미지 경로 확인용 임시 상세페이지야.
-                            <br /><br />
-                            메인 이미지:<br />
-                            {isPhone
-                                ? `${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
-                                    : `${item.id}_${selectedColor}_main.jpg`}
-                            <br /><br />
-                            상세 이미지:<br />
-                            {isPhone
-                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
-                                    : `${item.id}_${selectedColor}_1.jpg`}
-                            <br />
-                            {isPhone
-                                ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
-                                    : `${item.id}_${selectedColor}_2.jpg`}
-                        </p>
-                    </div>
-
+                <div className="detail-desc">
+                    <h3>상품 안내</h3>
+                    <p>
+                        현재 이 페이지는 데이터 연결과 이미지 경로 확인용 임시 상세페이지야.
+                        <br /><br />
+                        메인 이미지:<br />
+                        {isPhone
+                            ? `${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
+                            : item.modelKey
+                                ? `${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
+                                : `${item.id}_${selectedColor}_main.jpg`}
+                        <br /><br />
+                        상세 이미지:<br />
+                        {isPhone
+                            ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
+                            : item.modelKey
+                                ? `${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
+                                : `${item.id}_${selectedColor}_1.jpg`}
+                        <br />
+                        {isPhone
+                            ? `${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
+                            : item.modelKey
+                                ? `${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
+                                : `${item.id}_${selectedColor}_2.jpg`}
+                    </p>
+                </div>
 
             </div></div>
         </section>
