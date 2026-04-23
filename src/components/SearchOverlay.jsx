@@ -139,7 +139,12 @@ export default function SearchOverlay({ isActive, onClose }) {
                             </ul>
                         </div>
                     </div>
-                    <div className="img-search">이미지 검색</div>
+                    <div className="search-content-extra-wrap">
+                        <div className="img-search">
+                            <img src="/images/icon/icon-img-search-camera.svg" alt="이미지검색_카메라아이콘" />
+                            <span>이미지 검색</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* 검색 닫기 */}
