@@ -1,214 +1,193 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { colorMap } from "../../data/finalData";
+import { MINI_QUERY_MAP } from "../../data/categoryMap";
 import "./scss/CategoryFilterPanel.scss";
 
-const colorMap = {
-    Black: "#111111",
-    Orange: "#ff8a00",
-    Pink: "#f58bb6",
-    Lavendar: "#c8b4ff",
-    "Matte Black": "#2b2b2b",
-    Clear: "#f1f1f1",
-    Purple: "#7b61ff",
-    Blue: "#4c8dff",
-    Navy: "#1f3b73",
-    White: "#f5f5f5",
-    Red: "#e54848",
-    Green: "#3fae5a",
-    Yellow: "#f2d533",
-    Gray: "#9a9a9a",
-    Silver: "#c9ced6",
-    Gold: "#c9a24a",
-    Beige: "#d8c3a5",
-    Brown: "#7a5230",
-    Cream: "#f7f1de",
-    Transparent: "#ececec",
-};
+function uniqueModelOptions(items = []) {
+    return Array.from(
+        new Map(
+            items
+                .filter((item) => item.modelKey && item.modelLabel)
+                .map((item) => [
+                    item.modelKey,
+                    { key: item.modelKey, label: item.modelLabel },
+                ])
+        ).values()
+    );
+}
+
+function uniqueColorOptions(items = []) {
+    return Array.from(
+        new Set(items.flatMap((item) => item.caseColors || []).filter(Boolean))
+    );
+}
 
 export default function CategoryFilterPanel({
     isOpen,
     onClose,
-    mini,
-    filterOptions = {},
-    selectedFilters = {},
-    onToggleFilter,
-    onPriceChange,
-    onResetFilter,
-    onRemoveFilter,
+    onApply,
+    mainCate,
+    currentMain,
+    currentSub,
+    currentMini,
+    allItems = [],
+    selectedFilters,
 }) {
-    const {
-        models = [],
-        caseCategories = [],
-        colors = [],
-    } = filterOptions;
+    const [draft, setDraft] = useState({
+        subCateLink: currentSub?.link || "",
+        mini: currentMini || "",
+        models: [],
+        isCollabo: null,
+        isMagSafe: null,
+        stockOnly: false,
+        minPrice: "",
+        maxPrice: "",
+        colors: [],
+    });
 
-    const {
-        selectedModels = [],
-        selectedCaseCategories = [],
-        selectedColors = [],
-        isMagSafe = null,
-        stockOnly = false,
-        minPrice = "",
-        maxPrice = "",
-    } = selectedFilters;
+    useEffect(() => {
+        if (!isOpen) return;
 
-    const specificSections = useMemo(() => {
-        const sections = [];
-
-        if (mini === "phone") {
-            sections.push({
-                title: "기기모델",
-                type: "model",
-                items: models,
-            });
-
-            sections.push({
-                title: "케이스 종류",
-                type: "caseCategory",
-                items: caseCategories,
-            });
-
-            sections.push({
-                title: "맥세이프",
-                type: "magsafe",
-                items: [
-                    { key: "true", label: "맥세이프 가능" },
-                    { key: "false", label: "일반 케이스" },
-                ],
-            });
-        }
-
-        if (mini === "earphone" || mini === "watch" || mini === "tablet" || mini === "laptop") {
-            if (models.length > 0) {
-                sections.push({
-                    title: "기기모델",
-                    type: "model",
-                    items: models,
-                });
-            }
-        }
-
-        if (
-            mini === "strap" ||
-            mini === "charm" ||
-            mini === "holder" ||
-            mini === "wallet" ||
-            mini === "stand" ||
-            mini === "bag" ||
-            mini === "etc"
-        ) {
-            if (caseCategories.length > 0) {
-                sections.push({
-                    title: "상품 종류",
-                    type: "caseCategory",
-                    items: caseCategories,
-                });
-            }
-        }
-
-        return sections;
-    }, [mini, models, caseCategories]);
-
-    const renderSelectedTags = () => {
-        const tags = [];
-
-        selectedModels.forEach((item) => {
-            const currentModel = models.find((model) => model.key === item);
-            tags.push({
-                type: "model",
-                value: item,
-                label: currentModel?.label || item,
-            });
+        setDraft({
+            subCateLink: currentSub?.link || "",
+            mini: currentMini || "",
+            models: selectedFilters.models || [],
+            isCollabo: selectedFilters.isCollabo ?? null,
+            isMagSafe: selectedFilters.isMagSafe ?? null,
+            stockOnly: selectedFilters.stockOnly || false,
+            minPrice: selectedFilters.minPrice || "",
+            maxPrice: selectedFilters.maxPrice || "",
+            colors: selectedFilters.colors || [],
         });
+    }, [isOpen, currentSub, currentMini, selectedFilters]);
 
-        selectedCaseCategories.forEach((item) => {
-            tags.push({
-                type: "caseCategory",
-                value: item,
-                label: item,
-            });
+    const subOptions = useMemo(() => {
+        return currentMain?.sub || [];
+    }, [currentMain]);
+
+    const selectedSubObj = useMemo(() => {
+        return subOptions.find((sub) => sub.link === draft.subCateLink);
+    }, [subOptions, draft.subCateLink]);
+
+    const deviceOptions = useMemo(() => {
+        return (selectedSubObj?.mini || []).map((miniLabel) => ({
+            key: MINI_QUERY_MAP[miniLabel] || miniLabel,
+            label: miniLabel,
+        }));
+    }, [selectedSubObj]);
+
+    const sourceItems = useMemo(() => {
+        return (allItems || []).filter((item) => {
+            const matchMain =
+                item.mainCategory === mainCate ||
+                (Array.isArray(item.mainCategory) && item.mainCategory.includes(mainCate));
+
+            const matchSub = draft.subCateLink
+                ? (item.displaySubCategories || []).includes(draft.subCateLink)
+                : true;
+
+            const matchMini = draft.mini
+                ? (item.displayMiniCategories || []).includes(draft.mini)
+                : true;
+
+            return matchMain && matchSub && matchMini;
         });
+    }, [allItems, mainCate, draft.subCateLink, draft.mini]);
 
-        selectedColors.forEach((item) => {
-            tags.push({
-                type: "color",
-                value: item,
-                label: item,
-            });
+    const modelOptions = useMemo(() => uniqueModelOptions(sourceItems), [sourceItems]);
+    const colorOptions = useMemo(() => uniqueColorOptions(sourceItems), [sourceItems]);
+
+    const toggleArray = (key, value) => {
+        setDraft((prev) => {
+            const exists = prev[key].includes(value);
+
+            return {
+                ...prev,
+                [key]: exists
+                    ? prev[key].filter((item) => item !== value)
+                    : [...prev[key], value],
+            };
         });
+    };
 
-        if (isMagSafe === true) {
-            tags.push({
-                type: "magsafe",
-                value: true,
-                label: "맥세이프 가능",
-            });
-        }
+    const toggleSingle = (key, value) => {
+        setDraft((prev) => ({
+            ...prev,
+            [key]: prev[key] === value ? null : value,
+        }));
+    };
 
-        if (isMagSafe === false) {
-            tags.push({
-                type: "magsafe",
-                value: false,
-                label: "일반 케이스",
-            });
-        }
+    const onChangeSubCate = (subLink) => {
+        setDraft((prev) => ({
+            ...prev,
+            subCateLink: subLink,
+            mini: "",
+            models: [],
+            colors: [],
+        }));
+    };
 
-        if (stockOnly) {
-            tags.push({
-                type: "stock",
-                value: true,
-                label: "품절 제외",
-            });
-        }
+    const onChangeMini = (miniKey) => {
+        setDraft((prev) => ({
+            ...prev,
+            mini: prev.mini === miniKey ? "" : miniKey,
+            models: [],
+            colors: [],
+        }));
+    };
 
-        if (minPrice || maxPrice) {
-            tags.push({
-                type: "price",
-                value: "price",
-                label: `${minPrice || 0}원 ~ ${maxPrice || "∞"}원`,
-            });
-        }
+    const resetAll = () => {
+        setDraft({
+            subCateLink: currentSub?.link || "",
+            mini: currentMini || "",
+            models: [],
+            isCollabo: null,
+            isMagSafe: null,
+            stockOnly: false,
+            minPrice: "",
+            maxPrice: "",
+            colors: [],
+        });
+    };
 
-        if (tags.length === 0) return null;
-
-        return (
-            <div className="selected-filter-tags">
-                {tags.map((tag, index) => (
-                    <button
-                        type="button"
-                        key={`${tag.type}-${tag.value}-${index}`}
-                        className="selected-filter-tag"
-                        onClick={() => onRemoveFilter(tag.type, tag.value)}
-                    >
-                        <span>{tag.label}</span>
-                        <strong>×</strong>
-                    </button>
-                ))}
-            </div>
-        );
+    const applyFilters = () => {
+        onApply({
+            nextSubCateLink: draft.subCateLink || currentSub?.link || "",
+            nextMini: draft.mini || "",
+            filters: {
+                models: draft.models,
+                isCollabo: draft.isCollabo,
+                isMagSafe: draft.isMagSafe,
+                stockOnly: draft.stockOnly,
+                minPrice: draft.minPrice,
+                maxPrice: draft.maxPrice,
+                colors: draft.colors,
+            },
+        });
     };
 
     if (!isOpen) return null;
 
     return (
         <>
-            <div className="filter-panel-dim" onClick={onClose}></div>
+            <div className="category-filter-dim" onClick={onClose}></div>
 
             <aside className="category-filter-panel">
-                <div className="filter-panel-top">
+                <div className="filter-panel-header">
                     <h3>필터</h3>
 
-                    <div className="filter-panel-top-btns">
+                    <div className="filter-panel-actions">
                         <button
                             type="button"
-                            className="reset-btn"
-                            onClick={onResetFilter}
+                            className="filter-reset-btn"
+                            onClick={resetAll}
                         >
                             전체 취소
                         </button>
 
                         <button
                             type="button"
-                            className="close-btn"
+                            className="filter-close-btn"
                             onClick={onClose}
                         >
                             닫기
@@ -216,133 +195,185 @@ export default function CategoryFilterPanel({
                     </div>
                 </div>
 
-                {renderSelectedTags()}
+                <div className="filter-panel-body">
+                    <section className="filter-section">
+                        <h4 className="filter-section-title">카테고리</h4>
 
-                <section className="filter-section">
-                    <h4>가격범위</h4>
+                        <div className="filter-chip-wrap">
+                            {subOptions.map((sub) => (
+                                <button
+                                    type="button"
+                                    key={sub.link}
+                                    className={`filter-chip ${draft.subCateLink === sub.link ? "on" : ""}`}
+                                    onClick={() => onChangeSubCate(sub.link)}
+                                >
+                                    {sub.name}
+                                </button>
+                            ))}
+                        </div>
+                    </section>
 
-                    <div className="price-range-box">
-                        <input
-                            type="number"
-                            placeholder="최소 금액"
-                            value={minPrice}
-                            onChange={(e) => onPriceChange("minPrice", e.target.value)}
-                        />
-                        <span>~</span>
-                        <input
-                            type="number"
-                            placeholder="최대 금액"
-                            value={maxPrice}
-                            onChange={(e) => onPriceChange("maxPrice", e.target.value)}
-                        />
-                    </div>
-                </section>
+                    {!!deviceOptions.length && (
+                        <section className="filter-section">
+                            <h4 className="filter-section-title">디바이스</h4>
 
-                <section className="filter-section">
-                    <h4>색상</h4>
+                            <div className="filter-chip-wrap">
+                                {deviceOptions.map((device) => (
+                                    <button
+                                        type="button"
+                                        key={device.key}
+                                        className={`filter-chip ${draft.mini === device.key ? "on" : ""}`}
+                                        onClick={() => onChangeMini(device.key)}
+                                    >
+                                        {device.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </section>
+                    )}
 
-                    <div className="filter-chip-wrap color-chip-wrap">
-                        {colors.map((color) => {
-                            const isActive = selectedColors.includes(color);
+                    {!!modelOptions.length && (
+                        <section className="filter-section">
+                            <h4 className="filter-section-title">기기모델 선택</h4>
 
-                            return (
+                            <div className="filter-chip-wrap">
+                                {modelOptions.map((model) => (
+                                    <button
+                                        type="button"
+                                        key={model.key}
+                                        className={`filter-chip ${draft.models.includes(model.key) ? "on" : ""}`}
+                                        onClick={() => toggleArray("models", model.key)}
+                                    >
+                                        {model.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    <section className="filter-section">
+                        <h4 className="filter-section-title">콜라보 여부</h4>
+
+                        <div className="filter-chip-wrap">
+                            <button
+                                type="button"
+                                className={`filter-chip ${draft.isCollabo === true ? "on" : ""}`}
+                                onClick={() => toggleSingle("isCollabo", true)}
+                            >
+                                콜라보만
+                            </button>
+
+                            <button
+                                type="button"
+                                className={`filter-chip ${draft.isCollabo === false ? "on" : ""}`}
+                                onClick={() => toggleSingle("isCollabo", false)}
+                            >
+                                일반 상품만
+                            </button>
+                        </div>
+                    </section>
+
+                    <section className="filter-section">
+                        <h4 className="filter-section-title">맥세이프 여부</h4>
+
+                        <div className="filter-chip-wrap">
+                            <button
+                                type="button"
+                                className={`filter-chip ${draft.isMagSafe === true ? "on" : ""}`}
+                                onClick={() => toggleSingle("isMagSafe", true)}
+                            >
+                                맥세이프 가능
+                            </button>
+
+                            <button
+                                type="button"
+                                className={`filter-chip ${draft.isMagSafe === false ? "on" : ""}`}
+                                onClick={() => toggleSingle("isMagSafe", false)}
+                            >
+                                일반 케이스
+                            </button>
+                        </div>
+                    </section>
+
+                    <section className="filter-section">
+                        <h4 className="filter-section-title">가격범위</h4>
+
+                        <div className="price-range-box">
+                            <input
+                                type="number"
+                                placeholder="최소 금액"
+                                value={draft.minPrice}
+                                onChange={(e) =>
+                                    setDraft((prev) => ({
+                                        ...prev,
+                                        minPrice: e.target.value,
+                                    }))
+                                }
+                            />
+
+                            <span>~</span>
+
+                            <input
+                                type="number"
+                                placeholder="최대 금액"
+                                value={draft.maxPrice}
+                                onChange={(e) =>
+                                    setDraft((prev) => ({
+                                        ...prev,
+                                        maxPrice: e.target.value,
+                                    }))
+                                }
+                            />
+                        </div>
+                    </section>
+
+                    <section className="filter-section">
+                        <h4 className="filter-section-title">색상</h4>
+
+                        <div className="filter-color-grid">
+                            {colorOptions.map((color) => (
                                 <button
                                     type="button"
                                     key={color}
-                                    className={`filter-chip color-chip ${isActive ? "on" : ""}`}
-                                    onClick={() => onToggleFilter("color", color)}
+                                    className={`color-swatch-btn ${draft.colors.includes(color) ? "on" : ""}`}
+                                    onClick={() => toggleArray("colors", color)}
+                                    title={color}
                                 >
                                     <span
-                                        className="color-dot"
+                                        className="color-swatch"
                                         style={{ backgroundColor: colorMap[color] || "#ddd" }}
                                     ></span>
-                                    <span>{color}</span>
+                                    <span className="color-label">{color}</span>
                                 </button>
-                            );
-                        })}
-                    </div>
-                </section>
-
-                <section className="filter-section">
-                    <h4>품절여부</h4>
-
-                    <div className="filter-chip-wrap">
-                        <button
-                            type="button"
-                            className={`filter-chip ${stockOnly ? "on" : ""}`}
-                            onClick={() => onToggleFilter("stock", true)}
-                        >
-                            품절 제외
-                        </button>
-                    </div>
-                </section>
-
-                {specificSections.map((section) => (
-                    <section className="filter-section" key={section.type}>
-                        <h4>{section.title}</h4>
-
-                        <div className="filter-chip-wrap">
-                            {section.type === "magsafe" &&
-                                section.items.map((item) => {
-                                    const currentValue = item.key === "true";
-                                    const isActive = isMagSafe === currentValue;
-
-                                    return (
-                                        <button
-                                            type="button"
-                                            key={item.key}
-                                            className={`filter-chip ${isActive ? "on" : ""}`}
-                                            onClick={() => onToggleFilter("magsafe", currentValue)}
-                                        >
-                                            {item.label}
-                                        </button>
-                                    );
-                                })}
-
-                            {section.type === "model" &&
-                                section.items.map((item) => {
-                                    const label = item.label || item.name || item;
-                                    const value = item.key || item.value || item;
-                                    const isActive = selectedModels.includes(value);
-
-                                    return (
-                                        <button
-                                            type="button"
-                                            key={value}
-                                            className={`filter-chip ${isActive ? "on" : ""}`}
-                                            onClick={() => onToggleFilter("model", value)}
-                                        >
-                                            {label}
-                                        </button>
-                                    );
-                                })}
-
-                            {section.type === "caseCategory" &&
-                                section.items.map((item) => {
-                                    const label = item.label || item.name || item;
-                                    const value = item.key || item.value || item;
-                                    const isActive = selectedCaseCategories.includes(value);
-
-                                    return (
-                                        <button
-                                            type="button"
-                                            key={value}
-                                            className={`filter-chip ${isActive ? "on" : ""}`}
-                                            onClick={() => onToggleFilter("caseCategory", value)}
-                                        >
-                                            {label}
-                                        </button>
-                                    );
-                                })}
+                            ))}
                         </div>
                     </section>
-                ))}
+
+                    <section className="filter-section">
+                        <h4 className="filter-section-title">품절여부</h4>
+
+                        <div className="filter-chip-wrap">
+                            <button
+                                type="button"
+                                className={`filter-chip ${draft.stockOnly ? "on" : ""}`}
+                                onClick={() =>
+                                    setDraft((prev) => ({
+                                        ...prev,
+                                        stockOnly: !prev.stockOnly,
+                                    }))
+                                }
+                            >
+                                품절 제외
+                            </button>
+                        </div>
+                    </section>
+                </div>
 
                 <div className="filter-panel-bottom">
                     <button
                         type="button"
-                        className="confirm-btn"
-                        onClick={onClose}
+                        className="filter-apply-btn"
+                        onClick={applyFilters}
                     >
                         적용하기
                     </button>
