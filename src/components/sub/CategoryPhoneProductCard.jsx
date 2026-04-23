@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import "./scss/categoryProductCard.scss";
 import { modelColorOptions, colorMap } from "../../data/finalData";
 
-export default function CategoryPhoneProductCard({ item }) {
+export default function CategoryPhoneProductCard({ item, modelLabels = [] }) {
     const [isImageError, setIsImageError] = useState(false);
 
     if (!item) return null;
@@ -18,12 +18,22 @@ export default function CategoryPhoneProductCard({ item }) {
 
     const imagePath = `/images/category/products/${item.id}_${item.modelKey}_${deviceColorKey}_${caseColorKey}_main.jpg`;
 
+    const displayModelText = useMemo(() => {
+        if (modelLabels.length > 0) {
+            return modelLabels.length > 2
+                ? `${modelLabels[0]} 외 ${modelLabels.length - 1}`
+                : modelLabels.join(" / ");
+        }
+
+        return item.modelLabel || "";
+    }, [modelLabels, item.modelLabel]);
+
     const handleError = () => {
         setIsImageError(true);
     };
 
     return (
-        <li className="product-card">
+        <article className="product-card">
             <Link to={`/detail/${item.id}`} className="card-link">
                 <div className="card-img">
                     {!isImageError ? (
@@ -42,7 +52,8 @@ export default function CategoryPhoneProductCard({ item }) {
                 <p className="card-name">{item.productName}</p>
 
                 <p className="card-sub">
-                    {item.modelLabel} · {item.caseCategory}
+                    {displayModelText}
+                    {item.caseCategory ? ` · ${item.caseCategory}` : ""}
                 </p>
 
                 <p className="card-price">
@@ -66,6 +77,6 @@ export default function CategoryPhoneProductCard({ item }) {
                     </div>
                 )}
             </div>
-        </li>
+        </article>
     );
 }
