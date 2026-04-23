@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useNavigate } from "react-router-dom";
 import "swiper/css";
@@ -6,10 +6,11 @@ import "./scss/recomand.scss";
 
 import { items as allItems, modelColorOptions } from "../../../data/finalData";
 
-// eslint-disable-next-line react-refresh/only-export-components
+// ✅ 이미지 로딩 상태를 카드별로 분리 관리 (깜빡임 원인)
 function RecommendCard({ p, onClick }) {
     const [loaded, setLoaded] = useState(false);
 
+    // 후보 경로 목록 생성
     const getCandidates = (p) => {
         const base = `/images/category/products/${p.id}`;
         const modelColors = modelColorOptions[p.modelKey];
@@ -18,14 +19,19 @@ function RecommendCard({ p, onClick }) {
         const modelKey = p.modelKey ?? "";
 
         return [
+            // {id}_{modelKey}_{firstModelColor}_{mainCaseColor}_main.jpg
             modelKey && firstModelColor && mainColor
                 ? `${base}_${modelKey}_${firstModelColor}_${mainColor}_main.jpg`
                 : null,
+            // {id}_{modelKey}_{mainCaseColor}_main.jpg
             modelKey && mainColor
                 ? `${base}_${modelKey}_${mainColor}_main.jpg`
                 : null,
+            // {id}_{mainCaseColor}_main.jpg
             mainColor ? `${base}_${mainColor}_main.jpg` : null,
+            // {id}_main.jpg
             `${base}_main.jpg`,
+            // 최종 폴백
             "/images/no-image.png",
         ].filter(Boolean);
     };
@@ -44,6 +50,7 @@ function RecommendCard({ p, onClick }) {
 
     return (
         <div className="card" onClick={onClick} style={{ cursor: "pointer" }}>
+            {/* ✅ 이미지를 감싸는 wrapper로 스켈레톤을 absolute 겹침 처리 */}
             <div style={{ position: "relative", width: "100%", aspectRatio: "1/1" }}>
                 {!loaded && (
                     <div
@@ -81,21 +88,21 @@ function RecommendCard({ p, onClick }) {
     );
 }
 
-export default function BundleRecommend({ item }) {
+export default function budleReocomend({ item }) {
     const navigate = useNavigate();
 
-    const recommendedItems = useMemo(() => {
-        return allItems
-            .filter((p) => p.id !== item.id && p.mainCategory === "accessory")
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 8);
-    }, [item.id]);
+   const recommendedItems = useMemo(() => {
+    return allItems
+        .filter((p) => p.id !== item.id && p.mainCategory === 'accessory')
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 8);
+}, [item.id]);
 
     if (!item) return null;
 
     return (
         <div className="recommend-list">
-            <h3 className="title">추천 상품</h3>
+            <h3 className="title">번들 상품</h3>
             <Swiper slidesPerView={5} spaceBetween={20} grabCursor={true}>
                 {recommendedItems.map((p) => (
                     <SwiperSlide key={p.id}>
