@@ -2,23 +2,10 @@ import React, { useEffect, useState } from 'react'
 import "./scss/Cart.scss"
 import { useAuthStore } from '../store/useAuthStore';
 
-// 임시 배열
-const tempItem = [
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-];
+import { modelColorOptions, colorMap, phoneModelOptions } from '../data/finalData';
+import CartOption from '../components/sub/CartOption';
 
-
+// 임시
 const tempRecoItem = [
   {
     id: "CTF-34942803-16006188",
@@ -97,32 +84,52 @@ const tempRecoItem = [
 ]
 
 export default function Cart() {
+  const {user, cart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity} = useAuthStore();
+  const [cartItemList, setCartItemList] = useState([]);
+  const [optionModalOpen, setOptionModalOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState(null);
+
   // 체크박스 선택 확인
   const [chekedItems, setCheckedItems] = useState([]);
   // 체크박스 실행 메서드
   const handleChecked = (item) => {
-    console.log(item);
-    const key = item.id;
+    // console.log(item);
+    const key = `${item.productId}-${item.deviceKey}-${item.color}`;
     setCheckedItems((prev) =>
       prev.includes(key) ? prev.filter((v) => v !== key) : [...prev, key])
   }
   // 전체 체크 메서드
   const handleAllChecked = (e) => {
     if (e.target.checked) {
-      const allKeys = tempItem.map((item) => item.id)
+      const allKeys = cartItemList.map((item) => `${item.productId}-${item.deviceKey}-${item.color}`)
       setCheckedItems(allKeys)
     } else { setCheckedItems([]) }
   }
-
-  const {user, cartlist, onFetchCartList} = useAuthStore();
-  const [cartItemList, setCartItemList] = useState([]);
   
+  // 장바구니 정보 가져오기
   useEffect(()=>{ 
       if (!user) return;
-      onFetchCartList();
-      // setCartItemList(wishlist);
-      setCartItemList(tempItem);
-  }, [user, cartlist]);
+      onFetchCart();
+      setCartItemList(cart);
+  }, [user, cart]);
+  // 선택 제품
+  const selectedItems = cartItemList.filter((item) =>
+    chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`))
+  // 선택 제품 총가격 
+  const selectedTotal = selectedItems.reduce((acc, cur) =>
+    acc + cur.price * cur.quantity, 0);
+
+  // 할인 로직 더 
+  const discount = selectedTotal * 0.1;
+  // 배송비 기본 9000원
+  const [shipping, setShipping] = useState(9000);
+  useEffect(()=>{ 
+    if(selectedTotal - discount > 50000){
+      setShipping(0);
+    }else{
+      setShipping(9000)
+    }
+  }, [selectedTotal, discount]);
 
   return (
     <div className="sub-page-wrap cart-page-wrap">
@@ -163,9 +170,9 @@ export default function Cart() {
               <div className="cart-title-left">
                 <label className="checkbox-label">
                   <input type="checkbox"
-                    checked={chekedItems.length === tempItem.length}
+                    checked={chekedItems.length === cartItemList.length}
                     onChange={handleAllChecked} />
-                  <span className={`checkbox-icon ${chekedItems.length === tempItem.length ? "on" : "off"}`}></span>
+                  <span className={`checkbox-icon ${chekedItems.length === cartItemList.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -176,19 +183,19 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-              {cartItemList.map((item) => (
-                <li key={item.id} className="cart-item">
+              {cartItemList.map((item, id) => (
+                <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="cart-item">
                   <label className="checkbox-label">
                     <input type="checkbox"
-                      checked={chekedItems.includes(item.id)}
+                      checked={chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`)}
                       onChange={() => handleChecked(item)} />
-                    <span className={`checkbox-icon ${chekedItems.includes(item.id) ? "on" : "off"}`}></span>
+                    <span className={`checkbox-icon ${chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`) ? "on" : "off"}`}></span>
                   </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
                       <div className="goods-img">
                         <img
-                          src={`/images/category/products/${item.id}_${item.device}_${item.imgUrl}_main.jpg`}
+                          src={`/images/category/products/${item.productId}_${item.imgUrl}_main.jpg`}
                           alt={item.title} />
                       </div>
                       <div className="goods-text">
@@ -197,14 +204,14 @@ export default function Cart() {
                           <p>{item.device}</p>
                           <p>{item.color}</p>
                         </div>
-                        <button>옵션변경</button>
+                        <button onClick={() => setEditingItem(item)}>옵션변경</button>
                       </div>
                     </div>
                     <div className="cart-goods-count-price">
                       <div className="cart-count-ctrl">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button onClick={()=>updateQuantity(id, -1)}>-</button>
+                        <span>{item.quantity}</span>
+                        <button onClick={()=>updateQuantity(id, 1)}>+</button>
                       </div>
                       <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
                     </div>
@@ -212,10 +219,13 @@ export default function Cart() {
                 </li>
               ))}
             </ul>
+            {editingItem && (
+              <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)}/>
+            )}
             {/* 체크박스 취소 버튼 */}
             <div className="cart-cancel-btn-wrap">
-              <button>선택 상품 삭제</button>
-              <button>전체 상품 삭제</button>
+              <button onClick={()=>onRemoveSelected(selectedItems)}>선택 상품 삭제</button>
+              <button onClick={()=>onClearCart()}>전체 상품 삭제</button>
             </div>
           </div>
           {/* 우측 - 주문 컨트롤 */}
@@ -227,13 +237,13 @@ export default function Cart() {
             <div className="price-info-wrap">
               {/* 총 금액 */}
               <div className="price-detail">
-                <p className="price-sum">총 금액<span>{Number("100000").toLocaleString()}원</span></p>
-                <p className="price-discount">할인 금액<span>-{Number("100000").toLocaleString()}원</span></p>
-                <p className="price-delevery">배송비<span>{Number("100000").toLocaleString()}원</span></p>
+                <p className="price-sum">총 금액<span>{selectedTotal}원</span></p>
+                <p className="price-discount">할인 금액<span>{discount === 0 ? 0 : -discount}원</span></p>
+                <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${shipping}원`}</span></p>
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>{Number("100000").toLocaleString()}원</span></p>
+                <p className="est-price">결제예정금액<span>{selectedTotal - discount <= 50000 ? selectedTotal - discount + 7000 : selectedTotal - discount}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}

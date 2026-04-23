@@ -415,9 +415,9 @@ export const useAuthStore = create(
         },
 
         // 장바구니
-        cartlist: [],
+        cart: [],
         // 장바구니 가져오기
-        onFetchCartList: async () => {
+        onFetchCart: async () => {
             const user = get().user;
             if (!user) return;
 
@@ -436,7 +436,7 @@ export const useAuthStore = create(
         },
         // 장바구니 추가
         onAddToCart: async (product) => {
-            const user = get().user;
+            const {user, cart} = get();
             if (!user) return;
 
             const currentCart = [...get().cart];
@@ -455,17 +455,21 @@ export const useAuthStore = create(
                 // 없다면 새로 추가
                 currentCart.push({
                     productId: product.id,
-                    title: product.title,
+                    title: product.productName,
                     price: product.price,
                     imgUrl: product.imgUrl,
                     device: product.device,
+                    deviceKey: product.deviceKey,
                     color: product.color,
                     imgUrl: product.imgUrl,
                     colorList: product.colorList,
                     deviceList: product.deviceList,
+                    isPhone: product.isPhone,
+                    deviceBrand: product.deviceBrand,
                     quantity: 1
                 });
             }
+            console.log(currentCart);
 
             // DB 업데이트
             try {
@@ -475,6 +479,58 @@ export const useAuthStore = create(
                 console.log("장바구니에 담겼습니다!");
             } catch (e) {
                 console.log(e.message);
+            }
+        },
+        //장바구니 옵션 업데이트
+        onUpdateOption: async (oldItem, newModel, newColor, newDeviceKey) => {
+            const { user, cart } = get();
+            if (!user) return;
+
+            let currentCart = [...cart];
+
+            // 1. 기존 아이템 제거
+            // 식별 기준: productId + 기존 device + 기존 color
+            const targetIndex = currentCart.findIndex(item => 
+                item.productId === oldItem.productId && 
+                item.device === oldItem.device && 
+                item.color === oldItem.color
+            );
+
+            if (targetIndex === -1) return; // 수정 대상 못 찾으면 종료
+
+            const updatedItem = {
+                ...currentCart[targetIndex],
+                device: newModel,
+                deviceKey: newDeviceKey,
+                color: newColor
+            };
+
+            // 기존 위치 아이템 삭제
+            currentCart.splice(targetIndex, 1);
+
+            // 2. 새로운 옵션이 이미 장바구니에 있는지 확인 (중복 체크)
+            const existingItemIndex = currentCart.findIndex(item => 
+                item.productId === updatedItem.productId && 
+                item.device === updatedItem.device && 
+                item.color === updatedItem.color
+            );
+
+            if (existingItemIndex > -1) {
+                // 이미 동일 옵션 상품이 있다면 수량 합치기
+                currentCart[existingItemIndex].quantity += updatedItem.quantity;
+            } else {
+                // 없다면 수정된 아이템을 해당 위치 또는 끝에 삽입
+                currentCart.splice(targetIndex, 0, updatedItem);
+            }
+
+            // 3. DB 및 로컬 스토어 업데이트
+            try {
+                const cartRef = doc(db, "carts", user.uid);
+                await setDoc(cartRef, { items: currentCart }, { merge: true });
+                set({ cart: currentCart });
+                console.log("옵션이 변경되었습니다.");
+            } catch (e) {
+                console.error("옵션 업데이트 실패:", e.message);
             }
         },
         // 장바구니 수량변경
@@ -491,7 +547,7 @@ export const useAuthStore = create(
         },
         // 장바구니 선택 삭제
         onRemoveSelected: async (selectedItems) => {
-            const user = get().user;
+            const {user, cart} = get();
             if (!user) return;
 
             // selectedItems에 포함되지 않은 아이템들만 남기기
