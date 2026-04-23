@@ -2,23 +2,10 @@ import React, { useEffect, useState } from 'react'
 import "./scss/Cart.scss"
 import { useAuthStore } from '../store/useAuthStore';
 
-// 임시 배열
-const tempItem = [
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-    { id: "CTF-29455151-16009386", title: "Love the Freedom KKOTKA", price: 108000, device: "iphone17pro", color: "Black", imgUrl: "Deep-Blue_Black"},
-];
+import { modelColorOptions, colorMap, phoneModelOptions } from '../data/finalData';
+import CartOption from '../components/sub/CartOption';
 
-
+// 임시
 const tempRecoItem = [
   {
     id: "CTF-34942803-16006188",
@@ -99,6 +86,8 @@ const tempRecoItem = [
 export default function Cart() {
   const {user, cart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity} = useAuthStore();
   const [cartItemList, setCartItemList] = useState([]);
+  const [optionModalOpen, setOptionModalOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState(null);
 
   // 체크박스 선택 확인
   const [chekedItems, setCheckedItems] = useState([]);
@@ -215,7 +204,7 @@ export default function Cart() {
                           <p>{item.device}</p>
                           <p>{item.color}</p>
                         </div>
-                        <button>옵션변경</button>
+                        <button onClick={() => setEditingItem(item)}>옵션변경</button>
                       </div>
                     </div>
                     <div className="cart-goods-count-price">
@@ -227,90 +216,12 @@ export default function Cart() {
                       <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
                     </div>
                   </div>
-                  <div className="option-modal">
-                    <div className="option-box">
-                      <div>
-                        <h3>옵션</h3>
-                        <span><img src="" alt="" /></span>
-                      </div>
-                      <div className="model-select-box">
-                          {isPhone && item.brand && phoneModelOptions[item.brand] && (
-                              <div className="detail-info-box">
-                                  <p className="label">기종</p>
-                                  <div className="model-accordion">
-                                      <button
-                                          type="button"
-                                          className="model-accordion-trigger"
-                                          onClick={() => setModelAccordionOpen((prev) => !prev)}
-                                      >
-                                          <span>{selectedModel || "기종을 선택하세요"}</span>
-                                          <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
-                                      </button>
-                                      {modelAccordionOpen && (
-                                          <div className="model-accordion-list">
-                                              <div className="model-brand-tabs">
-                                                  {Object.keys(phoneModelOptions).map((brand) => (
-                                                      <button
-                                                          key={brand}
-                                                          type="button"
-                                                          className={selectedBrandTab === brand ? "active" : ""}
-                                                          onClick={() => setSelectedBrandTab(brand)}
-                                                      >
-                                                          {brand}
-                                                      </button>
-                                                  ))}
-                                              </div>
-                                              <ul className="model-sub-list">
-                                                  {(phoneModelOptions[selectedBrandTab] || []).map((model) => (
-                                                      <li
-                                                          key={model.key}
-                                                          className={selectedModel === model.label ? "active" : ""}
-                                                          onClick={() => {
-                                                              setSelectedModel(model.label);
-                                                              setModelAccordionOpen(false);
-                                                              setUserSelected(true);
-                                                          }}
-                                                      >
-                                                          {model.label}
-                                                      </li>
-                                                  ))}
-                                              </ul>
-                                          </div>
-                                      )}
-                                  </div>
-                              </div>
-                          )}
-                      </div>
-                      {!!item.caseColors?.length && (
-                        <div className="detail-info-box">
-                            <p className="label">케이스 컬러</p>
-                            <div className="detail-colors">
-                                {item.caseColors.map((color) => (
-                                  <button
-                                    key={color}
-                                    type="button"
-                                    className={selectedColor === color ? "active" : ""}
-                                    onClick={() => {
-                                        setSelectedColor(color);
-                                        setSelectedThumb("main");
-                                        setUserSelected(true); 
-                                    }}
-                                  >
-                                    <span
-                                        className="color-chip"
-                                        style={{ backgroundColor: colorMap[color] || "#ddd" }}
-                                    />
-                                    {color}
-                                  </button>
-                                ))}
-                            </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
                 </li>
               ))}
             </ul>
+            {editingItem && (
+              <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)}/>
+            )}
             {/* 체크박스 취소 버튼 */}
             <div className="cart-cancel-btn-wrap">
               <button onClick={()=>onRemoveSelected(selectedItems)}>선택 상품 삭제</button>
