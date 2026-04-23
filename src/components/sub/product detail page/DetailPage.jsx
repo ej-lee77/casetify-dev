@@ -145,9 +145,9 @@ const modelOptions = useMemo(() => {
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
     const handleAddWish = (item)=>{
-        if(isPhone){
-            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
-        }
+         const modelKey = isPhone
+        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+        : "";
 
         const wishItem = {
             id: item.id,
@@ -163,9 +163,9 @@ const modelOptions = useMemo(() => {
     }
 
     const handleAddCart = (item)=>{
-        if(isPhone){
-            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
-        }
+        const modelKey = isPhone
+        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+        : "";
 
         const cartItem = {
             id: item.id,
