@@ -36,9 +36,17 @@ function getPageNumbers(totalPages, currentPage) {
     return Array.from({ length: end - start + 1 }, (_, idx) => start + idx);
 }
 
+function getItemMainCategories(item) {
+    if (Array.isArray(item.mainCategory)) return item.mainCategory;
+    if (Array.isArray(item.mainCategories)) return item.mainCategories;
+    if (item.mainCategory) return [item.mainCategory];
+    if (item.mainCategories) return [item.mainCategories];
+    return [];
+}
+
 function getMiniMode(mainCate, subCate) {
     if (mainCate === "accessory") {
-        if (["protector", "magsafe"].includes(subCate)) return "caseCategory";
+        if (["protector", "magsafe", "etc"].includes(subCate)) return "caseCategory";
         return "none";
     }
 
@@ -47,23 +55,21 @@ function getMiniMode(mainCate, subCate) {
 
 function getBaseItemsByRoute(items, mainCate, subCate) {
     return (items || []).filter((item) => {
-        const mainCategories = Array.isArray(item.mainCategory)
-            ? item.mainCategory
-            : [item.mainCategory];
-
+        const itemMainCategories = getItemMainCategories(item);
         const subCategories = Array.isArray(item.displaySubCategories)
             ? item.displaySubCategories
             : [];
 
-        const matchMain = mainCategories.includes(mainCate);
+        if (mainCate === "colab") {
+            if (!itemMainCategories.includes("colab")) return false;
+            if (!subCate) return true;
+            return subCategories.includes(subCate);
+        }
+
+        const matchMain = itemMainCategories.includes(mainCate);
         if (!matchMain) return false;
 
         if (!subCate) return true;
-
-        // 콜라보 페이지는 displaySubCategories가 아니라 mainCategory의 collabo로 판단
-        if (subCate === "collabo") {
-            return mainCategories.includes("collabo");
-        }
 
         return subCategories.includes(subCate);
     });
@@ -81,9 +87,12 @@ export default function CategoryPagePractice() {
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    const [isDeviceModelPopupOpen, setIsDeviceModelPopupOpen] = useState(false);
+    const [selectedBrand, setSelectedBrand] = useState("Apple");
 
     const [selectedFilters, setSelectedFilters] = useState({
-        models: "",
+        device: "",
+        model: "",
         isCollabo: null,
         isMagSafe: null,
         stockOnly: false,
@@ -91,8 +100,6 @@ export default function CategoryPagePractice() {
         maxPrice: "",
         colors: [],
     });
-    const [isDeviceModelPopupOpen, setIsDeviceModelPopupOpen] = useState(false);
-    const [selectedBrand, setSelectedBrand] = useState("Apple");
 
     const currentMain = useMemo(() => {
         return mainMenuList?.find((item) => item.link === mainCate);
@@ -113,9 +120,7 @@ export default function CategoryPagePractice() {
     const visibleMiniItems = useMemo(() => {
         if (!currentSub) return [];
 
-        if (miniMode === "none") {
-            return [];
-        }
+        if (miniMode === "none") return [];
 
         if (miniMode === "caseCategory") {
             const categories = Array.from(
@@ -166,7 +171,8 @@ export default function CategoryPagePractice() {
     const filteredBaseItems = useMemo(() => {
         return routeBaseItems.filter((item) => {
             const {
-                models,
+                device,
+                model,
                 isCollabo,
                 isMagSafe,
                 stockOnly,
@@ -175,7 +181,8 @@ export default function CategoryPagePractice() {
                 colors,
             } = selectedFilters;
 
-            if (selectedFilters.model && item.modelKey !== selectedFilters.model) return false;
+            if (device && !(item.displayMiniCategories || []).includes(device)) return false;
+            if (model && item.modelKey !== model) return false;
             if (isCollabo !== null && Boolean(item.collabo) !== isCollabo) return false;
             if (isMagSafe !== null && Boolean(item.isMagSafe) !== isMagSafe) return false;
             if (stockOnly && item.stockStatus !== "inStock") return false;
@@ -250,7 +257,8 @@ export default function CategoryPagePractice() {
 
     useEffect(() => {
         setSelectedFilters({
-            models: [],
+            device: "",
+            model: "",
             isCollabo: null,
             isMagSafe: null,
             stockOnly: false,
@@ -259,6 +267,7 @@ export default function CategoryPagePractice() {
             colors: [],
         });
         setIsFilterOpen(false);
+        setIsDeviceModelPopupOpen(false);
     }, [mainCate, subCate]);
 
     useEffect(() => {
@@ -316,7 +325,7 @@ export default function CategoryPagePractice() {
             );
 
             tags.push({
-                type: "model", // ⭐ 단수로 바꾸는게 좋음
+                type: "model",
                 value: selectedFilters.model,
                 label: modelItem?.modelLabel || selectedFilters.model,
             });
@@ -479,14 +488,12 @@ export default function CategoryPagePractice() {
                     <div className="category-top-left">
                         <CategoryFilterButton onClick={() => setIsFilterOpen(true)} />
 
-                        {mini === "phone" && (
+                        {mini === "phone" && mainCate !== "colab" && (
                             <div className="device-model-popup-wrap">
                                 <button
                                     type="button"
                                     className={`device-model-inline-box ${isDeviceModelPopupOpen ? "on" : ""}`}
-                                    onClick={() =>
-                                        setIsDeviceModelPopupOpen((prev) => !prev)
-                                    }
+                                    onClick={() => setIsDeviceModelPopupOpen((prev) => !prev)}
                                 >
                                     <span className="device-model-label">모델 선택</span>
 
@@ -531,7 +538,7 @@ export default function CategoryPagePractice() {
                                                     onClick={() => {
                                                         setSelectedFilters((prev) => ({
                                                             ...prev,
-                                                            model: prev.model === model.key ? "" : model.key, // ⭐ 토글 가능
+                                                            model: prev.model === model.key ? "" : model.key,
                                                         }));
                                                     }}
                                                 >
