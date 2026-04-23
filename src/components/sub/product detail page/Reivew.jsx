@@ -32,7 +32,8 @@ export default function Review({ popularity, productId }) {
 
     // ✅ 중복 제거, 한번만 선언
     const { addReview, deleteReview, initReviews } = useReviewStore();
-    const reviews = useReviewStore((state) => state.reviews[productId] || []);
+const reviewMap = useReviewStore((state) => state.reviews);
+const reviews = reviewMap[productId] || [];
 
     const [input, setInput] = useState("");
     const [rating, setRating] = useState(5);
@@ -80,10 +81,10 @@ export default function Review({ popularity, productId }) {
         setRating(5);
     };
 
-    const handleDeleteReview = (targetReview) => {
-        if (!user || targetReview.uid !== user.uid) return;
-        deleteReview(productId, targetReview);
-    };
+const handleDeleteReview = (targetReview) => {
+    if (!user || targetReview.uid !== user?.uid) return; //
+    deleteReview(productId, targetReview);
+};
 
     return (
         <div className="review">
