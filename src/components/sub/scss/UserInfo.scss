@@ -110,7 +110,7 @@ div {
         input {
             width: 100%;
             border: 1px solid #2F2F2F;
-            border-radius: 15px;
+            // border-radius: 15px;
             height: 40px;
             padding-left: 15px;
             outline: none;
@@ -148,6 +148,37 @@ div {
     padding-left: 25px;
 }
 
+.password-wrap {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+
+
+    .pass-change-btn {
+        position: absolute;
+        // margin-top: 20px;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(50%);
+
+        button {
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            white-space: nowrap;
+            padding: 10px 38px;
+            font-size: 1rem;
+
+            &:hover {
+                background: #fff;
+                color: #000;
+                border: 1px solid #000;
+            }
+        }
+    }
+}
+
 // 배송주소 --------------------------
 .address-info {
     // border: 2px solid red;
@@ -170,6 +201,11 @@ div {
             color: #fff;
             padding: 5px 12px;
             font-size: 1rem;
+
+            &:hover {
+                background: #fff;
+                color: #000;
+            }
         }
     }
 
@@ -186,7 +222,7 @@ div {
             input {
                 width: 100%;
                 border: 1px solid #2F2F2F;
-                border-radius: 15px;
+                // border-radius: 15px;
                 height: 40px;
                 padding-left: 15px;
                 outline: none;

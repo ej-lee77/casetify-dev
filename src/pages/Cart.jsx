@@ -101,7 +101,7 @@ export default function Cart() {
   // 전체 체크 메서드
   const handleAllChecked = (e) => {
     if (e.target.checked) {
-      const allKeys = cartItemList.map((item) => `${item.productId}-${item.deviceKey}-${item.color}`)
+      const allKeys = cart.map((item) => `${item.productId}-${item.deviceKey}-${item.color}`)
       setCheckedItems(allKeys)
     } else { setCheckedItems([]) }
   }
@@ -110,10 +110,10 @@ export default function Cart() {
   useEffect(()=>{ 
       if (!user) return;
       onFetchCart();
-      setCartItemList(cart);
-  }, [user, cart]);
+  }, [user]);
+
   // 선택 제품
-  const selectedItems = cartItemList.filter((item) =>
+  const selectedItems = cart.filter((item) =>
     chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`))
   // 선택 제품 총가격 
   const selectedTotal = selectedItems.reduce((acc, cur) =>
@@ -130,6 +130,11 @@ export default function Cart() {
       setShipping(9000)
     }
   }, [selectedTotal, discount]);
+
+  const handleRemoveCart = ()=>{
+    onRemoveSelected(selectedItems);
+    setCheckedItems([]);
+  }
 
   return (
     <div className="sub-page-wrap cart-page-wrap">
@@ -170,9 +175,9 @@ export default function Cart() {
               <div className="cart-title-left">
                 <label className="checkbox-label">
                   <input type="checkbox"
-                    checked={chekedItems.length === cartItemList.length}
+                    checked={chekedItems.length === cart.length}
                     onChange={handleAllChecked} />
-                  <span className={`checkbox-icon ${chekedItems.length === cartItemList.length ? "on" : "off"}`}></span>
+                  <span className={`checkbox-icon ${chekedItems.length === cart.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -183,7 +188,7 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-              {cartItemList.map((item, id) => (
+              {cart.map((item, id) => (
                 <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="cart-item">
                   <label className="checkbox-label">
                     <input type="checkbox"
@@ -224,7 +229,7 @@ export default function Cart() {
             )}
             {/* 체크박스 취소 버튼 */}
             <div className="cart-cancel-btn-wrap">
-              <button onClick={()=>onRemoveSelected(selectedItems)}>선택 상품 삭제</button>
+              <button onClick={()=>handleRemoveCart()}>선택 상품 삭제</button>
               <button onClick={()=>onClearCart()}>전체 상품 삭제</button>
             </div>
           </div>
