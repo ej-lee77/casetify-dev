@@ -30,6 +30,7 @@ export const modelColorOptions = {
 };
 
 export const colorMap = {
+     // 기존
     Black: "#111111",
     Orange: "#ff8a00",
     Pink: "#f58bb6",
@@ -46,6 +47,98 @@ export const colorMap = {
     "Matte Taupe": "#8e7c72",
     "Matte Deep Purple": "#5d4a82",
     Multicolor: "#bdbdbd",
+
+    // Apple 디바이스 색상
+    "Cosmic-Orange": "#e8622a",
+    "Deep-Blue": "#1b3a6b",
+    White: "#f5f5f5",
+    Sage: "#8faa8b",
+    "Mist-Blue": "#a8bfd4",
+    Natural: "#c4baa8",
+    Desert: "#c4a882",
+    Marine: "#2b5fa5",
+    Teal: "#3a8c87",
+    Yellow: "#f5c842",
+    Green: "#4a9b6f",
+
+    // Samsung 디바이스 색상
+    Violet: "#6b4fa0",
+    Mint: "#7ecfb8",
+    "Cosmic-Orange": "#e8622a",
+    Red: "#d93025",
+
+    // Google Pixel 색상
+    Porcelain: "#e8e0d8",
+    Obsidian: "#2a2a2a",
+    Jade: "#5a8c6e",
+    Moonstone: "#8fa8b8",
+    Indigo: "#3d4fa0",
+    Lemongrass: "#c8c86e",
+    RoseQuartz: "#d4a0a8",
+    Hazel: "#8c7055",
+    Peony: "#d4789a",
+    Wintergreen: "#4a8c72",
+
+// caseColors 추가
+    "Glossy Primrose Pink": "#f9c8d0",
+    "Cobalt Blue": "#1a4bbd",
+    "Cherry Red": "#c0392b",
+    "Sakura Pink": "#f9b7c6",
+    "Baby Blue": "#aed6f1",
+    "Desert Gold": "#c8a95a",
+    "Soft Blue": "#8fb8d4",
+    Radish: "#d94f6e",
+    Periwinkle: "#8a9fd4",
+    Lavender: "#c8b4f0",
+    "Primrose Pink": "#f5a8b8",
+    "Blush Pink": "#f2c4ce",
+    "Heather Grey": "#a0a0b0",
+    Lilac: "#c8a8d8",
+    Vine: "#5a7a4a",
+    "Glitter Black": "#1a1a2e",
+    BlackBeige: "#5a4a3a",
+    PinkBlue: "#9ab8d4",
+    Mulberry: "#7a2a5a",
+    Oat: "#d4c4a8",
+    "Ballerina Pink": "#f0b8c8",
+    "Ruby Red": "#9b1c2e",
+    "Art Block": "#c8a05a",
+    "Pop Block": "#e84060",
+    "Cotton Candy": "#f8c8e0",
+    "Classic Pearl": "#f0ece4",
+    "Pearly Heart": "#e8d8e8",
+    "Classic Pearl (Silver)": "#d4d0cc",
+    "Star of Steel": "#8a9aaa",
+    "Red Heart": "#d42030",
+    "Red Cherry": "#c01828",
+    "Orange Optimism": "#f07830",
+    "Black Lust": "#1a1018",
+    "Periwinkle Promise": "#7888c8",
+    "Red Romance": "#c82838",
+    "Pink Passion": "#e85888",
+    "Lucky Pony": "#b8a0c8",
+    "Silver (2-in-1 Utility Lanyard)": "#c4c4c4",
+    "Black (2-in-1 Utility Lanyard)": "#1a1a1a",
+    "Metallic Bows": "#b8a888",
+    "Frosted Bows": "#d8e4ec",
+    "Chrome Blossom": "#c8c0b8",
+    "Cherry Blossom": "#f5b8c4",
+
+    // 별자리
+    Aquarius: "#4a90d9",
+    Pisces: "#7ec8c8",
+    Aries: "#e84040",
+    Taurus: "#6aaa60",
+    Gemini: "#f5d020",
+    Cancer: "#c0c0d8",
+    Leo: "#f5a800",
+    Virgo: "#8faa6a",
+    Libra: "#e8a0c0",
+    Scorpio: "#8b1a1a",
+    Sagittarius: "#7a50c8",
+    Capricorn: "#5a5a6a",
+
+
 };
 
 export const items = [
