@@ -1,15 +1,20 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
+
+import { items as allItems } from "../data/finalData";
 import { MINI_QUERY_MAP } from "../data/categoryMap";
 import { useCategoryProductStore } from "../store/useCategoryProductStore";
 import { groupModelsByProductName } from "../utils/groupProducts";
+
 import CategoryHero from "../components/sub/CategoryHero";
 import CategoryMiniIcon from "../components/sub/CategoryMiniIcon";
 import CategoryPhoneProductCard from "../components/sub/CategoryPhoneProductCard";
 import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
+import CategoryFilterPanel from "../components/sub/CategoryFilterPanel";
+import CategoryFilterButton from "../components/sub/CategoryFilterButton";
 
-const DEVICE_SELECT_MINI = ["phone", "earphone", "watch", "tablet", "laptop"];
+const ITEMS_PER_PAGE = 20;
 
 const SORT_OPTIONS = [
     { key: "recommend", label: "추천순" },
@@ -19,40 +24,75 @@ const SORT_OPTIONS = [
     { key: "new", label: "신상품순" },
 ];
 
+function getPageNumbers(totalPages, currentPage) {
+    if (totalPages <= 7) {
+        return Array.from({ length: totalPages }, (_, idx) => idx + 1);
+    }
+
+    let start = Math.max(1, currentPage - 2);
+    let end = Math.min(totalPages, start + 4);
+    start = Math.max(1, end - 4);
+
+    return Array.from({ length: end - start + 1 }, (_, idx) => start + idx);
+}
+
+function getMiniMode(mainCate, subCate) {
+    if (mainCate === "accessory") {
+        if (["protector", "magsafe"].includes(subCate)) return "caseCategory";
+        return "none";
+    }
+
+    return "displayMini";
+}
+
+function getBaseItemsByRoute(items, mainCate, subCate) {
+    return (items || []).filter((item) => {
+        const mainCategories = Array.isArray(item.mainCategory)
+            ? item.mainCategory
+            : [item.mainCategory];
+
+        const subCategories = Array.isArray(item.displaySubCategories)
+            ? item.displaySubCategories
+            : [];
+
+        const matchMain = mainCategories.includes(mainCate);
+        if (!matchMain) return false;
+
+        if (!subCate) return true;
+
+        // 콜라보 페이지는 displaySubCategories가 아니라 mainCategory의 collabo로 판단
+        if (subCate === "collabo") {
+            return mainCategories.includes("collabo");
+        }
+
+        return subCategories.includes(subCate);
+    });
+}
+
 export default function CategoryPagePractice() {
     const { mainCate, subCate } = useParams();
+    const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
     const mini = searchParams.get("mini") || "";
     const sort = searchParams.get("sort") || "recommend";
 
-    const {
-        categoryItems,
-        mainMenuList,
-        onFilterCategory,
-    } = useCategoryProductStore();
+    const { mainMenuList } = useCategoryProductStore();
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
-    const [isDeviceSelectOpen, setIsDeviceSelectOpen] = useState(false);
-    const [selectedBrand, setSelectedBrand] = useState("Apple");
-    const [selectedModelKey, setSelectedModelKey] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
 
     const [selectedFilters, setSelectedFilters] = useState({
+        models: "",
+        isCollabo: null,
+        isMagSafe: null,
         stockOnly: false,
-        selectedColors: [],
         minPrice: "",
         maxPrice: "",
+        colors: [],
     });
-
-    useEffect(() => {
-        if (!mainCate) return;
-        onFilterCategory(mainCate, subCate, mini);
-    }, [mainCate, subCate, mini, onFilterCategory]);
-
-    useEffect(() => {
-        setSelectedModelKey("");
-        setIsDeviceSelectOpen(false);
-    }, [mini, mainCate, subCate]);
+    const [isDeviceModelPopupOpen, setIsDeviceModelPopupOpen] = useState(false);
+    const [selectedBrand, setSelectedBrand] = useState("Apple");
 
     const currentMain = useMemo(() => {
         return mainMenuList?.find((item) => item.link === mainCate);
@@ -62,101 +102,101 @@ export default function CategoryPagePractice() {
         return currentMain?.sub?.find((item) => item.link === subCate);
     }, [currentMain, subCate]);
 
-    const miniCate = currentSub?.mini || [];
+    const miniMode = useMemo(() => {
+        return getMiniMode(mainCate, subCate);
+    }, [mainCate, subCate]);
+
+    const routeItemsWithoutMini = useMemo(() => {
+        return getBaseItemsByRoute(allItems, mainCate, subCate);
+    }, [mainCate, subCate]);
+
+    const visibleMiniItems = useMemo(() => {
+        if (!currentSub) return [];
+
+        if (miniMode === "none") {
+            return [];
+        }
+
+        if (miniMode === "caseCategory") {
+            const categories = Array.from(
+                new Set(
+                    routeItemsWithoutMini
+                        .map((item) => item.caseCategory)
+                        .filter(Boolean)
+                )
+            );
+
+            return categories.map((category) => ({
+                key: category,
+                label: category,
+            }));
+        }
+
+        const rawMiniList = currentSub?.mini || [];
+
+        return rawMiniList
+            .map((miniLabel) => ({
+                key: MINI_QUERY_MAP[miniLabel] || miniLabel,
+                label: miniLabel,
+            }))
+            .filter((miniItem) =>
+                routeItemsWithoutMini.some((item) =>
+                    (item.displayMiniCategories || []).includes(miniItem.key)
+                )
+            );
+    }, [currentSub, miniMode, routeItemsWithoutMini]);
 
     const currentMiniLabel = useMemo(() => {
-        const found = miniCate.find((item) => {
-            const itemKey = MINI_QUERY_MAP[item] || item;
-            return itemKey === mini;
-        });
+        const found = visibleMiniItems.find((item) => item.key === mini);
+        return found?.label || "";
+    }, [visibleMiniItems, mini]);
 
-        return found || "";
-    }, [miniCate, mini]);
+    const routeBaseItems = useMemo(() => {
+        if (!mini) return routeItemsWithoutMini;
 
-    const canOpenDeviceSelect = DEVICE_SELECT_MINI.includes(mini);
+        if (miniMode === "caseCategory") {
+            return routeItemsWithoutMini.filter((item) => item.caseCategory === mini);
+        }
 
-    const onHandleMiniCategory = (miniValue) => {
-        const next = new URLSearchParams(searchParams);
-        next.set("mini", miniValue);
-        setSearchParams(next);
-    };
-
-    const groupedItems = useMemo(() => {
-        return groupModelsByProductName(categoryItems || []);
-    }, [categoryItems]);
-
-    const availableModelOptions = useMemo(() => {
-        const allItems = groupedItems.flatMap((group) => group.items);
-
-        const filteredByMini = allItems.filter((item) => {
-            if (!mini) return true;
-            return (item.displayMiniCategories || []).includes(mini);
-        });
-
-        const brandFiltered = filteredByMini.filter((item) => {
-            if (!selectedBrand) return true;
-            return item.brand === selectedBrand;
-        });
-
-        return Array.from(
-            new Map(
-                brandFiltered
-                    .filter((item) => item.modelKey && item.modelLabel)
-                    .map((item) => [
-                        item.modelKey,
-                        { key: item.modelKey, label: item.modelLabel },
-                    ])
-            ).values()
+        return routeItemsWithoutMini.filter((item) =>
+            (item.displayMiniCategories || []).includes(mini)
         );
-    }, [groupedItems, mini, selectedBrand]);
+    }, [routeItemsWithoutMini, mini, miniMode]);
 
-    const filteredGroups = useMemo(() => {
-        return groupedItems.filter((group) => {
-            const groupItems = group.items || [];
+    const filteredBaseItems = useMemo(() => {
+        return routeBaseItems.filter((item) => {
+            const {
+                models,
+                isCollabo,
+                isMagSafe,
+                stockOnly,
+                minPrice,
+                maxPrice,
+                colors,
+            } = selectedFilters;
 
-            if (selectedModelKey) {
-                const hasSelectedModel = groupItems.some(
-                    (item) => item.modelKey === selectedModelKey
-                );
-                if (!hasSelectedModel) return false;
-            }
+            if (selectedFilters.model && item.modelKey !== selectedFilters.model) return false;
+            if (isCollabo !== null && Boolean(item.collabo) !== isCollabo) return false;
+            if (isMagSafe !== null && Boolean(item.isMagSafe) !== isMagSafe) return false;
+            if (stockOnly && item.stockStatus !== "inStock") return false;
+            if (minPrice !== "" && Number(item.price) < Number(minPrice)) return false;
+            if (maxPrice !== "" && Number(item.price) > Number(maxPrice)) return false;
 
-            if (selectedFilters.stockOnly) {
-                const hasStock = groupItems.some(
-                    (item) => item.stockStatus === "inStock"
-                );
-                if (!hasStock) return false;
-            }
-
-            if (selectedFilters.selectedColors.length > 0) {
-                const hasColor = groupItems.some((item) =>
-                    selectedFilters.selectedColors.some((color) =>
-                        (item.caseColors || []).includes(color)
-                    )
-                );
+            if (colors.length > 0) {
+                const hasColor = colors.some((color) => (item.caseColors || []).includes(color));
                 if (!hasColor) return false;
-            }
-
-            if (selectedFilters.minPrice !== "") {
-                const hasMinPrice = groupItems.some(
-                    (item) => Number(item.price) >= Number(selectedFilters.minPrice)
-                );
-                if (!hasMinPrice) return false;
-            }
-
-            if (selectedFilters.maxPrice !== "") {
-                const hasMaxPrice = groupItems.some(
-                    (item) => Number(item.price) <= Number(selectedFilters.maxPrice)
-                );
-                if (!hasMaxPrice) return false;
             }
 
             return true;
         });
-    }, [groupedItems, selectedModelKey, selectedFilters]);
+    }, [routeBaseItems, selectedFilters]);
+
+    const groupedItems = useMemo(() => {
+        return groupModelsByProductName(filteredBaseItems);
+    }, [filteredBaseItems]);
 
     const sortedGroups = useMemo(() => {
-        const copied = [...filteredGroups];
+        const copied = [...groupedItems];
 
         copied.sort((a, b) => {
             const aItem = a.items?.[0];
@@ -164,66 +204,225 @@ export default function CategoryPagePractice() {
 
             if (!aItem || !bItem) return 0;
 
-            if (sort === "popular") {
-                return (bItem.popularity || 0) - (aItem.popularity || 0);
-            }
-
-            if (sort === "priceLow") {
-                return (aItem.price || 0) - (bItem.price || 0);
-            }
-
-            if (sort === "priceHigh") {
-                return (bItem.price || 0) - (aItem.price || 0);
-            }
-
-            if (sort === "new") {
-                return Number(bItem.isNew) - Number(aItem.isNew);
-            }
+            if (sort === "popular") return (bItem.popularity || 0) - (aItem.popularity || 0);
+            if (sort === "priceLow") return (aItem.price || 0) - (bItem.price || 0);
+            if (sort === "priceHigh") return (bItem.price || 0) - (aItem.price || 0);
+            if (sort === "new") return Number(bItem.isNew) - Number(aItem.isNew);
 
             return (aItem.recommendRank || 9999) - (bItem.recommendRank || 9999);
         });
 
         return copied;
-    }, [filteredGroups, sort]);
+    }, [groupedItems, sort]);
+
+    const deviceModelOptions = useMemo(() => {
+        const filteredByBrand = routeBaseItems.filter((item) => {
+            if (!item.modelKey || !item.modelLabel) return false;
+            if (!selectedBrand) return true;
+            return item.brand === selectedBrand;
+        });
+
+        return Array.from(
+            new Map(
+                filteredByBrand.map((item) => [
+                    item.modelKey,
+                    { key: item.modelKey, label: item.modelLabel },
+                ])
+            ).values()
+        );
+    }, [routeBaseItems, selectedBrand]);
+
+    const totalPages = Math.ceil(sortedGroups.length / ITEMS_PER_PAGE);
 
     const pagedGroups = useMemo(() => {
-        return sortedGroups.slice(0, 20);
-    }, [sortedGroups]);
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        return sortedGroups.slice(startIndex, endIndex);
+    }, [sortedGroups, currentPage]);
+
+    const pageNumbers = useMemo(() => {
+        return getPageNumbers(totalPages, currentPage);
+    }, [totalPages, currentPage]);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [mainCate, subCate, mini, sort, selectedFilters]);
+
+    useEffect(() => {
+        setSelectedFilters({
+            models: [],
+            isCollabo: null,
+            isMagSafe: null,
+            stockOnly: false,
+            minPrice: "",
+            maxPrice: "",
+            colors: [],
+        });
+        setIsFilterOpen(false);
+    }, [mainCate, subCate]);
+
+    useEffect(() => {
+        if (totalPages > 0 && currentPage > totalPages) {
+            setCurrentPage(totalPages);
+        }
+    }, [currentPage, totalPages]);
+
+    useEffect(() => {
+        setIsDeviceModelPopupOpen(false);
+
+        if (mini !== "phone" && selectedFilters.model) {
+            setSelectedFilters((prev) => ({
+                ...prev,
+                model: "",
+            }));
+        }
+    }, [mini, selectedFilters.model]);
+
+    const onHandleMiniCategory = (miniValue) => {
+        const next = new URLSearchParams(searchParams);
+
+        if (mini === miniValue) {
+            next.delete("mini");
+        } else {
+            next.set("mini", miniValue);
+        }
+
+        if (sort) next.set("sort", sort);
+
+        setSearchParams(next);
+    };
 
     const onChangeSort = (e) => {
         const next = new URLSearchParams(searchParams);
         next.set("sort", e.target.value);
+        if (mini) next.set("mini", mini);
         setSearchParams(next);
     };
 
-    const onToggleDeviceSelect = () => {
-        if (!canOpenDeviceSelect) return;
-        setIsDeviceSelectOpen((prev) => !prev);
+    const appliedTags = useMemo(() => {
+        const tags = [];
+
+        if (currentSub?.name) {
+            tags.push({ type: "sub", value: currentSub.link, label: currentSub.name });
+        }
+
+        if (currentMiniLabel) {
+            tags.push({ type: "mini", value: mini, label: currentMiniLabel });
+        }
+
+        if (selectedFilters.model) {
+            const modelItem = routeBaseItems.find(
+                (item) => item.modelKey === selectedFilters.model
+            );
+
+            tags.push({
+                type: "model", // ⭐ 단수로 바꾸는게 좋음
+                value: selectedFilters.model,
+                label: modelItem?.modelLabel || selectedFilters.model,
+            });
+        }
+
+        if (selectedFilters.isCollabo === true) {
+            tags.push({ type: "isCollabo", value: true, label: "콜라보만" });
+        }
+
+        if (selectedFilters.isCollabo === false) {
+            tags.push({ type: "isCollabo", value: false, label: "일반 상품만" });
+        }
+
+        if (selectedFilters.isMagSafe === true) {
+            tags.push({ type: "isMagSafe", value: true, label: "맥세이프 가능" });
+        }
+
+        if (selectedFilters.isMagSafe === false) {
+            tags.push({ type: "isMagSafe", value: false, label: "일반 케이스" });
+        }
+
+        if (selectedFilters.stockOnly) {
+            tags.push({ type: "stockOnly", value: true, label: "품절 제외" });
+        }
+
+        if (selectedFilters.minPrice || selectedFilters.maxPrice) {
+            tags.push({
+                type: "price",
+                value: "price",
+                label: `${selectedFilters.minPrice || 0}원 ~ ${selectedFilters.maxPrice || "∞"}원`,
+            });
+        }
+
+        selectedFilters.colors.forEach((color) => {
+            tags.push({ type: "colors", value: color, label: color });
+        });
+
+        return tags;
+    }, [currentSub, currentMiniLabel, mini, selectedFilters, routeBaseItems]);
+
+    const removeTag = (tag) => {
+        if (tag.type === "mini") {
+            const next = new URLSearchParams(searchParams);
+            next.delete("mini");
+            if (sort) next.set("sort", sort);
+            setSearchParams(next);
+            return;
+        }
+
+        if (tag.type === "model") {
+            setSelectedFilters((prev) => ({
+                ...prev,
+                model: "",
+            }));
+            return;
+        }
+
+        if (tag.type === "isCollabo") {
+            setSelectedFilters((prev) => ({ ...prev, isCollabo: null }));
+            return;
+        }
+
+        if (tag.type === "isMagSafe") {
+            setSelectedFilters((prev) => ({ ...prev, isMagSafe: null }));
+            return;
+        }
+
+        if (tag.type === "stockOnly") {
+            setSelectedFilters((prev) => ({ ...prev, stockOnly: false }));
+            return;
+        }
+
+        if (tag.type === "price") {
+            setSelectedFilters((prev) => ({ ...prev, minPrice: "", maxPrice: "" }));
+            return;
+        }
+
+        if (tag.type === "colors") {
+            setSelectedFilters((prev) => ({
+                ...prev,
+                colors: prev.colors.filter((item) => item !== tag.value),
+            }));
+        }
+    };
+
+    const handleApplyFilters = ({ nextSubCateLink, nextMini, filters }) => {
+        const nextParams = new URLSearchParams();
+
+        if (nextMini) nextParams.set("mini", nextMini);
+        if (sort) nextParams.set("sort", sort);
+
+        setSelectedFilters(filters);
+        setIsFilterOpen(false);
+
+        navigate(`/${mainCate}/${nextSubCateLink}${nextParams.toString() ? `?${nextParams.toString()}` : ""}`);
     };
 
     const renderCard = (group) => {
-        const baseItem =
-            selectedModelKey
-                ? group.items.find((item) => item.modelKey === selectedModelKey) || group.items[0]
-                : group.items[0];
-
+        const baseItem = group.items?.[0];
         if (!baseItem) return null;
 
         if (baseItem.productTarget === "phone") {
-            return (
-                <CategoryPhoneProductCard
-                    item={baseItem}
-                    modelLabels={group.modelLabels}
-                />
-            );
+            return <CategoryPhoneProductCard item={baseItem} modelLabels={group.modelLabels} />;
         }
 
-        return (
-            <CategoryEtcProductCard
-                item={baseItem}
-                modelLabels={group.modelLabels}
-            />
-        );
+        return <CategoryEtcProductCard item={baseItem} modelLabels={group.modelLabels} />;
     };
 
     return (
@@ -237,106 +436,117 @@ export default function CategoryPagePractice() {
 
             <div className="inner">
                 <div className="category-breadcrumb">
-                    홈 &gt; {currentSub?.name || currentMain?.name || ""}
+                    <Link to="/">홈</Link>
+                    {currentMain?.name && (
+                        <>
+                            <span> &gt; </span>
+                            <span>{currentMain.name}</span>
+                        </>
+                    )}
+                    {currentSub?.name && (
+                        <>
+                            <span> &gt; </span>
+                            <span>{currentSub.name}</span>
+                        </>
+                    )}
+                    {currentMiniLabel && (
+                        <>
+                            <span> &gt; </span>
+                            <span>{currentMiniLabel}</span>
+                        </>
+                    )}
                 </div>
 
-                {!!miniCate.length && (
-                    <ul className="category-sub-slider">
-                        {miniCate.map((miniItem, idx) => {
-                            const miniKey = MINI_QUERY_MAP[miniItem] || miniItem;
-
-                            return (
-                                <CategoryMiniIcon
-                                    key={`${miniItem}-${idx}`}
-                                    miniKey={miniKey}
-                                    label={miniItem}
-                                    isActive={mini === miniKey}
-                                    onClick={() => onHandleMiniCategory(miniKey)}
-                                />
-                            );
-                        })}
+                {!!visibleMiniItems.length && (
+                    <ul className={`category-sub-slider ${mini ? "has-active" : ""}`}>
+                        {visibleMiniItems.map((miniItem, idx) => (
+                            <CategoryMiniIcon
+                                key={`${miniItem.key}-${idx}`}
+                                miniKey={
+                                    miniMode === "caseCategory"
+                                        ? (MINI_QUERY_MAP[miniItem.key] || "etc")
+                                        : miniItem.key
+                                }
+                                label={miniItem.label}
+                                isActive={mini === miniItem.key}
+                                onClick={() => onHandleMiniCategory(miniItem.key)}
+                            />
+                        ))}
                     </ul>
                 )}
 
-                <div className="category-action-row">
-                    <div className="filter-btn-wrap">
-                        <button
-                            type="button"
-                            className={`category-filter-btn ${isFilterOpen ? "on" : ""}`}
-                            onClick={() => setIsFilterOpen((prev) => !prev)}
-                        >
-                            <span className="label">필터</span>
-                        </button>
-                    </div>
+                <div className="category-top-row">
+                    <div className="category-top-left">
+                        <CategoryFilterButton onClick={() => setIsFilterOpen(true)} />
 
-                    <div className="device-select-wrap">
-                        <button
-                            type="button"
-                            className={`device-select-btn ${isDeviceSelectOpen ? "on" : ""}`}
-                            onClick={onToggleDeviceSelect}
-                            disabled={!canOpenDeviceSelect}
-                        >
-                            {selectedModelKey
-                                ? availableModelOptions.find((item) => item.key === selectedModelKey)?.label || "기기선택"
-                                : "기기모델 선택"}
-                        </button>
+                        {mini === "phone" && (
+                            <div className="device-model-popup-wrap">
+                                <button
+                                    type="button"
+                                    className={`device-model-inline-box ${isDeviceModelPopupOpen ? "on" : ""}`}
+                                    onClick={() =>
+                                        setIsDeviceModelPopupOpen((prev) => !prev)
+                                    }
+                                >
+                                    <span className="device-model-label">모델 선택</span>
 
-                        {selectedModelKey && (
-                            <button
-                                type="button"
-                                className="device-reset-btn"
-                                onClick={() => setSelectedModelKey("")}
-                            >
-                                선택취소
-                            </button>
-                        )}
+                                    <span className="device-model-value">
+                                        {selectedFilters.model
+                                            ? routeBaseItems.find(
+                                                (item) => item.modelKey === selectedFilters.model
+                                            )?.modelLabel || "선택됨"
+                                            : "선택 안됨"}
+                                    </span>
+                                </button>
 
-                        {isDeviceSelectOpen && canOpenDeviceSelect && (
-                            <div className="device-select-panel">
-                                <div className="device-select-header">
-                                    <h3>기기모델 선택</h3>
-                                    <button
-                                        type="button"
-                                        className="device-panel-close"
-                                        onClick={() => setIsDeviceSelectOpen(false)}
-                                    >
-                                        닫기
-                                    </button>
-                                </div>
+                                {isDeviceModelPopupOpen && (
+                                    <div className="device-model-popup-panel">
+                                        <div className="device-popup-header-inline">
+                                            <div className="device-brand-tabs">
+                                                {["Apple", "Samsung", "Google"].map((brand) => (
+                                                    <button
+                                                        key={brand}
+                                                        className={selectedBrand === brand ? "on" : ""}
+                                                        onClick={() => setSelectedBrand(brand)}
+                                                    >
+                                                        {brand}
+                                                    </button>
+                                                ))}
+                                            </div>
 
-                                <div className="device-brand-tabs">
-                                    {["Apple", "Samsung", "Google"].map((brand) => (
-                                        <button
-                                            type="button"
-                                            key={brand}
-                                            className={selectedBrand === brand ? "on" : ""}
-                                            onClick={() => setSelectedBrand(brand)}
-                                        >
-                                            {brand}
-                                        </button>
-                                    ))}
-                                </div>
-
-                                <ul className="device-model-list">
-                                    {availableModelOptions.length > 0 ? (
-                                        availableModelOptions.map((model) => (
-                                            <li
-                                                key={model.key}
-                                                className={selectedModelKey === model.key ? "on" : ""}
-                                                onClick={() => {
-                                                    setSelectedModelKey(model.key);
-                                                    setIsDeviceSelectOpen(false);
-                                                }}
+                                            <button
+                                                type="button"
+                                                className="device-popup-close"
+                                                onClick={() => setIsDeviceModelPopupOpen(false)}
                                             >
-                                                {model.label}
-                                            </li>
-                                        ))
-                                    ) : (
-                                        <li className="empty">선택 가능한 모델이 없어요.</li>
-                                    )}
-                                </ul>
+                                                ✕
+                                            </button>
+                                        </div>
+
+                                        <ul className="device-model-list">
+                                            {deviceModelOptions.map((model) => (
+                                                <li
+                                                    key={model.key}
+                                                    className={selectedFilters.model === model.key ? "on" : ""}
+                                                    onClick={() => {
+                                                        setSelectedFilters((prev) => ({
+                                                            ...prev,
+                                                            model: prev.model === model.key ? "" : model.key, // ⭐ 토글 가능
+                                                        }));
+                                                    }}
+                                                >
+                                                    {model.label}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
                         )}
+
+                        <p className="result-count">
+                            총 <strong>{sortedGroups.length}</strong>개
+                        </p>
                     </div>
 
                     <div className="sort-select-wrap">
@@ -350,31 +560,20 @@ export default function CategoryPagePractice() {
                     </div>
                 </div>
 
-                <div className="selected-tags-row">
-                    {selectedModelKey && (
-                        <button
-                            type="button"
-                            className="selected-tag"
-                            onClick={() => setSelectedModelKey("")}
-                        >
-                            {availableModelOptions.find((item) => item.key === selectedModelKey)?.label} ×
-                        </button>
-                    )}
-
-                    {currentMiniLabel && (
-                        <button
-                            type="button"
-                            className="selected-tag"
-                            onClick={() => {
-                                const next = new URLSearchParams(searchParams);
-                                next.delete("mini");
-                                setSearchParams(next);
-                            }}
-                        >
-                            {currentMiniLabel} ×
-                        </button>
-                    )}
-                </div>
+                {!!appliedTags.length && (
+                    <div className="selected-tags-row">
+                        {appliedTags.map((tag, index) => (
+                            <button
+                                type="button"
+                                key={`${tag.type}-${tag.value}-${index}`}
+                                className="selected-tag"
+                                onClick={() => removeTag(tag)}
+                            >
+                                {tag.label} ×
+                            </button>
+                        ))}
+                    </div>
+                )}
 
                 <ul className="category-product-list">
                     {pagedGroups.map((group) => (
@@ -384,16 +583,83 @@ export default function CategoryPagePractice() {
                     ))}
                 </ul>
 
-                <div className="category-pagination">
-                    <button type="button">&laquo;</button>
-                    <button type="button">&lsaquo;</button>
-                    <button type="button" className="on">1</button>
-                    <button type="button">2</button>
-                    <button type="button">3</button>
-                    <button type="button">&rsaquo;</button>
-                    <button type="button">&raquo;</button>
-                </div>
+                {totalPages > 1 && (
+                    <div className="category-pagination">
+                        <button
+                            type="button"
+                            onClick={() => setCurrentPage(1)}
+                            disabled={currentPage === 1}
+                        >
+                            &laquo;
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                            disabled={currentPage === 1}
+                        >
+                            &lsaquo;
+                        </button>
+
+                        {pageNumbers[0] > 1 && (
+                            <>
+                                <button type="button" onClick={() => setCurrentPage(1)}>1</button>
+                                {pageNumbers[0] > 2 && <span className="page-ellipsis">…</span>}
+                            </>
+                        )}
+
+                        {pageNumbers.map((pageNumber) => (
+                            <button
+                                type="button"
+                                key={pageNumber}
+                                className={currentPage === pageNumber ? "on" : ""}
+                                onClick={() => setCurrentPage(pageNumber)}
+                            >
+                                {pageNumber}
+                            </button>
+                        ))}
+
+                        {pageNumbers[pageNumbers.length - 1] < totalPages && (
+                            <>
+                                {pageNumbers[pageNumbers.length - 1] < totalPages - 1 && (
+                                    <span className="page-ellipsis">…</span>
+                                )}
+                                <button type="button" onClick={() => setCurrentPage(totalPages)}>
+                                    {totalPages}
+                                </button>
+                            </>
+                        )}
+
+                        <button
+                            type="button"
+                            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                            disabled={currentPage === totalPages}
+                        >
+                            &rsaquo;
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => setCurrentPage(totalPages)}
+                            disabled={currentPage === totalPages}
+                        >
+                            &raquo;
+                        </button>
+                    </div>
+                )}
             </div>
+
+            <CategoryFilterPanel
+                isOpen={isFilterOpen}
+                onClose={() => setIsFilterOpen(false)}
+                onApply={handleApplyFilters}
+                mainCate={mainCate}
+                currentMain={currentMain}
+                currentSub={currentSub}
+                currentMini={mini}
+                allItems={allItems}
+                selectedFilters={selectedFilters}
+            />
         </div>
     );
 }
