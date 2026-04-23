@@ -8,6 +8,32 @@ export const useProductStore = create((set, get) => ({
 
     items: [],
 
+    // 검색 관련 변수(search)
+    searchWord: "",
+    onSetSearchWord:(word)=>set({searchWord:word}),
+
+    // 검색 단어 저장 배열
+    searchWordList:[],
+
+    //검색 단어 저장 메서드
+    onAddSearchList:()=>{
+        set((state)=>({
+            searchWordList:[...state.searchWordList,{
+                id:Date.now(),
+                text:state.searchWord}],
+            searchWord:""
+        }))
+    },
+
+    onRemoveSearchList:(id)=>{
+        set((state)=>({
+            searchWordList:state.searchWordList.filter(((s)=>s.id !==id))
+        }))
+    },
+    onRemoveAllSearch:()=>{
+        set({searchWordList:[]})
+    },
+
     // 전체 아이템
     onFetchItems: async () => {
         const existing = get().items;
