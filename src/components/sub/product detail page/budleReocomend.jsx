@@ -83,7 +83,7 @@ function RecommendCard({ p, onClick }) {
                 />
             </div>
             <p className="name">{p.productName}</p>
-            <p className="price">₩{Number(p.price).toLocaleString()}</p>
+            <p className="price">{Number(p.price).toLocaleString()}원</p>
         </div>
     );
 }
@@ -93,7 +93,9 @@ export default function budleReocomend({ item }) {
 
    const recommendedItems = useMemo(() => {
     return allItems
-        .filter((p) => p.id !== item.id && p.mainCategory === 'accessory')
+        .filter((p) => p.id !== item.id && Array.isArray(p.mainCategory) 
+                ? p.mainCategory.includes("accessory") 
+                : p.mainCategory === "accessory")
         .sort(() => Math.random() - 0.5)
         .slice(0, 8);
 }, [item.id]);
