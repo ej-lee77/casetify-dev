@@ -21,6 +21,7 @@ import CustomPage from './pages/CustomPage'
 import { useAuthStore } from './store/useAuthStore'
 import Payment from './pages/Payment'
 import PayComplete from './pages/PayComplete'
+import Store from './pages/Store'
 
 function App() {
   // const { onFetchItems } = useProductStore();
@@ -69,8 +70,10 @@ function App() {
 
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/payment' element={<Payment />} />
-        <Route path='/payment/complete' element={<PayComplete />} />
+        <Route path='/payment' element={<Payment />}/>
+        <Route path='/payment/complete' element={<PayComplete />}/>
+
+        <Route path='/brand/store' element={<Store/>}/>
       </Routes>
       <Footer />
     </>

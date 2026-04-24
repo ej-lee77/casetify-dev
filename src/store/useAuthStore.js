@@ -389,6 +389,7 @@ export const useAuthStore = create(
                     const updatedList = currentWishlist.filter((_, index) => index !== existingItemIndex);
                     set({ wishlist: updatedList });
                     console.log("삭제 완료");
+                    return "del";
                 } else {
                     // 3. 추가 처리
                     await setDoc(userWishRef, {
@@ -396,10 +397,11 @@ export const useAuthStore = create(
                     }, { merge: true });
                     set({ wishlist: [...currentWishlist, productData] });
                     console.log("저장 완료");
+                    return "add";
                 }
-                await get().onFetchWishlist();
             } catch (err) {
                 console.log(err.message);
+                return false;
             }
         },
         // 위시리스트 삭제
@@ -419,8 +421,10 @@ export const useAuthStore = create(
                     item.color === targetItem.color)
                 );
                 set({ wishlist: updatedList });
+                return true;
             } catch (err) {
                 console.log(err.message);
+                return false;
             }
         },
         // 위시리스트 가져오기
