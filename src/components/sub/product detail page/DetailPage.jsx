@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
-import { modelColorOptions, colorMap, phoneModelOptions } from "../../../data/finalData";
+import { modelColorOptions, colorMap, phoneModelOptions, items } from "../../../data/finalData";
 import { getModelsByProductGroup } from "../../../utils/groupProducts";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
-import { items } from "../../../data/finalData";
 import { useAuthStore } from "../../../store/useAuthStore";
 
 export default function DetailPage({ item }) {
@@ -64,20 +63,24 @@ export default function DetailPage({ item }) {
         if (!items || !item) return [];
 
         // accessory만 필터
-        const accessories = items.filter((d) => d.mainCategory === "accessory");
+        const accessories = items.filter((d) => 
+            Array.isArray(d.mainCategory) 
+                ? d.mainCategory.includes("accessory") 
+                : d.mainCategory === "accessory"
+        );
 
         // item.id에서 숫자 합산으로 고유 시드 생성
         const seed = item.id.replace(/\D/g, "").split("").reduce((acc, n) => acc + Number(n), 0);
 
         // 시드로 서로 다른 인덱스 2개 선택
-     const len = accessories.length;
-const idx1 = seed % len;
-let idx2 = (seed * 3 + 7) % len;
-if (idx2 === idx1) idx2 = (idx2 + 1) % len;
-
+        const len = accessories.length;
+        const idx1 = seed % len;
+        let idx2 = (seed * 3 + 7) % len;
+        if (idx2 === idx1) idx2 = (idx2 + 1) % len;
+        
         // 첫번째 현재 상품 고정 + 액세서리 2개
        return [item, accessories[idx1], accessories[idx2]];
-    }, [item]);
+    }, [item, items]);
 
     // 같은 상품명+케이스카테고리 그룹에서 기종 목록 추출
     const modelOptions = useMemo(() => {
