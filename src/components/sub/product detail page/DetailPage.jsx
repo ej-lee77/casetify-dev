@@ -70,14 +70,13 @@ export default function DetailPage({ item }) {
         const seed = item.id.replace(/\D/g, "").split("").reduce((acc, n) => acc + Number(n), 0);
 
         // 시드로 서로 다른 인덱스 2개 선택
-        const len = accessories.length;
-        const idx1 = seed % len;
-        const idx2 = (seed * 3 + 7) % len === idx1
-            ? (seed * 3 + 8) % len
-            : (seed * 3 + 7) % len;
+     const len = accessories.length;
+const idx1 = seed % len;
+let idx2 = (seed * 3 + 7) % len;
+if (idx2 === idx1) idx2 = (idx2 + 1) % len;
 
         // 첫번째 현재 상품 고정 + 액세서리 2개
-        return [item, accessories[idx1], accessories[idx2]];
+       return [item, accessories[idx1], accessories[idx2]];
     }, [item]);
 
     // 같은 상품명+케이스카테고리 그룹에서 기종 목록 추출
