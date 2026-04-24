@@ -370,12 +370,34 @@ export const useAuthStore = create(
 
             try {
                 const userWishRef = doc(db, "wishlists", user.uid);
+                const currentWishlist = get().wishlist;
+                
+                // 1. 이미 존재하는지 확인 (productId 기준)
+                const existingItemIndex = currentWishlist.findIndex(item =>
+                    item.productId === wishItem.id &&
+                    item.device === wishItem.device &&
+                    item.color === wishItem.color
+                );
+                // const isExisted = currentWishlist.some(item => item.productId === wishItem.id);
 
-                await setDoc(userWishRef, {
-                    items: arrayUnion(productData)
-                }, { merge: true });
+                if (existingItemIndex >-1) {
+                    // 2. 삭제 처리
+                    await setDoc(userWishRef, {
+                        items: arrayRemove(productData)
+                    }, { merge: true });
 
-                console.log("Firebase 위시리스트에 저장 완료!");
+                    const updatedList = currentWishlist.filter((_, index) => index !== existingItemIndex);
+                    set({ wishlist: updatedList });
+                    console.log("삭제 완료");
+                } else {
+                    // 3. 추가 처리
+                    await setDoc(userWishRef, {
+                        items: arrayUnion(productData)
+                    }, { merge: true });
+                    set({ wishlist: [...currentWishlist, productData] });
+                    console.log("저장 완료");
+                }
+                await get().onFetchWishlist();
             } catch (err) {
                 console.log(err.message);
             }
@@ -383,12 +405,20 @@ export const useAuthStore = create(
         // 위시리스트 삭제
         onRemoveWishlist: async (targetItem) => {
             const user = get().user;
+            const currentWishlist = get().wishlist;
             const userWishRef = doc(db, "wishlists", user.uid);
 
             try {
                 await updateDoc(userWishRef, {
                     items: arrayRemove(targetItem)
                 });
+
+                const updatedList = currentWishlist.filter(item => 
+                    !(item.productId === targetItem.productId && 
+                    item.device === targetItem.device && 
+                    item.color === targetItem.color)
+                );
+                set({ wishlist: updatedList });
             } catch (err) {
                 console.log(err.message);
             }

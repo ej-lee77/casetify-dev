@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
 import { modelColorOptions, colorMap, phoneModelOptions  } from "../../../data/finalData";
-
+import { getModelsByProductGroup } from "../../../utils/groupProducts";
 
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
@@ -26,7 +26,7 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     // const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    const {user, onAddWishlist, onAddToCart} = useAuthStore();
+    const {user, wishlist, onAddWishlist, onAddToCart} = useAuthStore();
 
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export default function DetailPage({ item }) {
         setModelAccordionOpen(false);   
         setSelectedModel("");
 
-        // ✅ 선택할 옵션이 없는 상품은 바로 선택된 상태로
+        //선택할 옵션이 없는 상품은 바로 장바구니버튼눌러도 로그인경고 안뜸 
         const hasNoOption =
             !phoneModelOptions[item?.brand] &&
             !item?.compatibleModels?.length &&
@@ -47,7 +47,20 @@ export default function DetailPage({ item }) {
 
         setUserSelected(hasNoOption);
 
+    const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
+        phoneModelOptions[brand].some((m) =>
+            getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
+        )
+    );
+    if (availableBrand) setSelectedBrandTab(availableBrand);
+
     }, [item]);
+
+    useEffect(() => {
+        // 위시리스트 배열에서 현재 아이템의 id가 있는지 확인
+        const isExisted = wishlist?.some((wishItem) => wishItem.productId === item.id);
+        setIsWished(isExisted);
+    }, [wishlist, item.id]); 
 
 
     // 번들 상품 랜덤 3개
@@ -70,6 +83,11 @@ export default function DetailPage({ item }) {
         // ✅ 첫번째 현재 상품 고정 + 액세서리 2개
         return [item, accessories[idx1], accessories[idx2]];
     }, [item]);
+
+    const modelOptions = useMemo(() => {
+        return getModelsByProductGroup(items, item);
+    }, [item]);
+
 
 
     // 선택된 번들 (id -> quantity 맵)
@@ -130,10 +148,10 @@ export default function DetailPage({ item }) {
     const modelColors = isPhone ? modelColorOptions?.[item?.modelKey] || [] : [];
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
-    const handleAddWish = (item)=>{
-        if(isPhone){
-            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
-        }
+    const handleAddWish = (item) => {
+        const modelKey = isPhone
+            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+            : "";
 
         const wishItem = {
             id: item.id,
@@ -142,16 +160,16 @@ export default function DetailPage({ item }) {
             device: selectedModel,
             deviceKey: isPhone ? modelKey : selectedModel,
             color: selectedColor,
-            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor
-        }
-        
-        onAddWishlist(wishItem);
-    }
+            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+        };
 
-    const handleAddCart = (item)=>{
-        if(isPhone){
-            const modelKey = phoneModelOptions[selectedBrandTab].find((model) => (selectedModel === model.label)).key;
-        }
+        onAddWishlist(wishItem);
+    };
+
+    const handleAddCart = (item) => {
+        const modelKey = isPhone
+            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+            : "";
 
         const cartItem = {
             id: item.id,
@@ -162,13 +180,13 @@ export default function DetailPage({ item }) {
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
             colorList: item.caseColors,
-            deviceList: item.compatibleModels.length ? item.compatibleModels : "",
+            deviceList: item.compatibleModels?.length ? item.compatibleModels : "", // ✅ 옵셔널
             isPhone: isPhone,
-            deviceBrand: selectedBrandTab
-        }
-        
+            deviceBrand: selectedBrandTab,
+        };
+
         onAddToCart(cartItem);
-    }
+    };
 
     const mainImagePath = isPhone
         ? `/images/category/products/${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
@@ -235,7 +253,7 @@ export default function DetailPage({ item }) {
                         <div className="detail-main-image" style={{ position: "relative" }}>
                             <img src={mainImage} alt={item.productName} />
 
-                            {/* ✅ 컬러 리모콘 오버레이 */}
+                            {/* 디바이스 컬러 리모콘 */}
                             {isPhone && !!modelColors.length && (
                                 <div className="color-remote">
                                     {modelColors.map((deviceColor) => (
@@ -259,12 +277,11 @@ export default function DetailPage({ item }) {
                                 </div>
                             )}
 
-                            {/* ✅ 왼쪽 하단 위시 버튼 */}
+                            {/* 위시 하트 버튼 */}
                             <button
                                 className={`image-wish-btn ${isWished ? "wished" : ""}`}
                                 onClick={() => {
                                     handleAddWish(item);
-                                    setIsWished((prev) => !prev);
                                 }}
                             >
                                 <img
@@ -296,8 +313,10 @@ export default function DetailPage({ item }) {
                         </ul>
                     </div>
                 </div>
+
+
                 <div className="detail-right">
-                    {/* ✅ 1. 무료배송 뱃지 + 2. 상품 ID */}
+                    {/*  1. 무료배송 뱃지 + 2. 상품 ID */}
                     <div className="detail-meta">
                         {item.badge?.includes("무료 배송") && (
                             <span className="badge-free-ship">무료 배송</span>
@@ -316,8 +335,7 @@ export default function DetailPage({ item }) {
                         </div>
                     )}
                     <div className="model-select-box">
-
-                        {isPhone && item.brand && phoneModelOptions[item.brand] && (
+                        {isPhone && modelOptions.length > 0 && (
                             <div className="detail-info-box">
                                 <p className="label">기종</p>
                                 <div className="model-accordion">
@@ -332,31 +350,43 @@ export default function DetailPage({ item }) {
                                     {modelAccordionOpen && (
                                         <div className="model-accordion-list">
                                             <div className="model-brand-tabs">
-                                                {Object.keys(phoneModelOptions).map((brand) => (
-                                                    <button
-                                                        key={brand}
-                                                        type="button"
-                                                        className={selectedBrandTab === brand ? "active" : ""}
-                                                        onClick={() => setSelectedBrandTab(brand)}
-                                                    >
-                                                        {brand}
-                                                    </button>
-                                                ))}
+                                                {Object.keys(phoneModelOptions)
+                                                    .filter((brand) =>
+                                                        phoneModelOptions[brand].some((m) =>
+                                                            modelOptions.some((mo) => mo.key === m.key)
+                                                        )
+                                                    )
+                                                    .map((brand) => (
+                                                        <button
+                                                            key={brand}
+                                                            type="button"
+                                                            className={selectedBrandTab === brand ? "active" : ""}
+                                                            onClick={() => setSelectedBrandTab(brand)}
+                                                        >
+                                                            {brand}
+                                                        </button>
+                                                    ))}
                                             </div>
                                             <ul className="model-sub-list">
-                                                {(phoneModelOptions[selectedBrandTab] || []).map((model) => (
-                                                    <li
-                                                        key={model.key}
-                                                        className={selectedModel === model.label ? "active" : ""}
-                                                        onClick={() => {
-                                                            setSelectedModel(model.label);
-                                                            setModelAccordionOpen(false);
-                                                            setUserSelected(true);
-                                                        }}
-                                                    >
-                                                        {model.label}
-                                                    </li>
-                                                ))}
+                                                {modelOptions
+                                                    .filter((mo) =>
+                                                        (phoneModelOptions[selectedBrandTab] || []).some(
+                                                            (m) => m.key === mo.key
+                                                        )
+                                                    )
+                                                    .map((model) => (
+                                                        <li
+                                                            key={model.key}
+                                                            className={selectedModel === model.label ? "active" : ""}
+                                                            onClick={() => {
+                                                                setSelectedModel(model.label);
+                                                                setModelAccordionOpen(false);
+                                                                setUserSelected(true);
+                                                            }}
+                                                        >
+                                                            {model.label}
+                                                        </li>
+                                                    ))}
                                             </ul>
                                         </div>
                                     )}
