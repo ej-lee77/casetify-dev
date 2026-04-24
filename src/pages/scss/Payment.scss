@@ -316,6 +316,9 @@
                             &.open { transform: rotate(180deg) translateY(50%); }
                         }
                     }
+                    .placeholder{
+                        color: #aaaaaa;
+                    }
                 }
                 .address-box{
                     >input{
@@ -338,13 +341,77 @@
         }
         .coupon-wrap{
             padding: 16px;
+            @include g.myFlex($fd: column, $ai:normal, $gap: 30px);
+
+            .input-box{
+
+                .label-div{
+                    margin-bottom: 10px;
+                }
+
+                .input-div{
+                    
+                    .placeholder{
+                        color: #aaaaaa;
+                    }
+                    
+                    .coupon-div{
+                        padding: 10px;
+                        width: 80%;
+                        background: #fff;
+                        border: solid #aaaaaa 1px;
+                        position: relative;
+                    
+                        .accordion-arrow {
+                            font-size: 11px;
+                            color: #888;
+                            transition: transform 0.2s ease;
+                            position: absolute;
+                            right: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            &.open { transform: rotate(180deg) translateY(50%); }
+                        }
+                    }
+
+                    .add-btn{
+                        padding: 10px 20px;
+                        background: #000;
+                        color: #fff;
+                        margin-left: 10px;
+                    }
+                }
+
+                .gift-div{
+                    @include g.myFlex($jc: start, $gap:unset);
+                }
+
+                .gift-selsct{
+                    width: 80%;
+                    .coupon-div {
+                        width: 100%;
+                    }
+                }
+            }
+
 
         }
         .payment-method-box{
             padding: 16px;
 
             .payment-method-list{
-                @include g.myFlex($fw: wrap);
+                @include g.myFlex($fw: wrap, $jc: start, $gap:30px);
+                width: 50%;
+                
+                input[type="radio"] {
+                    accent-color: #808080; 
+                }
+
+                li{
+                    label{
+                        @include g.myFlex($jc: start, $gap:10px);
+                    }
+                }
             }
         }
         .agree-div{

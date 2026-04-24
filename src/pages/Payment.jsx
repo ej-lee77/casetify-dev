@@ -14,6 +14,10 @@ export default function Payment() {
   const [cartItemList, setCartItemList] = useState([]);
   const [isMemoOpen, setIsMemoOpen] = useState(false);
   const [selectedMemo, setSelectedMemo] = useState('배송 메모를 선택해주세요');
+  const [isCouponOpen, setIsCouponOpen] = useState(false);
+  const [selectedCoupon, setSelectedCoupon] = useState('선택');
+  const [isGiftOpen, setIsGiftOpen] = useState(false);
+  const [selectedGift, setSelectedGift] = useState('선택');
 
   const [formData, setFormData] = useState({
     username: user.name,
@@ -188,7 +192,7 @@ export default function Payment() {
                 <div className='input-box'>
                     <div className='label-div'><label>배송 메모</label></div>
                     <div className='input-div'>
-                        <div className='deli-memo' onClick={() => setIsMemoOpen(!isMemoOpen)}>
+                        <div className={`deli-memo ${selectedMemo === '배송 메모를 선택해주세요' ? 'placeholder' : ''}`} onClick={() => setIsMemoOpen(!isMemoOpen)}>
                           {selectedMemo}
                           <span className={`accordion-arrow ${isMemoOpen ? "open" : ""}`}>▼</span>
                         </div>
@@ -257,18 +261,19 @@ export default function Payment() {
                 <div className='input-box'>
                   <div className='label-div'><label>쿠폰 선택</label></div>
                   <div className='input-div'>
-                      <div className='deli-memo' onClick={() => setIsMemoOpen(!isMemoOpen)}>
-                        {selectedMemo}
-                        <span className={`accordion-arrow ${isMemoOpen ? "open" : ""}`}>▼</span>
+                      <div className={`coupon-div ${selectedCoupon === '선택' ? 'placeholder' : ''}`} onClick={() => setIsCouponOpen(!isCouponOpen)}>
+                        {selectedCoupon}
+                        <span className={`accordion-arrow ${isCouponOpen ? "open" : ""}`}>▼</span>
                       </div>
-                      {isMemoOpen && (
+                      {isCouponOpen && (
                         <div>
-                          {memoList.map((item, index) => (
+                          <div>--</div>
+                          {user.couponList?.map((item, index) => (
                             <div 
                               key={index} 
                               onClick={() => {
-                                setSelectedMemo(item);
-                                setIsMemoOpen(false);
+                                setIsCouponOpen(item);
+                                isCouponOpen(false);
                               }}
                             >
                               {item}
@@ -280,26 +285,33 @@ export default function Payment() {
                 </div>
                 <div className='input-box'>
                   <div className='label-div'><label>기프트 카드</label></div>
-                  <div className='input-div'>
-                      <div className='deli-memo' onClick={() => setIsMemoOpen(!isMemoOpen)}>
-                        {selectedMemo}
-                        <span className={`accordion-arrow ${isMemoOpen ? "open" : ""}`}>▼</span>
-                      </div>
-                      {isMemoOpen && (
-                        <div>
-                          {memoList.map((item, index) => (
-                            <div 
-                              key={index} 
-                              onClick={() => {
-                                setSelectedMemo(item);
-                                setIsMemoOpen(false);
-                              }}
-                            >
-                              {item}
-                            </div>
-                          ))}
+                  <div className='input-div gift-div'>
+                      <div className='gift-selsct'>
+                        <div className={`coupon-div ${selectedGift === '선택' ? 'placeholder' : ''}`} onClick={() => setIsGiftOpen(!isGiftOpen)}>
+                          {selectedGift}
+                          <span className={`accordion-arrow ${isGiftOpen ? "open" : ""}`}>▼</span>
                         </div>
-                      )}
+                        {isGiftOpen && (
+                          <div>
+                            <div 
+                              onClick={() => {
+                                setIsGiftOpen(false);
+                              }}>--</div>
+                            {user.giftList?.map((item, index) => (
+                              <div 
+                                key={index} 
+                                onClick={() => {
+                                  setSelectedGift(item);
+                                  setIsGiftOpen(false);
+                                }}
+                              >
+                                {item}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <button className='add-btn'>등록하기</button>
                   </div>
                 </div>
               </div>

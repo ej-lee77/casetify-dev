@@ -11,18 +11,17 @@ export default function WishList() {
     useEffect(()=>{ 
         if (!user) return;
         onFetchWishlist();
-        setWishItemList(wishlist);
-    }, [user, wishlist]);
+    }, [user]);
 
     return (
         <div>
             <MypageTitle title={"위시리스트"} />
             <ul className="wish-list">
-                {wishItemList.map((item) => (
+                {wishlist.map((item) => (
                     <li key={item.productId} className="wish-product-card">
                         <Link to={`/detail/${item.productId}`}>
                             <div className="card-img">
-                                <img src={`/images/category/products/${item.productId}_${item.device}_${item.imgUrl}_main.jpg`} alt={item.title}/>
+                                <img src={`/images/category/products/${item.productId}_${item.imgUrl}_main.jpg`} alt={item.title}/>
                             </div>
                             <div className="card-info">
                             <p className="card-name">{item.title}</p>
