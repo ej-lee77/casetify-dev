@@ -159,8 +159,10 @@ if (idx2 === idx1) idx2 = (idx2 + 1) % len;
     const modelColors = isPhone ? modelColorOptions?.[selectedItem?.modelKey] || [] : [];
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
-    // 위시 추가
-    const handleAddWish = (item) => {
+    const [wishMsg, setWishMsg] = useState("");
+    const [isWishPopupOpen, setIsWishPopupOpen] = useState(true);
+    const [isPopupErr, setIsPopupErr] = useState(false);
+    const handleAddWish = async(item) => {
         const modelKey = isPhone
             ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
             : "";
@@ -175,7 +177,19 @@ if (idx2 === idx1) idx2 = (idx2 + 1) % len;
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
         };
 
-        onAddWishlist(wishItem);
+        const isWish = await onAddWishlist(wishItem);
+
+        if(isWish === "del"){
+            // 완료 팝업열기
+            setWishMsg("위시리스트에서 삭제했습니다.");
+            setIsWishPopupOpen(true);
+        }else if(isWish === "add"){
+            setWishMsg("위시리스트에 담겼습니다!");
+            setIsWishPopupOpen(true);
+        }else{
+            setWishMsg("오류가 발생했습니다. 다시 시도해주세요.");
+            setIsPopupErr(true);
+        }
     };
 
     // 장바구니 추가
@@ -193,7 +207,7 @@ if (idx2 === idx1) idx2 = (idx2 + 1) % len;
             color: selectedColor,
             imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
             colorList: item.caseColors,
-            deviceList: item.compatibleModels?.length ? item.compatibleModels : "",
+            deviceList: isPhone ? modelOptions : item.compatibleModels,
             isPhone: isPhone,
             deviceBrand: selectedBrandTab,
         };
@@ -660,6 +674,39 @@ if (idx2 === idx1) idx2 = (idx2 + 1) % len;
                     </div>
 
                 </div>
+                {isWishPopupOpen && (
+                    <div className="popup-overlay">
+                        <div className="popup">
+                            <p>{wishMsg}</p>
+                            {isPopupErr ? (
+                                <div className="popup-buttons">
+                                    
+                                    <button 
+                                        className="btn-close" 
+                                        onClick={() => setIsWishPopupOpen(false)}
+                                    >
+                                        닫기
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="popup-buttons">
+                                    <button 
+                                        className="btn-continue" 
+                                        onClick={() => setIsWishPopupOpen(false)}
+                                    >
+                                        계속 쇼핑하기
+                                    </button>
+                                    <button 
+                                        className="btn-go-wish" 
+                                        onClick={() => navigate('/mypage', { state: { menu: "위시리스트" } })}
+                                    >
+                                        위시리스트 보기
+                                    </button>
+                                </div>  
+                            )}                              
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );
