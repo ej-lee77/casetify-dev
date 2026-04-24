@@ -24,33 +24,33 @@ import PayComplete from './pages/PayComplete'
 import Store from './pages/Store'
 
 function App() {
-  const { onFetchItems } = useProductStore();
+  // const { onFetchItems } = useProductStore();
   const { pathname } = useLocation();
-  const { initAuth }  = useAuthStore();
+  const { initAuth } = useAuthStore();
 
-  useEffect(()=>{
+  useEffect(() => {
     initAuth();
-  },[initAuth]);
+  }, [initAuth]);
 
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
-        window.history.scrollRestoration = 'manual';
+      window.history.scrollRestoration = 'manual';
     }
-    
+
     // 페이지 이동 직후 실행
     window.scrollTo(0, 0);
 
     // 팝업 렌더링 대비한
     const timer = setTimeout(() => {
-        window.scrollTo(0, 0);
-    }, 50); 
+      window.scrollTo(0, 0);
+    }, 50);
 
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  useEffect(() => {
-    onFetchItems();
-  }, []);
+  // useEffect(() => {
+  //   onFetchItems();
+  // }, []);
   return (
     <>
       <Header />
@@ -59,14 +59,14 @@ function App() {
 
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
-        <Route path='/custom' element={<CustomPage />}/>
+        <Route path='/custom' element={<CustomPage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
         <Route path='/login/find/:content' element={<LoginFind />} />
         <Route path='/join' element={<Join />} />
         <Route path='/join/mail' element={<JoinMail />} />
-        <Route path='/join/complete' element={<JoinComplete />}/>
+        <Route path='/join/complete' element={<JoinComplete />} />
 
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/cart' element={<Cart />} />
