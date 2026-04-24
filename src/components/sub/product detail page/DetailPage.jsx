@@ -26,7 +26,7 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     // const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    const {user, onAddWishlist, onAddToCart} = useAuthStore();
+    const {user, wishlist, onAddWishlist, onAddToCart} = useAuthStore();
 
 
     useEffect(() => {
@@ -54,9 +54,13 @@ export default function DetailPage({ item }) {
     );
     if (availableBrand) setSelectedBrandTab(availableBrand);
 
-
-
     }, [item]);
+
+    useEffect(() => {
+        // 위시리스트 배열에서 현재 아이템의 id가 있는지 확인
+        const isExisted = wishlist?.some((wishItem) => wishItem.productId === item.id);
+        setIsWished(isExisted);
+    }, [wishlist, item.id]); 
 
 
     // 번들 상품 랜덤 3개
@@ -278,7 +282,6 @@ export default function DetailPage({ item }) {
                                 className={`image-wish-btn ${isWished ? "wished" : ""}`}
                                 onClick={() => {
                                     handleAddWish(item);
-                                    setIsWished((prev) => !prev);
                                 }}
                             >
                                 <img
@@ -331,66 +334,66 @@ export default function DetailPage({ item }) {
                             <p className="label"> <span className="label">{item.caseCategory}</span></p>
                         </div>
                     )}
-              <div className="model-select-box">
-    {isPhone && modelOptions.length > 0 && (
-        <div className="detail-info-box">
-            <p className="label">기종</p>
-            <div className="model-accordion">
-                <button
-                    type="button"
-                    className="model-accordion-trigger"
-                    onClick={() => setModelAccordionOpen((prev) => !prev)}
-                >
-                    <span>{selectedModel || "기종을 선택하세요"}</span>
-                    <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
-                </button>
-                {modelAccordionOpen && (
-                    <div className="model-accordion-list">
-                        <div className="model-brand-tabs">
-                            {Object.keys(phoneModelOptions)
-                                .filter((brand) =>
-                                    phoneModelOptions[brand].some((m) =>
-                                        modelOptions.some((mo) => mo.key === m.key)
-                                    )
-                                )
-                                .map((brand) => (
+                    <div className="model-select-box">
+                        {isPhone && modelOptions.length > 0 && (
+                            <div className="detail-info-box">
+                                <p className="label">기종</p>
+                                <div className="model-accordion">
                                     <button
-                                        key={brand}
                                         type="button"
-                                        className={selectedBrandTab === brand ? "active" : ""}
-                                        onClick={() => setSelectedBrandTab(brand)}
+                                        className="model-accordion-trigger"
+                                        onClick={() => setModelAccordionOpen((prev) => !prev)}
                                     >
-                                        {brand}
+                                        <span>{selectedModel || "기종을 선택하세요"}</span>
+                                        <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
                                     </button>
-                                ))}
-                        </div>
-                        <ul className="model-sub-list">
-                            {modelOptions
-                                .filter((mo) =>
-                                    (phoneModelOptions[selectedBrandTab] || []).some(
-                                        (m) => m.key === mo.key
-                                    )
-                                )
-                                .map((model) => (
-                                    <li
-                                        key={model.key}
-                                        className={selectedModel === model.label ? "active" : ""}
-                                        onClick={() => {
-                                            setSelectedModel(model.label);
-                                            setModelAccordionOpen(false);
-                                            setUserSelected(true);
-                                        }}
-                                    >
-                                        {model.label}
-                                    </li>
-                                ))}
-                        </ul>
+                                    {modelAccordionOpen && (
+                                        <div className="model-accordion-list">
+                                            <div className="model-brand-tabs">
+                                                {Object.keys(phoneModelOptions)
+                                                    .filter((brand) =>
+                                                        phoneModelOptions[brand].some((m) =>
+                                                            modelOptions.some((mo) => mo.key === m.key)
+                                                        )
+                                                    )
+                                                    .map((brand) => (
+                                                        <button
+                                                            key={brand}
+                                                            type="button"
+                                                            className={selectedBrandTab === brand ? "active" : ""}
+                                                            onClick={() => setSelectedBrandTab(brand)}
+                                                        >
+                                                            {brand}
+                                                        </button>
+                                                    ))}
+                                            </div>
+                                            <ul className="model-sub-list">
+                                                {modelOptions
+                                                    .filter((mo) =>
+                                                        (phoneModelOptions[selectedBrandTab] || []).some(
+                                                            (m) => m.key === mo.key
+                                                        )
+                                                    )
+                                                    .map((model) => (
+                                                        <li
+                                                            key={model.key}
+                                                            className={selectedModel === model.label ? "active" : ""}
+                                                            onClick={() => {
+                                                                setSelectedModel(model.label);
+                                                                setModelAccordionOpen(false);
+                                                                setUserSelected(true);
+                                                            }}
+                                                        >
+                                                            {model.label}
+                                                        </li>
+                                                    ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
-        </div>
-    )}
-</div>
 
                     {!!item.caseColors?.length && (
                         <div className="detail-info-box">
