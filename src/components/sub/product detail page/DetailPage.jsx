@@ -141,9 +141,24 @@ const modelOptions = useMemo(() => {
     }
 
     const isPhone = item?.productTarget === "phone";
-    const modelColors = isPhone ? modelColorOptions?.[item?.modelKey] || [] : [];
-    const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
+    // ✅ 선택된 기종에 맞는 실제 item 찾기
+const selectedItem = (() => {
+    if (!selectedModel || !isPhone) return item;
+    return items.find(
+        (d) =>
+            d.productName === item.productName &&
+            d.caseCategory === item.caseCategory &&
+            d.modelLabel === selectedModel
+    ) || item;
+})();
 
+
+
+const modelColors = isPhone ? modelColorOptions?.[selectedItem?.modelKey] || [] : [];
+const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
+
+
+    
 const handleAddWish = (item) => {
     const modelKey = isPhone
         ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
@@ -184,39 +199,39 @@ const handleAddCart = (item) => {
     onAddToCart(cartItem);
 };
 
-    const mainImagePath = isPhone
-        ? `/images/category/products/${item.id}_${item.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
-        : item.modelKey
-            ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
-            : `/images/category/products/${item.id}_${selectedColor}_main.jpg`;
+const mainImagePath = isPhone
+    ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
+    : item.modelKey
+        ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
+        : `/images/category/products/${item.id}_${selectedColor}_main.jpg`;
 
-    const imageList = [
-        { key: "main", src: mainImagePath },
-        {
-            key: "1",
-            src: isPhone
-                ? `/images/category/products/${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
-                : item.modelKey
-                    ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
-                    : `/images/category/products/${item.id}_${selectedColor}_1.jpg`,
-        },
-        {
-            key: "2",
-            src: isPhone
-                ? `/images/category/products/${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
-                : item.modelKey
-                    ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
-                    : `/images/category/products/${item.id}_${selectedColor}_2.jpg`,
-        },
-        {
-            key: "3",
-            src: isPhone
-                ? `/images/category/products/${item.id}_${item.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_3.jpg`
-                : item.modelKey
-                    ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_3.jpg`
-                    : `/images/category/products/${item.id}_${selectedColor}_3.jpg`,
-        },
-    ];
+const imageList = [
+    { key: "main", src: mainImagePath },
+    {
+        key: "1",
+        src: isPhone
+            ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
+            : item.modelKey
+                ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
+                : `/images/category/products/${item.id}_${selectedColor}_1.jpg`,
+    },
+    {
+        key: "2",
+        src: isPhone
+            ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
+            : item.modelKey
+                ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
+                : `/images/category/products/${item.id}_${selectedColor}_2.jpg`,
+    },
+    {
+        key: "3",
+        src: isPhone
+            ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_3.jpg`
+            : item.modelKey
+                ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_3.jpg`
+                : `/images/category/products/${item.id}_${selectedColor}_3.jpg`,
+    },
+];
 
     const mainImage =
         imageList.find((img) => img.key === selectedThumb)?.src || imageList[0].src;
@@ -364,23 +379,32 @@ const handleAddCart = (item) => {
                                     </button>
                                 ))}
                         </div>
-                        <ul className="model-sub-list">
-                            {modelOptions
-                                .filter((mo) =>
-                                    (phoneModelOptions[selectedBrandTab] || []).some(
-                                        (m) => m.key === mo.key
-                                    )
-                                )
-                                .map((model) => (
-                                    <li
-                                        key={model.key}
-                                        className={selectedModel === model.label ? "active" : ""}
-                                        onClick={() => {
-                                            setSelectedModel(model.label);
-                                            setModelAccordionOpen(false);
-                                            setUserSelected(true);
-                                        }}
-                                    >
+<ul className="model-sub-list">
+    {modelOptions
+        .filter((mo) =>
+            (phoneModelOptions[selectedBrandTab] || []).some(
+                (m) => m.key === mo.key
+            )
+        )
+        .map((model) => (
+            <li
+                key={model.key}
+                className={selectedModel === model.label ? "active" : ""}
+                onClick={() => {
+                    setSelectedModel(model.label);
+                    setModelAccordionOpen(false);
+                    setUserSelected(true);
+                    setSelectedThumb("main"); // ✅ 썸네일 초기화
+                    setSelectedDeviceColor(modelColorOptions?.[model.key]?.[0]?.key || ""); // ✅ 디바이스 컬러 초기화
+                    const matched = items.find(
+                        (d) =>
+                            d.productName === item.productName &&
+                            d.caseCategory === item.caseCategory &&
+                            d.modelLabel === model.label
+                    );
+                    if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
+                }}
+            >
                                         {model.label}
                                     </li>
                                 ))}
