@@ -26,7 +26,7 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     // const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    const {user, onAddWishlist, onAddToCart} = useAuthStore();
+    const {user, wishlist, onAddWishlist, onAddToCart} = useAuthStore();
 
 
     useEffect(() => {
@@ -47,16 +47,20 @@ export default function DetailPage({ item }) {
 
         setUserSelected(hasNoOption);
 
-const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
+    const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
         phoneModelOptions[brand].some((m) =>
             getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
         )
     );
     if (availableBrand) setSelectedBrandTab(availableBrand);
 
-
-
     }, [item]);
+
+    useEffect(() => {
+        // 위시리스트 배열에서 현재 아이템의 id가 있는지 확인
+        const isExisted = wishlist?.some((wishItem) => wishItem.productId === item.id);
+        setIsWished(isExisted);
+    }, [wishlist, item.id]); 
 
 
     // 번들 상품 랜덤 3개
@@ -80,9 +84,9 @@ const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
         return [item, accessories[idx1], accessories[idx2]];
     }, [item]);
 
-const modelOptions = useMemo(() => {
-    return getModelsByProductGroup(items, item);
-}, [item]);
+    const modelOptions = useMemo(() => {
+        return getModelsByProductGroup(items, item);
+    }, [item]);
 
 
 
@@ -141,63 +145,48 @@ const modelOptions = useMemo(() => {
     }
 
     const isPhone = item?.productTarget === "phone";
-    // ✅ 선택된 기종에 맞는 실제 item 찾기
-const selectedItem = (() => {
-    if (!selectedModel || !isPhone) return item;
-    return items.find(
-        (d) =>
-            d.productName === item.productName &&
-            d.caseCategory === item.caseCategory &&
-            d.modelLabel === selectedModel
-    ) || item;
-})();
+    const modelColors = isPhone ? modelColorOptions?.[item?.modelKey] || [] : [];
+    const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
-
-
-const modelColors = isPhone ? modelColorOptions?.[selectedItem?.modelKey] || [] : [];
-const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
-
-
-    
 const handleAddWish = (item) => {
     const modelKey = isPhone
         ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
         : "";
 
-    const wishItem = {
-        id: item.id,
-        productName: item.productName,
-        price: item.price,
-        device: selectedModel,
-        deviceKey: isPhone ? modelKey : selectedModel,
-        color: selectedColor,
-        imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+        const wishItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: selectedModel,
+            deviceKey: isPhone ? modelKey : selectedModel,
+            color: selectedColor,
+            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+        };
+
+        onAddWishlist(wishItem);
     };
 
-    onAddWishlist(wishItem);
-};
+    const handleAddCart = (item) => {
+        const modelKey = isPhone
+            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+            : "";
 
-const handleAddCart = (item) => {
-    const modelKey = isPhone
-        ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
-        : "";
+        const cartItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: selectedModel,
+            deviceKey: isPhone ? modelKey : selectedModel,
+            color: selectedColor,
+            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
+            colorList: item.caseColors,
+            deviceList: item.compatibleModels?.length ? item.compatibleModels : "", // ✅ 옵셔널
+            isPhone: isPhone,
+            deviceBrand: selectedBrandTab,
+        };
 
-    const cartItem = {
-        id: item.id,
-        productName: item.productName,
-        price: item.price,
-        device: selectedModel,
-        deviceKey: isPhone ? modelKey : selectedModel,
-        color: selectedColor,
-        imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
-        colorList: item.caseColors,
-        deviceList: item.compatibleModels?.length ? item.compatibleModels : "", // ✅ 옵셔널
-        isPhone: isPhone,
-        deviceBrand: selectedBrandTab,
+        onAddToCart(cartItem);
     };
-
-    onAddToCart(cartItem);
-};
 
 const mainImagePath = isPhone
     ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
@@ -293,7 +282,6 @@ const imageList = [
                                 className={`image-wish-btn ${isWished ? "wished" : ""}`}
                                 onClick={() => {
                                     handleAddWish(item);
-                                    setIsWished((prev) => !prev);
                                 }}
                             >
                                 <img
@@ -379,32 +367,23 @@ const imageList = [
                                     </button>
                                 ))}
                         </div>
-<ul className="model-sub-list">
-    {modelOptions
-        .filter((mo) =>
-            (phoneModelOptions[selectedBrandTab] || []).some(
-                (m) => m.key === mo.key
-            )
-        )
-        .map((model) => (
-            <li
-                key={model.key}
-                className={selectedModel === model.label ? "active" : ""}
-                onClick={() => {
-                    setSelectedModel(model.label);
-                    setModelAccordionOpen(false);
-                    setUserSelected(true);
-                    setSelectedThumb("main"); // ✅ 썸네일 초기화
-                    setSelectedDeviceColor(modelColorOptions?.[model.key]?.[0]?.key || ""); // ✅ 디바이스 컬러 초기화
-                    const matched = items.find(
-                        (d) =>
-                            d.productName === item.productName &&
-                            d.caseCategory === item.caseCategory &&
-                            d.modelLabel === model.label
-                    );
-                    if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
-                }}
-            >
+                        <ul className="model-sub-list">
+                            {modelOptions
+                                .filter((mo) =>
+                                    (phoneModelOptions[selectedBrandTab] || []).some(
+                                        (m) => m.key === mo.key
+                                    )
+                                )
+                                .map((model) => (
+                                    <li
+                                        key={model.key}
+                                        className={selectedModel === model.label ? "active" : ""}
+                                        onClick={() => {
+                                            setSelectedModel(model.label);
+                                            setModelAccordionOpen(false);
+                                            setUserSelected(true);
+                                        }}
+                                    >
                                         {model.label}
                                     </li>
                                 ))}
