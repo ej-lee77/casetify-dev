@@ -119,18 +119,19 @@ const modelOptions = useMemo(() => {
     };
 
     // 번들 이미지 경로 (mainImagePath 방식 동일)
-    const getBundleImagePath = (b) => {
-        const isPhoneB = b?.productTarget === "phone";
-        const modelColorsB = isPhoneB ? modelColorOptions?.[b?.modelKey] || [] : [];
-        const fixedDeviceColorB = isPhoneB ? modelColorsB?.[0]?.key || "" : "";
-        if (isPhoneB) {
-            return `/images/category/products/${b.id}_${b.modelKey}_${fixedDeviceColorB}_${b.mainCaseColor}_main.jpg`;
-        } else if (b.modelKey) {
-            return `/images/category/products/${b.id}_${b.modelKey}_${b.mainCaseColor}_main.jpg`;
-        } else {
-            return `/images/category/products/${b.id}_${b.mainCaseColor}_main.jpg`;
-        }
-    };
+   const getBundleImagePath = (b) => {
+    const isPhoneB = b?.productTarget === "phone";
+    const modelColorsB = isPhoneB ? modelColorOptions?.[b?.modelKey] || [] : [];
+    const fixedDeviceColorB = isPhoneB ? modelColorsB?.[0]?.key || "" : "";
+    if (isPhoneB) {
+        return `/images/category/products/${b.id}_${b.modelKey}_${fixedDeviceColorB}_${b.mainCaseColor}_main.jpg`;
+    } else if (b.modelKey) {
+        return `/images/category/products/${b.id}_${b.modelKey}_${b.mainCaseColor}_main.jpg`;
+    } else {
+        // ✅ color 없을 때 언더바 두 개 방지
+        return `/images/category/products/${b.id}${b.mainCaseColor ? `_${b.mainCaseColor}` : ""}_main.jpg`;
+    }
+};
 
     if (!item) {
         return (
@@ -203,7 +204,7 @@ const mainImagePath = isPhone
     ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
     : item.modelKey
         ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
-        : `/images/category/products/${item.id}_${selectedColor}_main.jpg`;
+        : `/images/category/products/${item.id}${selectedColor ? `_${selectedColor}` : ""}_main.jpg`; 
 
 const imageList = [
     { key: "main", src: mainImagePath },
@@ -213,7 +214,7 @@ const imageList = [
             ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
             : item.modelKey
                 ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
-                : `/images/category/products/${item.id}_${selectedColor}_1.jpg`,
+                : `/images/category/products/${item.id}${selectedColor ? `_${selectedColor}` : ""}_1.jpg`, // ✅
     },
     {
         key: "2",
@@ -221,7 +222,7 @@ const imageList = [
             ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
             : item.modelKey
                 ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
-                : `/images/category/products/${item.id}_${selectedColor}_2.jpg`,
+                : `/images/category/products/${item.id}${selectedColor ? `_${selectedColor}` : ""}_2.jpg`, // ✅
     },
     {
         key: "3",
@@ -229,10 +230,9 @@ const imageList = [
             ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_3.jpg`
             : item.modelKey
                 ? `/images/category/products/${item.id}_${item.modelKey}_${selectedColor}_3.jpg`
-                : `/images/category/products/${item.id}_${selectedColor}_3.jpg`,
+                : `/images/category/products/${item.id}${selectedColor ? `_${selectedColor}` : ""}_3.jpg`, // ✅
     },
 ];
-
     const mainImage =
         imageList.find((img) => img.key === selectedThumb)?.src || imageList[0].src;
 
