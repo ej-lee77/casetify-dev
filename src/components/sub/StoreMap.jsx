@@ -20,10 +20,10 @@ export default function StoreMap() {
                 map = new window.kakao.maps.Map(mapContainer, mapOption); // 지도 생성
 
                 // 마커 이미지
-                const makerImgSrc = "../images/app-icon-colab.png";
+                const makerImgSrc = "/images/app-icon-colab.png";
                 const markerImgSize = new window.kakao.maps.Size(48, 48);
                 const markerImgOption = {
-                    offset: new window.kakao.maps.Point(19, 60),
+                    offset: new window.kakao.maps.Point(24, 48),
                 };
 
                 // 마커 이미지 생성
