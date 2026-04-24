@@ -2,7 +2,7 @@ import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChan
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
 import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, deleteDoc } from "firebase/firestore";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 import {
     deleteUser as firebaseDeleteUser, EmailAuthProvider, reauthenticateWithCredential, updatePassword
 } from "firebase/auth";
@@ -390,7 +390,6 @@ export const useAuthStore = create(
 
                     const updatedList = currentWishlist.filter((_, index) => index !== existingItemIndex);
                     set({ wishlist: updatedList });
-                    console.log("삭제 완료");
                     return "del";
                 } else {
                     // 3. 추가 처리
@@ -398,7 +397,6 @@ export const useAuthStore = create(
                         items: arrayUnion(productData)
                     }, { merge: true });
                     set({ wishlist: [...currentWishlist, productData] });
-                    console.log("저장 완료");
                     return "add";
                 }
             } catch (err) {
@@ -452,6 +450,11 @@ export const useAuthStore = create(
 
         // 장바구니
         cart: [],
+        checkedCart: [],
+        // 장바구니 결제할 것만
+        onUpdateCheckedCart: (items) => {
+            set({ checkedCart: items });
+        },
         // 장바구니 가져오기
         onFetchCart: async () => {
             const user = get().user;
@@ -512,9 +515,10 @@ export const useAuthStore = create(
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: currentCart }, { merge: true });
                 set({ cart: currentCart }); // 로컬 스토어 동기화
-                console.log("장바구니에 담겼습니다!");
+                return true;
             } catch (e) {
                 console.log(e.message);
+                return false;
             }
         },
         //장바구니 옵션 업데이트
@@ -564,7 +568,6 @@ export const useAuthStore = create(
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: currentCart }, { merge: true });
                 set({ cart: currentCart });
-                console.log("옵션이 변경되었습니다.");
             } catch (e) {
                 console.error("옵션 업데이트 실패:", e.message);
             }
@@ -599,7 +602,6 @@ export const useAuthStore = create(
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: updatedCart }, { merge: true });
                 set({ cart: updatedCart });
-                console.log("선택한 상품이 삭제되었습니다.");
             } catch (e) {
                 console.log("일괄 삭제 실패:", e.message);
             }
@@ -720,13 +722,14 @@ export const useAuthStore = create(
         },
     }),
         {
-            name: 'auth-storage',
+            name: 'app-storage',
+            storage: createJSONStorage(() => sessionStorage),
             partialize: (state) => ({
                 user: state.user ? {
                     uid: state.user.uid,
-                    provider: state.user.provider
-                } : null
+                    provider: state.user.provider,
+                } : null,
+                checkedCart: state.checkedCart
             })
         }
-
     ));

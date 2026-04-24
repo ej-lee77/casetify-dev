@@ -156,6 +156,19 @@ header {
                         height: 112px;
                     }
                 }
+                .cart-num{
+                    @include g.myFlex($gap: unset, $jc: center);
+                    position: absolute;
+                    background: g.$text-main;
+                    font-size: 0.45rem;
+                    color: #fff;
+                    width: 14px;
+                    height: 14px;
+                    line-height: 15px;
+                    border-radius: 50%;
+                    bottom: 0;
+                    right: -5px;
+                }
             }
         }
     }
