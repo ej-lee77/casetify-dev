@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { useAuthStore } from '../../store/useAuthStore';
+import { getModelsByProductGroupCartItem } from "../../utils/groupProducts";
+import { useCategoryProductStore } from '../../store/useCategoryProductStore';
 
 export default function CartOption({item, colorMap, phoneModelOptions, onClose}) {
     const [selectedColor, setSelectedColor] = useState(item.color);
@@ -7,6 +9,12 @@ export default function CartOption({item, colorMap, phoneModelOptions, onClose})
     const [modelAccordionOpen, setModelAccordionOpen] = useState(false);
     const [selectedBrandTab, setSelectedBrandTab] = useState(item.deviceBrand);
     const { onUpdateOption } = useAuthStore();
+    const {items} = useCategoryProductStore();
+
+    // 같은 상품명+케이스카테고리 그룹에서 기종 목록 추출
+    const modelOptions = useMemo(() => {
+        return getModelsByProductGroupCartItem(items, item);
+    }, [item, items]);
 
     const handleOptionChange = ()=>{
         const selectedModelData = phoneModelOptions[selectedBrandTab]?.find(m => m.label === selectedModel);
@@ -48,7 +56,13 @@ export default function CartOption({item, colorMap, phoneModelOptions, onClose})
                                         {item.isPhone ? (
                                             <>
                                             <div className="model-brand-tabs">
-                                                {Object.keys(phoneModelOptions).map((brand) => (
+                                                {Object.keys(phoneModelOptions).map((brand) => {
+                                                    // 해당 브랜드의 기종들 중 현재 상품 그룹(modelOptions)에 존재하는 기종이 하나라도 있는지 확인
+                                                    const hasModelsInGroup = phoneModelOptions[brand].some((m) =>
+                                                        modelOptions.some((mo) => mo.key === m.key)
+                                                    );
+
+                                                    if (!hasModelsInGroup) return null;
                                                     <button
                                                         key={brand}
                                                         type="button"
@@ -57,15 +71,22 @@ export default function CartOption({item, colorMap, phoneModelOptions, onClose})
                                                     >
                                                         {brand}
                                                     </button>
-                                                ))}
+                                                })}
                                             </div>
-                                            {(phoneModelOptions[selectedBrandTab] || []).map((model) => (
+                                            {phoneModelOptions[selectedBrandTab]?.filter((m) => modelOptions.some((mo) => mo.key === m.key)).map((model) => (
                                                 <li
                                                     key={model.key}
                                                     className={selectedModel === model.label ? "active" : ""}
                                                     onClick={() => {
                                                         setSelectedModel(model.label);
                                                         setModelAccordionOpen(false);
+                                                        const matched = items.find(
+                                                            (d) =>
+                                                                d.productName === item.productName &&
+                                                                d.caseCategory === item.caseCategory &&
+                                                                d.modelLabel === model.label
+                                                        );
+                                                        if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
                                                     }}
                                                 >
                                                     {model.label}
