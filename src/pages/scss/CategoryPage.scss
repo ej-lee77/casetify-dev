@@ -111,6 +111,36 @@
                 color: #222;
                 text-align: center;
             }
+
+            // 이미지 없는 항목 (caseCategory 등) - 텍스트 버튼 형태
+            &.text-only {
+                padding: 8px 16px;
+                border: 1px solid #d9d9d9;
+                border-radius: 0;
+                background: #fff;
+                transition: border-color 0.2s ease, background 0.2s ease;
+
+                &:hover {
+                    transform: none;
+                    border-color: #111;
+                }
+
+                &.active {
+                    transform: none;
+                    border-color: #111;
+                    background: #111;
+
+                    .mini-icon-text {
+                        color: #fff;
+                    }
+                }
+
+                .mini-icon-text {
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    white-space: nowrap;
+                }
+            }
         }
 
         &.has-active {
@@ -249,6 +279,22 @@
 
         &:hover {
             opacity: 0.6;
+        }
+    }
+
+    .color-filter-list {
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .color-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            flex-shrink: 0;
         }
     }
 
