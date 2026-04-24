@@ -1,7 +1,17 @@
 import React from 'react'
+import "./scss/Store.scss"
+import SectionTitle from '../components/SectionTitle'
+import StoreMap from '../components/sub/StoreMap'
 
 export default function Store() {
   return (
-    <div>Store</div>
+    <div className="sub-page-wrap store-page">
+      <div className="inner store-title">
+        <SectionTitle title={"Store"} subtitle={""} />
+      </div>
+      <div className="store-map-wrap">
+        <StoreMap />
+      </div>
+    </div>
   )
 }
