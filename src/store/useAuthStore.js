@@ -155,6 +155,7 @@ export const useAuthStore = create(
                     set({ user: userInfo });
                 } else {
                     set({ user: userDoc.data() });
+                    console.log(user);
                 }
                 return true;
             } catch (err) {
@@ -365,7 +366,8 @@ export const useAuthStore = create(
                 color: wishItem.color,
                 title: wishItem.productName,
                 price: wishItem.price,
-                imgUrl: wishItem.imgUrl
+                imgUrl: wishItem.imgUrl,
+                caseCategory: wishItem.caseCategory
             };
 
             try {
@@ -500,10 +502,10 @@ export const useAuthStore = create(
                     deviceList: product.deviceList,
                     isPhone: product.isPhone,
                     deviceBrand: product.deviceBrand,
+                    caseCategory: product.caseCategory,
                     quantity: 1
                 });
             }
-            console.log(currentCart);
 
             // DB 업데이트
             try {
