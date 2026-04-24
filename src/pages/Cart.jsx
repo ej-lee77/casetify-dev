@@ -4,6 +4,7 @@ import { useAuthStore } from '../store/useAuthStore';
 
 import { modelColorOptions, colorMap, phoneModelOptions } from '../data/finalData';
 import CartOption from '../components/sub/CartOption';
+import { Link } from 'react-router-dom';
 
 // 임시
 const tempRecoItem = [
@@ -248,13 +249,13 @@ export default function Cart() {
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>{selectedTotal - discount <= 50000 ? selectedTotal - discount + 7000 : selectedTotal - discount}원</span></p>
+                <p className="est-price">결제예정금액<span>{selectedTotal - discount <= 50000 ? selectedTotal - discount + 9000 : selectedTotal - discount}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
             <ul className="order-btn-wrap">
-              <li><button className="order-all">전체 상품 주문</button></li>
-              <li><button>선택 상품 주문</button></li>
+              <li><Link to={"/payment"}><button className="order-all">전체 상품 주문</button></Link></li>
+              <li><Link to={"/payment"}><button>선택 상품 주문</button></Link></li>
             </ul>
           </div>
         </div>
