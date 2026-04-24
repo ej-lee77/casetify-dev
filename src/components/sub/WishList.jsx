@@ -21,7 +21,7 @@ export default function WishList() {
                     <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
                         <Link to={`/detail/${item.productId}`}>
                             <div className="card-img">
-                                <img src={`/images/category/products/${item.productId}_${item.imgUrl}_main.jpg`} alt={item.title}/>
+                                <img src={`${item.imgUrl}`} alt={item.title}/>
                             </div>
                             <div className="card-info">
                             <p className="card-name">{item.title}</p>
