@@ -20,6 +20,7 @@ import ProductDetailPage from './components/sub/product detail page/ProductDetai
 import CustomPage from './pages/CustomPage'
 import { useAuthStore } from './store/useAuthStore'
 import Payment from './pages/Payment'
+import PayComplete from './pages/PayComplete'
 
 function App() {
   const { onFetchItems } = useProductStore();
@@ -69,6 +70,7 @@ function App() {
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/payment' element={<Payment />}/>
+        <Route path='/payment/complete' element={<PayComplete />}/>
       </Routes>
       <Footer />
     </>

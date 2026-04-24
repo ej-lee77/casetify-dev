@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./scss/Payment.scss"
 import { useAuthStore } from '../store/useAuthStore';
 import AddressSearch from '../components/sub/AddressSearch'
+import { Link } from 'react-router-dom';
 
 const memoList = [
   "부재 시 문 앞에 놓아주세요",
@@ -197,7 +198,7 @@ export default function Payment() {
                           <span className={`accordion-arrow ${isMemoOpen ? "open" : ""}`}>▼</span>
                         </div>
                         {isMemoOpen && (
-                          <div>
+                          <div className='option-box'>
                             {memoList.map((item, index) => (
                               <div 
                                 key={index} 
@@ -266,7 +267,7 @@ export default function Payment() {
                         <span className={`accordion-arrow ${isCouponOpen ? "open" : ""}`}>▼</span>
                       </div>
                       {isCouponOpen && (
-                        <div>
+                        <div className='option-box'>
                           <div>--</div>
                           {user.couponList?.map((item, index) => (
                             <div 
@@ -292,7 +293,7 @@ export default function Payment() {
                           <span className={`accordion-arrow ${isGiftOpen ? "open" : ""}`}>▼</span>
                         </div>
                         {isGiftOpen && (
-                          <div>
+                          <div className='option-box'>
                             <div 
                               onClick={() => {
                                 setIsGiftOpen(false);
@@ -409,7 +410,7 @@ export default function Payment() {
             </div>
             {/* 주문 버튼 */}
             <ul className="order-btn-wrap">
-              <li><button className="order-all">결제하기</button></li>
+              <li><Link to={"/payment/complete"}><button className="order-all">결제하기</button></Link></li>
             </ul>
             <div className='agree-div'>
               <p>주문을 완료함으로써,</p>

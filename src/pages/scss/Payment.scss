@@ -320,6 +320,19 @@
                         color: #aaaaaa;
                     }
                 }
+                .option-box{
+                    background: #fff;
+                    width: 80%;
+                    position: absolute;
+                    left: 0;
+                    height: 130px;
+
+                    >div{
+                        padding: 10px;
+                        border: 1px solid #eee;
+                        background: #fff;
+                    }
+                }
                 .address-box{
                     >input{
                         margin-top: 10px;
@@ -350,6 +363,7 @@
                 }
 
                 .input-div{
+                    position: relative;
                     
                     .placeholder{
                         color: #aaaaaa;
@@ -385,10 +399,27 @@
                 .gift-div{
                     @include g.myFlex($jc: start, $gap:unset);
                 }
+                .option-box{
+                    // background: #fff;
+                    width: 80%;
+                    position: absolute;
+                    left: 0;
+                    height: 130px;
+
+                    >div{
+                        padding: 10px;
+                        border: 1px solid #eee;
+                        background: #fff;
+                    }
+                }
 
                 .gift-selsct{
                     width: 80%;
+                    position: relative;
                     .coupon-div {
+                        width: 100%;
+                    }
+                    .option-box{
                         width: 100%;
                     }
                 }
@@ -414,6 +445,7 @@
                 }
             }
         }
+
         .agree-div{
             text-align: center;
             color: g.$text-sub;
@@ -421,6 +453,36 @@
             font-weight: 400;
             span{
                 text-decoration: underline;
+            }
+        }
+
+        .complete-msg{
+            margin: 100px 0;
+            text-align: center;
+            font-size: 1.2em;
+
+            &::after{
+                content: "";
+                background-image: url("/images/waveBg-beige.png");
+                background-size: cover;
+                display: block;
+                width: 100vw;
+                height: 500px;
+                position: absolute;
+                left: 0;
+                transform: rotateY(180deg);
+            }
+            .input-btn{
+                width: 500px;
+                margin-top: 30px;
+            }
+            .coupon{
+                font-size: 2rem;
+                color: g.$text-sale;
+                background: #FFE3E3;
+                padding: 5px 15px;
+                margin-bottom: 20px;
+                display: inline-block;
             }
         }
     }
