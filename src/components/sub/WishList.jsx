@@ -18,7 +18,7 @@ export default function WishList() {
             <MypageTitle title={"위시리스트"} />
             <ul className="wish-list">
                 {wishlist.map((item) => (
-                    <li key={item.productId} className="wish-product-card">
+                    <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
                         <Link to={`/detail/${item.productId}`}>
                             <div className="card-img">
                                 <img src={`/images/category/products/${item.productId}_${item.imgUrl}_main.jpg`} alt={item.title}/>
@@ -28,7 +28,7 @@ export default function WishList() {
                             <p className="card-price">{Number(item.price || 0).toLocaleString()}원</p>
                             <div className="card-option">
                                 <p>[옵션]</p>
-                                <p><span>{item.device}</span><span>{item.color}</span></p>
+                                <p>{item.device && <span>{item.device}</span>}<span>{item.color}</span></p>
                             </div>
                             </div>
                         </Link>

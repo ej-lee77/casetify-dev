@@ -26,7 +26,7 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     // const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    const {user, onAddWishlist, onAddToCart} = useAuthStore();
+    const {user, wishlist, onAddWishlist, onAddToCart} = useAuthStore();
 
 
     useEffect(() => {
@@ -54,9 +54,13 @@ export default function DetailPage({ item }) {
     );
     if (availableBrand) setSelectedBrandTab(availableBrand);
 
-
-
     }, [item]);
+
+    useEffect(() => {
+        // 위시리스트 배열에서 현재 아이템의 id가 있는지 확인
+        const isExisted = wishlist?.some((wishItem) => wishItem.productId === item.id);
+        setIsWished(isExisted);
+    }, [wishlist, item.id]); 
 
 
     // 번들 상품 랜덤 3개
@@ -278,7 +282,6 @@ export default function DetailPage({ item }) {
                                 className={`image-wish-btn ${isWished ? "wished" : ""}`}
                                 onClick={() => {
                                     handleAddWish(item);
-                                    setIsWished((prev) => !prev);
                                 }}
                             >
                                 <img
