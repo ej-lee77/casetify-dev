@@ -201,7 +201,7 @@ export default function Cart() {
                     <div className="cart-goods-info">
                       <div className="goods-img">
                         <img
-                          src={`/images/category/products/${item.productId}_${item.imgUrl}_main.jpg`}
+                          src={`${item.imgUrl}`}
                           alt={item.title} />
                       </div>
                       <div className="goods-text">

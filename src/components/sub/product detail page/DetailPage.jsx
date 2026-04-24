@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
-import { modelColorOptions, colorMap, phoneModelOptions } from "../../../data/finalData";
+import { modelColorOptions, colorMap, phoneModelOptions, items } from "../../../data/finalData";
 import { getModelsByProductGroup } from "../../../utils/groupProducts";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
-import { items } from "../../../data/finalData";
 import { useAuthStore } from "../../../store/useAuthStore";
 
 export default function DetailPage({ item }) {
@@ -64,20 +63,24 @@ export default function DetailPage({ item }) {
         if (!items || !item) return [];
 
         // accessory만 필터
-        const accessories = items.filter((d) => d.mainCategory === "accessory");
+        const accessories = items.filter((d) => 
+            Array.isArray(d.mainCategory) 
+                ? d.mainCategory.includes("accessory") 
+                : d.mainCategory === "accessory"
+        );
 
         // item.id에서 숫자 합산으로 고유 시드 생성
         const seed = item.id.replace(/\D/g, "").split("").reduce((acc, n) => acc + Number(n), 0);
 
         // 시드로 서로 다른 인덱스 2개 선택
-     const len = accessories.length;
-const idx1 = seed % len;
-let idx2 = (seed * 3 + 7) % len;
-if (idx2 === idx1) idx2 = (idx2 + 1) % len;
-
+        const len = accessories.length;
+        const idx1 = seed % len;
+        let idx2 = (seed * 3 + 7) % len;
+        if (idx2 === idx1) idx2 = (idx2 + 1) % len;
+        
         // 첫번째 현재 상품 고정 + 액세서리 2개
        return [item, accessories[idx1], accessories[idx2]];
-    }, [item]);
+    }, [item, items]);
 
     // 같은 상품명+케이스카테고리 그룹에서 기종 목록 추출
     const modelOptions = useMemo(() => {
@@ -159,62 +162,6 @@ if (idx2 === idx1) idx2 = (idx2 + 1) % len;
     const modelColors = isPhone ? modelColorOptions?.[selectedItem?.modelKey] || [] : [];
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
-    const [wishMsg, setWishMsg] = useState("");
-    const [isWishPopupOpen, setIsWishPopupOpen] = useState(true);
-    const [isPopupErr, setIsPopupErr] = useState(false);
-    const handleAddWish = async(item) => {
-        const modelKey = isPhone
-            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
-            : "";
-
-        const wishItem = {
-            id: item.id,
-            productName: item.productName,
-            price: item.price,
-            device: selectedModel,
-            deviceKey: isPhone ? modelKey : selectedModel,
-            color: selectedColor,
-            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
-        };
-
-        const isWish = await onAddWishlist(wishItem);
-
-        if(isWish === "del"){
-            // 완료 팝업열기
-            setWishMsg("위시리스트에서 삭제했습니다.");
-            setIsWishPopupOpen(true);
-        }else if(isWish === "add"){
-            setWishMsg("위시리스트에 담겼습니다!");
-            setIsWishPopupOpen(true);
-        }else{
-            setWishMsg("오류가 발생했습니다. 다시 시도해주세요.");
-            setIsPopupErr(true);
-        }
-    };
-
-    // 장바구니 추가
-    const handleAddCart = (item) => {
-        const modelKey = isPhone
-            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
-            : "";
-
-        const cartItem = {
-            id: item.id,
-            productName: item.productName,
-            price: item.price,
-            device: selectedModel,
-            deviceKey: isPhone ? modelKey : selectedModel,
-            color: selectedColor,
-            imgUrl: isPhone ? `${modelKey}_${fixedThumbDeviceColor}_${selectedColor}` : selectedColor,
-            colorList: item.caseColors,
-            deviceList: isPhone ? modelOptions : item.compatibleModels,
-            isPhone: isPhone,
-            deviceBrand: selectedBrandTab,
-        };
-
-        onAddToCart(cartItem);
-    };
-
     // selectedItem 기준으로 이미지 경로
     const mainImagePath = isPhone
         ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
@@ -251,6 +198,64 @@ if (idx2 === idx1) idx2 = (idx2 + 1) % len;
     ];
 
     const mainImage = imageList.find((img) => img.key === selectedThumb)?.src || imageList[0].src;
+
+    const [wishMsg, setWishMsg] = useState("");
+    const [isWishPopupOpen, setIsWishPopupOpen] = useState(false);
+    const [isPopupErr, setIsPopupErr] = useState(false);
+    const handleAddWish = async(item) => {
+        const modelKey = isPhone
+            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+            : "";
+
+        const wishItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: selectedModel,
+            deviceKey: isPhone ? modelKey : selectedModel,
+            color: selectedColor,
+            imgUrl: mainImagePath,
+            caseCategory: item.caseCategory
+        };
+
+        const isWish = await onAddWishlist(wishItem);
+
+        if(isWish === "del"){
+            // 완료 팝업열기
+            setWishMsg("위시리스트에서 삭제했습니다.");
+            setIsWishPopupOpen(true);
+        }else if(isWish === "add"){
+            setWishMsg("위시리스트에 담겼습니다!");
+            setIsWishPopupOpen(true);
+        }else{
+            setWishMsg("오류가 발생했습니다. 다시 시도해주세요.");
+            setIsPopupErr(true);
+        }
+    };
+
+    // 장바구니 추가
+    const handleAddCart = (item) => {
+        const modelKey = isPhone
+            ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+            : "";
+
+        const cartItem = {
+            id: item.id,
+            productName: item.productName,
+            price: item.price,
+            device: selectedModel,
+            deviceKey: isPhone ? modelKey : selectedModel,
+            color: selectedColor,
+            imgUrl: mainImagePath,
+            colorList: item.caseColors,
+            deviceList: isPhone ? modelOptions : item.compatibleModels,
+            isPhone: isPhone,
+            deviceBrand: selectedBrandTab,
+            caseCategory: item.caseCategory
+        };
+
+        onAddToCart(cartItem);
+    };
 
     const optionSummary = [
         // item.modelLabel,
@@ -386,15 +391,15 @@ if (idx2 === idx1) idx2 = (idx2 + 1) % len;
                                                             )
                                                         )
                                                         .map((brand) => (
-                                                            <button
-                                                                key={brand}
-                                                                type="button"
-                                                                className={selectedBrandTab === brand ? "active" : ""}
-                                                                onClick={() => setSelectedBrandTab(brand)}
-                                                            >
-                                                                {brand}
-                                                            </button>
-                                                        ))}
+                                                        <button
+                                                            key={brand}
+                                                            type="button"
+                                                            className={selectedBrandTab === brand ? "active" : ""}
+                                                            onClick={() => setSelectedBrandTab(brand)}
+                                                        >
+                                                            {brand}
+                                                        </button>
+                                                    ))}
                                                 </div>
 
                                                 {/* 기종 리스트 - 선택 시 이미지/색상/디바이스컬러 초기화 */}

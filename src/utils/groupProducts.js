@@ -57,3 +57,25 @@ export function getModelsByProductGroup(items = [], targetItem) {
         ).values()
     );
 }
+
+export function getModelsByProductGroupCartItem(items = [], targetItem) {
+    if (!targetItem) return [];
+
+    const matchedItems = items.filter((item) => {
+        return (
+            item.productName === targetItem.productName || item.productName === targetItem.title &&
+            item.caseCategory === targetItem.caseCategory
+        );
+    });
+
+    return Array.from(
+        new Map(
+            matchedItems
+                .filter((item) => item.modelKey && item.modelLabel)
+                .map((item) => [
+                    item.modelKey,
+                    { key: item.modelKey, label: item.modelLabel },
+                ])
+        ).values()
+    );
+}

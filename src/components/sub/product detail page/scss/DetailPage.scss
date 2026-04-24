@@ -31,7 +31,8 @@
                 margin: 0 auto;
 
                 >p{
-                    margin-bottom: 30px;
+                    margin: 30px 0;
+                    text-align: center;
                 }
                 .popup-buttons{
                     @include g.myFlex($jc: center, $gap: 10px);
@@ -41,7 +42,7 @@
                         transition: 0.2s;
                         width: 100%;
                         height: 60px;
-                        margin: 30px 0;
+                        margin: 20px 0;
                         border: 1px solid #000;
                         background: #000;
                         color: #fff;
@@ -279,43 +280,43 @@
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
 
             // ✅ 브랜드 탭
-         .model-brand-tabs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center; // ✅ 이것만 추가
-    gap: 12px;
-    padding: 16px;
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 2;
+            .model-brand-tabs {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center; // ✅ 이것만 추가
+                gap: 12px;
+                padding: 16px;
+                position: sticky;
+                top: 0;
+                background: #fff;
+                z-index: 2;
 
-    button {
-        width: 100%;
-        padding: 10px 18px;
-        border-radius: 999px;
-        border: 1.5px solid #ddd;
-        background: #fafafa;
-        font-size: 14px;
-        font-weight: 500;
-        color: #555;
-        cursor: pointer;
-        transition: all 0.2s;
+                button {
+                    width: 100%;
+                    padding: 10px 18px;
+                    border-radius: 999px;
+                    border: 1.5px solid #ddd;
+                    background: #fafafa;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #555;
+                    cursor: pointer;
+                    transition: all 0.2s;
 
-        &.active {
-            border-color: #111;
-            background: #111;
-            color: #fff;
-            font-weight: 600;
-        }
+                    &.active {
+                        border-color: #111;
+                        background: #111;
+                        color: #fff;
+                        font-weight: 600;
+                    }
 
-        &:hover:not(.active) {
-            border-color: #bbb;
-            background: #fff;
-            color: #111;
-        }
-    }
-}
+                    &:hover:not(.active) {
+                        border-color: #bbb;
+                        background: #fff;
+                        color: #111;
+                    }
+                }
+            }   
 
             // ✅ 기종 리스트
             .model-sub-list {
@@ -344,6 +345,12 @@
                     }
                 }
             }
+        }
+        .model-accordion-arrow{
+            font-size: 11px;
+            color: #888;
+            transition: transform 0.2s ease;
+            &.open { transform: rotate(180deg); }
         }
     }
     // =====================================
