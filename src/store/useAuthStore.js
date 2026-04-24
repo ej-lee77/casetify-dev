@@ -155,6 +155,7 @@ export const useAuthStore = create(
                     set({ user: userInfo });
                 } else {
                     set({ user: userDoc.data() });
+                    console.log(user);
                 }
                 return true;
             } catch (err) {
@@ -365,7 +366,8 @@ export const useAuthStore = create(
                 color: wishItem.color,
                 title: wishItem.productName,
                 price: wishItem.price,
-                imgUrl: wishItem.imgUrl
+                imgUrl: wishItem.imgUrl,
+                caseCategory: wishItem.caseCategory
             };
 
             try {
@@ -389,6 +391,7 @@ export const useAuthStore = create(
                     const updatedList = currentWishlist.filter((_, index) => index !== existingItemIndex);
                     set({ wishlist: updatedList });
                     console.log("삭제 완료");
+                    return "del";
                 } else {
                     // 3. 추가 처리
                     await setDoc(userWishRef, {
@@ -396,10 +399,11 @@ export const useAuthStore = create(
                     }, { merge: true });
                     set({ wishlist: [...currentWishlist, productData] });
                     console.log("저장 완료");
+                    return "add";
                 }
-                await get().onFetchWishlist();
             } catch (err) {
                 console.log(err.message);
+                return false;
             }
         },
         // 위시리스트 삭제
@@ -419,8 +423,10 @@ export const useAuthStore = create(
                     item.color === targetItem.color)
                 );
                 set({ wishlist: updatedList });
+                return true;
             } catch (err) {
                 console.log(err.message);
+                return false;
             }
         },
         // 위시리스트 가져오기
@@ -466,7 +472,7 @@ export const useAuthStore = create(
         },
         // 장바구니 추가
         onAddToCart: async (product) => {
-            const {user, cart} = get();
+            const { user, cart } = get();
             if (!user) return;
 
             const currentCart = [...get().cart];
@@ -496,10 +502,10 @@ export const useAuthStore = create(
                     deviceList: product.deviceList,
                     isPhone: product.isPhone,
                     deviceBrand: product.deviceBrand,
+                    caseCategory: product.caseCategory,
                     quantity: 1
                 });
             }
-            console.log(currentCart);
 
             // DB 업데이트
             try {
@@ -520,9 +526,9 @@ export const useAuthStore = create(
 
             // 1. 기존 아이템 제거
             // 식별 기준: productId + 기존 device + 기존 color
-            const targetIndex = currentCart.findIndex(item => 
-                item.productId === oldItem.productId && 
-                item.device === oldItem.device && 
+            const targetIndex = currentCart.findIndex(item =>
+                item.productId === oldItem.productId &&
+                item.device === oldItem.device &&
                 item.color === oldItem.color
             );
 
@@ -539,9 +545,9 @@ export const useAuthStore = create(
             currentCart.splice(targetIndex, 1);
 
             // 2. 새로운 옵션이 이미 장바구니에 있는지 확인 (중복 체크)
-            const existingItemIndex = currentCart.findIndex(item => 
-                item.productId === updatedItem.productId && 
-                item.device === updatedItem.device && 
+            const existingItemIndex = currentCart.findIndex(item =>
+                item.productId === updatedItem.productId &&
+                item.device === updatedItem.device &&
                 item.color === updatedItem.color
             );
 
@@ -577,7 +583,7 @@ export const useAuthStore = create(
         },
         // 장바구니 선택 삭제
         onRemoveSelected: async (selectedItems) => {
-            const {user, cart} = get();
+            const { user, cart } = get();
             if (!user) return;
 
             // selectedItems에 포함되지 않은 아이템들만 남기기
@@ -620,20 +626,31 @@ export const useAuthStore = create(
 
                 const userRef = doc(db, "users", user.uid);
 
-                // Firestore 업데이트
+                // birthDate 변환
+                let birthDateString = '';
+                if (formData.birthDate instanceof Date) {
+                    const year = formData.birthDate.getFullYear();
+                    const month = String(formData.birthDate.getMonth() + 1).padStart(2, '0');
+                    const day = String(formData.birthDate.getDate()).padStart(2, '0');
+                    birthDateString = `${year}-${month}-${day}`;
+                } else {
+                    birthDateString = formData.birthDate || '';
+                }
+
                 await updateDoc(userRef, {
                     name: formData.name,
                     phone: formData.phone,
                     zonecode: formData.zonecode,
                     address: formData.address,
-                    detailaddress: formData.detailaddress
+                    detailaddress: formData.detailaddress,
+                    birthDate: birthDateString
                 });
 
-                // Zustand 상태도 업데이트 
                 set({
                     user: {
                         ...user,
-                        ...formData
+                        ...formData,
+                        birthDate: birthDateString  // zustand에도 문자열로 저장
                     }
                 });
 
@@ -641,6 +658,40 @@ export const useAuthStore = create(
             } catch (err) {
                 console.log(err.message);
                 return false;
+            }
+        },
+        handleChangePassword: async (passwordData) => {
+            // console.log("받은 passwordData:", passwordData); // 확인용
+            const user = auth.currentUser;
+            // console.log("현재 user:", user); // 확인용
+
+            // if (!user) {
+            //     alert("로그인이 필요합니다");
+            //     return false;
+            // }
+            if (!user) return "no-user";
+
+            // if (passwordData.newPassword !== passwordData.confirmPassword) {
+            //     alert("비밀번호가 일치하지 않습니다");
+            //     return false;
+            // }
+
+            if (passwordData.newPassword !== passwordData.confirmPassword) return "password-mismatch";
+
+            try {
+                const credential = EmailAuthProvider.credential(
+                    user.email,
+                    passwordData.currentPassword
+                );
+                await reauthenticateWithCredential(user, credential);
+                await updatePassword(user, passwordData.newPassword);
+                console.log("sss", passwordData.newPassword);
+                console.log("aaa", passwordData.confirmPassword);
+                console.log("fff", passwordData.currentPassword);
+                return true;
+            } catch (err) {
+                console.log(err.code);
+                return err.code;
             }
         },
         // 계정 삭제
@@ -677,45 +728,5 @@ export const useAuthStore = create(
                 } : null
             })
         }
+
     ));
-//비밀번호 변경
-const handleChangePassword = async () => {
-    const user = auth.currentUser;
-
-    if (!user) {
-        alert("로그인이 필요합니다");
-        return;
-    }
-
-    if (passwordData.newPassword !== passwordData.confirmPassword) {
-        alert("비밀번호가 일치하지 않습니다");
-        return;
-    }
-
-    try {
-        // 1. 재인증
-        const credential = EmailAuthProvider.credential(
-            user.email,
-            passwordData.currentPassword
-        );
-
-        await reauthenticateWithCredential(user, credential);
-
-        // 2. 비밀번호 변경
-        await updatePassword(user, passwordData.newPassword);
-
-        alert("비밀번호 변경 완료");
-    } catch (err) {
-        console.log(err.code);
-
-        if (err.code === "auth/wrong-password") {
-            alert("현재 비밀번호가 틀렸습니다");
-        } else if (err.code === "auth/weak-password") {
-            alert("비밀번호가 너무 약합니다");
-        } else if (err.code === "auth/requires-recent-login") {
-            alert("다시 로그인 후 시도해주세요");
-        } else {
-            alert("비밀번호 변경 실패");
-        }
-    }
-};
