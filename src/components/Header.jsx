@@ -8,7 +8,7 @@ import SearchOverlay from './SearchOverlay';
 
 export default function Header() {
   const { mainMenuList } = useProductStore();
-  const {user, onLogout} = useAuthStore();
+  const {user, onLogout, cart} = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
 
   const navigate = useNavigate();
@@ -123,7 +123,7 @@ export default function Header() {
             </li>
           )}
           <li>
-            <Link to="/cart"><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /></Link>
+            <Link to="/cart"><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /><span className='cart-num'>{cart.length}</span></Link>
           </li>
           <li>
             <Link to="/mypage" state={{ menu: "위시리스트" }}><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
