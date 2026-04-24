@@ -5,7 +5,6 @@
     padding: 60px 0;
     position: relative;
     z-index: 0;
-    isolation: isolate;
 
     .detail-inner {
         width: 1280px;
@@ -17,55 +16,66 @@
         flex-wrap: wrap;
 
         .popup-overlay{
-            @include g.pos-center();
+            touch-action: none;
+            position: fixed;   /* 스크롤과 상관없이 화면에 고정 */
+            top: 0;
+            left: 0;
+            width: 100vw; 
+            height: 100vh;
+            
             @include g.myFlex($jc: center, $gap: unset);
-            width: 500px;
-            height: 250px;
-            border: 1px solid g.$text-strike;
-            background: #fff;
-            z-index: 10;
-            animation: fadeIn 0.5s ease-in-out forwards;
+            z-index: 9999;
+            
+            .popup-wrap{
+                @include g.myFlex($jc: center, $gap: unset);
+                width: 500px;
+                height: 250px;
+                border: 1px solid g.$text-strike;
+                background: #fff;
+                z-index: 10;
+                animation: fadeIn 0.5s ease-in-out forwards;
 
-            .popup{
-                width: 80%;
-                margin: 0 auto;
+                .popup{
+                    width: 80%;
+                    margin: 0 auto;
 
-                >p{
-                    margin: 30px 0;
-                    text-align: center;
-                }
-                .popup-buttons{
-                    @include g.myFlex($jc: center, $gap: 10px);
-
-                    button {
-                        padding: 12px 20px;
-                        transition: 0.2s;
-                        width: 100%;
-                        height: 60px;
-                        margin: 20px 0;
-                        border: 1px solid #000;
-                        background: #000;
-                        color: #fff;
-                        font-size: 1rem;
-
-                        &:hover{
-                            color: #000;
-                            background: #fff;
-                        }
+                    >p{
+                        margin: 30px 0;
+                        text-align: center;
                     }
+                    .popup-buttons{
+                        @include g.myFlex($jc: center, $gap: 10px);
 
-                    .btn-go-wish {
-                        background: #eee; 
-                        border-color: #eee;
-                        color: #000;
-
-                        &:hover{
+                        button {
+                            padding: 12px 20px;
+                            transition: 0.2s;
+                            width: 100%;
+                            height: 60px;
+                            margin: 20px 0;
                             border: 1px solid #000;
+                            background: #000;
+                            color: #fff;
+                            font-size: 1rem;
+
+                            &:hover{
+                                color: #000;
+                                background: #fff;
+                            }
+                        }
+
+                        .btn-go-wish {
+                            background: #eee; 
+                            border-color: #eee;
+                            color: #000;
+
+                            &:hover{
+                                border: 1px solid #000;
+                            }
                         }
                     }
                 }
-            }
-        } 
+            } 
+        }
     }
 
     .detail-left {

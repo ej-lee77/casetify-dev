@@ -11,7 +11,7 @@ const memoList = [
 ];
 
 export default function Payment() {
-  const {user, cart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity} = useAuthStore();
+  const {user, cart, checkedCart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity} = useAuthStore();
   const [cartItemList, setCartItemList] = useState([]);
   const [isMemoOpen, setIsMemoOpen] = useState(false);
   const [selectedMemo, setSelectedMemo] = useState('배송 메모를 선택해주세요');
@@ -19,6 +19,8 @@ export default function Payment() {
   const [selectedCoupon, setSelectedCoupon] = useState('선택');
   const [isGiftOpen, setIsGiftOpen] = useState(false);
   const [selectedGift, setSelectedGift] = useState('선택');
+
+  console.log(checkedCart);
 
   const [formData, setFormData] = useState({
     username: user.name,
@@ -224,13 +226,13 @@ export default function Payment() {
             </div>
             <div className='gray-box'>
               <ul className="cart-item-list">
-                {cart.map((item, id) => (
+                {checkedCart.map((item, id) => (
                   <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="cart-item">
                     <div className="cart-card-wrap">
                       <div className="cart-goods-info">
                         <div className="goods-img">
                           <img
-                            src={`/images/category/products/${item.productId}_${item.imgUrl}_main.jpg`}
+                            src={`${item.imgUrl}`}
                             alt={item.title} />
                         </div>
                         <div className="goods-text">
@@ -249,7 +251,7 @@ export default function Payment() {
                   </li>
                 ))}
               </ul>
-              <div className='cart-price'>소계 <span>{selectedTotal}원</span></div>
+              <div className='cart-price'>소계 <span>{Number(selectedTotal).toLocaleString()}원</span></div>
             </div>
             {/* 쿠폰/기프트 카드 */}
             <div className="cart-title">
@@ -397,15 +399,15 @@ export default function Payment() {
             <div className="price-info-wrap">
               {/* 총 금액 */}
               <div className="price-detail">
-                <p className="price-sum">총 금액<span>{selectedTotal}원</span></p>
-                <p className="price-discount">할인 금액<span>{discount === 0 ? 0 : -discount}원</span></p>
-                <p className="price-discount">쿠폰 할인<span>{discount === 0 ? 0 : -discount}원</span></p>
-                <p className="price-discount">기프트 카드<span>{discount === 0 ? 0 : -discount}원</span></p> 
-                <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${shipping}원`}</span></p>
+                <p className="price-sum">총 금액<span>{Number(selectedTotal).toLocaleString()}원</span></p>
+                <p className="price-discount">할인 금액<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
+                <p className="price-discount">쿠폰 할인<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
+                <p className="price-discount">기프트 카드<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p> 
+                <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${Number(shipping).toLocaleString()}원`}</span></p>
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">최종결제금액<span>{selectedTotal - discount <= 50000 ? selectedTotal - discount + 7000 : selectedTotal - discount}원</span></p>
+                <p className="est-price">최종결제금액<span>{selectedTotal - discount <= 50000 ? Number(selectedTotal - discount + 9000).toLocaleString() : Number(selectedTotal - discount).toLocaleString()}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
