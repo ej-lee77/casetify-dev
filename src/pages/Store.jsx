@@ -11,6 +11,10 @@ export default function Store() {
       </div>
       <div className="store-map-wrap">
         <StoreMap />
+        <div className="store-info-wrap">
+          (매장 리스트)
+          (지역검색)
+        </div>
       </div>
     </div>
   )
