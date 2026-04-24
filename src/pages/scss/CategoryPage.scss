@@ -42,6 +42,31 @@
         padding: 0;
         list-style: none;
 
+        .category-sub-slider-swiper {
+            width: 100%;
+            margin: 0 0 28px;
+            overflow: hidden;
+
+            .swiper-wrapper {
+                align-items: flex-start;
+            }
+
+            .swiper-slide {
+                width: auto !important;
+                flex-shrink: 0;
+            }
+
+            .mini-icon-item {
+                width: 120px;
+                user-select: none;
+            }
+
+            .mini-icon-img,
+            .mini-icon-text {
+                pointer-events: none;
+            }
+        }
+
         .mini-icon-item {
             display: flex;
             flex-direction: column;

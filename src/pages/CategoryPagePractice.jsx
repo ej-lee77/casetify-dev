@@ -1,6 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 import { items as allItems } from "../data/finalData";
 import { MINI_QUERY_MAP } from "../data/categoryMap";
@@ -23,6 +26,15 @@ const SORT_OPTIONS = [
     { key: "priceHigh", label: "높은 가격순" },
     { key: "new", label: "신상품순" },
 ];
+
+function makeArtistIconKey(artist = "") {
+    return artist
+        .trim()
+        .toLowerCase()
+        .replace(/&/g, "and")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
 
 function getPageNumbers(totalPages, currentPage) {
     if (totalPages <= 7) {
@@ -120,7 +132,26 @@ export default function CategoryPagePractice() {
     const visibleMiniItems = useMemo(() => {
         if (!currentSub) return [];
 
-        if (miniMode === "none") return [];
+        // ⭐ 콜라보 전용 (artist mini)
+        if (mainCate === "colab") {
+            const artists = Array.from(
+                new Set(
+                    routeItemsWithoutMini
+                        .map((item) => item.artist)
+                        .filter(Boolean)
+                )
+            );
+
+            return artists.map((artist) => ({
+                key: artist,
+                label: artist,
+                iconKey: makeArtistIconKey(artist),
+            }));
+        }
+
+        if (miniMode === "none") {
+            return [];
+        }
 
         if (miniMode === "caseCategory") {
             const categories = Array.from(
@@ -149,7 +180,7 @@ export default function CategoryPagePractice() {
                     (item.displayMiniCategories || []).includes(miniItem.key)
                 )
             );
-    }, [currentSub, miniMode, routeItemsWithoutMini]);
+    }, [currentSub, miniMode, routeItemsWithoutMini, mainCate]);
 
     const currentMiniLabel = useMemo(() => {
         const found = visibleMiniItems.find((item) => item.key === mini);
@@ -159,6 +190,11 @@ export default function CategoryPagePractice() {
     const routeBaseItems = useMemo(() => {
         if (!mini) return routeItemsWithoutMini;
 
+        // ⭐ 콜라보는 artist 기준 필터
+        if (mainCate === "colab") {
+            return routeItemsWithoutMini.filter((item) => item.artist === mini);
+        }
+
         if (miniMode === "caseCategory") {
             return routeItemsWithoutMini.filter((item) => item.caseCategory === mini);
         }
@@ -166,7 +202,7 @@ export default function CategoryPagePractice() {
         return routeItemsWithoutMini.filter((item) =>
             (item.displayMiniCategories || []).includes(mini)
         );
-    }, [routeItemsWithoutMini, mini, miniMode]);
+    }, [routeItemsWithoutMini, mini, miniMode, mainCate]);
 
     const filteredBaseItems = useMemo(() => {
         return routeBaseItems.filter((item) => {
@@ -452,7 +488,7 @@ export default function CategoryPagePractice() {
                             <span>{currentMain.name}</span>
                         </>
                     )}
-                    {currentSub?.name && (
+                    {/* {currentSub?.name && (
                         <>
                             <span> &gt; </span>
                             <span>{currentSub.name}</span>
@@ -463,25 +499,66 @@ export default function CategoryPagePractice() {
                             <span> &gt; </span>
                             <span>{currentMiniLabel}</span>
                         </>
-                    )}
+                    )} */}
                 </div>
 
                 {!!visibleMiniItems.length && (
-                    <ul className={`category-sub-slider ${mini ? "has-active" : ""}`}>
-                        {visibleMiniItems.map((miniItem, idx) => (
-                            <CategoryMiniIcon
-                                key={`${miniItem.key}-${idx}`}
-                                miniKey={
-                                    miniMode === "caseCategory"
-                                        ? (MINI_QUERY_MAP[miniItem.key] || "etc")
-                                        : miniItem.key
-                                }
-                                label={miniItem.label}
-                                isActive={mini === miniItem.key}
-                                onClick={() => onHandleMiniCategory(miniItem.key)}
-                            />
-                        ))}
-                    </ul>
+                    <>
+                        {visibleMiniItems.length > 10 ? (
+                            <Swiper
+                                modules={[Autoplay]}
+                                className={`category-sub-slider-swiper ${mini ? "has-active" : ""}`}
+                                slidesPerView="auto"
+                                spaceBetween={36}
+                                loop={visibleMiniItems.length > 10}
+                                speed={600}
+                                grabCursor={true}
+                                simulateTouch={true}
+                                touchRatio={1}
+                                touchStartPreventDefault={false}
+                                autoplay={{
+                                    delay: 2800,
+                                    disableOnInteraction: false,
+                                    pauseOnMouseEnter: true,
+                                }}
+                            >
+                                {visibleMiniItems.map((miniItem, idx) => (
+                                    <SwiperSlide key={`${miniItem.key}-${idx}`}>
+                                        <CategoryMiniIcon
+                                            miniKey={
+                                                mainCate === "colab"
+                                                    ? miniItem.iconKey || "etc"
+                                                    : miniMode === "caseCategory"
+                                                        ? (MINI_QUERY_MAP[miniItem.key] || "etc")
+                                                        : miniItem.key
+                                            }
+                                            label={miniItem.label}
+                                            isActive={mini === miniItem.key}
+                                            onClick={() => onHandleMiniCategory(miniItem.key)}
+                                        />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        ) : (
+                            <ul className={`category-sub-slider ${mini ? "has-active" : ""}`}>
+                                {visibleMiniItems.map((miniItem, idx) => (
+                                    <CategoryMiniIcon
+                                        key={`${miniItem.key}-${idx}`}
+                                        miniKey={
+                                            mainCate === "colab"
+                                                ? miniItem.iconKey || "etc"
+                                                : miniMode === "caseCategory"
+                                                    ? (MINI_QUERY_MAP[miniItem.key] || "etc")
+                                                    : miniItem.key
+                                        }
+                                        label={miniItem.label}
+                                        isActive={mini === miniItem.key}
+                                        onClick={() => onHandleMiniCategory(miniItem.key)}
+                                    />
+                                ))}
+                            </ul>
+                        )}
+                    </>
                 )}
 
                 <div className="category-top-row">

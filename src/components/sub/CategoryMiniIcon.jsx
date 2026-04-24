@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function CategoryMiniIcon({
     miniKey,
     label,
-    isActive = false,
+    isActive,
     onClick,
 }) {
+    const [isError, setIsError] = useState(false);
+
     const iconName = miniKey || "etc";
+    const imagePath = `/images/category/mini/${iconName}-${label}.png`;
 
     return (
         <li
@@ -14,11 +17,17 @@ export default function CategoryMiniIcon({
             onClick={onClick}
         >
             <div className="mini-icon-img">
-                <img
-                    src={`/images/category/mini/${iconName}.png`}
-                    alt={label}
-                />
+                {!isError ? (
+                    <img
+                        src={imagePath}
+                        alt={label}
+                        onError={() => setIsError(true)}
+                    />
+                ) : (
+                    <p className="image-error-path">{imagePath}</p>
+                )}
             </div>
+
             <p className="mini-icon-text">{label}</p>
         </li>
     );
