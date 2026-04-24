@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./scss/SearchOverlay.scss";
 import { Link, useNavigate } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
+import ImageSearchModal from './ImageSearchModal';
 
 // 임시 배열
 const tempRecoItem = [
@@ -104,6 +105,7 @@ export default function SearchOverlay({ isActive, onClose }) {
         console.log("찾는 단어 있음", searchWordList);
     }
     const [searchCheck, setSearchCheck] = useState(false);
+    const [modalCheck, setModalCheck] = useState(false);
 
     return (
         <div className={`search-overlay-wrap ${isActive ? "active" : ""}`}>
@@ -178,13 +180,14 @@ export default function SearchOverlay({ isActive, onClose }) {
                         </div>
                     </div>
                     <div className="search-content-extra-wrap">
-                        <div className="img-search">
+                        <div className="img-search" onClick={() => setModalCheck(true)} >
                             <img src="/images/icon/icon-img-search-camera.svg" alt="이미지검색_카메라아이콘" />
                             <span>이미지 검색</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <ImageSearchModal modalCheck={modalCheck} setModalCheck={setModalCheck} />
             {/* 검색 닫기 */}
             <p className="close-btn" onClick={onClose}><img src="/images/icon/close.svg" alt="검색닫기" /></p>
         </div>
