@@ -660,9 +660,9 @@ export const useAuthStore = create(
                 const snap = await getDoc(orderRef);
 
                 if (snap.exists()) {
-                    set({ orderlist: snap.data().orderList });
+                    set({ orderList: snap.data().orderList });
                 } else {
-                    set({ orderlist: [] });
+                    set({ orderList: [] });
                 }
             } catch (err) {
                 console.log(err.message);
