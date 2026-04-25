@@ -12,7 +12,14 @@ export default function Store() {
       <div className="store-map-wrap">
         <StoreMap />
         <div className="store-info-wrap">
-          <div className="store-search-wrap"></div>
+          <div className="store-search-wrap">
+            <label>
+              <input type="text" placeholder="매장지역 검색" />
+            </label>
+            <div className="btn-search">
+              <img src="/images/icon/search_var.svg" alt="검색" />
+            </div>
+          </div>
           <div className="store-select-wrap">
             <p>지역을 고르세요</p>
             <p>가까운 지점 순으로 보기</p>

@@ -19,10 +19,52 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
-            padding: 0.5rem;
+            padding: 1rem;
             background-color: white;
             border: 2px dashed darkblue;
             z-index: 1;
+
+            // 매장 검색 영역
+            .store-search-wrap {
+                display: flex;
+                position: relative;
+                margin-bottom: 0.5rem;
+
+                label {
+                    display: flex;
+                    flex: 1;
+                    position: relative;
+                }
+
+                input {
+                    flex: 1;
+                    padding: 0.625rem 1.25rem;
+                    padding-left: 1.5rem;
+                    width: 100%;
+                    font-family: inherit;
+                    font-weight: 300;
+                    font-size: 1.25rem;
+                    border: 1px solid #c3c3c3;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                }
+
+
+                .btn-search {
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            // 지역 선택 영역
+            .store-select-wrap {
+                @include g.myFlex($gap: 1rem);
+            }
         }
     }
 }
