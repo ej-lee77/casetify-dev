@@ -63,6 +63,7 @@
             @include g.myFlex($jc: normal, $ai: normal, $gap: 1.25em);
             margin-top: 6.25em;
             position: relative;
+            font-family: "Pretendard", sans-serif;
 
 
             // 제목 공통
@@ -222,6 +223,19 @@
 
                 // 주문 버튼
                 .order-btn-wrap {
+                    position: relative;
+
+                    .err-p{
+                        position: absolute;
+                        width: 100%;
+                        height: 20px;
+                        top: -15px;
+                        left: 0;
+                        font-size: 0.88em;
+                        padding-left: 10px;
+                        color: g.$text-sale;
+                        text-align: center
+                    }
                     button {
                         width: 100%;
                         padding: 20px 0;
@@ -242,10 +256,14 @@
         }
 
         .user-info-wrap{
+            font-family: "Pretendard", sans-serif;
             .input-box{
                 @include g.myFlex($jc: start, $gap: unset);
                 padding: 20px 0;
 
+                &.custom-memo{
+                    padding-top: 0;
+                }
                 .label-div{
                     width: 20%;
                     text-align: center;
@@ -319,6 +337,16 @@
                     .placeholder{
                         color: #aaaaaa;
                     }
+                    p{
+                        position: absolute;
+                        width: 100%;
+                        height: 20px;
+                        bottom: -25px;
+                        left: 0;
+                        font-size: 0.88em;
+                        padding-left: 10px;
+                        color: g.$text-sale;
+                    }
                 }
                 .option-box{
                     background: #fff;
@@ -326,6 +354,7 @@
                     position: absolute;
                     left: 0;
                     height: 130px;
+                    z-index: 10;
 
                     >div{
                         padding: 10px;
@@ -353,6 +382,7 @@
             }
         }
         .coupon-wrap{
+            font-family: "Pretendard", sans-serif;
             padding: 16px;
             @include g.myFlex($fd: column, $ai:normal, $gap: 30px);
 
@@ -405,12 +435,28 @@
                     position: absolute;
                     left: 0;
                     height: 130px;
+                    z-index: 10;
 
                     >div{
                         padding: 10px;
                         border: 1px solid #eee;
                         background: #fff;
                     }
+                    .coupon-select{
+                       @include g.myFlex($gap:unset);
+                       .coupon-title{
+                            >span{
+                                padding-left: 10px;
+                                color: #ff6666;
+                            }
+                       }
+                       .limit{
+                            color: #aaa;
+                            font-size: 0.9rem;
+                            margin-top: 10px;
+                       }
+                    }
+
                 }
 
                 .gift-selsct{
@@ -421,6 +467,10 @@
                     }
                     .option-box{
                         width: 100%;
+
+                        .price{
+                            margin-top: 10px;
+                        }
                     }
                 }
             }
@@ -428,6 +478,7 @@
 
         }
         .payment-method-box{
+            font-family: "Pretendard", sans-serif;
             padding: 16px;
 
             .payment-method-list{
@@ -466,7 +517,7 @@
                 background-image: url("/images/waveBg-beige.png");
                 background-size: cover;
                 display: block;
-                width: 100vw;
+                width: 100%;
                 height: 500px;
                 position: absolute;
                 left: 0;
@@ -483,6 +534,44 @@
                 padding: 5px 15px;
                 margin-bottom: 20px;
                 display: inline-block;
+            }
+            .complete-details{
+                text-align: left;
+                width: 500px;
+                margin: auto;
+                border: 1px solid #ccc;
+                padding: 5px 20px;
+                margin-top: 20px;
+                font-family: "Pretendard", sans-serif;
+
+                h3{
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                }
+                .detail-row{
+                    margin-bottom: 5px;
+                    @include g.multi-ellipsis($lines: 1);
+
+                    .detail-title{
+                        width: 20%;
+                        display: inline-block;
+                    }
+                    span+span {
+                        &::before {
+                            content: "";
+                            margin: 0 5px;
+                            display: inline-block;
+                            width: 0;
+                            height: 0.8em;
+                            vertical-align: middle;
+                            border-left: 1px solid #999;
+                        }
+                    }
+                }
+
+                .detail-section{
+                    margin-top: 10px;
+                }
             }
         }
     }

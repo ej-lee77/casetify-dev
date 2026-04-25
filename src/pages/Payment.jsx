@@ -2,25 +2,58 @@ import React, { useEffect, useState } from 'react'
 import "./scss/Payment.scss"
 import { useAuthStore } from '../store/useAuthStore';
 import AddressSearch from '../components/sub/AddressSearch'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const memoList = [
   "부재 시 문 앞에 놓아주세요",
   "배송 전 미리 연락 바랍니다",
-  "벨을 누르지 말고 문자로 남겨주세요"
+  "벨을 누르지 말고 문자로 남겨주세요",
+  "직접 입력"
+];
+
+const couponList = [
+  {
+    id: "welcome",
+    rate: 15,
+    title: "CASETiFY 클럽 welcome 쿠폰",
+    limit: "2026년12월31일"
+  },
+  {
+    id: "birth",
+    rate: 100,
+    title: "생일 기념 무료 케이스",
+    limit: "2026년4월30일"
+  }
+]
+
+const giftCard = [
+  {
+    title: "welcome 기프트카드",
+    price: 10000
+  }
+]
+
+const payMethod = [
+  { id: 'card', label: '신용/체크 카드' },
+  { id: 'transfer', label: '무통장 입금' },
+  { id: 'vbank', label: '가상계좌' },
+  { id: 'mobile', label: '핸드폰 결제' },
+  { id: 'kakaopay', label: '카카오페이' },
+  { id: 'naverpay', label: '네이버페이' },
 ];
 
 export default function Payment() {
-  const {user, cart, checkedCart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity} = useAuthStore();
+  const navigate = useNavigate();
+  const {user, cart, checkedCart, onAddOrder, onFetchCart} = useAuthStore();
   const [cartItemList, setCartItemList] = useState([]);
   const [isMemoOpen, setIsMemoOpen] = useState(false);
   const [selectedMemo, setSelectedMemo] = useState('배송 메모를 선택해주세요');
   const [isCouponOpen, setIsCouponOpen] = useState(false);
-  const [selectedCoupon, setSelectedCoupon] = useState('선택');
+  const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [isGiftOpen, setIsGiftOpen] = useState(false);
-  const [selectedGift, setSelectedGift] = useState('선택');
-
-  console.log(checkedCart);
+  const [selectedGift, setSelectedGift] = useState(null);
+  const [selectedMethod, setSelectedMethod] = useState('card');
+  const [customMemo, setCustomMemo] = useState('');
 
   const [formData, setFormData] = useState({
     username: user.name,
@@ -32,6 +65,7 @@ export default function Payment() {
 
   const [touched, setTouched] = useState({
       username: false, 
+      detailaddress: false,
       phone: false
   });
 
@@ -74,19 +108,18 @@ export default function Payment() {
       if (name === 'username') {
           if (!value || value.trim() === '') error = '필수 입력 항목입니다.';
       }
-      if (name === 'email'){
-          if(!value.includes('@') || !value || value.trim() === '') error = '이메일 형식이 올바르지 않습니다.';
+      if (name === 'zonecode'){
+          if(!value || value.trim() === '') error = '필수 입력 항목입니다.';
+      }
+      if (name === 'address'){
+          if(!value || value.trim() === '') error = '필수 입력 항목입니다.';
+      }
+      if (name === 'detailaddress'){
+          if(!value || value.trim() === '') error = '필수 입력 항목입니다.';
       }
       if (name === 'phone'){
           const numberRegex = /^[0-9]+$/;
           if(!numberRegex.test(value) || value.includes('-') || !value || value.trim() === '') error = '-없이 숫자만 입력해주세요.';
-      }
-      if (name === 'password') {
-          const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,12}$/;
-          if (!passwordRegex.test(value) || !value || value.trim() === '') error = '영문, 숫자를 포함한 6~12자로 입력해주세요.';
-      }
-      if (name === 'passwordcon'){
-          if (formData.password !== value || !value || value.trim() === '') error = '비밀번호가 일치하지 않습니다.';
       }
       return error;
   };
@@ -105,25 +138,108 @@ export default function Payment() {
       });
   }, [user]);
 
-  // 선택 제품
-  // const selectedItems = cart.filter((item) =>
-  //   chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`))
-  const selectedItems = cart;
   // 선택 제품 총가격 
-  const selectedTotal = selectedItems.reduce((acc, cur) =>
+  const selectedTotal = checkedCart.reduce((acc, cur) =>
     acc + cur.price * cur.quantity, 0);
 
-  // 할인 로직 더 
-  const discount = selectedTotal * 0.1;
+  // 번들 할인
+  // isPhone이 true인 제품이 하나라도 있는지 체크
+  const hasPhone = checkedCart.some(item => item.isPhone);
+  
+  // 2. 할인 금액 계산
+  const discount = checkedCart.reduce((acc, item) => {
+    // 폰이 포함되어 있고, 현재 아이템이 폰이 아닌 경우에만 10% 할인 적용
+    if (hasPhone && !item.isPhone) {
+      return acc + (item.price * 0.1);
+    }
+    return acc;
+  }, 0);
+
+  const discountedTotal = selectedTotal - discount;
+  
+  // 생일 쿠폰 처리
+  const isBirthCoupon = selectedCoupon?.id === 'birth';
+  
+  let birthDiscount = 0;
+  if(isBirthCoupon){
+   const phoneItems = checkedCart.filter(item => item.isPhone);
+    // 가격순으로 내림차순 정렬하여 가장 비싼 제품 추출
+    const expensivePhone = [...phoneItems].sort((a, b) => b.price - a.price)[0];
+    birthDiscount = expensivePhone.price;
+  }
+
+  const couponRate = selectedCoupon ? selectedCoupon.rate : 0;
+  const couponDiscount = isBirthCoupon ? birthDiscount : discountedTotal * (couponRate / 100);
+  const giftDiscount = selectedGift ? selectedGift.price : 0;
+
+  // 총 할인액 합계
+  const totalDiscount = discount + couponDiscount + giftDiscount;
+  // 최종 결제 금액
+  const finalPayment = Math.max(0, selectedTotal - totalDiscount);
+
   // 배송비 기본 9000원
   const [shipping, setShipping] = useState(9000);
   useEffect(()=>{ 
-    if(selectedTotal - discount > 50000){
+    if(finalPayment > 50000){
       setShipping(0);
     }else{
       setShipping(9000)
     }
-  }, [selectedTotal, discount]);
+  }, [finalPayment]);
+
+  const handlePayment = async()=>{
+
+    // 제출 시 최종 검증 (모든 필드에 대해)
+    const newErrors = {};
+    Object.keys(formData).forEach(key => {
+    newErrors[key] = validate(key, formData[key]);
+    });
+    setJoinAllErr(newErrors);
+
+    const allTouched = {
+        username: true,
+        detailaddress: true,
+        phone: true
+    };
+    setTouched(allTouched);
+
+    // 에러가 하나도 없는지 확인
+    let isFormValid = Object.values(newErrors).every(err => err === '');
+
+    if(!isFormValid){
+        setJoinErr("입력 오류가 있습니다.");
+        return;
+    }
+
+    const orderId = Date.now();
+
+    // 주문 객체 생성
+    const newOrder = {
+      orderId: orderId,
+      orderItems: checkedCart,
+      deliveryInfo: formData,
+      deliveryMemo: selectedMemo === '직접 입력' ? customMemo : selectedMemo,
+      priceSummary: { 
+        totalPrice: selectedTotal,
+        totalDiscount: totalDiscount, 
+        finalPayment: finalPayment,
+        coupon: selectedCoupon,
+        giftCard: selectedGift
+      },
+      paymentMethod: selectedMethod,
+      orderDate: new Date().toLocaleDateString(),
+    };
+
+    // 스토어(회원정보/주문내역)에 저장
+    const isOrder = await onAddOrder(newOrder); 
+
+    if(isOrder){
+      // 완료 페이지로 '아이디'만 넘겨주며 이동
+      navigate("/payment/complete", { state: { orderId: orderId } });
+    }else{
+      alert("결제실패")
+    }
+  };
 
   return (
     <div className="sub-page-wrap pay-page-wrap">
@@ -168,7 +284,7 @@ export default function Payment() {
             <div className='gray-box'>
               <div className='user-info-wrap'>
                 <div className='input-box'>
-                    <div className='label-div'><label htmlFor='username'>수령인</label></div>
+                    <div className='label-div'><label htmlFor='username'>받는 분</label></div>
                     <div className='input-div'>
                         <input type="text" id='username' name='username' placeholder='수령인' value={formData.username} onBlur={handleBlur} onChange={handleChange}/>
                         <p className='err-box'>{touched.username && joinAllErr.username}</p>
@@ -189,7 +305,8 @@ export default function Payment() {
                             <AddressSearch setAddressData={setAddressData} />
                         </div>
                         <input value={formData.address} readOnly placeholder="기본주소" />
-                        <input type="text" id='detailaddress' name='detailaddress' placeholder="상세주소" value={formData.detailaddress} onChange={handleChange}/>
+                        <input type="text" id='detailaddress' name='detailaddress' placeholder="상세주소" value={formData.detailaddress} onBlur={handleBlur} onChange={handleChange}/>
+                        <p className='err-box'>{touched.detailaddress && joinAllErr.detailaddress || joinAllErr.zonecode || joinAllErr.address}</p>
                     </div>
                 </div>
                 <div className='input-box'>
@@ -201,12 +318,18 @@ export default function Payment() {
                         </div>
                         {isMemoOpen && (
                           <div className='option-box'>
+                            <div onClick={() => {
+                                  setSelectedMemo('배송 메모를 선택해주세요');
+                                  setIsMemoOpen(false);
+                                  setCustomMemo('');
+                                }}>--</div>
                             {memoList.map((item, index) => (
                               <div 
                                 key={index} 
                                 onClick={() => {
                                   setSelectedMemo(item);
                                   setIsMemoOpen(false);
+                                  if (item !== '직접 입력') setCustomMemo('');
                                 }}
                               >
                                 {item}
@@ -216,6 +339,23 @@ export default function Payment() {
                         )}
                     </div>
                 </div>
+                {/* '직접 입력' 선택 시 나타나는 Input 창 */}
+                {selectedMemo === '직접 입력' && (
+                  <div className='input-box custom-memo'>
+                    <div className='label-div'><label></label></div>
+                    <div className="input-div">
+                      <input 
+                        type="text" 
+                        className="custom-memo-input"
+                        placeholder="배송 메모를 직접 입력해주세요"
+                        value={customMemo}
+                        onChange={(e) => setCustomMemo(e.target.value)}
+                        maxLength={50}
+                        
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             {/* 장바구니 */}
@@ -264,22 +404,29 @@ export default function Payment() {
                 <div className='input-box'>
                   <div className='label-div'><label>쿠폰 선택</label></div>
                   <div className='input-div'>
-                      <div className={`coupon-div ${selectedCoupon === '선택' ? 'placeholder' : ''}`} onClick={() => setIsCouponOpen(!isCouponOpen)}>
-                        {selectedCoupon}
+                      <div className={`coupon-div ${!selectedCoupon ? 'placeholder' : ''}`} onClick={() => setIsCouponOpen(!isCouponOpen)}>
+                        {selectedCoupon ? selectedCoupon.title : '쿠폰을 선택하세요'}
                         <span className={`accordion-arrow ${isCouponOpen ? "open" : ""}`}>▼</span>
                       </div>
                       {isCouponOpen && (
                         <div className='option-box'>
-                          <div>--</div>
-                          {user.couponList?.map((item, index) => (
-                            <div 
-                              key={index} 
+                          <div onClick={() => {
+                                setSelectedCoupon(null);
+                                setIsCouponOpen(false);
+                              }}>--</div>
+                          {couponList?.map((item, index) => (
+                            <div className='coupon-select'
+                              key={item.id} 
                               onClick={() => {
-                                setIsCouponOpen(item);
-                                isCouponOpen(false);
+                                setSelectedCoupon(item);
+                                setIsCouponOpen(false);
                               }}
                             >
-                              {item}
+                              <div>
+                                <div className='coupon-title'>{item.title}<span>{item.id !== "birth" ? `${item.rate}% 할인` : ""}</span></div>
+                                <div className='limit'>{item.limit}까지</div>
+                              </div>
+                              <div>사용가능</div>
                             </div>
                           ))}
                         </div>
@@ -290,17 +437,18 @@ export default function Payment() {
                   <div className='label-div'><label>기프트 카드</label></div>
                   <div className='input-div gift-div'>
                       <div className='gift-selsct'>
-                        <div className={`coupon-div ${selectedGift === '선택' ? 'placeholder' : ''}`} onClick={() => setIsGiftOpen(!isGiftOpen)}>
-                          {selectedGift}
+                        <div className={`coupon-div ${!selectedGift ? 'placeholder' : ''}`} onClick={() => setIsGiftOpen(!isGiftOpen)}>
+                          {selectedGift ? selectedGift.title : '기프트 카드을 선택하세요'}
                           <span className={`accordion-arrow ${isGiftOpen ? "open" : ""}`}>▼</span>
                         </div>
                         {isGiftOpen && (
                           <div className='option-box'>
                             <div 
                               onClick={() => {
+                                setSelectedGift(null);
                                 setIsGiftOpen(false);
                               }}>--</div>
-                            {user.giftList?.map((item, index) => (
+                            {giftCard?.map((item, index) => (
                               <div 
                                 key={index} 
                                 onClick={() => {
@@ -308,7 +456,8 @@ export default function Payment() {
                                   setIsGiftOpen(false);
                                 }}
                               >
-                                {item}
+                                <div>{item.title}</div>
+                                <div className='price'>{Number(item.price).toLocaleString()}원</div>
                               </div>
                             ))}
                           </div>
@@ -327,66 +476,20 @@ export default function Payment() {
             </div>
             <div className='gray-box payment-method-box'>
               <ul className="payment-method-list">
-                <li>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="paymentMethod" 
-                      value="card"
-                    />
-                    <span>신용/체크 카드</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="paymentMethod" 
-                      value="transfer" 
-                    />
-                    <span>무통장 입금</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="paymentMethod" 
-                      value="vbank" 
-                    />
-                    <span>가상계좌</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="paymentMethod" 
-                      value="mobile" 
-                    />
-                    <span>핸드폰 결제</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="paymentMethod" 
-                      value="kakaopay" 
-                    />
-                    <span>카카오페이</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="paymentMethod" 
-                      value="naverpay" 
-                    />
-                    <span>네이버페이</span>
-                  </label>
-                </li>
+                {payMethod.map((method) => (
+                  <li key={method.id}>
+                    <label>
+                      <input 
+                        type="radio" 
+                        name="paymentMethod" 
+                        value={method.id}
+                        checked={selectedMethod === method.id} // 현재 선택된 값인지 확인
+                        onChange={(e) => setSelectedMethod(e.target.value)} // 값 변경 감지
+                      />
+                      <span>{method.label}</span>
+                    </label>
+                  </li>
+                ))}              
               </ul>
             </div>
           </div>
@@ -400,20 +503,21 @@ export default function Payment() {
               {/* 총 금액 */}
               <div className="price-detail">
                 <p className="price-sum">총 금액<span>{Number(selectedTotal).toLocaleString()}원</span></p>
-                <p className="price-discount">할인 금액<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
-                <p className="price-discount">쿠폰 할인<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
-                <p className="price-discount">기프트 카드<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p> 
+                <p className="price-discount">할인 금액{discount === 0 ? "" : "(번들할인)"}<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
+                <p className="price-discount">쿠폰 할인<span>{couponDiscount === 0 ? 0 : Number(-couponDiscount).toLocaleString()}원</span></p>
+                <p className="price-discount">기프트 카드<span>{!selectedGift ? 0 : Number(-giftDiscount).toLocaleString()}원</span></p> 
                 <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${Number(shipping).toLocaleString()}원`}</span></p>
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">최종결제금액<span>{selectedTotal - discount <= 50000 ? Number(selectedTotal - discount + 9000).toLocaleString() : Number(selectedTotal - discount).toLocaleString()}원</span></p>
+                <p className="est-price">최종결제금액<span>{Number(finalPayment).toLocaleString()}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
-            <ul className="order-btn-wrap">
-              <li><Link to={"/payment/complete"}><button className="order-all">결제하기</button></Link></li>
-            </ul>
+            <div className="order-btn-wrap">
+              <p className='err-p'>{joinErr}</p>
+              <div><button onClick={()=>handlePayment()} className="order-all">결제하기</button></div>
+            </div>
             <div className='agree-div'>
               <p>주문을 완료함으로써,</p>
               <p><span>이용약관</span> 및 <span>개인정보 처리방침</span>에 동의합니다.</p>

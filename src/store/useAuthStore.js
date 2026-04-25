@@ -620,6 +620,55 @@ export const useAuthStore = create(
             }
         },
 
+        orderList: [],
+        // 주문정보저장
+        onAddOrder: async (orderData) => {
+            const { user, orderList } = get();
+            if (!user) return;
+
+            // 1. 기존 주문 목록에 새 주문 추가
+            const updatedOrders = [...(orderList || []), orderData];
+
+            try {
+                // A. DB 업데이트 - 사용자의 주문 내역(orders) 컬렉션에 저장
+                const orderRef = doc(db, "orders", user.uid);
+                await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
+
+                // B. 결제가 완료되었으므로 장바구니 비우기 (DB)
+                const cartRef = doc(db, "carts", user.uid);
+                await setDoc(cartRef, { items: [] }, { merge: true });
+
+                // C. 로컬 스토어 상태 동기화 (주문 추가 & 장바구니 초기화)
+                set({ 
+                    orderList: updatedOrders,
+                    cart: [],
+                    checkedCart: []
+                });
+
+                return true;
+            } catch (e) {
+                console.log("결제 저장 실패:", e.message);
+                return false;
+            }
+        },
+        onFetchOrder: async()=>{
+            const user = get().user;
+            if (!user) return;
+
+            try {
+                const orderRef = doc(db, "orders", user.uid);
+                const snap = await getDoc(orderRef);
+
+                if (snap.exists()) {
+                    set({ orderlist: snap.data().orderList });
+                } else {
+                    set({ orderlist: [] });
+                }
+            } catch (err) {
+                console.log(err.message);
+            }
+        },
+
         // 회원정보 수정
         onUpdateUser: async (formData) => {
             try {
