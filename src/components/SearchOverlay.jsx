@@ -3,83 +3,10 @@ import "./scss/SearchOverlay.scss";
 import { Link, useNavigate } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 import ImageSearchModal from './ImageSearchModal';
+import BundleRecommend from './sub/product detail page/Recommend';
 
-// 임시 배열
-const tempRecoItem = [
-    {
-        id: "CTF-34942803-16006188",
-        badge: [
-            "무료 배송"
-        ],
-        price: "127000",
-        productName: "Enjoy Where I Am",
-        caseCategory: "2-in-1 충전 스탠드",
-        color: [
-            "White"
-        ],
-        collabo: "By nothing here",
-        mainCategory: "악세서리",
-        subCategory: "충전기",
-        miniCategory: "충전기",
-        lastCategory: "charger",
-        deviceCategory: ""
-    },
-    {
-        id: "CTF-35461019-16008668",
-        badge: [
-            "무료 배송"
-        ],
-        price: "127000",
-        productName: "Where are we going",
-        caseCategory: "2-in-1 충전 스탠드",
-        color: [
-            "White",
-            "Matte Black"
-        ],
-        collabo: "By Shinkiru",
-        mainCategory: "악세서리",
-        subCategory: "충전기",
-        miniCategory: "충전기",
-        lastCategory: "charger",
-        deviceCategory: ""
-    },
-    {
-        id: "CTF-37181334-16010330",
-        badge: [],
-        price: "45000",
-        productName: "Black Sakura Bloom",
-        caseCategory: "데스크 매트",
-        color: [
-            "White"
-        ],
-        collabo: "",
-        mainCategory: "악세서리",
-        subCategory: "기타",
-        miniCategory: "기타",
-        lastCategory: "etc",
-        deviceCategory: ""
-    },
-    {
-        id: "CTF-34735868-16010810",
-        badge: [],
-        price: "45000",
-        productName: "Snappy Grip Holder Customizer",
-        caseCategory: "",
-        color: [
-            "Pink",
-            "Glitter Black",
-            "Clear",
-            "Matte Black",
-            "Soft Blue"
-        ],
-        collabo: "",
-        mainCategory: "악세서리",
-        subCategory: "맥세이프",
-        miniCategory: "맥세이프",
-        lastCategory: "magsafe",
-        deviceCategory: ""
-    },
-]
+// 추천상품용
+const tempRecoItem = { id: "CTF-34942803-16006188" }
 
 export default function SearchOverlay({ isActive, onClose }) {
     //전역변수 searchWord, onSetSearchWorld
@@ -161,22 +88,7 @@ export default function SearchOverlay({ isActive, onClose }) {
                             </ol>
                         </div>
                         <div className="recommend-wrap">
-                            <div className="inner-title">추천 상품</div>
-                            <ul className="s-overlay-reco-item-list">
-                                {tempRecoItem.map((item) => (
-                                    <li key={item.id} className="s-reommend-item">
-                                        <div className="goods-img">
-                                            <img
-                                                src={`/images/category/accessory/${item.id}_${item.color[0]}_0.jpg`}
-                                                alt={item.productName} />
-                                        </div>
-                                        <div className="goods-text">
-                                            <p className="item-name">{item.productName}</p>
-                                            <p className="item-price">₩ {Number(item.price).toLocaleString()}</p>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                            <BundleRecommend item={tempRecoItem}/>
                         </div>
                     </div>
                     <div className="search-content-extra-wrap">
