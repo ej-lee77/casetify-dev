@@ -213,10 +213,15 @@ export default function Payment() {
 
     const orderId = Date.now();
 
+    const orderItemsWithStatus = checkedCart.map(item => ({
+      ...item,
+      status: 0 // 각 상품별 개별 상태
+    }));
+
     // 주문 객체 생성
     const newOrder = {
       orderId: orderId,
-      orderItems: checkedCart,
+      orderItems: orderItemsWithStatus,
       deliveryInfo: formData,
       deliveryMemo: selectedMemo === '직접 입력' ? customMemo : selectedMemo,
       priceSummary: { 

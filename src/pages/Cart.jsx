@@ -48,10 +48,10 @@ export default function Cart() {
 
   // 번들 할인
   // isPhone이 true인 제품이 하나라도 있는지 체크
-  const hasPhone = checkedCart.some(item => item.isPhone);
+  const hasPhone = selectedItems.some(item => item.isPhone);
   
   // 2. 할인 금액 계산
-  const discount = checkedCart.reduce((acc, item) => {
+  const discount = selectedItems.reduce((acc, item) => {
     // 폰이 포함되어 있고, 현재 아이템이 폰이 아닌 경우에만 10% 할인 적용
     if (hasPhone && !item.isPhone) {
       return acc + (item.price * 0.1);
