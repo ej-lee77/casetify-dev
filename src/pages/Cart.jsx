@@ -46,17 +46,31 @@ export default function Cart() {
   const selectedTotal = selectedItems.reduce((acc, cur) =>
     acc + cur.price * cur.quantity, 0);
 
-  // 할인 로직 더 
-  const discount = selectedTotal * 0.1;
+  // 번들 할인
+  // isPhone이 true인 제품이 하나라도 있는지 체크
+  const hasPhone = selectedItems.some(item => item.isPhone);
+  
+  // 2. 할인 금액 계산
+  const discount = selectedItems.reduce((acc, item) => {
+    // 폰이 포함되어 있고, 현재 아이템이 폰이 아닌 경우에만 10% 할인 적용
+    if (hasPhone && !item.isPhone) {
+      return acc + (item.price * 0.1);
+    }
+    return acc;
+  }, 0);
+  
+  // 최종 결제 금액
+  const finalPayment = Math.max(0, selectedTotal - discount);
+
   // 배송비 기본 9000원
   const [shipping, setShipping] = useState(9000);
   useEffect(()=>{ 
-    if(selectedTotal - discount > 50000){
+    if(finalPayment > 50000){
       setShipping(0);
     }else{
       setShipping(9000)
     }
-  }, [selectedTotal, discount]);
+  }, [finalPayment]);
 
   const handleRemoveCart = ()=>{
     onRemoveSelected(selectedItems);
@@ -203,7 +217,7 @@ export default function Cart() {
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>{selectedTotal - discount <= 50000 ? Number(selectedTotal - discount + 9000).toLocaleString() : Number(selectedTotal - discount).toLocaleString()}원</span></p>
+                <p className="est-price">결제예정금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment+shipping).toLocaleString()}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
