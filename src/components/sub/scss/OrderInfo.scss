@@ -1,0 +1,122 @@
+@use "../../../App.scss" as g;
+
+.order-list-container{
+
+  .order-status-tabs{
+    // background: #eee;
+    margin: 30px 0;
+    
+    button{
+      font-size: 1rem;
+      width: 25%;
+      padding: 10px 20px;
+
+      &:hover{
+        background: #eee;
+      }
+      &.active{
+        background: #000;
+        color: #fff;
+        &:hover{
+          background: #000;
+        }
+      }
+    }
+  }
+
+  .order-length{
+    background: #eee;
+    padding: 10px 0 10px 20px;
+  }
+
+  .order-table-header {
+    @include g.myFlex($jc: unset, $gap: unset);
+    background: #eee;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.88em;
+
+    .col{
+      width: 20%;
+
+      &:first-child{
+        width: 20%
+      }
+      &:nth-child(2){
+        width: 40%;
+      }
+      &:last-child{
+        width: 20%;
+      }
+    }
+  }
+
+  .order-group {
+    font-family: "Pretendard", sans-serif;
+    display: flex;
+    border-bottom: 1px solid #eee;
+    align-items: stretch; /* 높이를 동일하게 맞춤 */
+  
+
+    .order-info-col {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid #eee;
+
+      .detail-btn{
+        color: g.$text-sub;
+      }
+    }
+
+    
+    .order-items-col {
+      width: 60%;
+    
+      .item-row {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #f9f9f9;
+
+        .item-option{
+          color: g.$text-strike;
+        }
+
+        .item-img img { width: 80px; height: 80px; object-fit: cover; margin-right: 15px; }
+        
+        &:last-child { border-bottom: none; }
+        
+        .item-price-qty {
+          margin-left: auto; /* 금액을 오른쪽으로 밀기 */
+          text-align: right;
+        }
+      }
+      .more-items-tag{
+        text-align: end;
+        padding: 5px;
+        color: g.$text-sub;
+      }
+    }
+
+    .order-status-col {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid #eee;
+
+      .cancel-btn{
+        margin-top: 5px;
+        padding: 3px;
+        padding-bottom: 5px;
+        color: g.$text-sub;
+        border: 1px solid #eee;
+      }
+    }
+  }
+
+}

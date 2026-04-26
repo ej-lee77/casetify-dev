@@ -227,6 +227,7 @@ export default function Payment() {
         giftCard: selectedGift
       },
       paymentMethod: selectedMethod,
+      orderStatus: "배송준비중",
       orderDate: new Date().toLocaleDateString(),
     };
 
@@ -510,7 +511,7 @@ export default function Payment() {
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">최종결제금액<span>{Number(finalPayment).toLocaleString()}원</span></p>
+                <p className="est-price">최종결제금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment+shipping).toLocaleString()}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
