@@ -21,8 +21,14 @@ export default function Store() {
             </div>
           </div>
           <div className="store-select-wrap">
-            <p>지역을 고르세요</p>
-            <p>가까운 지점 순으로 보기</p>
+            <button className="select-btn">
+              <span>지역을 고르세요</span>
+              <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span>
+            </button>
+            <button className="select-btn">
+              <span>가까운 지점 순으로 보기</span>
+              <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span>
+            </button>
           </div>
           <p>현재위치 사용</p>
           (매장 리스트)
