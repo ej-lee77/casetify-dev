@@ -24,7 +24,6 @@ import PayComplete from './pages/PayComplete'
 import Store from './pages/Store'
 
 function App() {
-  // const { onFetchItems } = useProductStore();
   const { pathname } = useLocation();
   const { initAuth } = useAuthStore();
 
@@ -48,9 +47,6 @@ function App() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  // useEffect(() => {
-  //   onFetchItems();
-  // }, []);
   return (
     <>
       <Header />

@@ -66,6 +66,7 @@
             @include g.myFlex($jc: normal, $ai: normal, $gap: 1.25em);
             margin-top: 6.25em;
             position: relative;
+            font-family: "Pretendard", sans-serif;
 
 
             // 제목 공통
@@ -85,7 +86,7 @@
 
                 // 체크박스
                 .checkbox-label {
-                    height: 22px;
+                    height: 20px;
                     input {
                         display: none;
                     }
