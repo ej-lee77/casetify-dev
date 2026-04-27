@@ -29,34 +29,39 @@ export default function DetailPage({ item }) {
 
 
     // ==================== EFFECTS ====================
-    useEffect(() => {
-        if (!item) return;
-        setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
-        setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
-        setQuantity(1);
-        setSelectedBundles({});
-        setAccordionOpen(false);
-        setModelAccordionOpen(false);
+useEffect(() => {
+    if (!item) return;
+    setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
+    setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
+    setQuantity(1);
+    setSelectedBundles({});
+    setAccordionOpen(false);
+    setModelAccordionOpen(false);
+    setIsWished(item.isWish || false);
+
+    // 호환 모델이 1개면 자동 선택
+    if (item.compatibleModels?.length === 1) {
+        setSelectedModel(item.compatibleModels[0]);
+    } else {
         setSelectedModel("");
-            setIsWished(item.isWish || false);
+    }
 
-        // 선택할 옵션이 없는 상품은 바로 장바구니버튼눌러도 로그인경고 안뜸
-        const hasNoOption =
-            !phoneModelOptions[item?.brand] &&
-            !item?.compatibleModels?.length &&
-            !item?.caseColors?.length;
-                setUserSelected(hasNoOption || item.isWish || false);
+    // 선택할 옵션이 없는 상품은 바로 장바구니버튼눌러도 로그인경고 안뜸
+    const hasNoOption =
+        !phoneModelOptions[item?.brand] &&
+        !item?.compatibleModels?.length &&
+        !item?.caseColors?.length;
+    const autoSelected = item.compatibleModels?.length === 1;
+    setUserSelected(hasNoOption || item.isWish || autoSelected || false);
 
-
-        // 실제 존재하는 첫 번째 브랜드로 탭 초기화
-        const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
-            phoneModelOptions[brand].some((m) =>
-                getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
-            )
-        );
-        if (availableBrand) setSelectedBrandTab(availableBrand);
-    }, [item]);
-
+    // 실제 존재하는 첫 번째 브랜드로 탭 초기화
+    const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
+        phoneModelOptions[brand].some((m) =>
+            getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
+        )
+    );
+    if (availableBrand) setSelectedBrandTab(availableBrand);
+}, [item]);
 
     // ==================== MEMO ====================
 
