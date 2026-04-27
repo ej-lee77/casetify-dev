@@ -472,6 +472,34 @@
                             margin-top: 10px;
                         }
                     }
+                    input {
+                        font-size: 1rem;
+                        color: #222222;
+                        width: 100%;
+                        border: none;
+                        border: solid #aaaaaa 1px;
+                        padding: 10px 0;
+                        padding-left: 10px;
+                        position: relative;
+                        background: #fff;
+                        z-index: 5;
+                    }
+
+                    input::placeholder { color: #aaaaaa; }
+                    input:focus { outline: none; }
+                    input:read-only{
+                        background: #ddd;
+                    }
+
+                    input:focus ~ label, input:not(:placeholder-shown) ~ label {
+                        font-size: 1rem;
+                        bottom: 40px;
+                        color: #666;
+                    }
+
+                    input:focus ~ span, input:not(:placeholder-shown) ~ span {
+                        width: 100%;
+                    }
                 }
             }
 

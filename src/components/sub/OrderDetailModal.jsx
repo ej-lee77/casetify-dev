@@ -167,7 +167,7 @@ export default function OrderDetailModal({ order, onClose }) {
             </div>
             <div className="info-row">
               <span className="label">기프트카드</span>
-              <span className="value">{order.priceSummary.giftCard ? order.priceSummary.giftCard.title : '없음'}</span>
+              <span className="value">{order.priceSummary.giftCard ? `${order.priceSummary.giftCard.toLocaleString()}원` : '없음'}</span>
             </div>
             <div className="info-row">
               <span className="label">할인</span>

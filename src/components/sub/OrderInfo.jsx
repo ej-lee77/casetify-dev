@@ -217,7 +217,7 @@ export default function OrderInfo() {
             </div>
 
             {filteredOrders.length === 0 ? (
-                <div className="empty-order">주문 내역이 없습니다.</div>
+                <div className="order-group empty-order">주문 내역이 없습니다.</div>
             ) : (
                 currentItems.map((order) => {
                     // 상품이 3개보다 많은지 확인
