@@ -28,7 +28,7 @@ export default function Mypage() {
       case "주문": return <OrderInfo />
       case "위시리스트": return <WishList />
       case "케이스티파이 정품 인증": return <p>정품인증 페이지 이동</p>
-      case "기프트 카드": return <Giftcard />
+      case "기프트 카드/쿠폰": return <Giftcard />
       case "로그아웃": return <p>로그아웃 + 메인페이지 이동</p>
     }
   }

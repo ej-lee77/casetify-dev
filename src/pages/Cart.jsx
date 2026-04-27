@@ -18,20 +18,33 @@ export default function Cart() {
 
   // 체크박스 선택 확인
   const [chekedItems, setCheckedItems] = useState([]);
+  const getItemKey = (item) => `${item.productId}-${item.deviceKey}-${item.color}`;
   // 체크박스 실행 메서드
   const handleChecked = (item) => {
-    // console.log(item);
-    const key = `${item.productId}-${item.deviceKey}-${item.color}`;
-    setCheckedItems((prev) =>
-      prev.includes(key) ? prev.filter((v) => v !== key) : [...prev, key])
-  }
+    const key = getItemKey(item);
+    setCheckedItems((prev) => {
+      if (prev.includes(key)) {
+        return prev.filter((v) => v !== key);
+      } else {
+        return [...prev, key];
+      }
+    });
+  };
   // 전체 체크 메서드
   const handleAllChecked = (e) => {
     if (e.target.checked) {
-      const allKeys = cart.map((item) => `${item.productId}-${item.deviceKey}-${item.color}`)
-      setCheckedItems(allKeys)
-    } else { setCheckedItems([]) }
-  }
+      const allKeys = cart.map((item) => getItemKey(item));
+      setCheckedItems(allKeys);
+    } else {
+      setCheckedItems([]);
+    }
+  };
+
+  const handleUpdateQty = (index, delta, item) => {
+    // 수량이 1 미만으로 내려가지 않도록 방어 로직
+    if (item.quantity + delta < 1) return;
+    updateQuantity(index, delta);
+  };
   
   // 장바구니 정보 가져오기
   useEffect(()=>{ 
@@ -40,8 +53,7 @@ export default function Cart() {
   }, [user]);
 
   // 선택 제품
-  const selectedItems = cart.filter((item) =>
-    chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`))
+  const selectedItems = cart.filter((item) => chekedItems.includes(getItemKey(item)));
   // 선택 제품 총가격 
   const selectedTotal = selectedItems.reduce((acc, cur) =>
     acc + cur.price * cur.quantity, 0);
@@ -65,7 +77,7 @@ export default function Cart() {
   // 배송비 기본 9000원
   const [shipping, setShipping] = useState(9000);
   useEffect(()=>{ 
-    if(finalPayment > 50000){
+    if(finalPayment >= 50000){
       setShipping(0);
     }else{
       setShipping(9000)
@@ -142,9 +154,9 @@ export default function Cart() {
               <div className="cart-title-left">
                 <label className="checkbox-label">
                   <input type="checkbox"
-                    checked={chekedItems.length === cart.length}
+                    checked={cart.length > 0 && chekedItems.length === cart.length}
                     onChange={handleAllChecked} />
-                  <span className={`checkbox-icon ${chekedItems.length === cart.length ? "on" : "off"}`}></span>
+                  <span className={`checkbox-icon ${cart.length > 0 && chekedItems.length === cart.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -155,13 +167,18 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-              {cart.map((item, id) => (
-                <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="cart-item">
+            {cart.map((item, index) => {
+              const itemKey = getItemKey(item);
+              const isChecked = chekedItems.includes(itemKey);
+              return (
+                <li key={itemKey} className="cart-item">
                   <label className="checkbox-label">
-                    <input type="checkbox"
-                      checked={chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`)}
-                      onChange={() => handleChecked(item)} />
-                    <span className={`checkbox-icon ${chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`) ? "on" : "off"}`}></span>
+                    <input 
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={() => handleChecked(item)} 
+                    />
+                    <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
                   </label>
                   <div className="cart-card-wrap">
                     <div className="cart-goods-info">
@@ -183,15 +200,16 @@ export default function Cart() {
                     </div>
                     <div className="cart-goods-count-price">
                       <div className="cart-count-ctrl">
-                        <button onClick={()=>updateQuantity(id, -1)}>-</button>
+                        <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
                         <span>{item.quantity}</span>
-                        <button onClick={()=>updateQuantity(id, 1)}>+</button>
+                        <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
                       </div>
-                      <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
+                      <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
                     </div>
                   </div>
                 </li>
-              ))}
+              );
+            })}
             </ul>
             {editingItem && (
               <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)}/>
