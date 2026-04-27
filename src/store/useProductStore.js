@@ -37,6 +37,11 @@ export const useProductStore = create((set, get) => ({
         set({ searchWordList: [] })
     },
 
+    // 최근/인기 검색어 클릭 시 바로 검색 트리거
+    onSearchByKeyword: (text) => {
+        set({ pendingSearch: text })
+    },
+
     // 검색창 열림/닫힘 상태 (Header 로컬 state → store로 이관)
     isSearchOpen: false,
     onOpenSearch: () => set({ isSearchOpen: true }),
