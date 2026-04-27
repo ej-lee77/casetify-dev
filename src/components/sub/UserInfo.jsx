@@ -51,6 +51,20 @@ export default function UserInfo() {
     }, [user]);
 
     const handleSave = async () => {
+        console.log("birthDate 값:", formData.birthDate);
+        console.log("birthDate 에러:", validate('birthDate', formData.birthDate));
+        // 저장 버튼 클릭 시 전체 필드 일괄 검증
+        const newErrors = {
+            email: validate('email', formData.email),
+            name: validate('name', formData.name),
+            phone: validate('phone', formData.phone),
+            birthDate: validate('birthDate', formData.birthDate),
+        };
+        setErrors(newErrors);
+
+        // 하나라도 에러 있으면 저장 중단
+        if (Object.values(newErrors).some(e => e !== '')) return;
+
         const saveData = {
             ...formData,
             birthDate: formData.birthDate instanceof Date
@@ -59,7 +73,6 @@ export default function UserInfo() {
         };
 
         const result = await onUpdateUser(saveData);
-
         if (result) {
             setAlertMsg("회원정보가 수정되었습니다 👍");
         } else {
@@ -69,10 +82,10 @@ export default function UserInfo() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value
-        }));
+        setFormData((prev) => ({ ...prev, [name]: value }));
+
+        const error = validate(name, value);
+        setErrors((prev) => ({ ...prev, [name]: error }));
     };
     const [onConfirm, setOnConfirm] = useState(null);
     const handleDelete = async () => {
@@ -120,6 +133,15 @@ export default function UserInfo() {
             ...prev,
             [name]: value
         }));
+
+        // 👇 빈값이면 에러 지우기, 값 있을 때만 검증
+        if (!value) {
+            setErrors(prev => ({ ...prev, [name]: '' }));
+            return;
+        }
+
+        const error = validate(name, value);
+        setErrors(prev => ({ ...prev, [name]: error }));
     };
     const handlePasswordSave = async () => {
         if (!passwordData.currentPassword) {
@@ -149,7 +171,33 @@ export default function UserInfo() {
         }));
     };
 
+    // 검증
+    const [errors, setErrors] = useState({});
 
+    const validate = (name, value) => {
+        let error = '';
+
+        if (!value || value.toString().trim() === '') return '필수 입력 항목입니다.';
+
+        if (name === 'email') {
+            if (!value.includes('@') || value.trim() === '') error = '이메일 형식이 올바르지 않습니다.';
+        }
+        if (name === 'phone') {
+            const numberRegex = /^[0-9]{10,11}$/;
+            if (!numberRegex.test(value) || value.includes('-')) error = '-없이 숫자만 입력해주세요.';
+        }
+        if (name === 'birthDate') {
+            if (!(value instanceof Date) || isNaN(value.getTime())) error = '생년월일을 선택해주세요.';
+        }
+        if (name === 'newPassword') {
+            const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,12}$/;
+            if (!passwordRegex.test(value)) error = '영문, 숫자를 포함한 6~12자로 입력해주세요.';
+        }
+        if (name === 'confirmPassword') {
+            if (passwordData.newPassword !== value) error = '비밀번호가 일치하지 않습니다.';
+        }
+        return error;
+    };
     return (
         <div>
             <AlertPopup
@@ -188,6 +236,46 @@ export default function UserInfo() {
                     alt="다운로드"
                     onClick={handleDownload}
                     style={{ cursor: 'pointer' }} />
+                <div className='point-card'>
+                    <div className='point-card-header'>
+                        <span>CASETiFY Club</span>
+                        <span className='point-info-icon'>i</span>
+                    </div>
+                    <p className='point-label'>현재 보유 포인트</p>
+                    <p className='point-value'>50</p>
+                    <p className='point-grade'>브론즈</p>
+
+                    <div className='point-bar-wrap'>
+                        <div className='point-bar-labels'>
+                            <span>브론즈</span>
+                            <span>실버</span>
+                            <span>골드</span>
+                        </div>
+                        <div className='point-bar-track'>
+                            <div className='point-bar-fill' />
+                            <div className='point-bar-thumb' />
+                        </div>
+                        <div className='point-bar-numbers'>
+                            <span>50</span>
+                            <span>120</span>
+                            <span>200</span>
+                        </div>
+                    </div>
+
+                    <div className='point-bottom'>
+                        <div className='point-bottom-item'>
+                            <p>실버 등급까지</p>
+                            <p className='point-highlight'>70</p>
+                            <p>포인트 남았어요!</p>
+                        </div>
+                        <div className='point-divider' />
+                        <div className='point-bottom-item'>
+                            <p>실버 등급이 되면</p>
+                            <p className='point-highlight'>20% 할인 쿠폰</p>
+                            <p>지급!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <MypageTitle title={"계정 정보"} />
@@ -200,7 +288,9 @@ export default function UserInfo() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder='' />
-                            <span>이메일</span></label>
+                            <span>이메일</span>
+                            {errors.email && <p className="error-msg">{errors.email}</p>}
+                        </label>
                         <label>
                             <input
                                 type="text"
@@ -209,7 +299,9 @@ export default function UserInfo() {
                                 onChange={handleChange}
                                 placeholder=''
                             />
-                            <span>이름</span></label>
+                            <span>이름</span>
+                            {errors.name && <p className="error-msg">{errors.name}</p>}
+                        </label>
                     </div>
                     <div className='input-p'>
                         <label>
@@ -222,15 +314,10 @@ export default function UserInfo() {
                             // className='alone'
                             />
                             <span>전화번호</span>
+                            {errors.phone && <p className="error-msg">{errors.phone}</p>}
                         </label>
                         <label>
-                            {/* <input
-                                type="text"
-                                name='birthDate'
-                                value={formData.birthDate}
-                                onChange={handleChange}
-                                placeholder=''
-                            /> */}
+
                             <DatePicker
                                 className="datepicker-input"
                                 selected={formData.birthDate}
@@ -244,6 +331,7 @@ export default function UserInfo() {
                                 placeholderText=""
                             />
                             <span>생년월일</span>
+                            {errors.birthDate && <p className="error-msg">{errors.birthDate}</p>}
                         </label>
                     </div>
                     {!user?.provider && (
@@ -263,15 +351,19 @@ export default function UserInfo() {
                                         name="newPassword"
                                         value={passwordData.newPassword}
                                         onChange={handlePasswordChange} />
-                                    <span>새 비밀번호</span></label>
+                                    <span>새 비밀번호</span>
+                                    {errors.newPassword && <p className="error-msg">{errors.newPassword}</p>}
+                                </label>
                                 <label>
                                     <input type="password" placeholder=''
                                         name="confirmPassword"
                                         value={passwordData.confirmPassword}
                                         onChange={handlePasswordChange} />
-                                    <span>비밀번호 확인</span></label>
+                                    <span>비밀번호 확인</span>
+                                    {errors.confirmPassword && <p className="error-msg">{errors.confirmPassword}</p>}
+                                </label>
                             </div>
-                            <p className='pass-notice'>영문, 숫자를 포함한 6~12자로 입력해주세요</p>
+                            {/* <p className='pass-notice'>영문, 숫자를 포함한 6~12자로 입력해주세요</p> */}
                             <div className="pass-change-btn">
                                 <button type='button' onClick={handlePasswordSave}>비밀번호 변경</button>
                             </div>
