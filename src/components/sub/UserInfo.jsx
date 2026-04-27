@@ -226,16 +226,18 @@ export default function UserInfo() {
                     <div className='user-info2'>
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
-                            <span className='content'>Basic</span>
+                            <span className='content'>Bronze</span>
                             <span className='content'>{formData?.email.split('@')[0] || user?.uid}</span>
                         </div>
                     </div>
+                    <div>
+                        <img className='download'
+                            src="./images/userinfo/user-download.png"
+                            alt="다운로드"
+                            onClick={handleDownload}
+                            style={{ cursor: 'pointer' }} />
+                    </div>
                 </div>
-                <img
-                    src="./images/userinfo/user-download.png"
-                    alt="다운로드"
-                    onClick={handleDownload}
-                    style={{ cursor: 'pointer' }} />
 
                 <div className='point-card'>
                     <div className='point-card-header'>
