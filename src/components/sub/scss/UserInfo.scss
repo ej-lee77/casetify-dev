@@ -13,6 +13,7 @@ div {
         // border: 3px dashed darkgoldenrod;
         // width: 524px;
         display: flex;
+        gap: 20px;
         justify-content: center;
         position: relative;
         margin: 20px 0 40px 0;
@@ -22,12 +23,12 @@ div {
             height: 24px;
             position: absolute;
             bottom: 0;
-            right: 18%;
+            left: 5%;
         }
 
         .user-card {
             width: 480px;
-            height: 290px;
+            // height: 290px;
             background-color: #135EAB;
             border-radius: 16px;
             color: #fff;
@@ -88,6 +89,158 @@ div {
                 }
             }
         }
+
+        .point-card {
+            width: 350px;
+            // height: 290px;
+            background-color: #F2E463;
+            border-radius: 16px;
+            padding: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // justify-content: space-between;
+            // box-sizing: border-box;
+
+            .point-card-header {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                // align-items: center;
+                font-weight: bold;
+                font-size: 1rem;
+
+                .title {
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                // margin-bottom: 16px;
+                .point-info-icon {
+                    width: 22px;
+                    height: 22px;
+                    cursor: pointer;
+                }
+            }
+
+            .point-label {
+                font-size: 0.8rem;
+                font-weight: m;
+                margin-bottom: 4px;
+            }
+
+            .point-value {
+                font-size: 2rem;
+                font-weight: 900;
+                line-height: 1.1;
+                margin-bottom: 4px;
+            }
+
+            .point-grade {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #E07B00;
+                margin-bottom: 10px;
+            }
+
+            .point-bar-wrap {
+                width: 100%;
+                margin-bottom: 16px;
+
+                .point-bar-labels {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    text-align: center;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    margin-bottom: 6px;
+
+                    span:first-child {
+                        text-align: left;
+                    }
+
+                    span:last-child {
+                        text-align: right;
+                    }
+                }
+
+                .point-bar-track {
+                    position: relative;
+                    height: 8px;
+                    background-color: #fff;
+                    border-radius: 4px;
+
+                    .point-bar-fill {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 40%;
+                        background-color: #E07B00;
+                        border-radius: 4px;
+                    }
+
+                    .point-bar-thumb {
+                        position: absolute;
+                        top: 50%;
+                        left: 37%;
+                        transform: translate(-50%, -50%);
+                        width: 18px;
+                        height: 18px;
+                        background-color: #fff;
+                        border: 3px solid #E07B00;
+                        border-radius: 50%;
+                    }
+                }
+
+                .point-bar-numbers {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    text-align: center;
+                    font-size: 0.75rem;
+                    margin-top: 6px;
+
+                    span:first-child {
+                        text-align: left;
+                    }
+
+                    span:last-child {
+                        text-align: right;
+                    }
+                }
+            }
+
+            .point-bottom {
+                width: 100%;
+                background-color: #FFC820;
+                box-sizing: border-box;
+                border-radius: 12px;
+                padding: 12px 16px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                text-align: center;
+
+                .point-bottom-item {
+                    flex: 1;
+                    font-size: 0.72rem;
+                    font-weight: bold;
+                    line-height: 1.4;
+
+                    .point-highlight {
+                        font-size: 1.2rem;
+                        color: #E07B00;
+                    }
+                }
+
+                .point-divider {
+                    width: 1px;
+                    height: 40px;
+                    background-color: #E0A800;
+                    margin: 0 12px;
+                }
+            }
+        }
     }
 }
 
@@ -102,6 +255,7 @@ div {
         padding: 20px;
         gap: 60px;
         font-size: 0.85em;
+        margin-top: 20px;
     }
 
     label {
@@ -162,6 +316,22 @@ div {
             }
         }
 
+        .error-msg {
+            position: absolute;
+            color: #e03131;
+            font-size: 12px;
+            margin-top: 4px;
+            margin-left: 2px;
+        }
+
+        &:has(.error-msg) input {
+            border-color: #e03131 !important;
+        }
+
+        // 👇 DatePicker 전용 추가
+        &:has(.error-msg) .react-datepicker-wrapper input {
+            border-color: #e03131 !important;
+        }
     }
 
 }
@@ -171,13 +341,14 @@ div {
     border-top: 1px solid #ddd;
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
     margin-bottom: 40px;
 
     .pass-notice {
         font-size: 0.75em;
         color: #6a6a6a;
-        padding-left: 25px;
-        margin-top: -25px;
+        padding-left: 20px;
+        margin-bottom: 20px;
     }
 
     .pass-change-btn {
@@ -190,6 +361,7 @@ div {
             white-space: nowrap;
             padding: 10px 38px;
             font-size: 1rem;
+            margin-top: 20px;
 
             &:hover {
                 background: #fff;
