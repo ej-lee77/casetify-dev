@@ -12,6 +12,10 @@ export const useProductStore = create((set, get) => ({
     // 검색 단어 저장 배열
     searchWordList: [],
 
+    // 검색 페이지 이동 트리거 (SearchNavigator가 감지해서 navigate)
+    pendingSearch: null,
+    onClearPendingSearch: () => set({ pendingSearch: null }),
+
     //검색 단어 저장 메서드
     onAddSearchList: () => {
         set((state) => ({
@@ -19,6 +23,7 @@ export const useProductStore = create((set, get) => ({
                 id: Date.now(),
                 text: state.searchWord
             }],
+            pendingSearch: state.searchWord.trim(),
             searchWord: ""
         }))
     },
@@ -31,6 +36,12 @@ export const useProductStore = create((set, get) => ({
     onRemoveAllSearch: () => {
         set({ searchWordList: [] })
     },
+
+    // 검색창 열림/닫힘 상태 (Header 로컬 state → store로 이관)
+    isSearchOpen: false,
+    onOpenSearch: () => set({ isSearchOpen: true }),
+    onCloseSearch: () => set({ isSearchOpen: false }),
+    onToggleSearch: () => set((state) => ({ isSearchOpen: !state.isSearchOpen })),
 
 
     // 메인메뉴랑 서브메뉴랑 미니메뉴
