@@ -236,10 +236,12 @@ export default function UserInfo() {
                     alt="다운로드"
                     onClick={handleDownload}
                     style={{ cursor: 'pointer' }} />
+
                 <div className='point-card'>
                     <div className='point-card-header'>
-                        <span>CASETiFY Club</span>
-                        <span className='point-info-icon'>i</span>
+                        <span className='title'>CASETiFY Club</span>
+                        <img src="./images/icon/info.png" alt="info"
+                            className='point-info-icon' />
                     </div>
                     <p className='point-label'>현재 보유 포인트</p>
                     <p className='point-value'>50</p>
@@ -247,6 +249,7 @@ export default function UserInfo() {
 
                     <div className='point-bar-wrap'>
                         <div className='point-bar-labels'>
+                            <span>베이직</span>
                             <span>브론즈</span>
                             <span>실버</span>
                             <span>골드</span>
@@ -256,6 +259,7 @@ export default function UserInfo() {
                             <div className='point-bar-thumb' />
                         </div>
                         <div className='point-bar-numbers'>
+                            <span>0</span>
                             <span>50</span>
                             <span>120</span>
                             <span>200</span>
