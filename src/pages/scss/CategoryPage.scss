@@ -42,6 +42,31 @@
         padding: 0;
         list-style: none;
 
+        .category-sub-slider-swiper {
+            width: 100%;
+            margin: 0 0 28px;
+            overflow: hidden;
+
+            .swiper-wrapper {
+                align-items: flex-start;
+            }
+
+            .swiper-slide {
+                width: auto !important;
+                flex-shrink: 0;
+            }
+
+            .mini-icon-item {
+                width: 120px;
+                user-select: none;
+            }
+
+            .mini-icon-img,
+            .mini-icon-text {
+                pointer-events: none;
+            }
+        }
+
         .mini-icon-item {
             display: flex;
             flex-direction: column;
@@ -85,6 +110,36 @@
                 line-height: 1.3;
                 color: #222;
                 text-align: center;
+            }
+
+            // 이미지 없는 항목 (caseCategory 등) - 텍스트 버튼 형태
+            &.text-only {
+                padding: 8px 16px;
+                border: 1px solid #d9d9d9;
+                border-radius: 0;
+                background: #fff;
+                transition: border-color 0.2s ease, background 0.2s ease;
+
+                &:hover {
+                    transform: none;
+                    border-color: #111;
+                }
+
+                &.active {
+                    transform: none;
+                    border-color: #111;
+                    background: #111;
+
+                    .mini-icon-text {
+                        color: #fff;
+                    }
+                }
+
+                .mini-icon-text {
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    white-space: nowrap;
+                }
             }
         }
 
@@ -224,6 +279,22 @@
 
         &:hover {
             opacity: 0.6;
+        }
+    }
+
+    .color-filter-list {
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .color-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            flex-shrink: 0;
         }
     }
 
@@ -443,6 +514,77 @@
 
         .device-model-popup-panel {
             width: 300px;
+        }
+    }
+}
+
+// ── 검색 결과 페이지 전용 ──
+.sub-page-wrap.category-wrap {
+    .search-page-header {
+        margin: 8px 0 24px;
+
+        .search-page-keyword {
+            font-size: 1.75rem;
+            font-weight: 700;
+            font-family: "Pretendard", sans-serif;
+            color: #111;
+            letter-spacing: -0.02em;
+        }
+
+        .search-page-count {
+            margin-top: 6px;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #666;
+            font-family: "Pretendard", sans-serif;
+
+            strong {
+                font-weight: 700;
+                color: #111;
+            }
+        }
+    }
+
+    .search-page-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 0 100px;
+        text-align: center;
+        font-family: "Pretendard", sans-serif;
+
+        .search-page-empty-title {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+
+            strong {
+                font-weight: 700;
+            }
+        }
+
+        .search-page-empty-sub {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 300;
+        }
+
+        .search-page-empty-btn {
+            margin-top: 28px;
+            display: inline-block;
+            padding: 12px 28px;
+            background: #111;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s;
+
+            &:hover {
+                opacity: 0.75;
+            }
         }
     }
 }

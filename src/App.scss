@@ -50,6 +50,10 @@ $title-gap: 20px;
     transform: translate(-50%, -50%);
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     font-family: "GMarketSans", "Pretendard", sans-serif;
     color: $text-main;

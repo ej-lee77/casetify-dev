@@ -36,6 +36,8 @@ export default function CategoryFilterPanel({
     const [draft, setDraft] = useState({
         subCateLink: currentSub?.link || "",
         mini: currentMini || "",
+        device: "",
+        caseCategory: "",
         models: [],
         isCollabo: null,
         isMagSafe: null,
@@ -51,6 +53,8 @@ export default function CategoryFilterPanel({
         setDraft({
             subCateLink: currentSub?.link || "",
             mini: currentMini || "",
+            device: selectedFilters.device || "",
+            caseCategory: selectedFilters.caseCategory || "",
             models: selectedFilters.models || [],
             isCollabo: selectedFilters.isCollabo ?? null,
             isMagSafe: selectedFilters.isMagSafe ?? null,
@@ -69,12 +73,35 @@ export default function CategoryFilterPanel({
         return subOptions.find((sub) => sub.link === draft.subCateLink);
     }, [subOptions, draft.subCateLink]);
 
+    // 콜라보는 서브카테고리가 아티스트 기반이라 디바이스 목록이 없음
+    // → 케이스 > 디바이스의 mini를 고정으로 참조
+    const CASE_DEVICE_OPTIONS = useMemo(() => {
+        const caseMain = currentMain?.link === "colab"
+            ? null  // colab이면 아래에서 별도 처리
+            : null;
+        void caseMain;
+        return [
+            { label: "핸드폰", key: "phone" },
+            { label: "이어폰", key: "earphone" },
+            { label: "노트북", key: "laptop" },
+            { label: "워치", key: "watch" },
+            { label: "태블릿", key: "tablet" },
+        ];
+    }, []);
+
     const deviceOptions = useMemo(() => {
-        return (selectedSubObj?.mini || []).map((miniLabel) => ({
+        // 콜라보는 디바이스 목록 고정
+        if (mainCate === "colab") return CASE_DEVICE_OPTIONS;
+
+        const miniList = selectedSubObj?.mini || [];
+        if (miniList.length > 0 && typeof miniList[0] === "object") {
+            return miniList;
+        }
+        return miniList.map((miniLabel) => ({
             key: MINI_QUERY_MAP[miniLabel] || miniLabel,
             label: miniLabel,
         }));
-    }, [selectedSubObj]);
+    }, [mainCate, selectedSubObj, CASE_DEVICE_OPTIONS]);
 
     const sourceItems = useMemo(() => {
         return (allItems || []).filter((item) => {
@@ -90,12 +117,26 @@ export default function CategoryFilterPanel({
                 ? (item.displayMiniCategories || []).includes(draft.mini)
                 : true;
 
-            return matchMain && matchSub && matchMini;
-        });
-    }, [allItems, mainCate, draft.subCateLink, draft.mini]);
+            // 콜라보: 선택된 디바이스 기준으로 필터
+            const matchDevice = (mainCate === "colab" && draft.device)
+                ? (item.displayMiniCategories || []).includes(draft.device)
+                : true;
 
-    const modelOptions = useMemo(() => uniqueModelOptions(sourceItems), [sourceItems]);
+            return matchMain && matchSub && matchMini && matchDevice;
+        });
+    }, [allItems, mainCate, draft.subCateLink, draft.mini, draft.device]);
+
+    // 핸드폰 선택 시에만 모델 옵션 노출 (콜라보: device === "phone", 일반: mini === "phone")
+    const showModelOptions = mainCate === "colab" ? draft.device === "phone" : draft.mini === "phone";
+    const modelOptions = useMemo(() => showModelOptions ? uniqueModelOptions(sourceItems) : [], [sourceItems, showModelOptions]);
     const colorOptions = useMemo(() => uniqueColorOptions(sourceItems), [sourceItems]);
+
+    // 케이스 > 디자인 > 시그니처 선택 시 caseCategory 목록 노출
+    const showCaseCategoryOptions = mainCate === "case" && draft.subCateLink === "design" && draft.mini === "signature";
+    const caseCategoryOptions = useMemo(() => {
+        if (!showCaseCategoryOptions) return [];
+        return [...new Set(sourceItems.map((i) => i.caseCategory).filter(Boolean))];
+    }, [sourceItems, showCaseCategoryOptions]);
 
     const toggleArray = (key, value) => {
         setDraft((prev) => {
@@ -127,10 +168,20 @@ export default function CategoryFilterPanel({
         }));
     };
 
+    const onChangeDevice = (deviceKey) => {
+        setDraft((prev) => ({
+            ...prev,
+            device: prev.device === deviceKey ? "" : deviceKey,
+            models: [],
+        }));
+    };
+
     const onChangeMini = (miniKey) => {
         setDraft((prev) => ({
             ...prev,
             mini: prev.mini === miniKey ? "" : miniKey,
+            device: "",
+            caseCategory: "",
             models: [],
             colors: [],
         }));
@@ -155,6 +206,8 @@ export default function CategoryFilterPanel({
             nextSubCateLink: draft.subCateLink || currentSub?.link || "",
             nextMini: draft.mini || "",
             filters: {
+                device: draft.device || "",
+                caseCategory: draft.caseCategory || "",
                 models: draft.models,
                 isCollabo: draft.isCollabo,
                 isMagSafe: draft.isMagSafe,
@@ -195,7 +248,7 @@ export default function CategoryFilterPanel({
                     </div>
                 </div>
 
-                <div className="filter-panel-body">
+                <div className="filter-panel-body filter-panel-scroll">
                     <section className="filter-section">
                         <h4 className="filter-section-title">카테고리</h4>
 
@@ -222,8 +275,15 @@ export default function CategoryFilterPanel({
                                     <button
                                         type="button"
                                         key={device.key}
-                                        className={`filter-chip ${draft.mini === device.key ? "on" : ""}`}
-                                        onClick={() => onChangeMini(device.key)}
+                                        className={`filter-chip ${mainCate === "colab"
+                                                ? draft.device === device.key ? "on" : ""
+                                                : draft.mini === device.key ? "on" : ""
+                                            }`}
+                                        onClick={() =>
+                                            mainCate === "colab"
+                                                ? onChangeDevice(device.key)
+                                                : onChangeMini(device.key)
+                                        }
                                     >
                                         {device.label}
                                     </button>
@@ -234,7 +294,7 @@ export default function CategoryFilterPanel({
 
                     {!!modelOptions.length && (
                         <section className="filter-section">
-                            <h4 className="filter-section-title">기기모델 선택</h4>
+                            <h4 className="filter-section-title">모델 선택</h4>
 
                             <div className="filter-chip-wrap">
                                 {modelOptions.map((model) => (
@@ -251,8 +311,32 @@ export default function CategoryFilterPanel({
                         </section>
                     )}
 
+                    {!!caseCategoryOptions.length && (
+                        <section className="filter-section">
+                            <h4 className="filter-section-title">케이스 종류</h4>
+
+                            <div className="filter-chip-wrap">
+                                {caseCategoryOptions.map((cat) => (
+                                    <button
+                                        type="button"
+                                        key={cat}
+                                        className={`filter-chip ${draft.caseCategory === cat ? "on" : ""}`}
+                                        onClick={() =>
+                                            setDraft((prev) => ({
+                                                ...prev,
+                                                caseCategory: prev.caseCategory === cat ? "" : cat,
+                                            }))
+                                        }
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
                     <section className="filter-section">
-                        <h4 className="filter-section-title">콜라보 여부</h4>
+                        <h4 className="filter-section-title">콜라보</h4>
 
                         <div className="filter-chip-wrap">
                             <button
@@ -260,7 +344,7 @@ export default function CategoryFilterPanel({
                                 className={`filter-chip ${draft.isCollabo === true ? "on" : ""}`}
                                 onClick={() => toggleSingle("isCollabo", true)}
                             >
-                                콜라보만
+                                콜라보상품
                             </button>
 
                             <button
@@ -268,7 +352,7 @@ export default function CategoryFilterPanel({
                                 className={`filter-chip ${draft.isCollabo === false ? "on" : ""}`}
                                 onClick={() => toggleSingle("isCollabo", false)}
                             >
-                                일반 상품만
+                                일반 상품
                             </button>
                         </div>
                     </section>
@@ -299,9 +383,10 @@ export default function CategoryFilterPanel({
                         <h4 className="filter-section-title">가격범위</h4>
 
                         <div className="price-range-box">
+                            <p className="price-range-label">최소 금액</p>
                             <input
                                 type="number"
-                                placeholder="최소 금액"
+                                placeholder="0"
                                 value={draft.minPrice}
                                 onChange={(e) =>
                                     setDraft((prev) => ({
@@ -310,12 +395,11 @@ export default function CategoryFilterPanel({
                                     }))
                                 }
                             />
-
-                            <span>~</span>
-
+                            <span className="price-range-divider">~</span>
+                            <p className="price-range-label">최대 금액</p>
                             <input
                                 type="number"
-                                placeholder="최대 금액"
+                                placeholder="제한 없음"
                                 value={draft.maxPrice}
                                 onChange={(e) =>
                                     setDraft((prev) => ({

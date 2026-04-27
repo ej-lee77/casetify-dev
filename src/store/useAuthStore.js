@@ -2,7 +2,7 @@ import { sendPasswordResetEmail, createUserWithEmailAndPassword, onAuthStateChan
 import { create } from "zustand";
 import { auth, db, googleProvider, kakaoProvider, naverProvider } from "../firebase/firebase";
 import { collection, query, where, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, deleteDoc } from "firebase/firestore";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 import {
     deleteUser as firebaseDeleteUser, EmailAuthProvider, reauthenticateWithCredential, updatePassword
 } from "firebase/auth";
@@ -155,6 +155,7 @@ export const useAuthStore = create(
                     set({ user: userInfo });
                 } else {
                     set({ user: userDoc.data() });
+                    console.log(user);
                 }
                 return true;
             } catch (err) {
@@ -365,7 +366,8 @@ export const useAuthStore = create(
                 color: wishItem.color,
                 title: wishItem.productName,
                 price: wishItem.price,
-                imgUrl: wishItem.imgUrl
+                imgUrl: wishItem.imgUrl,
+                caseCategory: wishItem.caseCategory
             };
 
             try {
@@ -388,18 +390,18 @@ export const useAuthStore = create(
 
                     const updatedList = currentWishlist.filter((_, index) => index !== existingItemIndex);
                     set({ wishlist: updatedList });
-                    console.log("삭제 완료");
+                    return "del";
                 } else {
                     // 3. 추가 처리
                     await setDoc(userWishRef, {
                         items: arrayUnion(productData)
                     }, { merge: true });
                     set({ wishlist: [...currentWishlist, productData] });
-                    console.log("저장 완료");
+                    return "add";
                 }
-                await get().onFetchWishlist();
             } catch (err) {
                 console.log(err.message);
+                return false;
             }
         },
         // 위시리스트 삭제
@@ -419,8 +421,10 @@ export const useAuthStore = create(
                     item.color === targetItem.color)
                 );
                 set({ wishlist: updatedList });
+                return true;
             } catch (err) {
                 console.log(err.message);
+                return false;
             }
         },
         // 위시리스트 가져오기
@@ -446,6 +450,11 @@ export const useAuthStore = create(
 
         // 장바구니
         cart: [],
+        checkedCart: [],
+        // 장바구니 결제할 것만
+        onUpdateCheckedCart: (items) => {
+            set({ checkedCart: items });
+        },
         // 장바구니 가져오기
         onFetchCart: async () => {
             const user = get().user;
@@ -466,7 +475,7 @@ export const useAuthStore = create(
         },
         // 장바구니 추가
         onAddToCart: async (product) => {
-            const {user, cart} = get();
+            const { user, cart } = get();
             if (!user) return;
 
             const currentCart = [...get().cart];
@@ -496,19 +505,20 @@ export const useAuthStore = create(
                     deviceList: product.deviceList,
                     isPhone: product.isPhone,
                     deviceBrand: product.deviceBrand,
+                    caseCategory: product.caseCategory,
                     quantity: 1
                 });
             }
-            console.log(currentCart);
 
             // DB 업데이트
             try {
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: currentCart }, { merge: true });
                 set({ cart: currentCart }); // 로컬 스토어 동기화
-                console.log("장바구니에 담겼습니다!");
+                return true;
             } catch (e) {
                 console.log(e.message);
+                return false;
             }
         },
         //장바구니 옵션 업데이트
@@ -520,9 +530,9 @@ export const useAuthStore = create(
 
             // 1. 기존 아이템 제거
             // 식별 기준: productId + 기존 device + 기존 color
-            const targetIndex = currentCart.findIndex(item => 
-                item.productId === oldItem.productId && 
-                item.device === oldItem.device && 
+            const targetIndex = currentCart.findIndex(item =>
+                item.productId === oldItem.productId &&
+                item.device === oldItem.device &&
                 item.color === oldItem.color
             );
 
@@ -539,9 +549,9 @@ export const useAuthStore = create(
             currentCart.splice(targetIndex, 1);
 
             // 2. 새로운 옵션이 이미 장바구니에 있는지 확인 (중복 체크)
-            const existingItemIndex = currentCart.findIndex(item => 
-                item.productId === updatedItem.productId && 
-                item.device === updatedItem.device && 
+            const existingItemIndex = currentCart.findIndex(item =>
+                item.productId === updatedItem.productId &&
+                item.device === updatedItem.device &&
                 item.color === updatedItem.color
             );
 
@@ -558,7 +568,6 @@ export const useAuthStore = create(
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: currentCart }, { merge: true });
                 set({ cart: currentCart });
-                console.log("옵션이 변경되었습니다.");
             } catch (e) {
                 console.error("옵션 업데이트 실패:", e.message);
             }
@@ -577,7 +586,7 @@ export const useAuthStore = create(
         },
         // 장바구니 선택 삭제
         onRemoveSelected: async (selectedItems) => {
-            const {user, cart} = get();
+            const { user, cart } = get();
             if (!user) return;
 
             // selectedItems에 포함되지 않은 아이템들만 남기기
@@ -593,7 +602,6 @@ export const useAuthStore = create(
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: updatedCart }, { merge: true });
                 set({ cart: updatedCart });
-                console.log("선택한 상품이 삭제되었습니다.");
             } catch (e) {
                 console.log("일괄 삭제 실패:", e.message);
             }
@@ -612,6 +620,186 @@ export const useAuthStore = create(
             }
         },
 
+        orderList: [],
+        // 주문정보저장
+        onAddOrder: async (orderData) => {
+            const { user, orderList } = get();
+            if (!user) return;
+
+            // 1. 기존 주문 목록에 새 주문 추가
+            const updatedOrders = [...(orderList || []), orderData];
+
+            try {
+                // A. DB 업데이트 - 사용자의 주문 내역(orders) 컬렉션에 저장
+                const orderRef = doc(db, "orders", user.uid);
+                await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
+
+                // B. 결제가 완료되었으므로 장바구니 비우기 (DB)
+                const cartRef = doc(db, "carts", user.uid);
+                await setDoc(cartRef, { items: [] }, { merge: true });
+
+                // C. 로컬 스토어 상태 동기화 (주문 추가 & 장바구니 초기화)
+                set({ 
+                    orderList: updatedOrders,
+                    cart: [],
+                    checkedCart: []
+                });
+
+                return true;
+            } catch (e) {
+                console.log("결제 저장 실패:", e.message);
+                return false;
+            }
+        },
+        onFetchOrder: async () => {
+            const user = get().user;
+            if (!user) return;
+
+            try {
+                const orderRef = doc(db, "orders", user.uid);
+                const snap = await getDoc(orderRef);
+
+                if (snap.exists()) {
+                    const remoteOrderList = snap.data().orderList || [];
+                    const today = new Date();
+                    let isChanged = false;
+
+                    const updatedOrderList = remoteOrderList.map((order) => {
+                        // 주문일로부터 경과일 (배송 상태용)
+                        const orderDate = new Date(order.orderDate.replace(/\//g, '-'));
+                        const daysSinceOrder = Math.floor((today - orderDate) / (1000 * 60 * 60 * 24));
+
+                        // 1. 대표 주문 상태 업데이트 (배송준비중 -> 배송중 -> 배송완료)
+                        let newOrderStatus = order.orderStatus;
+                        if (!['취소완료', '교환/반품완료'].includes(order.orderStatus)) {
+                            if (daysSinceOrder >= 2 && order.orderStatus !== "배송완료") {
+                                newOrderStatus = "배송완료";
+                                isChanged = true;
+                            } else if (daysSinceOrder >= 1 && order.orderStatus === "배송준비중") {
+                                newOrderStatus = "배송중";
+                                isChanged = true;
+                            }
+                        }
+
+                        // 2. 아이템별 상태 업데이트 (1->2, 3->4)
+                        const updatedItems = order.orderItems.map(item => {
+                            if (item.statusDate) {
+                                const statusDate = item.statusDate.toDate ? item.statusDate.toDate() : new Date(item.statusDate);
+                                const diffDaysFromStatus = Math.floor((today - statusDate) / (1000 * 60 * 60 * 24));
+                                
+                                // 취소중(1) -> 취소완료(2) 하루 경과 시
+                                if (item.status === 1 && diffDaysFromStatus >= 1) {
+                                    isChanged = true;
+                                    return { ...item, status: 2 };
+                                }
+                                // 교환/반품중(3) -> 교환/반품완료(4) 하루 경과 시
+                                if (item.status === 3 && diffDaysFromStatus >= 1) {
+                                    isChanged = true;
+                                    return { ...item, status: 4 };
+                                }
+                            }
+                            return item;
+                        });
+
+                        return { ...order, orderStatus: newOrderStatus, orderItems: updatedItems };
+                    });
+
+                    // 변경사항이 있을 때만 서버 업데이트
+                    if (isChanged) {
+                        await updateDoc(orderRef, { orderList: updatedOrderList });
+                    }
+
+                    set({ orderList: updatedOrderList });
+                }
+            } catch (err) {
+                console.log(err.message);
+            }
+        },
+        onUpdateItemStatus: async (orderId, checkedIndices, isCancelable) => {
+            const user = get().user;
+            if (!user) return;
+
+            try {
+                const orderList = get().orderList;
+                const newStatus = isCancelable ? 1 : 3; // 취소가능하면 1(취소중), 아니면 3(반품중)
+                const now = new Date(); // Date 객체 그대로 생성
+
+                // 전체 주문 리스트에서 해당 주문을 찾아 아이템 상태 업데이트
+                const updatedOrderList = orderList.map((order) => {
+                    if (order.orderId === orderId) {
+                        const updatedItems = order.orderItems.map((item, idx) => {
+                        if (checkedIndices.includes(idx)) {
+                            return { ...item, status: newStatus, statusDate: now };
+                        }
+                            return item;
+                        });
+                        // 모든 아이템이 취소/반품 상태인지 확인
+                        const isAllProcessed = updatedItems.every(item => item.status && item.status > 0);
+                    return { 
+                            ...order, 
+                            orderItems: updatedItems,
+                            orderStatus: isAllProcessed ? "취소/반품" : order.orderStatus // 모두 처리됐으면 상태 변경
+                        };
+                    }
+                    return order;
+                });
+
+                // 1. Firebase Firestore 업데이트
+                const orderRef = doc(db, "orders", user.uid);
+                await updateDoc(orderRef, { orderList: updatedOrderList });
+
+                // 2. Zustand 상태 업데이트
+                set({ orderList: updatedOrderList });
+                
+                console.log(isCancelable ? "주문 취소 신청이 완료되었습니다." : "반품/교환 신청이 완료되었습니다.");
+                return true;
+            } catch (err) {
+                console.log("업데이트 실패:", err.message);
+                return false;
+            }
+        },
+        onUpdateAllItemsStatus: async (orderId, isCancelable) => {
+            const user = get().user;
+            if (!user) return;
+
+            try {
+                const orderList = get().orderList;
+                const newStatus = isCancelable ? 1 : 3; // 아이템 상태 코드
+                const now = new Date();
+
+                const updatedOrderList = orderList.map((order) => {
+                if (order.orderId === orderId) {
+                    // 1. 모든 아이템의 상태와 날짜 변경
+                    const updatedItems = order.orderItems.map((item) => ({
+                        ...item,
+                        status: newStatus,
+                        statusDate: now,
+                    }));
+                    
+                    // 2. 💡 전체 주문 상태를 "취소/반품"으로 변경
+                    return { 
+                        ...order, 
+                        orderStatus: "취소/반품", 
+                        orderItems: updatedItems 
+                    };
+                }
+                return order;
+                });
+
+                // Firebase 업데이트
+                const orderRef = doc(db, "orders", user.uid);
+                await updateDoc(orderRef, { orderList: updatedOrderList });
+
+                // Zustand 상태 반영
+                set({ orderList: updatedOrderList });
+                
+                console.log(isCancelable ? "전체 주문이 취소되었습니다." : "전체 상품의 반품 신청이 완료되었습니다.");
+                return true;
+            } catch (err) {
+                console.log("전체 업데이트 실패:", err);
+                return false;
+        }
+        },
         // 회원정보 수정
         onUpdateUser: async (formData) => {
             try {
@@ -620,20 +808,31 @@ export const useAuthStore = create(
 
                 const userRef = doc(db, "users", user.uid);
 
-                // Firestore 업데이트
+                // birthDate 변환
+                let birthDateString = '';
+                if (formData.birthDate instanceof Date) {
+                    const year = formData.birthDate.getFullYear();
+                    const month = String(formData.birthDate.getMonth() + 1).padStart(2, '0');
+                    const day = String(formData.birthDate.getDate()).padStart(2, '0');
+                    birthDateString = `${year}-${month}-${day}`;
+                } else {
+                    birthDateString = formData.birthDate || '';
+                }
+
                 await updateDoc(userRef, {
                     name: formData.name,
                     phone: formData.phone,
                     zonecode: formData.zonecode,
                     address: formData.address,
-                    detailaddress: formData.detailaddress
+                    detailaddress: formData.detailaddress,
+                    birthDate: birthDateString
                 });
 
-                // Zustand 상태도 업데이트 
                 set({
                     user: {
                         ...user,
-                        ...formData
+                        ...formData,
+                        birthDate: birthDateString  // zustand에도 문자열로 저장
                     }
                 });
 
@@ -641,6 +840,40 @@ export const useAuthStore = create(
             } catch (err) {
                 console.log(err.message);
                 return false;
+            }
+        },
+        handleChangePassword: async (passwordData) => {
+            // console.log("받은 passwordData:", passwordData); // 확인용
+            const user = auth.currentUser;
+            // console.log("현재 user:", user); // 확인용
+
+            // if (!user) {
+            //     alert("로그인이 필요합니다");
+            //     return false;
+            // }
+            if (!user) return "no-user";
+
+            // if (passwordData.newPassword !== passwordData.confirmPassword) {
+            //     alert("비밀번호가 일치하지 않습니다");
+            //     return false;
+            // }
+
+            if (passwordData.newPassword !== passwordData.confirmPassword) return "password-mismatch";
+
+            try {
+                const credential = EmailAuthProvider.credential(
+                    user.email,
+                    passwordData.currentPassword
+                );
+                await reauthenticateWithCredential(user, credential);
+                await updatePassword(user, passwordData.newPassword);
+                console.log("sss", passwordData.newPassword);
+                console.log("aaa", passwordData.confirmPassword);
+                console.log("fff", passwordData.currentPassword);
+                return true;
+            } catch (err) {
+                console.log(err.code);
+                return err.code;
             }
         },
         // 계정 삭제
@@ -669,53 +902,14 @@ export const useAuthStore = create(
         },
     }),
         {
-            name: 'auth-storage',
+            name: 'app-storage',
+            storage: createJSONStorage(() => sessionStorage),
             partialize: (state) => ({
                 user: state.user ? {
                     uid: state.user.uid,
-                    provider: state.user.provider
-                } : null
+                    provider: state.user.provider,
+                } : null,
+                checkedCart: state.checkedCart
             })
         }
     ));
-//비밀번호 변경
-const handleChangePassword = async () => {
-    const user = auth.currentUser;
-
-    if (!user) {
-        alert("로그인이 필요합니다");
-        return;
-    }
-
-    if (passwordData.newPassword !== passwordData.confirmPassword) {
-        alert("비밀번호가 일치하지 않습니다");
-        return;
-    }
-
-    try {
-        // 1. 재인증
-        const credential = EmailAuthProvider.credential(
-            user.email,
-            passwordData.currentPassword
-        );
-
-        await reauthenticateWithCredential(user, credential);
-
-        // 2. 비밀번호 변경
-        await updatePassword(user, passwordData.newPassword);
-
-        alert("비밀번호 변경 완료");
-    } catch (err) {
-        console.log(err.code);
-
-        if (err.code === "auth/wrong-password") {
-            alert("현재 비밀번호가 틀렸습니다");
-        } else if (err.code === "auth/weak-password") {
-            alert("비밀번호가 너무 약합니다");
-        } else if (err.code === "auth/requires-recent-login") {
-            alert("다시 로그인 후 시도해주세요");
-        } else {
-            alert("비밀번호 변경 실패");
-        }
-    }
-};
