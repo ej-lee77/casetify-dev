@@ -20,6 +20,60 @@
         box-sizing: border-box;
     }
 
+    // ── 미니 카테고리 Swiper ──
+    .category-mini-swiper-wrap {
+        position: relative;
+        margin: 0 0 28px;
+        overflow: hidden;
+    }
+
+    .category-mini-swiper {
+        width: 100%;
+
+        .swiper-wrapper {
+            align-items: flex-start;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+        }
+
+        // 페이지네이션 dots
+        .swiper-pagination {
+            position: static;
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+
+            .swiper-pagination-bullet {
+                width: 6px;
+                height: 6px;
+                background: #ccc;
+                opacity: 1;
+                border-radius: 50%;
+                transition: background 0.2s, width 0.2s;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: #111;
+                width: 18px;
+                border-radius: 3px;
+            }
+        }
+
+        &.has-active {
+            .mini-icon-item {
+                opacity: 0.5;
+            }
+
+            .mini-icon-item.active {
+                opacity: 1;
+            }
+        }
+    }
+
     .category-breadcrumb {
         margin: 18px 0 22px;
         font-size: 0.9rem;
@@ -46,10 +100,16 @@
             width: 100%;
             margin: 0 0 28px;
             overflow: hidden;
+            cursor: grab;
+
+            &:active {
+                cursor: grabbing;
+            }
 
             .swiper-wrapper {
                 align-items: flex-start;
             }
+
 
             .swiper-slide {
                 width: auto !important;
@@ -495,6 +555,60 @@
             padding: 16px 16px 80px;
         }
 
+        // ── 미니 카테고리 Swiper ──
+        .category-mini-swiper-wrap {
+            position: relative;
+            margin: 0 0 28px;
+            overflow: hidden;
+        }
+
+        .category-mini-swiper {
+            width: 100%;
+
+            .swiper-wrapper {
+                align-items: flex-start;
+            }
+
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+            }
+
+            // 페이지네이션 dots
+            .swiper-pagination {
+                position: static;
+                margin-top: 14px;
+                display: flex;
+                justify-content: center;
+                gap: 6px;
+
+                .swiper-pagination-bullet {
+                    width: 6px;
+                    height: 6px;
+                    background: #ccc;
+                    opacity: 1;
+                    border-radius: 50%;
+                    transition: background 0.2s, width 0.2s;
+                }
+
+                .swiper-pagination-bullet-active {
+                    background: #111;
+                    width: 18px;
+                    border-radius: 3px;
+                }
+            }
+
+            &.has-active {
+                .mini-icon-item {
+                    opacity: 0.5;
+                }
+
+                .mini-icon-item.active {
+                    opacity: 1;
+                }
+            }
+        }
+
         .category-breadcrumb {
             margin: 14px 0 18px;
             font-size: 0.85rem;
@@ -514,77 +628,6 @@
 
         .device-model-popup-panel {
             width: 300px;
-        }
-    }
-}
-
-// ── 검색 결과 페이지 전용 ──
-.sub-page-wrap.category-wrap {
-    .search-page-header {
-        margin: 8px 0 24px;
-
-        .search-page-keyword {
-            font-size: 1.75rem;
-            font-weight: 700;
-            font-family: "Pretendard", sans-serif;
-            color: #111;
-            letter-spacing: -0.02em;
-        }
-
-        .search-page-count {
-            margin-top: 6px;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: #666;
-            font-family: "Pretendard", sans-serif;
-
-            strong {
-                font-weight: 700;
-                color: #111;
-            }
-        }
-    }
-
-    .search-page-empty {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 80px 0 100px;
-        text-align: center;
-        font-family: "Pretendard", sans-serif;
-
-        .search-page-empty-title {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.6;
-
-            strong {
-                font-weight: 700;
-            }
-        }
-
-        .search-page-empty-sub {
-            margin-top: 8px;
-            font-size: 0.9rem;
-            color: #888;
-            font-weight: 300;
-        }
-
-        .search-page-empty-btn {
-            margin-top: 28px;
-            display: inline-block;
-            padding: 12px 28px;
-            background: #111;
-            color: #fff;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: opacity 0.2s;
-
-            &:hover {
-                opacity: 0.75;
-            }
         }
     }
 }
