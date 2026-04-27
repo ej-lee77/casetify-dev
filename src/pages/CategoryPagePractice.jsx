@@ -2,7 +2,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
 
 import { MINI_QUERY_MAP } from "../data/categoryMap";
 import { colorMap } from "../data/finalData";
@@ -379,19 +381,29 @@ export default function CategoryPagePractice() {
 
                 {/* 미니 카테고리 슬라이더 */}
                 {!!visibleMiniItems.length && (
-                    visibleMiniItems.length > 10 && mainCate !== "colab" ? (
-                        <Swiper slidesPerView="auto" spaceBetween={36} loop grabCursor>
-                            {visibleMiniItems.map((m, i) => (
-                                <SwiperSlide key={`${m.key}-${i}`}>
-                                    <CategoryMiniIcon
-                                        miniKey={getMiniIconKey(m)}
-                                        label={m.label}
-                                        isActive={mini === m.key}
-                                        onClick={() => onHandleMiniCategory(m.key)}
-                                    />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                    visibleMiniItems.length > 9 ? (
+                        <div className="category-mini-swiper-wrap">
+                            <Swiper
+                                modules={[Pagination]}
+                                pagination={{ clickable: true }}
+                                slidesPerView={9}
+                                spaceBetween={32}
+                                loop={visibleMiniItems.length >= 9}
+                                grabCursor
+                                className={`category-mini-swiper ${mini ? "has-active" : ""}`}
+                            >
+                                {visibleMiniItems.map((m, i) => (
+                                    <SwiperSlide key={`${m.key}-${i}`}>
+                                        <CategoryMiniIcon
+                                            miniKey={getMiniIconKey(m)}
+                                            label={m.label}
+                                            isActive={mini === m.key}
+                                            onClick={() => onHandleMiniCategory(m.key)}
+                                        />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
                     ) : (
                         <ul className={`category-sub-slider ${mini ? "has-active" : ""}`}>
                             {visibleMiniItems.map((m, i) => (

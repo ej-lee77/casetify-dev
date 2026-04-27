@@ -78,7 +78,7 @@ export const useAuthStore = create(
         onLogin: async (email, password) => {
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                console.log(userCredential);
+                // console.log(userCredential);
                 const user = userCredential.user;
 
                 if (user.emailVerified) {
@@ -90,35 +90,64 @@ export const useAuthStore = create(
 
                     if (userSnap.exists()) {
                         const userData = userSnap.data();
+                        const currentMonth = new Date().getMonth() + 1;
+                        let updatedCoupons = [...(userData.coupons || [])];
+                        let isUpdated = false;
+                        
+                        // 상태값 추적을 위한 변수
+                        let isFirst = false;
+                        let isBirthday = false;
 
+                        const userBirthMonth = userData.birthDate 
+                            ? Number(userData.birthDate.split('-')[1])
+                            : null;
+
+                        const {couponList, getOneMonthsLater} = get();
+
+                        // 1. 첫 로그인 확인 및 웰컴 쿠폰 발급
                         if (userData.isFirstLogin) {
-                            console.log("첫 로그인 확인됨");
-
-                            // 다시는 실행되지 않도록 플래그 업데이트
-                            await updateDoc(userDocRef, { isFirstLogin: false });
-
-                            set({ user: userData });
-                            return "첫로그인"
+                            const welcomeCoupon = { ...couponList.find(c => c.id === "welcome") };
+                            welcomeCoupon.limit = getOneMonthsLater();
+                            updatedCoupons.push(welcomeCoupon);
+                            isUpdated = true;
+                            isFirst = true; // 첫 로그인임
                         }
 
-                        // 1. 인증 완료된 경우
+                        // 2. 생일 달 확인 및 생일 쿠폰 발급
+                        if (userBirthMonth === currentMonth) {
+                            const hasBirthCoupon = updatedCoupons.some(c => c.id === "birth");
+                            
+                            if (!hasBirthCoupon) {
+                                const birthCoupon = { ...couponList.find(c => c.id === "birth") };
+                                birthCoupon.limit = getOneMonthsLater();
+                                updatedCoupons.push(birthCoupon);
+                                isUpdated = true;
+                                isBirthday = true;
+                            }
+                        }
+
+                        // 3. 반환값(return) 결정 로직
+                        let loginStatus = true; // 기본값
+                        if (isFirst && isBirthday) {
+                            loginStatus = "첫로그인생일";
+                        } else if (isFirst) {
+                            loginStatus = "첫로그인";
+                        } else if (isBirthday) {
+                            loginStatus = "생일";
+                        }
+
+                        if (isUpdated) {
+                            await updateDoc(userDocRef, { 
+                                isFirstLogin: false,
+                                coupons: updatedCoupons 
+                            });
+                            set({ user: { ...userData, isFirstLogin: false, coupons: updatedCoupons } });
+                            return loginStatus;
+                        }
+
                         set({ user: userData });
                         return true;
-                    } else {
-                        return false;
                     }
-
-                } else {
-                    console.log("인증안됨")
-                    // 2. 인증 안 된 경우: 에러 상태 설정 및 재발송
-                    try {
-                        await sendEmailVerification(user);
-                        console.log("인증 이메일이 재발송되었습니다.");
-                    } catch (err) {
-                        console.log(err.message);
-                        // console.log("재발송 중 오류가 발생했습니다.");
-                    }
-                    return "메일인증";
                 }
             } catch (err) {
                 console.log(err.message);
@@ -351,6 +380,115 @@ export const useAuthStore = create(
             } catch (error) {
                 console.log(error.message);
                 return error.code;
+            }
+        },
+        // 현재 날짜로부터 1개월 뒤의 날짜를 "YYYY년MM월DD일" 형식으로 반환
+        getOneMonthsLater : () => {
+            const now = new Date();
+            now.setMonth(now.getMonth() + 1); // 1개월 추가
+
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+
+            return `${year}년 ${month}월 ${day}일`;
+        },
+        // 기본쿠폰
+        couponList : [
+            {
+                id: "welcome",
+                rate: 15,
+                title: "CASETiFY 클럽 웰컴 쿠폰",
+                limit: "",
+                use: true
+            },
+            {
+                id: "birth",
+                rate: 100,
+                title: "생일 기념 무료 케이스",
+                limit: "",
+                use: true
+            }
+        ],
+        getOneYearLater: () => {
+            const now = new Date();
+            now.setFullYear(now.getFullYear() + 1);
+            return `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일`;
+        },
+        // 기프트카드
+        giftCardList : [
+            {
+                code: "0000020000",
+                price: 20000,
+                limit: "",
+                use: true
+            },
+            {
+                code: "0000050000",
+                price: 50000,
+                limit: "",
+                use: true
+            },
+            {
+                code: "0000080000",
+                price: 80000,
+                limit: "",
+                use: true
+            },
+            {
+                code: "0000100000",
+                price: 100000,
+                limit: "",
+                use: true
+            },
+            {
+                code: "0000150000",
+                price: 150000,
+                limit: "",
+                use: true
+            }
+        ],
+        registerGiftCard: async (cardCode) => {
+            const { user, giftCardList, getOneYearLater } = get();
+            if (!user) return;
+
+            // 1. 일련번호와 일치하는 기프트 카드 정보 찾기
+            const matchedCard = giftCardList.find(c => c.code === cardCode);
+            
+            if (!matchedCard) {
+                return "코드";
+            }
+
+            try {
+                // 2. 새 카드 객체 생성
+                const currentGiftCards = user.giftCard || [];
+                const newCard = {
+                    // ID를 현재 등록된 카드 개수 + 1로 설정 (순서대로)
+                    id: currentGiftCards.length + 1,
+                    title: "기프트 카드 충전",
+                    price: matchedCard.price, // 일치하는 카드의 실제 가격 적용
+                    cardCode: cardCode,
+                    limit: getOneYearLater(), // 등록일로부터 1년
+                    use: true
+                };
+
+                const userDocRef = doc(db, "users", user.uid);
+                await updateDoc(userDocRef, {
+                    giftCard: arrayUnion(newCard)
+                });
+
+                // 3. 스토어 상태 업데이트
+                set((state) => ({
+                    user: {
+                        ...state.user,
+                        giftCard: [...currentGiftCards, newCard]
+                    }
+                }));
+
+                return true;
+            } catch (error) {
+                console.log("기프트 카드 등록 에러:", error.message);
+                return false;
             }
         },
 
@@ -626,23 +764,77 @@ export const useAuthStore = create(
             const { user, orderList } = get();
             if (!user) return;
 
+            // 결제 시 사용할 총 기프트 카드 금액
+            let remainingToPay = orderData.priceSummary.giftCard || 0;
+            
+            // 유저가 보유한 기프트 카드 복사 (원본 보존을 위해 spread 사용)
+            let updatedGiftCards = [...(user.giftCard || [])];
+
+            // 1. 유효기간(limit)이 가까운 순서대로 정렬 (오름차순)
+            // 날짜 문자열이 'YYYY. MM. DD.' 형식이라면 Date 객체로 변환하여 비교
+            updatedGiftCards.sort((a, b) => new Date(a.limit) - new Date(b.limit));
+
+            // 2. 금액 차감 로직 (사용 가능한 카드만 대상)
+            updatedGiftCards = updatedGiftCards.map(card => {
+                if (remainingToPay <= 0 || !card.use) return card;
+
+                if (card.price > remainingToPay) {
+                    // 카드의 잔액이 결제할 금액보다 많은 경우
+                    const newPrice = card.price - remainingToPay;
+                    remainingToPay = 0;
+                    return { ...card, price: newPrice };
+                } else {
+                    // 카드의 잔액이 결제할 금액보다 적거나 같은 경우 (전액 소진)
+                    remainingToPay -= card.price;
+                    return { ...card, price: 0, use: false };
+                }
+            });
+            console.log(updatedGiftCards);
+
+            // 2. 쿠폰 사용 처리 로직
+            const { coupon } = orderData.priceSummary;
+            let updatedCoupons = [...(user.coupons || [])];
+
+            if (coupon && coupon.id) {
+                updatedCoupons = updatedCoupons.map(c => {
+                    // 사용자가 결제 시 선택한 쿠폰의 ID와 일치하는 쿠폰을 찾아 상태 변경
+                    if (c.id === coupon.id) {
+                        return { ...c, use: false }; 
+                    }
+                    return c;
+                });
+            }
+
             // 1. 기존 주문 목록에 새 주문 추가
             const updatedOrders = [...(orderList || []), orderData];
 
             try {
-                // A. DB 업데이트 - 사용자의 주문 내역(orders) 컬렉션에 저장
+                // A. 주문 내역 저장
+                const updatedOrders = [...(orderList || []), orderData];
                 const orderRef = doc(db, "orders", user.uid);
                 await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
 
-                // B. 결제가 완료되었으므로 장바구니 비우기 (DB)
+                // B. 유저 정보 업데이트 (기프트 카드 배열 & 쿠폰 배열 전체 업데이트)
+                const userRef = doc(db, "users", user.uid);
+                await updateDoc(userRef, { 
+                    giftCard: updatedGiftCards,
+                    coupons: updatedCoupons 
+                });
+
+                // C. 장바구니 비우기
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: [] }, { merge: true });
 
-                // C. 로컬 스토어 상태 동기화 (주문 추가 & 장바구니 초기화)
+                // D. 로컬 상태 업데이트
                 set({ 
                     orderList: updatedOrders,
                     cart: [],
-                    checkedCart: []
+                    checkedCart: [],
+                    user: { 
+                        ...user, 
+                        giftCards: updatedGiftCards,
+                        coupons: updatedCoupons
+                    }
                 });
 
                 return true;
