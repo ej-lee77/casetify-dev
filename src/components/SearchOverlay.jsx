@@ -10,7 +10,7 @@ const tempRecoItem = { id: "CTF-34942803-16006188" }
 
 export default function SearchOverlay({ isActive, onClose }) {
     //전역변수 searchWord, onSetSearchWorld
-    const { searchWord, onSetSearchWord, searchWordList, onAddSearchList, onRemoveSearchList, onRemoveAllSearch } = useProductStore();
+    const { searchWord, onSetSearchWord, searchWordList, onAddSearchList, onRemoveSearchList, onRemoveAllSearch, onSearchByKeyword } = useProductStore();
 
     // 검색한 단어를 저장하는 변수
     useEffect(() => {
@@ -65,7 +65,7 @@ export default function SearchOverlay({ isActive, onClose }) {
                                     <button className="remove-all" onClick={onRemoveAllSearch}>모두 지우기</button>
                                     <ul className="recent-result-list">
                                         {searchWordList.map((s) => (
-                                            <li key={s.id}>{s.text} <button onClick={(e) => onRemoveSearchList(s.id)}> ×</button></li>
+                                            <li key={s.id} style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword(s.text)}>{s.text} <button onClick={(e) => { e.stopPropagation(); onRemoveSearchList(s.id); }}> ×</button></li>
                                         ))}
                                     </ul>
                                 </div>
@@ -75,20 +75,23 @@ export default function SearchOverlay({ isActive, onClose }) {
                         <div className="pop-search-wrap">
                             <div className="inner-title">인기 검색어</div>
                             <ol className="pop-search-list">
-                                <li>클리어 케이스</li>
-                                <li>맥세이프 케이스</li>
-                                <li>블루 스트랩 케이스</li>
-                                <li>아이폰 17 Pro Max</li>
-                                <li>gdragon</li>
-                                <li>아이폰 17 Pro</li>
-                                <li>크롬</li>
-                                <li>아이폰 17</li>
-                                <li>아이폰 Air</li>
-                                <li>메탈 참 큐브</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("클리어 케이스")}>클리어 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("아이폰 17 Pro")}>아이폰 17 Pro</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("아이폰 17")}>아이폰 17</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("메탈 참 큐브")}>메탈 참 큐브</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("임팩트 케이스")}>임팩트 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("바운스 케이스")}>바운스 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("YOUNG FOREST")}>YOUNG FOREST</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Cherry Blossom")}>Cherry Blossom</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("글레이즈 케이스")}>글레이즈 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Skater JOHN")}>Skater JOHN</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("SSEBONG")}>SSEBONG</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("미러 케이스")}>미러 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Esther Bunny")}>Esther Bunny</li>
                             </ol>
                         </div>
                         <div className="recommend-wrap">
-                            <BundleRecommend item={tempRecoItem}/>
+                            <BundleRecommend item={tempRecoItem} />
                         </div>
                     </div>
                     <div className="search-content-extra-wrap">
