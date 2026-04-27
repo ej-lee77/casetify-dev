@@ -18,7 +18,7 @@ export default function Mypage() {
   // 왼쪽 메뉴를 클릭하면 메뉴 변경
   const handleMenuClick = ((menu) => {
     setSelectMenu(menu);
-    console.log(menu);
+    // console.log(menu);
   })
 
   // 오른쪽 보여줄 컴포넌트
@@ -28,7 +28,7 @@ export default function Mypage() {
       case "주문": return <OrderInfo />
       case "위시리스트": return <WishList />
       case "케이스티파이 정품 인증": return <p>정품인증 페이지 이동</p>
-      case "기프트 카드": return <Giftcard />
+      case "기프트 카드/쿠폰": return <Giftcard />
       case "로그아웃": return <p>로그아웃 + 메인페이지 이동</p>
     }
   }

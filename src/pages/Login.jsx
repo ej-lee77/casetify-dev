@@ -12,6 +12,7 @@ export default function Login() {
     const [loginErr, setLoginErr] = useState("");
     const [rememberEmail, setRememberEmail] = useState(false);
     const [emailVerified, setEmailVerified] = useState(false);
+    const [birthMsg, setBirthMsg] = useState(null);
 
     const {user, onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
 
@@ -31,6 +32,7 @@ export default function Login() {
       e.preventDefault();
       console.log("이메일 로그인");
 
+      setBirthMsg(null);
       setLoginErr("");
       setEmailVerified(false);
 
@@ -51,11 +53,28 @@ export default function Login() {
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 3000);
       }else if(isLogin === "첫로그인"){
         navigate("/join/complete");
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      }else if(isLogin === "첫로그인생일"){
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/join/complete");
+        }, 3000);
       }else if(isLogin === "메일인증"){
-        console.log("here veri")
+        // console.log("here veri")
         setIsModalOpen(true);
         setEmailVerified(true);
       } else {
@@ -178,7 +197,8 @@ export default function Login() {
                 <button className='input-btn' onClick={() => setIsModalOpen(false)}>닫기</button></>)
               :
                 (<><p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
-                <p>곧 홈으로 이동합니다...</p></>)
+                {birthMsg !== null ? (<><p>{birthMsg}</p><p>곧 이동합니다...</p></>) : (<p>곧 홈으로 이동합니다...</p>)}
+                </>)
               }
             </div>
           </div>

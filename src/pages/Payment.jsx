@@ -3,6 +3,7 @@ import "./scss/Payment.scss"
 import { useAuthStore } from '../store/useAuthStore';
 import AddressSearch from '../components/sub/AddressSearch'
 import { Link, useNavigate } from 'react-router-dom';
+import GiftCardModal from '../components/sub/GiftCardModal';
 
 const memoList = [
   "부재 시 문 앞에 놓아주세요",
@@ -11,27 +12,27 @@ const memoList = [
   "직접 입력"
 ];
 
-const couponList = [
-  {
-    id: "welcome",
-    rate: 15,
-    title: "CASETiFY 클럽 welcome 쿠폰",
-    limit: "2026년12월31일"
-  },
-  {
-    id: "birth",
-    rate: 100,
-    title: "생일 기념 무료 케이스",
-    limit: "2026년4월30일"
-  }
-]
+// const couponList = [
+//   {
+//     id: "welcome",
+//     rate: 15,
+//     title: "CASETiFY 클럽 welcome 쿠폰",
+//     limit: "2026년12월31일"
+//   },
+//   {
+//     id: "birth",
+//     rate: 100,
+//     title: "생일 기념 무료 케이스",
+//     limit: "2026년4월30일"
+//   }
+// ]
 
-const giftCard = [
-  {
-    title: "welcome 기프트카드",
-    price: 10000
-  }
-]
+// const giftCard = [
+//   {
+//     title: "welcome 기프트카드",
+//     price: 10000
+//   }
+// ]
 
 const payMethod = [
   { id: 'card', label: '신용/체크 카드' },
@@ -51,7 +52,6 @@ export default function Payment() {
   const [isCouponOpen, setIsCouponOpen] = useState(false);
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [isGiftOpen, setIsGiftOpen] = useState(false);
-  const [selectedGift, setSelectedGift] = useState(null);
   const [selectedMethod, setSelectedMethod] = useState('card');
   const [customMemo, setCustomMemo] = useState('');
 
@@ -138,6 +138,69 @@ export default function Payment() {
       });
   }, [user]);
 
+  const getValidCoupons = (coupons) => {
+    if (!coupons) return [];
+
+    const today = new Date();
+
+    return coupons.filter((coupon) => {
+      // 1. 이미 사용한 쿠폰 제외
+      if (!coupon.use) return false;
+
+      // 2. 유효기간 만료 체크
+      // "2026년 7월 27일" -> "2026-7-27" 포맷으로 변환
+      const limitDateStr = coupon.limit
+        .replace(/년|월/g, "-")
+        .replace(/일/g, "")
+        .trim();
+      
+      const limitDate = new Date(limitDateStr);
+
+      // 사용 가능 조건: used가 true이고, 오늘이 만료일보다 전이거나 같아야 함
+      return coupon.use && today <= limitDate;
+    });
+  };
+
+  const validCoupons = getValidCoupons(user?.coupons);
+
+  const getTotalGiftCardBalance = (giftCards) => {
+    if (!giftCards || giftCards.length === 0) return 0;
+
+    const today = new Date();
+
+    return giftCards
+      .filter((card) => {
+
+        if (!card.use) return false;
+
+        // 1. 유효기간 만료 체크
+        const limitDateStr = card.limit
+          .replace(/년|월/g, "-")
+          .replace(/일/g, "")
+          .trim();
+        const limitDate = new Date(limitDateStr);
+
+        // 오늘 날짜가 만료일 이전인 것만 포함
+        return today <= limitDate;
+      })
+      .reduce((acc, cur) => acc + Number(cur.price), 0); // 금액 합산
+  };
+
+  const handleAmountChange = (e) => {
+    const value = Number(e.target.value.replace(/[^0-9]/g, ""));
+    
+    // 잔액보다 큰 금액을 입력하지 못하도록 제한
+    if (value > totalBalance) {
+      setUseAmount(totalBalance);
+    } else {
+      setUseAmount(value);
+    }
+  };
+  
+  const totalBalance = getTotalGiftCardBalance(user?.giftCard);
+  const [useAmount, setUseAmount] = useState(0);
+  const [isGiftModalOpen, setIsGiftModalOpen] = useState(false);
+
   // 선택 제품 총가격 
   const selectedTotal = checkedCart.reduce((acc, cur) =>
     acc + cur.price * cur.quantity, 0);
@@ -162,7 +225,7 @@ export default function Payment() {
   
   let birthDiscount = 0;
   if(isBirthCoupon){
-   const phoneItems = checkedCart.filter(item => item.isPhone);
+    const phoneItems = checkedCart.filter(item => item.isPhone);
     // 가격순으로 내림차순 정렬하여 가장 비싼 제품 추출
     const expensivePhone = [...phoneItems].sort((a, b) => b.price - a.price)[0];
     birthDiscount = expensivePhone.price;
@@ -170,7 +233,7 @@ export default function Payment() {
 
   const couponRate = selectedCoupon ? selectedCoupon.rate : 0;
   const couponDiscount = isBirthCoupon ? birthDiscount : discountedTotal * (couponRate / 100);
-  const giftDiscount = selectedGift ? selectedGift.price : 0;
+  const giftDiscount = useAmount;
 
   // 총 할인액 합계
   const totalDiscount = discount + couponDiscount + giftDiscount;
@@ -180,7 +243,7 @@ export default function Payment() {
   // 배송비 기본 9000원
   const [shipping, setShipping] = useState(9000);
   useEffect(()=>{ 
-    if(finalPayment > 50000){
+    if(finalPayment >= 50000){
       setShipping(0);
     }else{
       setShipping(9000)
@@ -229,7 +292,7 @@ export default function Payment() {
         totalDiscount: totalDiscount, 
         finalPayment: finalPayment,
         coupon: selectedCoupon,
-        giftCard: selectedGift
+        giftCard: useAmount
       },
       paymentMethod: selectedMethod,
       orderStatus: "배송준비중",
@@ -420,7 +483,7 @@ export default function Payment() {
                                 setSelectedCoupon(null);
                                 setIsCouponOpen(false);
                               }}>--</div>
-                          {couponList?.map((item, index) => (
+                          {validCoupons?.map((item, index) => (
                             <div className='coupon-select'
                               key={item.id} 
                               onClick={() => {
@@ -441,35 +504,20 @@ export default function Payment() {
                 </div>
                 <div className='input-box'>
                   <div className='label-div'><label>기프트 카드</label></div>
+                  <div><label>잔액: {totalBalance.toLocaleString()}원</label></div>
                   <div className='input-div gift-div'>
                       <div className='gift-selsct'>
-                        <div className={`coupon-div ${!selectedGift ? 'placeholder' : ''}`} onClick={() => setIsGiftOpen(!isGiftOpen)}>
-                          {selectedGift ? selectedGift.title : '기프트 카드을 선택하세요'}
-                          <span className={`accordion-arrow ${isGiftOpen ? "open" : ""}`}>▼</span>
+                        <div className="input-group">
+                          <input 
+                            type="text" 
+                            value={useAmount.toLocaleString()} 
+                            onChange={handleAmountChange}
+                            placeholder="사용할 금액 입력"
+                          />
                         </div>
-                        {isGiftOpen && (
-                          <div className='option-box'>
-                            <div 
-                              onClick={() => {
-                                setSelectedGift(null);
-                                setIsGiftOpen(false);
-                              }}>--</div>
-                            {giftCard?.map((item, index) => (
-                              <div 
-                                key={index} 
-                                onClick={() => {
-                                  setSelectedGift(item);
-                                  setIsGiftOpen(false);
-                                }}
-                              >
-                                <div>{item.title}</div>
-                                <div className='price'>{Number(item.price).toLocaleString()}원</div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
                       </div>
-                      <button className='add-btn'>등록하기</button>
+                      <button className='add-btn' onClick={() => setUseAmount(totalBalance)}>전액 사용</button>
+                      <button className='add-btn' onClick={() => setIsGiftModalOpen(true)}>등록하기</button>
                   </div>
                 </div>
               </div>
@@ -511,7 +559,7 @@ export default function Payment() {
                 <p className="price-sum">총 금액<span>{Number(selectedTotal).toLocaleString()}원</span></p>
                 <p className="price-discount">할인 금액{discount === 0 ? "" : "(번들할인)"}<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
                 <p className="price-discount">쿠폰 할인<span>{couponDiscount === 0 ? 0 : Number(-couponDiscount).toLocaleString()}원</span></p>
-                <p className="price-discount">기프트 카드<span>{!selectedGift ? 0 : Number(-giftDiscount).toLocaleString()}원</span></p> 
+                <p className="price-discount">기프트 카드<span>{useAmount === 0 ? 0 : Number(-giftDiscount).toLocaleString()}원</span></p> 
                 <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${Number(shipping).toLocaleString()}원`}</span></p>
               </div>
               <div className="price-total">
@@ -531,6 +579,10 @@ export default function Payment() {
           </div>
         </div>
       </div>
+      <GiftCardModal 
+        isOpen={isGiftModalOpen} 
+        onClose={() => setIsGiftModalOpen(false)}
+      />
     </div>
   )
 }
