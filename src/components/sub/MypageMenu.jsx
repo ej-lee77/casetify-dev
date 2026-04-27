@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./scss/MypageMenu.scss"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../../store/useAuthStore';
 
 // 마이페이지 메뉴 데이터
 const mypageMenuData = [
@@ -15,7 +16,16 @@ const mypageMenuData = [
 export default function MypageMenu({ sendSelect, selectMenu }) {
     // hover 상태 파악
     const [hoverId, setHoverId] = useState(null);
+    const {onLogout} = useAuthStore();
+    const navigate = useNavigate();
 
+    const handleLogout = async()=>{
+        const isLogout = await onLogout();
+
+        if(isLogout){
+            navigate("/");
+        }
+    }
     return (
 
         <>
@@ -26,7 +36,13 @@ export default function MypageMenu({ sendSelect, selectMenu }) {
                     return (
                         <li key={menu.id} className={`menu-item ${isActive ? "active" : ""}`}>
                             <button
-                                onClick={() => sendSelect(menu.name)}
+                                onClick={() => {
+                                    if (menu.name === "로그아웃") {
+                                        handleLogout();
+                                    } else {
+                                        sendSelect(menu.name);
+                                    }
+                                }}
                                 onMouseEnter={() => setHoverId(menu.id)}
                                 onMouseLeave={() => setHoverId(null)}
                             >
