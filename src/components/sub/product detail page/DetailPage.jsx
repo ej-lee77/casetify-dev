@@ -38,13 +38,15 @@ export default function DetailPage({ item }) {
         setAccordionOpen(false);
         setModelAccordionOpen(false);
         setSelectedModel("");
+            setIsWished(item.isWish || false);
 
         // 선택할 옵션이 없는 상품은 바로 장바구니버튼눌러도 로그인경고 안뜸
         const hasNoOption =
             !phoneModelOptions[item?.brand] &&
             !item?.compatibleModels?.length &&
             !item?.caseColors?.length;
-        setUserSelected(hasNoOption);
+                setUserSelected(hasNoOption || item.isWish || false);
+
 
         // 실제 존재하는 첫 번째 브랜드로 탭 초기화
         const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
