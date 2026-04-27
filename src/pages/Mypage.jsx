@@ -18,7 +18,7 @@ export default function Mypage() {
   // 왼쪽 메뉴를 클릭하면 메뉴 변경
   const handleMenuClick = ((menu) => {
     setSelectMenu(menu);
-    console.log(menu);
+    // console.log(menu);
   })
 
   // 오른쪽 보여줄 컴포넌트

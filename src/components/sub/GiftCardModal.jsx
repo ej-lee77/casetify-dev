@@ -15,9 +15,9 @@ export default function GiftCardModal({ isOpen, onClose }) {
     const handleSubmit = async() => {
         if (cardCode) {
             const isGift = await registerGiftCard(cardCode);
-            console.log(isGift);
+            
             if(isGift === true){
-                onClose(); // 등록 후 팝업 닫기
+                setMsg("등록 완료!");
             }else if(isGift === "코드"){
                 setMsg("유효하지 않은 코드입니다.");
             }else{

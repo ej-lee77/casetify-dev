@@ -451,7 +451,7 @@ export const useAuthStore = create(
         registerGiftCard: async (cardCode) => {
             const { user, giftCardList, getOneYearLater } = get();
             if (!user) return;
-            console.log(cardCode);
+
             // 1. 일련번호와 일치하는 기프트 카드 정보 찾기
             const matchedCard = giftCardList.find(c => c.code === cardCode);
             
@@ -764,23 +764,77 @@ export const useAuthStore = create(
             const { user, orderList } = get();
             if (!user) return;
 
+            // 결제 시 사용할 총 기프트 카드 금액
+            let remainingToPay = orderData.priceSummary.giftCard || 0;
+            
+            // 유저가 보유한 기프트 카드 복사 (원본 보존을 위해 spread 사용)
+            let updatedGiftCards = [...(user.giftCard || [])];
+
+            // 1. 유효기간(limit)이 가까운 순서대로 정렬 (오름차순)
+            // 날짜 문자열이 'YYYY. MM. DD.' 형식이라면 Date 객체로 변환하여 비교
+            updatedGiftCards.sort((a, b) => new Date(a.limit) - new Date(b.limit));
+
+            // 2. 금액 차감 로직 (사용 가능한 카드만 대상)
+            updatedGiftCards = updatedGiftCards.map(card => {
+                if (remainingToPay <= 0 || !card.use) return card;
+
+                if (card.price > remainingToPay) {
+                    // 카드의 잔액이 결제할 금액보다 많은 경우
+                    const newPrice = card.price - remainingToPay;
+                    remainingToPay = 0;
+                    return { ...card, price: newPrice };
+                } else {
+                    // 카드의 잔액이 결제할 금액보다 적거나 같은 경우 (전액 소진)
+                    remainingToPay -= card.price;
+                    return { ...card, price: 0, use: false };
+                }
+            });
+            console.log(updatedGiftCards);
+
+            // 2. 쿠폰 사용 처리 로직
+            const { coupon } = orderData.priceSummary;
+            let updatedCoupons = [...(user.coupons || [])];
+
+            if (coupon && coupon.id) {
+                updatedCoupons = updatedCoupons.map(c => {
+                    // 사용자가 결제 시 선택한 쿠폰의 ID와 일치하는 쿠폰을 찾아 상태 변경
+                    if (c.id === coupon.id) {
+                        return { ...c, use: false }; 
+                    }
+                    return c;
+                });
+            }
+
             // 1. 기존 주문 목록에 새 주문 추가
             const updatedOrders = [...(orderList || []), orderData];
 
             try {
-                // A. DB 업데이트 - 사용자의 주문 내역(orders) 컬렉션에 저장
+                // A. 주문 내역 저장
+                const updatedOrders = [...(orderList || []), orderData];
                 const orderRef = doc(db, "orders", user.uid);
                 await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
 
-                // B. 결제가 완료되었으므로 장바구니 비우기 (DB)
+                // B. 유저 정보 업데이트 (기프트 카드 배열 & 쿠폰 배열 전체 업데이트)
+                const userRef = doc(db, "users", user.uid);
+                await updateDoc(userRef, { 
+                    giftCard: updatedGiftCards,
+                    coupons: updatedCoupons 
+                });
+
+                // C. 장바구니 비우기
                 const cartRef = doc(db, "carts", user.uid);
                 await setDoc(cartRef, { items: [] }, { merge: true });
 
-                // C. 로컬 스토어 상태 동기화 (주문 추가 & 장바구니 초기화)
+                // D. 로컬 상태 업데이트
                 set({ 
                     orderList: updatedOrders,
                     cart: [],
-                    checkedCart: []
+                    checkedCart: [],
+                    user: { 
+                        ...user, 
+                        giftCards: updatedGiftCards,
+                        coupons: updatedCoupons
+                    }
                 });
 
                 return true;

@@ -5,6 +5,7 @@ import { modelColorOptions, colorMap, phoneModelOptions } from '../data/finalDat
 import CartOption from '../components/sub/CartOption';
 import { Link, useNavigate } from 'react-router-dom';
 import BundleRecommend from '../components/sub/product detail page/Recommend';
+import { li } from 'framer-motion/client';
 
 // 추천상품용
 const tempRecoItem = { id: "CTF-34942803-16006188" }
@@ -167,49 +168,55 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-            {cart.map((item, index) => {
-              const itemKey = getItemKey(item);
-              const isChecked = chekedItems.includes(itemKey);
-              return (
-                <li key={itemKey} className="cart-item">
-                  <label className="checkbox-label">
-                    <input 
-                      type="checkbox"
-                      checked={isChecked}
-                      onChange={() => handleChecked(item)} 
-                    />
-                    <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
-                  </label>
-                  <div className="cart-card-wrap">
-                    <div className="cart-goods-info">
-                      <div className="goods-img">
-                        <Link to={`/detail/${item.productId}`}>
-                          <img
-                            src={`${item.imgUrl}`}
-                            alt={item.title} />
-                        </Link>
-                      </div>
-                      <div className="goods-text">
-                        <p className="title">{item.title}</p>
-                        <div className="goods-detail-product">
-                          <p>{item.device}</p>
-                          <p>{item.color}</p>
+            {cart.length > 0 ? (
+              <>
+              {cart.map((item, index) => {
+                const itemKey = getItemKey(item);
+                const isChecked = chekedItems.includes(itemKey);
+                return (
+                  <li key={itemKey} className="cart-item">
+                    <label className="checkbox-label">
+                      <input 
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={() => handleChecked(item)} 
+                      />
+                      <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
+                    </label>
+                    <div className="cart-card-wrap">
+                      <div className="cart-goods-info">
+                        <div className="goods-img">
+                          <Link to={`/detail/${item.productId}`}>
+                            <img
+                              src={`${item.imgUrl}`}
+                              alt={item.title} />
+                          </Link>
                         </div>
-                        <button onClick={() => setEditingItem(item)}>옵션변경</button>
+                        <div className="goods-text">
+                          <p className="title">{item.title}</p>
+                          <div className="goods-detail-product">
+                            <p>{item.device}</p>
+                            <p>{item.color}</p>
+                          </div>
+                          <button onClick={() => setEditingItem(item)}>옵션변경</button>
+                        </div>
+                      </div>
+                      <div className="cart-goods-count-price">
+                        <div className="cart-count-ctrl">
+                          <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
+                          <span>{item.quantity}</span>
+                          <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
+                        </div>
+                        <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
                       </div>
                     </div>
-                    <div className="cart-goods-count-price">
-                      <div className="cart-count-ctrl">
-                        <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
-                        <span>{item.quantity}</span>
-                        <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
-                      </div>
-                      <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
+                  </li>
+                );
+              })}
+              </>
+            ):(
+              <li>등록된 상품이 없습니다.</li>
+            )}
             </ul>
             {editingItem && (
               <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)}/>
