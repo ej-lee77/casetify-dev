@@ -22,6 +22,8 @@ import { useAuthStore } from './store/useAuthStore'
 import Payment from './pages/Payment'
 import PayComplete from './pages/PayComplete'
 import Store from './pages/Store'
+import SearchPage from './pages/SearchPage'
+import SearchNavigator from './components/sub/SearchNavigator'
 
 function App() {
   const { pathname } = useLocation();
@@ -50,6 +52,7 @@ function App() {
   return (
     <>
       <Header />
+      <SearchNavigator />
       <Routes>
         <Route path='/' element={<Main />} />
 
@@ -66,10 +69,11 @@ function App() {
 
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/payment' element={<Payment />}/>
-        <Route path='/payment/complete' element={<PayComplete />}/>
+        <Route path='/payment' element={<Payment />} />
+        <Route path='/payment/complete' element={<PayComplete />} />
 
-        <Route path='/brand/store' element={<Store/>}/>
+        <Route path='/brand/store' element={<Store />} />
+        <Route path='/search' element={<SearchPage />} />
       </Routes>
       <Footer />
     </>
