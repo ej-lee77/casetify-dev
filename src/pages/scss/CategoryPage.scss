@@ -63,6 +63,48 @@
             }
         }
 
+        .mini-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+
+            &.active {
+                transform: translateY(-2px);
+            }
+
+            .mini-icon-img {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 8px;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+
+            .mini-icon-text {
+                font-family: "Pretendard", sans-serif;
+                font-size: 0.9rem;
+                font-weight: 500;
+                line-height: 1.3;
+                color: #222;
+                text-align: center;
+            }
+        }
+
         &.has-active {
             .mini-icon-item {
                 opacity: 0.5;
@@ -109,7 +151,6 @@
             .swiper-wrapper {
                 align-items: flex-start;
             }
-
 
             .swiper-slide {
                 width: auto !important;
@@ -438,7 +479,7 @@
         select {
             min-width: 120px;
             height: 44px;
-            padding: 0 36px 0 12px; // ← 오른쪽에 화살표 공간 확보
+            padding: 0 36px 0 12px;
             border: 1px solid #d8d8d8;
             background: #fff;
             font-family: "Pretendard", sans-serif;
@@ -446,8 +487,7 @@
             font-weight: 500;
             cursor: pointer;
             outline: none;
-
-            appearance: none; // ← 기본 화살표 제거 후 커스텀
+            appearance: none;
             -webkit-appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
@@ -488,6 +528,13 @@
         >li {
             min-width: 0;
         }
+    }
+
+    // 제품명 한 줄 말줄임
+    .card-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .category-pagination {
@@ -562,56 +609,19 @@
             padding: 16px 16px 80px;
         }
 
-        // ── 미니 카테고리 Swiper ──
         .category-mini-swiper-wrap {
-            position: relative;
-            margin: 0 0 28px;
-            overflow: hidden;
+            margin: 0 0 20px;
         }
 
         .category-mini-swiper {
-            width: 100%;
-
-            .swiper-wrapper {
-                align-items: flex-start;
-            }
-
-            .swiper-slide {
-                display: flex;
-                justify-content: center;
-            }
-
-            // 페이지네이션 dots
-            .swiper-pagination {
-                position: static;
-                margin-top: 14px;
-                display: flex;
-                justify-content: center;
-                gap: 6px;
-
-                .swiper-pagination-bullet {
-                    width: 6px;
-                    height: 6px;
-                    background: #ccc;
-                    opacity: 1;
-                    border-radius: 50%;
-                    transition: background 0.2s, width 0.2s;
+            .mini-icon-item {
+                .mini-icon-img {
+                    width: 72px;
+                    height: 72px;
                 }
 
-                .swiper-pagination-bullet-active {
-                    background: #111;
-                    width: 18px;
-                    border-radius: 3px;
-                }
-            }
-
-            &.has-active {
-                .mini-icon-item {
-                    opacity: 0.5;
-                }
-
-                .mini-icon-item.active {
-                    opacity: 1;
+                .mini-icon-text {
+                    font-size: 0.82rem;
                 }
             }
         }

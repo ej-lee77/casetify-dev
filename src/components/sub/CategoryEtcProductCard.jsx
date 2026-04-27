@@ -50,6 +50,7 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
 
     const handleWish = async (e) => {
         e.preventDefault();
+        if (!isWished) { navigate(`/detail/${item.id}`); return; }
         if (!user) { navigate("/login"); return; }
         const result = await onAddWishlist({
             id: item.id,
@@ -65,6 +66,7 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
 
     const handleCart = async (e) => {
         e.preventDefault();
+        if (!isWished) { navigate(`/detail/${item.id}`); return; }
         if (!user) { navigate("/login"); return; }
         await onAddToCart({
             id: item.id,
@@ -107,7 +109,7 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
                 {/* 호버 액션 버튼 */}
                 <div className="card-hover-actions">
                     <button className={`btn-wish${isWished ? " wished" : ""}`} onClick={handleWish} title="찜하기">
-                        <img src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.png"} alt="찜하기" />
+                        <img src="/images/icon/icon_favorite.svg" alt="찜하기" />
                     </button>
                     <button className="btn-cart" onClick={handleCart} title="장바구니">
                         <img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" />
