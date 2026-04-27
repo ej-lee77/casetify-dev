@@ -3,6 +3,7 @@ import "./scss/WishList.scss"
 import MypageTitle from './MypageTitle'
 import { useAuthStore } from '../../store/useAuthStore';
 import { Link } from 'react-router-dom';
+import { li } from 'framer-motion/client';
 
 export default function WishList() {
     const [wishItemList, setWishItemList] = useState([]);
@@ -18,24 +19,31 @@ export default function WishList() {
         <div className='wishlist-wrap'>
             <MypageTitle title={"위시리스트"} />
             <ul className="wish-list">
-                {wishlist.map((item) => (
-                    <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
-                        <Link to={`/detail/${item.productId}`}>
-                            <div className="card-img">
-                                <img src={`${item.imgUrl}`} alt={item.title}/>
-                            </div>
-                            <div className="card-info">
-                            <p className="card-name">{item.title}</p>
-                            <p className="card-price">{Number(item.price || 0).toLocaleString()}원</p>
-                            <div className="card-option">
-                                <p>[옵션]</p>
-                                <p>{item.device && <span>{item.device}</span>}<span>{item.color}</span></p>
-                            </div>
-                            </div>
-                        </Link>
-                        <button onClick={() => setItemToDelete(item)} className='wish-heart'><img src="/images/icon/icon_favorite_fill.svg" alt="위시리스트 해제" /></button>
-                    </li>
-                ))}
+                {wishlist.length > 0 ? (
+                    <>
+                    {wishlist.map((item) => (
+                        <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
+                            <Link to={`/detail/${item.productId}`}>
+                                <div className="card-img">
+                                    <img src={`${item.imgUrl}`} alt={item.title}/>
+                                </div>
+                                <div className="card-info">
+                                <p className="card-name">{item.title}</p>
+                                <p className="card-price">{Number(item.price || 0).toLocaleString()}원</p>
+                                <div className="card-option">
+                                    <p>[옵션]</p>
+                                    <p>{item.device && <span>{item.device}</span>}<span>{item.color}</span></p>
+                                </div>
+                                </div>
+                            </Link>
+                            <button onClick={() => setItemToDelete(item)} className='wish-heart'><img src="/images/icon/icon_favorite_fill.svg" alt="위시리스트 해제" /></button>
+                        </li>
+                    ))}
+                    </>
+                ):(
+                    <li>등록된 상품이 없습니다.</li>
+                )}
+
             </ul>
             {itemToDelete && (
                 <div className="modal-overlay">
