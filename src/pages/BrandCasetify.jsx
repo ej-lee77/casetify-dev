@@ -33,7 +33,7 @@ function StoryTab() {
             {/* CEO 섹션 */}
             <section className="story-ceo">
                 <div className="story-ceo-left">
-                    <img src="/images/brand/story-ceo-left.png" alt="CEO" />
+                    <img src="/images/brand/story-ceo-left.png" alt="제품사진" />
                 </div>
                 <div className="story-ceo-right">
                     <p className="story-ceo-tag">디자이너이자 혁신가인 그는<br />이를 도전으로 받아들였습니다</p>
@@ -252,10 +252,132 @@ function StandardTab() {
 function RecastifyTab() {
     return (
         <div className="store-recastify">
-            <div className="recastify-placeholder">
-                <img src="/images/brand/recastify-hero.png" alt="RE:CASTiFY" />
-                {/* 추후 콘텐츠 추가 예정 */}
+
+            {/* ① 히어로 */}
+            <div className="rc-hero">
+                <img src="/images/brand/rc-hero.png" alt="Re:CASTiFY" />
+                <div className="rc-hero-text">
+                    <h2>Re:CASTIFY</h2>
+                    <div className="rc-hero-badges">
+                        <span className="badge">Re:CASETiFY™</span>
+                        <span className="badge">Re:CASETiFY™ 이트</span>
+                        <span className="badge">Re:CASETiFY™ 플라네타리</span>
+                    </div>
+                </div>
             </div>
+
+            {/* ② 이미지 + 플라스틱 위기 텍스트 */}
+            <section className="rc-crisis">
+                <div className="rc-crisis-img">
+                    <img src="/images/brand/rc-crisis.png" alt="플라스틱 위기" />
+                </div>
+                <div className="rc-crisis-text">
+                    <p className="rc-crisis-title">플라스틱 위기</p>
+                    <p>전 세계에서는 매년 4억 6천만<br />톤에 달하는 플라스틱이 생산되고 있습니다.</p>
+                    <p>이는 세상에서 가장 큰 포유류인 대왕고래 320만 마리와<br />맞먹는 무게이죠.</p>
+                    <p>하지만 친환경 기술로 플라스틱 사용을<br />줄이고, 다시 쓰고, 재활용한다면 이 거대한 숫자도<br />바꿔나갈 수 있습니다</p>
+                </div>
+            </section>
+
+            {/* ③ 숫자 통계 마퀴 */}
+            <section className="rc-stats">
+                <div className="rc-stats-track">
+                    <div className="rc-stat-item">
+                        <span className="rc-stat-num">01</span>
+                        <p>2021년부터 210만 개<br />이상의 폰케이스를<br />재활용했습니다.</p>
+                    </div>
+                    <div className="rc-stat-divider"><img src="/images/brand/rc-logo-sm.png" alt="casetify" /></div>
+                    <div className="rc-stat-item">
+                        <span className="rc-stat-num">02</span>
+                        <p>10만 5천 킬로그램이 넘는 물<br />라스틱이 매립되지 않도록 막<br />았습니다.</p>
+                    </div>
+                    <div className="rc-stat-divider"><img src="/images/brand/rc-logo-sm.png" alt="casetify" /></div>
+                    <div className="rc-stat-item">
+                        <span className="rc-stat-num">03</span>
+                        <p>Earthday.org 팀과<br />함께 503 그루의 나무가<br />남는 나무를 심었습니다.</p>
+                    </div>
+                    <div className="rc-stat-divider"><img src="/images/brand/rc-logo-sm.png" alt="casetify" /></div>
+                    <div className="rc-stat-item">
+                        <span className="rc-stat-num">04</span>
+                        <p>탄소 배출을<br />절감하였습니다.</p>
+                    </div>
+                    <div className="rc-stat-divider"><img src="/images/brand/rc-logo-sm.png" alt="casetify" /></div>
+                </div>
+            </section>
+
+            {/* ④ 폐기물 re:IMAGINE */}
+            <section className="rc-reimagine">
+                <div className="rc-reimagine-title">
+                    <p>폐기물을 <em>re:IMAGINE</em> 하다</p>
+                    <p>: Re/CASETiFY™을 소개합니다</p>
+                </div>
+                <div className="rc-reimagine-cards">
+                    <div className="rc-reimagine-card">
+                        <img src="/images/brand/rc-step1.png" alt="낡은 케이스 수거" />
+                        <p>낡은 케이스를 우리에게 건네주세요</p>
+                    </div>
+                    <div className="rc-reimagine-card">
+                        <img src="/images/brand/rc-step2.png" alt="재활용 파트너" />
+                        <p>독립된 재활용 파트너와협력<br />하여 케이스를 처리합니다</p>
+                    </div>
+                    <div className="rc-reimagine-card">
+                        <img src="/images/brand/rc-step3.png" alt="재활용 소재" />
+                        <p>재활용 소재를 추출합니다</p>
+                    </div>
+                </div>
+                <div className="rc-reimagine-btn">
+                    <button>Re/CASETiFY™: 생각의 틀을 열다</button>
+                </div>
+            </section>
+
+            {/* ⑤ 생각의 틀을 열다 */}
+            <section className="rc-open">
+                <div className="rc-open-bg">
+                    <img src="/images/brand/rc-open-bg.png" alt="생각의 틀" />
+                </div>
+                <div className="rc-open-content">
+                    <p className="rc-open-lead">창의력이 모여 생각의 틀을 넘어설 때, 놀라운 일들이 일어납니다.</p>
+                    <p>이것은 하나의 창의적인 실험과도 같습니다: 디자이너와 아티스트, 그리고 버려진 케이스가 만나면 무엇이 가능해질까요? 그<br />결과는 상상 이상이었습니다.</p>
+                    <p>Re/CASETIFY 프로그램은 익숙했던 물건에 완전히 새로운 시선을 불어넣고, 그 변화는 한눈에 다시 보게 만드는 작품으로 이<br />어집니다.</p>
+                    <p className="rc-open-quote">이번 지구의 날, 우리는 예상을 뛰어 넘는 상상에서 시작된 변화를 기념하고자 합니다.<br />"만약 우리가 고정된 생각의 틀에서 벗어나 생각한다면, 무엇이 가능해질까요?"<br />우리가 모든 답을 알고 이어가기 아니라,</p>
+                    <p className="rc-open-em">가장 의미 있는 변화는 늘 그 질문에서 시작되기 때문입니다.</p>
+                </div>
+            </section>
+
+            {/* ⑥ 아티스트 + 제품 갤러리 */}
+            <section className="rc-gallery">
+                <div className="rc-gallery-left">
+                    <p className="rc-gallery-title">폐기물에 새로운 시선을,<br />창작자에게는 새로운 가능성을</p>
+                    <div className="rc-gallery-artist-row">
+                        <div className="rc-artist-card">
+                            <img src="/images/brand/rc-artist1.png" alt="차인필" />
+                            <p className="rc-artist-name">차인필, 서울</p>
+                            <p className="rc-artist-desc">서울 도시의 음영을 담는 거리 예술가, 라는 수식어로 불리는 차인필은 케이스티파이와 협업으로 폐케이스를 재료로 도시의 이야기를 담은 독창적인 작품을 만들었습니다.</p>
+                        </div>
+                        <div className="rc-artist-card">
+                            <img src="/images/brand/rc-artist2.png" alt="코디 호이트" />
+                            <p className="rc-artist-name">코디 호이트(Cody Hoyt)</p>
+                            <p className="rc-artist-desc">뉴욕에서 활동 중인 코디 호이트는 2012년 Parsons 대학교 재학 시절부터 재활용 소재를 활용한 독창적인 조각 작품으로 주목받았으며, 케이스티파이의 Re/CASETIFY를 통해 단순한 폐케이스를 독창적인 예술로 새롭게 탄생시켰습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="rc-gallery-right">
+                    <p className="rc-gallery-title">지속가능한 스타일, 분명한 목적을 담다</p>
+                    <div className="rc-gallery-product-row">
+                        <div className="rc-product-card">
+                            <img src="/images/brand/rc-product1.png" alt="RE/CLAIMED" />
+                            <p className="rc-product-name">RE/CLAIMED 대항 설치물<br />K11 MUSEA에 설치된 뱅커</p>
+                            <p className="rc-product-desc">RE/CLAIMED은 케이스티파이 CE와 Re/RECLAIMED 아티스트 팀이 CASETIFY를 대표하여 기획하였으며, 폐케이스를 활용한 조각물을 통해 환경의 중요성을 알렸습니다.</p>
+                        </div>
+                        <div className="rc-product-card">
+                            <img src="/images/brand/rc-product2.png" alt="스마트폰 스탠드" />
+                            <p className="rc-product-name">스마트폰 스탠드</p>
+                            <p className="rc-product-desc">재활용 소재로 만들어진 스마트폰 스탠드로, 지속 가능한 디자인과 실용성을 동시에 갖추고 있으며 케이스티파이 공식 홈페이지를 통해 구매 가능합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     )
 }
