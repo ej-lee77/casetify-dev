@@ -24,6 +24,9 @@ import PayComplete from './pages/PayComplete'
 import Store from './pages/Store'
 import SearchPage from './pages/SearchPage'
 import SearchNavigator from './components/sub/SearchNavigator'
+import BrandQna from './pages/BrandQna'
+import Privacy from './components/Privacy'
+import Terms from './components/Terms'
 
 function App() {
   const { pathname } = useLocation();
@@ -73,6 +76,9 @@ function App() {
         <Route path='/payment/complete' element={<PayComplete />} />
 
         <Route path='/brand/store' element={<Store />} />
+        <Route path='/brand/qna' element={<BrandQna />} />
+        <Route path='/privacy' element={<Privacy />} />
+        <Route path='/terms' element={<Terms />} />
         <Route path='/search' element={<SearchPage />} />
       </Routes>
       <Footer />
