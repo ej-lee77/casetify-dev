@@ -24,6 +24,7 @@ import PayComplete from './pages/PayComplete'
 import Store from './pages/Store'
 import SearchPage from './pages/SearchPage'
 import SearchNavigator from './components/sub/SearchNavigator'
+import Gift from './pages/Gift'
 
 function App() {
   const { pathname } = useLocation();
@@ -59,6 +60,7 @@ function App() {
         <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
         <Route path='/custom' element={<CustomPage />} />
+        <Route path='/giftcard' element={<Gift />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
