@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./scss/Gift.scss"
 import Benefit from '../components/Benefit'
 import { Link, useNavigate } from 'react-router-dom'
+import GiftCardModal from '../components/sub/GiftCardModal'
 
 
 const designs = [
@@ -32,7 +33,7 @@ export default function Gift() {
   const [selectedAmount, setSelectedAmount] = useState(amounts[0])
   const [openIndex, setOpenIndex] = useState(null)  // 여기로 이동
   const navigate = useNavigate();
-
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   //에러
   const [errors, setErrors] = useState({})
@@ -80,7 +81,7 @@ export default function Gift() {
           </div>
           <div className="gift-card-info register">
             <p>이미 기프트 카드를 보유하고 계시나요?</p>
-            <button onClick={() => navigate('/mypage', { state: { menu: '기프트 카드/쿠폰' } })}>
+            <button onClick={() => setIsModalOpen(true)}>
               기프트 카드 등록하기
             </button>
           </div>
@@ -201,7 +202,7 @@ export default function Gift() {
           <Link to="/brand/qna"><button>더 알아보기</button></Link>
         </div>
       </div>
-
+      <GiftCardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <Benefit />
     </>
   )

@@ -27,6 +27,7 @@
         margin: 0 auto;
         gap: 30px;
         padding: 40px 20px;
+        font-family: 'Pretendard';
 
         .gift-card-info {
             flex: 1;
@@ -38,14 +39,12 @@
             color: #fff;
             overflow: hidden;
 
-            // font-family: 'Pretendard';
 
             >p:first-child {
                 font-size: 24px;
                 font-weight: 700;
                 width: 100%;
                 text-align: center;
-                font-family: 'Pretendard';
             }
 
             img {
@@ -55,7 +54,7 @@
             }
 
             >p:last-of-type {
-                font-size: 14px;
+                font-size: 16px;
                 line-height: 1.6;
                 text-align: center;
             }
