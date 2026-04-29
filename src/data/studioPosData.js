@@ -1,5 +1,3 @@
-
-// 롯데본점, 신세계강남 위치 틀림
 export const studioPosData = [
     {
         id: 1,
@@ -81,8 +79,8 @@ export const studioPosData = [
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
                 "금요일 - 일요일 : 10:30AM - 8:30PM KST"],
-        lat: 37.5647115,
-        lng: 126.9767928,
+        lat: 37.5049244,
+        lng: 127.0036855,
     },
     {
         id: 8,
