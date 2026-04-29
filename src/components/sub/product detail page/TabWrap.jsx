@@ -55,7 +55,7 @@ export default function TabWrap({ item }) {
 
 
 
-    
+
     return (
         <div className="tab-wrap">
             <ul className="tab-menu">
@@ -88,18 +88,18 @@ export default function TabWrap({ item }) {
                 </li>
             </ul>
 
-       <br />
+            <br />
 
             <div id="detail">
-                <Detail />
+                <Detail item={item} />
             </div>
-       <Recommend item={item} />
-           <div id="review">
-    <Reivew 
-        popularity={item.popularity} 
-        productId={item.id} 
-    />
-</div>
+            <Recommend item={item} />
+            <div id="review">
+                <Reivew
+                    popularity={item.popularity}
+                    productId={item.id}
+                />
+            </div>
 
             <div id="qa">
                 <Qa />
