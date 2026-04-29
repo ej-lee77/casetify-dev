@@ -475,51 +475,26 @@ export default function CategoryPagePractice() {
 
                         {/* 색상 선택 팝업 (케이스 > 디자인 > 컬러) */}
                         {showColorFilter && !!colorFilterOptions.length && (
-                            <div className="device-model-popup-wrap">
-                                <button
-                                    type="button"
-                                    className={`device-model-inline-box ${isColorFilterPopupOpen ? "on" : ""}`}
-                                    onClick={() => setIsColorFilterPopupOpen((p) => !p)}
-                                >
-                                    <span className="device-model-label">색상 선택</span>
-                                    <span className="device-model-value">
-                                        {selectedFilters.colorFilter || "선택 안됨"}
-                                    </span>
-                                </button>
-
-                                {isColorFilterPopupOpen && (
-                                    <div className="device-model-popup-panel">
-                                        <div className="device-popup-header-inline">
-                                            <span className="device-model-label">색상</span>
-                                            <button
-                                                type="button"
-                                                className="device-popup-close"
-                                                onClick={() => setIsColorFilterPopupOpen(false)}
-                                            >✕</button>
-                                        </div>
-
-                                        <ul className="device-model-list color-filter-list">
-                                            {colorFilterOptions.map((color) => (
-                                                <li
-                                                    key={color}
-                                                    className={selectedFilters.colorFilter === color ? "on" : ""}
-                                                    onClick={() =>
-                                                        setSelectedFilters((prev) => ({
-                                                            ...prev,
-                                                            colorFilter: prev.colorFilter === color ? "" : color,
-                                                        }))
-                                                    }
-                                                >
-                                                    <span
-                                                        className="color-dot"
-                                                        style={{ backgroundColor: colorMap[color] || "#ddd" }}
-                                                    />
-                                                    {color}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
+                            <div className="color-chip-filter-wrap">
+                                {colorFilterOptions.map((color) => (
+                                    <button
+                                        key={color}
+                                        type="button"
+                                        className={`color-chip-btn${selectedFilters.colorFilter === color ? " on" : ""}`}
+                                        title={color}
+                                        onClick={() =>
+                                            setSelectedFilters((prev) => ({
+                                                ...prev,
+                                                colorFilter: prev.colorFilter === color ? "" : color,
+                                            }))
+                                        }
+                                    >
+                                        <span
+                                            className="color-chip-circle"
+                                            style={{ backgroundColor: colorMap[color] || "#ddd" }}
+                                        />
+                                    </button>
+                                ))}
                             </div>
                         )}
 

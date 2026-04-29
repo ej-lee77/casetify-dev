@@ -44,7 +44,13 @@ export default function WishList() {
                     <>
                     {currentItems.map((item) => (
                         <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
-                            <Link to={`/detail/${item.productId}`} >
+                            <Link 
+                            to={`/detail/${item.productId}`} 
+                            state={{ 
+                                selectedModel: item.device, 
+                                selectedColor: item.color 
+                            }}
+                            >
                                 <div className="card-img">
                                     <img src={`${item.imgUrl}`} alt={item.title}/>
                                 </div>
@@ -52,8 +58,11 @@ export default function WishList() {
                                 <p className="card-name">{item.title}</p>
                                 <p className="card-price">{Number(item.price || 0).toLocaleString()}원</p>
                                 <div className="card-option">
+                                    {item.device || item.color ? 
+                                    <>
                                     <p>[옵션]</p>
                                     <p>{item.device && <span>{item.device}</span>}<span>{item.color}</span></p>
+                                    </> : ""}
                                 </div>
                                 </div>
                             </Link>
