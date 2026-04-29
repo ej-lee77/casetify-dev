@@ -1,0 +1,866 @@
+@use "../../App.scss" as g;
+
+.store-page {
+    font-family: "Pretendard", sans-serif;
+    color: g.$text-main;
+
+    section {
+        margin-top: 0;
+    }
+}
+
+// ─── 탭 네비게이션 ──────────────────────────────────
+.store-tab-nav {
+    position: sticky;
+    top: 80px;
+    z-index: 999;
+    background: #111;
+
+    .inner {
+        @include g.myFlex($jc: center, $gap: 0);
+        padding: 0 40px;
+    }
+}
+
+.store-tab-btn {
+    color: #777;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 18px 60px;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: transparent;
+        transition: background 0.2s;
+    }
+
+    &:hover {
+        color: #fff;
+    }
+
+    &.active {
+        color: #fff;
+
+        &::after {
+            background: #fff;
+        }
+    }
+}
+
+// ─── STORY 탭 ──────────────────────────────────────
+.store-story {
+
+    // 히어로
+    .story-hero {
+        position: relative;
+        width: 100%;
+        height: 460px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-hero-title {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    // 인트로
+    .story-intro {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 80px 20px 0;
+        text-align: center;
+
+        h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        >p {
+            font-size: 1.05rem;
+            color: g.$text-sub;
+        }
+
+        .story-icon-row {
+            margin: 28px 0;
+
+            img {
+                height: 40px;
+            }
+        }
+
+        .story-desc {
+            font-size: 0.9rem;
+            line-height: 1.9;
+            color: g.$text-sub;
+        }
+    }
+
+    // 제품 이미지 풀블리드
+    .story-product-img {
+        margin-top: 60px;
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 20px;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    // CEO 섹션
+    .story-ceo {
+        max-width: 880px;
+        margin: 80px auto 0;
+        padding: 0 20px;
+        @include g.myFlex($gap: 40px, $ai: flex-start);
+
+        .story-ceo-left {
+            flex: 1;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .story-ceo-right {
+            flex: 1;
+            @include g.myFlex($fd: column, $ai: flex-start, $jc: flex-start, $gap: 16px);
+
+            .story-ceo-tag {
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.6;
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: g.$text-sub;
+                line-height: 1.7;
+            }
+
+            .story-ceo-img {
+                width: 100%;
+                margin-top: 8px;
+            }
+        }
+    }
+
+    // 인용구
+    .story-quote {
+        max-width: 880px;
+        margin: 60px auto 0;
+        padding: 0 20px;
+
+        blockquote {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: g.$text-main;
+            margin: 0 0 12px;
+        }
+
+        cite {
+            font-size: 0.85rem;
+            color: g.$text-sub;
+        }
+    }
+
+    // 제품 이미지2
+    .story-product-img2 {
+        margin-top: 80px;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    // 브랜드 철학
+    .story-philosophy {
+        max-width: 880px;
+        margin: 80px auto 0;
+        padding: 0 20px;
+        text-align: center;
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: g.$text-sub;
+        }
+    }
+
+    // CTA
+    .story-cta {
+        background: url('/images/brand/wave-bg.png') no-repeat center top;
+        background-size: 100%;
+        padding: 80px 20px;
+        text-align: center;
+
+        p {
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.8;
+            color: g.$text-main;
+        }
+    }
+}
+
+// ─── STANDARD 탭 ────────────────────────────────────
+.store-standard {
+
+    // 히어로
+    .standard-hero {
+        position: relative;
+        width: 100%;
+        height: 460px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .standard-hero-text {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+
+            h2 {
+                font-size: 3rem;
+                font-weight: 800;
+                color: #fff;
+                line-height: 1.15;
+                margin-bottom: 16px;
+            }
+
+            .standard-hero-badges {
+                @include g.myFlex($jc: flex-start, $gap: 10px);
+
+                .badge {
+                    background: rgba(255, 255, 255, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.6);
+                    color: #fff;
+                    font-size: 0.8rem;
+                    padding: 6px 14px;
+                    backdrop-filter: blur(4px);
+                }
+            }
+        }
+    }
+
+    // 슬로건
+    .standard-slogan {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 80px 20px 0;
+        text-align: center;
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: g.$text-sub;
+            font-size: 0.95rem;
+        }
+    }
+
+    // 이미지 + 텍스트
+    .standard-feature {
+        max-width: 1100px;
+        margin: 60px auto 0;
+        padding: 0 20px;
+        @include g.myFlex($gap: 60px, $ai: flex-start);
+
+        .standard-feature-img {
+            flex: 1;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .standard-feature-text {
+            flex: 1;
+
+            p {
+                font-size: 0.9rem;
+                line-height: 1.9;
+                color: g.$text-sub;
+            }
+        }
+    }
+
+    // 기술 소개
+    .standard-tech {
+        max-width: 1100px;
+        margin: 80px auto 0;
+        padding: 0 20px;
+        text-align: center;
+
+        >p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: g.$text-sub;
+            margin-bottom: 8px;
+        }
+
+        .standard-tech-cards {
+            @include g.myFlex($gap: 20px, $ai: stretch);
+            margin-top: 40px;
+
+            .tech-card {
+                flex: 1;
+                border: 1px solid g.$card-border;
+                padding: 20px;
+                text-align: center;
+
+                img {
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 14px;
+                }
+
+                p {
+                    font-size: 0.85rem;
+                    line-height: 1.6;
+                    color: g.$text-sub;
+                }
+            }
+        }
+    }
+
+    // 하이라이트
+    .standard-highlight {
+        max-width: 1100px;
+        margin: 40px auto 0;
+        padding: 20px;
+        border: 1px solid g.$card-border;
+        @include g.myFlex($gap: 40px, $ai: center);
+
+        .highlight-left {
+            flex-shrink: 0;
+            width: 160px;
+
+            .highlight-label {
+                font-size: 0.85rem;
+                line-height: 1.8;
+                font-weight: 600;
+            }
+        }
+
+        .highlight-img {
+            flex: 1;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .highlight-right {
+            flex: 1;
+
+            p {
+                font-size: 0.85rem;
+                line-height: 1.8;
+                color: g.$text-sub;
+            }
+        }
+    }
+
+    // 100% 만족 배너
+    .standard-satisfaction {
+        background: #1D6EF5;
+        margin-top: 60px;
+        padding: 60px 20px;
+        text-align: center;
+
+        .satisfaction-banner {
+            margin-bottom: 32px;
+
+            .satisfaction-pct {
+                font-size: 4rem;
+                font-weight: 800;
+                color: #fff;
+                line-height: 1;
+            }
+
+            .satisfaction-label {
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: #fff;
+                margin-top: 4px;
+            }
+        }
+
+        .satisfaction-desc {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: g.$text-main;
+            background: g.$color-yellow;
+            display: inline-block;
+            padding: 32px 48px;
+        }
+    }
+
+    // 제품 보증 기간
+    .standard-warranty {
+        max-width: 1100px;
+        margin: 80px auto 0;
+        padding: 0 20px;
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .warranty-cards {
+            @include g.myFlex($gap: 20px, $ai: flex-start);
+
+            .warranty-card {
+                flex: 1;
+                border: 1px solid g.$card-border;
+                padding: 24px;
+                text-align: center;
+
+                img {
+                    width: 80px;
+                    margin-bottom: 12px;
+                }
+
+                .warranty-period {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    margin-bottom: 6px;
+                }
+
+                .warranty-tag {
+                    font-size: 0.8rem;
+                    color: g.$text-sub;
+                    margin-bottom: 12px;
+
+                    &.best {
+                        color: #1D6EF5;
+                        font-weight: 600;
+                    }
+                }
+
+                .warranty-desc {
+                    font-size: 0.8rem;
+                    line-height: 1.7;
+                    color: g.$text-sub;
+                    text-align: left;
+                }
+            }
+        }
+
+        .warranty-note {
+            font-size: 0.8rem;
+            color: g.$text-sub;
+            margin-top: 16px;
+            text-align: center;
+        }
+    }
+
+    // 케어 팁
+    .standard-care {
+        max-width: 1100px;
+        margin: 80px auto 0;
+        padding: 0 20px;
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        .care-cards {
+            @include g.myFlex($gap: 40px, $ai: flex-start);
+
+            .care-card {
+                flex: 1;
+                text-align: center;
+
+                .care-num {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    margin-bottom: 16px;
+                }
+
+                img {
+                    width: 120px;
+                    margin-bottom: 16px;
+                }
+
+                p {
+                    font-size: 0.85rem;
+                    line-height: 1.7;
+                    color: g.$text-sub;
+                }
+            }
+        }
+    }
+
+    // FAQ
+    .standard-faq {
+        max-width: 1100px;
+        margin: 80px auto 100px;
+        padding: 0 20px;
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .faq-list {
+            border-top: 1px solid g.$card-border;
+
+            .faq-item {
+                border-bottom: 1px solid g.$card-border;
+
+                button {
+                    width: 100%;
+                    @include g.myFlex($jc: space-between, $gap: 16px);
+                    padding: 20px 0;
+                    font-size: 0.9rem;
+                    font-family: "Pretendard", sans-serif;
+                    color: g.$text-main;
+                    text-align: left;
+
+                    .faq-icon {
+                        font-size: 1.2rem;
+                        flex-shrink: 0;
+                    }
+                }
+
+                .faq-answer {
+                    padding: 0 0 20px;
+
+                    p {
+                        font-size: 0.85rem;
+                        color: g.$text-sub;
+                        line-height: 1.7;
+                        background: #f7f7f7;
+                        padding: 16px 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ─── RE:CASTiFY 탭 ──────────────────────────────────
+.store-recastify {
+
+    // ① 히어로
+    .rc-hero {
+        position: relative;
+        width: 100%;
+        height: 460px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rc-hero-text {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+
+            h2 {
+                font-size: 3.5rem;
+                font-weight: 800;
+                color: #fff;
+                margin-bottom: 16px;
+            }
+
+            .rc-hero-badges {
+                @include g.myFlex($jc: flex-start, $gap: 10px);
+
+                .badge {
+                    border: 1px solid rgba(255, 255, 255, 0.7);
+                    color: #fff;
+                    font-size: 0.8rem;
+                    padding: 6px 14px;
+                    background: rgba(255, 255, 255, 0.15);
+                    backdrop-filter: blur(4px);
+                }
+            }
+        }
+    }
+
+    // ② 플라스틱 위기
+    .rc-crisis {
+        max-width: 1100px;
+        margin: 80px auto 0;
+        padding: 0 20px;
+        @include g.myFlex($gap: 60px, $ai: center);
+
+        .rc-crisis-img {
+            flex: 1;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .rc-crisis-text {
+            flex: 1;
+            @include g.myFlex($fd: column, $jc: flex-start, $ai: flex-start, $gap: 16px);
+
+            .rc-crisis-title {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+
+            p {
+                font-size: 0.9rem;
+                line-height: 1.8;
+                color: g.$text-sub;
+            }
+        }
+    }
+
+    // ③ 숫자 통계
+    .rc-stats {
+        background: #c8e6a0;
+        margin-top: 60px;
+        overflow: hidden;
+
+        .rc-stats-track {
+            @include g.myFlex($jc: center, $gap: 0);
+            padding: 40px 60px;
+        }
+
+        .rc-stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+
+            .rc-stat-num {
+                font-size: 1.5rem;
+                font-weight: 800;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 0.82rem;
+                line-height: 1.7;
+                color: g.$text-main;
+            }
+        }
+
+        .rc-stat-divider {
+            flex-shrink: 0;
+            @include g.myFlex($jc: center);
+
+            img {
+                width: 60px;
+                opacity: 0.5;
+            }
+        }
+    }
+
+    // ④ 폐기물 re:IMAGINE
+    .rc-reimagine {
+        max-width: 1100px;
+        margin: 80px auto 0;
+        padding: 0 20px;
+        text-align: center;
+
+        .rc-reimagine-title {
+            margin-bottom: 40px;
+
+            p:first-child {
+                font-size: 1.1rem;
+                font-weight: 700;
+
+                em {
+                    font-style: normal;
+                    color: #2a9d3e;
+                }
+            }
+
+            p:last-child {
+                font-size: 0.9rem;
+                color: g.$text-sub;
+                margin-top: 6px;
+            }
+        }
+
+        .rc-reimagine-cards {
+            @include g.myFlex($gap: 20px, $ai: flex-start);
+            margin-bottom: 40px;
+
+            .rc-reimagine-card {
+                flex: 1;
+                background: #e8f5e9;
+                padding: 28px 20px;
+                text-align: center;
+
+                img {
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 16px;
+                }
+
+                p {
+                    font-size: 0.85rem;
+                    line-height: 1.6;
+                    color: g.$text-main;
+                }
+            }
+        }
+
+        .rc-reimagine-btn {
+            button {
+                background: #2a9d3e;
+                color: #fff;
+                padding: 14px 36px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                font-family: "Pretendard", sans-serif;
+                cursor: pointer;
+                transition: background 0.2s;
+
+                &:hover {
+                    background: #1e7a2f;
+                }
+            }
+        }
+    }
+
+    // ⑤ 생각의 틀을 열다
+    .rc-open {
+        position: relative;
+        margin-top: 80px;
+        background: #f5f0fa;
+
+        .rc-open-bg {
+            img {
+                width: 100%;
+                display: block;
+                opacity: 0.4;
+            }
+        }
+
+        .rc-open-content {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 60px 20px;
+
+            .rc-open-lead {
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin-bottom: 24px;
+                color: g.$text-main;
+            }
+
+            p {
+                font-size: 0.88rem;
+                line-height: 1.9;
+                color: g.$text-sub;
+                margin-bottom: 16px;
+            }
+
+            .rc-open-quote {
+                color: g.$text-main;
+                font-weight: 500;
+            }
+
+            .rc-open-em {
+                font-weight: 700;
+                color: g.$text-main;
+            }
+        }
+    }
+
+    // ⑥ 아티스트 + 제품 갤러리
+    .rc-gallery {
+        max-width: 1100px;
+        margin: 80px auto 100px;
+        padding: 0 20px;
+        @include g.myFlex($gap: 40px, $ai: flex-start);
+
+        .rc-gallery-left,
+        .rc-gallery-right {
+            flex: 1;
+        }
+
+        .rc-gallery-title {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .rc-gallery-artist-row,
+        .rc-gallery-product-row {
+            @include g.myFlex($gap: 16px, $ai: flex-start);
+        }
+
+        .rc-artist-card,
+        .rc-product-card {
+            flex: 1;
+
+            img {
+                width: 100%;
+                display: block;
+                margin-bottom: 12px;
+            }
+
+            .rc-artist-name,
+            .rc-product-name {
+                font-size: 0.88rem;
+                font-weight: 700;
+                margin-bottom: 8px;
+                line-height: 1.4;
+            }
+
+            .rc-artist-desc,
+            .rc-product-desc {
+                font-size: 0.8rem;
+                line-height: 1.7;
+                color: g.$text-sub;
+            }
+        }
+    }
+}
