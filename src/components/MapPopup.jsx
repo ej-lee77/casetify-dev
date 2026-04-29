@@ -9,17 +9,30 @@ export default function MapPopup({ onClose }) {
 
   return (
     <div className='MapPopup'>
-      <div>
+      <div className="map-popup-title">
         <p>매장 상세정보</p>
-        <button onClick={onClose}>닫기</button>
+        <button onClick={onClose}>
+          <img src="../images/icon/close-24dp.svg" alt="닫기" />
+        </button>
       </div>
 
       <h2>{selectedLocation.name}</h2>
 
-      <img src={selectedLocation.img} alt="" />
+      <div className="store-img-area">
+        <img src={selectedLocation.img} alt="" />
+      </div>
 
-      <p>{selectedLocation.address}</p>
-      <p>{selectedLocation.hours?.[0]}</p>
+      <div className="store-address-area">
+        <span>주소</span>
+        <p>{selectedLocation.address}</p>
+      </div>
+      <div className="store-hours-area">
+        <span>영업시간</span>
+        <div className="store-hours-info-area">
+          <p>{selectedLocation.hours?.[0]}</p>
+          <p>{selectedLocation.hours?.[1]}</p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useMapStore } from '../../store/useMapStore';
 import MapPopup from '../MapPopup';
+import "./scss/storeMap.scss"
 
 export default function StoreMap() {
     const { locations, selectedLocation, setSelectedLocation, clearSelectedLocation } = useMapStore();
@@ -40,7 +41,7 @@ export default function StoreMap() {
                     const position = new window.kakao.maps.LatLng(loc.lat, loc.lng);
 
                     //  마커 이미지 생성
-                    const imageSrc = "/images/app-icon-colab.png"; //  네 이미지 경로
+                    const imageSrc = "/images/app-icon-colab.png"; //  이미지 경로
                     const imageSize = new window.kakao.maps.Size(40, 40); // 크기
                     const imageOption = {
                         offset: new window.kakao.maps.Point(20, 40) // 중심 위치
@@ -59,7 +60,7 @@ export default function StoreMap() {
                     });
 
                     const infowindow = new window.kakao.maps.InfoWindow({
-                        content: `<div style="padding:5px;">${loc.storeName}</div>`
+                        content: `<div class="storeinfo-window">${loc.storeName}</div>`
                     });
 
                     // 마우스 오버
