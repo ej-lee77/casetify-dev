@@ -1,0 +1,247 @@
+@use "../../App.scss" as g;
+
+.gift-title {
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+}
+
+.gift-card-wrap {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 30px;
+    padding: 40px 20px;
+
+    .gift-card-info {
+        flex: 1;
+        height: 330px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 28px;
+        color: #fff;
+        overflow: hidden;
+
+        >p:first-child {
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+        }
+
+        img {
+            flex: 1;
+            width: 60%;
+            object-fit: contain;
+        }
+
+        >p:last-of-type {
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        &.instant {
+            background-color: #21A664;
+        }
+
+        &.custom {
+            background-color: #F89462;
+        }
+
+        &.register {
+            background-color: #135EAB;
+            justify-content: center;
+            gap: 32px;
+
+            >p:first-child {
+                font-size: 18px;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+            }
+
+            button {
+                background-color: #0d4a8a;
+                color: #fff;
+                border: none;
+                padding: 14px 36px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #0a3a6e;
+                }
+            }
+        }
+    }
+}
+
+.gift-purchase-wrap {
+    display: flex;
+    gap: 60px;
+    max-width: 1440px;
+    margin: 60px auto;
+    padding: 0 40px;
+
+    .gift-purchase-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .gift-purchase-right {
+        flex: 1;
+    }
+}
+
+// 썸네일
+.gift-thumbnail-wrap {
+    position: relative;
+    width: 100%;
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    .gift-amount-badge {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+    }
+}
+
+// 디자인 선택
+.gift-design-select {
+    background-color: #f5f5f5;
+    padding: 20px;
+
+    >p {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .gift-design-list {
+        display: flex;
+        gap: 12px;
+    }
+
+    .gift-design-item {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &.active {
+            border-color: #000;
+        }
+    }
+}
+
+// 금액 선택
+.gift-amount-select {
+    background-color: #f5f5f5;
+    padding: 20px;
+
+    >p {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .gift-amount-list {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .gift-amount-btn {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+
+        &.active {
+            border-color: #000;
+            font-weight: 700;
+        }
+
+        &:hover {
+            border-color: #000;
+        }
+    }
+}
+
+// 폼
+.gift-form {
+    background-color: #f5f5f5;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .gift-form-label {
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 8px;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        background-color: #fff;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: #aaa;
+        }
+    }
+
+    textarea {
+        height: 100px;
+        resize: none;
+    }
+
+    .gift-cart-btn {
+        margin-top: 12px;
+        width: 100%;
+        padding: 18px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+}
