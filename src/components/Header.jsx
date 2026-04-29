@@ -23,9 +23,9 @@ export default function Header() {
   const { headerColor, setHeaderColor } = useMainSlider();
 
   // 장바구니 정보 가져오기
-  useEffect(()=>{ 
-      if (!user) return;
-      onFetchCart();
+  useEffect(() => {
+    if (!user) return;
+    onFetchCart();
   }, [user]);
 
   // 윈도우 스크롤 이벤트 + 스크롤 위치 체크
@@ -36,7 +36,7 @@ export default function Header() {
       setHeaderColor("#2f2f2f");
       return;
     }
-    
+
     const handleScroll = () => {
       // 스크롤의 위치가 100px 넘어가면 isScrolled → true 반환
       setIsScrolled(window.scrollY > 100);
@@ -107,7 +107,7 @@ export default function Header() {
                       <Link to="/mypage" state={{ menu: "주문" }}>주문</Link>
                     </li>
                     <li>
-                      <Link to="/mypage" state={{ menu: "케이스티파이 정품 인증" }}>정품인증</Link>
+                      <Link to="/brand/certify">정품인증</Link>
                     </li>
                     <li>
                       <Link to="/mypage" state={{ menu: "기프트 카드" }}>기프트카드</Link>
