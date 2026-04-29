@@ -1,25 +1,29 @@
-import React from 'react'
-import { useMapStore } from '../store/useMapStore'
+import React from 'react';
+import { useMapStore } from '../store/useMapStore';
 
 const MapAddress = ({ sendList }) => {
-    const { onSetLocation } = useMapStore();
-    const handleClick = () => {
-        onSetLocation({
-            name: sendList.storeName,
-            lat: sendList.lat,
-            lng: sendList.lng,
-            address:sendList.storeAddress,
-            hours:sendList.openHour,
-            img:sendList.storeImg
-        });
-    }
+    const { setSelectedLocation } = useMapStore();
+
     return (
-        <li onClick={handleClick}>
+        <li onClick={() => {
+            setSelectedLocation({
+                name: sendList.storeName,
+                lat: sendList.lat,
+                lng: sendList.lng,
+                address: sendList.storeAddress,
+                hours: sendList.openHour,
+                img: sendList.storeImg
+            });
+        }}>
             <h3>{sendList.storeName}</h3>
-            <div><span>오픈!!!</span> 현위치에서 거리표시:<span></span></div>
+            <p>{sendList.storeAddress}</p>
+            {sendList.distance && (
+                <p>
+                    {sendList.distance.toFixed(2)} km
+                </p>
+            )}
         </li>
-    )
-}
+    );
+};
 
-
-export default MapAddress
+export default MapAddress;
