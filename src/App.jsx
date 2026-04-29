@@ -26,6 +26,7 @@ import SearchNavigator from './components/sub/SearchNavigator'
 import BrandQna from './pages/BrandQna'
 import Store from './pages/Store'
 import Gift from './pages/Gift'
+import BrandAuthentication from './pages/BrandAuthentication'
 
 function App() {
   const { pathname } = useLocation();
@@ -79,6 +80,7 @@ function App() {
         <Route path='/brand/qna' element={<BrandQna />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/brand/store' element={<Store />} />
+        <Route path='/brand/certify' element={<BrandAuthentication />} />
       </Routes>
       <Footer />
     </>
