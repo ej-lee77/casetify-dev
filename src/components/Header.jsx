@@ -36,9 +36,9 @@ export default function Header() {
   };
 
   // 장바구니 정보 가져오기
-  useEffect(()=>{ 
-      if (!user) return;
-      onFetchCart();
+  useEffect(() => {
+    if (!user) return;
+    onFetchCart();
   }, [user]);
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function Header() {
           <nav>
             <ul className="main-menu">
               {mainMenuList.map(menu => (
-                <li key={menu.link} onMouseEnter={() => setMenuActive(menu.link)}  onMouseLeave={() => setMenuActive(null)}>
+                <li key={menu.link} onMouseEnter={() => setMenuActive(menu.link)} onMouseLeave={() => setMenuActive(null)}>
                   {menu.sub?.length > 0 ? (
                     <>
                       <Link>{menu.name}</Link>
@@ -116,7 +116,7 @@ export default function Header() {
                       <Link to="/mypage" state={{ menu: "주문" }}>주문</Link>
                     </li>
                     <li>
-                      <Link to="/mypage" state={{ menu: "케이스티파이 정품 인증" }}>정품인증</Link>
+                      <Link to="/brand/certify">정품인증</Link>
                     </li>
                     <li>
                       <Link to="/mypage" state={{ menu: "기프트 카드" }}>기프트카드</Link>
