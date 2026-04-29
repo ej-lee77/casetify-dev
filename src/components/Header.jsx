@@ -8,7 +8,7 @@ import SearchOverlay from './SearchOverlay';
 
 export default function Header() {
   const { mainMenuList, isSearchOpen, onToggleSearch, onCloseSearch } = useProductStore();
-  const { user, onLogout, cart } = useAuthStore();
+  const { user, onLogout, cart, onFetchCart } = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
 
   const navigate = useNavigate();
@@ -22,6 +22,12 @@ export default function Header() {
   //헤더글자색 변경
   const { headerColor, setHeaderColor } = useMainSlider();
 
+  // 장바구니 정보 가져오기
+  useEffect(()=>{ 
+      if (!user) return;
+      onFetchCart();
+  }, [user]);
+
   // 윈도우 스크롤 이벤트 + 스크롤 위치 체크
   useEffect(() => {
     // 현재 위치 확인
@@ -30,7 +36,7 @@ export default function Header() {
       setHeaderColor("#2f2f2f");
       return;
     }
-
+    
     const handleScroll = () => {
       // 스크롤의 위치가 100px 넘어가면 isScrolled → true 반환
       setIsScrolled(window.scrollY > 100);
@@ -41,7 +47,7 @@ export default function Header() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome, MenuActive])
+  }, [isHome, MenuActive]);
 
   const handleLogout = async () => {
     const isLogout = await onLogout();
