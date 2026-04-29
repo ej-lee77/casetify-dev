@@ -399,6 +399,47 @@
         }
     }
 
+    // 인라인 색상 원형 칩 필터
+    .color-chip-filter-wrap {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .color-chip-btn {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.15s;
+
+            .color-chip-circle {
+                display: block;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                transition: transform 0.15s, box-shadow 0.15s;
+            }
+
+            &:hover .color-chip-circle {
+                transform: scale(1.15);
+                box-shadow: 0 0 0 2px #111;
+            }
+
+            &.on .color-chip-circle {
+                transform: scale(1.15);
+                box-shadow: 0 0 0 2.5px #111;
+            }
+        }
+    }
+
     .device-model-list {
         max-height: 290px;
         overflow-y: auto;

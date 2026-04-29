@@ -161,6 +161,10 @@ export default function Login() {
                   <label htmlFor="login-idcheck">아이디 저장</label>
               </div>
           </div>
+          <div>
+            <p>아이디 : nososiv852@poisonword.com</p>
+            <p>비밀번호 : ezen123456</p>
+          </div>
           <div className='err-box'>
             <p>{loginErr}</p>
             <button className='input-btn'>로그인하기</button>
