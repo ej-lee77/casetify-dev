@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
 import { modelColorOptions, colorMap, phoneModelOptions, items } from "../../../data/finalData";
 import { getModelsByProductGroup } from "../../../utils/groupProducts";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
@@ -23,16 +23,9 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     const [selectedBundles, setSelectedBundles] = useState({});
 
-    // const [user, setUser] = useState(null);
     const navigate = useNavigate();
     const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
-    // const [isWishList, setIsWishList] = useState(wishlist.some(v => v.productId === item.id));
     const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
-
-    // useEffect(() => {
-    //     setIsWishList(wishlist.some(v => v.productId === item.id));
-    // }, [wishlist, item.id]);
-
 
     // ==================== EFFECTS ====================
     useEffect(() => {
@@ -46,8 +39,20 @@ export default function DetailPage({ item }) {
         setIsWished(item.isWish || false);
 
         // 호환 모델이 1개면 자동 선택
+        const modelOpts = getModelsByProductGroup(items, item);
+
         if (item.compatibleModels?.length === 1) {
             setSelectedModel(item.compatibleModels[0]);
+        } else if (modelOpts?.length === 1) {
+            setSelectedModel(modelOpts[0].label);
+            setSelectedDeviceColor(modelColorOptions?.[modelOpts[0].key]?.[0]?.key || "");
+            const matched = items.find(
+                (d) =>
+                    d.productName === item.productName &&
+                    d.caseCategory === item.caseCategory &&
+                    d.modelLabel === modelOpts[0].label
+            );
+            if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
         } else {
             setSelectedModel("");
         }
@@ -57,7 +62,7 @@ export default function DetailPage({ item }) {
             !phoneModelOptions[item?.brand] &&
             !item?.compatibleModels?.length &&
             !item?.caseColors?.length;
-        const autoSelected = item.compatibleModels?.length === 1;
+        const autoSelected = item.compatibleModels?.length === 1 || modelOpts?.length === 1 || item.caseColors?.length === 1;
         setUserSelected(hasNoOption || item.isWish || autoSelected || false);
 
         // 실제 존재하는 첫 번째 브랜드로 탭 초기화
@@ -265,7 +270,7 @@ export default function DetailPage({ item }) {
             color: selectedColor,
             imgUrl: mainImagePath,
             colorList: item.caseColors,
-            deviceList: isPhone ? modelOptions : item.compatibleModels,
+            deviceList: isPhone ? modelOptions : item.compatibleModels ?? "",
             isPhone: isPhone,
             deviceBrand: selectedBrandTab,
             caseCategory: item.caseCategory
@@ -277,9 +282,81 @@ export default function DetailPage({ item }) {
             setCartMsg("장바구니에 담겼습니다!");
             setIsCartPopupOpen(true);
         }else{
+            setCartMsg("장바구니에 담기실패");
             setIsPopupErr(true);
         }
     };
+    const handleBundleAddCart = async()=>{        
+        try {
+            const modelKey = isPhone
+                ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+                : "";
+
+            const cartItem = {
+                id: item.id,
+                productName: item.productName,
+                price: item.price,
+                device: selectedModel,
+                deviceKey: isPhone ? modelKey : selectedModel,
+                color: selectedColor,
+                imgUrl: mainImagePath,
+                colorList: item.caseColors,
+                deviceList: isPhone ? modelOptions : item.compatibleModels,
+                isPhone: isPhone,
+                deviceBrand: selectedBrandTab,
+                caseCategory: item.caseCategory
+            };
+
+            const isCart = await onAddToCart(cartItem);
+
+            if(!isCart){
+                setCartMsg("장바구니에 담기실패");
+                setIsPopupErr(true);
+            }
+
+            // 1. 번들에 담긴 각 아이템들을 장바구니 아이템 형식으로 변환
+            const cartPromises = Object.entries(selectedBundles).map(async ([bundleKey, bundleValue])=>{
+                const bundle = items.find((data) => String(data.id) === String(bundleKey));
+                
+                // 객체 생성
+                const bundleCartItem = {
+                    id: bundle.id,
+                    productName: bundle.productName,
+                    price: bundle.price,
+                    device: bundle.compatibleModels[0] ?? "",
+                    deviceKey: bundle.modelKey ?? "",
+                    color: bundle.mainCaseColor,
+                    imgUrl: `/images/category/products/${bundle.id}${bundle.mainCaseColor ? `_${bundle.mainCaseColor}` : ""}_main.jpg`,
+                    colorList: bundle.caseColors,
+                    deviceList: bundle.compatibleModels,
+                    isPhone: false,
+                    deviceBrand: "",
+                    caseCategory: bundle.caseCategory
+                };
+
+                // 개별 추가 함수 호출
+                return onAddToCart(bundleCartItem);
+            });
+
+                // 2. 모든 요청이 끝날 때까지 대기
+                const results = await Promise.all(cartPromises);
+
+                // 3. 모든 요청이 성공(true)했는지 확인
+                const isAllSuccess = results.every(res => res === true);
+
+                if (isAllSuccess) {
+                    setCartMsg("세트 상품이 장바구니에 담겼습니다!");
+                    setIsCartPopupOpen(true);
+                } else {
+                    // 일부만 성공했거나 실패한 경우
+                    setCartMsg("장바구니에 담기실패");
+                    setIsPopupErr(true);
+                }
+        } catch (error) {
+            console.log("번들 추가 중 오류 발생:", error.message);
+            setIsPopupErr(true);
+        }
+    }
 
     const optionSummary = [
         // item.modelLabel,
@@ -288,11 +365,14 @@ export default function DetailPage({ item }) {
         selectedModel,
     ].filter(Boolean).join(" / ");
 
-    // 번들 선택 여부에 따라 총액에만 10% 할인 반영 (원래 가격은 고정)
-    const bundleTotal = bundleItems.reduce((acc, b) => {
-        const qty = selectedBundles[b.id] || 0;
-        return acc + Math.round(b.price * 0.9) * qty;
-    }, 0);
+    // 번들 선택 여부에 따라 악세에만 10% 할인 반영 (원래 가격은 고정)
+    const bundleTotal = bundleItems
+        .filter((b) => b.id !== item.id)
+        .reduce((acc, b) => {
+            const qty = selectedBundles[b.id] || 0;
+            return acc + Math.round(b.price * 0.9) * qty;
+        }, 0);
+
     const totalPrice = (item.price || 0) * quantity + bundleTotal;
     const totalQty = quantity + Object.values(selectedBundles).reduce((a, q) => a + q, 0);
 
@@ -649,7 +729,7 @@ export default function DetailPage({ item }) {
                                                 {(
                                                     (item.price || 0) +
                                                     bundleItems
-                                                        .filter((b) => selectedBundles[b.id])
+                                                        .filter((b) => b.id !== item.id && selectedBundles[b.id])
                                                         .reduce((acc, b) => acc + Math.round(b.price * 0.9) * (selectedBundles[b.id] || 1), 0)
                                                 ).toLocaleString()}원
                                             </strong>
@@ -664,6 +744,7 @@ export default function DetailPage({ item }) {
                                     alert("제품을 선택해주세요.");
                                     return;
                                 }
+                                handleBundleAddCart();
                             }}>
                                 <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>
                                 {Object.keys(selectedBundles).length > 0
