@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
 import { modelColorOptions, colorMap, phoneModelOptions, items } from "../../../data/finalData";
 import { getModelsByProductGroup } from "../../../utils/groupProducts";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
@@ -26,8 +26,6 @@ export default function DetailPage({ item }) {
     const navigate = useNavigate();
     const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
     const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
-
-
 
     // ==================== EFFECTS ====================
     useEffect(() => {
@@ -414,14 +412,13 @@ export default function DetailPage({ item }) {
 
                             {/* 위시 하트 버튼 */}
                             <button
-                                className={`image-wish-btn ${isWished ? "wished" : ""}`}
+                                className={`image-wish-btn ${isWishList ? "wished" : ""}`}
                                 onClick={() => {
                                     handleAddWish(item);
-                                    setIsWished((prev) => !prev);
                                 }}
                             >
                                 <img
-                                    src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
+                                    src={isWishList ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
                                     alt="위시"
                                 />
                             </button>

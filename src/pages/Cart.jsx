@@ -66,7 +66,7 @@ export default function Cart() {
   // 2. 할인 금액 계산
   const discount = selectedItems.reduce((acc, item) => {
     // 폰이 포함되어 있고, 현재 아이템이 폰이 아닌 경우에만 10% 할인 적용
-    if (hasPhone && !item.isPhone) {
+    if (hasPhone && !item.isPhone && item.price<300000) {
       return acc + (item.price * 0.1);
     }
     return acc;
