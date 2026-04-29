@@ -48,7 +48,13 @@ export default function GiftCardModal({ isOpen, onClose }) {
                         onChange={(e) => setCardCode(e.target.value)}
                     />
                 </div>
-
+                <div>
+                    0000020000 : 2만원<br/>
+                    0000050000 : 5만원<br/>
+                    0000080000 : 8만원<br/>
+                    0000100000 : 10만원<br/>
+                    0000150000 : 15만원<br/>
+                </div>
                 <div className="popup-buttons">
                     <p>{msg}</p>
                     <button className="confirm-btn" onClick={handleSubmit}>확인</button>
