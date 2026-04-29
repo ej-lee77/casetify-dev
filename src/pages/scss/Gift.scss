@@ -1,86 +1,94 @@
 @use "../../App.scss" as g;
 
+.sub-page-wrap {
+    margin: 100px 0 40px;
+}
+
 .gift-title {
     text-align: center;
 
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 
-.gift-card-wrap {
-    width: 100%;
-    max-width: 1440px;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    gap: 30px;
-    padding: 40px 20px;
+.banner-wrap {
+    padding-bottom: 40px;
 
-    .gift-card-info {
-        flex: 1;
-        height: 330px;
+    .gift-card-wrap {
+        width: 100%;
+        max-width: 1440px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 28px;
-        color: #fff;
-        overflow: hidden;
+        justify-content: center;
+        margin: 0 auto;
+        gap: 30px;
+        padding: 40px 20px;
 
-        >p:first-child {
-            font-size: 20px;
-            font-weight: 700;
-            text-align: center;
-            width: 100%;
-        }
-
-        img {
+        .gift-card-info {
             flex: 1;
-            width: 60%;
-            object-fit: contain;
-        }
-
-        >p:last-of-type {
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        &.instant {
-            background-color: #21A664;
-        }
-
-        &.custom {
-            background-color: #F89462;
-        }
-
-        &.register {
-            background-color: #135EAB;
-            justify-content: center;
-            gap: 32px;
+            height: 330px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px;
+            color: #fff;
+            overflow: hidden;
 
             >p:first-child {
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: 700;
-                text-align: center;
-                margin: 0;
+                width: 100%;
+                text-align: center
             }
 
-            button {
-                background-color: #0d4a8a;
-                color: #fff;
-                border: none;
-                padding: 14px 36px;
-                font-size: 16px;
-                font-weight: 600;
-                cursor: pointer;
+            img {
+                flex: 1;
+                width: 60%;
+                object-fit: contain;
+            }
 
-                &:hover {
-                    background-color: #0a3a6e;
+            >p:last-of-type {
+                font-size: 14px;
+                line-height: 1.6;
+                text-align: center;
+            }
+
+            &.instant {
+                background-color: #21A664;
+            }
+
+            &.custom {
+                background-color: #F89462;
+            }
+
+            &.register {
+                background-color: #135EAB;
+                justify-content: center;
+                gap: 32px;
+
+                >p:first-child {
+                    font-size: 18px;
+                    font-weight: 700;
+                    text-align: center;
+                    margin: 0;
+                }
+
+                button {
+                    background-color: #0d4a8a;
+                    color: #fff;
+                    border: none;
+                    padding: 14px 36px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #0a3a6e;
+                    }
                 }
             }
         }
@@ -89,6 +97,7 @@
 
 .gift-purchase-wrap {
     display: flex;
+    align-items: flex-end;
     gap: 60px;
     max-width: 1440px;
     margin: 60px auto;
@@ -109,7 +118,8 @@
 // 썸네일
 .gift-thumbnail-wrap {
     position: relative;
-    width: 100%;
+    width: 60%;
+    margin: 0 auto;
 
     img {
         width: 100%;
@@ -122,7 +132,7 @@
         right: 24px;
         font-size: 24px;
         font-weight: 700;
-        color: #fff;
+        color: #fff
     }
 }
 
@@ -140,10 +150,14 @@
     .gift-design-list {
         display: flex;
         gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+
     }
 
     .gift-design-item {
-        width: 80px;
+        flex-shrink: 0;
+        width: 120px; // 카드 비율 3:2
         height: 80px;
         overflow: hidden;
         cursor: pointer;
@@ -152,11 +166,12 @@
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+
         }
 
         &.active {
-            border-color: #000;
+            border-color: #555;
+            border-radius: 13px;
         }
     }
 }
@@ -242,6 +257,117 @@
 
         &:hover {
             background-color: #333;
+        }
+    }
+}
+
+//안내사항
+.gift-notice-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
+    .gift-notice-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    ul {
+        padding-left: 20px;
+
+        li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+        }
+    }
+}
+
+//FAQ
+.gift-faq-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 0;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
+
+    .faq-item {
+        border-top: 1px solid #ddd;
+        margin-bottom: 10px;
+
+        &:last-of-type {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            background-color: #e9e9e9;
+            font-size: 14px;
+
+            &:hover {
+                background-color: #eee;
+            }
+
+            .faq-arrow {
+                font-size: 12px;
+                color: #000;
+            }
+        }
+
+        .faq-answer-wrap {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease;
+        }
+
+        &.open .faq-answer-wrap {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-answer {
+            overflow: hidden;
+            padding: 0 15px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+            transition: padding 0.3s ease;
+        }
+
+        &.open .faq-answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+        }
+    }
+
+    .gift-faq-more {
+        margin-top: 32px;
+        text-align: center;
+
+        button {
+            padding: 14px 48px;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #fff;
+                color: #000;
+            }
         }
     }
 }
