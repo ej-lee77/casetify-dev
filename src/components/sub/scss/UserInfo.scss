@@ -397,15 +397,19 @@ div {
             }
         }
 
-        .address-btn button {
-            background-color: #000;
-            color: #fff;
-            padding: 5px 12px;
-            font-size: 0.88rem;
+        .address-btn{
+            padding: 0;
 
-            &:hover {
-                background: #fff;
-                color: #000;
+            button {
+                background-color: #000;
+                color: #fff;
+                padding: 10px 12px;
+                font-size: 0.88rem;
+
+                &:hover {
+                    background: #fff;
+                    color: #000;
+                }
             }
         }
     }
