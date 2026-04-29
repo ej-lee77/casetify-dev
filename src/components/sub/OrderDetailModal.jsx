@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useAuthStore } from '../../store/useAuthStore';
+import { Link } from 'react-router-dom';
 
 const methodMap = {
 card: "신용/체크 카드",
@@ -192,7 +193,7 @@ export default function OrderDetailModal({ order, onClose }) {
           )}
           {/* 4. 하단 버튼 */}
           <div className="modal-footer">
-            <button className="faq-btn">주문배송 F&Q</button>
+            <Link to='/brand/qna'><button className="faq-btn">주문배송 F&Q</button></Link>
           </div>
         </div>
       </div>
