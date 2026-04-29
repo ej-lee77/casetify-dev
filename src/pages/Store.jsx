@@ -5,15 +5,55 @@ import SectionTitle from '../components/SectionTitle'
 import StoreMap from '../components/sub/StoreMap'
 import { studioPosData } from '../data/studioPosData'
 import MapAddress from '../components/MapAddress'
+import { useMapStore } from '../store/useMapStore'
 
 export default function Store() {
   const [show, setShow] = useState(false);
   const [areas, setArea] = useState([])
   const [areaList, setAreaList] = useState([])
-  const [selectCity,setSelectCity]=useState("지역을 선택하세요")
+  const [selectCity, setSelectCity] = useState("지역을 선택하세요")
 
   //########## 현재 위치 체크할 변수
   const [currentPos, setCurrentPos] = useState(null);
+
+  const { setSelectedLocation } = useMapStore();
+
+  //######################## 거리
+  const handleSelectArea = (area) => {
+    const select = studioPosData
+      .filter(item => item.storeArea === area)
+      .map(item => {
+        if (!currentPos) return item;
+
+        const distance = getDistance(
+          currentPos.lat,
+          currentPos.lng,
+          item.lat,
+          item.lng
+        );
+
+        return {
+          ...item,
+          distance
+        };
+      });
+
+    setAreaList(select);
+
+    if (select.length > 0) {
+      setSelectedLocation({
+        name: select[0].storeName,
+        lat: select[0].lat,
+        lng: select[0].lng,
+        address: select[0].storeAddress,
+        hours: select[0].openHour,
+        img: select[0].storeImg
+      });
+    }
+
+    setShow(false);
+    setSelectCity(area);
+  };
 
   useEffect(() => {
     setArea([...new Set(studioPosData.map(item => item.storeArea))])
@@ -22,19 +62,19 @@ export default function Store() {
 
   // ############## 현 위치값 가져오기
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      setCurrentPos({
-        lat: pos.coords.latitude,
-        lng: pos.coords.longitude
-      })
-    })
-    console.log("나는 현재 어디에??", currentPos)
-  }, [])
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setCurrentPos({
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude
+        });
+      },
+      (err) => {
+        console.log("위치 실패", err);
+      }
+    );
+  }, []);
 
-  // if(!currentPos){
-  //   alert("위치정보 허용바람 오바@@@@")
-  //   return;
-  // }
 
   //############## 현 위치에서 매장까지의 거리 구하기
   const getDistance = (lat1, lng1, lat2, lng2) => {
@@ -52,22 +92,9 @@ export default function Store() {
     return R * c;
   };
 
-  //############## 가까운 지점순 함수
-  const handleNear = () => {
-    if (!currentPos) return;
 
-  }
   const handleShow = () => {
     setShow(true)
-  }
-  const handleSelectArea = (area) => {
-    console.log("지역선택", area);
-    const select = studioPosData.filter((item => item.storeArea === area))
-    console.log(select)
-    setAreaList(select)
-    setShow(false);
-    setSelectCity(area);
-
   }
 
   return (
@@ -101,7 +128,7 @@ export default function Store() {
               }
             </div>
             <div className='near-list'>
-              <button className="select-btn" onClick={handleNear}>
+              <button className="select-btn" onClick={handleSelectArea}>
                 <span>가까운 지점 순으로 보기</span>
                 <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span>
               </button>
@@ -113,7 +140,6 @@ export default function Store() {
             <ul>
               {areaList.map((list, id) => (
                 <MapAddress sendList={list} key={id}
-                // onClickStore={}
                 />
               ))}
             </ul>
