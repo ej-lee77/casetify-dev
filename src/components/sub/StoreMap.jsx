@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useMapStore } from '../../store/useMapStore';
+import MapPopup from '../MapPopup';
 
 export default function StoreMap() {
+    const { location } = useMapStore();
+    // ######### 팝업창 열기 체크할 변수
+    const [showPopup, setShowPopup] = useState(false);
+
     useEffect(() => {
-        let map; // 외부 참조 목적
+        let map;
 
         const script = document.createElement("script");
         script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAO_API_KEY}&autoload=false`;
@@ -10,14 +16,16 @@ export default function StoreMap() {
 
         script.onload = () => {
             window.kakao.maps.load(() => {
-                const mapContainer = document.getElementById('map'); // 지도 표시 div
+                const mapContainer = document.getElementById('map');
 
                 const mapOption = {
-                    center: new window.kakao.maps.LatLng(37.52611, 126.9285), // 지도 중심좌표
-                    level: 2, // 지도 확대 레벨
+                    center: new window.kakao.maps.LatLng(location.lat, location.lng),
+                    level: 4,
                 };
 
-                map = new window.kakao.maps.Map(mapContainer, mapOption); // 지도 생성
+                map = new window.kakao.maps.Map(mapContainer, mapOption);
+
+                const markerPosition = new window.kakao.maps.LatLng(location.lat, location.lng);
 
                 // 마커 이미지
                 const makerImgSrc = "/images/app-icon-colab.png";
@@ -31,10 +39,6 @@ export default function StoreMap() {
                     makerImgSrc, markerImgSize, markerImgOption
                 );
 
-                // 마커 위치
-                const markerPosition = new window.kakao.maps.LatLng(37.52611, 126.9285);
-
-                // 마커 생성
                 const marker = new window.kakao.maps.Marker({
                     position: markerPosition,
                     image: markerImage,
@@ -42,24 +46,37 @@ export default function StoreMap() {
 
                 marker.setMap(map);
 
-                // 창 크기 변경 대응
+                //  ####### 마커 클릭 이벤트
+                window.kakao.maps.event.addListener(marker, 'click', () => {
+                    setShowPopup(true);
+                    console.log("위치정보", location)
+
+                });
+
                 window.addEventListener("resize", handleResize);
             });
         };
 
         const handleResize = () => {
-            if (map) { map.relayout(); }
+            if (map) map.relayout();
         };
 
         document.head.appendChild(script);
 
-        // cleanup
-        return () => { window.removeEventListener("resize", handleResize); };
-    }, []);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [location]);
 
     return (
         <div className="store-map" style={{ width: "100%", height: "100%" }}>
             <div id="map" style={{ width: "100%", height: "100%" }}></div>
+
+            {/*  ################## 조건부 렌더링 팝업창 */}
+            {showPopup && (
+                <MapPopup onClose={() => setShowPopup(false)} location={location} />
+            )}
         </div>
-    )
+    );
 }
+
