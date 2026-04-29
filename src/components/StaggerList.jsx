@@ -8,7 +8,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       // 자식 요소들이 0.2초 간격으로 차례로 나타남 (계단 효과 핵심)
-      staggerChildren: 0.3, 
+      staggerChildren: 0.4, 
     },
   },
 };
