@@ -383,22 +383,22 @@ export default function UserInfo() {
             </div>
             <div className='address-info'>
                 <form>
-                    <p className='postcode'>
+                    <div className='postcode'>
                         <label ><input type="text" value={formData?.zonecode} readOnly placeholder='우편번호' />
                             <span>우편번호</span>
                             <div className="address-btn">
                                 <AddressSearch setAddressData={setAddressData} />
                             </div>
                         </label>
-                    </p>
-                    <p><label ><input type="text" value={formData?.address} readOnly placeholder='기본주소' />
+                    </div>
+                    <div><label ><input type="text" value={formData?.address} readOnly placeholder='기본주소' />
                         <span>기본주소</span>
-                    </label></p>
-                    <p><label ><input
+                    </label></div>
+                    <div><label ><input
                         name="detailaddress"
                         value={formData.detailaddress}
                         onChange={handleChange} placeholder='' />
-                        <span className='always'>상세주소</span></label></p>
+                        <span className='always'>상세주소</span></label></div>
                 </form>
                 <div className="btn-wrap">
                     <button type="button" onClick={handleSave}>
