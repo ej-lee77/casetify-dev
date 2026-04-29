@@ -154,6 +154,7 @@ export default function CategoryPagePractice() {
     const { mainMenuList, items: allItems } = useCategoryProductStore();
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isSortOpen, setIsSortOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [isDeviceModelPopupOpen, setIsDeviceModelPopupOpen] = useState(false);
     const [isCaseCategoryPopupOpen, setIsCaseCategoryPopupOpen] = useState(false);
@@ -424,7 +425,7 @@ export default function CategoryPagePractice() {
                 {/* 상단 필터 / 정렬 바 */}
                 <div className="category-top-row">
                     <div className="category-top-left">
-                        <CategoryFilterButton onClick={() => setIsFilterOpen(true)} />
+                        <CategoryFilterButton onClick={() => setIsFilterOpen(true)} mainCate={mainCate} />
 
                         {/* 케이스 종류 선택 팝업 (케이스 > 디자인 > 시그니처) */}
                         {showExternalCaseCategory && !!externalCaseCategoryOptions.length && (
@@ -584,11 +585,37 @@ export default function CategoryPagePractice() {
                     </div>
 
                     <div className="sort-select-wrap">
-                        <select value={sort} onChange={onChangeSort}>
-                            {SORT_OPTIONS.map((o) => (
-                                <option key={o.key} value={o.key}>{o.label}</option>
-                            ))}
-                        </select>
+                        <div className={`sort-dropdown${isSortOpen ? " open" : ""}`}>
+                            <button
+                                type="button"
+                                className="sort-dropdown-trigger"
+                                onClick={() => setIsSortOpen((p) => !p)}
+                            >
+                                <span>{SORT_OPTIONS.find((o) => o.key === sort)?.label || "추천순"}</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 8L1 3h10z" fill="currentColor" />
+                                </svg>
+                            </button>
+                            {isSortOpen && (
+                                <ul className="sort-dropdown-list">
+                                    {SORT_OPTIONS.map((o) => (
+                                        <li
+                                            key={o.key}
+                                            className={sort === o.key ? "on" : ""}
+                                            onClick={() => {
+                                                const next = new URLSearchParams(searchParams);
+                                                next.set("sort", o.key);
+                                                if (mini) next.set("mini", mini);
+                                                setSearchParams(next);
+                                                setIsSortOpen(false);
+                                            }}
+                                        >
+                                            {o.label}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     </div>
                 </div>
 
