@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./scss/Gift.scss"
 import Benefit from '../components/Benefit'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 const designs = [
   { id: 1, src: "./images/gift/gift-card1.png" },
@@ -27,8 +29,31 @@ const faqList = [
 
 export default function Gift() {
   const [selectedDesign, setSelectedDesign] = useState(designs[0])
-  const [selectedAmount, setSelectedAmount] = useState(null)
+  const [selectedAmount, setSelectedAmount] = useState(amounts[0])
   const [openIndex, setOpenIndex] = useState(null)  // 여기로 이동
+  const navigate = useNavigate();
+
+
+  //에러
+  const [errors, setErrors] = useState({})
+  const [toName, setToName] = useState('')
+  const [toEmail, setToEmail] = useState('')
+  const [fromName, setFromName] = useState('')
+  const [fromEmail, setFromEmail] = useState('')
+  const handleAddToCart = () => {
+    const newErrors = {}
+    if (!toName) newErrors.toName = '받는 분 성함을 입력해주세요.'
+    if (!toEmail) newErrors.toEmail = '받는 분 이메일 주소를 입력해주세요.'
+    if (!fromName) newErrors.fromName = '보내는 분 성함을 입력해주세요.'
+    if (!fromEmail) newErrors.fromEmail = '보내는 분 이메일 주소를 입력해주세요.'
+
+    setErrors(newErrors)
+    if (Object.keys(newErrors).length === 0) {
+      // 장바구니 담기 로직
+    }
+  }
+
+
 
   return (
     <>
@@ -55,7 +80,9 @@ export default function Gift() {
           </div>
           <div className="gift-card-info register">
             <p>이미 기프트 카드를 보유하고 계시나요?</p>
-            <button>기프트 카드 등록하기</button>
+            <button onClick={() => navigate('/mypage', { state: { menu: '기프트 카드/쿠폰' } })}>
+              기프트 카드 등록하기
+            </button>
           </div>
         </div>
       </div>
@@ -103,14 +130,44 @@ export default function Gift() {
         <div className="gift-purchase-right">
           <div className="gift-form">
             <p className="gift-form-label">To</p>
-            <input type="text" placeholder="받는 분 성함" />
-            <input type="email" placeholder="받는 분 이메일 주소" />
+            <div className="gift-input-wrap">
+              <input type="text" placeholder="받는 분 성함" value={toName} onChange={(e) => {
+                setToName(e.target.value)
+                if (errors.toName) setErrors(prev => ({ ...prev, toName: '' }))
+              }} />
+              {errors.toName && <p className="gift-form-error">{errors.toName}</p>}
+            </div>
+            <div className="gift-input-wrap">
+              <input type="email" placeholder="받는 분 이메일 주소" value={toEmail} onChange={(e) => {
+                setToEmail(e.target.value)
+                if (errors.toEmail) setErrors(prev => ({ ...prev, toEmail: '' }))
+              }} />
+              {errors.toEmail && <p className="gift-form-error">{errors.toEmail}</p>}
+            </div>
+
             <p className="gift-form-label">From</p>
-            <input type="text" placeholder="보내는 분 성함" />
-            <input type="email" placeholder="보내는 분 이메일 주소" />
+            <div className="gift-input-wrap">
+              <input type="text" placeholder="보내는 분 성함" value={fromName} onChange={(e) => {
+                setFromName(e.target.value)
+                if (errors.fromName) setErrors(prev => ({ ...prev, fromName: '' }))
+              }} />
+              {errors.fromName && <p className="gift-form-error">{errors.fromName}</p>}
+            </div>
+            <div className="gift-input-wrap">
+              <input type="email" placeholder="보내는 분 이메일 주소" value={fromEmail} onChange={(e) => {
+                setFromEmail(e.target.value)
+                if (errors.fromEmail) setErrors(prev => ({ ...prev, fromEmail: '' }))
+              }} />
+              {errors.fromEmail && <p className="gift-form-error">{errors.fromEmail}</p>}
+            </div>
+
             <p className="gift-form-label">메시지 (옵션)</p>
             <textarea placeholder="특별한 선물을 준비해 봤어요! 마음에 들었으면 좋겠네요." maxLength={160} />
-            <button className="gift-cart-btn">장바구니에 담기</button>
+
+            <button className="gift-cart-btn" onClick={handleAddToCart}>
+              <img src="/images/icon/btn_shopping-cart.svg" alt="" />
+              장바구니에 담기
+            </button>
           </div>
         </div>
       </div>
@@ -132,7 +189,7 @@ export default function Gift() {
         {faqList.map((item, idx) => (
           <div key={idx} className={`faq-item ${openIndex === idx ? 'open' : ''}`}>
             <div className="faq-question" onClick={() => setOpenIndex(openIndex === idx ? null : idx)}>
-              <span>{item.q}</span>
+              <span className='faq-text'>{item.q}</span>
               <span className="faq-arrow">{openIndex === idx ? '▲' : '▼'}</span>
             </div>
             <div className="faq-answer-wrap">
@@ -141,7 +198,7 @@ export default function Gift() {
           </div>
         ))}
         <div className="gift-faq-more">
-          <button>더 알아보기</button>
+          <Link to="/brand/qna"><button>더 알아보기</button></Link>
         </div>
       </div>
 

@@ -16,13 +16,13 @@ const mypageMenuData = [
 export default function MypageMenu({ sendSelect, selectMenu }) {
     // hover 상태 파악
     const [hoverId, setHoverId] = useState(null);
-    const {onLogout} = useAuthStore();
+    const { onLogout } = useAuthStore(); a
     const navigate = useNavigate();
 
-    const handleLogout = async()=>{
+    const handleLogout = async () => {
         const isLogout = await onLogout();
 
-        if(isLogout){
+        if (isLogout) {
             navigate("/");
         }
     }
