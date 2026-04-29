@@ -399,6 +399,12 @@
             .payment-ctrl-area {
                 // border: 1px dashed yellowgreen;
                 width: 342px;
+                position: -webkit-sticky; 
+                position: sticky;
+                top: 20px; 
+                height: max-content; 
+                background-color: #fff;
+                z-index: 10;
 
                 //제목
                 .cart-title {
