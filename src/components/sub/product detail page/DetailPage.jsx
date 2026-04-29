@@ -260,7 +260,7 @@ export default function DetailPage({ item }) {
             color: selectedColor,
             imgUrl: mainImagePath,
             colorList: item.caseColors,
-            deviceList: isPhone ? modelOptions : item.compatibleModels,
+            deviceList: isPhone ? modelOptions : item.compatibleModels ?? "",
             isPhone: isPhone,
             deviceBrand: selectedBrandTab,
             caseCategory: item.caseCategory
@@ -272,9 +272,81 @@ export default function DetailPage({ item }) {
             setCartMsg("장바구니에 담겼습니다!");
             setIsCartPopupOpen(true);
         }else{
+            setCartMsg("장바구니에 담기실패");
             setIsPopupErr(true);
         }
     };
+    const handleBundleAddCart = async()=>{        
+        try {
+            const modelKey = isPhone
+                ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+                : "";
+
+            const cartItem = {
+                id: item.id,
+                productName: item.productName,
+                price: item.price,
+                device: selectedModel,
+                deviceKey: isPhone ? modelKey : selectedModel,
+                color: selectedColor,
+                imgUrl: mainImagePath,
+                colorList: item.caseColors,
+                deviceList: isPhone ? modelOptions : item.compatibleModels,
+                isPhone: isPhone,
+                deviceBrand: selectedBrandTab,
+                caseCategory: item.caseCategory
+            };
+
+            const isCart = await onAddToCart(cartItem);
+
+            if(!isCart){
+                setCartMsg("장바구니에 담기실패");
+                setIsPopupErr(true);
+            }
+
+            // 1. 번들에 담긴 각 아이템들을 장바구니 아이템 형식으로 변환
+            const cartPromises = Object.entries(selectedBundles).map(async ([bundleKey, bundleValue])=>{
+                const bundle = items.find((data) => String(data.id) === String(bundleKey));
+                
+                // 객체 생성
+                const bundleCartItem = {
+                    id: bundle.id,
+                    productName: bundle.productName,
+                    price: bundle.price,
+                    device: bundle.compatibleModels[0] ?? "",
+                    deviceKey: bundle.modelKey ?? "",
+                    color: bundle.mainCaseColor,
+                    imgUrl: `/images/category/products/${bundle.id}${bundle.mainCaseColor ? `_${bundle.mainCaseColor}` : ""}_main.jpg`,
+                    colorList: bundle.caseColors,
+                    deviceList: bundle.compatibleModels,
+                    isPhone: false,
+                    deviceBrand: "",
+                    caseCategory: bundle.caseCategory
+                };
+
+                // 개별 추가 함수 호출
+                return onAddToCart(bundleCartItem);
+            });
+
+                // 2. 모든 요청이 끝날 때까지 대기
+                const results = await Promise.all(cartPromises);
+
+                // 3. 모든 요청이 성공(true)했는지 확인
+                const isAllSuccess = results.every(res => res === true);
+
+                if (isAllSuccess) {
+                    setCartMsg("세트 상품이 장바구니에 담겼습니다!");
+                    setIsCartPopupOpen(true);
+                } else {
+                    // 일부만 성공했거나 실패한 경우
+                    setCartMsg("장바구니에 담기실패");
+                    setIsPopupErr(true);
+                }
+        } catch (error) {
+            console.log("번들 추가 중 오류 발생:", error.message);
+            setIsPopupErr(true);
+        }
+    }
 
     const optionSummary = [
         // item.modelLabel,
@@ -659,10 +731,11 @@ export default function DetailPage({ item }) {
                                     alert("제품을 선택해주세요.");
                                     return;
                                 }
+                                handleBundleAddCart();
                             }}>
                                 <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>
                                 {Object.keys(selectedBundles).length > 0
-                                    ? `번들 장바구니에 담기 (${Object.keys(selectedBundles).length})`
+                                    ? `번들 장바구니에 담기 (${Object.keys(selectedBundles).length + 1})`
                                     : "장바구니에 담기"}
                             </button>
                         </div>
