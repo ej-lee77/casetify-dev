@@ -660,7 +660,10 @@ export default function DetailPage({ item }) {
                         {/* 장바구니 버튼 - 미선택 시 alert */}
                         <button className="buy-btn" onClick={() => {
                             if (!userSelected) {
-                                alert("제품을 선택해주세요.");
+                                setCartMsg("제품을 선택해주세요.");
+                                setIsPopupErr(true);
+                                setIsCartPopupOpen(true);
+                                // alert("제품을 선택해주세요.");
                                 return;
                             }
                             handleAddCart(item);
@@ -741,7 +744,10 @@ export default function DetailPage({ item }) {
                             {/* 번들 장바구니 버튼 - 미선택 시 alert */}
                             <button className="buy-btn" onClick={() => {
                                 if (!userSelected) {
-                                    alert("제품을 선택해주세요.");
+                                    setCartMsg("제품을 선택해주세요.");
+                                    setIsPopupErr(true);
+                                    setIsCartPopupOpen(true);
+                                    // alert("제품을 선택해주세요.");
                                     return;
                                 }
                                 handleBundleAddCart();
