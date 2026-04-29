@@ -121,44 +121,75 @@
         transform: scale(1.03);
     }
 
+    // 하트 - 항상 우측 상단에 표시
+    .btn-wish {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.15s, transform 0.15s;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+
+        &:hover {
+            background: #fff;
+            transform: scale(1.12);
+        }
+
+        &.wished img {
+            filter: invert(30%) sepia(80%) saturate(500%) hue-rotate(320deg);
+        }
+    }
+
+    // 장바구니 - 호버 시 하단 전체 너비
     .card-hover-actions {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        display: flex;
-        gap: 0;
         opacity: 0;
         transform: translateY(8px);
         transition: opacity 0.2s ease, transform 0.2s ease;
 
-        button {
-            flex: 1;
-            padding: 10px 0;
-            background: rgba(180, 180, 180, 0.45);
-            backdrop-filter: blur(4px);
+        .btn-cart {
+            width: 100%;
+            padding: 12px 0;
+            background: #111;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-right: 1px solid #eee;
-            transition: background 0.15s;
+            gap: 8px;
             cursor: pointer;
-
-            &:last-child {
-                border-right: none;
-            }
+            transition: background 0.15s;
 
             img {
                 width: 18px;
                 height: 18px;
+                filter: invert(1);
+            }
+
+            span {
+                font-family: "Pretendard", sans-serif;
+                font-size: 0.88rem;
+                font-weight: 600;
+                color: #fff;
+                letter-spacing: 0.02em;
             }
 
             &:hover {
-                background: rgba(180, 180, 180, 0.65);
-            }
-
-            &.wished img {
-                filter: invert(30%) sepia(80%) saturate(500%) hue-rotate(320deg);
+                background: #333;
             }
         }
     }
@@ -169,8 +200,14 @@
     }
 
     .card-feedback {
+        &.need-detail {
+            background: rgba(200, 60, 60, 0.88);
+        }
+    }
+
+    .card-feedback {
         position: absolute;
-        bottom: 48px;
+        bottom: 54px;
         left: 50%;
         transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.72);
