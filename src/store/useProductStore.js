@@ -104,7 +104,7 @@ export const useProductStore = create((set, get) => ({
                 { name: "케이스티파이", link: "casetify" },
                 { name: "매장찾기", link: "store" },
                 { name: "정품인증", link: "certify" },
-                { name: "Q&A", link: "qa" }
+                { name: "Q&A", link: "qna" }
             ]
         }
     ],
