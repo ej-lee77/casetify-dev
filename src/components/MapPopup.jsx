@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useMapStore } from '../store/useMapStore';
+import "./scss/MapPopup.scss"
 
-export default function MapPopup({ onClose, location }) {
+export default function MapPopup({ onClose }) {
+  const { selectedLocation } = useMapStore();
+
+  if (!selectedLocation) return null;
+
   return (
     <div className='MapPopup'>
       <div>
@@ -8,21 +14,12 @@ export default function MapPopup({ onClose, location }) {
         <button onClick={onClose}>닫기</button>
       </div>
 
-      <h2>지점 : {location.name}</h2>
+      <h2>{selectedLocation.name}</h2>
 
-      {location.img && (
-        <img src={location.img} alt={location.name} />
-      )}
+      <img src={selectedLocation.img} alt="" />
 
-      <div>
-        <h3>주소</h3>
-        <p>{location.address}</p>
-      </div>
-
-      <div>
-        <h3>영업시간</h3>
-        <p>{location.hours?.[0]}</p>
-      </div>
+      <p>{selectedLocation.address}</p>
+      <p>{selectedLocation.hours?.[0]}</p>
     </div>
-  )
+  );
 }
