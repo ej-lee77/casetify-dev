@@ -10,77 +10,107 @@ import { useAuthStore } from "../../../store/useAuthStore";
 
 export default function DetailPage({ item }) {
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { state } = location; 
+
     // ==================== STATE ====================
+    const { selectedModel: initialModel, selectedColor: initialColor } = location.state || {};;
     const [accordionOpen, setAccordionOpen] = useState(false);
     const [modelAccordionOpen, setModelAccordionOpen] = useState(false);
-    const [selectedModel, setSelectedModel] = useState(""); // 빈값으로
-    const [selectedColor, setSelectedColor] = useState("");
+    const [selectedModel, setSelectedModel] = useState(state?.selectedModel || "");
+    const [selectedColor, setSelectedColor] = useState(state?.selectedColor || "");
+    const [userSelected, setUserSelected] = useState(!!state?.selectedModel);
     const [selectedDeviceColor, setSelectedDeviceColor] = useState("");
     const [selectedThumb, setSelectedThumb] = useState("main");
     const [quantity, setQuantity] = useState(1);
-    const [userSelected, setUserSelected] = useState(false);
     const [selectedBrandTab, setSelectedBrandTab] = useState(item?.brand || "Apple");
     const [isWished, setIsWished] = useState(false);
     const [selectedBundles, setSelectedBundles] = useState({});
 
-    const navigate = useNavigate();
     const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
     const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
 
     // ==================== EFFECTS ====================
     useEffect(() => {
         if (!item) return;
-        setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
-        setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
+
+        // 1. 공통 필수 초기화 (어떤 경우에도 실행되어야 함)
         setQuantity(1);
         setSelectedBundles({});
         setAccordionOpen(false);
         setModelAccordionOpen(false);
         setIsWished(item.isWish || false);
 
-        // 호환 모델이 1개면 자동 선택
         const modelOpts = getModelsByProductGroup(items, item);
 
-        if (item.compatibleModels?.length === 1) {
-            setSelectedModel(item.compatibleModels[0]);
-        } else if (modelOpts?.length === 1) {
-            setSelectedModel(modelOpts[0].label);
-            setSelectedDeviceColor(modelColorOptions?.[modelOpts[0].key]?.[0]?.key || "");
-            const matched = items.find(
-                (d) =>
-                    d.productName === item.productName &&
-                    d.caseCategory === item.caseCategory &&
-                    d.modelLabel === modelOpts[0].label
-            );
-            if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
+        // 2. 우선순위 결정: URL state(Cart에서 넘어온 값)가 있으면 그것을 사용, 없으면 기본 로직
+        const targetModelLabel = state?.selectedModel || initialModel;
+        const targetColor = state?.selectedColor || initialColor;
+
+        if (targetModelLabel) {
+            // --- [CASE A] 외부(장바구니 등)에서 모델 정보가 넘어온 경우 ---
+            setSelectedModel(targetModelLabel);
+            setUserSelected(true); 
+
+            const targetModelOpt = modelOpts.find(mo => mo.label === targetModelLabel);
+            
+            if (targetModelOpt) {
+                // 기종에 맞는 디바이스 컬러 설정
+                setSelectedDeviceColor(modelColorOptions?.[targetModelOpt.key]?.[0]?.key || "");
+                
+                if (targetColor) {
+                    setSelectedColor(targetColor);
+                } else {
+                    // 색상이 없으면 해당 모델의 기본 색상 찾기
+                    const matched = items.find(d => 
+                        d.productName === item.productName && 
+                        d.caseCategory === item.caseCategory && 
+                        d.modelLabel === targetModelLabel
+                    );
+                    setSelectedColor(matched?.mainCaseColor || matched?.caseColors?.[0] || "");
+                }
+            }
         } else {
-            setSelectedModel("");
+            // --- [CASE B] 일반적인 상품 진입 (기본 로직) ---
+            setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
+            setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
+
+            if (item.compatibleModels?.length === 1) {
+                setSelectedModel(item.compatibleModels[0]);
+            } else if (modelOpts?.length === 1) {
+                setSelectedModel(modelOpts[0].label);
+                setSelectedDeviceColor(modelColorOptions?.[modelOpts[0].key]?.[0]?.key || "");
+                const matched = items.find(d => 
+                    d.productName === item.productName && 
+                    d.caseCategory === item.caseCategory && 
+                    d.modelLabel === modelOpts[0].label
+                );
+                if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
+            } else {
+                setSelectedModel("");
+            }
+            
+            const hasNoOption = !phoneModelOptions[item?.brand] && !item?.compatibleModels?.length && !item?.caseColors?.length;
+            const autoSelected = item.compatibleModels?.length === 1 || modelOpts?.length === 1 || item.caseColors?.length === 1;
+            setUserSelected(hasNoOption || item.isWish || autoSelected || false);
         }
 
-        // 선택할 옵션이 없는 상품은 바로 장바구니버튼눌러도 로그인경고 안뜸
-        const hasNoOption =
-            !phoneModelOptions[item?.brand] &&
-            !item?.compatibleModels?.length &&
-            !item?.caseColors?.length;
-        const autoSelected = item.compatibleModels?.length === 1 || modelOpts?.length === 1 || item.caseColors?.length === 1;
-        setUserSelected(hasNoOption || item.isWish || autoSelected || false);
-
-        // 실제 존재하는 첫 번째 브랜드로 탭 초기화
+        // 3. 브랜드 탭 설정 (UI 관련 공통)
         const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
             phoneModelOptions[brand].some((m) =>
-                getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
+                modelOpts.some((mo) => mo.key === m.key)
             )
         );
         if (availableBrand) setSelectedBrandTab(availableBrand);
-    }, [item]);
+
+    }, [item, state, initialModel, initialColor]); // 모든 외부 변수를 의존성 배열에 추가
 
     // ==================== MEMO ====================
 
     // 번들 상품 랜덤 3개
     const bundleItems = useMemo(() => {
         if (!items || !item) return [];
-
-        
 
         // accessory만 필터
         const accessories = items.filter((d) => 
