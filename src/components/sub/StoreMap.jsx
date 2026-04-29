@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useMapStore } from '../../store/useMapStore';
 import MapPopup from '../MapPopup';
+import "./scss/storeMap.scss"
 
 export default function StoreMap() {
     const { locations, selectedLocation, setSelectedLocation, clearSelectedLocation } = useMapStore();
@@ -59,7 +60,7 @@ export default function StoreMap() {
                     });
 
                     const infowindow = new window.kakao.maps.InfoWindow({
-                        content: `<div className"storeinfo-window" style="padding:8px 5px;">${loc.storeName}</div>`
+                        content: `<div class="storeinfo-window">${loc.storeName}</div>`
                     });
 
                     // 마우스 오버

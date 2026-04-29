@@ -1,9 +1,12 @@
+@use "../../App.scss" as g;
+
 .MapPopup {
     position: absolute;
-    top: 100px;
+    max-width: 800px;
+    top: 50%;
     left: 55%;
-    transform: translateX(-50%);
-    z-index: 100;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
     border: 1px solid #a9a9a9;
     background-color: white;
     overflow: hidden;
@@ -20,8 +23,50 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            right: 0;
+            right: 1rem;
 
+        }
+    }
+
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: g.$title-gap;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .store-img-area {
+        margin: 0 1.5rem;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .store-address-area,
+    .store-hours-area {
+        @include g.myFlex($jc: null, $gap: 1.25rem, $fd: column);
+        margin-top: 0.75rem;
+
+        span {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-weight: 300;
+            font-size: 1.25rem;
+        }
+    }
+
+    .store-address-area {
+        padding: 1rem 1.25rem 0;
+    }
+
+    .store-hours-area {
+        margin: g.$title-gap 0;
+        padding: 0 1rem 1.25rem;
+
+        .store-hours-info-area {
+            @include g.myFlex($jc: null, $gap: 0.5rem, $fd: column);
         }
     }
 }
