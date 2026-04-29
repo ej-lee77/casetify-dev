@@ -70,13 +70,18 @@
             .store-select-wrap {
                 @include g.myFlex($gap: 1.25rem);
                 margin-bottom: 1.5rem;
+                justify-content: space-between;
+                >div{
+                    flex:1;
+                    position: relative;
+                }
 
                 // 드롭박스 검색 버튼
                 .select-btn {
                     font-family: inherit;
                     font-size: 0.75rem;
                     @include g.myFlex($jc: null, $gap: 0.5rem);
-                    width: 50%;
+                    width: 100%;
                     padding: 0.5rem 1rem;
                     position: relative;
                     border: 1px solid #8f8f8f;
@@ -96,4 +101,12 @@
             }
         }
     }
+}
+
+.city-list{
+    position: absolute;
+    background: #eee;
+    padding:20px;
+    line-height: 1.5;
+    width: 100%;
 }

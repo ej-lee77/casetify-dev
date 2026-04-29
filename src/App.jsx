@@ -6,10 +6,9 @@ import Footer from './components/Footer'
 import Main from './pages/Main'
 import { useEffect } from 'react'
 import { useProductStore } from './store/useProductStore'
-// import CategoryPage from './pages/CategoryPage'
+import CategoryPage from './pages/CategoryPage'
 import Login from './pages/Login'
 import Mypage from './pages/Mypage'
-import CategoryPagePractice from './pages/CategoryPagePractice'
 import Join from './pages/Join'
 import NaverCallBack from './pages/NaverCallBack'
 import JoinMail from './pages/JoinMail'
@@ -21,9 +20,11 @@ import CustomPage from './pages/CustomPage'
 import { useAuthStore } from './store/useAuthStore'
 import Payment from './pages/Payment'
 import PayComplete from './pages/PayComplete'
-import Store from './pages/Store'
+import BrandCasetify from './pages/BrandCasetify'
 import SearchPage from './pages/SearchPage'
 import SearchNavigator from './components/sub/SearchNavigator'
+import BrandQna from './pages/BrandQna'
+import Store from './pages/Store'
 
 function App() {
   const { pathname } = useLocation();
@@ -56,7 +57,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
 
-        <Route path='/:mainCate/:subCate' element={<CategoryPagePractice />} />
+        <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
         <Route path='/custom' element={<CustomPage />} />
 
@@ -72,8 +73,10 @@ function App() {
         <Route path='/payment' element={<Payment />} />
         <Route path='/payment/complete' element={<PayComplete />} />
 
-        <Route path='/brand/store' element={<Store />} />
+        <Route path='/brand/casetify' element={<BrandCasetify />} />
+        <Route path='/brand/qna' element={<BrandQna />} />
         <Route path='/search' element={<SearchPage />} />
+        <Route path='/brand/store' element={<Store />} />
       </Routes>
       <Footer />
     </>
