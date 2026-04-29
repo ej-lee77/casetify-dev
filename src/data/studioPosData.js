@@ -5,7 +5,7 @@ export const studioPosData = [
         id: 1,
         storeArea: "서울특별시",
         storeName: "케이스티파이 스튜디오 더현대 서울",
-        storeAddress: " 지하 2층",
+        storeAddress: "서울특별시 영등포구 여의대로 108, 더현대 서울 지하 2층",
         storeImg: "/images/studio/studio_01_yeouido_01.jpg",
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
