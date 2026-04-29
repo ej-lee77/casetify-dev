@@ -4,7 +4,7 @@ import "./scss/UserInfo.scss"
 import { useAuthStore } from '../../store/useAuthStore'
 import AddressSearch from './AddressSearch';
 import { useNavigate } from 'react-router-dom';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import AlertPopup from './AlertPopup';
 import './scss/AlertPopup.scss';
 import DatePicker from 'react-datepicker';

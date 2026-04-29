@@ -40,8 +40,20 @@ useEffect(() => {
     setIsWished(item.isWish || false);
 
     // 호환 모델이 1개면 자동 선택
+    const modelOpts = getModelsByProductGroup(items, item);
+
     if (item.compatibleModels?.length === 1) {
         setSelectedModel(item.compatibleModels[0]);
+    } else if (modelOpts?.length === 1) {
+        setSelectedModel(modelOpts[0].label);
+        setSelectedDeviceColor(modelColorOptions?.[modelOpts[0].key]?.[0]?.key || "");
+        const matched = items.find(
+            (d) =>
+                d.productName === item.productName &&
+                d.caseCategory === item.caseCategory &&
+                d.modelLabel === modelOpts[0].label
+        );
+        if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
     } else {
         setSelectedModel("");
     }
@@ -51,7 +63,7 @@ useEffect(() => {
         !phoneModelOptions[item?.brand] &&
         !item?.compatibleModels?.length &&
         !item?.caseColors?.length;
-    const autoSelected = item.compatibleModels?.length === 1;
+    const autoSelected = item.compatibleModels?.length === 1 || modelOpts?.length === 1 || item.caseColors?.length === 1;
     setUserSelected(hasNoOption || item.isWish || autoSelected || false);
 
     // 실제 존재하는 첫 번째 브랜드로 탭 초기화
@@ -282,11 +294,14 @@ useEffect(() => {
         selectedModel,
     ].filter(Boolean).join(" / ");
 
-    // 번들 선택 여부에 따라 총액에만 10% 할인 반영 (원래 가격은 고정)
-    const bundleTotal = bundleItems.reduce((acc, b) => {
-        const qty = selectedBundles[b.id] || 0;
-        return acc + Math.round(b.price * 0.9) * qty;
-    }, 0);
+    // 번들 선택 여부에 따라 악세에만 10% 할인 반영 (원래 가격은 고정)
+    const bundleTotal = bundleItems
+        .filter((b) => b.id !== item.id)
+        .reduce((acc, b) => {
+            const qty = selectedBundles[b.id] || 0;
+            return acc + Math.round(b.price * 0.9) * qty;
+        }, 0);
+
     const totalPrice = (item.price || 0) * quantity + bundleTotal;
     const totalQty = quantity + Object.values(selectedBundles).reduce((a, q) => a + q, 0);
 
@@ -644,7 +659,7 @@ useEffect(() => {
                             {(
                                 (item.price || 0) +
                                 bundleItems
-                                    .filter((b) => selectedBundles[b.id])
+                                    .filter((b) => b.id !== item.id && selectedBundles[b.id])
                                     .reduce((acc, b) => acc + Math.round(b.price * 0.9) * (selectedBundles[b.id] || 1), 0)
                             ).toLocaleString()}원
                         </strong>
