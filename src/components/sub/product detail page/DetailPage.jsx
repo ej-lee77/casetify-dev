@@ -23,15 +23,10 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     const [selectedBundles, setSelectedBundles] = useState({});
 
-    // const [user, setUser] = useState(null);
     const navigate = useNavigate();
     const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
-    // const [isWishList, setIsWishList] = useState(wishlist.some(v => v.productId === item.id));
     const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
 
-    // useEffect(() => {
-    //     setIsWishList(wishlist.some(v => v.productId === item.id));
-    // }, [wishlist, item.id]);
 
 
     // ==================== EFFECTS ====================
