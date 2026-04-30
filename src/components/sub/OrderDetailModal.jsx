@@ -18,9 +18,20 @@ const STATUS_MAP = {
   4: { text: "교환/반품완료", className: "return-done" },
 };
 
-export default function OrderDetailModal({ order, onClose }) {
+const reasonOptions = ["단순 변심", "상품 불량/파손", "배송 오배송", "사이즈/옵션 잘못 선택", "기타"];
+
+export default function OrderDetailModal({ order, onClose, initialAllChecked }) {
     // 데이터가 없을 경우 방어 코드
     if (!order) return null;
+
+    // 1. 초기 체크 상태 설정
+    // initialAllChecked가 true면 모든 아이템 인덱스를 넣고, 아니면 빈 배열
+    const [checkedItems, setCheckedItems] = useState(() => {
+        if (initialAllChecked) {
+            return order.orderItems.map((_, idx) => idx);
+        }
+        return [];
+    });
 
     // 배경 클릭 시 닫히게 하는 핸들러
     const handleOverlayClick = (e) => {
@@ -28,9 +39,6 @@ export default function OrderDetailModal({ order, onClose }) {
         onClose();
         }
     };
-
-    // 체크된 상품들
-    const [checkedItems, setCheckedItems] = useState([]);
 
     // 체크박스 핸들러
     const handleCheck = (idx) => {
@@ -40,6 +48,20 @@ export default function OrderDetailModal({ order, onClose }) {
         setCheckedItems([...checkedItems, idx]);
         }
     };
+
+    // 신청을 진행 중인 주문 데이터
+    const [applyingOrder, setApplyingOrder] = useState(null); 
+    // 신청 폼 상태
+    const [claimForm, setClaimForm] = useState({
+        type: '', // '반품' 또는 '교환'
+        reason: '' // 선택된 사유
+    });
+    const [isTypeOpen, setIsTypeOpen] = useState(false);
+    const [isReasonOpen, setIsReasonOpen] = useState(false);
+    const [selectedType, setSelectedType] = useState("교환");
+    const [selectedReason, setSelectedReason] = useState("사유를 선택해주세요");
+
+
     const onUpdateItemStatus = useAuthStore((state) => state.onUpdateItemStatus);
 
     const isCancelable = order.orderStatus === '배송준비중';
@@ -63,7 +85,29 @@ export default function OrderDetailModal({ order, onClose }) {
                 onClose(); 
             }
         }
-    };  
+    };
+
+    const handleSubmitClaim = async () => {
+        // state에서 직접 가져와서 확인
+        if (!selectedType) return alert("처리 유형(반품/교환)을 선택해주세요.");
+        if (selectedReason === "사유를 선택해주세요") return alert("사유를 선택해주세요.");
+
+        if (window.confirm(`선택한 상품의 [${selectedType}]을 신청하시겠습니까?`)) {
+            // API 호출 시 selectedType과 selectedReason을 인자로 전달하거나 
+            // claimForm 상태를 최신화하여 전달하세요.
+            const success = await onUpdateItemStatus(
+                order.orderId, 
+                checkedItems, 
+                isCancelable,
+                { type: selectedType, reason: selectedReason } // 추가 정보 전달
+            );
+
+            if (success) {
+                setCheckedItems([]);
+                onClose(); 
+            }
+        }
+    };
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
@@ -187,7 +231,58 @@ export default function OrderDetailModal({ order, onClose }) {
               {isCancelable ? (
                 <button className="action-btn cancel" onClick={handleStatusChange}>선택상품 주문취소</button>
               ) : (
-                <button className="action-btn return" onClick={handleStatusChange}>선택상품 반품/교환 신청</button>
+                <>
+                  <div className="claim-form-container">
+                      {/* 1. 신청 유형 선택 */}
+                      <div className="casetify-dropdown">
+                          <button 
+                              className={`dropdown-label ${isTypeOpen ? 'active' : ''}`} 
+                              onClick={() => { setIsTypeOpen(!isTypeOpen); setIsReasonOpen(false); }}
+                          >
+                              {selectedType}
+                              <span className="arrow">{isTypeOpen ? '▲' : '▼'}</span>
+                          </button>
+                          {isTypeOpen && (
+                              <ul className="dropdown-list">
+                                  {["교환", "반품"].map((opt) => (
+                                      <li key={opt} onClick={() => { 
+                                          setSelectedType(opt); 
+                                          setClaimForm(prev => ({ ...prev, type: opt })); // 폼 업데이트
+                                          setIsTypeOpen(false); 
+                                      }}>
+                                          {opt}
+                                      </li>
+                                  ))}
+                              </ul>
+                          )}
+                      </div>
+
+                      {/* 2. 사유 선택 */}
+                      <div className="casetify-dropdown reason-select">
+                          <button 
+                              className={`dropdown-label white-version ${isReasonOpen ? 'active' : ''}`} 
+                              onClick={() => { setIsReasonOpen(!isReasonOpen); setIsTypeOpen(false); }}
+                          >
+                              {selectedReason}
+                              <span className="arrow">{isReasonOpen ? '▲' : '▼'}</span>
+                          </button>
+                          {isReasonOpen && (
+                              <ul className="dropdown-list">
+                                  {reasonOptions.map((opt) => (
+                                      <li key={opt} onClick={() => { 
+                                          setSelectedReason(opt); 
+                                          setClaimForm(prev => ({ ...prev, reason: opt })); // 폼 업데이트
+                                          setIsReasonOpen(false); 
+                                      }}>
+                                          {opt}
+                                      </li>
+                                  ))}
+                              </ul>
+                          )}
+                      </div>
+                  </div>
+                <button className="action-btn return" onClick={handleSubmitClaim}>선택상품 반품/교환 신청</button>
+                </>
               )}
             </div>
           )}
