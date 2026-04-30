@@ -41,10 +41,10 @@ function App() {
       window.history.scrollRestoration = 'manual';
     }
 
-    // 페이지 이동 직후 실행
+    if (window.location.hash) return;
+
     window.scrollTo(0, 0);
 
-    // 팝업 렌더링 대비한
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 50);
@@ -59,8 +59,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
 
-
         <Route path='/case/custom' element={<Navigate to="/custom" replace />} />
+
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
         <Route path='/custom' element={<CustomPage />} />
