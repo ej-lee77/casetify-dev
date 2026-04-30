@@ -1,0 +1,66 @@
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 1000px;
+  padding: 250px;
+/* background-color: red; */
+  min-height: 400px;
+}
+
+.c-img{
+  width: 30px;
+}
+.card {
+  width: 300px;
+  background: linear-gradient(135deg, #f9e8e8 0%, #e8e8f9 100%);
+  border-radius: 28px;
+  padding: 44px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.italic {
+  font-style: italic;
+  font-size: 22px;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.sub {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.cartBtn,
+.buyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+
+.cartBtn:hover,
+.buyBtn:hover {
+  border-color: #c4b99a;
+  background: #f5f1e8;
+}
+
+.btnIcon {
+  font-size: 18px;
+}
