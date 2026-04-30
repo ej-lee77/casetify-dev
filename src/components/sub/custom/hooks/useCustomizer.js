@@ -2,19 +2,21 @@ import { useState, useCallback, useMemo } from 'react'
 import { INITIAL_SELECTIONS } from '../constants'
 
 const STEPS_COMMON = [
-  { id: 'design',      label: '01.디자인' },
-  { id: 'deviceType',  label: '02.기기 타입' },
-  { id: 'deviceModel', label: '03.기기 모델' },
-  { id: 'caseType',    label: '04.케이스 타입' },
+  { id: 'design',      label: '디자인' },
+  { id: 'deviceModel', label: '기기 모델' },
+  { id: 'caseType',    label: '케이스 타입' },
 ]
 
 const STEP_LAST = {
-  photo: { id: 'photo', label: '04.사진' },
-  text:  { id: 'font',  label: '04.폰트' },
+  photo: { id: 'photo', label: '사진' },
+  text:  { id: 'font',  label: '텍스트' },
 }
 
-export function useCustomizer() {
-  const [selections, setSelections] = useState(INITIAL_SELECTIONS)
+export function useCustomizer(initialDeviceType = null) {
+  const [selections, setSelections] = useState({
+    ...INITIAL_SELECTIONS,
+    deviceType: initialDeviceType,
+  })
   const [currentStep, setCurrentStep] = useState(0)
   const [history, setHistory] = useState([])
 
@@ -54,10 +56,10 @@ export function useCustomizer() {
   }, [history])
 
   const reset = useCallback(() => {
-    setSelections(INITIAL_SELECTIONS)
+    setSelections({ ...INITIAL_SELECTIONS, deviceType: initialDeviceType })
     setCurrentStep(0)
     setHistory([])
-  }, [])
+  }, [initialDeviceType])
 
   const isStepUnlocked = useCallback((idx) => {
     return idx <= currentStep

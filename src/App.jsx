@@ -25,7 +25,7 @@ import SearchPage from './pages/SearchPage'
 import SearchNavigator from './components/sub/SearchNavigator'
 import BrandQna from './pages/BrandQna'
 import Store from './pages/Store'
-import ProductCustomizePage from './components/sub/custom/pages/ProductCustomizePage'
+import ProductCustomizePage from './pages/ProductCustomizePage'
 import Gift from './pages/Gift'
 import BrandAuthentication from './pages/BrandAuthentication'
 
@@ -65,7 +65,6 @@ function App() {
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
 
-        {/* 커스텀: 디바이스 선택 → 스튜디오 */}
         <Route path='/custom' element={<CustomPage />} />
         <Route path='/custom/studio' element={<ProductCustomizePage />} />
 
