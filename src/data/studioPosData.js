@@ -31,8 +31,8 @@ export const studioPosData = [
         storeImg: "/images/studio/studio_03_jamsil_01.jpg",
         openHour:
             ["월요일 - 일요일 : 10:30AM - 10:00PM KST"],
-        lat: 37.5136273,
-        lng: 127.1015392,
+        lat: 37.513621,
+        lng: 127.104114,
     },
     {
         id: 4,
@@ -55,8 +55,8 @@ export const studioPosData = [
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
                 "금요일 - 일요일 : 10:30AM - 8:30PM KST"],
-        lat: 35.8663633,
-        lng: 128.5897205,
+        lat: 35.86646,
+        lng: 128.5905,
     },
     {
         id: 6,
@@ -67,8 +67,8 @@ export const studioPosData = [
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
                 "금요일 - 일요일 : 10:30AM - 8:30PM KST"],
-        lat: 37.5647115,
-        lng: 126.9767928,
+        lat: 37.5647182,
+        lng: 126.9816107,
     },
     {
         id: 7,
@@ -79,8 +79,8 @@ export const studioPosData = [
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
                 "금요일 - 일요일 : 10:30AM - 8:30PM KST"],
-        lat: 37.5049244,
-        lng: 127.0036855,
+        lat: 37.504566,
+        lng: 127.004618,
     },
     {
         id: 8,
@@ -90,8 +90,8 @@ export const studioPosData = [
         storeImg: "/images/studio/studio_08_suwon_01.jpg",
         openHour:
             ["월요일 - 일요일 : 10:30AM - 10:00PM KST"],
-        lat: 37.2640978,
-        lng: 126.9967019,
+        lat: 37.264177,
+        lng: 126.997112,
     },
     {
         id: 9,
@@ -101,8 +101,8 @@ export const studioPosData = [
         storeImg: "/images/studio/studio_09_bucheon_01.jpg",
         openHour:
             ["월요일 - 일요일 : 10:30AM - 9:00PM KST"],
-        lat: 37.5044278,
-        lng: 126.7588694,
+        lat: 37.504432,
+        lng: 126.761069,
     },
     {
         id: 10,
@@ -112,8 +112,8 @@ export const studioPosData = [
         storeImg: "/images/studio/studio_10_dosan_01.jpg",
         openHour:
             ["월요일 - 일요일 : 11:00AM - 8:00PM KST"],
-        lat: 37.5242797,
-        lng: 127.0339325,
+        lat: 37.524278,
+        lng: 127.036526,
     },
     {
         id: 11,
@@ -123,8 +123,8 @@ export const studioPosData = [
         storeImg: "/images/studio/studio_11_seongsu_01.jpg",
         openHour:
             ["월요일 - 일요일 : 11:00AM - 8:00PM KST"],
-        lat: 37.5425926,
-        lng: 127.052528,
+        lat: 37.542588,
+        lng: 127.055104,
     },
     {
         id: 12,
@@ -135,8 +135,8 @@ export const studioPosData = [
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
                 "금요일 - 일요일 : 10:30AM - 8:30PM KST"],
-        lat: 36.375212,
-        lng: 127.3794267,
+        lat: 36.375215,
+        lng: 127.381998,
     },
     {
         id: 13,
@@ -147,8 +147,8 @@ export const studioPosData = [
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
                 "금요일 - 일요일 : 10:30AM - 8:30PM KST"],
-        lat: 36.6446135,
-        lng: 127.4260533,
+        lat: 36.644689,
+        lng: 127.426569,
     },
     {
         id: 14,
