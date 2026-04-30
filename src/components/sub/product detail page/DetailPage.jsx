@@ -255,6 +255,12 @@ export default function DetailPage({ item }) {
     const [isCartPopupOpen, setIsCartPopupOpen] = useState(false);
     const [isPopupErr, setIsPopupErr] = useState(false);
     const handleAddWish = async(item) => {
+        if(!user){
+            setCartMsg("로그인 후 이용 가능합니다.");
+            setIsPopupErr(true);
+            setIsCartPopupOpen(true);
+            return;
+        }
         const modelKey = isPhone
             ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
             : "";
@@ -689,11 +695,16 @@ export default function DetailPage({ item }) {
 
                         {/* 장바구니 버튼 - 미선택 시 alert */}
                         <button className="buy-btn" onClick={() => {
+                            if(!user){
+                                setCartMsg("로그인 후 이용 가능합니다.");
+                                setIsPopupErr(true);
+                                setIsCartPopupOpen(true);
+                                return;
+                            }
                             if (!userSelected) {
                                 setCartMsg("제품을 선택해주세요.");
                                 setIsPopupErr(true);
                                 setIsCartPopupOpen(true);
-                                // alert("제품을 선택해주세요.");
                                 return;
                             }
                             handleAddCart(item);
@@ -773,6 +784,12 @@ export default function DetailPage({ item }) {
 
                             {/* 번들 장바구니 버튼 - 미선택 시 alert */}
                             <button className="buy-btn" onClick={() => {
+                                if(!user){
+                                    setCartMsg("로그인 후 이용 가능합니다.");
+                                    setIsPopupErr(true);
+                                    setIsCartPopupOpen(true);
+                                    return;
+                                }
                                 if (!userSelected) {
                                     setCartMsg("제품을 선택해주세요.");
                                     setIsPopupErr(true);
