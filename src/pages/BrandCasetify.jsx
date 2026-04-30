@@ -115,7 +115,7 @@ function StandardTab() {
                 <div className="standard-feature-img">
                     <img src="/images/brand/standard-feature.png" alt="standard feature" />
                 </div>
-                <div className="standard-feature-text">
+                {/* <div className="standard-feature-text">
                     <p>
                         더 오래 견디는 기기를 위해 케이스티파이는 항상 여러분 곁에 있습니다.<br />
                         경험한 적 없는 낙하 충격 보호 성능을 경험해보세요.<br /><br />
@@ -125,7 +125,7 @@ function StandardTab() {
                         우리가 자랑하는 케이스의 품질이 진짜인지,<br />
                         케이스티파이의 제품을 통해 직접 경험해 보세요.
                     </p>
-                </div>
+                </div> */}
             </section>
 
             {/* 기술 소개 */}
@@ -134,8 +134,8 @@ function StandardTab() {
                 <p>Duo-Lock™ by CASETIFY 본딩 기술이 적용된 케이스는 한층 견고해진 범퍼 결합력으로 일상 속 모든<br />모험에서 안심할 수 있는 안전감을 선사하죠.</p>
                 <div className="standard-tech-cards">
                     <div className="tech-card">
-                        <img src="/images/brand/standard-tech1.png" alt="임팩트 케이스" />
-                        <p>임팩트 케이스</p>
+                        <img src="/images/brand/standard-tech1.png" alt="바운스 케이스" />
+                        <p>바운스 케이스</p>
                     </div>
                     <div className="tech-card">
                         <img src="/images/brand/standard-tech2.png" alt="크로스바디 스트랩" />
@@ -150,57 +150,78 @@ function StandardTab() {
 
             {/* 임팩트 케이스 하이라이트 */}
             <section className="standard-highlight">
-                <div className="highlight-left">
-                    <p className="highlight-label">임팩트 케이스<br />Duo-Lock by<br />CASETIFY™<br />본딩</p>
-                </div>
                 <div className="highlight-img">
-                    <img src="/images/brand/standard-highlight.png" alt="임팩트 케이스" />
-                </div>
-                <div className="highlight-right">
-                    <p>임팩트 케이스는 EcoShock™ 디자인과<br />최신 이슈를 위한 업그레이드된<br />Duo-Lock by CASETIFY™ 본딩<br />구조를 결합하여 심층적 충격 완화를<br />내구성을 제공합니다.</p>
+                    <img src="/images/brand/standard-highlight.png" alt="글레이즈 케이스" />
+                    <div className="highlight-left">
+                        <p className="highlight-label">글레이즈 케이스<br />이너 프린팅<br />글레이즈 기법<br />Glaze</p>
+                    </div>
+                    <div className="highlight-right">
+                        <p>변치 않는 당신의 컬러, 당신의 스타일.<br />당신이 선택한 유쾌한 패턴과 컬러풀한<br />색상들은 글레이즈 케이스의 글로시한<br />백플레이트 아래 견고하게 봉인되어,<br />색이 바래거나 벗겨질 염려 없이<br />변함없는 아름다움을 선사합니다.</p>
+                    </div>
                 </div>
             </section>
 
             {/* 100% 만족 배너 */}
-            <section className="standard-satisfaction">
-                <div className="satisfaction-banner">
-                    <p className="satisfaction-pct">100%</p>
-                    <p className="satisfaction-label">Satisfaction</p>
-                </div>
-                <p className="satisfaction-desc">
-                    고객님의 만족이 저희의 최우선 입니다.<br />
-                    구매하시는 모든 CASETIFY 제품에 대해 다음과 같은<br />
-                    품질 보증 및 만족 보장 계획을 도입하고 있습니다.
-                </p>
-            </section>
-
-            {/* 제품 보증 기간 */}
             <section className="standard-warranty">
-                <h3>제품 보증 기간</h3>
-                <div className="warranty-cards">
-                    <div className="warranty-card">
-                        <img src="/images/brand/warranty1.png" alt="10일" />
-                        <p className="warranty-period">10일 내</p>
-                        <p className="warranty-tag">보상 교리</p>
-                        <p className="warranty-desc">구매하신 제품에 하자가 있거나 잘못된 상품이 배송되었을 경우 10일 내 반품 요청이 가능합니다. · 새 제품 으로 교환해 드립니다. · 제품 구매 가격(배송비 제외)이 T&C applies*</p>
+                <div className="warranty-hero">
+                    <div className="warranty-hero-top" />
+                    <div className="warranty-satisfaction">
+                        <p>100%</p>
+                        <p>Satisfaction</p>
                     </div>
-                    <div className="warranty-card">
-                        <img src="/images/brand/warranty2.png" alt="6개월" />
-                        <p className="warranty-period">6개월</p>
-                        <p className="warranty-tag best">Best 교리</p>
-                        <p className="warranty-desc">당사의 엄격한 제품 보증 순위는 배송비는 고객에게 부담됩니다. · 동일한 제품으로 교환됩니다. · 스토어 크레딧은 CASETIFY Store Credit 이용약관에 따름. T&C applies*</p>
-                    </div>
-                    <div className="warranty-card">
-                        <img src="/images/brand/warranty3.png" alt="12개월" />
-                        <p className="warranty-period">12개월</p>
-                        <p className="warranty-desc">
-                            · 달러 / 법원의 제품에 한해 당사 제품의 불량이 맞거나 7일이 이내의 경우에도 반품을 도와드립니다.<br />
-                            · 렌즈 가드나 EcoShock™의 기본이 CASETIFY Studio Case의 최신 버전으로 교환됩니다.<br />
-                            · CASETIFY Club의 별도 적립을 위한 배송비 지원이 진행되며 반품 기간은 14일이며 반품 가능 기간은 제품 수령 후 7일이내입니다.
-                        </p>
+                    <div className="warranty-hero-bottom" />
+                </div>
+
+                <div className="warranty-content">
+                    <h3 className="warranty-title">제품 보증 기간</h3>
+                    <div className="warranty-grid">
+                        <div className="warranty-card blue">
+                            <div className="warranty-card-header">
+                                <span className="warranty-period">10일 이내</span>
+                                <span className="warranty-tag">모든 고객님</span>
+                            </div>
+                            <div className="warranty-card-body">
+                                <p>구매하신 제품이 마음에 들지 않으신다면, <strong>10일 내에 주문하신 모든 제품을 조건 없이 반품</strong> 또는 교환해드립니다.</p>
+                                <ol>
+                                    <li>일부 제품 및 주문 건에만 적용</li>
+                                    <li>제품 구매 후 10일 이내 | <u>T&C applies*</u></li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div className="warranty-card blue">
+                            <div className="warranty-card-header">
+                                <span className="warranty-period">6개월</span>
+                                <span className="warranty-tag">모든 고객님</span>
+                            </div>
+                            <div className="warranty-card-body">
+                                <p>당사의 <strong>6개월 제품 보증</strong>은 손상된 제품을 교환해 드립니다.</p>
+                                <ol>
+                                    <li>일부 제품 및 주문 건에만 적용됩니다.</li>
+                                    <li>한 번 교환 | <u>T&C applies*</u></li>
+                                    <li>반품/교환된 제품이 단종된 제품일 경우 동일한 금액 또는 그보다 낮은 금액의 제품으로 적용됩니다.</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div className="warranty-card pink">
+                            <div className="warranty-card-header">
+                                <span className="warranty-period">12개월</span>
+                                <span className="warranty-tag gold">골드 등급 회원</span>
+                            </div>
+                            <div className="warranty-card-body">
+                                <p><strong>골드 등급 회원</strong>에게는 6개월 제품 보증 기간 외의 <strong>6개월 특별 연장을 제공</strong>합니다.</p>
+                                <ol>
+                                    <li>골드 회원으로 업그레이드 이후 발생한 주문 및 제품에 한하여 적용됩니다.</li>
+                                    <li>CASETiFY Club 골드 등급 회원에게만 해당 (전 지역)</li>
+                                    <li>구매 후 12개월 이내</li>
+                                    <li>한 번 교환 | T&C applies*</li>
+                                    <li>반품/교환된 제품이 단종된 제품일 경우 동일한 금액 또는 그보다 낮은 금액의 제품으로 적용됩니다.</li>
+                                </ol>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p className="warranty-note">*타의 CASETIFY 케이스 기타 제 케이스는 해당 보증이 적용 가능 여부가 다를 수 있습니다.</p>
             </section>
 
             {/* 제품 케어 팁 */}
@@ -225,30 +246,10 @@ function StandardTab() {
                 </div>
             </section>
 
-            {/* FAQ */}
-            <section className="standard-faq">
-                <h3>Frequently Asked Question</h3>
-                <div className="faq-list">
-                    {faqs.map((faq) => (
-                        <div key={faq.id} className={`faq-item ${openFaqId === faq.id ? 'open' : ''}`}>
-                            <button onClick={() => setOpenFaqId(openFaqId === faq.id ? null : faq.id)}>
-                                <span>{faq.q}</span>
-                                <span className="faq-icon">{openFaqId === faq.id ? '−' : '+'}</span>
-                            </button>
-                            {openFaqId === faq.id && (
-                                <div className="faq-answer">
-                                    <p>해당 내용에 대한 답변이 준비 중입니다.</p>
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            </section>
         </div>
     )
 }
 
-// ─── RE:CASTiFY 탭 (추후 추가) ───────────────────────
 function RecastifyTab() {
     return (
         <div className="store-recastify">

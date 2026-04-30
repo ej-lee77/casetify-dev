@@ -94,7 +94,7 @@ export default function BrandAuthentication() {
 
             {/* FAQ */}
             <section className="auth-faq-section">
-                <h2 className="auth-faq-title">모든 소재에 관한 제품 관리 가이드 보기 (FAQs)</h2>
+                <h2 className="auth-faq-title">제품 인증 관련 (FAQs)</h2>
                 <div className="auth-faq-list">
                     {AUTH_FAQS.map(faq => (
                         <div

@@ -1,36 +1,31 @@
 @use "../../App.scss" as g;
 
-.bp-wrap{
+.bp-wrap {
 
-    .swiper-pagination {
-        position: absolute;
-        right: 50px !important;
-        left: 190px !important;
-        bottom: 10px !important;
-        transform: none !important;
-    }
+    .bp-scrollbar {
+        width: 100%;
+        height: 3px;
+        background: #ddd;
+        cursor: grab;
+        margin-top: 8px;
 
-    .swiper-pagination-bullet {
-        width: 40px;
-        height: 10px;
-        border-radius: 0;
-        background-color: #E4E4E4;
-
-        &.swiper-pagination-bullet-active {
-            background-color: rgba(255, 255, 255, 0.7);
-            width: 70px;
+        .swiper-scrollbar-drag {
+            height: 100%;
+            background: #111;
+            border-radius: 0;
         }
     }
 
     .all {
         padding: 0;
         height: 100%;
-        @include g.myFlex($jc:normal, $ai: normal);
+        @include g.myFlex($jc: normal, $ai: normal);
         flex: 1;
 
         .left {
             height: 100%;
             width: 50%;
+
             .swiper {
                 width: 100%;
                 height: 100%;
@@ -45,7 +40,6 @@
 
         .right {
             @include g.myFlex($fd: column, $jc: end);
-            // padding: 0;
             width: 100%;
 
             ul {
@@ -67,11 +61,15 @@
 
                 .name {
                     color: g.$text-main;
+                    font-weight: 700;
                     @include g.multi-ellipsis($lines: 1);
+                    max-width: 160px;
+                    margin: 0 auto;
                 }
 
                 li {
                     cursor: pointer;
+
                     img {
                         width: 180px;
                     }
@@ -83,7 +81,7 @@
                 color: g.$text-main;
                 width: 260px;
                 display: block;
-                margin: 0 auto; // ⭐ 위만 띄우기
+                margin: 0 auto;
                 background: #fff;
                 border: 1px solid #2d2d2d;
                 height: 40px;
@@ -98,5 +96,3 @@
         }
     }
 }
-
-

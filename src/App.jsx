@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import './App.css'
 import './App.scss'
 import Header from './components/Header'
@@ -25,6 +25,7 @@ import SearchPage from './pages/SearchPage'
 import SearchNavigator from './components/sub/SearchNavigator'
 import BrandQna from './pages/BrandQna'
 import Store from './pages/Store'
+import ProductCustomizePage from './components/sub/custom/pages/ProductCustomizePage'
 import Gift from './pages/Gift'
 import BrandAuthentication from './pages/BrandAuthentication'
 
@@ -41,10 +42,10 @@ function App() {
       window.history.scrollRestoration = 'manual';
     }
 
-    // 페이지 이동 직후 실행
+    if (window.location.hash) return;
+
     window.scrollTo(0, 0);
 
-    // 팝업 렌더링 대비한
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 50);
@@ -59,10 +60,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
 
+        <Route path='/case/custom' element={<Navigate to="/custom" replace />} />
+
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
-        <Route path='/custom' element={<CustomPage />} />
-        <Route path='/giftcard' element={<Gift />} />
+        <Route path='/case/custom' element={<ProductCustomizePage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />

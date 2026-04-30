@@ -1,0 +1,350 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 자리 고정 — 라벨 없어도 레이아웃 안 밀림 */
+.labelWrap {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+/* 마운트될 때마다 항상 fadeInUp 실행 */
+.label {
+  font-size: 35px;
+ background: radial-gradient(circle, rgb(255, 180, 213) 30%, rgb(100, 150, 207) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  animation: fadeInUp 0.4s ease forwards;
+  margin-bottom: 30px;
+}
+.phoneOuter {
+  width: 260px;
+  position: relative;
+}
+
+.caseBody {
+  width: 260px;
+  height: 520px;
+  background: var(--case-color, #111);
+  border-radius: 46px;
+  position: relative;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.30), 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  margin-bottom: 160px;
+  margin-top: ;
+}
+
+.cameraIsland {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  width: 70px;
+  height: 70px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 10px;
+  z-index: 10;
+}
+
+.lens {
+  background: #1a1a2e;
+  border-radius: 50%;
+  border: 1px solid #333;
+}
+
+.screen {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  right: 17px;
+  bottom: 17px;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.textOverlay {
+  font-size: 44px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  word-break: break-all;
+  padding: 12px;
+  max-width: 100%;
+}
+
+.placeholder {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,120,60,0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,120,60,0.2) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 1024px 이하 */
+@media (max-width: 1024px) {
+  .phoneOuter {
+    width: 230px;
+  }
+  .caseBody {
+    width: 230px;
+    height: 460px;
+    border-radius: 42px;
+  }
+  .cameraIsland {
+    width: 62px;
+    height: 62px;
+    top: 13px;
+    right: 15px;
+  }
+  .textOverlay {
+    font-size: 38px;
+  }
+}
+
+/* 768px 이하 */
+@media (max-width: 768px) {
+  .phoneOuter {
+    width: 210px;
+  }
+  .caseBody {
+    width: 210px;
+    height: 420px;
+    border-radius: 38px;
+  }
+  .cameraIsland {
+    width: 58px;
+    height: 58px;
+    top: 12px;
+    right: 14px;
+    border-radius: 13px;
+  }
+  .textOverlay {
+    font-size: 34px;
+  }
+}
+
+/* 480px 이하 */
+@media (max-width: 480px) {
+  .phoneOuter {
+    width: 180px;
+  }
+  .caseBody {
+    width: 180px;
+    height: 360px;
+    border-radius: 34px;
+  }
+  .cameraIsland {
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    right: 12px;
+    border-radius: 11px;
+    padding: 8px;
+  }
+  .textOverlay {
+    font-size: 28px;
+  }
+  .label {
+    font-size: 13px;
+  }
+}
+/* ── 태블릿 모형 ── */
+.tabletOuter {
+  width: 300px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.tabletBody {
+  width: 300px;
+  height: 400px;
+  background: var(--case-color, #111);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.30), 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabletCamera {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #1a1a2e;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.tabletScreen {
+  position: absolute;
+  top: 28px;
+  left: 14px;
+  right: 14px;
+  bottom: 28px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabletHomeBtn {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  z-index: 10;
+}
+
+/* ── 노트북 모형 ── */
+.laptopOuter {
+  width: 380px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.laptopLid {
+  width: 380px;
+  height: 240px;
+  background: var(--case-color, #111);
+  border-radius: 12px 12px 4px 4px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.30);
+  overflow: hidden;
+}
+
+.laptopCamera {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  background: #1a1a2e;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.laptopScreen {
+  position: absolute;
+  top: 22px;
+  left: 14px;
+  right: 14px;
+  bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laptopBase {
+  width: 100%;
+  height: 28px;
+  background: color-mix(in srgb, var(--case-color, #111) 85%, #888);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 4px 20px;
+}
+
+.laptopKeyboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.laptopKeyRow {
+  height: 3px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+}
+
+.laptopTrackpad {
+  width: 60px;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+/* 반응형 태블릿 */
+@media (max-width: 1024px) {
+  .tabletOuter { width: 260px; }
+  .tabletBody  { width: 260px; height: 350px; }
+  .laptopOuter { width: 320px; }
+  .laptopLid   { width: 320px; height: 200px; }
+}
+
+@media (max-width: 768px) {
+  .tabletOuter { width: 220px; }
+  .tabletBody  { width: 220px; height: 300px; }
+  .laptopOuter { width: 280px; }
+  .laptopLid   { width: 280px; height: 180px; }
+}
+
+@media (max-width: 480px) {
+  .tabletOuter { width: 180px; }
+  .tabletBody  { width: 180px; height: 240px; }
+  .laptopOuter { width: 240px; }
+  .laptopLid   { width: 240px; height: 150px; }
+}
