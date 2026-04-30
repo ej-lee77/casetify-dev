@@ -1,0 +1,108 @@
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.outer {
+  background: #fff;
+  border: 1px solid #e8e4da;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 1000px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+
+  margin: 30px;
+  border: 1px solid #DFE8F2;
+  background: #DFE8F2;
+  padding: 30px 50px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 26px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.body::-webkit-scrollbar {
+  width: 6px;
+}
+.body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+@media (max-width: 1024px) {
+  .outer {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .outer {
+    height: auto;
+    min-height: 360px;
+  }
+  .header {
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+  .body {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .body {
+    padding: 14px;
+  }
+}
+
+
+.footer {
+  flex-shrink: 0;
+  padding: 14px 26px 18px;
+  border-top: 1px solid #f0ece4;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 기본: 자리만 차지, 투명 */
+.nextBtn {
+  padding: 11px 28px;
+  border: none;
+  border-radius: 22px;
+  background: #c4a882;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-family: inherit;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+}
+
+/* 완료 시 fadeInUp */
+.nextBtnVisible {
+  animation: fadeInUp 0.35s ease forwards;
+  pointer-events: auto;
+}
+
+.nextBtn:hover {
+  background: #b8976e;
+}
