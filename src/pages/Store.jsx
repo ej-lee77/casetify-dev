@@ -143,13 +143,17 @@ export default function Store() {
       return a.distance - b.distance;
     });
 
-  // 메장 리스트 페이지 계산
+  // 매장 리스트 페이지 계산
   const indexOfLast = currentPage * itemsPerPage;
   const indexOfFirst = indexOfLast - itemsPerPage;
 
   const currentList = filteredList.slice(indexOfFirst, indexOfLast);
 
   const totalPages = Math.ceil(filteredList.length / itemsPerPage);
+
+  // 버튼 상태 조건
+  const isPrevDisabled = currentPage === 1;
+  const isNextDisabled = currentPage === totalPages;
 
   // 필터 변경시 매장 리스트 페이지 처음으로 이동
   useEffect(() => {
@@ -208,7 +212,13 @@ export default function Store() {
           </div>
 
           <div className="store-list-pager">
-            <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}>이전</button>
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={isPrevDisabled}
+              className={isPrevDisabled ? "disabled" : ""}
+            >
+              <img src="/images/store/Pager-Arrow_Prev.svg" alt="이전" />
+            </button>
             <div className="pager-btn-area">
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
@@ -220,7 +230,13 @@ export default function Store() {
                 </button>
               ))}
             </div>
-            <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}>다음</button>
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={isNextDisabled}
+              className={isNextDisabled ? "disabled" : ""}
+            >
+              <img src="/images/store/Pager-Arrow_Next.svg" alt="다음" />
+            </button>
           </div>
         </div>
       </div>
