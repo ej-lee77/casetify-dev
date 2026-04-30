@@ -4,6 +4,7 @@ import { useAuthStore } from '../store/useAuthStore'
 import { items as finalData } from '../data/finalData'
 import { AUTH_FAQS } from '../data/authFaqs'
 import './scss/BrandAuthentication.scss'
+import './scss/BrandQna.scss'
 
 export default function BrandAuthentication() {
     const navigate = useNavigate()
@@ -11,21 +12,14 @@ export default function BrandAuthentication() {
 
     const [serialNumber, setSerialNumber] = useState('')
     const [openFaqId, setOpenFaqId] = useState(null)
-
-    // 팝업 상태
     const [popup, setPopup] = useState(null)
-    // popup: null | 'login' | 'success' | 'fail'
 
     const handleAuthenticate = () => {
         if (!serialNumber.trim()) return
-
-        // 로그인 안 된 경우
         if (!user) {
             setPopup('login')
             return
         }
-
-        // finalData에서 id 일치 여부 확인
         const matched = finalData.find(item => item.id === serialNumber.trim())
         if (matched) {
             setPopup('success')
@@ -92,56 +86,54 @@ export default function BrandAuthentication() {
                 </div>
             </section>
 
-            {/* FAQ */}
-            <section className="auth-faq-section">
-                <h2 className="auth-faq-title">제품 인증 관련 (FAQs)</h2>
-                <div className="auth-faq-list">
-                    {AUTH_FAQS.map(faq => (
-                        <div
-                            key={faq.id}
-                            className={`auth-faq-item ${openFaqId === faq.id ? 'open' : ''}`}
-                        >
-                            <button
-                                className="auth-faq-question"
-                                onClick={() => setOpenFaqId(openFaqId === faq.id ? null : faq.id)}
+            {/* FAQ — BrandQna와 동일한 클래스 사용 */}
+            <section className="faq-section">
+                <div className="faq-inner">
+                    <h2 className="section-heading">제품 인증 관련 (FAQs)</h2>
+                    <div className="faq-accordion">
+                        {AUTH_FAQS.map(faq => (
+                            <div
+                                key={faq.id}
+                                className={`faq-item ${openFaqId === faq.id ? 'open' : ''}`}
                             >
-                                <span>{faq.q}</span>
-                                <span className="auth-faq-icon">
-                                    {openFaqId === faq.id ? '×' : '+'}
-                                </span>
-                            </button>
-                            {openFaqId === faq.id && (
-                                <div className="auth-faq-answer">
-                                    {faq.a.split('\n\n').map((para, i) => (
-                                        <p key={i}>{para}</p>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    ))}
+                                <button
+                                    className="faq-question"
+                                    onClick={() => setOpenFaqId(openFaqId === faq.id ? null : faq.id)}
+                                >
+                                    <span>{faq.q}</span>
+                                    <svg
+                                        className="faq-chevron"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                    >
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </button>
+                                {openFaqId === faq.id && (
+                                    <div className="faq-answer">
+                                        {faq.a.split('\n\n').map((para, i) => (
+                                            <p key={i}>{para}</p>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
-            {/* ─── 팝업: 로그인 필요 ─── */}
+            {/* 팝업: 로그인 필요 */}
             {popup === 'login' && (
                 <div className="popup-overlay">
                     <div className="popup-wrap">
                         <div className="popup">
                             <p>로그인이 필요한 서비스입니다.<br />로그인 후 정품인증을 진행해주세요.</p>
                             <div className="popup-buttons">
-                                <button
-                                    className="btn-continue"
-                                    onClick={closePopup}
-                                >
-                                    닫기
-                                </button>
-                                <button
-                                    className="btn-go-wish"
-                                    onClick={() => {
-                                        closePopup()
-                                        navigate('/login')
-                                    }}
-                                >
+                                <button className="btn-continue" onClick={closePopup}>닫기</button>
+                                <button className="btn-go-wish" onClick={() => { closePopup(); navigate('/login') }}>
                                     로그인 페이지 이동하기
                                 </button>
                             </div>
@@ -150,29 +142,17 @@ export default function BrandAuthentication() {
                 </div>
             )}
 
-            {/* ─── 팝업: 인증 성공 ─── */}
+            {/* 팝업: 인증 성공 */}
             {popup === 'success' && (
                 <div className="popup-overlay">
                     <div className="popup-wrap">
                         <div className="popup">
                             <p>정품인증이 완료되었습니다! 🎉</p>
                             <div className="popup-buttons">
-                                <button
-                                    className="btn-continue"
-                                    onClick={() => {
-                                        closePopup()
-                                        navigate('/')
-                                    }}
-                                >
+                                <button className="btn-continue" onClick={() => { closePopup(); navigate('/') }}>
                                     계속 홈가기
                                 </button>
-                                <button
-                                    className="btn-go-wish"
-                                    onClick={() => {
-                                        closePopup()
-                                        setSerialNumber('')
-                                    }}
-                                >
+                                <button className="btn-go-wish" onClick={() => { closePopup(); setSerialNumber('') }}>
                                     계속 인증하기
                                 </button>
                             </div>
@@ -181,19 +161,14 @@ export default function BrandAuthentication() {
                 </div>
             )}
 
-            {/* ─── 팝업: 인증 실패 ─── */}
+            {/* 팝업: 인증 실패 */}
             {popup === 'fail' && (
                 <div className="popup-overlay">
                     <div className="popup-wrap">
                         <div className="popup">
                             <p>일련번호를 확인해주세요.<br />입력하신 번호와 일치하는 제품을 찾을 수 없습니다.</p>
                             <div className="popup-buttons">
-                                <button
-                                    className="btn-close"
-                                    onClick={closePopup}
-                                >
-                                    닫기
-                                </button>
+                                <button className="btn-close" onClick={closePopup}>닫기</button>
                             </div>
                         </div>
                     </div>
