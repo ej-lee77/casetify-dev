@@ -7,7 +7,7 @@ import { useAuthStore } from "../../store/useAuthStore";
 export default function CategoryPhoneProductCard({ item }) {
     const [isImageError, setIsImageError] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const [feedback, setFeedback] = useState(null); // "cart" | "wish" | "login"
+    const [feedback, setFeedback] = useState(null);
     const { user, onAddToCart, onAddWishlist, wishlist } = useAuthStore();
     const navigate = useNavigate();
 
@@ -30,16 +30,18 @@ export default function CategoryPhoneProductCard({ item }) {
         setTimeout(() => setFeedback(null), 1500);
     };
 
-    // item.isWish: true  → 옵션 선택 불필요, 바로 담기
-    // item.isWish: false → 옵션 선택 필요, 상세페이지로 이동
     const handleWish = async (e) => {
         e.preventDefault();
         if (!item.isWish) {
             showFeedback("needDetail");
-            setTimeout(() => navigate(`/detail/${item.id}`), 1000);
+            setTimeout(() => navigate(`/detail/${item.id}`), 1500);
             return;
         }
-        if (!user) { navigate("/login"); return; }
+        if (!user) {
+            showFeedback("login");
+            setTimeout(() => navigate("/login"), 1500);
+            return;
+        }
         const result = await onAddWishlist({
             id: item.id,
             productName: item.productName,
@@ -56,10 +58,14 @@ export default function CategoryPhoneProductCard({ item }) {
         e.preventDefault();
         if (!item.isWish) {
             showFeedback("needDetail");
-            setTimeout(() => navigate(`/detail/${item.id}`), 1000);
+            setTimeout(() => navigate(`/detail/${item.id}`), 1500);
             return;
         }
-        if (!user) { navigate("/login"); return; }
+        if (!user) {
+            showFeedback("login");
+            setTimeout(() => navigate("/login"), 1500);
+            return;
+        }
         await onAddToCart({
             id: item.id,
             productName: item.productName,
@@ -98,12 +104,17 @@ export default function CategoryPhoneProductCard({ item }) {
                     </div>
                 </Link>
 
-                {/* 하트 - 항상 우측 상단 */}
-                <button className={`btn-wish${isWished ? " wished" : ""}`} onClick={handleWish} title="찜하기">
-                    <img src="/images/icon/icon_favorite.svg" alt="찜하기" />
+                <button
+                    className={`btn-wish${isWished ? " wished" : ""}`}
+                    onClick={handleWish}
+                    title="찜하기"
+                >
+                    <img
+                        src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
+                        alt="찜하기"
+                    />
                 </button>
 
-                {/* 장바구니 - 호버 시 하단 */}
                 <div className="card-hover-actions">
                     <button className="btn-cart" onClick={handleCart} title="장바구니">
                         <img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" />
@@ -111,13 +122,13 @@ export default function CategoryPhoneProductCard({ item }) {
                     </button>
                 </div>
 
-                {/* 피드백 토스트 */}
                 {feedback && (
-                    <div className={`card-feedback${feedback === "needDetail" ? " need-detail" : ""}`}>
+                    <div className={`card-feedback${feedback === "needDetail" || feedback === "login" ? " need-detail" : ""}`}>
                         {feedback === "cart" && "장바구니에 담겼어요"}
                         {feedback === "wish" && "찜 목록에 추가됐어요"}
                         {feedback === "unwish" && "찜 목록에서 제거됐어요"}
                         {feedback === "needDetail" && "상세 내역을 선택해 주세요"}
+                        {feedback === "login" && "로그인이 필요한 서비스예요"}
                     </div>
                 )}
             </div>
@@ -152,7 +163,6 @@ export default function CategoryPhoneProductCard({ item }) {
                                 style={{ backgroundColor: colorMap[color] || "#ddd" }}
                             />
                         ))}
-
                         {extraCount > 0 && (
                             <span className="color-more">+{extraCount}</span>
                         )}
