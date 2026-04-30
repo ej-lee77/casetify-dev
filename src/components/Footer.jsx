@@ -86,7 +86,7 @@ export default function Footer() {
                 <li><img src="/images/icon/payment_kakao-pay.svg" alt="결제수단:카카오페이" /></li>
                 <li><img src="/images/icon/payment_naver-pay.svg" alt="결제수단:네이버페이" /></li>
               </ul>
-              <p className="remark"><Link to="/brand/qna"><span>개인정보처리방침</span></Link><Link to="/brand/qna"><span>약관</span></Link></p>
+              <p className="remark"><Link to="/brand/qna" state={{activeTab: 'privacy'}}><span>개인정보처리방침</span></Link><Link to="/brand/qna" state={{activeTab: 'terms'}}><span>약관</span></Link></p>
               <p className='copy'>Copyright © 2026 CASETiFY</p>
             </div>
             <div className="cs-info">
