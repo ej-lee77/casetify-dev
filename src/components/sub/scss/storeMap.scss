@@ -24,6 +24,14 @@
 //     }
 // }
 
+#map {
+    >div {
+        >div:first-child {
+            filter: grayscale(100%);
+        }
+    }
+}
+
 .storeinfo-window {
     width: 200px;
     // min-height: 100px;
