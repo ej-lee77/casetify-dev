@@ -16,7 +16,7 @@ div {
         gap: 40px;
         justify-content: center;
         position: relative;
-        margin: 20px 0 40px 0;
+        margin: 20px 0 80px 0;
         padding: 0 20px;
 
 
@@ -151,66 +151,68 @@ div {
                 width: 100%;
                 margin-bottom: 16px;
 
-                .point-bar-labels {
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
+
+                .point-bar-fill {
+                    height: 100%;
+                    background-color: #e67e22; /* 주황색 채우기 */
+                    border-radius: 4px;
+                    transition: width 0.5s ease-in-out; /* 부드러운 움직임 */
+                }
+
+                .point-bar-thumb {
+                    position: absolute;
+                    top: 50%;
+                    width: 20px;
+                    height: 20px;
+                    background-color: #fff;
+                    border: 3px solid #e67e22;
+                    border-radius: 50%;
+                    transform: translate(-50%, -50%); /* 중심점 맞추기 */
+                    transition: left 0.5s ease-in-out;
+                }
+
+                .point-bar-labels, .point-bar-numbers {
+                    display: flex;
+                    width: 100%;
+                }
+                .point-bar-labels{
+                    margin-bottom: 5px;
+                }
+                .point-bar-numbers{
+                    margin-top: 6px;
+                }
+
+                .label-item {
+                    flex: 1; /* 모든 항목이 동일한 가로 공간을 차지 */
                     text-align: center;
-                    font-size: 0.75rem;
-                    font-weight: bold;
-                    margin-bottom: 6px;
+                    font-size: 14px;
+                    white-space: nowrap;
+                }
 
-                    span:first-child {
-                        text-align: left;
-                    }
+                /* 양 끝 텍스트 위치 보정 */
+                .label-item:first-child {
+                    text-align: left; /* '베이직'과 '0'은 왼쪽 끝에 밀착 */
+                }
+                .label-item:nth-child(2) {
+                    padding-right: 35px;
+                }
 
-                    span:last-child {
-                        text-align: right;
-                    }
+                .label-item:last-child {
+                    text-align: right; /* '골드'와 '200'은 오른쪽 끝에 밀착 */
+                }
+
+                /* 바(Track)의 너비 설정 */
+                .point-bar-track-container {
+                    padding: 10px 0; /* 위아래 간격 */
+                    /* 텍스트가 양 끝으로 붙었으므로, 바의 위치도 그에 맞게 마진 조정 */
+                    margin: 0 5px; 
                 }
 
                 .point-bar-track {
                     position: relative;
                     height: 8px;
                     background-color: #fff;
-                    border-radius: 4px;
-
-                    .point-bar-fill {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        height: 100%;
-                        width: 40%;
-                        background-color: #E07B00;
-                        border-radius: 4px;
-                    }
-
-                    .point-bar-thumb {
-                        position: absolute;
-                        top: 50%;
-                        left: 37%;
-                        transform: translate(-50%, -50%);
-                        width: 18px;
-                        height: 18px;
-                        background-color: #fff;
-                        border: 3px solid #E07B00;
-                        border-radius: 50%;
-                    }
-                }
-
-                .point-bar-numbers {
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    text-align: center;
-                    font-size: 0.75rem;
-                    margin-top: 6px;
-
-                    span:first-child {
-                        text-align: left;
-                    }
-
-                    span:last-child {
-                        text-align: right;
-                    }
+                    border-radius: 10px;
                 }
             }
 
@@ -256,7 +258,7 @@ div {
     .input-p {
         // border: 2px solid rgb(82, 189, 61);
         display: flex;
-        padding: 20px;
+        // padding: 20px;
         gap: 40px;
         font-size: 0.85em;
         margin-top: 20px;
@@ -290,7 +292,7 @@ div {
         }
 
         .alone {
-            width: 490px;
+            width: 520px;
         }
 
         input:focus~span,
@@ -345,8 +347,8 @@ div {
     border-top: 1px solid #ddd;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 80px;
 
     .pass-notice {
         font-size: 0.75em;

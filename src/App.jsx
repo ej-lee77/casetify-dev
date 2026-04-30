@@ -25,7 +25,7 @@ import SearchPage from './pages/SearchPage'
 import SearchNavigator from './components/sub/SearchNavigator'
 import BrandQna from './pages/BrandQna'
 import Store from './pages/Store'
-import ProductCustomizePage from './components/sub/custom/pages/ProductCustomizePage'
+import ProductCustomizePage from './pages/ProductCustomizePage'
 import Gift from './pages/Gift'
 import BrandAuthentication from './pages/BrandAuthentication'
 
@@ -64,7 +64,9 @@ function App() {
 
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
-        <Route path='/case/custom' element={<ProductCustomizePage />} />
+
+        <Route path='/custom' element={<CustomPage />} />
+        <Route path='/custom/studio' element={<ProductCustomizePage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />

@@ -11,9 +11,15 @@ const methodMap = {
     naverpay: "네이버페이"
 };
 
+const gradeList = [
+    {key: "bronze", label: "브론즈", rate: 15},
+    {key: "silver", label: "실버", rate: 20},
+    {key: "gold", label: "골드", rate: 30}
+]
+
 export default function PayComplete() {
     const location = useLocation();
-    const { orderId } = location.state || {};
+    const { orderId, grade } = location.state || {};
 
     // 스토어에서 주문 내역 가져오기
     const {orderList} = useAuthStore();
@@ -24,6 +30,11 @@ export default function PayComplete() {
     // 만약 데이터가 없으면 예외 처리
     if (!currentOrder) {
         return <div className='error-box'>주문 정보를 찾을 수 없습니다.</div>;
+    }
+
+    let gradeMsg = "";
+    if(grade !== ""){
+        gradeMsg = gradeList.filter(g => g.key === grade)[0];
     }
 
     return (
@@ -56,6 +67,7 @@ export default function PayComplete() {
                 </div>
                 <div className="complete-msg">
                     <span className='coupon'>주문이 완료 되었습니다</span>
+                    <p>{gradeMsg !== "" ? `${gradeMsg.label}등급 승급! ${gradeMsg.rate}% 쿠폰이 발급됐습니다.` : ""}</p>
                     <p>{currentOrder.orderDate} 주문하신 상품의</p>
                     <p>주문번호는 {orderId}입니다.</p>
 
