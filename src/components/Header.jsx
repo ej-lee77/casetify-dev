@@ -119,7 +119,7 @@ export default function Header() {
                       <Link to="/brand/certify">정품인증</Link>
                     </li>
                     <li>
-                      <Link to="/mypage" state={{ menu: "기프트 카드" }}>기프트카드</Link>
+                      <Link to="/mypage" state={{ menu: "기프트 카드/쿠폰" }}>기프트카드</Link>
                     </li>
                   </ul>
                 </li>

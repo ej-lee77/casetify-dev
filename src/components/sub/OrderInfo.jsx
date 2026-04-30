@@ -40,6 +40,7 @@ const tabs = ['전체', '배송준비중', '배송중', '배송완료', '취소/
 
 export default function OrderInfo() {
     const {user, orderList, onFetchOrder, onUpdateAllItemsStatus} = useAuthStore();
+    const [allCheckedMode, setAllCheckedMode] = useState(false);
     // 검색할 시작/종료 날짜 상태
     const [startDate, setStartDate] = useState(() => {
         const d = new Date();
@@ -93,15 +94,16 @@ export default function OrderInfo() {
         applyFilters(tabName, startDate, endDate);
     };
 
-    const handleAllAction = async (e, order) => {
-        e.stopPropagation(); // 카드 클릭 이벤트(모달 열기)와 겹치지 않게 방지
+    const handleAllAction = (e, order) => {
+        e.stopPropagation();
 
-        const isCancelable = order.orderStatus === '배송준비중';
-        const actionText = isCancelable ? "전체 취소" : "전체 반품/교환";
-
-        if (window.confirm(`이 주문의 모든 상품을 ${actionText} 하시겠습니까?`)) {
-            await onUpdateAllItemsStatus(order.orderId, isCancelable);
-        }
+        // 1. 모든 아이템의 인덱스 배열 생성 [0, 1, 2, ...]
+        const allIndexes = order.orderItems.map((_, idx) => idx);
+        
+        // 2. 전체 선택 모드임을 알리는 상태와 함께 모달 데이터 설정
+        // (선택사항: 상세 모달 컴포넌트가 이 인덱스들을 초기값으로 갖게 함)
+        setSelectedOrder(order);
+        setAllCheckedMode(true); 
     };
 
     const applyFilters = (tabName, start, end) => {
@@ -149,9 +151,10 @@ export default function OrderInfo() {
         setSelectedOrder(order); // 데이터를 넣어서 모달을 염
     };
 
-    // 모달 닫기 핸들러
+    // 모달을 닫을 때 상태 초기화
     const handleCloseModal = () => {
-        setSelectedOrder(null); // 데이터를 비워서 모달을 닫음
+        setSelectedOrder(null);
+        setAllCheckedMode(false);
     };
 
     return (
@@ -274,8 +277,9 @@ export default function OrderInfo() {
                         </div>
                     {selectedOrder && (
                         <OrderDetailModal 
-                        order={selectedOrder} 
-                        onClose={handleCloseModal} 
+                            order={selectedOrder} 
+                            onClose={handleCloseModal} 
+                            initialAllChecked={allCheckedMode} // Props 추가
                         />
                     )}
                 </div>

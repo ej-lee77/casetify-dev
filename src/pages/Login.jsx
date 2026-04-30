@@ -53,7 +53,7 @@ export default function Login() {
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 3000);
+        }, 2000);
       }else if(isLogin === "첫로그인"){
         navigate("/join/complete");
       }else if(isLogin === "생일"){
@@ -64,7 +64,7 @@ export default function Login() {
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 3000);
+        }, 2000);
       }else if(isLogin === "첫로그인생일"){
         setIsModalOpen(true);
         setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
@@ -72,7 +72,7 @@ export default function Login() {
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/join/complete");
-        }, 3000);
+        }, 2000);
       }else if(isLogin === "메일인증"){
         // console.log("here veri")
         setIsModalOpen(true);
@@ -88,14 +88,23 @@ export default function Login() {
       console.log("구글 로그인");
       const isLogin = await onGoogleLogin();
 
-      if(isLogin){
+      if(isLogin === true){
         // 1. 로그인 성공 가정
         setIsModalOpen(true);
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 2000);
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         // 실패: 에러 메시지
         setLoginErr("구글로그인 실패");
@@ -107,14 +116,23 @@ export default function Login() {
       console.log("카카오 로그인");
       const isLogin = await onKakaoLogin();
 
-      if(isLogin){
+      if(isLogin === true){
         // 1. 로그인 성공 가정
         setIsModalOpen(true);
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 2000);
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         // 실패: 에러 메시지
         setLoginErr("카카오로그인 실패");
@@ -126,14 +144,23 @@ export default function Login() {
       console.log("네이버 로그인");
       const isLogin = await onNaverLogin();
 
-      if(isLogin){
+      if(isLogin === true){
         // 1. 로그인 성공 가정
         setIsModalOpen(true);
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 2000);
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         // 실패: 에러 메시지
         setLoginErr("네이버로그인 실패");

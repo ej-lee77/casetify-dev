@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 import { AUTH_FAQS } from '../data/authFaqs'
@@ -7,7 +7,7 @@ import './scss/BrandQna.scss'
 
 export default function BrandAuthentication() {
     const navigate = useNavigate()
-    const { onAuthenticate } = useAuthStore()
+    const { onAuthenticate, onFetchOrder, user } = useAuthStore()
 
     const [serialNumber, setSerialNumber] = useState('')
     const [openFaqId, setOpenFaqId] = useState(null)
@@ -19,6 +19,11 @@ export default function BrandAuthentication() {
         const result = await onAuthenticate(serialNumber)
         setPopup(result)
     }
+
+    useEffect(()=>{
+        if (!user) return;
+        onFetchOrder();
+    }, [user]);
 
     const closePopup = () => setPopup(null)
 
