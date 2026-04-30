@@ -1,36 +1,26 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
-import { items as finalData } from '../data/finalData'
 import { AUTH_FAQS } from '../data/authFaqs'
 import './scss/BrandAuthentication.scss'
 import './scss/BrandQna.scss'
 
 export default function BrandAuthentication() {
     const navigate = useNavigate()
-    const { user } = useAuthStore()
+    const { onAuthenticate } = useAuthStore()
 
     const [serialNumber, setSerialNumber] = useState('')
     const [openFaqId, setOpenFaqId] = useState(null)
     const [popup, setPopup] = useState(null)
+    // popup: null | 'login' | 'success' | 'already' | 'fail' | 'error'
 
-    const handleAuthenticate = () => {
+    const handleAuthenticate = async () => {
         if (!serialNumber.trim()) return
-        if (!user) {
-            setPopup('login')
-            return
-        }
-        const matched = finalData.find(item => item.id === serialNumber.trim())
-        if (matched) {
-            setPopup('success')
-        } else {
-            setPopup('fail')
-        }
+        const result = await onAuthenticate(serialNumber)
+        setPopup(result)
     }
 
-    const closePopup = () => {
-        setPopup(null)
-    }
+    const closePopup = () => setPopup(null)
 
     return (
         <div className="brand-auth-page">
@@ -86,7 +76,7 @@ export default function BrandAuthentication() {
                 </div>
             </section>
 
-            {/* FAQ — BrandQna와 동일한 클래스 사용 */}
+            {/* FAQ */}
             <section className="faq-section">
                 <div className="faq-inner">
                     <h2 className="section-heading">제품 인증 관련 (FAQs)</h2>
@@ -142,18 +132,41 @@ export default function BrandAuthentication() {
                 </div>
             )}
 
-            {/* 팝업: 인증 성공 */}
+            {/* 팝업: 인증 성공 + 쿠폰 발급 */}
             {popup === 'success' && (
                 <div className="popup-overlay">
                     <div className="popup-wrap">
                         <div className="popup">
-                            <p>정품인증이 완료되었습니다! 🎉</p>
+                            <p>정품인증이 완료되었습니다! 🎉<br />정품인증 감사 쿠폰 10%가 발급되었습니다.<br />마이페이지에서 확인해보세요.</p>
                             <div className="popup-buttons">
-                                <button className="btn-continue" onClick={() => { closePopup(); navigate('/') }}>
-                                    계속 홈가기
+                                <button className="btn-continue" onClick={() => {
+                                    sessionStorage.setItem('mypageTab', '기프트 카드/쿠폰');
+                                    navigate('/mypage');
+                                    closePopup();
+                                }}>
+                                    마이페이지 이동
                                 </button>
                                 <button className="btn-go-wish" onClick={() => { closePopup(); setSerialNumber('') }}>
                                     계속 인증하기
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* 팝업: 이미 인증함 */}
+            {popup === 'already' && (
+                <div className="popup-overlay">
+                    <div className="popup-wrap">
+                        <div className="popup">
+                            <p>이미 정품인증 쿠폰을 받으셨습니다.<br />마이페이지에서 쿠폰을 확인해주세요.</p>
+                            <div className="popup-buttons">
+                                <button className="btn-continue" onClick={() => { closePopup(); navigate('/mypage') }}>
+                                    마이페이지 이동
+                                </button>
+                                <button className="btn-go-wish" onClick={closePopup}>
+                                    닫기
                                 </button>
                             </div>
                         </div>
@@ -167,6 +180,20 @@ export default function BrandAuthentication() {
                     <div className="popup-wrap">
                         <div className="popup">
                             <p>일련번호를 확인해주세요.<br />입력하신 번호와 일치하는 제품을 찾을 수 없습니다.</p>
+                            <div className="popup-buttons">
+                                <button className="btn-close" onClick={closePopup}>닫기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* 팝업: 오류 */}
+            {popup === 'error' && (
+                <div className="popup-overlay">
+                    <div className="popup-wrap">
+                        <div className="popup">
+                            <p>일시적인 오류가 발생했습니다.<br />잠시 후 다시 시도해주세요.</p>
                             <div className="popup-buttons">
                                 <button className="btn-close" onClick={closePopup}>닫기</button>
                             </div>
