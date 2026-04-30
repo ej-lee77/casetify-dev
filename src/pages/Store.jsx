@@ -11,8 +11,9 @@ import { useProductStore } from '../store/useProductStore'
 export default function Store() {
   const [show, setShow] = useState(false);
   const [areas, setArea] = useState([])
-  const [areaList, setAreaList] = useState([])
-  const [selectCity, setSelectCity] = useState("지역을 선택하세요")
+  // const [areaList, setAreaList] = useState([])
+  const [selectCity, setSelectCity] = useState("전체")
+  const [sortByDistance, setSortByDistance] = useState(false);
 
   //########## 현재 위치 체크할 변수
   const [currentPos, setCurrentPos] = useState(null);
@@ -39,25 +40,26 @@ export default function Store() {
         };
       });
 
-    setAreaList(select);
+    // setAreaList(select);
 
-    if (select.length > 0) {
-      setSelectedLocation({
-        name: select[0].storeName,
-        lat: select[0].lat,
-        lng: select[0].lng,
-        address: select[0].storeAddress,
-        hours: select[0].openHour,
-        img: select[0].storeImg
-      });
-    }
+    // if (select.length > 0) {
+    //   setSelectedLocation({
+    //     name: select[0].storeName,
+    //     lat: select[0].lat,
+    //     lng: select[0].lng,
+    //     address: select[0].storeAddress,
+    //     hours: select[0].openHour,
+    //     img: select[0].storeImg
+    //   });
+    // }  //지역 선택 시 setSelectedLocation 실행됨
 
     setShow(false);
     setSelectCity(area);
+    setSortByDistance(false);
   };
 
   useEffect(() => {
-    setArea([...new Set(studioPosData.map(item => item.storeArea))])
+    setArea(["전체", ...new Set(studioPosData.map(item => item.storeArea))])
     console.log("지도내역", areas)
   }, [])
 
@@ -100,9 +102,42 @@ export default function Store() {
 
   // 검색관련 변수
   const { searchWord, onSetSearchWord } = useProductStore();
-  const filteredList = searchWord ?
-    areaList.filter((list) => list.storeName.toLowerCase().includes(searchWord.toLowerCase()))
-    : areaList;
+
+  // const filteredList = searchWord ?
+  //   areaList.filter((list) => list.storeName.toLowerCase().includes(searchWord.toLowerCase()))
+  //   : areaList;
+
+  const filteredList = studioPosData
+    .map((store) => {
+      if (!currentPos) return store;
+
+      const distance = getDistance(
+        currentPos.lat,
+        currentPos.lng,
+        store.lat,
+        store.lng
+      );
+
+      return {
+        ...store,
+        distance
+      };
+    })
+    .filter((store) => {
+      const matchCity =
+        selectCity === "전체" || store.storeArea === selectCity;
+
+      const matchSearch =
+        searchWord === "" ||
+        store.storeName.toLowerCase().includes(searchWord.toLowerCase());
+
+      return matchCity && matchSearch;
+    })
+    .sort((a, b) => {
+      if (!sortByDistance) return 0;
+      if (!a.distance || !b.distance) return 0;
+      return a.distance - b.distance;
+    });
 
   return (
     <div className="sub-page-wrap store-page">
@@ -123,7 +158,10 @@ export default function Store() {
           <div className="store-select-wrap">
             <div className='city-select'>
               <button className="select-btn" onClick={handleShow}>
-                <span>{selectCity}</span>
+                {/* <span>{selectCity}</span> */}
+                <span>
+                  {selectCity === "전체" ? "지역을 선택하세요" : selectCity}
+                </span>
                 <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span>
               </button>
               {show && <ul className='city-list'>
@@ -135,8 +173,8 @@ export default function Store() {
               }
             </div>
             <div className='near-list'>
-              <button className="select-btn" onClick={handleSelectArea}>
-                <span>가까운 지점 순으로 보기</span>
+              <button className="select-btn" onClick={() => setSortByDistance(prev => !prev)}>
+                <span>{sortByDistance ? "가까운 지점 순" : "가까운 지점 순으로 보기"}</span>
                 <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span>
               </button>
             </div>
