@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./scss/BrandQna.scss";
 import { AUTH_FAQS } from "../data/authFaqs";
-import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 // FAQ 데이터
