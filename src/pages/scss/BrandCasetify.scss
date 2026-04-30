@@ -87,7 +87,7 @@
 
     // 인트로
     .story-intro {
-        max-width: 880px;
+        max-width: 1440px;
         margin: 0 auto;
         padding: 80px 20px 0;
         text-align: center;
@@ -121,7 +121,7 @@
     // 제품 이미지 풀블리드
     .story-product-img {
         margin-top: 60px;
-        max-width: 880px;
+        max-width: 1440px;
         margin-left: auto;
         margin-right: auto;
         padding: 0 20px;
@@ -134,7 +134,7 @@
 
     // CEO 섹션
     .story-ceo {
-        max-width: 880px;
+        max-width: 1440px;
         margin: 80px auto 0;
         padding: 0 20px;
         @include g.myFlex($gap: 40px, $ai: flex-start);
@@ -173,7 +173,7 @@
 
     // 인용구
     .story-quote {
-        max-width: 880px;
+        max-width: 1440px;
         margin: 60px auto 0;
         padding: 0 20px;
 
@@ -202,7 +202,7 @@
 
     // 브랜드 철학
     .story-philosophy {
-        max-width: 880px;
+        max-width: 1440px;
         margin: 80px auto 0;
         padding: 0 20px;
         text-align: center;
@@ -276,7 +276,7 @@
 
     // 슬로건
     .standard-slogan {
-        max-width: 880px;
+        max-width: 1440px;
         margin: 0 auto;
         padding: 80px 20px 0;
         text-align: center;
@@ -295,7 +295,7 @@
 
     // 이미지 + 텍스트
     .standard-feature {
-        max-width: 1100px;
+        max-width: 1440px;
         margin: 60px auto 0;
         padding: 0 20px;
         @include g.myFlex($gap: 60px, $ai: flex-start);
@@ -322,7 +322,7 @@
 
     // 기술 소개
     .standard-tech {
-        max-width: 1100px;
+        max-width: 1440px;
         margin: 80px auto 0;
         padding: 0 20px;
         text-align: center;
@@ -340,7 +340,7 @@
 
             .tech-card {
                 flex: 1;
-                border: 1px solid g.$card-border;
+                // border: 1px solid g.$card-border;
                 padding: 20px;
                 text-align: center;
 
@@ -361,25 +361,12 @@
 
     // 하이라이트
     .standard-highlight {
-        max-width: 1100px;
-        margin: 40px auto 0;
+        max-width: 1440px;
+        margin: 0 auto;
         padding: 20px;
-        border: 1px solid g.$card-border;
-        @include g.myFlex($gap: 40px, $ai: center);
-
-        .highlight-left {
-            flex-shrink: 0;
-            width: 160px;
-
-            .highlight-label {
-                font-size: 0.85rem;
-                line-height: 1.8;
-                font-weight: 600;
-            }
-        }
 
         .highlight-img {
-            flex: 1;
+            position: relative;
 
             img {
                 width: 100%;
@@ -387,116 +374,171 @@
             }
         }
 
+        .highlight-left {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 1;
+
+            .highlight-label {
+                font-size: 0.85rem;
+                line-height: 1.8;
+                font-weight: 600;
+                color: #fff;
+            }
+        }
+
         .highlight-right {
-            flex: 1;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            z-index: 1;
 
             p {
                 font-size: 0.85rem;
                 line-height: 1.8;
-                color: g.$text-sub;
+                color: #fff;
             }
         }
     }
 
     // 100% 만족 배너
-    .standard-satisfaction {
-        background: #1D6EF5;
-        margin-top: 60px;
-        padding: 60px 20px;
-        text-align: center;
-
-        .satisfaction-banner {
-            margin-bottom: 32px;
-
-            .satisfaction-pct {
-                font-size: 4rem;
-                font-weight: 800;
-                color: #fff;
-                line-height: 1;
-            }
-
-            .satisfaction-label {
-                font-size: 1.8rem;
-                font-weight: 600;
-                color: #fff;
-                margin-top: 4px;
-            }
-        }
-
-        .satisfaction-desc {
-            font-size: 1rem;
-            line-height: 1.9;
-            color: g.$text-main;
-            background: g.$color-yellow;
-            display: inline-block;
-            padding: 32px 48px;
-        }
-    }
-
-    // 제품 보증 기간
     .standard-warranty {
-        max-width: 1100px;
-        margin: 80px auto 0;
-        padding: 0 20px;
+        .warranty-hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
 
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 28px;
-            text-align: center;
+            .warranty-hero-top {
+                background-color: #111;
+                height: 120px;
+            }
+
+            .warranty-hero-bottom {
+                background-color: #eee97a;
+                height: 100px;
+            }
+
+            .warranty-satisfaction {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #1a9bac;
+                border-radius: 20px;
+                padding: 28px 60px;
+                text-align: center;
+                z-index: 1;
+                white-space: nowrap;
+
+                p {
+                    color: #fff;
+                    font-size: 2.8rem;
+                    font-weight: 700;
+                    line-height: 1.3;
+                    margin: 0;
+                }
+            }
         }
 
-        .warranty-cards {
-            @include g.myFlex($gap: 20px, $ai: flex-start);
+        .warranty-content {
+            background-color: #eee97a;
+            padding: 40px 20px 60px;
 
-            .warranty-card {
-                flex: 1;
-                border: 1px solid g.$card-border;
-                padding: 24px;
+            .warranty-title {
                 text-align: center;
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 40px;
+                color: #2b6cb0;
+            }
 
-                img {
-                    width: 80px;
-                    margin-bottom: 12px;
-                }
+            .warranty-grid {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 16px;
+
+            }
+        }
+
+        .warranty-card {
+            border-radius: 16px;
+            overflow: hidden;
+
+            &.blue {
+                background-color: #dce9fb;
+            }
+
+            &.pink {
+                background-color: #fce4ec;
+            }
+
+            .warranty-card-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 16px 20px 12px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
                 .warranty-period {
                     font-size: 1.1rem;
                     font-weight: 700;
-                    margin-bottom: 6px;
+                    color: #222;
                 }
 
                 .warranty-tag {
-                    font-size: 0.8rem;
-                    color: g.$text-sub;
-                    margin-bottom: 12px;
+                    background-color: #a8c4f0;
+                    color: #1a4a8a;
+                    font-size: 0.78rem;
+                    font-weight: 600;
+                    padding: 4px 12px;
+                    border-radius: 999px;
 
-                    &.best {
-                        color: #1D6EF5;
-                        font-weight: 600;
+                    &.gold {
+                        background-color: #c9a227;
+                        color: #fff;
                     }
                 }
+            }
 
-                .warranty-desc {
-                    font-size: 0.8rem;
+            .warranty-card-body {
+                padding: 20px 24px;
+
+                p {
+                    font-size: 0.88rem;
                     line-height: 1.7;
-                    color: g.$text-sub;
-                    text-align: left;
+                    color: #333;
+                    margin-bottom: 12px;
+                    text-align: center;
+                }
+
+                ol {
+                    padding-left: 0;
+                    list-style: none;
+                    counter-reset: warranty-counter;
+
+                    li {
+                        counter-increment: warranty-counter;
+                        font-size: 0.85rem;
+                        line-height: 1.7;
+                        color: #444;
+                        text-align: center;
+
+                        &::before {
+                            content: counter(warranty-counter) ".";
+                            margin-right: 4px;
+                        }
+                    }
                 }
             }
-        }
-
-        .warranty-note {
-            font-size: 0.8rem;
-            color: g.$text-sub;
-            margin-top: 16px;
-            text-align: center;
         }
     }
 
     // 케어 팁
     .standard-care {
-        max-width: 1100px;
+        max-width: 1440px;
         margin: 80px auto 0;
         padding: 0 20px;
 
@@ -533,53 +575,6 @@
         }
     }
 
-    // FAQ
-    .standard-faq {
-        max-width: 1100px;
-        margin: 80px auto 100px;
-        padding: 0 20px;
-
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .faq-list {
-            border-top: 1px solid g.$card-border;
-
-            .faq-item {
-                border-bottom: 1px solid g.$card-border;
-
-                button {
-                    width: 100%;
-                    @include g.myFlex($jc: space-between, $gap: 16px);
-                    padding: 20px 0;
-                    font-size: 0.9rem;
-                    font-family: "Pretendard", sans-serif;
-                    color: g.$text-main;
-                    text-align: left;
-
-                    .faq-icon {
-                        font-size: 1.2rem;
-                        flex-shrink: 0;
-                    }
-                }
-
-                .faq-answer {
-                    padding: 0 0 20px;
-
-                    p {
-                        font-size: 0.85rem;
-                        color: g.$text-sub;
-                        line-height: 1.7;
-                        background: #f7f7f7;
-                        padding: 16px 20px;
-                    }
-                }
-            }
-        }
-    }
 }
 
 // ─── RE:CASTiFY 탭 ──────────────────────────────────
@@ -627,7 +622,7 @@
 
     // ② 플라스틱 위기
     .rc-crisis {
-        max-width: 1100px;
+        max-width: 1440px;
         margin: 80px auto 0;
         padding: 0 20px;
         @include g.myFlex($gap: 60px, $ai: center);
@@ -701,7 +696,7 @@
 
     // ④ 폐기물 re:IMAGINE
     .rc-reimagine {
-        max-width: 1100px;
+        max-width: 1440px;
         margin: 80px auto 0;
         padding: 0 20px;
         text-align: center;
@@ -783,7 +778,7 @@
         }
 
         .rc-open-content {
-            max-width: 880px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 60px 20px;
 
@@ -815,7 +810,7 @@
 
     // ⑥ 아티스트 + 제품 갤러리
     .rc-gallery {
-        max-width: 1100px;
+        max-width: 1440px;
         margin: 80px auto 100px;
         padding: 0 20px;
         @include g.myFlex($gap: 40px, $ai: flex-start);
