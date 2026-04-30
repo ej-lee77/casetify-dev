@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import "./scss/DetailPage.scss";
 import { modelColorOptions, colorMap, phoneModelOptions, items } from "../../../data/finalData";
 import { getModelsByProductGroup } from "../../../utils/groupProducts";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
@@ -10,78 +10,107 @@ import { useAuthStore } from "../../../store/useAuthStore";
 
 export default function DetailPage({ item }) {
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { state } = location; 
+
     // ==================== STATE ====================
+    const { selectedModel: initialModel, selectedColor: initialColor } = location.state || {};;
     const [accordionOpen, setAccordionOpen] = useState(false);
     const [modelAccordionOpen, setModelAccordionOpen] = useState(false);
-    const [selectedModel, setSelectedModel] = useState(""); // 빈값으로
-    const [selectedColor, setSelectedColor] = useState("");
+    const [selectedModel, setSelectedModel] = useState(state?.selectedModel || "");
+    const [selectedColor, setSelectedColor] = useState(state?.selectedColor || "");
+    const [userSelected, setUserSelected] = useState(!!state?.selectedModel);
     const [selectedDeviceColor, setSelectedDeviceColor] = useState("");
     const [selectedThumb, setSelectedThumb] = useState("main");
     const [quantity, setQuantity] = useState(1);
-    const [userSelected, setUserSelected] = useState(false);
     const [selectedBrandTab, setSelectedBrandTab] = useState(item?.brand || "Apple");
     const [isWished, setIsWished] = useState(false);
     const [selectedBundles, setSelectedBundles] = useState({});
 
-    // const [user, setUser] = useState(null);
-    const navigate = useNavigate();
-    const { user, onAddWishlist, onAddToCart } = useAuthStore();
-
+    const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
+    const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
 
     // ==================== EFFECTS ====================
-useEffect(() => {
-    if (!item) return;
-    setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
-    setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
-    setQuantity(1);
-    setSelectedBundles({});
-    setAccordionOpen(false);
-    setModelAccordionOpen(false);
-    setIsWished(item.isWish || false);
+    useEffect(() => {
+        if (!item) return;
 
-    // 호환 모델이 1개면 자동 선택
-    const modelOpts = getModelsByProductGroup(items, item);
+        // 1. 공통 필수 초기화 (어떤 경우에도 실행되어야 함)
+        setQuantity(1);
+        setSelectedBundles({});
+        setAccordionOpen(false);
+        setModelAccordionOpen(false);
+        setIsWished(item.isWish || false);
 
-    if (item.compatibleModels?.length === 1) {
-        setSelectedModel(item.compatibleModels[0]);
-    } else if (modelOpts?.length === 1) {
-        setSelectedModel(modelOpts[0].label);
-        setSelectedDeviceColor(modelColorOptions?.[modelOpts[0].key]?.[0]?.key || "");
-        const matched = items.find(
-            (d) =>
-                d.productName === item.productName &&
-                d.caseCategory === item.caseCategory &&
-                d.modelLabel === modelOpts[0].label
+        const modelOpts = getModelsByProductGroup(items, item);
+
+        // 2. 우선순위 결정: URL state(Cart에서 넘어온 값)가 있으면 그것을 사용, 없으면 기본 로직
+        const targetModelLabel = state?.selectedModel || initialModel;
+        const targetColor = state?.selectedColor || initialColor;
+
+        if (targetModelLabel) {
+            // --- [CASE A] 외부(장바구니 등)에서 모델 정보가 넘어온 경우 ---
+            setSelectedModel(targetModelLabel);
+            setUserSelected(true); 
+
+            const targetModelOpt = modelOpts.find(mo => mo.label === targetModelLabel);
+            
+            if (targetModelOpt) {
+                // 기종에 맞는 디바이스 컬러 설정
+                setSelectedDeviceColor(modelColorOptions?.[targetModelOpt.key]?.[0]?.key || "");
+                
+                if (targetColor) {
+                    setSelectedColor(targetColor);
+                } else {
+                    // 색상이 없으면 해당 모델의 기본 색상 찾기
+                    const matched = items.find(d => 
+                        d.productName === item.productName && 
+                        d.caseCategory === item.caseCategory && 
+                        d.modelLabel === targetModelLabel
+                    );
+                    setSelectedColor(matched?.mainCaseColor || matched?.caseColors?.[0] || "");
+                }
+            }
+        } else {
+            // --- [CASE B] 일반적인 상품 진입 (기본 로직) ---
+            setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
+            setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
+
+            if (item.compatibleModels?.length === 1) {
+                setSelectedModel(item.compatibleModels[0]);
+            } else if (modelOpts?.length === 1) {
+                setSelectedModel(modelOpts[0].label);
+                setSelectedDeviceColor(modelColorOptions?.[modelOpts[0].key]?.[0]?.key || "");
+                const matched = items.find(d => 
+                    d.productName === item.productName && 
+                    d.caseCategory === item.caseCategory && 
+                    d.modelLabel === modelOpts[0].label
+                );
+                if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
+            } else {
+                setSelectedModel("");
+            }
+            
+            const hasNoOption = !phoneModelOptions[item?.brand] && !item?.compatibleModels?.length && !item?.caseColors?.length;
+            const autoSelected = item.compatibleModels?.length === 1 || modelOpts?.length === 1 || item.caseColors?.length === 1;
+            setUserSelected(hasNoOption || item.isWish || autoSelected || false);
+        }
+
+        // 3. 브랜드 탭 설정 (UI 관련 공통)
+        const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
+            phoneModelOptions[brand].some((m) =>
+                modelOpts.some((mo) => mo.key === m.key)
+            )
         );
-        if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
-    } else {
-        setSelectedModel("");
-    }
+        if (availableBrand) setSelectedBrandTab(availableBrand);
 
-    // 선택할 옵션이 없는 상품은 바로 장바구니버튼눌러도 로그인경고 안뜸
-    const hasNoOption =
-        !phoneModelOptions[item?.brand] &&
-        !item?.compatibleModels?.length &&
-        !item?.caseColors?.length;
-    const autoSelected = item.compatibleModels?.length === 1 || modelOpts?.length === 1 || item.caseColors?.length === 1;
-    setUserSelected(hasNoOption || item.isWish || autoSelected || false);
-
-    // 실제 존재하는 첫 번째 브랜드로 탭 초기화
-    const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
-        phoneModelOptions[brand].some((m) =>
-            getModelsByProductGroup(items, item).some((mo) => mo.key === m.key)
-        )
-    );
-    if (availableBrand) setSelectedBrandTab(availableBrand);
-}, [item]);
+    }, [item, state, initialModel, initialColor]); // 모든 외부 변수를 의존성 배열에 추가
 
     // ==================== MEMO ====================
 
     // 번들 상품 랜덤 3개
     const bundleItems = useMemo(() => {
         if (!items || !item) return [];
-
-        
 
         // accessory만 필터
         const accessories = items.filter((d) => 
@@ -271,7 +300,7 @@ useEffect(() => {
             color: selectedColor,
             imgUrl: mainImagePath,
             colorList: item.caseColors,
-            deviceList: isPhone ? modelOptions : item.compatibleModels,
+            deviceList: isPhone ? modelOptions : item.compatibleModels ?? "",
             isPhone: isPhone,
             deviceBrand: selectedBrandTab,
             caseCategory: item.caseCategory
@@ -283,9 +312,81 @@ useEffect(() => {
             setCartMsg("장바구니에 담겼습니다!");
             setIsCartPopupOpen(true);
         }else{
+            setCartMsg("장바구니에 담기실패");
             setIsPopupErr(true);
         }
     };
+    const handleBundleAddCart = async()=>{        
+        try {
+            const modelKey = isPhone
+                ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
+                : "";
+
+            const cartItem = {
+                id: item.id,
+                productName: item.productName,
+                price: item.price,
+                device: selectedModel,
+                deviceKey: isPhone ? modelKey : selectedModel,
+                color: selectedColor,
+                imgUrl: mainImagePath,
+                colorList: item.caseColors,
+                deviceList: isPhone ? modelOptions : item.compatibleModels,
+                isPhone: isPhone,
+                deviceBrand: selectedBrandTab,
+                caseCategory: item.caseCategory
+            };
+
+            const isCart = await onAddToCart(cartItem);
+
+            if(!isCart){
+                setCartMsg("장바구니에 담기실패");
+                setIsPopupErr(true);
+            }
+
+            // 1. 번들에 담긴 각 아이템들을 장바구니 아이템 형식으로 변환
+            const cartPromises = Object.entries(selectedBundles).map(async ([bundleKey, bundleValue])=>{
+                const bundle = items.find((data) => String(data.id) === String(bundleKey));
+                
+                // 객체 생성
+                const bundleCartItem = {
+                    id: bundle.id,
+                    productName: bundle.productName,
+                    price: bundle.price,
+                    device: bundle.compatibleModels[0] ?? "",
+                    deviceKey: bundle.modelKey ?? "",
+                    color: bundle.mainCaseColor,
+                    imgUrl: `/images/category/products/${bundle.id}${bundle.mainCaseColor ? `_${bundle.mainCaseColor}` : ""}_main.jpg`,
+                    colorList: bundle.caseColors,
+                    deviceList: bundle.compatibleModels,
+                    isPhone: false,
+                    deviceBrand: "",
+                    caseCategory: bundle.caseCategory
+                };
+
+                // 개별 추가 함수 호출
+                return onAddToCart(bundleCartItem);
+            });
+
+                // 2. 모든 요청이 끝날 때까지 대기
+                const results = await Promise.all(cartPromises);
+
+                // 3. 모든 요청이 성공(true)했는지 확인
+                const isAllSuccess = results.every(res => res === true);
+
+                if (isAllSuccess) {
+                    setCartMsg("세트 상품이 장바구니에 담겼습니다!");
+                    setIsCartPopupOpen(true);
+                } else {
+                    // 일부만 성공했거나 실패한 경우
+                    setCartMsg("장바구니에 담기실패");
+                    setIsPopupErr(true);
+                }
+        } catch (error) {
+            console.log("번들 추가 중 오류 발생:", error.message);
+            setIsPopupErr(true);
+        }
+    }
 
     const optionSummary = [
         // item.modelLabel,
@@ -341,14 +442,13 @@ useEffect(() => {
 
                             {/* 위시 하트 버튼 */}
                             <button
-                                className={`image-wish-btn ${isWished ? "wished" : ""}`}
+                                className={`image-wish-btn ${isWishList ? "wished" : ""}`}
                                 onClick={() => {
                                     handleAddWish(item);
-                                    setIsWished((prev) => !prev);
                                 }}
                             >
                                 <img
-                                    src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
+                                    src={isWishList ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"}
                                     alt="위시"
                                 />
                             </button>
@@ -590,7 +690,10 @@ useEffect(() => {
                         {/* 장바구니 버튼 - 미선택 시 alert */}
                         <button className="buy-btn" onClick={() => {
                             if (!userSelected) {
-                                alert("제품을 선택해주세요.");
+                                setCartMsg("제품을 선택해주세요.");
+                                setIsPopupErr(true);
+                                setIsCartPopupOpen(true);
+                                // alert("제품을 선택해주세요.");
                                 return;
                             }
                             handleAddCart(item);
@@ -599,89 +702,93 @@ useEffect(() => {
                         </button>
                     </div>
 
-              {/* ========== 번들 섹션 ========== */}
-{item?.productTarget === "phone" &&bundleItems.length > 0 && (
-    <div className="budle-buy">
-        <div className="bundle-section">
-            <p className="bundle-title">번들 할인</p>
-            <ul className="bundle-list">
-                {bundleItems.map((b, index) => {
-                    const isChecked = index === 0 || !!selectedBundles[b.id];
-                    const isFirst = index === 0;
-                    const bundlePrice = Math.round(b.price * 0.9);
-                    const isSelected = !!selectedBundles[b.id];
+                    {/* ========== 번들 섹션 ========== */}
+                    {item?.productTarget === "phone" &&bundleItems.length > 0 && (
+                        <div className="budle-buy">
+                            <div className="bundle-section">
+                                <p className="bundle-title">번들 할인</p>
+                                <ul className="bundle-list">
+                                    {bundleItems.map((b, index) => {
+                                        const isChecked = index === 0 || !!selectedBundles[b.id];
+                                        const isFirst = index === 0;
+                                        const bundlePrice = Math.round(b.price * 0.9);
+                                        const isSelected = !!selectedBundles[b.id];
 
-                    return (
-                        <li
-                            key={b.id}
-                            className={`bundle-item ${isChecked ? "selected" : ""} ${isFirst ? "current" : ""}`}
-                            onClick={() => !isFirst && handleBundleToggle(b)}
-                        >
-                            <input
-                                type="checkbox"
-                                className="bundle-checkbox"
-                                checked={isChecked}
-                                onChange={() => {}}
-                                disabled={isFirst}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    if (!isFirst) handleBundleToggle(b);
-                                }}
-                            />
-                            <div className="bundle-img-wrap">
-                                <img src={getBundleImagePath(b)} alt={b.productName} />
+                                        return (
+                                            <li
+                                                key={b.id}
+                                                className={`bundle-item ${isChecked ? "selected" : ""} ${isFirst ? "current" : ""}`}
+                                                onClick={() => !isFirst && handleBundleToggle(b)}
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    className="bundle-checkbox"
+                                                    checked={isChecked}
+                                                    onChange={() => {}}
+                                                    disabled={isFirst}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        if (!isFirst) handleBundleToggle(b);
+                                                    }}
+                                                />
+                                                <div className="bundle-img-wrap">
+                                                    <img src={getBundleImagePath(b)} alt={b.productName} />
+                                                </div>
+                                                <span className="bundle-name">{b.productName}</span>
+
+                                                {/* 번들 가격 */}
+                                                <div className="bundle-price-wrap">
+                                                    <span className="bundle-default-price">{b.price.toLocaleString()}원</span>
+                                                </div>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+
+                                {/* 번들 선택 총 할인금액 */}
+                                {Object.keys(selectedBundles).length > 0 && (
+                                    <div className="bundle-total-wrap">
+                                        <span className="bundle-total-label">번들 할인 총액</span>
+                                        <div className="bundle-total-right">
+                                            <em className="bundle-total-origin">
+                                                {(
+                                                    (item.price || 0) +
+                                                    bundleItems
+                                                        .filter((b) => selectedBundles[b.id])
+                                                        .reduce((acc, b) => acc + b.price * (selectedBundles[b.id] || 1), 0)
+                                                ).toLocaleString()}원
+                                            </em>
+                                            <strong className="bundle-total-discount">
+                                                {(
+                                                    (item.price || 0) +
+                                                    bundleItems
+                                                        .filter((b) => b.id !== item.id && selectedBundles[b.id])
+                                                        .reduce((acc, b) => acc + Math.round(b.price * 0.9) * (selectedBundles[b.id] || 1), 0)
+                                                ).toLocaleString()}원
+                                            </strong>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                            <span className="bundle-name">{b.productName}</span>
 
-                            {/* 번들 가격 */}
-                            <div className="bundle-price-wrap">
-                                <span className="bundle-default-price">{b.price.toLocaleString()}원</span>
-                            </div>
-                        </li>
-                    );
-                })}
-            </ul>
-
-            {/* 번들 선택 총 할인금액 */}
-            {Object.keys(selectedBundles).length > 0 && (
-                <div className="bundle-total-wrap">
-                    <span className="bundle-total-label">번들 할인 총액</span>
-                    <div className="bundle-total-right">
-                        <em className="bundle-total-origin">
-                            {(
-                                (item.price || 0) +
-                                bundleItems
-                                    .filter((b) => selectedBundles[b.id])
-                                    .reduce((acc, b) => acc + b.price * (selectedBundles[b.id] || 1), 0)
-                            ).toLocaleString()}원
-                        </em>
-                        <strong className="bundle-total-discount">
-                            {(
-                                (item.price || 0) +
-                                bundleItems
-                                    .filter((b) => b.id !== item.id && selectedBundles[b.id])
-                                    .reduce((acc, b) => acc + Math.round(b.price * 0.9) * (selectedBundles[b.id] || 1), 0)
-                            ).toLocaleString()}원
-                        </strong>
-                    </div>
-                </div>
-            )}
-        </div>
-
-        {/* 번들 장바구니 버튼 - 미선택 시 alert */}
-        <button className="buy-btn" onClick={() => {
-            if (!userSelected) {
-                alert("제품을 선택해주세요.");
-                return;
-            }
-        }}>
-            <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>
-            {Object.keys(selectedBundles).length > 0
-                ? `번들 장바구니에 담기 (${Object.keys(selectedBundles).length})`
-                : "장바구니에 담기"}
-        </button>
-    </div>
-)}
+                            {/* 번들 장바구니 버튼 - 미선택 시 alert */}
+                            <button className="buy-btn" onClick={() => {
+                                if (!userSelected) {
+                                    setCartMsg("제품을 선택해주세요.");
+                                    setIsPopupErr(true);
+                                    setIsCartPopupOpen(true);
+                                    // alert("제품을 선택해주세요.");
+                                    return;
+                                }
+                                handleBundleAddCart();
+                            }}>
+                                <span className="icon"><img src="/images/icon/btn_shopping-cart.svg" alt="" /></span>
+                                {Object.keys(selectedBundles).length > 0
+                                    ? `번들 장바구니에 담기 (${Object.keys(selectedBundles).length})`
+                                    : "장바구니에 담기"}
+                            </button>
+                        </div>
+                    )}
 
                     {/* ========== 이미지 경로 확인용 (임시) ========== */}
                     <div className="detail-desc">

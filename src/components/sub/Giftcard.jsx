@@ -95,15 +95,19 @@ export default function Giftcard() {
             <div className='coupon-section'>
                 <MypageTitle title={"보유 쿠폰"} />
                 <div className="coupon-grid">
-                {validCoupons.map(coupon => (
-                    <div key={coupon.id} className="coupon-item">
-                        <div className="coupon-icon"><img src="/images/mypage/gift/icon-coupon.svg" alt="쿠폰" /></div>
-                        <div className="coupon-info">
-                            <p className="title">{coupon.title} <span>{coupon.id !== "birth" ? `${coupon.rate}% 할인` : ""}</span></p>
-                            <span className="date">{coupon.limit}까지</span>
+                {validCoupons.length > 0 ? (
+                    <>{validCoupons.map(coupon => (
+                        <div key={coupon.id} className="coupon-item">
+                            <div className="coupon-icon"><img src="/images/mypage/gift/icon-coupon.svg" alt="쿠폰" /></div>
+                            <div className="coupon-info">
+                                <p className="title">{coupon.title} <span>{coupon.id !== "birth" ? `${coupon.rate}% 할인` : ""}</span></p>
+                                <span className="date">{coupon.limit}까지</span>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}</>
+                ):(
+                    <div>사용가능한 쿠폰이 없습니다.</div>
+                )}
                 </div>
             </div>
             <GiftCardModal

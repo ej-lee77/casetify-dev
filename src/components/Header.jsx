@@ -22,32 +22,41 @@ export default function Header() {
   //헤더글자색 변경
   const { headerColor, setHeaderColor } = useMainSlider();
 
+  let leaveTimeout;
+
+  const handleMouseEnter = (link) => {
+    clearTimeout(leaveTimeout);
+    setMenuActive(link);
+  };
+
+  const handleMouseLeave = () => {
+    leaveTimeout = setTimeout(() => {
+      setMenuActive(null);
+    }, 50); // 0.05초 정도의 유예를 줌
+  };
+
   // 장바구니 정보 가져오기
-  useEffect(()=>{ 
-      if (!user) return;
-      onFetchCart();
+  useEffect(() => {
+    if (!user) return;
+    onFetchCart();
   }, [user]);
 
-  // 윈도우 스크롤 이벤트 + 스크롤 위치 체크
   useEffect(() => {
-    // 현재 위치 확인
     if (!isHome) {
       setIsScrolled(true);
       setHeaderColor("#2f2f2f");
       return;
     }
-    
-    const handleScroll = () => {
-      // 스크롤의 위치가 100px 넘어가면 isScrolled → true 반환
-      setIsScrolled(window.scrollY > 100);
-    }
-    window.addEventListener("scroll", handleScroll)
 
-    // 처음 값 체크
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome, MenuActive]);
+  }, [isHome]);
 
   const handleLogout = async () => {
     const isLogout = await onLogout();
@@ -107,7 +116,7 @@ export default function Header() {
                       <Link to="/mypage" state={{ menu: "주문" }}>주문</Link>
                     </li>
                     <li>
-                      <Link to="/mypage" state={{ menu: "케이스티파이 정품 인증" }}>정품인증</Link>
+                      <Link to="/brand/certify">정품인증</Link>
                     </li>
                     <li>
                       <Link to="/mypage" state={{ menu: "기프트 카드" }}>기프트카드</Link>

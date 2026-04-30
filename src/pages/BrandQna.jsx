@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./scss/BrandQna.scss";
+import { AUTH_FAQS } from "../data/authFaqs";
 
 // FAQ 데이터
 const FAQ_CATEGORIES = [
@@ -158,6 +159,12 @@ const FAQ_LIST = [
         answer:
             "마이페이지 > 케이스티파이 정품 인증 메뉴에서 시리얼 번호를 입력하시면 정품 인증이 가능합니다. 정품 인증 시 추가 혜택을 받으실 수 있습니다.",
     },
+    ...AUTH_FAQS.map((f, i) => ({
+        id: 1000 + i,
+        category: "auth",
+        question: f.q,
+        answer: f.a,
+    })),
     {
         id: 16,
         category: "company",

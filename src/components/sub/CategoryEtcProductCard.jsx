@@ -50,7 +50,11 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
 
     const handleWish = async (e) => {
         e.preventDefault();
-        if (!isWished) { navigate(`/detail/${item.id}`); return; }
+        if (!item.isWish) {
+            showFeedback("needDetail");
+            setTimeout(() => navigate(`/detail/${item.id}`), 1000);
+            return;
+        }
         if (!user) { navigate("/login"); return; }
         const result = await onAddWishlist({
             id: item.id,
@@ -66,7 +70,11 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
 
     const handleCart = async (e) => {
         e.preventDefault();
-        if (!isWished) { navigate(`/detail/${item.id}`); return; }
+        if (!item.isWish) {
+            showFeedback("needDetail");
+            setTimeout(() => navigate(`/detail/${item.id}`), 1000);
+            return;
+        }
         if (!user) { navigate("/login"); return; }
         await onAddToCart({
             id: item.id,
@@ -106,22 +114,26 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
                     </div>
                 </Link>
 
-                {/* 호버 액션 버튼 */}
+                {/* 하트 - 항상 우측 상단 */}
+                <button className={`btn-wish${isWished ? " wished" : ""}`} onClick={handleWish} title="찜하기">
+                    <img src="/images/icon/icon_favorite.svg" alt="찜하기" />
+                </button>
+
+                {/* 장바구니 - 호버 시 하단 */}
                 <div className="card-hover-actions">
-                    <button className={`btn-wish${isWished ? " wished" : ""}`} onClick={handleWish} title="찜하기">
-                        <img src="/images/icon/icon_favorite.svg" alt="찜하기" />
-                    </button>
                     <button className="btn-cart" onClick={handleCart} title="장바구니">
                         <img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" />
+                        <span>장바구니 담기</span>
                     </button>
                 </div>
 
                 {/* 피드백 토스트 */}
                 {feedback && (
-                    <div className="card-feedback">
+                    <div className={`card-feedback${feedback === "needDetail" ? " need-detail" : ""}`}>
                         {feedback === "cart" && "장바구니에 담겼어요"}
                         {feedback === "wish" && "찜 목록에 추가됐어요"}
                         {feedback === "unwish" && "찜 목록에서 제거됐어요"}
+                        {feedback === "needDetail" && "상세 내역을 선택해 주세요"}
                     </div>
                 )}
             </div>
