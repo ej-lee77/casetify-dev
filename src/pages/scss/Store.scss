@@ -9,7 +9,7 @@
         margin-bottom: 0;
 
         .store-map-wrap {
-            border: 3px solid pink;
+            // border: 3px solid pink;
             width: 100%;
             height: 45vw;
             position: relative;
@@ -20,7 +20,7 @@
             top: 1rem;
             left: 1rem;
             padding: 1rem;
-            width: 30rem;
+            width: 32.5rem;
             background-color: white;
             border: 2px dashed darkblue;
             z-index: 1;
@@ -80,7 +80,7 @@
                 // 드롭박스 검색 버튼
                 .select-btn {
                     font-family: inherit;
-                    font-size: 0.75rem;
+                    font-size: 0.875rem;
                     @include g.myFlex($jc: null, $gap: 0.5rem);
                     width: 100%;
                     padding: 0.5rem 1rem;
@@ -100,6 +100,30 @@
                     }
                 }
             }
+
+            // 지역 리스트
+            .store-city-list {
+                @include g.myFlex($jc: null, $ai: null, $gap: 1.5rem, $fd: column);
+                margin-bottom: 1.5rem;
+
+                li {
+                    @include g.myFlex($gap: null);
+
+                    .store-list-area {
+                        p {
+                            color: g.$text-sub;
+                            margin-top: 0.125rem;
+                            font-size: 0.9375rem;
+                        }
+                    }
+
+                    .store-distance-area {
+                        p {
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -108,6 +132,14 @@
     position: absolute;
     background: #eee;
     padding: 20px;
-    line-height: 1.5;
+    line-height: 2;
     width: 100%;
+
+    li {
+        button {
+            font-family: inherit;
+            font-size: 0.875rem;
+        }
+    }
+
 }

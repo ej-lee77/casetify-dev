@@ -6,6 +6,7 @@ import StoreMap from '../components/sub/StoreMap'
 import { studioPosData } from '../data/studioPosData'
 import MapAddress from '../components/MapAddress'
 import { useMapStore } from '../store/useMapStore'
+import { useProductStore } from '../store/useProductStore'
 
 export default function Store() {
   const [show, setShow] = useState(false);
@@ -94,8 +95,14 @@ export default function Store() {
 
 
   const handleShow = () => {
-    setShow(true)
+    setShow((prev) => !prev)
   }
+
+  // 검색관련 변수
+  const { searchWord, onSetSearchWord } = useProductStore();
+  const filteredList = searchWord ?
+    areaList.filter((list) => list.storeName.toLowerCase().includes(searchWord.toLowerCase()))
+    : areaList;
 
   return (
     <div className="sub-page-wrap store-page">
@@ -107,7 +114,7 @@ export default function Store() {
         <div className="store-info-wrap">
           <div className="store-search-wrap">
             <label>
-              <input type="text" placeholder="매장지역 검색" />
+              <input type="text" placeholder="매장지역 검색" value={searchWord} onChange={(e) => onSetSearchWord(e.target.value)} />
             </label>
             <div className="btn-search">
               <img src="/images/icon/search_var.svg" alt="검색" />
@@ -137,8 +144,8 @@ export default function Store() {
           <div>
             {/* ############### <p>현재위치 사용</p>          
           (매장 리스트) */}
-            <ul>
-              {areaList.map((list, id) => (
+            <ul className="store-city-list">
+              {filteredList.map((list, id) => (
                 <MapAddress sendList={list} key={id}
                 />
               ))}
