@@ -10,6 +10,14 @@ import './scss/AlertPopup.scss';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/locale';
 import { p } from 'framer-motion/client';
+import { getUserGrade } from '../../utils/groupProducts';
+
+const gradeList = [
+    {key: "Basic", label: "베이직", rate: 10, next: "브론즈", nextP: 50, nextR: 15},
+    {key: "Bronze", label: "브론즈", rate: 15, next: "실버", nextP: 120, nextR: 20},
+    {key: "Silver", label: "실버", rate: 20, next: "골드", nextP: 200, nextR: 30},
+    {key: "Gold", label: "골드", rate: 30, next: "", nextP: 1000, nextR: 20}
+]
 
 export default function UserInfo() {
     const Navigate = useNavigate();
@@ -198,6 +206,29 @@ export default function UserInfo() {
         }
         return error;
     };
+
+    const userGrade = getUserGrade(user.point);
+    const userGradeEN = gradeList.filter(g => g.label === userGrade)[0];
+
+    const getPointPercent = (point) => {
+        if (point <= 0) return 0;
+        
+        if (point <= 50) {
+            // 0 ~ 50 구간: 0% ~ 33.3% 영역에서 움직임
+            return (point / 50) * 33.3;
+        } else if (point <= 120) {
+            // 50 ~ 120 구간: 33.3% ~ 66.6% 영역에서 움직임
+            return 33.3 + ((point - 50) / (120 - 50)) * 33.3;
+        } else if (point <= 200) {
+            // 120 ~ 200 구간: 66.6% ~ 100% 영역에서 움직임
+            return 66.6 + ((point - 120) / (200 - 120)) * 33.4;
+        }
+        
+        return 100; // 200 이상일 때
+    };
+
+    // 적용
+    const fillWidth = getPointPercent(user.point);
     return (
         <div>
             <AlertPopup
@@ -226,8 +257,8 @@ export default function UserInfo() {
                     <div className='user-info2'>
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
-                            <span className='content'>Bronze</span>
-                            <span className='content'>{formData?.email.split('@')[0] || user?.uid}</span>
+                            <span className='content'>{userGradeEN.key}</span>
+                            <span className='content'>{user.point}pt</span>
                         </div>
                     </div>
                     <div>
@@ -246,40 +277,57 @@ export default function UserInfo() {
                             className='point-info-icon' />
                     </div>
                     <p className='point-label'>현재 보유 포인트</p>
-                    <p className='point-value'>50</p>
-                    <p className='point-grade'>브론즈</p>
+                    <p className='point-value'>{user.point}</p>
+                    <p className='point-grade'>{userGrade}</p>
 
                     <div className='point-bar-wrap'>
                         <div className='point-bar-labels'>
-                            <span>베이직</span>
-                            <span>브론즈</span>
-                            <span>실버</span>
-                            <span>골드</span>
+                            <span className='label-item'>베이직</span>
+                            <span className='label-item'>브론즈</span>
+                            <span className='label-item'>실버</span>
+                            <span className='label-item'>골드</span>
                         </div>
                         <div className='point-bar-track'>
-                            <div className='point-bar-fill' />
-                            <div className='point-bar-thumb' />
+                            <div className='point-bar-fill' style={{ width: `${fillWidth}%` }}/>
+                            <div className='point-bar-thumb' style={{ left: `${fillWidth}%` }}/>
                         </div>
                         <div className='point-bar-numbers'>
-                            <span>0</span>
-                            <span>50</span>
-                            <span>120</span>
-                            <span>200</span>
+                            <span className='label-item'>0</span>
+                            <span className='label-item'>50</span>
+                            <span className='label-item'>120</span>
+                            <span className='label-item'>200</span>
                         </div>
                     </div>
 
                     <div className='point-bottom'>
-                        <div className='point-bottom-item'>
-                            <p>실버 등급까지</p>
-                            <p className='point-highlight'>70</p>
-                            <p>포인트 남았어요!</p>
-                        </div>
-                        <div className='point-divider' />
-                        <div className='point-bottom-item'>
-                            <p>실버 등급이 되면</p>
-                            <p className='point-highlight'>20% 할인 쿠폰</p>
-                            <p>지급!</p>
-                        </div>
+                        {userGrade !== "골드" ? (
+                            <>
+                            <div className='point-bottom-item'>
+                                <p>{userGradeEN.next} 등급까지</p>
+                                <p className='point-highlight'>{userGradeEN.nextP - user.point}</p>
+                                <p>포인트 남았어요!</p>
+                            </div>
+                            <div className='point-divider' />
+                            <div className='point-bottom-item'>
+                                <p>{userGradeEN.next} 등급이 되면</p>
+                                <p className='point-highlight'>{userGradeEN.nextR}% 할인 쿠폰</p>
+                                <p>지급!</p>
+                            </div>
+                            </>
+                        ):(
+                            <>
+                            <div className='point-bottom-item'>
+                                <p className='point-highlight'>골드 등급</p>
+                                <p>업그레이드 완료</p>
+                            </div>
+                            <div className='point-divider' />
+                            <div className='point-bottom-item'>
+                                <p>CASETiFY Club에서</p>
+                                <p>드리는 전용혜택을</p>
+                                <p>놓치지마세요!</p>
+                            </div>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

@@ -304,7 +304,7 @@ export default function Payment() {
 
     if(isOrder){
       // 완료 페이지로 '아이디'만 넘겨주며 이동
-      navigate("/payment/complete", { state: { orderId: orderId } });
+      navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
     }else{
       alert("결제실패")
     }
