@@ -8,10 +8,10 @@ import './scss/ProductCustomizePage.scss'
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
     switch (filterId) {
-        case 'retro':   return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
+        case 'retro': return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
         case 'digicam': return { filter: `saturate(${1 + s}) brightness(${1 + s * 0.3})` }
-        case 'mono':    return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
-        default:        return {}
+        case 'mono': return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
+        default: return {}
     }
 }
 
@@ -47,8 +47,8 @@ export function ProductCustomizePage() {
 
     // 사진/스티커 탭
     const [photoTab, setPhotoTab] = useState('upload') // 'upload' | 'sticker'
-// 첫 번째 스티커 기본 선택
-const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
+    // 첫 번째 스티커 기본 선택
+    const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
 
     // UI 상태
     const [modelOpen, setModelOpen] = useState(false)
@@ -64,7 +64,7 @@ const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
     const selectedModelLabel = models.find(m => m.id === selectedModel)?.label
     const selectedCaseLabel = CASE_TYPES.find(c => c.id === selectedCaseType)?.label
     const photoStyle = photoFilter && photoURL ? getFilterStyle(photoFilter, filterStrength) : {}
-    const deviceTypeLabel = { phone: '핸드폰', laptop: '노트북', tablet: '태블릿' }[initialDeviceType] || ''
+    const deviceTypeLabel = { phone: 'Phone Custom Case', laptop: 'MacBook Custom Case', tablet: 'Tablet Custom Case' }[initialDeviceType] || ''
 
     // 프리뷰에 표시할 이미지 (사진 업로드 or 스티커)
     const previewURL = photoTab === 'sticker'
@@ -118,7 +118,7 @@ const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
             customContent,
         })
         if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
-        else        { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
+        else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
         setIsCartPopupOpen(true)
     }
 
@@ -139,13 +139,13 @@ const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
                                         <div className="custom-phone-lens" />
                                     </div>
                                     <div className="custom-phone-screen">
-                                   {designType === 'photo' && previewURL && (
-    <img
-        src={previewURL}
-        alt="커스텀 미리보기"
-        style={photoFilter ? getFilterStyle(photoFilter, filterStrength) : {}}
-    />
-)}
+                                        {designType === 'photo' && previewURL && (
+                                            <img
+                                                src={previewURL}
+                                                alt="커스텀 미리보기"
+                                                style={photoFilter ? getFilterStyle(photoFilter, filterStrength) : {}}
+                                            />
+                                        )}
                                         {designType === 'text' && textValue && (
                                             <span style={{ color: fontColor || '#fff' }}>{textValue}</span>
                                         )}
@@ -154,7 +154,7 @@ const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
                                                 {designType === 'photo'
                                                     ? (photoTab === 'sticker' ? '스티커를\n선택하세요' : '사진을\n업로드하세요')
                                                     : designType === 'text' ? '텍스트를\n입력하세요'
-                                                    : '커스텀\n내용을 선택하세요'}
+                                                        : '커스텀\n내용을 선택하세요'}
                                             </p>
                                         )}
                                     </div>
@@ -172,8 +172,7 @@ const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
                         <span className="badge-free-ship">무료 배송</span>
                         <span className="detail-product-id">CUSTOM · {deviceTypeLabel}</span>
                     </div>
-
-                    <h2 className="detail-title">나만의 커스텀 케이스</h2>
+                    <h2 className="detail-title">{deviceTypeLabel} </h2>
                     <p className="detail-price">{price.toLocaleString()}원</p>
 
                     <div className="right-info-wrap">
@@ -314,14 +313,14 @@ const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
                                         📷 사진 업로드
                                     </button>
                                     <button
-    className={`photo-tab-btn ${photoTab === 'sticker' ? 'active' : ''}`}
-    onClick={() => {
-        setPhotoTab('sticker')
-        if (!selectedSticker) setSelectedSticker(STICKERS[0]) // ← 탭 전환 시 없으면 첫번째 선택
-    }}
->
-    🐾 스티커
-</button>
+                                        className={`photo-tab-btn ${photoTab === 'sticker' ? 'active' : ''}`}
+                                        onClick={() => {
+                                            setPhotoTab('sticker')
+                                            if (!selectedSticker) setSelectedSticker(STICKERS[0]) // ← 탭 전환 시 없으면 첫번째 선택
+                                        }}
+                                    >
+                                        🐾 스티커
+                                    </button>
                                 </div>
 
                                 {/* 사진 업로드 탭 */}
@@ -391,65 +390,65 @@ const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
                                 )}
 
                                 {/* 스티커 탭 */}
-                          {/* 스티커 탭 */}
-{photoTab === 'sticker' && (
-    <>
-        <div className="custom-filter-grid">
-            {STICKERS.map(s => (
-                <button
-                    key={s.id}
-                    className={`custom-filter-card ${selectedSticker?.id === s.id ? 'active' : ''}`}
-                    onClick={() => setSelectedSticker(s)}
-                >
-                    <div className="custom-filter-img-wrap">
-                        <img src={s.src} alt={s.label} />
-                    </div>
-                    <span>{s.label}</span>
-                </button>
-            ))}
-        </div>
+                                {/* 스티커 탭 */}
+                                {photoTab === 'sticker' && (
+                                    <>
+                                        <div className="custom-filter-grid">
+                                            {STICKERS.map(s => (
+                                                <button
+                                                    key={s.id}
+                                                    className={`custom-filter-card ${selectedSticker?.id === s.id ? 'active' : ''}`}
+                                                    onClick={() => setSelectedSticker(s)}
+                                                >
+                                                    <div className="custom-filter-img-wrap">
+                                                        <img src={s.src} alt={s.label} />
+                                                    </div>
+                                                    <span>{s.label}</span>
+                                                </button>
+                                            ))}
+                                        </div>
 
-        {/* 스티커 선택 후 필터 적용 */}
-        {selectedSticker && (
-            <>
-                <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
-                <div className="custom-filter-grid">
-                    {PHOTO_FILTERS.map(f => (
-                        <button
-                            key={f.id}
-                            className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
-                            onClick={() => setPhotoFilter(f.id)}
-                        >
-                            <div className="custom-filter-img-wrap">
-                                <img
-                                    src={selectedSticker.src}
-                                    alt={f.label}
-                                    style={getFilterStyle(f.id, filterStrength)}
-                                />
-                            </div>
-                            <span>{f.label}</span>
-                        </button>
-                    ))}
-                </div>
+                                        {/* 스티커 선택 후 필터 적용 */}
+                                        {selectedSticker && (
+                                            <>
+                                                <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
+                                                <div className="custom-filter-grid">
+                                                    {PHOTO_FILTERS.map(f => (
+                                                        <button
+                                                            key={f.id}
+                                                            className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
+                                                            onClick={() => setPhotoFilter(f.id)}
+                                                        >
+                                                            <div className="custom-filter-img-wrap">
+                                                                <img
+                                                                    src={selectedSticker.src}
+                                                                    alt={f.label}
+                                                                    style={getFilterStyle(f.id, filterStrength)}
+                                                                />
+                                                            </div>
+                                                            <span>{f.label}</span>
+                                                        </button>
+                                                    ))}
+                                                </div>
 
-                {photoFilter && (
-                    <div className="custom-slider-wrap">
-                        <label className="label">필터 강도</label>
-                        <input
-                            type="range" min={0} max={100} step={1}
-                            value={filterStrength}
-                            onChange={e => setFilterStrength(Number(e.target.value))}
-                            className="custom-slider"
-                        />
-                        <div className="custom-slider-ticks">
-                            <span>약</span><span>강</span>
-                        </div>
-                    </div>
-                )}
-            </>
-        )}
-    </>
-)}
+                                                {photoFilter && (
+                                                    <div className="custom-slider-wrap">
+                                                        <label className="label">필터 강도</label>
+                                                        <input
+                                                            type="range" min={0} max={100} step={1}
+                                                            value={filterStrength}
+                                                            onChange={e => setFilterStrength(Number(e.target.value))}
+                                                            className="custom-slider"
+                                                        />
+                                                        <div className="custom-slider-ticks">
+                                                            <span>약</span><span>강</span>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </>
+                                        )}
+                                    </>
+                                )}
                             </div>
                         )}
 
