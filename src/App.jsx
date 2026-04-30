@@ -64,7 +64,7 @@ function App() {
 
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
-        <Route path='/case/custom' element={<ProductCustomizePage />} />
+        <Route path='/custom' element={<ProductCustomizePage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
