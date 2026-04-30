@@ -141,15 +141,16 @@
         img {
             width: 18px;
             height: 18px;
+            transition: filter 0.2s ease;
         }
 
-        &:hover {
-            background: #fff;
-            transform: scale(1.12);
+        &:hover img {
+            filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
         }
 
+        // 찜 활성 상태: LIKE.svg를 빨간색으로
         &.wished img {
-            filter: invert(30%) sepia(80%) saturate(500%) hue-rotate(320deg);
+            filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
         }
     }
 

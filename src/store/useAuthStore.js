@@ -6,6 +6,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import {
     deleteUser as firebaseDeleteUser, EmailAuthProvider, reauthenticateWithCredential, updatePassword
 } from "firebase/auth";
+import { items as finalData } from "../data/finalData";
 
 export const useAuthStore = create(
     persist((set, get) => ({
@@ -94,16 +95,16 @@ export const useAuthStore = create(
                         const currentMonth = new Date().getMonth() + 1;
                         let updatedCoupons = [...(userData.coupons || [])];
                         let isUpdated = false;
-                        
+
                         // 상태값 추적을 위한 변수
                         let isFirst = false;
                         let isBirthday = false;
 
-                        const userBirthMonth = userData.birthDate 
+                        const userBirthMonth = userData.birthDate
                             ? Number(userData.birthDate.split('-')[1])
                             : null;
 
-                        const {couponList, getOneMonthsLater} = get();
+                        const { couponList, getOneMonthsLater } = get();
 
                         // 1. 첫 로그인 확인 및 웰컴 쿠폰 발급
                         if (userData.isFirstLogin) {
@@ -117,7 +118,7 @@ export const useAuthStore = create(
                         // 2. 생일 달 확인 및 생일 쿠폰 발급
                         if (userBirthMonth === currentMonth) {
                             const hasBirthCoupon = updatedCoupons.some(c => c.id === "birth");
-                            
+
                             if (!hasBirthCoupon) {
                                 const birthCoupon = { ...couponList.find(c => c.id === "birth") };
                                 birthCoupon.limit = getOneMonthsLater();
@@ -138,9 +139,9 @@ export const useAuthStore = create(
                         }
 
                         if (isUpdated) {
-                            await updateDoc(userDocRef, { 
+                            await updateDoc(userDocRef, {
                                 isFirstLogin: false,
-                                coupons: updatedCoupons 
+                                coupons: updatedCoupons
                             });
                             set({ user: { ...userData, isFirstLogin: false, coupons: updatedCoupons } });
                             return loginStatus;
@@ -384,7 +385,7 @@ export const useAuthStore = create(
             }
         },
         // 현재 날짜로부터 1개월 뒤의 날짜를 "YYYY년MM월DD일" 형식으로 반환
-        getOneMonthsLater : () => {
+        getOneMonthsLater: () => {
             const now = new Date();
             now.setMonth(now.getMonth() + 1); // 1개월 추가
 
@@ -405,7 +406,7 @@ export const useAuthStore = create(
             return `${year}년 ${month}월 ${day}일`;
         },
         // 기본쿠폰
-        couponList : [
+        couponList: [
             {
                 id: "welcome",
                 rate: 15,
@@ -440,6 +441,13 @@ export const useAuthStore = create(
                 title: "CASETiFY 클럽 골드 쿠폰",
                 limit: "",
                 use: true
+            },
+            {
+                id: "auth",
+                rate: 10,
+                title: "정품인증 감사 쿠폰",
+                limit: "",
+                use: true
             }
         ],
         getOneYearLater: () => {
@@ -447,8 +455,47 @@ export const useAuthStore = create(
             now.setFullYear(now.getFullYear() + 1);
             return `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일`;
         },
+
+        // 정품인증 + 쿠폰 발급
+        onAuthenticate: async (serialNumber) => {
+            const { user, couponList, getOneMonthsLater } = get();
+
+            if (!user) return "login";
+            if (!serialNumber.trim()) return "empty";
+
+            // 1. 일련번호 일치 확인
+            const { items: finalData } = await import("../data/finalData");
+            const matched = finalData.find(item => item.id === serialNumber.trim());
+            if (!matched) return "fail";
+
+            try {
+                const userDocRef = doc(db, "users", user.uid);
+                const userSnap = await getDoc(userDocRef);
+                const userData = userSnap.data();
+
+                const currentCoupons = userData.coupons || [];
+
+                // 2. 이미 정품인증 쿠폰을 받은 적 있는지 확인
+                const alreadyAuth = currentCoupons.some(c => c.id === "auth");
+                if (alreadyAuth) return "already";
+
+                // 3. 쿠폰 발급
+                const authCoupon = { ...couponList.find(c => c.id === "auth") };
+                authCoupon.limit = getOneMonthsLater();
+                const updatedCoupons = [...currentCoupons, authCoupon];
+
+                await updateDoc(userDocRef, { coupons: updatedCoupons });
+                set({ user: { ...user, coupons: updatedCoupons } });
+
+                return "success";
+            } catch (err) {
+                console.log(err.message);
+                return "error";
+            }
+        },
+
         // 기프트카드
-        giftCardList : [
+        giftCardList: [
             {
                 code: "0000020000",
                 price: 20000,
@@ -486,7 +533,7 @@ export const useAuthStore = create(
 
             // 1. 일련번호와 일치하는 기프트 카드 정보 찾기
             const matchedCard = giftCardList.find(c => c.code === cardCode);
-            
+
             if (!matchedCard) {
                 return "코드";
             }
@@ -543,7 +590,7 @@ export const useAuthStore = create(
             try {
                 const userWishRef = doc(db, "wishlists", user.uid);
                 const currentWishlist = get().wishlist;
-                
+
                 // 1. 이미 존재하는지 확인 (productId 기준)
                 const existingItemIndex = currentWishlist.findIndex(item =>
                     item.productId === wishItem.id &&
@@ -552,7 +599,7 @@ export const useAuthStore = create(
                 );
                 // const isExisted = currentWishlist.some(item => item.productId === wishItem.id);
 
-                if (existingItemIndex >-1) {
+                if (existingItemIndex > -1) {
                     // 2. 삭제 처리
                     await setDoc(userWishRef, {
                         items: arrayRemove(productData)
@@ -585,10 +632,10 @@ export const useAuthStore = create(
                     items: arrayRemove(targetItem)
                 });
 
-                const updatedList = currentWishlist.filter(item => 
-                    !(item.productId === targetItem.productId && 
-                    item.device === targetItem.device && 
-                    item.color === targetItem.color)
+                const updatedList = currentWishlist.filter(item =>
+                    !(item.productId === targetItem.productId &&
+                        item.device === targetItem.device &&
+                        item.color === targetItem.color)
                 );
                 set({ wishlist: updatedList });
                 return true;
@@ -798,7 +845,7 @@ export const useAuthStore = create(
 
             // 결제 시 사용할 총 기프트 카드 금액
             let remainingToPay = orderData.priceSummary.giftCard || 0;
-            
+
             // 유저가 보유한 기프트 카드 복사 (원본 보존을 위해 spread 사용)
             let updatedGiftCards = [...(user.giftCard || [])];
 
@@ -831,7 +878,7 @@ export const useAuthStore = create(
                 updatedCoupons = updatedCoupons.map(c => {
                     // 사용자가 결제 시 선택한 쿠폰의 ID와 일치하는 쿠폰을 찾아 상태 변경
                     if (c.id === coupon.id) {
-                        return { ...c, use: false }; 
+                        return { ...c, use: false };
                     }
                     return c;
                 });
@@ -872,7 +919,7 @@ export const useAuthStore = create(
 
                 // B. 유저 정보 업데이트 (기프트 카드 배열 & 쿠폰 배열 전체 업데이트)
                 const userRef = doc(db, "users", user.uid);
-                await updateDoc(userRef, { 
+                await updateDoc(userRef, {
                     giftCard: updatedGiftCards,
                     coupons: updatedCoupons,
                     point: currentPoint
@@ -883,7 +930,7 @@ export const useAuthStore = create(
                 await setDoc(cartRef, { items: [] }, { merge: true });
 
                 // D. 로컬 상태 업데이트
-                set({ 
+                set({
                     orderList: updatedOrders,
                     cart: [],
                     checkedCart: [],
@@ -939,7 +986,7 @@ export const useAuthStore = create(
                             if (item.statusDate) {
                                 const statusDate = item.statusDate.toDate ? item.statusDate.toDate() : new Date(item.statusDate);
                                 const diffDaysFromStatus = Math.floor((today - statusDate) / (1000 * 60 * 60 * 24));
-                                
+
                                 // 취소중(1) -> 취소완료(2) 하루 경과 시
                                 if (item.status === 1 && diffDaysFromStatus >= 1) {
                                     isChanged = true;
@@ -981,15 +1028,15 @@ export const useAuthStore = create(
                 const updatedOrderList = orderList.map((order) => {
                     if (order.orderId === orderId) {
                         const updatedItems = order.orderItems.map((item, idx) => {
-                        if (checkedIndices.includes(idx)) {
-                            return { ...item, status: newStatus, statusDate: now };
-                        }
+                            if (checkedIndices.includes(idx)) {
+                                return { ...item, status: newStatus, statusDate: now };
+                            }
                             return item;
                         });
                         // 모든 아이템이 취소/반품 상태인지 확인
                         const isAllProcessed = updatedItems.every(item => item.status && item.status > 0);
-                    return { 
-                            ...order, 
+                        return {
+                            ...order,
                             orderItems: updatedItems,
                             orderStatus: isAllProcessed ? "취소/반품" : order.orderStatus // 모두 처리됐으면 상태 변경
                         };
@@ -1003,7 +1050,7 @@ export const useAuthStore = create(
 
                 // 2. Zustand 상태 업데이트
                 set({ orderList: updatedOrderList });
-                
+
                 console.log(isCancelable ? "주문 취소 신청이 완료되었습니다." : "반품/교환 신청이 완료되었습니다.");
                 return true;
             } catch (err) {
@@ -1021,22 +1068,22 @@ export const useAuthStore = create(
                 const now = new Date();
 
                 const updatedOrderList = orderList.map((order) => {
-                if (order.orderId === orderId) {
-                    // 1. 모든 아이템의 상태와 날짜 변경
-                    const updatedItems = order.orderItems.map((item) => ({
-                        ...item,
-                        status: newStatus,
-                        statusDate: now,
-                    }));
-                    
-                    // 2. 💡 전체 주문 상태를 "취소/반품"으로 변경
-                    return { 
-                        ...order, 
-                        orderStatus: "취소/반품", 
-                        orderItems: updatedItems 
-                    };
-                }
-                return order;
+                    if (order.orderId === orderId) {
+                        // 1. 모든 아이템의 상태와 날짜 변경
+                        const updatedItems = order.orderItems.map((item) => ({
+                            ...item,
+                            status: newStatus,
+                            statusDate: now,
+                        }));
+
+                        // 2. 💡 전체 주문 상태를 "취소/반품"으로 변경
+                        return {
+                            ...order,
+                            orderStatus: "취소/반품",
+                            orderItems: updatedItems
+                        };
+                    }
+                    return order;
                 });
 
                 // Firebase 업데이트
@@ -1045,13 +1092,13 @@ export const useAuthStore = create(
 
                 // Zustand 상태 반영
                 set({ orderList: updatedOrderList });
-                
+
                 console.log(isCancelable ? "전체 주문이 취소되었습니다." : "전체 상품의 반품 신청이 완료되었습니다.");
                 return true;
             } catch (err) {
                 console.log("전체 업데이트 실패:", err);
                 return false;
-        }
+            }
         },
         // 회원정보 수정
         onUpdateUser: async (formData) => {
