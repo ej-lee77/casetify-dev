@@ -100,7 +100,7 @@ export default function CategoryPhoneProductCard({ item }) {
 
                 {/* 하트 - 항상 우측 상단 */}
                 <button className={`btn-wish${isWished ? " wished" : ""}`} onClick={handleWish} title="찜하기">
-                    <img src="/images/icon/icon_favorite.svg" alt="찜하기" />
+                    <img src={isWished ? "/images/icon/LIKE.svg" : "/images/icon/UNLIKE.svg"} alt="찜하기" />
                 </button>
 
                 {/* 장바구니 - 호버 시 하단 */}
