@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import './App.css'
 import './App.scss'
 import Header from './components/Header'
@@ -59,6 +59,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
 
+
+        <Route path='/case/custom' element={<Navigate to="/custom" replace />} />
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
         <Route path='/custom' element={<CustomPage />} />

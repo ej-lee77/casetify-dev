@@ -473,7 +473,7 @@ export default function BrandQna() {
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="nanoBanana@gmail.com"
+                                    placeholder="casetify@castify.com"
                                     value={form.email}
                                     onChange={handleFormChange}
                                     className="inquiry-input"
