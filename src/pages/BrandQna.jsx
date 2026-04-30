@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./scss/BrandQna.scss";
 import { AUTH_FAQS } from "../data/authFaqs";
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 // FAQ 데이터
 const FAQ_CATEGORIES = [
@@ -298,6 +300,14 @@ export default function BrandQna() {
     const [activeCategory, setActiveCategory] = useState("all");
     const [openFaqId, setOpenFaqId] = useState(null);
     const [searchKeyword, setSearchKeyword] = useState("");
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash === '#inquiry') {
+            const el = document.getElementById('inquiry');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [hash]);
 
     // 문의하기 폼 상태
     const [form, setForm] = useState({
@@ -432,7 +442,7 @@ export default function BrandQna() {
             </section>
 
             {/* ─── 문의하기 섹션 ─── */}
-            <section className="inquiry-section">
+            <section className="inquiry-section" id="inquiry">
                 <div className="faq-inner">
                     <h2 className="section-heading">문의하기</h2>
 
@@ -473,7 +483,7 @@ export default function BrandQna() {
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="nanoBanana@gmail.com"
+                                    placeholder="casetify@castify.com"
                                     value={form.email}
                                     onChange={handleFormChange}
                                     className="inquiry-input"
