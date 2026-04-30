@@ -18,6 +18,10 @@ export default function Store() {
   //########## 현재 위치 체크할 변수
   const [currentPos, setCurrentPos] = useState(null);
 
+  // 매장 리스트 페이지 상태 변수
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
   const { setSelectedLocation } = useMapStore();
 
   //######################## 거리
@@ -139,6 +143,19 @@ export default function Store() {
       return a.distance - b.distance;
     });
 
+  // 메장 리스트 페이지 계산
+  const indexOfLast = currentPage * itemsPerPage;
+  const indexOfFirst = indexOfLast - itemsPerPage;
+
+  const currentList = filteredList.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(filteredList.length / itemsPerPage);
+
+  // 필터 변경시 매장 리스트 페이지 처음으로 이동
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchWord, selectCity, sortByDistance]);
+
   return (
     <div className="sub-page-wrap store-page">
       <div className="inner store-title">
@@ -183,14 +200,28 @@ export default function Store() {
             {/* ############### <p>현재위치 사용</p>          
           (매장 리스트) */}
             <ul className="store-city-list">
-              {filteredList.map((list, id) => (
+              {currentList.map((list, id) => (
                 <MapAddress sendList={list} key={id}
                 />
               ))}
             </ul>
           </div>
 
-          <div className="store-list-pager"></div>
+          <div className="store-list-pager">
+            <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}>이전</button>
+            <div className="pager-btn-area">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={currentPage === i + 1 ? "active" : ""}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+            <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}>다음</button>
+          </div>
         </div>
       </div>
     </div >
