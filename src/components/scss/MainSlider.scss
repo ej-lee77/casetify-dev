@@ -1,42 +1,42 @@
-.main-slider-img {
-    // border: 5px solid green;
-    height: 50vw;
-    max-height: 850px;
-    min-height: 300px;
+.main-slider-wrap {
 
-    .swiper-slide {
-        // border: 2px dashed red;
-        position: relative;
+    .main-slider-img {
+        height: 50vw;
+        max-height: 850px;
+        min-height: 300px;
 
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: #828282;
-            background: linear-gradient(213deg, rgba(130, 130, 130, 0) 47%, rgba(0, 0, 0, 0.21) 80%);
-        }
+        .swiper-slide {
+            position: relative;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(213deg, rgba(130, 130, 130, 0) 47%, rgba(0, 0, 0, 0.21) 80%);
+            }
 
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
-}
 
-.swiper-pagination-bullet {
-    width: 40px;
-    height: 10px;
-    border-radius: 0;
-    background-color: #E4E4E4;
+    .main-scrollbar {
+        width: 100%;
+        height: 3px;
+        background: #ddd;
+        cursor: grab;
 
-    &.swiper-pagination-bullet-active {
-        background-color: rgba(255, 255, 255, 0.7);
-        width: 70px;
+        .swiper-scrollbar-drag {
+            height: 100%;
+            background: #111;
+            border-radius: 0;
+        }
     }
 }
 
@@ -45,7 +45,6 @@
     left: 80px;
     bottom: 80px;
     z-index: 10;
-    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
 }
@@ -64,7 +63,6 @@
 
     .main-text {
         font-size: 30px;
-
     }
 
     .sub-text {

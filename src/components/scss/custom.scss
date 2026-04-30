@@ -1,18 +1,42 @@
 @use "../../App.scss" as g;
 
-.custom-wrap{
+.custom-wrap {
     .all {
         .right {
             gap: unset;
-            ul{
+
+            ul {
                 row-gap: 10px;
+
+                .name {
+                    font-weight: 700;
+                    @include g.multi-ellipsis($lines: 1);
+                    max-width: 160px;
+                    margin: 0 auto;
+                }
             }
+
             button {
                 margin-top: 10px;
             }
-            .w-100{
+
+            .w-100 {
                 width: 100%;
             }
+        }
+    }
+
+    .cu-scrollbar {
+        width: 100%;
+        height: 3px;
+        background: #ddd;
+        cursor: grab;
+        margin-top: 8px;
+
+        .swiper-scrollbar-drag {
+            height: 100%;
+            background: #111;
+            border-radius: 0;
         }
     }
 }
