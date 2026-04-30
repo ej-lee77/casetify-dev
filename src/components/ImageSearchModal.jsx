@@ -5,15 +5,19 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ImageSearchModal({ modalCheck, setModalCheck }) {
     const [isDragging, setIsDragging] = useState(false);
-    const { onSetSearchWord } = useProductStore();
+    const { onSearchByKeyword } = useProductStore();
     const navigate = useNavigate();
     
     const handleFile = (file) => {
         if (file && file.type.startsWith("image/")) {
-            onSetSearchWord("폰");
-            // 검색어 페이지로 이동
-            navigate('/search');
+            // 1. 검색어를 "CTF"로 고정 설정
+            const fixedKeyword = "img";
+            onSearchByKeyword(fixedKeyword);
+    
+            // 3. 모달을 닫고 검색 결과 페이지로 이동
             setModalCheck(false);
+            
+            // console.log("이미지 업로드 확인됨: 'CTF'로 검색 실행");
         } else {
             alert("이미지 파일만 업로드 가능합니다.");
         }
@@ -74,15 +78,6 @@ export default function ImageSearchModal({ modalCheck, setModalCheck }) {
                     </div>
                 </div>
             </div>
-            {previewSrc && (
-                <img 
-                    src={previewSrc} 
-                    ref={hiddenImgRef} 
-                    alt="hidden-preview" 
-                    style={{ display: 'none' }} 
-                    onLoad={(e) => runPrediction(e.target)} 
-                />
-            )}
         </div>
     )
 }
