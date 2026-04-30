@@ -94,17 +94,28 @@ export default function SearchPage() {
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedFilters, setSelectedFilters] = useState(INITIAL_FILTERS);
 
+    const isImageSearch = useMemo(() => keyword.toLowerCase() === "img", [keyword]);
+
     // ── 키워드 검색 필터링 ──
     const keywordFilteredItems = useMemo(() => {
         const kw = keyword.trim().toLowerCase();
         if (!kw) return [];
-        return allItems.filter((item) =>
-            (item.productName || "").toLowerCase().includes(kw) ||
-            (item.artist || "").toLowerCase().includes(kw) ||
-            (item.modelLabel || "").toLowerCase().includes(kw) ||
-            (item.caseCategory || "").toLowerCase().includes(kw)
-        );
-    }, [allItems, keyword]);
+        let result = [];
+
+        if (isImageSearch) {
+            // [이미지 검색 모드] 전체 아이템 중 랜덤으로 20개 정도 추출하거나 전체를 섞음
+            // 여기서는 전체를 섞는 방식을 사용합니다.
+            result = [...allItems].sort(() => Math.random() - 0.5);
+        } else {
+            result = allItems.filter((item) =>
+                (item.productName || "").toLowerCase().includes(kw) ||
+                (item.artist || "").toLowerCase().includes(kw) ||
+                (item.modelLabel || "").toLowerCase().includes(kw) ||
+                (item.caseCategory || "").toLowerCase().includes(kw)
+            );
+        }
+        return result;
+    }, [allItems, keyword, isImageSearch]);
 
     // ── 사이드 필터 ──
     const filteredItems = useMemo(() =>
@@ -209,7 +220,11 @@ export default function SearchPage() {
                 {/* 검색어 헤더 */}
                 <div className="search-page-header">
                     <h2 className="search-page-keyword">
-                        "{keyword}"
+                        {isImageSearch ? (
+                            `이미지 검색 결과`
+                        ) : (
+                            `"${keyword}"`
+                        )}
                     </h2>
                     <p className="search-page-count">
                         총 <strong>{sortedGroups.length}</strong>개의 상품
@@ -259,7 +274,7 @@ export default function SearchPage() {
                 ) : (
                     <div className="search-page-empty">
                         <p className="search-page-empty-title">
-                            <strong>"{keyword}"</strong>에 대한 검색 결과가 없습니다.
+                            <strong>{isImageSearch ? "이미지 분석 결과" : `"${keyword}"`}</strong>에 대한 검색 결과가 없습니다.
                         </p>
                         <p className="search-page-empty-sub">다른 검색어로 다시 시도해 보세요.</p>
                         <Link to="/" className="search-page-empty-btn">홈으로 돌아가기</Link>

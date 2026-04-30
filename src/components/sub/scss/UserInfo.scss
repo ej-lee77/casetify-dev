@@ -14,15 +14,15 @@ div {
         // width: 524px;
         display: flex;
         gap: 40px;
-        justify-content: center;
+        justify-content: left;
         position: relative;
         margin: 20px 0 80px 0;
-        padding: 0 20px;
+        // padding: 0 20px;
 
 
 
         .user-card {
-            width: 480px;
+            width: 45%;
             // height: 290px;
             background-color: #135EAB;
             border-radius: 16px;
@@ -95,7 +95,7 @@ div {
         }
 
         .point-card {
-            width: 350px;
+            width: 35%;
             // height: 290px;
             background-color: #F2E463;
             border-radius: 16px;
@@ -358,7 +358,7 @@ div {
     }
 
     .pass-change-btn {
-        padding-left: 20px;
+        // padding-left: 20px;
 
         button {
             border: 1px solid #000;
@@ -411,10 +411,12 @@ div {
                 color: #fff;
                 padding: 10px 12px;
                 font-size: 0.88rem;
+                border: 1px solid #FFF;
 
                 &:hover {
                     background: #fff;
                     color: #000;
+                    border: 1px solid #000;
                 }
             }
         }
@@ -423,7 +425,7 @@ div {
     div {
         display: flex;
         font-size: 0.85em;
-        padding: 10px 20px;
+        padding: 10px 0;
 
         label {
             position: relative;

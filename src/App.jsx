@@ -64,6 +64,7 @@ function App() {
 
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
+        <Route path="/giftcard" element={<Gift />} />
 
         <Route path='/custom' element={<CustomPage />} />
         <Route path='/custom/studio' element={<ProductCustomizePage />} />
