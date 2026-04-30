@@ -59,6 +59,7 @@ export const useAuthStore = create(
                     zonecode,
                     address,
                     detailaddress,
+                    point: 0,
                     isFirstLogin: true
                 }
 
@@ -393,6 +394,16 @@ export const useAuthStore = create(
 
             return `${year}년 ${month}월 ${day}일`;
         },
+        getThreeMonthsLater : () => {
+            const now = new Date();
+            now.setMonth(now.getMonth() + 3); // 3개월 추가
+
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+
+            return `${year}년 ${month}월 ${day}일`;
+        },
         // 기본쿠폰
         couponList : [
             {
@@ -406,6 +417,27 @@ export const useAuthStore = create(
                 id: "birth",
                 rate: 100,
                 title: "생일 기념 무료 케이스",
+                limit: "",
+                use: true
+            },
+            {
+                id: "bronze",
+                rate: 15,
+                title: "CASETiFY 클럽 브론즈 쿠폰",
+                limit: "",
+                use: true
+            },
+            {
+                id: "silver",
+                rate: 20,
+                title: "CASETiFY 클럽 실버 쿠폰",
+                limit: "",
+                use: true
+            },
+            {
+                id: "gold",
+                rate: 30,
+                title: "CASETiFY 클럽 골드 쿠폰",
                 limit: "",
                 use: true
             }
@@ -761,7 +793,7 @@ export const useAuthStore = create(
         orderList: [],
         // 주문정보저장
         onAddOrder: async (orderData) => {
-            const { user, orderList } = get();
+            const { user, orderList, couponList, getThreeMonthsLater } = get();
             if (!user) return;
 
             // 결제 시 사용할 총 기프트 카드 금액
@@ -808,6 +840,30 @@ export const useAuthStore = create(
             // 1. 기존 주문 목록에 새 주문 추가
             const updatedOrders = [...(orderList || []), orderData];
 
+            let currentPoint = user.point || 0;
+            const totalPrice = orderData.priceSummary.totalPrice || 0; // 전체 결제 금액 기준
+
+            // A. 금액별 포인트 가산
+            if (totalPrice >= 100000) {
+                currentPoint += 100;
+            } else if (totalPrice >= 50000) {
+                currentPoint += 50;
+            }
+
+            let upgradeMessage = "";
+            const rewardMilestones = [{point: 50, label: 'bronze'}, {point: 120, label: 'silver'}, {point: 200, label: 'gold'}];
+    
+            // 이전 포인트는 달성 못했지만, 새 포인트가 마일스톤을 넘었을 때 발급
+            rewardMilestones.forEach(milestone => {
+                const oldPoint = user.point || 0;
+                if (oldPoint < milestone.point && currentPoint >= milestone.point) {
+                    const newCoupon = { ...couponList.find(c => c.id === milestone.label) };
+                    newCoupon.limit = getThreeMonthsLater();
+                    updatedCoupons.push(newCoupon);
+                    upgradeMessage = milestone.label;
+                }
+            });
+
             try {
                 // A. 주문 내역 저장
                 const updatedOrders = [...(orderList || []), orderData];
@@ -818,7 +874,8 @@ export const useAuthStore = create(
                 const userRef = doc(db, "users", user.uid);
                 await updateDoc(userRef, { 
                     giftCard: updatedGiftCards,
-                    coupons: updatedCoupons 
+                    coupons: updatedCoupons,
+                    point: currentPoint
                 });
 
                 // C. 장바구니 비우기
@@ -832,11 +889,15 @@ export const useAuthStore = create(
                     checkedCart: [],
                     user: { 
                         ...user, 
-                        giftCards: updatedGiftCards,
-                        coupons: updatedCoupons
+                        giftCard: updatedGiftCards,
+                        coupons: updatedCoupons,
+                        point: currentPoint
                     }
                 });
 
+                if(upgradeMessage !== ""){
+                    return upgradeMessage;
+                } 
                 return true;
             } catch (e) {
                 console.log("결제 저장 실패:", e.message);
