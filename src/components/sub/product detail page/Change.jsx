@@ -77,9 +77,6 @@ export default function Change() {
         activeCategory === "all" || faq.category === activeCategory
     );
 
-    console.log(filteredFaqs);
-
-
     return (
         <div className="change">
             <h3>배송관련</h3>
