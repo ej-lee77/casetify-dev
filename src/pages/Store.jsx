@@ -195,8 +195,8 @@ export default function Store() {
             </div>
             <div className='near-list'>
               <button className="select-btn" onClick={() => setSortByDistance(prev => !prev)}>
-                <span>{sortByDistance ? "가까운 지점 순" : "가까운 지점 순으로 보기"}</span>
-                <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span>
+                <span>{sortByDistance ? "가까운 지점 정렬 ON" : "가까운 지점 정렬하기"}</span>
+                {/* <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span> */}
               </button>
             </div>
           </div>
