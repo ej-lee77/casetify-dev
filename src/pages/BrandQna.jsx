@@ -432,7 +432,7 @@ export default function BrandQna() {
             </section>
 
             {/* ─── 문의하기 섹션 ─── */}
-            <section className="inquiry-section">
+            <section className="inquiry-section" id="inquiry">
                 <div className="faq-inner">
                     <h2 className="section-heading">문의하기</h2>
 
