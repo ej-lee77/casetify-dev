@@ -79,3 +79,10 @@ export function getModelsByProductGroupCartItem(items = [], targetItem) {
         ).values()
     );
 }
+
+export const getUserGrade = (point = 0) => {
+  if (point >= 200) return "골드";
+  if (point >= 120) return "실버";
+  if (point >= 50) return "브론즈";
+  return "베이직";
+};
