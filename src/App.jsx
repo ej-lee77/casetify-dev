@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import './App.css'
 import './App.scss'
 import Header from './components/Header'
@@ -42,10 +42,10 @@ function App() {
       window.history.scrollRestoration = 'manual';
     }
 
-    // 페이지 이동 직후 실행
+    if (window.location.hash) return;
+
     window.scrollTo(0, 0);
 
-    // 팝업 렌더링 대비한
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 50);
@@ -59,6 +59,8 @@ function App() {
       <SearchNavigator />
       <Routes>
         <Route path='/' element={<Main />} />
+
+        <Route path='/case/custom' element={<Navigate to="/custom" replace />} />
 
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />

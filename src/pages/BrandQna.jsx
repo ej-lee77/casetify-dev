@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./scss/BrandQna.scss";
 import { AUTH_FAQS } from "../data/authFaqs";
+import { useLocation } from 'react-router-dom'
 
 // FAQ 데이터
 const FAQ_CATEGORIES = [
@@ -295,17 +296,45 @@ const INQUIRY_CATEGORIES = [
 ];
 
 export default function BrandQna() {
-    const [activeCategory, setActiveCategory] = useState("all");
+    const location = useLocation();
+    const [activeCategory, setActiveCategory] = useState(location.state?.activeTab || "all");
     const [openFaqId, setOpenFaqId] = useState(null);
     const [searchKeyword, setSearchKeyword] = useState("");
+    const { hash } = useLocation();
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (hash === '#inquiry') {
+            const el = document.getElementById('inquiry');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [hash]);
+   
+    useEffect(() => {
+        if (location.state?.activeTab) {
+            setActiveCategory(location.state.activeTab);
+        }
+    }, [location.state]);
 
     // 문의하기 폼 상태
     const [form, setForm] = useState({
         category: "",
         email: "",
         phone: "",
-        mobile: "",
         message: "",
+    });
+    const [joinErr, setJoinErr] = useState("");
+    const [joinAllErr, setJoinAllErr] = useState({
+        category: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [touched, setTouched] = useState({
+        category: false,
+        email: false,
+        phone: false,
+        message: false
     });
     const [submitDone, setSubmitDone] = useState(false);
 
@@ -325,22 +354,66 @@ export default function BrandQna() {
     const handleFormChange = (e) => {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
+
+        // 검증 결과 업데이트
+        const error = validate(name, value);
+        setJoinAllErr(prev => ({ ...prev, [name]: error }));
+    };
+
+    const handleBlur = (e) => {
+        // 입력창에서 나가는 순간, 해당 필드를 '터치'한 것으로 간주
+        setTouched(prev => ({ ...prev, [e.target.name]: true }));
+    };
+
+    const handleCustomSelectBlur = (name) => {
+        setTouched(prev => ({ ...prev, [name]: true }));
+    };
+
+    // 실시간 검증 로직
+    const validate = (name, value) => {
+        let error = '';
+        if (name === 'category') {
+            if (!value || value.trim() === '') error = '문의 분류를 선택해주세요.';
+        }
+        if (name === 'email'){
+            if(!value.includes('@') || !value || value.trim() === '') error = '이메일 형식이 올바르지 않습니다.';
+        }
+        if (name === 'phone'){
+            const numberRegex = /^[0-9]+$/;
+            if(!numberRegex.test(value) || value.includes('-')) error = '-없이 숫자만 입력해주세요.';
+        }
+        if (name === 'message') {
+            if (!value || value.trim() === '') error = '필수 입력 항목입니다.';
+        }
+        return error;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!form.category || form.category === INQUIRY_CATEGORIES[0]) {
-            alert("문의 분류를 선택해주세요.");
+
+        // 제출 시 최종 검증 (모든 필드에 대해)
+        const newErrors = {};
+        Object.keys(form).forEach(key => {
+            newErrors[key] = validate(key, form[key]);
+        });
+        setJoinAllErr(newErrors);
+
+        const allTouched = {
+            category: true,
+            email: true,
+            phone: true,
+            message: true
+        };
+        setTouched(allTouched);
+
+        // 에러가 하나도 없는지 확인
+        let isFormValid = Object.values(newErrors).every(err => err === '');
+
+        if(!isFormValid){
+            setJoinErr("입력 오류가 있습니다.");
             return;
         }
-        if (!form.email) {
-            alert("이메일을 입력해주세요.");
-            return;
-        }
-        if (!form.message) {
-            alert("문의 내용을 입력해주세요.");
-            return;
-        }
+
         setSubmitDone(true);
     };
 
@@ -432,7 +505,7 @@ export default function BrandQna() {
             </section>
 
             {/* ─── 문의하기 섹션 ─── */}
-            <section className="inquiry-section">
+            <section className="inquiry-section" id="inquiry">
                 <div className="faq-inner">
                     <h2 className="section-heading">문의하기</h2>
 
@@ -444,7 +517,7 @@ export default function BrandQna() {
                                 className="inquiry-submit-btn"
                                 onClick={() => {
                                     setSubmitDone(false);
-                                    setForm({ category: "", email: "", phone: "", mobile: "", message: "" });
+                                    setForm({ category: "", email: "", phone: "", message: "" });
                                 }}
                             >
                                 다시 문의하기
@@ -454,18 +527,30 @@ export default function BrandQna() {
                         <form className="inquiry-form" onSubmit={handleSubmit} noValidate>
                             <div className="inquiry-row">
                                 <label className="inquiry-label">문의 분류</label>
-                                <select
-                                    name="category"
-                                    value={form.category}
-                                    onChange={handleFormChange}
-                                    className="inquiry-select"
-                                >
-                                    {INQUIRY_CATEGORIES.map((cat) => (
-                                        <option key={cat} value={cat === INQUIRY_CATEGORIES[0] ? "" : cat}>
-                                            {cat}
-                                        </option>
-                                    ))}
-                                </select>
+                                <div className="custom-select-container">
+                                    <div className="selected-value" onClick={() => setIsOpen(!isOpen)}>
+                                        {form.category || INQUIRY_CATEGORIES[0]}
+                                    </div>
+                                    
+                                    {isOpen && (
+                                        <ul className="custom-options">
+                                            {INQUIRY_CATEGORIES.map((cat, idx) => (
+                                                <li 
+                                                    key={cat} 
+                                                    className="custom-option"
+                                                    onClick={() => {
+                                                        handleFormChange({ target: { name: 'category', value: idx === 0 ? "" : cat }});
+                                                        handleCustomSelectBlur('category');
+                                                        setIsOpen(false);
+                                                    }}
+                                                >
+                                                    {cat}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                                <p className='err-box'>{touched.category && joinAllErr.category}</p>
                             </div>
 
                             <div className="inquiry-row">
@@ -473,11 +558,13 @@ export default function BrandQna() {
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="nanoBanana@gmail.com"
+                                    placeholder="casetify@castify.com"
                                     value={form.email}
                                     onChange={handleFormChange}
+                                    onBlur={handleBlur}
                                     className="inquiry-input"
                                 />
+                                <p className='err-box'>{touched.email && joinAllErr.email}</p>
                             </div>
 
                             <div className="inquiry-row">
@@ -488,8 +575,10 @@ export default function BrandQna() {
                                     placeholder="-없이 입력"
                                     value={form.phone}
                                     onChange={handleFormChange}
+                                    onBlur={handleBlur}
                                     className="inquiry-input"
                                 />
+                                <p className='err-box'>{touched.phone && joinAllErr.phone}</p>
                             </div>
 
                             <div className="inquiry-row inquiry-row--textarea">
@@ -499,12 +588,15 @@ export default function BrandQna() {
                                     placeholder="문의 내용을 입력해주세요."
                                     value={form.message}
                                     onChange={handleFormChange}
+                                    onBlur={handleBlur}
                                     className="inquiry-textarea"
                                     rows={8}
                                 />
+                                <p className='err-box'>{touched.message && joinAllErr.message}</p>
                             </div>
 
                             <div className="inquiry-submit-wrap">
+                                <p>{joinErr}</p>
                                 <button type="submit" className="inquiry-submit-btn">
                                     문의 제출하기
                                 </button>
