@@ -64,7 +64,10 @@ function App() {
 
         <Route path='/:mainCate/:subCate' element={<CategoryPage />} />
         <Route path="/detail/:id" element={<ProductDetailPage />} />
-        <Route path='/custom' element={<ProductCustomizePage />} />
+
+        {/* 커스텀: 디바이스 선택 → 스튜디오 */}
+        <Route path='/custom' element={<CustomPage />} />
+        <Route path='/custom/studio' element={<ProductCustomizePage />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/login/naver' element={<NaverCallBack />} />
