@@ -8,303 +8,366 @@
     section {
         margin-top: 0;
     }
-}
 
-// ─── 공통 inner ─────────────────────────────────────
-.faq-inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-// ─── 섹션 제목 ─────────────────────────────────────
-.section-heading {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 28px;
-    letter-spacing: -0.02em;
-}
+    // ─── 공통 inner ─────────────────────────────────────
+    .faq-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-// ─── FAQ 섹션 ─────────────────────────────────────
-.faq-section {
-    padding: 60px 0 80px;
-}
+    // ─── 섹션 제목 ─────────────────────────────────────
+    .section-heading {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 28px;
+        letter-spacing: -0.02em;
+    }
 
-// 탭 버튼 영역
-.faq-tab-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    margin-bottom: 28px;
-    border-bottom: 1px solid #e6e6e6;
-    padding-bottom: 16px;
-}
+    // ─── FAQ 섹션 ─────────────────────────────────────
+    .faq-section {
+        padding: 60px 0 80px;
+    }
 
-.faq-tab-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.92rem;
-    color: #787878;
-    padding: 4px 2px;
-    position: relative;
-    transition: color 0.2s;
+    // 탭 버튼 영역
+    .faq-tab-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        margin-bottom: 28px;
+        border-bottom: 1px solid #e6e6e6;
+        padding-bottom: 16px;
+    }
 
-    &::after {
-        content: "";
-        position: absolute;
-        bottom: 0px;
-        left: 0;
+    .faq-tab-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 0.92rem;
+        color: #787878;
+        padding: 4px 2px;
+        position: relative;
+        transition: color 0.2s;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: transparent;
+            transition: background 0.2s;
+        }
+
+        &:hover {
+            color: #2f2f2f;
+        }
+
+        &.on {
+            color: #2f2f2f;
+            font-weight: 700;
+
+            &::after {
+                background: #2f2f2f;
+            }
+        }
+    }
+
+    // 검색창
+    .faq-search-wrap {
+        display: flex;
+        align-items: center;
+        border: 1px solid #c8c8c8;
+
+        padding: 10px 16px;
+        margin-bottom: 32px;
+        background: #fff;
+
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+            color: #2f2f2f;
+            background: transparent;
+
+            &::placeholder {
+                color: #ababab;
+            }
+        }
+
+        .faq-search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                color: #2f2f2f;
+            }
+        }
+    }
+
+    // 아코디언
+    .faq-accordion {
+        border-top: 1px solid #e6e6e6;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #e6e6e6;
+
+        &.open {
+            .faq-chevron {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .faq-question {
         width: 100%;
-        height: 2px;
-        background: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #2f2f2f;
+
+        span {
+            flex: 1;
+            line-height: 1.5;
+        }
+    }
+
+    .faq-chevron {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        color: #585858;
+        transition: transform 0.25s ease;
+    }
+
+    .faq-answer {
+        padding: 0 4px 24px;
+
+        p {
+            background: #f7f7f7;
+
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #585858;
+        }
+    }
+
+    .faq-empty {
+        padding: 40px 0;
+        text-align: center;
+        color: #ababab;
+        font-size: 0.95rem;
+    }
+
+    // ─── 문의하기 섹션 ─────────────────────────────────────
+    .inquiry-section {
+        background: #fafafa;
+        padding: 60px 0 100px;
+        // border-top: 1px solid #e6e6e6;
+    }
+
+    .inquiry-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .inquiry-row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        &--textarea {
+            align-items: flex-start;
+        }
+    }
+
+    .inquiry-label {
+        width: 80px;
+        flex-shrink: 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #2f2f2f;
+        background: #f0f0f0;
+        text-align: center;
+        padding: 10px 8px;
+
+        line-height: 1.4;
+    }
+
+    .inquiry-input,
+    .inquiry-select {
+        flex: 1;
+        border: 1px solid #c8c8c8;
+
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        color: #2f2f2f;
+        outline: none;
+        background: #fff;
+        transition: border-color 0.2s;
+
+        // &:focus {
+        //     border-color: #2f2f2f;
+        // }
+
+        &::placeholder {
+            color: #ababab;
+        }
+    }
+    .custom-select-container {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .selected-value {
+        padding: 10px 14px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23585858' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+    }
+
+    .custom-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border: 1px solid #000;
+        background: #fff;
+        z-index: 10;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .custom-option {
+        padding: 12px;
         transition: background 0.2s;
     }
 
-    &:hover {
-        color: #2f2f2f;
+    .custom-option:hover {
+        background-color: #000;
+        color: #fff;
     }
 
-    &.on {
-        color: #2f2f2f;
-        font-weight: 700;
-
-        &::after {
-            background: #2f2f2f;
-        }
+    .err-box{
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        top: 40px;
+        left: 0;
+        font-size: 0.88em;
+        padding-left: 10px;
+        color: g.$text-sale;
+        text-align: center
     }
-}
 
-// 검색창
-.faq-search-wrap {
-    display: flex;
-    align-items: center;
-    border: 1px solid #c8c8c8;
-
-    padding: 10px 16px;
-    margin-bottom: 32px;
-    background: #fff;
-
-    input {
+    .inquiry-textarea {
         flex: 1;
-        border: none;
-        outline: none;
-        font-size: 0.95rem;
+        border: 1px solid #c8c8c8;
+
+        padding: 12px 14px;
+        font-size: 0.9rem;
         color: #2f2f2f;
-        background: transparent;
+        outline: none;
+        resize: vertical;
+        min-height: 180px;
+        background: #fff;
+        transition: border-color 0.2s;
+        line-height: 1.6;
+        resize: none;
+
+        // &:focus {
+        //     border-color: #2f2f2f;
+        // }
 
         &::placeholder {
             color: #ababab;
         }
     }
 
-    .faq-search-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
+    .inquiry-row--textarea{
+        .err-box{
+            top: 210px;
+        }
+    }
+
+    .inquiry-submit-wrap {
         display: flex;
-        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+        position: relative;
 
-        svg {
-            width: 20px;
+        p{
+            position: absolute;
+            width: 100%;
             height: 20px;
-            color: #2f2f2f;
+            top: 50px;
+            left: 0;
+            font-size: 0.88em;
+            padding-left: 10px;
+            color: g.$text-sale;
+            text-align: center
         }
     }
-}
 
-// 아코디언
-.faq-accordion {
-    border-top: 1px solid #e6e6e6;
-}
+    .inquiry-submit-btn {
+        background: #2f2f2f;
+        color: #fff;
+        border: none;
 
-.faq-item {
-    border-bottom: 1px solid #e6e6e6;
+        padding: 14px 48px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.15s;
+        letter-spacing: 0.02em;
 
-    &.open {
-        .faq-chevron {
-            transform: rotate(180deg);
+        &:hover {
+            background: #111;
+            // transform: translateY(-1px);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
     }
-}
 
-.faq-question {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #2f2f2f;
+    // 제출 완료 화면
+    .inquiry-done {
+        text-align: center;
+        padding: 60px 0;
 
-    span {
-        flex: 1;
-        line-height: 1.5;
-    }
-}
-
-.faq-chevron {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    color: #585858;
-    transition: transform 0.25s ease;
-}
-
-.faq-answer {
-    padding: 0 4px 24px;
-
-    p {
-        background: #f7f7f7;
-
-        padding: 16px 20px;
-        font-size: 0.9rem;
-        line-height: 1.7;
-        color: #585858;
-    }
-}
-
-.faq-empty {
-    padding: 40px 0;
-    text-align: center;
-    color: #ababab;
-    font-size: 0.95rem;
-}
-
-// ─── 문의하기 섹션 ─────────────────────────────────────
-.inquiry-section {
-    background: #fafafa;
-    padding: 60px 0 100px;
-    border-top: 1px solid #e6e6e6;
-}
-
-.inquiry-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.inquiry-row {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-
-    &--textarea {
-        align-items: flex-start;
-    }
-}
-
-.inquiry-label {
-    width: 80px;
-    flex-shrink: 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #2f2f2f;
-    background: #f0f0f0;
-    text-align: center;
-    padding: 10px 8px;
-
-    line-height: 1.4;
-}
-
-.inquiry-input,
-.inquiry-select {
-    flex: 1;
-    border: 1px solid #c8c8c8;
-
-    padding: 10px 14px;
-    font-size: 0.9rem;
-    color: #2f2f2f;
-    outline: none;
-    background: #fff;
-    transition: border-color 0.2s;
-
-    &:focus {
-        border-color: #2f2f2f;
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #585858;
+            margin-bottom: 32px;
+        }
     }
 
-    &::placeholder {
-        color: #ababab;
-    }
-}
-
-.inquiry-select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23585858' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 36px;
-}
-
-.inquiry-textarea {
-    flex: 1;
-    border: 1px solid #c8c8c8;
-
-    padding: 12px 14px;
-    font-size: 0.9rem;
-    color: #2f2f2f;
-    outline: none;
-    resize: vertical;
-    min-height: 180px;
-    background: #fff;
-    transition: border-color 0.2s;
-    line-height: 1.6;
-
-    &:focus {
-        border-color: #2f2f2f;
-    }
-
-    &::placeholder {
-        color: #ababab;
-    }
-}
-
-.inquiry-submit-wrap {
-    display: flex;
-    justify-content: center;
-    margin-top: 8px;
-}
-
-.inquiry-submit-btn {
-    background: #2f2f2f;
-    color: #fff;
-    border: none;
-
-    padding: 14px 48px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.02em;
-
-    &:hover {
-        background: #111;
-        transform: translateY(-1px);
-    }
-
-    &:active {
-        transform: translateY(0);
-    }
-}
-
-// 제출 완료 화면
-.inquiry-done {
-    text-align: center;
-    padding: 60px 0;
-
-    p {
-        font-size: 1.05rem;
-        line-height: 1.8;
-        color: #585858;
-        margin-bottom: 32px;
-    }
 }

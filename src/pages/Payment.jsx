@@ -574,7 +574,7 @@ export default function Payment() {
             </div>
             <div className='agree-div'>
               <p>주문을 완료함으로써,</p>
-              <p><span>이용약관</span> 및 <span>개인정보 처리방침</span>에 동의합니다.</p>
+              <p><span><Link to="/brand/qna" state={{activeTab: 'terms'}}>이용약관</Link></span> 및 <span><Link to="/brand/qna" state={{activeTab: 'privacy'}}>개인정보 처리방침</Link></span>에 동의합니다.</p>
             </div>
           </div>
         </div>
