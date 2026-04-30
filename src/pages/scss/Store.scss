@@ -185,10 +185,13 @@
 
 .city-list {
     position: absolute;
-    background: #eee;
+    background: white;
+    border: 1px solid #8f8f8f;
+    border-top: none;
     padding: 20px;
-    line-height: 2;
+    line-height: 2.2;
     width: 100%;
+    z-index: 3;
 
     li {
         button {
