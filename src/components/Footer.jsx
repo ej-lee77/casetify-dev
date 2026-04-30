@@ -97,7 +97,7 @@ export default function Footer() {
                 <li>토요일, 일요일, 공휴일 휴무</li>
               </ul>
               <ul className="cs-menu-list info-list">
-                <li><Link to="/brand/qna">문의하기</Link></li>
+                <li><Link to="/brand/qna#inquiry">문의하기</Link></li>
                 <li><Link to="/brand/qna">FAQs</Link></li>
               </ul>
             </div>
