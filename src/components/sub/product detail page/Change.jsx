@@ -1,58 +1,62 @@
 import React, { useState } from "react";
 import "./scss/change.scss";
 
-const TABS = {
-    returns: {
-        label: "반품 및 교환",
-        faqs: [
-            {
-                q: "반품해서 환불을 받아도 됩니까?",
-                a: "만일 제품의 반품을 원하신다면, 반품 사유와 함께 상품을 받으신 날짜(운송업체 배송기록에 근거함)로 부터 10일 안에 저희쪽에 연락을 주시기 바랍니다. 그 후 자세한 반품 안내를 드리겠습니다. 저희쪽에 통보되지 않은 반품건은 처리가 되지 않습니다. 반품은 최초에 결제하신 방법으로 환불처리 되며, 만일 지불수단이 신용카드/체크카드 또는 은행 계좌로 진행한 건에 대해서는 Paypal에서 고객님의 은행사와 신용 거래를 위해 소요되는 대기 시간이 있을수 있습니다.",
-            },
-            {
-                q: "주문한 제품의 전액 환불이 가능합니까?",
-                a: "최저 구매 금액이 설정되어 있는 할인은 상품 반품 시 적용되지 않을 수 있습니다. 두 개 이상 구매 상품에 적용된 할인은 일부 상품 반품 시 할인은 무효 처리되며, 미반품 상품은 원가격으로 청구됩니다. 또한, 배송비가 발생할 수 있습니다.",
-            },
-            {
-                q: "환불 대신 제품 교환이 가능한가요?",
-                a: "네 가능합니다! 제품 반품을 원하시는 경우, 제품 수령 날짜로부터 10일 이내에 반품 사유를 저희에게 알려주시면 자세한 반품 절차를 안내해 드리겠습니다. 메일을 보내주실 때 주문번호를 꼭 기재해 주세요. 디자인을 변경하고 싶으신 경우 변경할 디자인의 URL 또는 상품명을 알려주세요. 만약 기종, 케이스 종류, 색상을 변경하고 싶으신 경우에는 이와 관련된 세부사항을 메일에 적어주세요. 또한 모든 교환/반품은 일회성으로 진행되며, 기존에 구매하셨던 제품보다 높은 가격의 제품으로 교환하시는 경우, 추가 요금이 발생합니다. 추가로 발생한 요금은 케이스티파이 클럽 멤버십 적립 대상에서 제외됩니다.",
-            },
-            {
-                q: "제품 반품이나 교환 시 배송 현황을 확인할 수 있나요?",
-                a: "구매일로부터 10일 이내에 변심으로 인해 반품이나 교환이 가능하며 이때 발생되는 모든 수수료는 고객님이 부담하시게 되는 점 유의해 주시기 바랍니다. 반품되는 제품은 케이스티파이가 수령하기 전까지 고객님의 책임으로, 반품 시에는 등기 우편이나 배송 상황을 추적할 수 있는 서비스를 이용하실 것을 권장 드립니다.",
-            },
-            {
-                q: "온라인 주문한 제품을 오프라인 스토어에 반품할 수 있습니까?",
-                a: "죄송하지만 온라인 주문의 반품 및 교환은 오프라인 스토어에서 처리할 수 없습니다. 반품 사유를 알려주시면 반품 절차를 안내해 드리겠습니다.",
-            },
-            {
-                q: "Re/CASETiFY 수거 박스는 어디에 있나요?",
-                a: "가까운 매장을 방문하여 매장 내 'Re/CASETiFY' 수거함에 사용하시던 케이스를 넣어주세요. 근처에 매장이 없으신가요? 소포 겉면에 'Re/CASETiFY'라고 표기 후, 사용하시던 케이스를 아래 주소 중 한 곳으로 보내주세요. 안전한 재활용을 위해 우편 요금이 부족하지 않도록 지불해주세요!",
-            },
-        ],
-    },
-    shipping: {
-        label: "배송관련 문의",
-        faqs: [
-            {
-                q: "배송 전 상품 준비 기간이 얼마나 되나요?",
-                a: "주문 후 1-6 영업일 이내 출고를 목표로 하고 있습니다. 그러나 더 좋은 상품을 만들기 위해 추가 시간이 소요되는 경우 너그러운 이해를 부탁 드립니다. 특히 연말 등 성수기에 배송이 지연될 수 있는 점 양해해주세요. 재고가 부족하지 않도록 각별히 주의를 기울이고 있지만, 간혹 품절이 발생할 수 있습니다. 이 경우 최대한 빨리 회원님에게 안내 드리겠습니다. 만약 상품 발송과 관련된 문의사항이 있으시면 저희 고객센터에 문의해주세요.",
-            },
-            {
-                q: "주문상태는 어떻게 확인할 수 있나요?",
-                a: "주문하신 계정에 로그인한 후 '주문 현황' 버튼을 눌러주세요. 운송사의 추적 정보가 바로 조회되지 않을 수 있습니다. 이 경우 상품 배송이 시작된 후 2-4 영업일 이내에 확인 가능합니다.",
-            },
-            {
-                q: "상품은 언제 발송 되나요?",
-                a: "표준 배송 주문 건은 영업일 기준 6일 이내에 처리됩니다. 공휴일이나 성수기에 발생하는 지연에 대해 양해 부탁 드립니다. 세관과 우체국도 성수기 또는 발렌타인데이 등 기념일 이전에 업무처리에 추가 시간이 필요합니다.",
-            },
-        ],
-    },
-};
+// FAQ 데이터
+const FAQ_CATEGORIES = [
+    { id: "all", label: "전체" },
+    { id: "delivery", label: "배송" },
+    { id: "return", label: "반품 및 교환" }
+];
+
+const FAQ_LIST = [
+        {
+            id: 8,
+            category: "return",
+            question: "커스텀 제품도 반품이 가능한가요?",
+            answer:
+                "커스텀 제품은 개인 맞춤 제작 특성상 전액 환불 반품이 불가합니다. 반품을 원하실 경우 고객서비스팀에 문의해 주세요. 상품은 미사용 상태로 원래 포장 그대로 선불 배송비를 부담하여 반송해야 하며, 반송 상품 확인 후 실제 구매가의 50%가 원결제 수단 또는 크레딧으로 환불됩니다.",
+        },
+        {
+            id: 9,
+            category: "return",
+            question: "일반 상품의 교환 및 반품 조건은 어떻게 되나요?",
+            answer:
+                "일반 상품은 상품 수령 후 마이페이지 > 주문 내역을 통해 교환/반품 신청이 가능합니다. 단, 이미 할인이 적용된 상품, 아카이브 컬렉션, 콜라보 컬렉션 등 세일 중인 상품은 추가 할인 및 반품 조건이 다를 수 있으니 상품 상세 페이지를 확인해 주세요.",
+        },
+        {
+            id: 4,
+            category: "delivery",
+            question: "배송 방법에는 어떤 것이 있나요?",
+            answer:
+                '배송은 "일반배송"과 "익스프레스 배송" 두 가지로 나뉩니다. 일반배송은 국제 우체국을 통해 배달되며, 익스프레스 배송은 FedEx나 DHL Express 등 특송사를 통해 운송됩니다. 배송 형태는 도착지 국가의 서비스에 따라 다를 수 있습니다.',
+        },
+        {
+            id: 5,
+            category: "delivery",
+            question: "예상 배송일은 정확한가요?",
+            answer:
+                "웹사이트에 표시된 예상 배송일은 단순 참고용이며, 세관 통관 절차 및 도착지 국가의 배송 기준에 따라 실제 도착일이 달라질 수 있습니다. CASETiFY는 예상 배송일 내 도착을 보장하지 않으며, 기재된 날짜를 준수할 의무를 가지지 않습니다.",
+        },
+        {
+            id: 6,
+            category: "delivery",
+            question: "무료배송 혜택은 어떻게 적용되나요?",
+            answer:
+                "무료배송이 제공되는 경우, 별도 언급이 없는 한 '표준 배송(일반 배송)'에만 해당됩니다. 또한 무료배송은 오직 주문의 첫 번째 배송에만 적용됩니다. 배송지 오기재나 수취인 부재 등으로 재배송이 필요한 경우 재배송 비용이 부과되며, 모든 배송비는 환불이 불가합니다.",
+        },
+        {
+            id: 7,
+            category: "delivery",
+            question: "해외 배송 시 추가 비용이 발생하나요?",
+            answer:
+                "해외 주문 시 수입세, 관세, 부가세 및 운송 관련 비용이 발생할 수 있으며, 이는 웹사이트 결제 금액에 포함되어 있지 않습니다. 상품 수령 전 해당 국가 유관 기관에 비용을 납부해야 할 수 있으며, 이와 관련하여 CASETiFY는 어떠한 책임도 지지 않습니다.",
+        }
+    ];
 
 export default function Change() {
     const [activeTab, setActiveTab] = useState("returns");
     const [openIndex, setOpenIndex] = useState(null);
+    const [activeCategory, setActiveCategory] = useState("all");
 
     const toggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -63,25 +67,70 @@ export default function Change() {
         setOpenIndex(null);
     };
 
-    const { faqs } = TABS[activeTab];
+    // const { faqs } = TABS[activeTab];
+    const [openFaqId, setOpenFaqId] = useState(null);
+    const toggleFaq = (id) => {
+        setOpenFaqId((prev) => (prev === id ? null : id));
+    };
+
+    const filteredFaqs = FAQ_LIST.filter((faq) =>
+        activeCategory === "all" || faq.category === activeCategory
+    );
+
+    console.log(filteredFaqs);
+
 
     return (
         <div className="change">
             <h3>배송관련</h3>
 
             <div className="top-btns">
-                {Object.entries(TABS).map(([key, { label }]) => (
+                {FAQ_CATEGORIES.map((cat) => (
                     <button
-                        key={key}
-                        className={activeTab === key ? "active" : ""}
-                        onClick={() => handleTabChange(key)}
+                        key={cat.id}
+                        type="button"
+                        className={`faq-tab-btn ${activeCategory === cat.id ? "on" : ""}`}
+                        onClick={() => {
+                            setActiveCategory(cat.id);
+                            setOpenFaqId(null);
+                        }}
                     >
-                        {label}
+                        {cat.label}
                     </button>
                 ))}
             </div>
 
-            <ul className="faq">
+            {filteredFaqs.map((faq) => (
+                <div
+                    key={faq.id}
+                    className={`faq-item ${openFaqId === faq.id ? "open" : ""}`}
+                >
+                    <button
+                        type="button"
+                        className="faq-question"
+                        onClick={() => toggleFaq(faq.id)}
+                    >
+                        <span>{faq.question}</span>
+                        <svg
+                            className="faq-chevron"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    {openFaqId === faq.id && (
+                        <div className="faq-answer">
+                            <p>{faq.answer}</p>
+                        </div>
+                    )}
+                </div>
+            ))}
+
+            {/* <ul className="faq">
                 {faqs.map((faq, index) => (
                     <li key={index}>
                         <button onClick={() => toggle(index)}>
@@ -93,7 +142,7 @@ export default function Change() {
                         </div>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
         </div>
     );
 }
