@@ -193,7 +193,7 @@ export default function OrderDetailModal({ order, onClose }) {
           )}
           {/* 4. 하단 버튼 */}
           <div className="modal-footer">
-            <Link to='/brand/qna'><button className="faq-btn">주문배송 F&Q</button></Link>
+            <Link to='/brand/qna' state={{activeTab: 'order'}}><button className="faq-btn">주문배송 F&Q</button></Link>
           </div>
         </div>
       </div>
