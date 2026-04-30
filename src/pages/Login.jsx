@@ -162,7 +162,7 @@ export default function Login() {
               </div>
           </div>
           <div>
-            <p>아이디 : nososiv852@poisonword.com</p>
+            <p>아이디 : yelota3643@pertok.com</p>
             <p>비밀번호 : ezen123456</p>
           </div>
           <div className='err-box'>
