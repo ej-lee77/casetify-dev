@@ -1,0 +1,95 @@
+.field {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.textInput {
+  width: 100%;
+  padding: 14px 44px 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.textInput:focus {
+  border-color: #c4b99a;
+}
+
+.emoji {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.colorRow {
+  display: flex;
+  gap: 24px;
+}
+
+.colorItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.colorDot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  outline: none;
+}
+
+.colorDot:hover {
+  transform: scale(1.1);
+}
+
+.colorDot.selected {
+  border-color: #555;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.12);
+}
+
+.colorLabel {
+  font-size: 13px;
+  color: #888;
+}
+
+.confirmBtn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: #e8dfc9;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.confirmBtn:hover:not(.disabled) {
+  background: #ddd0b0;
+}
+
+.confirmBtn.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
