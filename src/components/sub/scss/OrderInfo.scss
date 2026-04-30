@@ -390,7 +390,7 @@
           width: 100%;
           padding: 14px;
           font-size: 15px;
-          font-weight: 700;
+          // font-weight: 700;
           // border-radius: 6px;
           cursor: pointer;
           transition: 0.2s;
@@ -416,8 +416,74 @@
             }
           }
         }
-      }
+        .claim-form-container {
+          display: flex;
+          // flex-direction: column;
+          gap: 12px; /* 드롭다운 사이 간격 */
+          width: 100%;
+          margin-bottom: 5px;
+        }
 
+        .casetify-dropdown {
+          position: relative;
+          width: 100%;
+        }
+
+        /* 블랙 라벨 (유형 선택용) */
+        .dropdown-label {
+          width: 100%;
+          background-color: #FFF;
+          color: #000;
+          padding: 14px 18px;
+          border: 1px solid #000;
+          font-size: 15px;
+          // font-weight: 800;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        /* 화이트 라벨 (사유 선택용 - 이미지의 아래쪽 리스트 스타일) */
+        .dropdown-label.white-version {
+          background-color: #fff;
+          color: #000;
+          border: 1px solid #000; /* 이미지 내부의 연한 구분선 느낌 */
+        }
+
+        /* 펼쳐지는 리스트 */
+        .dropdown-list {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: #fff;
+          border: 1px solid #000;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          z-index: 50;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .dropdown-list li {
+          padding: 12px 18px;
+          font-size: 14px;
+          // font-weight: 700;
+          color: #000;
+          border-bottom: 1px solid #eee;
+          cursor: pointer;
+        }
+
+        .dropdown-list li:hover {
+          background-color: #000;
+          color: #fff; /* 호버 시 블랙으로 반전되어 케이스티파이 감성 강조 */
+        }
+
+        .dropdown-list li:last-child {
+          border-bottom: none;
+        }
+      }
       // 4. 하단 버튼 영역
       .modal-footer {
         display: flex;
