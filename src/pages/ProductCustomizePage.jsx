@@ -15,6 +15,16 @@ function getFilterStyle(filterId, strength) {
     }
 }
 
+// 스티커 목록
+const STICKERS = [
+    { id: 'sticker1', src: '/images/custom/alonedog.png', label: '강아지1' },
+    { id: 'sticker2', src: '/images/custom/cat.jpg', label: '강아지2' },
+    { id: 'sticker3', src: '/images/custom/dogs.jpg', label: '강아지3' },
+    { id: 'sticker4', src: '/images/custom/dossiba.jpg', label: '고양이' },
+    // { id: 'sticker5', src: '/images/custom/sticker5.png', label: '스티커5' },
+    // { id: 'sticker6', src: '/images/custom/sticker6.png', label: '스티커6' },
+]
+
 export function ProductCustomizePage() {
     const location = useLocation()
     const navigate = useNavigate()
@@ -23,7 +33,7 @@ export function ProductCustomizePage() {
     const fileInputRef = useRef(null)
 
     // 선택값
-    const [selectedBrand, setSelectedBrand] = useState(null)
+    const [selectedBrand, setSelectedBrand] = useState(BRANDS[0]?.id || null)
     const [selectedModel, setSelectedModel] = useState(null)
     const [selectedCaseColor, setSelectedCaseColor] = useState(null)
     const [selectedCaseType, setSelectedCaseType] = useState(null)
@@ -34,6 +44,11 @@ export function ProductCustomizePage() {
     const [filterStrength, setFilterStrength] = useState(50)
     const [textValue, setTextValue] = useState('')
     const [fontColor, setFontColor] = useState(null)
+
+    // 사진/스티커 탭
+    const [photoTab, setPhotoTab] = useState('upload') // 'upload' | 'sticker'
+// 첫 번째 스티커 기본 선택
+const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
 
     // UI 상태
     const [modelOpen, setModelOpen] = useState(false)
@@ -51,16 +66,24 @@ export function ProductCustomizePage() {
     const photoStyle = photoFilter && photoURL ? getFilterStyle(photoFilter, filterStrength) : {}
     const deviceTypeLabel = { phone: '핸드폰', laptop: '노트북', tablet: '태블릿' }[initialDeviceType] || ''
 
+    // 프리뷰에 표시할 이미지 (사진 업로드 or 스티커)
+    const previewURL = photoTab === 'sticker'
+        ? selectedSticker?.src || null
+        : photoURL
+
     // 장바구니 가능 여부
     const canAddCart =
         selectedModel && selectedCaseColor && selectedCaseType && designType &&
-        (designType === 'photo' ? (photoFile && photoFilter) : (textValue.trim().length > 0 && fontColor))
+        (designType === 'photo'
+            ? (photoTab === 'upload' ? (photoFile && photoFilter) : selectedSticker)
+            : (textValue.trim().length > 0 && fontColor))
 
     const optionSummary = [
         selectedModelLabel,
         selectedCaseColor ? CASE_COLORS.find(c => c.hex === selectedCaseColor)?.label : null,
         selectedCaseLabel,
-        designType === 'photo' ? '포토 커스텀' : designType === 'text' ? '텍스트 커스텀' : null,
+        designType === 'photo' ? (photoTab === 'sticker' ? '스티커 커스텀' : '포토 커스텀')
+            : designType === 'text' ? '텍스트 커스텀' : null,
     ].filter(Boolean).join(' / ')
 
     const handlePhotoUpload = (e) => {
@@ -74,6 +97,10 @@ export function ProductCustomizePage() {
 
     const handleAddCart = async () => {
         if (!user) { navigate('/login'); return }
+        const customContent = designType === 'text'
+            ? textValue
+            : photoTab === 'sticker' ? selectedSticker?.src : photoURL
+
         const result = await onAddToCart({
             id: `CUSTOM-${Date.now()}`,
             productName: '커스텀 케이스',
@@ -88,7 +115,7 @@ export function ProductCustomizePage() {
             caseCategory: selectedCaseType || '',
             quantity: 1, isCustom: true,
             customMode: designType,
-            customContent: designType === 'text' ? textValue : photoURL,
+            customContent,
         })
         if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
         else        { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
@@ -99,32 +126,11 @@ export function ProductCustomizePage() {
         <section className="detail-page">
             <div className="detail-inner">
 
-                {/* ── 왼쪽: 케이스 컬러 바 + 프리뷰 ── */}
+                {/* ── 왼쪽: 프리뷰 ── */}
                 <div className="detail-left">
                     <div className="detail-image-wrap">
-
                         <div className="detail-main-image custom-preview-main">
-                            {/* 케이스 컬러 세로 바 (이미지처럼 왼쪽에 위치) */}
-                            <div className="color-remote">
-                                {CASE_COLORS.map(c => (
-                                    <button
-                                        key={c.id}
-                                        className={selectedCaseColor === c.hex ? 'active' : ''}
-                                        onClick={() => setSelectedCaseColor(c.hex)}
-                                    >
-                                        <span
-                                            className="remote-chip"
-                                            style={{
-                                                backgroundColor: c.hex,
-                                                border: c.id === 'white' ? '1px solid #ccc' : 'none'
-                                            }}
-                                        />
-                                        <span className="remote-label">{c.label}</span>
-                                    </button>
-                                ))}
-                            </div>
 
-                            {/* 케이스 프리뷰 */}
                             <div className="custom-phone-preview" style={{ '--case-color': selectedCaseColor || '#111111' }}>
                                 <div className="custom-phone-body">
                                     <div className="custom-phone-camera">
@@ -133,15 +139,20 @@ export function ProductCustomizePage() {
                                         <div className="custom-phone-lens" />
                                     </div>
                                     <div className="custom-phone-screen">
-                                        {designType === 'photo' && photoURL && (
-                                            <img src={photoURL} alt="커스텀 사진" style={photoStyle} />
-                                        )}
+                                   {designType === 'photo' && previewURL && (
+    <img
+        src={previewURL}
+        alt="커스텀 미리보기"
+        style={photoFilter ? getFilterStyle(photoFilter, filterStrength) : {}}
+    />
+)}
                                         {designType === 'text' && textValue && (
                                             <span style={{ color: fontColor || '#fff' }}>{textValue}</span>
                                         )}
-                                        {!((designType === 'photo' && photoURL) || (designType === 'text' && textValue)) && (
+                                        {!((designType === 'photo' && previewURL) || (designType === 'text' && textValue)) && (
                                             <p className="custom-phone-placeholder">
-                                                {designType === 'photo' ? '사진을\n업로드하세요'
+                                                {designType === 'photo'
+                                                    ? (photoTab === 'sticker' ? '스티커를\n선택하세요' : '사진을\n업로드하세요')
                                                     : designType === 'text' ? '텍스트를\n입력하세요'
                                                     : '커스텀\n내용을 선택하세요'}
                                             </p>
@@ -150,29 +161,7 @@ export function ProductCustomizePage() {
                                     <div className="custom-phone-grid" />
                                 </div>
                             </div>
-
-                            {/* 위시 버튼 자리 */}
-                            <button className="image-wish-btn">
-                                <img src="/images/icon/UNLIKE.svg" alt="찜하기" />
-                            </button>
                         </div>
-
-                        {/* 썸네일 리스트 (디자인 타입 미리보기) */}
-                        <ul className="detail-thumb-list">
-                            {[
-                                { key: 'default', label: '기본' },
-                                { key: 'photo',   label: '포토' },
-                                { key: 'text',    label: '텍스트' },
-                            ].map(t => (
-                                <li key={t.key} style={{ display: 'block' }}>
-                                    <button type="button">
-                                        <div className="custom-thumb-inner" style={{ background: selectedCaseColor || '#111' }}>
-                                            <span style={{ color: '#fff', fontSize: 10 }}>{t.label}</span>
-                                        </div>
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
                     </div>
                 </div>
 
@@ -189,7 +178,6 @@ export function ProductCustomizePage() {
 
                     <div className="right-info-wrap">
 
-                        {/* 케이스 타입 표시 */}
                         {selectedCaseType && (
                             <div className="detail-info-box">
                                 <p className="label">{selectedCaseLabel}</p>
@@ -199,36 +187,33 @@ export function ProductCustomizePage() {
                         {/* 1. 기종 선택 */}
                         <div className="detail-info-box">
                             <p className="label">기종</p>
-
-                            {/* 브랜드 탭 */}
                             <div className="model-accordion">
-                                <div className="model-brand-tabs" style={{ padding: '12px 16px 0', background: '#fff', position: 'relative', zIndex: 1 }}>
-                                    {BRANDS.map(b => (
-                                        <button
-                                            key={b.id}
-                                            className={selectedBrand === b.id ? 'active' : ''}
-                                            onClick={() => {
-                                                setSelectedBrand(b.id)
-                                                setSelectedModel(null)
-                                                setModelOpen(true)
-                                            }}
-                                        >
-                                            {b.label}
-                                        </button>
-                                    ))}
-                                </div>
-
                                 <button
+                                    type="button"
                                     className="model-accordion-trigger"
-                                    style={{ borderTop: '1px solid #eee' }}
                                     onClick={() => setModelOpen(v => !v)}
                                 >
                                     <span>{selectedModelLabel || '기종을 선택하세요'}</span>
                                     <span className={`model-accordion-arrow ${modelOpen ? 'open' : ''}`}>▼</span>
                                 </button>
 
-                                {modelOpen && selectedBrand && (
+                                {modelOpen && (
                                     <div className="model-accordion-list">
+                                        <div className="model-brand-tabs">
+                                            {BRANDS.map(b => (
+                                                <button
+                                                    key={b.id}
+                                                    type="button"
+                                                    className={selectedBrand === b.id ? 'active' : ''}
+                                                    onClick={() => {
+                                                        setSelectedBrand(b.id)
+                                                        setSelectedModel(null)
+                                                    }}
+                                                >
+                                                    {b.label}
+                                                </button>
+                                            ))}
+                                        </div>
                                         <ul className="model-sub-list">
                                             {models.map(m => (
                                                 <li
@@ -297,7 +282,7 @@ export function ProductCustomizePage() {
                             </div>
                         </div>
 
-                        {/* 4. 커스텀 타입 선택 */}
+                        {/* 4. 커스텀 타입 */}
                         <div className="detail-info-box">
                             <p className="label">커스텀 타입</p>
                             <div className="custom-type-btns">
@@ -316,73 +301,156 @@ export function ProductCustomizePage() {
                             </div>
                         </div>
 
-                        {/* 5-a. 사진 업로드 */}
+                        {/* 5-a. 사진 모드 */}
                         {designType === 'photo' && (
-                            <>
-                                <div className="detail-info-box">
-                                    <p className="label">사진 업로드</p>
-                                    <div
-                                        className="custom-upload-zone"
-                                        onClick={() => fileInputRef.current?.click()}
+                            <div className="detail-info-box">
+
+                                {/* 사진업로드 / 스티커 탭 */}
+                                <div className="photo-tab-wrap">
+                                    <button
+                                        className={`photo-tab-btn ${photoTab === 'upload' ? 'active' : ''}`}
+                                        onClick={() => setPhotoTab('upload')}
                                     >
-                                        {photoURL
-                                            ? <img src={photoURL} alt="업로드 사진" />
-                                            : <><span className="custom-upload-icon">+</span><p>클릭해서 사진을 업로드해주세요</p></>
-                                        }
-                                    </div>
-                                    <input
-                                        ref={fileInputRef}
-                                        type="file"
-                                        accept="image/*"
-                                        style={{ display: 'none' }}
-                                        onChange={handlePhotoUpload}
-                                    />
-                                    {photoURL && (
-                                        <button className="custom-reupload-btn" onClick={() => fileInputRef.current?.click()}>
-                                            다시 업로드
-                                        </button>
-                                    )}
+                                        📷 사진 업로드
+                                    </button>
+                                    <button
+    className={`photo-tab-btn ${photoTab === 'sticker' ? 'active' : ''}`}
+    onClick={() => {
+        setPhotoTab('sticker')
+        if (!selectedSticker) setSelectedSticker(STICKERS[0]) // ← 탭 전환 시 없으면 첫번째 선택
+    }}
+>
+    🐾 스티커
+</button>
                                 </div>
 
-                                {photoURL && (
-                                    <div className="detail-info-box">
-                                        <p className="label">필터 선택</p>
-                                        <div className="custom-filter-grid">
-                                            {PHOTO_FILTERS.map(f => (
-                                                <button
-                                                    key={f.id}
-                                                    className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
-                                                    onClick={() => setPhotoFilter(f.id)}
-                                                >
-                                                    <div className="custom-filter-img-wrap">
-                                                        <img
-                                                            src={photoURL}
-                                                            alt={f.label}
-                                                            style={getFilterStyle(f.id, filterStrength)}
-                                                        />
-                                                    </div>
-                                                    <span>{f.label}</span>
-                                                </button>
-                                            ))}
+                                {/* 사진 업로드 탭 */}
+                                {photoTab === 'upload' && (
+                                    <>
+                                        <div
+                                            className="custom-upload-zone"
+                                            onClick={() => fileInputRef.current?.click()}
+                                        >
+                                            {photoURL
+                                                ? <img src={photoURL} alt="업로드 사진" />
+                                                : <><span className="custom-upload-icon">+</span><p>클릭해서 사진을 업로드해주세요</p></>
+                                            }
                                         </div>
-
-                                        {photoFilter && (
-                                            <div className="custom-slider-wrap">
-                                                <label className="label">필터 강도</label>
-                                                <input
-                                                    type="range" min={0} max={100} step={1}
-                                                    value={filterStrength}
-                                                    onChange={e => setFilterStrength(Number(e.target.value))}
-                                                    className="custom-slider"
-                                                />
-                                                <div className="custom-slider-ticks">
-                                                    <span>약</span><span>강</span>
-                                                </div>
-                                            </div>
+                                        <input
+                                            ref={fileInputRef}
+                                            type="file"
+                                            accept="image/*"
+                                            style={{ display: 'none' }}
+                                            onChange={handlePhotoUpload}
+                                        />
+                                        {photoURL && (
+                                            <button className="custom-reupload-btn" onClick={() => fileInputRef.current?.click()}>
+                                                다시 업로드
+                                            </button>
                                         )}
-                                    </div>
+
+                                        {photoURL && (
+                                            <>
+                                                <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
+                                                <div className="custom-filter-grid">
+                                                    {PHOTO_FILTERS.map(f => (
+                                                        <button
+                                                            key={f.id}
+                                                            className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
+                                                            onClick={() => setPhotoFilter(f.id)}
+                                                        >
+                                                            <div className="custom-filter-img-wrap">
+                                                                <img
+                                                                    src={photoURL}
+                                                                    alt={f.label}
+                                                                    style={getFilterStyle(f.id, filterStrength)}
+                                                                />
+                                                            </div>
+                                                            <span>{f.label}</span>
+                                                        </button>
+                                                    ))}
+                                                </div>
+
+                                                {photoFilter && (
+                                                    <div className="custom-slider-wrap">
+                                                        <label className="label">필터 강도</label>
+                                                        <input
+                                                            type="range" min={0} max={100} step={1}
+                                                            value={filterStrength}
+                                                            onChange={e => setFilterStrength(Number(e.target.value))}
+                                                            className="custom-slider"
+                                                        />
+                                                        <div className="custom-slider-ticks">
+                                                            <span>약</span><span>강</span>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </>
+                                        )}
+                                    </>
                                 )}
-                            </>
+
+                                {/* 스티커 탭 */}
+                          {/* 스티커 탭 */}
+{photoTab === 'sticker' && (
+    <>
+        <div className="custom-filter-grid">
+            {STICKERS.map(s => (
+                <button
+                    key={s.id}
+                    className={`custom-filter-card ${selectedSticker?.id === s.id ? 'active' : ''}`}
+                    onClick={() => setSelectedSticker(s)}
+                >
+                    <div className="custom-filter-img-wrap">
+                        <img src={s.src} alt={s.label} />
+                    </div>
+                    <span>{s.label}</span>
+                </button>
+            ))}
+        </div>
+
+        {/* 스티커 선택 후 필터 적용 */}
+        {selectedSticker && (
+            <>
+                <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
+                <div className="custom-filter-grid">
+                    {PHOTO_FILTERS.map(f => (
+                        <button
+                            key={f.id}
+                            className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
+                            onClick={() => setPhotoFilter(f.id)}
+                        >
+                            <div className="custom-filter-img-wrap">
+                                <img
+                                    src={selectedSticker.src}
+                                    alt={f.label}
+                                    style={getFilterStyle(f.id, filterStrength)}
+                                />
+                            </div>
+                            <span>{f.label}</span>
+                        </button>
+                    ))}
+                </div>
+
+                {photoFilter && (
+                    <div className="custom-slider-wrap">
+                        <label className="label">필터 강도</label>
+                        <input
+                            type="range" min={0} max={100} step={1}
+                            value={filterStrength}
+                            onChange={e => setFilterStrength(Number(e.target.value))}
+                            className="custom-slider"
+                        />
+                        <div className="custom-slider-ticks">
+                            <span>약</span><span>강</span>
+                        </div>
+                    </div>
+                )}
+            </>
+        )}
+    </>
+)}
+                            </div>
                         )}
 
                         {/* 5-b. 텍스트 입력 */}
