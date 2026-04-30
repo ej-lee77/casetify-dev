@@ -444,7 +444,7 @@ export const useAuthStore = create(
             },
             {
                 id: "auth",
-                rate: 10,
+                rate: 5,
                 title: "정품인증 감사 쿠폰",
                 limit: "",
                 use: true
@@ -458,14 +458,18 @@ export const useAuthStore = create(
 
         // 정품인증 + 쿠폰 발급
         onAuthenticate: async (serialNumber) => {
-            const { user, couponList, getOneMonthsLater } = get();
+            // 1. 필요한 상태값 가져오기 (orderList 추가)
+            const { user, couponList, orderList, getThreeMonthsLater } = get();
 
             if (!user) return "login";
             if (!serialNumber.trim()) return "empty";
 
-            // 1. 일련번호 일치 확인
-            const { items: finalData } = await import("../data/finalData");
-            const matched = finalData.find(item => item.id === serialNumber.trim());
+            // 2. 주문 내역(orderList)에서 일련번호(아이템 id) 일치 확인
+            // orderList 내부의 각 order 객체 안에 있는 items 배열을 모두 뒤집니다.
+            const allOrderedItems = orderList.flatMap(order => order.orderItems);
+            const matched = allOrderedItems.find(item => String(item.productId) === serialNumber.trim());
+
+            // 만약 구매한 내역 중에 해당 id가 없다면 실패 반환
             if (!matched) return "fail";
 
             try {
@@ -475,21 +479,29 @@ export const useAuthStore = create(
 
                 const currentCoupons = userData.coupons || [];
 
-                // 2. 이미 정품인증 쿠폰을 받은 적 있는지 확인
+                // 3. 이미 정품인증 쿠폰을 받은 적 있는지 확인
                 const alreadyAuth = currentCoupons.some(c => c.id === "auth");
                 if (alreadyAuth) return "already";
 
-                // 3. 쿠폰 발급
-                const authCoupon = { ...couponList.find(c => c.id === "auth") };
-                authCoupon.limit = getOneMonthsLater();
+                // 4. 쿠폰 발급 로직
+                const authTemplate = couponList.find(c => c.id === "auth");
+                if (!authTemplate) return "error"; // 템플릿이 없는 경우 예외 처리
+
+                const authCoupon = { 
+                    ...authTemplate,
+                    limit: getThreeMonthsLater(), // 유효기간 설정
+                    use: true // 사용 가능 상태로 추가
+                };
+                
                 const updatedCoupons = [...currentCoupons, authCoupon];
 
+                // 5. DB 및 로컬 상태 업데이트
                 await updateDoc(userDocRef, { coupons: updatedCoupons });
                 set({ user: { ...user, coupons: updatedCoupons } });
 
                 return "success";
             } catch (err) {
-                console.log(err.message);
+                console.error("정품인증 처리 중 오류:", err.message);
                 return "error";
             }
         },
