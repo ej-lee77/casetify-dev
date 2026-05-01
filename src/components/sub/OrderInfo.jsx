@@ -247,7 +247,7 @@ export default function OrderInfo() {
                                 </div>
                                 <div className="item-txt">
                                     <p className="item-title">{item.title}</p>
-                                    <p className="item-option">{item.device} / {item.color}</p>
+                                    <p className="item-option">{item.device && <span>{item.device}</span>}{item.color && <span>{item.color}</span>}</p>
                                 </div>
                                 <div className="item-price-qty">
                                     <p className="price">{item.price.toLocaleString()}원</p>
