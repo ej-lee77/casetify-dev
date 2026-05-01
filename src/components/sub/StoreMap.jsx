@@ -41,7 +41,7 @@ export default function StoreMap() {
                     const position = new window.kakao.maps.LatLng(loc.lat, loc.lng);
 
                     //  마커 이미지 생성
-                    const imageSrc = "/images/app-icon-colab.png"; //  이미지 경로
+                    const imageSrc = "/images/store/app-icon-marker.png"; //  이미지 경로
                     const imageSize = new window.kakao.maps.Size(40, 40); // 크기
                     const imageOption = {
                         offset: new window.kakao.maps.Point(20, 40) // 중심 위치
