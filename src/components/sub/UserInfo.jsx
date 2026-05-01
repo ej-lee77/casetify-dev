@@ -4,7 +4,7 @@ import "./scss/UserInfo.scss"
 import { useAuthStore } from '../../store/useAuthStore'
 import AddressSearch from './AddressSearch';
 import { useNavigate } from 'react-router-dom';
-// import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 import AlertPopup from './AlertPopup';
 import './scss/AlertPopup.scss';
 import DatePicker from 'react-datepicker';
@@ -207,7 +207,7 @@ export default function UserInfo() {
         return error;
     };
 
-    const userGrade = getUserGrade(user.point);
+    const userGrade = getUserGrade(user?.point || 0);
     const userGradeEN = gradeList.filter(g => g.label === userGrade)[0];
 
     const getPointPercent = (point) => {
@@ -228,7 +228,7 @@ export default function UserInfo() {
     };
 
     // 적용
-    const fillWidth = getPointPercent(user.point);
+    const fillWidth = getPointPercent(user?.point);
     return (
         <div>
             <AlertPopup
@@ -257,8 +257,8 @@ export default function UserInfo() {
                     <div className='user-info2'>
                         <p className='title'>CASETiFY Club</p>
                         <div className="content-wrap">
-                            <span className='content'>{userGradeEN.key}</span>
-                            <span className='content'>{user.point}pt</span>
+                            <span className='content'>{userGradeEN?.key}</span>
+                            <span className='content'>{user?.point}pt</span>
                         </div>
                     </div>
                     <div>
@@ -277,7 +277,7 @@ export default function UserInfo() {
                             className='point-info-icon' />
                     </div>
                     <p className='point-label'>현재 보유 포인트</p>
-                    <p className='point-value'>{user.point}</p>
+                    <p className='point-value'>{user?.point}</p>
                     <p className='point-grade'>{userGrade}</p>
 
                     <div className='point-bar-wrap'>
@@ -303,8 +303,8 @@ export default function UserInfo() {
                         {userGrade !== "골드" ? (
                             <>
                             <div className='point-bottom-item'>
-                                <p>{userGradeEN.next} 등급까지</p>
-                                <p className='point-highlight'>{userGradeEN.nextP - user.point}</p>
+                                <p>{userGradeEN?.next} 등급까지</p>
+                                <p className='point-highlight'>{userGradeEN?.nextP - user?.point}</p>
                                 <p>포인트 남았어요!</p>
                             </div>
                             <div className='point-divider' />
