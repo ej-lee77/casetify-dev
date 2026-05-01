@@ -22,6 +22,7 @@ const item = items.find((data) => String(data.id) === String(id));
 
     return (
         <>
+        <div className='product-detail-page'>
             <div className="inner">
 
             <DetailPage item={item} />
@@ -32,7 +33,7 @@ const item = items.find((data) => String(data.id) === String(id));
 
             </div>
 
-
+</div>
 
 
 
