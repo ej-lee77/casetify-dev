@@ -10,6 +10,10 @@ footer {
     margin-top: g.$section-gap;
     font-family: "Pretendard", sans-serif;
 
+    &.no-margin-top {
+        margin-top: 0;
+    }
+
     .inner {
         max-width: 1440px;
         // background-color: rgba(255, 0, 0, 0.1);
@@ -18,7 +22,7 @@ footer {
         @include g.myFlex($ai: normal);
 
         .footer-left {
-            @include g.myFlex($fd: column, $gap: 32px, $jc: flex-start, $ai:baseline);
+            @include g.myFlex($fd: column, $gap: 32px, $jc: flex-start, $ai: baseline);
 
             .casetify-15th-anniversary {
                 @include g.myFlex($gap: 10px);
@@ -30,7 +34,8 @@ footer {
 
             .sns-list-wrap {
                 text-align: center;
-                p{
+
+                p {
                     margin-bottom: 5px;
                 }
 
@@ -71,6 +76,7 @@ footer {
 
                     .app-store-bedge {
                         @include g.myFlex($ai: flex-start, $gap: 20px);
+
                         img {
                             width: 100px;
                             margin-bottom: 4px;
@@ -88,7 +94,7 @@ footer {
                 margin-bottom: 10px;
             }
 
-            .info-list{
+            .info-list {
                 font-weight: 100;
                 @include g.myFlex($gap: 5px, $fd: column, $ai: flex-start);
             }
@@ -116,6 +122,7 @@ footer {
 
                 .remark {
                     font-weight: 100;
+
                     a+a {
                         &::before {
                             content: "";
@@ -128,7 +135,8 @@ footer {
                         }
                     }
                 }
-                .copy{
+
+                .copy {
                     margin-top: 5px;
                     font-weight: 100;
                 }
@@ -174,13 +182,14 @@ footer {
     cursor: pointer;
     transition: 0.3s;
 
-    &:hover{
+    &:hover {
         transform: translateY(-5px);
     }
 
-    &.active{
+    &.active {
         display: inline-flex;
     }
+
     img {
         width: 24px;
     }

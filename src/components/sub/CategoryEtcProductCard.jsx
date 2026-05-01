@@ -24,6 +24,14 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
             ? `/images/category/products/${item.id}_${item.modelKey}_main.jpg`
             : `/images/category/products/${item.id}_main.jpg`;
 
+    const hoverImagePath = mainColor
+        ? item.modelKey
+            ? `/images/category/products/${item.id}_${item.modelKey}_${mainColor}_1.jpg`
+            : `/images/category/products/${item.id}_${mainColor}_1.jpg`
+        : item.modelKey
+            ? `/images/category/products/${item.id}_${item.modelKey}_1.jpg`
+            : `/images/category/products/${item.id}_1.jpg`;
+
     const displayModelText = useMemo(() => {
         if (modelLabels.length > 0) {
             return modelLabels.length > 2
@@ -106,9 +114,15 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
                     <div className="card-img">
                         {!isImageError ? (
                             <img
-                                src={imagePath}
+                                src={isHovered ? hoverImagePath : imagePath}
                                 alt={item.productName}
-                                onError={() => setIsImageError(true)}
+                                onError={(e) => {
+                                    if (isHovered) {
+                                        e.currentTarget.src = imagePath;
+                                    } else {
+                                        setIsImageError(true);
+                                    }
+                                }}
                             />
                         ) : (
                             <p className="image-error-path">{imagePath}</p>
