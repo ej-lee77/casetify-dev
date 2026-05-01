@@ -170,6 +170,13 @@ export const useAuthStore = create(
                 // 회원인지 아닌지 체크하기
                 const userDoc = await getDoc(userRef);
                 if (!userDoc.exists()) {
+                    let updatedCoupons = [];
+                    const { couponList, getOneMonthsLater } = get();
+
+                    const welcomeCoupon = { ...couponList.find(c => c.id === "welcome") };
+                    welcomeCoupon.limit = getOneMonthsLater();
+                    updatedCoupons.push(welcomeCoupon);
+
                     const userInfo = {
                         uid: user.uid,
                         email: user.email,
@@ -179,14 +186,47 @@ export const useAuthStore = create(
                         zonecode: "",
                         address: "",
                         detailaddress: "",
-                        provider: 'google'
+                        point: 0,
+                        provider: 'google',
+                        coupons: updatedCoupons
                     }
 
                     await setDoc(userRef, userInfo);
                     set({ user: userInfo });
                 } else {
-                    set({ user: userDoc.data() });
+                    const userData = userDoc.data();
+                    const currentMonth = new Date().getMonth() + 1;
+                    let updatedCoupons = [...(userData.coupons || [])];
+
+                    let isBirthday = false;
+
+                    const userBirthMonth = userData.birthDate
+                        ? Number(userData.birthDate.split('-')[1])
+                        : null;
+
+                    const { couponList, getOneMonthsLater } = get();
+
+                    // 2. 생일 달 확인 및 생일 쿠폰 발급
+                    if (userBirthMonth === currentMonth) {
+                        const hasBirthCoupon = updatedCoupons.some(c => c.id === "birth");
+
+                        if (!hasBirthCoupon) {
+                            const birthCoupon = { ...couponList.find(c => c.id === "birth") };
+                            birthCoupon.limit = getOneMonthsLater();
+                            updatedCoupons.push(birthCoupon);
+                            isBirthday = true;
+                        }
+                    }
+
+                    if (isBirthday) {
+                        await updateDoc(userRef, {
+                            coupons: updatedCoupons
+                        });
+                        set({ user: { ...userData, coupons: updatedCoupons } });
+                        return "생일";
+                    }
                     console.log(user);
+                    set({ user: userData });
                 }
                 return true;
             } catch (err) {
@@ -223,29 +263,72 @@ export const useAuthStore = create(
 
                 // 4 사용자 정보 가공
                 const uid = res.id.toString();
-                const kakaoUser = {
-                    uid,
-                    email: res.kakao_account?.email || '',
-                    name: res.kakao_account.profile?.nickname || '카카오사용자',
-                    photoURL: res.kakao_account.profile?.profile_image_url || '',
-                    provider: 'kakao',
-                    // createdAt: new Date(),
-                };
 
                 // 5 Firestore에 저장
                 const userRef = doc(db, 'users', uid);
                 const userDoc = await getDoc(userRef);
 
                 if (!userDoc.exists()) {
+                    let updatedCoupons = [];
+                    const { couponList, getOneMonthsLater } = get();
+
+                    const welcomeCoupon = { ...couponList.find(c => c.id === "welcome") };
+                    welcomeCoupon.limit = getOneMonthsLater();
+                    updatedCoupons.push(welcomeCoupon);
+
+                    const kakaoUser = {
+                        uid,
+                        email: res.kakao_account?.email || '',
+                        name: res.kakao_account.profile?.nickname || '카카오사용자',
+                        photoURL: res.kakao_account.profile?.profile_image_url || '',
+                        phone: "",
+                        birthDate: "",
+                        zonecode: "",
+                        address: "",
+                        detailaddress: "",
+                        point: 0,
+                        provider: 'kakao',
+                        coupons: updatedCoupons
+                        // createdAt: new Date(),
+                    };
+
                     await setDoc(userRef, kakaoUser);
+                    set({ user: kakaoUser });
                     // console.log(' 신규 카카오 회원 Firestore에 등록 완료');
                 } else {
-                    // console.log('기존 카카오 회원 Firestore 데이터 있음');
+                    const userData = userDoc.data();
+                    const currentMonth = new Date().getMonth() + 1;
+                    let updatedCoupons = [...(userData.coupons || [])];
+
+                    let isBirthday = false;
+
+                    const userBirthMonth = userData.birthDate
+                        ? Number(userData.birthDate.split('-')[1])
+                        : null;
+
+                    const { couponList, getOneMonthsLater } = get();
+
+                    // 2. 생일 달 확인 및 생일 쿠폰 발급
+                    if (userBirthMonth === currentMonth) {
+                        const hasBirthCoupon = updatedCoupons.some(c => c.id === "birth");
+
+                        if (!hasBirthCoupon) {
+                            const birthCoupon = { ...couponList.find(c => c.id === "birth") };
+                            birthCoupon.limit = getOneMonthsLater();
+                            updatedCoupons.push(birthCoupon);
+                            isBirthday = true;
+                        }
+                    }
+
+                    if (isBirthday) {
+                        await updateDoc(userRef, {
+                            coupons: updatedCoupons
+                        });
+                        set({ user: { ...userData, coupons: updatedCoupons } });
+                        return "생일";
+                    }
+                    set({ user: userData });
                 }
-
-                // 6 Zustand 상태 업데이트
-                set({ user: kakaoUser });
-
                 // alert(`${kakaoUser.nickname}님, 카카오 로그인 성공! `);
                 // if (navigate) navigate('/dashboard');
                 return true;
@@ -288,21 +371,67 @@ export const useAuthStore = create(
 
                 // 4. 데이터 가공 및 Firestore 저장
                 const uid = `naver_${userInfo.id}`;
-                const naverUser = {
-                    uid,
-                    email: userInfo.email,
-                    name: userInfo.name,
-                    photoURL: userInfo.profile_image,
-                    provider: 'naver',
-                };
 
                 const userRef = doc(db, 'users', uid);
                 const userDoc = await getDoc(userRef);
                 if (!userDoc.exists()) {
-                    await setDoc(userRef, naverUser);
-                }
+                    let updatedCoupons = [];
+                    const { couponList, getOneMonthsLater } = get();
 
-                set({ user: naverUser });
+                    const welcomeCoupon = { ...couponList.find(c => c.id === "welcome") };
+                    welcomeCoupon.limit = getOneMonthsLater();
+                    updatedCoupons.push(welcomeCoupon);
+
+                    const naverUser = {
+                        uid,
+                        email: userInfo.email,
+                        name: userInfo.name,
+                        photoURL: userInfo.profile_image,
+                        phone: "",
+                        birthDate: "",
+                        zonecode: "",
+                        address: "",
+                        detailaddress: "",
+                        point: 0,
+                        provider: 'naver',
+                        coupons: updatedCoupons
+                    };
+                    await setDoc(userRef, naverUser);
+                    set({ user: naverUser });
+                }else{
+                    const userData = userDoc.data();
+                    const currentMonth = new Date().getMonth() + 1;
+                    let updatedCoupons = [...(userData.coupons || [])];
+
+                    let isBirthday = false;
+
+                    const userBirthMonth = userData.birthDate
+                        ? Number(userData.birthDate.split('-')[1])
+                        : null;
+
+                    const { couponList, getOneMonthsLater } = get();
+
+                    // 2. 생일 달 확인 및 생일 쿠폰 발급
+                    if (userBirthMonth === currentMonth) {
+                        const hasBirthCoupon = updatedCoupons.some(c => c.id === "birth");
+
+                        if (!hasBirthCoupon) {
+                            const birthCoupon = { ...couponList.find(c => c.id === "birth") };
+                            birthCoupon.limit = getOneMonthsLater();
+                            updatedCoupons.push(birthCoupon);
+                            isBirthday = true;
+                        }
+                    }
+
+                    if (isBirthday) {
+                        await updateDoc(userRef, {
+                            coupons: updatedCoupons
+                        });
+                        set({ user: { ...userData, coupons: updatedCoupons } });
+                        return "생일";
+                    }
+                    set({ user: userData });
+                }
                 return true;
             } catch (err) {
                 console.error('네이버 로그인 오류:', err);
@@ -444,7 +573,7 @@ export const useAuthStore = create(
             },
             {
                 id: "auth",
-                rate: 10,
+                rate: 5,
                 title: "정품인증 감사 쿠폰",
                 limit: "",
                 use: true
@@ -458,14 +587,18 @@ export const useAuthStore = create(
 
         // 정품인증 + 쿠폰 발급
         onAuthenticate: async (serialNumber) => {
-            const { user, couponList, getOneMonthsLater } = get();
+            // 1. 필요한 상태값 가져오기 (orderList 추가)
+            const { user, couponList, orderList, getThreeMonthsLater } = get();
 
             if (!user) return "login";
             if (!serialNumber.trim()) return "empty";
 
-            // 1. 일련번호 일치 확인
-            const { items: finalData } = await import("../data/finalData");
-            const matched = finalData.find(item => item.id === serialNumber.trim());
+            // 2. 주문 내역(orderList)에서 일련번호(아이템 id) 일치 확인
+            // orderList 내부의 각 order 객체 안에 있는 items 배열을 모두 뒤집니다.
+            const allOrderedItems = orderList.flatMap(order => order.orderItems);
+            const matched = allOrderedItems.find(item => String(item.productId) === serialNumber.trim());
+
+            // 만약 구매한 내역 중에 해당 id가 없다면 실패 반환
             if (!matched) return "fail";
 
             try {
@@ -475,21 +608,29 @@ export const useAuthStore = create(
 
                 const currentCoupons = userData.coupons || [];
 
-                // 2. 이미 정품인증 쿠폰을 받은 적 있는지 확인
+                // 3. 이미 정품인증 쿠폰을 받은 적 있는지 확인
                 const alreadyAuth = currentCoupons.some(c => c.id === "auth");
                 if (alreadyAuth) return "already";
 
-                // 3. 쿠폰 발급
-                const authCoupon = { ...couponList.find(c => c.id === "auth") };
-                authCoupon.limit = getOneMonthsLater();
+                // 4. 쿠폰 발급 로직
+                const authTemplate = couponList.find(c => c.id === "auth");
+                if (!authTemplate) return "error"; // 템플릿이 없는 경우 예외 처리
+
+                const authCoupon = { 
+                    ...authTemplate,
+                    limit: getThreeMonthsLater(), // 유효기간 설정
+                    use: true // 사용 가능 상태로 추가
+                };
+                
                 const updatedCoupons = [...currentCoupons, authCoupon];
 
+                // 5. DB 및 로컬 상태 업데이트
                 await updateDoc(userDocRef, { coupons: updatedCoupons });
                 set({ user: { ...user, coupons: updatedCoupons } });
 
                 return "success";
             } catch (err) {
-                console.log(err.message);
+                console.error("정품인증 처리 중 오류:", err.message);
                 return "error";
             }
         },
