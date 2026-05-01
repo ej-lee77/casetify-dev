@@ -2,18 +2,32 @@
 
 .bp-wrap {
 
-    .bp-scrollbar {
+    .bp-swiper-wrap {
+        position: relative;
         width: 100%;
-        height: 3px;
-        background: #ddd;
-        cursor: grab;
-        margin-top: 8px;
+        height: 100%;
 
-        .swiper-scrollbar-drag {
+        .swiper {
+            width: 100%;
             height: 100%;
-            background: #111;
-            border-radius: 0;
         }
+
+        .bp-slide-counter {
+            position: absolute;
+            right: 16px;
+            bottom: 14px;
+            z-index: 10;
+            font-family: "Pretendard", sans-serif;
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0.05em;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+    }
+
+    .bp-scrollbar-removed {
+        display: none;
     }
 
     .all {
@@ -25,11 +39,6 @@
         .left {
             height: 100%;
             width: 50%;
-
-            .swiper {
-                width: 100%;
-                height: 100%;
-            }
 
             img {
                 width: 720px;

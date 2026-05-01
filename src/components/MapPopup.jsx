@@ -9,12 +9,16 @@ export default function MapPopup({ onClose }) {
 
   return (
     <div className='MapPopup'>
-      <div className="map-popup-title">
+      {/* <div className="map-popup-title">
         <p>매장 상세정보</p>
         <button onClick={onClose}>
           <img src="../images/icon/close-24dp.svg" alt="닫기" />
         </button>
-      </div>
+      </div> */}
+
+      <button onClick={onClose}>
+        <img src="../images/icon/close-24dp.svg" alt="닫기" />
+      </button>
 
       <h2>{selectedLocation.name}</h2>
 

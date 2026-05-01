@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -92,6 +92,7 @@ export default function Collab() {
     ];
 
     const swiperRef = useRef(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const productMap = useMemo(() => {
         const map = {};
@@ -103,17 +104,19 @@ export default function Collab() {
 
     return (
         <section className="collab-wrap">
-            <Swiper
-                modules={[Autoplay]}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-                onSwiper={(swiper) => (swiperRef.current = swiper)}
-                loop={true}
-                slidesPerView={5}
-                spaceBetween={30}
-            >
+            <div className="collab-swiper-wrap">
+                <Swiper
+                    modules={[Autoplay]}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    onSwiper={(swiper) => (swiperRef.current = swiper)}
+                    onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
+                    loop={true}
+                    slidesPerView={5}
+                    spaceBetween={30}
+                >
                 {slides.map((item) => {
                     const product = productMap[String(item.id)];
 
@@ -175,7 +178,11 @@ export default function Collab() {
                         </SwiperSlide>
                     );
                 })}
-            </Swiper>
+                </Swiper>
+                <div className="collab-slide-counter">
+                    {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+                </div>
+            </div>
         </section>
     );
 }
