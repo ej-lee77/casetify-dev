@@ -12,35 +12,25 @@ const memoList = [
   "직접 입력"
 ];
 
-// const couponList = [
-//   {
-//     id: "welcome",
-//     rate: 15,
-//     title: "CASETiFY 클럽 welcome 쿠폰",
-//     limit: "2026년12월31일"
-//   },
-//   {
-//     id: "birth",
-//     rate: 100,
-//     title: "생일 기념 무료 케이스",
-//     limit: "2026년4월30일"
-//   }
-// ]
-
-// const giftCard = [
-//   {
-//     title: "welcome 기프트카드",
-//     price: 10000
-//   }
-// ]
-
-const payMethod = [
-  { id: 'card', label: '신용/체크 카드' },
-  { id: 'transfer', label: '무통장 입금' },
-  { id: 'vbank', label: '가상계좌' },
-  { id: 'mobile', label: '핸드폰 결제' },
-  { id: 'kakaopay', label: '카카오페이' },
-  { id: 'naverpay', label: '네이버페이' },
+const payMethodCategories = [
+  {
+    id: 'easy',
+    title: '간편결제',
+    methods: [
+      { id: 'kakaopay', label: '카카오페이' },
+      { id: 'naverpay', label: '네이버페이' },
+    ],
+  },
+  {
+    id: 'general',
+    title: '일반결제',
+    methods: [
+      { id: 'card', label: '신용/체크 카드' },
+      { id: 'transfer', label: '무통장 입금' },
+      { id: 'vbank', label: '가상계좌' },
+      { id: 'mobile', label: '핸드폰 결제' },
+    ],
+  },
 ];
 
 export default function Payment() {
@@ -52,8 +42,13 @@ export default function Payment() {
   const [isCouponOpen, setIsCouponOpen] = useState(false);
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [isGiftOpen, setIsGiftOpen] = useState(false);
-  const [selectedMethod, setSelectedMethod] = useState('card');
   const [customMemo, setCustomMemo] = useState('');
+  const [activeCategory, setActiveCategory] = useState('easy'); 
+  const [selectedMethod, setSelectedMethod] = useState(''); 
+
+  const toggleCategory = (categoryId) => {
+    setActiveCategory(activeCategory === categoryId ? null : categoryId);
+  };
 
   const [formData, setFormData] = useState({
     username: user.name,
@@ -269,6 +264,11 @@ export default function Payment() {
     // 에러가 하나도 없는지 확인
     let isFormValid = Object.values(newErrors).every(err => err === '');
 
+    if(!selectedMethod){
+        setJoinErr("결제 수단을 선택해주세요");
+        return;
+    }
+
     if(!isFormValid){
         setJoinErr("입력 오류가 있습니다.");
         return;
@@ -304,7 +304,10 @@ export default function Payment() {
 
     if(isOrder){
       // 완료 페이지로 '아이디'만 넘겨주며 이동
-      navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
+      if(isOrder !== true){
+        navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
+      }
+      navigate("/payment/complete", { state: { orderId: orderId } });
     }else{
       alert("결제실패")
     }
@@ -525,26 +528,45 @@ export default function Payment() {
             {/* 결제 수단 선택 */}
             <div className="cart-title">
               <div className="cart-title-left">
-                <p>결제 수단 선택</p>
+                <p>결제 수단</p>
               </div>
             </div>
-            <div className='gray-box payment-method-box'>
-              <ul className="payment-method-list">
-                {payMethod.map((method) => (
-                  <li key={method.id}>
-                    <label>
-                      <input 
-                        type="radio" 
-                        name="paymentMethod" 
-                        value={method.id}
-                        checked={selectedMethod === method.id} // 현재 선택된 값인지 확인
-                        onChange={(e) => setSelectedMethod(e.target.value)} // 값 변경 감지
-                      />
-                      <span>{method.label}</span>
-                    </label>
-                  </li>
-                ))}              
-              </ul>
+            <div className="gray-box payment-method-box">
+              {payMethodCategories.map((category) => (
+                <div key={category.id} className="accordion-section">
+                  {/* 아코디언 헤더 */}
+                  <div 
+                    className={`accordion-header ${activeCategory === category.id ? 'active' : ''}`}
+                    onClick={() => toggleCategory(category.id)}
+                  >
+                    {category.title}
+                    <span>{activeCategory === category.id ? '▲' : '▼'}</span>
+                  </div>
+
+                  {/* 아코디언 내용 (선택된 카테고리일 때만 표시) */}
+                  {activeCategory === category.id && (
+                    <div className='' style={{ padding: '15px', background: '#f9f9f9' }}>
+                      <ul className="payment-method-list" style={{ listStyle: 'none', padding: 0 }}>
+                        {category.methods.map((method) => (
+                          <li key={method.id}>
+                            <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                              <input 
+                                type="radio" 
+                                name="paymentMethod" 
+                                value={method.id}
+                                checked={selectedMethod === method.id}
+                                onChange={(e) => setSelectedMethod(e.target.value)}
+                                style={{ marginRight: '10px' }}
+                              />
+                              <span>{method.label}</span>
+                            </label>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
           {/* 우측 - 주문 컨트롤 */}

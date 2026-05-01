@@ -16,7 +16,7 @@ const mypageMenuData = [
 export default function MypageMenu({ sendSelect, selectMenu }) {
     // hover 상태 파악
     const [hoverId, setHoverId] = useState(null);
-    const { onLogout } = useAuthStore(); a
+    const { onLogout } = useAuthStore();
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -25,6 +25,10 @@ export default function MypageMenu({ sendSelect, selectMenu }) {
         if (isLogout) {
             navigate("/");
         }
+    }
+
+    const handleCertify = ()=>{
+        navigate("/brand/certify");
     }
     return (
         <>
@@ -38,6 +42,8 @@ export default function MypageMenu({ sendSelect, selectMenu }) {
                                 onClick={() => {
                                     if (menu.name === "로그아웃") {
                                         handleLogout();
+                                    }else if(menu.name === "케이스티파이 정품 인증"){
+                                        handleCertify();
                                     } else {
                                         sendSelect(menu.name);
                                     }
