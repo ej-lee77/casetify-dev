@@ -304,7 +304,7 @@ export default function UserInfo() {
                             <>
                             <div className='point-bottom-item'>
                                 <p>{userGradeEN?.next} 등급까지</p>
-                                <p className='point-highlight'>{userGradeEN?.nextP - user?.point}</p>
+                                <p className='point-highlight'>{userGradeEN?.nextP - user?.point || 0}</p>
                                 <p>포인트 남았어요!</p>
                             </div>
                             <div className='point-divider' />

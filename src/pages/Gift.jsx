@@ -82,7 +82,7 @@ export default function Gift() {
   }
 
   return (
-    <>
+    <div className='gift-page-wrap'>
       <div className='sub-page-wrap'>
         <div className='gift-title'>
           <h1>디지털 기프트 카드</h1>
@@ -242,6 +242,6 @@ export default function Gift() {
       <GiftCardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <AlertPopup message={alertMsg} onClose={() => setAlertMsg('')} />
       <Benefit />
-    </>
+    </div>
   )
 }

@@ -144,6 +144,10 @@
                                 .goods-img {
                                     width: 220px;
                                     background: white;
+                                    img{
+                                        aspect-ratio: 1/1;
+                                        object-fit: contain;
+                                    }
                                 }
 
                                 .goods-text {
