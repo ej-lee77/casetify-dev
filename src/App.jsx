@@ -85,6 +85,8 @@ function App() {
         <Route path='/search' element={<SearchPage />} />
         <Route path='/brand/store' element={<Store />} />
         <Route path='/brand/certify' element={<BrandAuthentication />} />
+
+        <Route path="/giftcard" element={<Gift />} />
       </Routes>
       <Footer />
     </>

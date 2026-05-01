@@ -187,17 +187,28 @@ export default function Gift() {
 
       <div className="gift-faq-wrap">
         <h2>자주 묻는 질문</h2>
-        {faqList.map((item, idx) => (
-          <div key={idx} className={`faq-item ${openIndex === idx ? 'open' : ''}`}>
-            <div className="faq-question" onClick={() => setOpenIndex(openIndex === idx ? null : idx)}>
-              <span className='faq-text'>{item.q}</span>
-              <span className="faq-arrow">{openIndex === idx ? '▲' : '▼'}</span>
+        <div className="faq-list">
+          {faqList.map((item, idx) => (
+            <div key={idx} className={`faq-item ${openIndex === idx ? 'open' : ''}`}>
+              <div className="faq-question" onClick={() => setOpenIndex(openIndex === idx ? null : idx)}>
+                <span className='faq-text'>{item.q}</span>
+                <span className="faq-arrow">
+                  {openIndex === idx
+                    ? <svg className="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="18 15 12 9 6 15" />
+                    </svg>
+                    : <svg className="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  }
+                </span>
+              </div>
+              <div className="faq-answer-wrap">
+                <div className="faq-answer">{item.a}</div>
+              </div>
             </div>
-            <div className="faq-answer-wrap">
-              <div className="faq-answer">{item.a}</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <div className="gift-faq-more">
           <Link to="/brand/qna"><button>더 알아보기</button></Link>
         </div>
