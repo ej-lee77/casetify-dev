@@ -84,6 +84,7 @@
                 // 제목
                 .cart-title {
                     padding-right: 3em;
+                    margin-bottom: 30px;
 
                     .cart-title-left {
                         @include g.myFlex($gap: 15em);
@@ -95,8 +96,8 @@
                 }
                 .gray-box{
                     // margin: 0 50px;
-                    background: #f5f5f5;
-                    margin-bottom: 40px;
+                    // background: #f5f5f5;
+                    margin-bottom: 30px;
                 }
                 .cart-price{
                     padding: 16px;
@@ -127,6 +128,10 @@
                                 .goods-img {
                                     width: 120px;
                                     background: white;
+                                    img{
+                                        aspect-ratio: 1/1;
+                                        object-fit: contain;
+                                    }
                                 }
 
                                 .goods-text {
@@ -265,7 +270,7 @@
             font-family: "Pretendard", sans-serif;
             .input-box{
                 @include g.myFlex($jc: start, $gap: unset);
-                padding: 20px 0;
+                padding: 10px 0;
 
                 &.custom-memo{
                     padding-top: 0;
@@ -389,13 +394,13 @@
         }
         .coupon-wrap{
             font-family: "Pretendard", sans-serif;
-            padding: 16px;
+            padding: 0 16px;
             @include g.myFlex($fd: column, $ai:normal, $gap: 30px);
 
             .input-box{
 
                 .label-div{
-                    margin-bottom: 10px;
+                    margin-bottom: 5px;
                 }
 
                 .input-div{
@@ -513,11 +518,11 @@
         }
         .payment-method-box{
             font-family: "Pretendard", sans-serif;
-            padding: 16px;
+            padding: 0 16px;
 
             .payment-method-list{
                 @include g.myFlex($fw: wrap, $jc: start, $gap:30px);
-                width: 50%;
+                // width: 50%;
                 
                 input[type="radio"] {
                     accent-color: #808080; 
@@ -525,9 +530,31 @@
 
                 li{
                     label{
-                        @include g.myFlex($jc: start, $gap:10px);
+                        @include g.myFlex($jc: start, $gap:unset);
                     }
                 }
+            }
+        }
+        .accordion-section{
+            margin-bottom: 5px;
+        
+            .accordion-header {
+                background-color: #fff;
+                transition: background-color 0.3s;
+                cursor: pointer;
+                padding: 16px;
+                border: 1px solid #eee;
+                // margin-bottom: 5px;
+                // font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+            }
+            .accordion-header.active {
+                background-color: #f0f0f0; /* 열려있을 때 강조 */
+            }
+            .payment-method-list li {
+                display: inline-block; /* 라디오 버튼을 가로로 배치하고 싶을 경우 */
+                // margin-right: 20px;
             }
         }
 
