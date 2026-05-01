@@ -307,7 +307,7 @@ export function ProductCustomizePage() {
     }
 
     return (
-        <section className="detail-page">
+        <section className="custom detail-page">
             <div className="detail-inner">
 
                 {/* ── 왼쪽: 프리뷰 ── */}
