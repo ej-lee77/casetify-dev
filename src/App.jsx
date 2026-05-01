@@ -53,6 +53,9 @@ function App() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
+  //매장 지도 페이지 확인 변수
+  const isStorePage = pathname === "/brand/store";
+
   return (
     <>
       <Header />
@@ -89,7 +92,7 @@ function App() {
 
         <Route path="/giftcard" element={<Gift />} />
       </Routes>
-      <Footer />
+      <Footer className={isStorePage ? "no-margin-top" : ""} />
     </>
   )
 }
