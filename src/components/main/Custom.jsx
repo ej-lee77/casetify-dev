@@ -1,10 +1,9 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css";
-import "swiper/css/scrollbar";
 import "../scss/bestProduct.scss"
 import "../scss/custom.scss"
-import { Autoplay, Scrollbar } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 import SlideInSection from '../SlideInSection';
 import FadeInSection from '../FadeInSection';
@@ -35,24 +34,26 @@ const [slide1, slide2] = CUmain;
 
 export default function Custom() {
     const [activeIndex, setActiveIndex] = useState(0);
-    const scrollbarRef = useRef(null);
 
     return (
         <section className='custom-wrap bp-wrap'>
             <div className="inner">
                 <div className="all">
                     <div className="left">
-                        <Swiper
-                            modules={[Autoplay, Scrollbar]}
-                            autoplay={{ delay: 5000, disableOnInteraction: false }}
-                            scrollbar={{ el: '.cu-scrollbar', draggable: true }}
-                            loop={true}
-                            onSlideChange={(swiper) => { setActiveIndex(swiper.realIndex); }}
-                        >
-                            <SwiperSlide><img src={slide1.src} alt={slide1.alt} /></SwiperSlide>
-                            <SwiperSlide><img src={slide2.src} alt={slide2.alt} /></SwiperSlide>
-                        </Swiper>
-                        <div className="cu-scrollbar" ref={scrollbarRef} />
+                        <div className="cu-swiper-wrap">
+                            <Swiper
+                                modules={[Autoplay]}
+                                autoplay={{ delay: 5000, disableOnInteraction: false }}
+                                loop={true}
+                                onSlideChange={(swiper) => { setActiveIndex(swiper.realIndex); }}
+                            >
+                                <SwiperSlide><img src={slide1.src} alt={slide1.alt} /></SwiperSlide>
+                                <SwiperSlide><img src={slide2.src} alt={slide2.alt} /></SwiperSlide>
+                            </Swiper>
+                            <div className="cu-slide-counter">
+                                {String(activeIndex + 1).padStart(2, '0')} / {String(CUmain.length).padStart(2, '0')}
+                            </div>
+                        </div>
                     </div>
                     <div className="right">
                         <FadeInSection direction="up" delay={0.2}>

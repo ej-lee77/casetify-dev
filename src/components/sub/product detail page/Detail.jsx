@@ -1,34 +1,145 @@
 import React from 'react'
 import Benefit from '../../Benefit'
+import ShippingInfo from './ShippingInfo'
 import "./scss/detail.scss"
 
 const detailImages = {
+    // ── 핸드폰 ──────────────────────────────────────────
     phone: [
         "/images/KY/productdetail/detail/case-detail.png",
     ],
-    earbuds: [                          // ← "earphone" → "earbuds"
+
+    // ── 이어폰 ──────────────────────────────────────────
+    earbuds: [
         "/images/KY/productdetail/detail/earphone-detail.png",
     ],
+
+    // ── 노트북 ──────────────────────────────────────────
     laptop: [
         "/images/KY/productdetail/detail/laptop-detail.png",
     ],
-    tablet: [                           // ← "ipad" → "tablet"
+
+    // ── 워치 ────────────────────────────────────────────
+    watch: [
+        "/images/KY/productdetail/detail/watch-detail.png",
+    ],
+
+    // ── 태블릿 ──────────────────────────────────────────
+    tablet: [
         "/images/KY/productdetail/detail/ipad-detail.png",
     ],
+
+    // ── 스트랩 ──────────────────────────────────────────
+    strap: [
+        "/images/KY/productdetail/detail/strap-detail.png",
+    ],
+
+    // ── 참 ──────────────────────────────────────────────
+    charm: [
+        "/images/KY/productdetail/detail/charm-detail.png",
+    ],
+
+    // ── 카메라 렌즈 프로텍터 ─────────────────────────────
+    "lens-protector": [
+        "/images/KY/productdetail/detail/lens-protector-detail.png",
+    ],
+
+    // ── 스크린 프로텍터 ──────────────────────────────────
+    protector: [
+        "/images/KY/productdetail/detail/protector-detail.png",
+    ],
+
+    // ── 링홀더 ──────────────────────────────────────────
+    "ring-holder": [
+        "/images/KY/productdetail/detail/ring-holder-detail.png",
+    ],
+
+    // ── 카드홀더 ─────────────────────────────────────────
+    cardholder: [
+        "/images/KY/productdetail/detail/cardholder-detail.png",
+    ],
+
+    // ── 스탠드 랩탑 폰 마운트 ────────────────────────────
+    "stand-laptop-phone-mount": [
+        "/images/KY/productdetail/detail/stand-detail.png",
+    ],
+
+    // ── 그립 ────────────────────────────────────────────
+    grip: [
+        "/images/KY/productdetail/detail/grip-detail.png",
+    ],
+
+    // ── 마우스패드 ───────────────────────────────────────
+    "mouse-pad": [
+        "/images/KY/productdetail/detail/mouse-pad-detail.png",
+    ],
+
+    // ── 데스크 매트 ──────────────────────────────────────
+    "desk-mat": [
+        "/images/KY/productdetail/detail/desk-mat-detail.png",
+    ],
+
+    // ── 충전기 ──────────────────────────────────────────
+    charger: [
+        "/images/KY/productdetail/detail/charger-detail.png",
+    ],
+
+    // ── 에어태그 케이스 ──────────────────────────────────
+    airtag: [
+        "/images/KY/productdetail/detail/airtag-detail.png",
+    ],
+
+    // ── 스티커팩 ─────────────────────────────────────────
+    sticker: [
+        "/images/KY/productdetail/detail/sticker-detail.png",
+    ],
+
+    // ── 기본 fallback ─────────────────────────────────────
     etc: [
         "/images/KY/productdetail/detail/etc-detail.png",
     ],
     travel: [
         "/images/KY/productdetail/detail/travel-detail.png",
     ],
-    watch: [
-        "/images/KY/productdetail/detail/watch-detail.png",
-    ],
+}
+
+// productTarget + caseCategory + displayMiniCategories로 카테고리 판별
+function getDetailCategory(item) {
+    const target = item?.productTarget || 'etc'
+    const cc = item?.caseCategory || ''
+    const mini = Array.isArray(item?.displayMiniCategories)
+        ? item.displayMiniCategories
+        : []
+
+    // productTarget으로 1차 분류
+    if (target === 'phone') return 'phone'
+    if (target === 'earbuds') return 'earbuds'
+    if (target === 'laptop') return 'laptop'
+    if (target === 'watch') return 'watch'
+    if (target === 'tablet') return 'tablet'
+
+    // etc / travel → caseCategory & miniCategory로 세분화
+    if (cc === 'lens-protector' || mini.includes('lens-protector')) return 'lens-protector'
+    if (mini.includes('protector')) return 'protector'
+    if (mini.includes('strap') || cc === 'strap') return 'strap'
+    if (mini.includes('charm') || cc === 'charm') return 'charm'
+    if (cc === 'ring-holder') return 'ring-holder'
+    if (cc === 'cardholder') return 'cardholder'
+    if (cc === 'stand-laptop-phone-mount' || cc === 'stand') return 'stand-laptop-phone-mount'
+    if (cc === 'grip') return 'grip'
+    if (cc === 'mouse-pad' || mini.includes('mouse-pad')) return 'mouse-pad'
+    if (cc === 'desk-mat') return 'desk-mat'
+    if (cc === 'charger') return 'charger'
+    if (cc === 'airtag') return 'airtag'
+    if (cc === 'sticker' || cc === 'sticker-pack') return 'sticker'
+    if (target === 'travel') return 'travel'
+
+    return 'etc'
 }
 
 export default function Detail({ item }) {
-    const target = item?.productTarget || "phone"
-    const images = detailImages[target] || detailImages["phone"]
+    const category = getDetailCategory(item)
+    const images = detailImages[category] || detailImages['etc']
 
     return (
         <div className="detail">
@@ -37,6 +148,7 @@ export default function Detail({ item }) {
                     <img key={idx} src={src} alt={`상세이미지 ${idx + 1}`} />
                 ))}
             </div>
+            <ShippingInfo />
             <Benefit />
         </div>
     )

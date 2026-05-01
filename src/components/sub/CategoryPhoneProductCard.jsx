@@ -22,6 +22,7 @@ export default function CategoryPhoneProductCard({ item }) {
     const caseColorKey = item.mainCaseColor || colors[0] || "Black";
 
     const imagePath = `/images/category/products/${item.id}_${item.modelKey}_${deviceColorKey}_${caseColorKey}_main.jpg`;
+    const hoverImagePath = `/images/category/products/${item.id}_${item.modelKey}_${deviceColorKey}_${caseColorKey}_1.jpg`;
 
     const isWished = wishlist.some((w) => w.productId === item.id);
 
@@ -94,9 +95,15 @@ export default function CategoryPhoneProductCard({ item }) {
                     <div className="card-img">
                         {!isImageError ? (
                             <img
-                                src={imagePath}
+                                src={isHovered ? hoverImagePath : imagePath}
                                 alt={item.productName}
-                                onError={() => setIsImageError(true)}
+                                onError={(e) => {
+                                    if (isHovered) {
+                                        e.currentTarget.src = imagePath;
+                                    } else {
+                                        setIsImageError(true);
+                                    }
+                                }}
                             />
                         ) : (
                             <p className="image-error-path">{imagePath}</p>

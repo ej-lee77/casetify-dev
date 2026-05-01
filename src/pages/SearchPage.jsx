@@ -91,6 +91,7 @@ export default function SearchPage() {
     const { items: allItems, mainMenuList } = useCategoryProductStore();
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isSortOpen, setIsSortOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedFilters, setSelectedFilters] = useState(INITIAL_FILTERS);
 
@@ -238,11 +239,36 @@ export default function SearchPage() {
                         <p className="result-count">총 <strong>{sortedGroups.length}</strong>개</p>
                     </div>
                     <div className="sort-select-wrap">
-                        <select value={sort} onChange={onChangeSort}>
-                            {SORT_OPTIONS.map((o) => (
-                                <option key={o.key} value={o.key}>{o.label}</option>
-                            ))}
-                        </select>
+                        <div className={`sort-dropdown${isSortOpen ? " open" : ""}`}>
+                            <button
+                                type="button"
+                                className="sort-dropdown-trigger"
+                                onClick={() => setIsSortOpen((p) => !p)}
+                            >
+                                <span>{SORT_OPTIONS.find((o) => o.key === sort)?.label || "추천순"}</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 8L1 3h10z" fill="currentColor" />
+                                </svg>
+                            </button>
+                            {isSortOpen && (
+                                <ul className="sort-dropdown-list">
+                                    {SORT_OPTIONS.map((o) => (
+                                        <li
+                                            key={o.key}
+                                            className={sort === o.key ? "on" : ""}
+                                            onClick={() => {
+                                                const next = new URLSearchParams(searchParams);
+                                                next.set("sort", o.key);
+                                                setSearchParams(next);
+                                                setIsSortOpen(false);
+                                            }}
+                                        >
+                                            {o.label}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     </div>
                 </div>
 

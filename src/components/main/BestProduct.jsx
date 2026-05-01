@@ -1,9 +1,8 @@
 import { useState, useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/scrollbar";
 import "../scss/bestProduct.scss";
-import { Autoplay, Scrollbar } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import SectionTitle from "../SectionTitle";
 import SlideInSection from "../SlideInSection";
 import FadeInSection from "../FadeInSection";
@@ -53,7 +52,6 @@ const [slide1, slide2, slide3, slide4] = BPmain;
 
 export default function BestProduct() {
     const [activeIndex, setActiveIndex] = useState(0);
-    const scrollbarRef = useRef(null);
 
     const productMap = useMemo(() => {
         const map = {};
@@ -71,19 +69,22 @@ export default function BestProduct() {
                 <div className="all">
                     <div className="left">
                         <SlideInSection direction="left" delay={0.4}>
-                            <Swiper
-                                modules={[Autoplay, Scrollbar]}
-                                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                                scrollbar={{ el: '.bp-scrollbar', draggable: true }}
-                                loop={true}
-                                onSlideChange={(swiper) => { setActiveIndex(swiper.realIndex); }}
-                            >
-                                <SwiperSlide><img src={slide1.src} alt={slide1.alt} /></SwiperSlide>
-                                <SwiperSlide><img src={slide2.src} alt={slide2.alt} /></SwiperSlide>
-                                <SwiperSlide><img src={slide3.src} alt={slide3.alt} /></SwiperSlide>
-                                <SwiperSlide><img src={slide4.src} alt={slide4.alt} /></SwiperSlide>
-                            </Swiper>
-                            <div className="bp-scrollbar" ref={scrollbarRef} />
+                            <div className="bp-swiper-wrap">
+                                <Swiper
+                                    modules={[Autoplay]}
+                                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                                    loop={true}
+                                    onSlideChange={(swiper) => { setActiveIndex(swiper.realIndex); }}
+                                >
+                                    <SwiperSlide><img src={slide1.src} alt={slide1.alt} /></SwiperSlide>
+                                    <SwiperSlide><img src={slide2.src} alt={slide2.alt} /></SwiperSlide>
+                                    <SwiperSlide><img src={slide3.src} alt={slide3.alt} /></SwiperSlide>
+                                    <SwiperSlide><img src={slide4.src} alt={slide4.alt} /></SwiperSlide>
+                                </Swiper>
+                                <div className="bp-slide-counter">
+                                    {String(activeIndex + 1).padStart(2, '0')} / {String(BPmain.length).padStart(2, '0')}
+                                </div>
+                            </div>
                         </SlideInSection>
                     </div>
 
