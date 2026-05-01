@@ -2,36 +2,44 @@
 
 .MapPopup {
     position: absolute;
-    max-width: 800px;
+    max-width: 620px;
     top: 50%;
     left: 55%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 500;
     border: 1px solid #a9a9a9;
     background-color: white;
     overflow: hidden;
 
-    .map-popup-title {
-        text-align: center;
-        position: relative;
-        padding: 12px 0;
-        font-weight: 700;
-        font-size: 1.25rem;
-        box-shadow: 0px 0px 4px 2px rgba($color: #000000, $alpha: 0.25);
+    // .map-popup-title {
+    //     text-align: center;
+    //     position: relative;
+    //     padding: 12px 0;
+    //     font-weight: 700;
+    //     font-size: 1.25rem;
+    //     box-shadow: 0px 0px 4px 2px rgba($color: #000000, $alpha: 0.25);
 
-        button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 1rem;
+    //     button {
+    //         position: absolute;
+    //         top: 50%;
+    //         transform: translateY(-50%);
+    //         right: 1rem;
 
-        }
+    //     }
+    // }
+
+    button {
+        position: absolute;
+        top: 1.625rem;
+        right: 0;
+        transform: translateY(-50%);
+        right: 1rem;
     }
 
     h2 {
         margin-top: 2rem;
         margin-bottom: g.$title-gap;
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-align: center;
     }
 
@@ -43,17 +51,17 @@
 
     .store-address-area,
     .store-hours-area {
-        @include g.myFlex($jc: null, $gap: 1.25rem, $fd: column);
+        @include g.myFlex($jc: null, $gap: 0.625rem, $fd: column);
         margin-top: 0.75rem;
 
         span {
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
 
         p {
             font-weight: 300;
-            font-size: 1.25rem;
+            font-size: 1rem;
         }
     }
 
@@ -66,7 +74,7 @@
         padding: 0 1rem 1.25rem;
 
         .store-hours-info-area {
-            @include g.myFlex($jc: null, $gap: 0.5rem, $fd: column);
+            @include g.myFlex($jc: null, $gap: 0.25rem, $fd: column);
         }
     }
 }
