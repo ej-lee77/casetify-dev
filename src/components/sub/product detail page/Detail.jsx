@@ -148,8 +148,8 @@ export default function Detail({ item }) {
                     <img key={idx} src={src} alt={`상세이미지 ${idx + 1}`} />
                 ))}
             </div>
-            <Benefit />
             <ShippingInfo />
+            <Benefit />
         </div>
     )
 }
