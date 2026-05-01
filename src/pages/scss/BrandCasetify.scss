@@ -859,3 +859,249 @@
         }
     }
 }
+// ─── 이니스프리 스타일 레이아웃 ─────────────────────
+
+// 배경 큰 타이틀 + 좌우 행 섹션
+.innisfree-section {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+
+    .innisfree-bg-title {
+        position: absolute;
+        top: 10px;
+        left: 40px;
+        font-size: 7rem;
+        font-weight: 900;
+        color: rgba(0, 0, 0, 0.04);
+        letter-spacing: 0.05em;
+        pointer-events: none;
+        line-height: 1;
+        white-space: nowrap;
+
+        &.right {
+            left: auto;
+            right: 40px;
+        }
+    }
+}
+
+// 이미지 왼쪽 + 텍스트 오른쪽
+.innisfree-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+
+    // 텍스트 왼쪽 + 이미지 오른쪽
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .innisfree-row-img {
+        flex: 1;
+
+        img {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
+        }
+    }
+
+    .innisfree-row-text {
+        flex: 1;
+
+        .innisfree-headline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #111;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 0.92rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 14px;
+        }
+    }
+}
+
+// 풀 이미지
+.innisfree-full-img {
+    img {
+        width: 100%;
+        display: block;
+        max-height: 520px;
+        object-fit: cover;
+    }
+}
+
+// 인용구
+.innisfree-quote {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+
+    blockquote {
+        font-size: 1.3rem;
+        font-weight: 500;
+        line-height: 1.8;
+        color: #111;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+
+    cite {
+        font-size: 0.85rem;
+        color: #888;
+        font-style: normal;
+    }
+
+    p {
+        font-size: 0.92rem;
+        line-height: 1.9;
+        color: #666;
+        margin-top: 20px;
+    }
+}
+
+// 텍스트 중앙 섹션
+.innisfree-center-text {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+
+    h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: #111;
+        margin-bottom: 28px;
+
+        em { font-style: italic; color: #2a9d3e; }
+    }
+
+    p {
+        font-size: 0.92rem;
+        line-height: 1.9;
+        color: #666;
+        margin-bottom: 14px;
+    }
+}
+
+// 3열 카드
+.innisfree-3col {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+    border-bottom: 1px solid #f0f0f0;
+
+    .innisfree-3col-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+
+        .innisfree-3col-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 14px;
+
+            img {
+                width: 100%;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            .card-title {
+                font-size: 0.88rem;
+                font-weight: 600;
+                color: #111;
+                line-height: 1.5;
+            }
+
+            .card-num {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #ddd;
+            }
+
+            p {
+                font-size: 0.85rem;
+                line-height: 1.7;
+                color: #666;
+            }
+        }
+    }
+}
+
+// CTA 섹션
+.innisfree-cta {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+
+    p {
+        font-size: 1.1rem;
+        line-height: 2;
+        color: #444;
+        font-weight: 500;
+    }
+}
+
+// 하단 2분할 배너
+.innisfree-bottom-banners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+
+    .innisfree-bottom-banner {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+            filter: brightness(0.55);
+        }
+
+        &:hover img { transform: scale(1.04); }
+
+        .innisfree-banner-text {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: #fff;
+
+            .eyebrow {
+                font-size: 0.72rem;
+                letter-spacing: 0.15em;
+                opacity: 0.7;
+                margin-bottom: 4px;
+            }
+
+            .title {
+                font-size: 1.4rem;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+            }
+        }
+    }
+}

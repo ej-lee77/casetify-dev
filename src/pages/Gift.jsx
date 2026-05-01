@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import "./scss/Gift.scss"
 import Benefit from '../components/Benefit'
 import { Link, useNavigate } from 'react-router-dom'
-
+import GiftCardModal from '../components/sub/GiftCardModal'
+import { useAuthStore } from '../store/useAuthStore'
+import AlertPopup from '../components/sub/AlertPopup'
 
 const designs = [
   { id: 1, src: "./images/gift/gift-card1.png" },
@@ -30,17 +32,19 @@ const faqList = [
 export default function Gift() {
   const [selectedDesign, setSelectedDesign] = useState(designs[0])
   const [selectedAmount, setSelectedAmount] = useState(amounts[0])
-  const [openIndex, setOpenIndex] = useState(null)  // 여기로 이동
-  const navigate = useNavigate();
+  const [openIndex, setOpenIndex] = useState(null)
+  const navigate = useNavigate()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [alertMsg, setAlertMsg] = useState('')
+  const { onAddToCart } = useAuthStore()
 
-
-  //에러
   const [errors, setErrors] = useState({})
   const [toName, setToName] = useState('')
   const [toEmail, setToEmail] = useState('')
   const [fromName, setFromName] = useState('')
   const [fromEmail, setFromEmail] = useState('')
-  const handleAddToCart = () => {
+
+  const handleAddToCart = async () => {
     const newErrors = {}
     if (!toName) newErrors.toName = '받는 분 성함을 입력해주세요.'
     if (!toEmail) newErrors.toEmail = '받는 분 이메일 주소를 입력해주세요.'
@@ -48,12 +52,34 @@ export default function Gift() {
     if (!fromEmail) newErrors.fromEmail = '보내는 분 이메일 주소를 입력해주세요.'
 
     setErrors(newErrors)
-    if (Object.keys(newErrors).length === 0) {
-      // 장바구니 담기 로직
+    if (Object.keys(newErrors).length > 0) return
+
+    const giftProduct = {
+      id: `gift-${selectedDesign.id}-${selectedAmount}`,
+      productName: `디지털 기프트 카드 (${selectedAmount.toLocaleString()}원)`,
+      price: selectedAmount,
+      imgUrl: selectedDesign.src,
+      device: '-',
+      deviceKey: '-',
+      color: '-',
+      colorList: [],
+      deviceList: [],
+      isPhone: false,
+      deviceBrand: '-',
+      caseCategory: 'gift',
+      toName,
+      toEmail,
+      fromName,
+      fromEmail,
+    }
+
+    const result = await onAddToCart(giftProduct)
+    if (result) {
+      setAlertMsg('장바구니에 담겼습니다!')
+    } else {
+      setAlertMsg('로그인이 필요합니다.')
     }
   }
-
-
 
   return (
     <>
@@ -80,7 +106,7 @@ export default function Gift() {
           </div>
           <div className="gift-card-info register">
             <p>이미 기프트 카드를 보유하고 계시나요?</p>
-            <button onClick={() => navigate('/mypage', { state: { menu: '기프트 카드/쿠폰' } })}>
+            <button onClick={() => setIsModalOpen(true)}>
               기프트 카드 등록하기
             </button>
           </div>
@@ -186,22 +212,35 @@ export default function Gift() {
 
       <div className="gift-faq-wrap">
         <h2>자주 묻는 질문</h2>
-        {faqList.map((item, idx) => (
-          <div key={idx} className={`faq-item ${openIndex === idx ? 'open' : ''}`}>
-            <div className="faq-question" onClick={() => setOpenIndex(openIndex === idx ? null : idx)}>
-              <span className='faq-text'>{item.q}</span>
-              <span className="faq-arrow">{openIndex === idx ? '▲' : '▼'}</span>
+        <div className="faq-list">
+          {faqList.map((item, idx) => (
+            <div key={idx} className={`faq-item ${openIndex === idx ? 'open' : ''}`}>
+              <div className="faq-question" onClick={() => setOpenIndex(openIndex === idx ? null : idx)}>
+                <span className='faq-text'>{item.q}</span>
+                <span className="faq-arrow">
+                  {openIndex === idx
+                    ? <svg className="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="18 15 12 9 6 15" />
+                    </svg>
+                    : <svg className="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  }
+                </span>
+              </div>
+              <div className="faq-answer-wrap">
+                <div className="faq-answer">{item.a}</div>
+              </div>
             </div>
-            <div className="faq-answer-wrap">
-              <div className="faq-answer">{item.a}</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <div className="gift-faq-more">
           <Link to="/brand/qna"><button>더 알아보기</button></Link>
         </div>
       </div>
 
+      <GiftCardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <AlertPopup message={alertMsg} onClose={() => setAlertMsg('')} />
       <Benefit />
     </>
   )
