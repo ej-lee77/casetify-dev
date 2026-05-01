@@ -1,16 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Scrollbar } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
-import 'swiper/css/scrollbar'
 
 import "../scss/MainSlider.scss"
 import { useMainSlider } from '../../store/useMainSlider'
 
 export default function MainSlider() {
     const setHeaderColor = useMainSlider((state) => state.setHeaderColor);
-    const scrollbarRef = useRef(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const slides = [
         {
@@ -50,15 +49,16 @@ export default function MainSlider() {
         <div className="main-slider-wrap">
             <Swiper
                 className='main-slider-img'
-                modules={[Autoplay, Scrollbar]}
+                modules={[Autoplay]}
                 autoplay={{ delay: 5000, disableOnInteraction: false }}
-                scrollbar={{ el: '.main-scrollbar', draggable: true }}
                 loop={true}
                 onSwiper={(swiper) => {
                     setHeaderColor(slides[swiper.realIndex].headerColor);
+                    setCurrentIndex(swiper.realIndex);
                 }}
                 onSlideChange={(swiper) => {
                     setHeaderColor(slides[swiper.realIndex].headerColor);
+                    setCurrentIndex(swiper.realIndex);
                 }}
             >
                 {slides.map((slide, i) => (
@@ -73,10 +73,12 @@ export default function MainSlider() {
                                 {slide.sub && <p className='sub-text' style={{ color: slide.color }}>{slide.sub}</p>}
                             </div>
                         </div>
+                        <div className="slide-counter">
+                            {String(i + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="main-scrollbar" ref={scrollbarRef} />
         </div>
     )
 }
