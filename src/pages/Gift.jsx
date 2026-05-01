@@ -3,7 +3,8 @@ import "./scss/Gift.scss"
 import Benefit from '../components/Benefit'
 import { Link, useNavigate } from 'react-router-dom'
 import GiftCardModal from '../components/sub/GiftCardModal'
-
+import { useAuthStore } from '../store/useAuthStore'
+import AlertPopup from '../components/sub/AlertPopup'
 
 const designs = [
   { id: 1, src: "./images/gift/gift-card1.png" },
@@ -31,17 +32,19 @@ const faqList = [
 export default function Gift() {
   const [selectedDesign, setSelectedDesign] = useState(designs[0])
   const [selectedAmount, setSelectedAmount] = useState(amounts[0])
-  const [openIndex, setOpenIndex] = useState(null)  // 여기로 이동
-  const navigate = useNavigate();
+  const [openIndex, setOpenIndex] = useState(null)
+  const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [alertMsg, setAlertMsg] = useState('')
+  const { onAddToCart } = useAuthStore()
 
-  //에러
   const [errors, setErrors] = useState({})
   const [toName, setToName] = useState('')
   const [toEmail, setToEmail] = useState('')
   const [fromName, setFromName] = useState('')
   const [fromEmail, setFromEmail] = useState('')
-  const handleAddToCart = () => {
+
+  const handleAddToCart = async () => {
     const newErrors = {}
     if (!toName) newErrors.toName = '받는 분 성함을 입력해주세요.'
     if (!toEmail) newErrors.toEmail = '받는 분 이메일 주소를 입력해주세요.'
@@ -49,12 +52,34 @@ export default function Gift() {
     if (!fromEmail) newErrors.fromEmail = '보내는 분 이메일 주소를 입력해주세요.'
 
     setErrors(newErrors)
-    if (Object.keys(newErrors).length === 0) {
-      // 장바구니 담기 로직
+    if (Object.keys(newErrors).length > 0) return
+
+    const giftProduct = {
+      id: `gift-${selectedDesign.id}-${selectedAmount}`,
+      productName: `디지털 기프트 카드 (${selectedAmount.toLocaleString()}원)`,
+      price: selectedAmount,
+      imgUrl: selectedDesign.src,
+      device: '-',
+      deviceKey: '-',
+      color: '-',
+      colorList: [],
+      deviceList: [],
+      isPhone: false,
+      deviceBrand: '-',
+      caseCategory: 'gift',
+      toName,
+      toEmail,
+      fromName,
+      fromEmail,
+    }
+
+    const result = await onAddToCart(giftProduct)
+    if (result) {
+      setAlertMsg('장바구니에 담겼습니다!')
+    } else {
+      setAlertMsg('로그인이 필요합니다.')
     }
   }
-
-
 
   return (
     <>
@@ -213,7 +238,9 @@ export default function Gift() {
           <Link to="/brand/qna"><button>더 알아보기</button></Link>
         </div>
       </div>
+
       <GiftCardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <AlertPopup message={alertMsg} onClose={() => setAlertMsg('')} />
       <Benefit />
     </>
   )
