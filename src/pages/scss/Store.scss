@@ -51,6 +51,8 @@
                         outline: none;
                     }
 
+
+
                 }
 
 
@@ -73,8 +75,19 @@
                 justify-content: space-between;
 
                 >div {
-                    flex: 1;
                     position: relative;
+                }
+
+                .city-select {
+                    flex: 1;
+                }
+
+                .near-list {
+                    flex: 0.6;
+
+                    .select-btn {
+                        justify-content: center;
+                    }
                 }
 
                 // 드롭박스 검색 버튼
@@ -172,10 +185,13 @@
 
 .city-list {
     position: absolute;
-    background: #eee;
+    background: white;
+    border: 1px solid #8f8f8f;
+    border-top: none;
     padding: 20px;
-    line-height: 2;
+    line-height: 2.2;
     width: 100%;
+    z-index: 3;
 
     li {
         button {
