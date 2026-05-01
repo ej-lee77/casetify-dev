@@ -185,7 +185,7 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
                         <img src={item.imgUrl} alt={item.title} />
                         <div className="item-txt">
                         <p className="title">{item.title}</p>
-                        <p className="option">{item.device} / {item.color}</p>
+                        <p className="option">{item.device && <span>{item.device}</span>}{item.color && <span>{item.color}</span>}</p>
                         </div>
                     </div>
                     <div className="col-price item-price-qty">

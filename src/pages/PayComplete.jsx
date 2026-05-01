@@ -33,7 +33,7 @@ export default function PayComplete() {
     }
 
     let gradeMsg = "";
-    if(grade !== ""){
+    if(grade && grade !== ""){
         gradeMsg = gradeList.filter(g => g.key === grade)[0];
     }
 
@@ -67,7 +67,7 @@ export default function PayComplete() {
                 </div>
                 <div className="complete-msg">
                     <span className='coupon'>주문이 완료 되었습니다</span>
-                    <p>{gradeMsg !== "" ? `${gradeMsg.label}등급 승급! ${gradeMsg.rate}% 쿠폰이 발급됐습니다.` : ""}</p>
+                    <p>{gradeMsg !== "" ? `${gradeMsg?.label}등급 승급! ${gradeMsg?.rate}% 쿠폰이 발급됐습니다.` : ""}</p>
                     <p>{currentOrder.orderDate} 주문하신 상품의</p>
                     <p>주문번호는 {orderId}입니다.</p>
 

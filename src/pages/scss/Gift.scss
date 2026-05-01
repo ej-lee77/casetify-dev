@@ -1,7 +1,10 @@
 @use "../../App.scss" as g;
 
+.gift-page-wrap{
+
+
 .sub-page-wrap {
-    margin: 100px 0 40px;
+    margin: 150px 0 40px;
 }
 
 .gift-title {
@@ -293,8 +296,9 @@
     max-width: 1440px;
     margin: 0 auto;
     padding: 40px;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    padding-top: 0;
+    // border-top: 1px solid #ddd;
+    // border-bottom: 1px solid #ddd;
 
     font-family: "Pretendard";
 
@@ -305,7 +309,7 @@
     }
 
     ul {
-        padding-left: 20px;
+        // padding-left: 20px;
 
         li {
             font-size: 14px;
@@ -402,4 +406,5 @@
 
         }
     }
+}
 }

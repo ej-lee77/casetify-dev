@@ -382,6 +382,7 @@ export default function DetailPage({ item }) {
 
                 if (isAllSuccess) {
                     setCartMsg("세트 상품이 장바구니에 담겼습니다!");
+                    setIsPopupErr(false);
                     setIsCartPopupOpen(true);
                 } else {
                     // 일부만 성공했거나 실패한 경우
