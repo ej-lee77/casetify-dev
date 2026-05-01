@@ -1,5 +1,6 @@
 import React from 'react'
 import Benefit from '../../Benefit'
+import ShippingInfo from './ShippingInfo'
 import "./scss/detail.scss"
 
 const detailImages = {
@@ -148,6 +149,7 @@ export default function Detail({ item }) {
                 ))}
             </div>
             <Benefit />
+            <ShippingInfo />
         </div>
     )
 }
