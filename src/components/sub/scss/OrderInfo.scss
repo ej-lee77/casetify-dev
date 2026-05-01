@@ -129,6 +129,17 @@
 
         .item-option{
           color: g.$text-strike;
+          span+span {
+              &::before {
+                  content: "";
+                  margin: 0 5px;
+                  display: inline-block;
+                  width: 0;
+                  height: 0.8em;
+                  vertical-align: middle;
+                  border-left: 1px solid #999;
+              }
+            }
         }
 
         .item-img img { width: 80px; height: 80px; object-fit: cover; margin-right: 15px; }
@@ -362,6 +373,17 @@
                 .option {
                   margin: 0;
                   color: #999;
+                  span+span {
+                    &::before {
+                        content: "";
+                        margin: 0 5px;
+                        display: inline-block;
+                        width: 0;
+                        height: 0.8em;
+                        vertical-align: middle;
+                        border-left: 1px solid #999;
+                    }
+                  }
                 }
               }
             }
@@ -523,7 +545,7 @@
       font-size: 0.88em;
 
       &.active {
-        border: 2px solid #000;
+        border: 1px solid #000;
         font-weight: bold;
         color: #000;
       }
