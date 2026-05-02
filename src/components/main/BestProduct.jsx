@@ -111,7 +111,9 @@ export default function BestProduct() {
                                 );
                             })}
                         </ul>
-                        <button type="button">더보기</button>
+                        <Link to="/case/device?sort=popular">
+                            <button>더보기</button>
+                        </Link>
                     </SlideInSection>
                 </div>
             </div>
