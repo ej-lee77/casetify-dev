@@ -15,15 +15,24 @@ export default function MapPopup({ onClose }) {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   // 초기 중앙 위치 계산
+
+  const mapWrapRef = useRef(null);
+
   useEffect(() => {
-    if (!popupRef.current) return;
+    mapWrapRef.current = document.querySelector(".store-map-wrap");
+  }, []);
 
-    const rect = popupRef.current.getBoundingClientRect();
+  useEffect(() => {
+    if (!popupRef.current || !mapWrapRef.current) return;
 
-    //  set position
-    setPosition({
-      x: window.innerWidth / 2 - rect.width / 2,
-      y: window.innerHeight / 2 - rect.height / 2 - 260
+    requestAnimationFrame(() => {
+      const rect = popupRef.current.getBoundingClientRect();
+      const mapRect = mapWrapRef.current.getBoundingClientRect();
+
+      setPosition({
+        x: mapRect.width / 2 - rect.width / 2,
+        y: mapRect.height / 2 - rect.height / 2
+      });
     });
   }, []);
 
@@ -31,25 +40,32 @@ export default function MapPopup({ onClose }) {
   useEffect(() => {
     const move = (e) => {
       if (!isDrag) return;
+      if (!popupRef.current || !mapWrapRef.current) return;
 
       const popupWidth = popupRef.current.offsetWidth;
       const popupHeight = popupRef.current.offsetHeight;
 
-      let newX = e.clientX - offset.x;
-      let newY = e.clientY - offset.y;
+      // 지도 영역 가져오기
+      const mapRect = mapWrapRef.current.getBoundingClientRect();
+
+      let newX = e.clientX - mapRect.left - offset.x;
+      let newY = e.clientY - mapRect.top - offset.y;
 
       // 화면 범위 제한
-      const maxX = window.innerWidth - popupWidth;
-      const maxY = window.innerHeight - popupHeight;
+      const maxX = mapRect.width - popupWidth;
+      const maxY = mapRect.height - popupHeight;
 
-      newX = Math.max(16, Math.min(newX, maxX - 16));
-      newY = Math.max(16, Math.min(newY, maxY));
+      const mapPadding = 16
+
+      newX = Math.max(mapPadding, Math.min(newX, maxX - mapPadding));
+      newY = Math.max(mapPadding, Math.min(newY, maxY - mapPadding));
 
       setPosition({
         x: newX,
         y: newY
       });
     };
+
     const up = () => setIsDrag(false);
     window.addEventListener("mousemove", move);
     window.addEventListener("mouseup", up);
@@ -63,11 +79,15 @@ export default function MapPopup({ onClose }) {
 
   // 마우스 이벤트 - 드래그 시작
   const handleMouseDown = (e) => {
+    if (!mapWrapRef.current) return;
+
     setIsDrag(true);
 
+    const mapRect = mapWrapRef.current.getBoundingClientRect();
+
     setOffset({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y
+      x: e.clientX - mapRect.left - position.x,
+      y: e.clientY - mapRect.top - position.y
     });
   };
 
