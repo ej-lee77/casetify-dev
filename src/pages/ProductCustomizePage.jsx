@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 import { BRANDS, CASE_TYPES, CASE_COLORS, PHOTO_FILTERS, FONT_COLORS } from '../components/sub/custom/constants'
@@ -7,7 +7,7 @@ import './scss/ProductCustomizePage.scss'
 // ── 이미지 경로 (public/images/custom/ 에 두 파일 복사)
 //   s25.png        468×839px  — 폰 본체
 //   s25-camera.png 153×248px  — 카메라 모듈
-const S25_BODY   = '/images/custom/model/s25.png'
+const S25_BODY = '/images/custom/model/s25.png'
 const S25_CAMERA = '/images/custom/model/s25-camera.png'
 
 // ─────────────────────────────────────────────
@@ -21,18 +21,18 @@ const S25_CAMERA = '/images/custom/model/s25-camera.png'
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
     switch (filterId) {
-        case 'retro':   return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
+        case 'retro': return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
         case 'digicam': return { filter: `saturate(${1 + s}) brightness(${1 + s * 0.3})` }
-        case 'mono':    return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
-        default:        return {}
+        case 'mono': return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
+        default: return {}
     }
 }
 
 const STICKERS = [
     { id: 'sticker1', src: '/images/custom/alonedog.png', label: '강아지1' },
-    { id: 'sticker2', src: '/images/custom/cat.jpg',      label: '강아지2' },
-    { id: 'sticker3', src: '/images/custom/dogs.jpg',     label: '강아지3' },
-    { id: 'sticker4', src: '/images/custom/dossiba.jpg',  label: '고양이'  },
+    { id: 'sticker2', src: '/images/custom/cat.jpg', label: '강아지2' },
+    { id: 'sticker3', src: '/images/custom/dogs.jpg', label: '강아지3' },
+    { id: 'sticker4', src: '/images/custom/dossiba.jpg', label: '고양이' },
 ]
 
 function isS25Model(modelId) {
@@ -62,133 +62,133 @@ function S25PhonePreview({
 
     const scale = 1.5
 
-return (
-    <div style={{
-        position: 'relative',
-        width: 200 * scale,
-        height: 358 * scale,
-        margin: '0 auto',
-        flexShrink: 0,
-    }}>
-        {/* ── ❶ 폰 본체 + ❷ 컬러 오버레이 묶음 ── */}
+    return (
         <div style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 1,
-            overflow: 'hidden',
-            borderRadius: 30 * scale, // 전체적인 폰 곡률 적용
+            position: 'relative',
+            width: 200 * scale,
+            height: 358 * scale,
+            margin: '0 auto',
+            flexShrink: 0,
         }}>
-            {/* ❶ 폰 본체 */}
-            <img
-                src={S25_BODY}
-                alt="Galaxy S25"
-                style={{
-                    position: 'absolute',
-                    inset: 0,
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'fill',
-                    display: 'block',
-                }}
-            />
-
-            {/* ❷ 컬러 오버레이 (마스크 적용으로 폰 영역 밖으로 안 튀어나감) */}
-            {selectedCaseColor && (
-                <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: selectedCaseColor,
-                    mixBlendMode: 'multiply',
-                    opacity: 0.45,
-                    pointerEvents: 'none',
-                    // 이미지 모양대로 색을 입히는 핵심 설정
-                    WebkitMaskImage: `url(${S25_BODY})`,
-                    maskImage: `url(${S25_BODY})`,
-                    WebkitMaskSize: '100% 100%',
-                    maskSize: '100% 100%',
-                }} />
-            )}
-        </div>
-
-        {/* ── ❸ 디자인 영역 (사진/텍스트) ── */}
-        <div style={{
-            position: 'absolute',
-            top: 63 * scale,
-            left: 43 * scale,
-            right: 29 * scale,
-            bottom: 26 * scale,
-            overflow: 'hidden',
-            zIndex: 3,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 10 * scale, // 디자인 영역 내부 곡률
-        }}>
-            {designType === 'photo' && previewURL && (
+            {/* ── ❶ 폰 본체 + ❷ 컬러 오버레이 묶음 ── */}
+            <div style={{
+                position: 'absolute',
+                inset: 0,
+                zIndex: 1,
+                overflow: 'hidden',
+                borderRadius: 30 * scale, // 전체적인 폰 곡률 적용
+            }}>
+                {/* ❶ 폰 본체 */}
                 <img
-                    src={previewURL}
-                    alt="미리보기"
+                    src={S25_BODY}
+                    alt="Galaxy S25"
                     style={{
+                        position: 'absolute',
+                        inset: 0,
                         width: '100%',
                         height: '100%',
-                        objectFit: 'cover',
-                        ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
+                        objectFit: 'fill',
+                        display: 'block',
                     }}
                 />
-            )}
 
-            {designType === 'text' && textValue && (
-                <span style={{
-                    color: fontColor || '#fff',
-                    fontSize: 20 * scale,
-                    fontWeight: 600,
-                    textAlign: 'center',
-                    textShadow: `0 ${1 * scale}px ${3 * scale}px rgba(0,0,0,.4)`,
-                    padding: 8 * scale,
-                    wordBreak: 'break-all',
-                }}>
-                    {textValue}
-                </span>
-            )}
+                {/* ❷ 컬러 오버레이 (마스크 적용으로 폰 영역 밖으로 안 튀어나감) */}
+                {selectedCaseColor && (
+                    <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: selectedCaseColor,
+                        mixBlendMode: 'multiply',
+                        opacity: 0.45,
+                        pointerEvents: 'none',
+                        // 이미지 모양대로 색을 입히는 핵심 설정
+                        WebkitMaskImage: `url(${S25_BODY})`,
+                        maskImage: `url(${S25_BODY})`,
+                        WebkitMaskSize: '100% 100%',
+                        maskSize: '100% 100%',
+                    }} />
+                )}
+            </div>
 
-            {/* 안내 문구 */}
-            {!((designType === 'photo' && previewURL) || (designType === 'text' && textValue)) && (
-                <p style={{
-                    fontSize: 11 * scale,
-                    color: 'rgba(255,255,255,0.4)',
-                    textAlign: 'center',
-                    whiteSpace: 'pre-line',
-                    lineHeight: 1.4,
-                }}>
-                    {designType === 'photo'
-                        ? (photoTab === 'sticker' ? '스티커를\n선택하세요' : '사진을\n업로드하세요')
-                        : designType === 'text'
-                            ? '텍스트를\n입력하세요'
-                            : '커스텀 내용을\n선택하세요'}
-                </p>
-            )}
-        </div>
-
-        {/* ── ❹ 카메라 렌즈 ── */}
-        <img
-            src={S25_CAMERA}
-            alt="camera"
-            style={{
+            {/* ── ❸ 디자인 영역 (사진/텍스트) ── */}
+            <div style={{
                 position: 'absolute',
-                top: 59 * scale,
-                left: 38 * scale,
-                width: 90 * scale * 0.75,
-                height: 140 * scale * 0.75,
-                zIndex: 4,
-                pointerEvents: 'none',
-            }}
-        />
-    </div>
-);
+                top: 63 * scale,
+                left: 43 * scale,
+                right: 29 * scale,
+                bottom: 26 * scale,
+                overflow: 'hidden',
+                zIndex: 3,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 10 * scale, // 디자인 영역 내부 곡률
+            }}>
+                {designType === 'photo' && previewURL && (
+                    <img
+                        src={previewURL}
+                        alt="미리보기"
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
+                        }}
+                    />
+                )}
+
+                {designType === 'text' && textValue && (
+                    <span style={{
+                        color: fontColor || '#fff',
+                        fontSize: 20 * scale,
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        textShadow: `0 ${1 * scale}px ${3 * scale}px rgba(0,0,0,.4)`,
+                        padding: 8 * scale,
+                        wordBreak: 'break-all',
+                    }}>
+                        {textValue}
+                    </span>
+                )}
+
+                {/* 안내 문구 */}
+                {!((designType === 'photo' && previewURL) || (designType === 'text' && textValue)) && (
+                    <p style={{
+                        fontSize: 11 * scale,
+                        color: 'rgba(255,255,255,0.4)',
+                        textAlign: 'center',
+                        whiteSpace: 'pre-line',
+                        lineHeight: 1.4,
+                    }}>
+                        {designType === 'photo'
+                            ? (photoTab === 'sticker' ? '스티커를\n선택하세요' : '사진을\n업로드하세요')
+                            : designType === 'text'
+                                ? '텍스트를\n입력하세요'
+                                : '커스텀 내용을\n선택하세요'}
+                    </p>
+                )}
+            </div>
+
+            {/* ── ❹ 카메라 렌즈 ── */}
+            <img
+                src={S25_CAMERA}
+                alt="camera"
+                style={{
+                    position: 'absolute',
+                    top: 59 * scale,
+                    left: 38 * scale,
+                    width: 90 * scale * 0.75,
+                    height: 140 * scale * 0.75,
+                    zIndex: 4,
+                    pointerEvents: 'none',
+                }}
+            />
+        </div>
+    );
 }
 // ── 기존 CSS 폰 프리뷰 (S25 외 기종용)
 function DefaultPhonePreview({ designType, previewURL, photoFilter, filterStrength,
-                               textValue, fontColor, photoTab, selectedCaseColor }) {
+    textValue, fontColor, photoTab, selectedCaseColor }) {
     return (
         <div className="custom-phone-preview" style={{ '--case-color': selectedCaseColor || '#111111' }}>
             <div className="custom-phone-body">
@@ -213,7 +213,7 @@ function DefaultPhonePreview({ designType, previewURL, photoFilter, filterStreng
                             {designType === 'photo'
                                 ? (photoTab === 'sticker' ? '스티커를\n선택하세요' : '사진을\n업로드하세요')
                                 : designType === 'text' ? '텍스트를\n입력하세요'
-                                : '커스텀\n내용을 선택하세요'}
+                                    : '커스텀\n내용을 선택하세요'}
                         </p>
                     )}
                 </div>
@@ -225,37 +225,39 @@ function DefaultPhonePreview({ designType, previewURL, photoFilter, filterStreng
 
 // ── 메인 페이지
 export function ProductCustomizePage() {
-    const location  = useLocation()
-    const navigate  = useNavigate()
+    const location = useLocation()
+    const navigate = useNavigate()
     const { user, onAddToCart } = useAuthStore()
     const initialDeviceType = location.state?.deviceType || 'phone'
     const fileInputRef = useRef(null)
 
-    const [selectedBrand,     setSelectedBrand]     = useState(BRANDS[0]?.id || null)
-    const [selectedModel,     setSelectedModel]     = useState(null)
-    const [selectedCaseColor, setSelectedCaseColor] = useState(null)
-    const [selectedCaseType,  setSelectedCaseType]  = useState(null)
-    const [designType,        setDesignType]        = useState(null)
-    const [photoFile,         setPhotoFile]         = useState(null)
-    const [photoURL,          setPhotoURL]          = useState(null)
-    const [photoFilter,       setPhotoFilter]       = useState(null)
-    const [filterStrength,    setFilterStrength]    = useState(50)
-    const [textValue,         setTextValue]         = useState('')
-    const [fontColor,         setFontColor]         = useState(null)
-    const [photoTab,          setPhotoTab]          = useState('upload')
-    const [selectedSticker,   setSelectedSticker]   = useState(STICKERS[0] || null)
-    const [modelOpen,         setModelOpen]         = useState(false)
-    const [caseTypeOpen,      setCaseTypeOpen]      = useState(false)
-    const [cartMsg,           setCartMsg]           = useState('')
-    const [isCartPopupOpen,   setIsCartPopupOpen]   = useState(false)
-    const [isPopupErr,        setIsPopupErr]        = useState(false)
 
-    const price              = 89000
-    const models             = BRANDS.find(b => b.id === selectedBrand)?.models || []
+
+    const [selectedBrand, setSelectedBrand] = useState(BRANDS[0]?.id || null)
+    const [selectedModel, setSelectedModel] = useState(null)
+    const [selectedCaseColor, setSelectedCaseColor] = useState(null)
+    const [selectedCaseType, setSelectedCaseType] = useState(null)
+    const [designType, setDesignType] = useState(null)
+    const [photoFile, setPhotoFile] = useState(null)
+    const [photoURL, setPhotoURL] = useState(null)
+    const [photoFilter, setPhotoFilter] = useState(null)
+    const [filterStrength, setFilterStrength] = useState(50)
+    const [textValue, setTextValue] = useState('')
+    const [fontColor, setFontColor] = useState(null)
+    const [photoTab, setPhotoTab] = useState('upload')
+    const [selectedSticker, setSelectedSticker] = useState(STICKERS[0] || null)
+    const [modelOpen, setModelOpen] = useState(false)
+    const [caseTypeOpen, setCaseTypeOpen] = useState(false)
+    const [cartMsg, setCartMsg] = useState('')
+    const [isCartPopupOpen, setIsCartPopupOpen] = useState(false)
+    const [isPopupErr, setIsPopupErr] = useState(false)
+
+    const price = 89000
+    const models = BRANDS.find(b => b.id === selectedBrand)?.models || []
     const selectedModelLabel = models.find(m => m.id === selectedModel)?.label
-    const selectedCaseLabel  = CASE_TYPES.find(c => c.id === selectedCaseType)?.label
-    const deviceTypeLabel    = { phone: 'Phone Custom Case', laptop: 'MacBook Custom Case', tablet: 'Tablet Custom Case' }[initialDeviceType] || ''
-    const showS25Preview     = isS25Model(selectedModel)
+    const selectedCaseLabel = CASE_TYPES.find(c => c.id === selectedCaseType)?.label
+    const deviceTypeLabel = { phone: 'Phone Custom Case', laptop: 'MacBook Custom Case', tablet: 'Tablet Custom Case' }[initialDeviceType] || ''
+    const showS25Preview = isS25Model(selectedModel)
 
     const previewURL = photoTab === 'sticker' ? selectedSticker?.src || null : photoURL
 
@@ -264,6 +266,12 @@ export function ProductCustomizePage() {
         (designType === 'photo'
             ? (photoTab === 'upload' ? (photoFile && photoFilter) : selectedSticker)
             : (textValue.trim().length > 0 && fontColor))
+
+    // ▼ 모든 옵션 선택 전: 전체 스크롤 막기 / 완료 후: 전체 스크롤 허용
+    useEffect(() => {
+        document.body.style.overflow = !!canAddCart ? '' : 'hidden'
+        return () => { document.body.style.overflow = '' }
+    }, [canAddCart])
 
     const optionSummary = [
         selectedModelLabel,
@@ -296,8 +304,8 @@ export function ProductCustomizePage() {
             deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
             quantity: 1, isCustom: true, customMode: designType, customContent,
         })
-        if (result) { setCartMsg('장바구니에 담겼습니다!');      setIsPopupErr(false) }
-        else         { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
+        if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
+        else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
         setIsCartPopupOpen(true)
     }
 
@@ -429,25 +437,25 @@ export function ProductCustomizePage() {
                         {/* 5-a. 사진 모드 */}
                         {designType === 'photo' && (
                             <div className="detail-info-box">
-                     <div className="photo-tab">
-  <div className="photo-tab-wrap">
-    <button
-      className={`photo-tab-btn ${photoTab === 'upload' ? 'active' : ''}`}
-      onClick={() => setPhotoTab('upload')}
-    >
-      📷 사진 업로드
-    </button>
-    <button
-      className={`photo-tab-btn ${photoTab === 'sticker' ? 'active' : ''}`}
-      onClick={() => {
-        setPhotoTab('sticker')
-        if (!selectedSticker) setSelectedSticker(STICKERS[0])
-      }}
-    >
-      🐾 스티커
-    </button>
-  </div>
-</div>
+                                <div className="photo-tab">
+                                    <div className="photo-tab-wrap">
+                                        <button
+                                            className={`photo-tab-btn ${photoTab === 'upload' ? 'active' : ''}`}
+                                            onClick={() => setPhotoTab('upload')}
+                                        >
+                                            📷 사진 업로드
+                                        </button>
+                                        <button
+                                            className={`photo-tab-btn ${photoTab === 'sticker' ? 'active' : ''}`}
+                                            onClick={() => {
+                                                setPhotoTab('sticker')
+                                                if (!selectedSticker) setSelectedSticker(STICKERS[0])
+                                            }}
+                                        >
+                                            🐾 스티커
+                                        </button>
+                                    </div>
+                                </div>
 
                                 {photoTab === 'upload' && (
                                     <>
