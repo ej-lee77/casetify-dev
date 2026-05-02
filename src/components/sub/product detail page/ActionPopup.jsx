@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import './ActionPopup.scss'
+import './scss/ActionPopup.scss'
 
 export default function ActionPopup({ isOpen, message, isError, type, onClose }) {
     const navigate = useNavigate()
