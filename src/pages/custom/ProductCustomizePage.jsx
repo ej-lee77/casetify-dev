@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/useAuthStore'
-import { BRANDS, TABLET_BRANDS, LAPTOP_BRANDS, CASE_TYPES, CASE_COLORS } from './constants'
+import { BRANDS, TABLET_BRANDS, LAPTOP_BRANDS, CASE_TYPES, TABLET_CASE_TYPES, LAPTOP_CASE_TYPES, CASE_COLORS } from './constants'
 import { PhonePreview } from './PhonePreview'
 import { TextInputSection } from './TextInputSection'
 import { PhotoSection } from './PhotoSection'
@@ -13,20 +13,23 @@ export function ProductCustomizePage() {
     const { user, onAddToCart } = useAuthStore()
     const initialDeviceType = location.state?.deviceType || 'phone'
 
-    // deviceType에 따라 브랜드 목록 결정
     const brandList =
         initialDeviceType === 'tablet' ? TABLET_BRANDS :
             initialDeviceType === 'laptop' ? LAPTOP_BRANDS :
                 BRANDS
+
+    const caseTypeList =
+        initialDeviceType === 'tablet' ? TABLET_CASE_TYPES :
+            initialDeviceType === 'laptop' ? LAPTOP_CASE_TYPES :
+                CASE_TYPES
 
     const isNonPhone = initialDeviceType === 'tablet' || initialDeviceType === 'laptop'
 
     const [selectedBrand, setSelectedBrand] = useState(brandList[0]?.id || null)
     const [selectedModel, setSelectedModel] = useState(null)
     const [selectedCaseColor, setSelectedCaseColor] = useState(null)
-    // tablet/laptop은 케이스타입 자동으로 첫번째로 고정
     const [selectedCaseType, setSelectedCaseType] = useState(
-        isNonPhone ? CASE_TYPES[0]?.id : null
+        isNonPhone ? caseTypeList[0]?.id : null
     )
     const [designType, setDesignType] = useState(null)
     const [photoFile, setPhotoFile] = useState(null)
@@ -47,7 +50,7 @@ export function ProductCustomizePage() {
     const price = 89000
     const models = brandList.find(b => b.id === selectedBrand)?.models || []
     const selectedModelLabel = models.find(m => m.id === selectedModel)?.label
-    const selectedCaseLabel = CASE_TYPES.find(c => c.id === selectedCaseType)?.label
+    const selectedCaseLabel = caseTypeList.find(c => c.id === selectedCaseType)?.label
     const deviceTypeLabel = {
         phone: 'Phone Custom Case',
         laptop: 'MacBook Custom Case',
@@ -63,7 +66,6 @@ export function ProductCustomizePage() {
             : (textValue.trim().length > 0 && fontColor))
 
     useEffect(() => {
-        // 모바일에서는 전체 스크롤 허용 (반응형에서 내부 스크롤 없음)
         if (window.innerWidth <= 768) return
         document.body.style.overflow = !!canAddCart ? '' : 'hidden'
         return () => { document.body.style.overflow = '' }
@@ -127,11 +129,6 @@ export function ProductCustomizePage() {
                     <p className="detail-price">{price.toLocaleString()}원</p>
 
                     <div className="right-info-wrap">
-                        {selectedCaseType && (
-                            <div className="detail-info-box">
-                                <p className="label">{selectedCaseLabel}</p>
-                            </div>
-                        )}
 
                         {/* 1. 기종 */}
                         <div className="detail-info-box">
@@ -185,32 +182,31 @@ export function ProductCustomizePage() {
                             </div>
                         </div>
 
-                        {/* 3. 케이스 타입 - 폰만 표시 */}
-                        {!isNonPhone && (
-                            <div className="detail-info-box">
-                                <p className="label">케이스 타입</p>
-                                <div className="model-accordion">
-                                    <button className="model-accordion-trigger"
-                                        onClick={() => { setCaseTypeOpen(v => !v); setModelOpen(false) }}>
-                                        <span>{selectedCaseLabel || '케이스 타입을 선택하세요'}</span>
-                                        <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>
-                                    </button>
-                                    {caseTypeOpen && (
-                                        <div className="model-accordion-list">
-                                            <ul className="model-sub-list">
-                                                {CASE_TYPES.map(ct => (
-                                                    <li key={ct.id}
-                                                        className={selectedCaseType === ct.id ? 'active' : ''}
-                                                        onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false) }}>
-                                                        {ct.label}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
+                        {/* 3. 케이스 타입 */}
+                        <div className="detail-info-box">
+                            <p className="label">케이스 타입</p>
+                            <div className="model-accordion">
+                                <button className="model-accordion-trigger"
+                                    onClick={() => { if (isNonPhone) return; setCaseTypeOpen(v => !v); setModelOpen(false) }}
+                                    style={{ cursor: isNonPhone ? 'default' : 'pointer', background: isNonPhone ? '#f7f7f7' : '#fff' }}>
+                                    <span>{selectedCaseLabel || '케이스 타입을 선택하세요'}</span>
+                                    {!isNonPhone && <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>}
+                                </button>
+                                {!isNonPhone && caseTypeOpen && (
+                                    <div className="model-accordion-list">
+                                        <ul className="model-sub-list">
+                                            {caseTypeList.map(ct => (
+                                                <li key={ct.id}
+                                                    className={selectedCaseType === ct.id ? 'active' : ''}
+                                                    onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false) }}>
+                                                    {ct.label}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
-                        )}
+                        </div>
 
                         {/* 4. 커스텀 타입 */}
                         <div className="detail-info-box">

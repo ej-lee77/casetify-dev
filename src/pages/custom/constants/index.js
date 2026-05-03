@@ -66,6 +66,14 @@ export const LAPTOP_BRANDS = [
   },
 ]
 
+export const TABLET_CASE_TYPES = [
+  { id: 'impact', label: '임팩트 케이스' },
+]
+
+export const LAPTOP_CASE_TYPES = [
+  { id: 'impact', label: '임팩트 케이스' },
+]
+
 export const CASE_COLORS = [
   { id: 'black', label: '블랙', hex: '#111111' },
   { id: 'red', label: '레드', hex: '#ffb2b2' },
