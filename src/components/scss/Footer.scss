@@ -181,6 +181,7 @@ footer {
     bottom: 40px;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 1000;
 
     &:hover {
         transform: translateY(-5px);
@@ -193,4 +194,46 @@ footer {
     img {
         width: 24px;
     }
+}
+
+.aside-custom-btn{
+    width: 60px;
+    height: 60px;
+    padding: 4px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    @include g.myFlex($jc: center, $gap: 4px, $fd: column);
+    font-size: 0.75em;
+    border-radius: 50%;
+    // display: block;
+    position: fixed;
+    right: 32px;
+    bottom: 200px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1000;
+
+    a{
+        display: block;
+        width: 80%;
+    }
+
+    p{
+        display: none;
+        font-size: 0.88em;
+        position: absolute;
+        bottom: -16px;
+        text-align: center;
+        right: 0;
+        width: 60px;
+        color: g.$text-main;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      p{
+        display: block;
+      }
+    }
+
 }
