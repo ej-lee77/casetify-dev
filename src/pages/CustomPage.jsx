@@ -5,7 +5,7 @@ import './scss/CustomPage.scss'
 const DEVICE_VIDEOS = {
     phone: '/images/custom/phonecustom.mp4',
     laptop: '/images/custom/macbookcustom.mp4',
-    // tablet: '/images/custom/Tabletcustom.png',
+    tablet: '/images/custom/Tabletcustom.mp4',
 }
 
 // 임시 = 영상으로교체예정
@@ -53,14 +53,15 @@ export default function CustomPage() {
                     playsInline
                     preload="auto"
                     onCanPlayThrough={() => setVideoReady(true)}
-                />{/* 태블릿일 때 이미지 표시 */}
-                {activeVideo === 'tablet' && (
+                />
+                {/* 태블릿일 때 이미지 표시 */}
+                {/* {activeVideo === 'tablet' && (
                     <img
                         src={DEVICE_IMAGES.tablet}
                         alt="tablet"
                         className="custom-hero-video ready"
                         style={{ objectFit: 'cover' }}
-                    />
+                    /> */}
                 )}
                 <div className="custom-hero-overlay" />
 
