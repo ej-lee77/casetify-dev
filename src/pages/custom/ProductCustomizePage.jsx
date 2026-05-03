@@ -2,16 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/useAuthStore'
 import { BRANDS, CASE_TYPES, CASE_COLORS } from './constants'
-import { S25PhonePreview } from './S25PhonePreview'
-import { DefaultPhonePreview } from './DefaultPhonePreview'
+import { PhonePreview } from './PhonePreview'
 import { TextInputSection } from './TextInputSection'
 import { PhotoSection } from './PhotoSection'
 import './scss/ProductCustomizePage.scss'
-
-function isS25Model(modelId) {
-    if (!modelId) return false
-    return modelId.toLowerCase().includes('s25') || modelId === 'galaxy-s25'
-}
 
 export function ProductCustomizePage() {
     const location = useLocation()
@@ -48,7 +42,7 @@ export function ProductCustomizePage() {
         laptop: 'MacBook Custom Case',
         tablet: 'Tablet Custom Case'
     }[initialDeviceType] || ''
-    const showS25Preview = isS25Model(selectedModel)
+
     const previewURL = photoTab === 'sticker' ? selectedSticker?.src || null : photoURL
 
     const canAddCart =
@@ -90,6 +84,8 @@ export function ProductCustomizePage() {
     }
 
     const previewProps = {
+        selectedModel,
+        selectedCaseType,
         designType, previewURL, photoFilter, filterStrength,
         textValue, fontColor, photoTab, selectedCaseColor,
     }
@@ -102,10 +98,7 @@ export function ProductCustomizePage() {
                 <div className="detail-left">
                     <div className="detail-image-wrap">
                         <div className="detail-main-image custom-preview-main">
-                            {showS25Preview
-                                ? <S25PhonePreview {...previewProps} />
-                                : <DefaultPhonePreview {...previewProps} />
-                            }
+                            <PhonePreview {...previewProps} />
                         </div>
                     </div>
                 </div>
