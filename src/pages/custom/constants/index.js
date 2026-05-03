@@ -35,6 +35,37 @@ export const BRANDS = [
   },
 ]
 
+export const TABLET_BRANDS = [
+  {
+    id: 'apple', label: 'APPLE',
+    models: [
+      { id: 'ipad', label: 'iPad' },
+      { id: 'ipadmini', label: 'iPad mini' },
+      { id: 'ipadair4', label: 'iPad Air 4세대' },
+      { id: 'ipadair11', label: 'iPad Air 11인치' },
+      { id: 'ipadair13', label: 'iPad Air 13인치' },
+      { id: 'ipadpro11', label: 'iPad Pro 11인치' },
+      { id: 'ipadpro11s3', label: 'iPad Pro 11인치 3세대' },
+      { id: 'ipadpro12.9', label: 'iPad Pro 12.9인치' },
+      { id: 'ipadpro13', label: 'iPad Pro 13인치' },
+    ],
+  },
+]
+
+export const LAPTOP_BRANDS = [
+  {
+    id: 'apple', label: 'APPLE',
+    models: [
+      { id: 'macbook13', label: 'MacBook 13인치' },
+      { id: 'macbook15', label: 'MacBook 15인치' },
+      { id: 'macbookair13', label: 'MacBook Air 13인치' },
+      { id: 'macbookair13s1', label: 'MacBook Air 13인치 (M1)' },
+      { id: 'macbookpro14', label: 'MacBook Pro 14인치' },
+      { id: 'macbookpro16', label: 'MacBook Pro 16인치' },
+    ],
+  },
+]
+
 export const CASE_COLORS = [
   { id: 'black', label: '블랙', hex: '#111111' },
   { id: 'red', label: '레드', hex: '#ffb2b2' },
@@ -45,7 +76,6 @@ export const CASE_COLORS = [
 export const CASE_TYPES = [
   { id: 'magsafe-bounce', label: '맥세이프 호환 바운스 케이스', image: '/images/custom/case-magsafe-bounce.png' },
   { id: 'magsafe-compact', label: '맥세이프 호환 임팩트 링 스탠드', image: '/images/custom/case-magsafe-compact.png' },
-  // { id: 'magsafe-glaze', label: '맥세이프 호환 케이스', image: '/images/custom/case-magsafe-glaze.png' },
   { id: 'impact', label: '맥세이프 호환 임팩트 케이스', image: '/images/custom/case-impact.png' },
 ]
 

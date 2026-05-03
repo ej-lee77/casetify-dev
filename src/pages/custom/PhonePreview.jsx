@@ -1,10 +1,11 @@
 import React from 'react'
 
-const BASE_PATH = '/images/custom/model/impact'
+const PHONE_BASE = '/images/custom/model/impact'
+const IPAD_BASE = '/images/custom/model/ipad'
+const LAPTOP_BASE = '/images/custom/model/macbook'
 
-// 모델 id → 파일명 변환
+// ── 폰 모델 id → 파일명 ──────────────────────────
 const MODEL_FILE_MAP = {
-    // Apple
     'iphone17promax': 'IPHONE17PROMAX',
     'iphone17pro': 'IPHONE17PRO',
     'iphone17': 'IPHONE17',
@@ -14,39 +15,53 @@ const MODEL_FILE_MAP = {
     'iphone14plus': 'IPHONE14PLUS',
     'iphone13promax': 'IPHONE13PROMAX',
     'iphoneMini': 'IPHONEMINI',
-    // Samsung
     's25ultra': 'GALAXYS25ULTRA',
     's25plus': 'GALAXYS25PLUS',
     's25': null,
-    // 's24ultra': 'GALAXYS24ULTRA',
     's24': 'GALAXYS24',
     'z6fold': 'ZFOLDER6',
     'z6flip': 'ZFLIP6',
-    // Google
     'pixel9pro': 'PIXELPRO9',
     'pixel9': 'GOOGLE9',
     'pixel8pro': 'GOOGLEPRO9',
 }
 
-// 카메라 파일명 예외
 const CAMERA_FILE_OVERRIDE = {
     'z6fold': 'ZFOLDER6-CAMEARA',
     's25': null,
 }
 
-// ─────────────────────────────────────────────
-//  모델별 레이아웃 설정 (scale=1 기준, 실제 렌더는 *scale)
-//  bodyRadius  : 폰 본체 모서리 곡률
-//  canvas      : 디자인 영역 { top, left, right, bottom }
-//  camera      : 카메라 { top, left, width, height }
-// ─────────────────────────────────────────────
+// ── 아이패드 모델 id → 파일명 ───────────────────────
+const IPAD_FILE_MAP = {
+    'ipad': 'ipad',
+    'ipadmini': 'ipadmini',
+    'ipadair4': 'ipadair4',
+    'ipadair11': 'ipadair11',
+    'ipadair13': 'ipadair13',
+    'ipadpro11': 'ipadpro11',
+    'ipadpro11s3': 'ipadpro11s3',
+    'ipadpro12.9': 'ipadpro12.9',
+    'ipadpro13': 'ipadpro13',
+}
+const IPAD_NO_CAMERA = ['ipadair11', 'ipadair13', 'ipadpro11']
+
+// ── 맥북 모델 id → 파일명 (카메라 없음) ─────────────
+const LAPTOP_FILE_MAP = {
+    'macbook13': 'macbook13',
+    'macbook15': 'macbook15',
+    'macbookair13': 'macbookair13',
+    'macbookair13s1': 'macbookair13s1',
+    'macbookpro14': 'macbookpro14',
+    'macbookpro16': 'macbookpro16',
+}
+
 // ─────────────────────────────────────────────
 //  모델별 레이아웃 설정 (scale=1 기준)
-//  scale       : 전체 확대율 (기본 1.5)
-//  bodyW/bodyH : 기준 본체 크기 (기본 200×358)
+//  scale       : 전체 확대율
+//  bodyW/bodyH : 기준 본체 크기
 //  bodyRadius  : 폰 본체 모서리 곡률
-//  canvas      : 디자인 영역 { top, left, right, bottom }
-//  camera      : 카메라 { top, left, width, height }
+//  canvas      : 디자인 영역 { top, left, w, h, radius }
+//  camera      : 카메라 { top, left, width, height, background?, radius? }
 // ─────────────────────────────────────────────
 const DEFAULT_LAYOUT = {
     scale: 1.5,
@@ -125,12 +140,6 @@ const MODEL_LAYOUT = {
         canvas: { top: 38, left: 30, w: 150, h: 303, radius: 20 },
         camera: { background: '#221f1f', top: 40, left: 32, width: 67, height: 110, radius: 20 },
     },
-    // 's24ultra': {
-    //     scale: 1.5, bodyW: 200, bodyH: 358,
-    //     bodyRadius: 30,
-    //     canvas: { top: 63, left: 43, w: 128, h: 269, radius: 10 },
-    //     camera: { background: '#221f1f', radius: 20, top: 20, left: 38, width: 67, height: 120 },
-    // },
     's24': {
         scale: 1.5, bodyW: 200, bodyH: 358,
         bodyRadius: 30,
@@ -168,6 +177,100 @@ const MODEL_LAYOUT = {
         canvas: { top: 38, left: 38, w: 150, h: 300, radius: 25 },
         camera: { top: 40, left: 34, width: 154, height: 64 },
     },
+
+    // ── iPad ───────────────────────────────
+    'ipad': {
+        scale: 1.2, bodyW: 260, bodyH: 358,
+        bodyRadius: 20,
+        canvas: { top: 30, left: 30, w: 200, h: 298, radius: 8 },
+        camera: { top: 10, left: 120, width: 20, height: 20 },
+    },
+    'ipadmini': {
+        scale: 1.2, bodyW: 240, bodyH: 338,
+        bodyRadius: 20,
+        canvas: { top: 30, left: 28, w: 184, h: 278, radius: 8 },
+        camera: { top: 10, left: 110, width: 20, height: 20 },
+    },
+    'ipadair4': {
+        scale: 1.2, bodyW: 250, bodyH: 348,
+        bodyRadius: 18,
+        canvas: { top: 28, left: 28, w: 194, h: 292, radius: 8 },
+        camera: { top: 10, left: 115, width: 20, height: 20 },
+    },
+    'ipadair11': {
+        scale: 1.2, bodyW: 250, bodyH: 348,
+        bodyRadius: 18,
+        canvas: { top: 28, left: 28, w: 194, h: 292, radius: 8 },
+        camera: null,
+    },
+    'ipadair13': {
+        scale: 1.1, bodyW: 290, bodyH: 380,
+        bodyRadius: 18,
+        canvas: { top: 28, left: 30, w: 230, h: 324, radius: 8 },
+        camera: null,
+    },
+    'ipadpro11': {
+        scale: 1.2, bodyW: 250, bodyH: 348,
+        bodyRadius: 16,
+        canvas: { top: 20, left: 20, w: 210, h: 308, radius: 6 },
+        camera: null,
+    },
+    'ipadpro11s3': {
+        scale: 1.2, bodyW: 250, bodyH: 348,
+        bodyRadius: 16,
+        canvas: { top: 20, left: 20, w: 210, h: 308, radius: 6 },
+        camera: { top: 8, left: 115, width: 20, height: 20 },
+    },
+    'ipadpro12.9': {
+        scale: 1.0, bodyW: 290, bodyH: 390,
+        bodyRadius: 16,
+        canvas: { top: 22, left: 22, w: 246, h: 346, radius: 6 },
+        camera: { top: 8, left: 135, width: 20, height: 20 },
+    },
+    'ipadpro13': {
+        scale: 1.0, bodyW: 290, bodyH: 390,
+        bodyRadius: 16,
+        canvas: { top: 22, left: 22, w: 246, h: 346, radius: 6 },
+        camera: { top: 8, left: 135, width: 20, height: 20 },
+    },
+
+    // ── MacBook ────────────────────────────
+    'macbook13': {
+        scale: 1.2, bodyW: 380, bodyH: 240,
+        bodyRadius: 10,
+        canvas: { top: 14, left: 46, w: 288, h: 182, radius: 4 },
+        camera: null,
+    },
+    'macbook15': {
+        scale: 1.1, bodyW: 420, bodyH: 260,
+        bodyRadius: 10,
+        canvas: { top: 14, left: 52, w: 316, h: 200, radius: 4 },
+        camera: null,
+    },
+    'macbookair13': {
+        scale: 1.2, bodyW: 380, bodyH: 240,
+        bodyRadius: 10,
+        canvas: { top: 14, left: 46, w: 288, h: 182, radius: 4 },
+        camera: null,
+    },
+    'macbookair13s1': {
+        scale: 1.2, bodyW: 380, bodyH: 240,
+        bodyRadius: 10,
+        canvas: { top: 14, left: 46, w: 288, h: 182, radius: 4 },
+        camera: null,
+    },
+    'macbookpro14': {
+        scale: 1.15, bodyW: 400, bodyH: 252,
+        bodyRadius: 10,
+        canvas: { top: 14, left: 50, w: 300, h: 192, radius: 4 },
+        camera: null,
+    },
+    'macbookpro16': {
+        scale: 1.05, bodyW: 440, bodyH: 275,
+        bodyRadius: 10,
+        canvas: { top: 16, left: 54, w: 332, h: 210, radius: 4 },
+        camera: null,
+    },
 }
 
 function getFilterStyle(filterId, strength) {
@@ -191,14 +294,34 @@ export function PhonePreview({
     fontColor,
     photoTab,
     selectedCaseColor,
+    deviceType,
 }) {
-    const fileKey = MODEL_FILE_MAP[selectedModel]
-    const cameraKey = selectedModel in CAMERA_FILE_OVERRIDE
-        ? CAMERA_FILE_OVERRIDE[selectedModel]
-        : (fileKey ? `${fileKey}-CAMERA` : null)
+    const isTablet = deviceType === 'tablet'
+    const isLaptop = deviceType === 'laptop'
 
-    const bodySrc = fileKey ? `${BASE_PATH}/${fileKey}.png` : null
-    const cameraSrc = cameraKey ? `${BASE_PATH}/${cameraKey}.png` : null
+    let bodySrc = null
+    let cameraSrc = null
+
+    if (isTablet) {
+        const fileKey = IPAD_FILE_MAP[selectedModel]
+        if (fileKey) {
+            bodySrc = `${IPAD_BASE}/${fileKey}.png`
+            if (!IPAD_NO_CAMERA.includes(selectedModel)) {
+                cameraSrc = `${IPAD_BASE}/${fileKey}-camera.png`
+            }
+        }
+    } else if (isLaptop) {
+        const fileKey = LAPTOP_FILE_MAP[selectedModel]
+        if (fileKey) bodySrc = `${LAPTOP_BASE}/${fileKey}.png`
+        cameraSrc = null
+    } else {
+        const fileKey = MODEL_FILE_MAP[selectedModel]
+        const cameraKey = selectedModel in CAMERA_FILE_OVERRIDE
+            ? CAMERA_FILE_OVERRIDE[selectedModel]
+            : (fileKey ? `${fileKey}-CAMERA` : null)
+        bodySrc = fileKey ? `${PHONE_BASE}/${fileKey}.png` : null
+        cameraSrc = cameraKey ? `${PHONE_BASE}/${cameraKey}.png` : null
+    }
 
     const showPreview = !!selectedModel && !!selectedCaseType && !!bodySrc
     const layout = MODEL_LAYOUT[selectedModel] || DEFAULT_LAYOUT
@@ -302,7 +425,8 @@ export function PhonePreview({
                 )}
             </div>
 
-            {cameraSrc && (
+            {/* ❸ 카메라 */}
+            {cameraSrc && camera && (
                 <img src={cameraSrc} alt="camera" style={{
                     position: 'absolute',
                     top: camera.top * scale,
