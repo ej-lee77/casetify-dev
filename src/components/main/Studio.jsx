@@ -7,9 +7,9 @@ import FadeInSection from '../FadeInSection'
 export default function Studio() {
     return (
         <section className="studio-info">
-            <FadeInSection direction="up" delay={0.4}>
+            {/* <FadeInSection direction="up" delay={0.4}> */}
                 <SectionTitle title={"CASETiFY STUDiO"} subtitle={"전국 오프라인 매장에서 만나보세요!"} />
-            </FadeInSection>
+            {/* </FadeInSection> */}
             {/* <div className="bg"> */}
             <FadeInSection direction="up" delay={0.6}>
                 <div className="inner">
