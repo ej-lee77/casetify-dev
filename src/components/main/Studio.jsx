@@ -23,8 +23,7 @@ export default function Studio() {
                             <span>기다림 없이 바로 만나는 즐거움, 커스텀 케이스 당일 수령</span>
                             <span>나만의 개성을 더해줄 포인트, 다양한 테크 악세서리 체험</span>
                         </div>
-                        <button className="studio-search">매장찾기</button>
-                        {/* <Link className="studio-search">매장찾기</Link> */}
+                        <Link to="/brand/store" className="studio-search">매장찾기</Link>
                     </div>
                 </div>
             </FadeInSection>
