@@ -331,7 +331,7 @@ export function ProductCustomizePage() {
                 </div>
 
                 {/* ── 오른쪽: 옵션 ── */}
-                <div className="detail-right">
+                <div className="detail-right-custom">
                     <div className="detail-meta">
                         <span className="badge-free-ship">무료 배송</span>
                         <span className="detail-product-id">CUSTOM · {deviceTypeLabel}</span>
