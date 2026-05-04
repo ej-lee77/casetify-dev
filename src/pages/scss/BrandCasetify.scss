@@ -478,21 +478,104 @@
 }
 
 // ─── RE:CASTiFY ───────────────────────────────────────
-.bc-rc-goal {
-    max-width: 1440px;
-    margin: 0 auto 60px;
-    padding: 0 60px;
 
-    img {
-        width: 100%;
-        border-radius: 8px;
-        display: block;
+// rc-goal: 이미지 + 오버레이 타이틀 + 하단 원형 카드
+.bc-rc-goal {
+    .bc-rc-goal-img {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .bc-rc-goal-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 48px;
+    }
+
+    .rc-title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+        color: #111;
+    }
+
+    .rc-goal-circle {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        >div {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            border-radius: 50%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 20px;
+
+            // 텍스트 공통 리셋
+            p {
+                margin: 0;
+            }
+
+            // 수치
+            p:nth-child(1) {
+                font-size: 32px;
+                font-weight: 700;
+            }
+
+            // 타이틀
+            p:nth-child(2) {
+                font-size: 14px;
+                margin: 6px 0;
+                min-height: 40px;
+            }
+
+            // 설명
+            p:nth-child(3) {
+                font-size: 12px;
+                line-height: 1.4;
+                min-height: 50px;
+            }
+
+            // 색상 (디자인 느낌 살림)
+            &:nth-child(1) {
+                background: linear-gradient(135deg, #cfeeff, #dff7ff);
+            }
+
+            &:nth-child(2) {
+                background: linear-gradient(135deg, #e6f7d9, #d4f0c0);
+            }
+
+            &:nth-child(3) {
+                background: linear-gradient(135deg, #f8d7da, #ffe3cc);
+            }
+        }
     }
 }
 
+// rc-goal 다음 섹션에 카드 오버랩 여백 확보
 .bc-rc-crisis {
+    margin-top: 80px; // 원형 카드 오버랩(40px) + 여백
     max-width: 1440px;
-    margin: 0 auto 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
     padding: 0 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -565,10 +648,19 @@
     .bc-rc-step {
         text-align: center;
 
-        img {
+        .img-box {
             width: 100%;
+            height: 220px; // 👉 원하는 높이로 조절 가능
+            overflow: hidden;
             border-radius: 8px;
             margin-bottom: 20px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; // 👉 핵심
+                display: block;
+            }
         }
 
         p {
@@ -585,29 +677,75 @@
     margin: 0 auto 80px;
     padding: 0 60px;
 
-    .bc-rc-artist-head {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;
+    display: flex;
+    gap: 40px;
 
-        p {
-            font-size: 1.1rem;
+    .br-rc-artist-left,
+    .br-rc-artist-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center; // 👉 전체 가운데 정렬
+
+        h3 {
+            text-align: center;
+            font-size: 1.2rem;
             font-weight: 700;
             line-height: 1.6;
             color: #2f2f2f;
+            margin-bottom: 32px;
+        }
+
+        // 카드 묶음
+        .bc-rc-artist-card {
+            width: 100%;
+        }
+
+        // 카드들을 감싸는 역할 (중요)
+        >.bc-rc-artist-card:nth-of-type(n) {
+            max-width: 260px;
+        }
+
+        // 카드 flex 정렬
+        & {
+            .bc-rc-artist-card {
+                // 기본 스타일 유지
+            }
+
+            // 👉 카드 2개 가로 배치
+            display: flex;
+            flex-direction: column;
+
+            // 카드 묶기
+            >.bc-rc-artist-card {
+                margin-bottom: 24px;
+            }
+        }
+
+        // 👉 카드 두 개 가로로
+        >.bc-rc-artist-card:nth-of-type(1),
+        >.bc-rc-artist-card:nth-of-type(2) {
+            display: inline-block;
         }
     }
 
-    .bc-rc-artist-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
+    // 🔥 핵심: 카드들을 가로로 묶는 영역 따로 잡기
+    .br-rc-artist-left,
+    .br-rc-artist-right {
+        .bc-rc-artist-card-wrapper {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
     }
 
+    // 카드 스타일 (기존 유지 + 정리)
     .bc-rc-artist-card {
+        max-width: 260px;
+
         img {
             width: 100%;
-            aspect-ratio: 3/4;
+            height: 320px;
             object-fit: cover;
             border-radius: 6px;
             margin-bottom: 16px;
@@ -766,8 +904,6 @@
     .bc-club-stats {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        border-top: 1px solid #e5e5e5;
-        border-bottom: 1px solid #e5e5e5;
         max-width: 1320px;
         margin: 0 auto;
     }
@@ -775,7 +911,7 @@
     .bc-club-stat {
         padding: 36px 28px;
         border-right: 1px solid #e5e5e5;
-        text-align: left;
+        text-align: center;
 
         &:last-child {
             border-right: none;
@@ -1224,79 +1360,79 @@
 
 // FAQ
 .bc-club-faq {
-    background: #fafafa;
     padding: 80px 0;
+    background: #fff;
 
-    .bc-club-faq-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 40px;
-
-        h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-top: 14px;
-            letter-spacing: -.02em;
-        }
-
-        >p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.7;
-            text-align: right;
-        }
+    .faq-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 60px;
     }
 
-    .bc-club-faq-list {
-        border-top: 1px solid #e5e5e5;
+    .section-heading {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 48px;
     }
 
-    .bc-club-faq-item {
-        border-bottom: 1px solid #e5e5e5;
+    .faq-accordion {
+        border-top: 1px solid #ddd;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #ddd;
 
         &.open {
-            background: #fff;
+            .faq-question {
+                color: #111;
+            }
+
+            .faq-chevron {
+                transform: rotate(180deg);
+            }
         }
     }
 
-    .bc-club-faq-q {
+    .faq-question {
         width: 100%;
+        padding: 24px 0;
+        border: none;
+        background: transparent;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 22px 4px;
+        justify-content: space-between;
+        gap: 24px;
         cursor: pointer;
         text-align: left;
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: #2f2f2f;
-        gap: 16px;
-        background: none;
-        border: none;
 
-        .bc-club-faq-qmark {
-            display: inline-block;
-            font-family: "Archivo", sans-serif;
-            font-weight: 800;
-            font-size: 0.85rem;
-            color: #c8a24c;
-            margin-right: 12px;
-            letter-spacing: .05em;
+        span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #222;
+            line-height: 1.5;
         }
     }
 
-    .bc-club-faq-toggle {
-        font-size: 1.4rem;
-        color: #888;
+    .faq-chevron {
+        width: 22px;
+        height: 22px;
         flex-shrink: 0;
+        transition: transform 0.25s ease;
+        color: #111;
     }
 
-    .bc-club-faq-a {
-        padding: 0 4px 24px 44px;
-        font-size: 0.9rem;
-        color: #555;
-        line-height: 1.8;
+    .faq-answer {
+        padding: 0 0 28px;
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #666;
+            margin: 0;
+            word-break: keep-all;
+        }
     }
 }
 
