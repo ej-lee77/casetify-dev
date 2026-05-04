@@ -96,6 +96,8 @@ export const FONT_COLORS = [
   { id: 'black', label: '블랙', hex: '#111111' },
   { id: 'red', label: '빨강', hex: '#E02020' },
   { id: 'blue', label: '파랑', hex: '#1A5ADB' },
+    { id: 'green', label: '초록', hex: '#46a44d' },
+      { id: 'purple', label: '보라', hex: '#af6fba' },
 ]
 
 export const DEVICE_TYPES = [
