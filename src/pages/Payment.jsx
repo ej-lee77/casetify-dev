@@ -101,7 +101,7 @@ export default function Payment() {
     
     // 입력 즉시 검증
     const error = validate('payphone', value);
-    setPhoneErrors(prev => ({ ...prev, phone: error }));
+    setPhoneErrors(prev => ({ ...prev, payphone: error }));
   };
 
   const handleCardInputChange = (e) => {
@@ -354,7 +354,7 @@ export default function Payment() {
     } else if (selectedMethod === 'mobile') {
       // 휴대폰 결제 정보 검증
       phoneErrors.carrier = validatePhone('carrier', mobileInfo.carrier);
-      phoneErrors.payphone = validatePhone('phone', mobileInfo.phone);
+      phoneErrors.payphone = validatePhone('payphone', mobileInfo.payphone);
     }
 
     // 모든 에러 합치기
@@ -371,7 +371,7 @@ export default function Payment() {
     setTouched(allTouched);
 
     // 에러가 하나도 없는지 확인
-    let isFormValid = Object.values(newErrors).every(err => err === '');
+    let isFormValid = Object.values(finalErrors).every(err => err === '');
 
     if(!isFormValid){
         setJoinErr("입력 오류가 있습니다.");
