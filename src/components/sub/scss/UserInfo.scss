@@ -1,5 +1,5 @@
 // 회원카드 --------------------------
-div {
+.user-info-wrap {
 
     .title {
         font-size: 12px;
@@ -248,188 +248,27 @@ div {
             }
         }
     }
-}
 
-// 계정정보 --------------------------
-.acount-info {
-    // border: 2px solid rgb(82, 189, 61);
-    position: relative;
 
-    .input-p {
+    // 계정정보 --------------------------
+    .acount-info {
         // border: 2px solid rgb(82, 189, 61);
-        display: flex;
-        // padding: 20px;
-        gap: 40px;
-        font-size: 0.85em;
-        margin-top: 20px;
-    }
-
-    label {
         position: relative;
-        // width: 50%;
-        // width: 420px;
-        flex: 1;
-        display: block;
 
-        input {
-            width: 100%;
-            border: 1px solid #2F2F2F;
-            // border-radius: 15px;
-            height: 40px;
-            padding-left: 15px;
-            outline: none;
-        }
-
-        span {
-            position: absolute;
-            top: 50%;
-            left: 15px;
-            transform: translateY(-50%);
-            transition: all 0.3s ease;
-            pointer-events: none;
-            background-color: #fff;
-            padding: 0 4px;
-        }
-
-        .alone {
-            width: 520px;
-        }
-
-        input:focus~span,
-        input:not(:placeholder-shown)~span {
-            top: 0;
-            transform: translateY(-50%);
-            font-size: 0.75em;
-            color: #101010;
-        }
-
-        &:focus-within span,
-        &:has(.react-datepicker-wrapper input:not(:placeholder-shown)) span {
-            top: 0;
-            transform: translateY(-50%);
-            font-size: 0.75em;
-            color: #101010;
-        }
-
-        .react-datepicker-wrapper {
-            width: 100%;
-
-            input {
-                font-size: 1rem;
-                background: #fff;
-                cursor: pointer;
-                box-sizing: border-box;
-            }
-        }
-
-        .error-msg {
-            position: absolute;
-            color: #e03131;
-            font-size: 12px;
-            margin-top: 4px;
-            margin-left: 2px;
-        }
-
-        &:has(.error-msg) input {
-            border-color: #e03131 !important;
-        }
-
-        // 👇 DatePicker 전용 추가
-        &:has(.error-msg) .react-datepicker-wrapper input {
-            border-color: #e03131 !important;
-        }
-    }
-
-}
-
-
-.password-wrap {
-    border-top: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-    margin-bottom: 80px;
-
-    .pass-notice {
-        font-size: 0.75em;
-        color: #6a6a6a;
-        padding-left: 20px;
-        margin-bottom: 20px;
-    }
-
-    .pass-change-btn {
-        // padding-left: 20px;
-
-        button {
-            border: 1px solid #000;
-            background-color: #000;
-            color: #fff;
-            white-space: nowrap;
-            padding: 10px 38px;
-            font-size: 1rem;
-            margin-top: 20px;
-
-            &:hover {
-                background: #fff;
-                color: #000;
-                border: 1px solid #000;
-            }
-        }
-    }
-}
-
-// 배송주소 --------------------------
-.title-wrap {
-    margin-top: 20px;
-}
-
-.address-info {
-    // border: 2px solid red;
-
-    .postcode {
-        margin-top: 10px;
-
-        label {
+        .input-p {
+            // border: 2px solid rgb(82, 189, 61);
             display: flex;
-            // gap: 20px;
-            align-items: center;
-
-            input {
-                width: 420px;
-            }
+            // padding: 20px;
+            gap: 40px;
+            font-size: 0.85em;
+            margin-top: 20px;
         }
-
-        .address-btn{
-            padding: 0;
-            div{
-                padding: 0 20px;
-                flex-direction: column;
-            }
-
-            button {
-                background-color: #000;
-                color: #fff;
-                padding: 10px 12px;
-                font-size: 0.88rem;
-                border: 1px solid #FFF;
-
-                &:hover {
-                    background: #fff;
-                    color: #000;
-                    border: 1px solid #000;
-                }
-            }
-        }
-    }
-
-    div {
-        display: flex;
-        font-size: 0.85em;
-        padding: 10px 0;
 
         label {
             position: relative;
-            width: 100%;
+            // width: 50%;
+            // width: 420px;
+            flex: 1;
             display: block;
 
             input {
@@ -441,112 +280,274 @@ div {
                 outline: none;
             }
 
-            input:read-only {
-                background: #eee;
-                border: 1px solid #d7d7d7;
-                cursor: not-allowed;
-
-                +span {
-                    background: #eee;
-                }
-            }
-
-
-
-            span {
+            >span {
                 position: absolute;
                 top: 50%;
                 left: 15px;
                 transform: translateY(-50%);
                 transition: all 0.3s ease;
                 pointer-events: none;
-                background: #fff;
+                background-color: #fff;
                 padding: 0 4px;
-
-                opacity: 0;
-                visibility: hidden;
-
-                &.always {
-                    opacity: 1;
-                    visibility: visible;
-                }
             }
 
-            input:not(:read-only):focus~span,
+            .alone {
+                width: 520px;
+            }
+
+            input:focus~span,
             input:not(:placeholder-shown)~span {
                 top: 0;
                 transform: translateY(-50%);
                 font-size: 0.75em;
                 color: #101010;
+            }
 
-                opacity: 1;
-                visibility: visible;
+            &:focus-within span.date-label-span,
+            &:has(.react-datepicker-wrapper input:not(:placeholder-shown)) span.date-label-span {
+                top: 0;
+                transform: translateY(-50%);
+                font-size: 0.75em;
+                color: #101010;
+            }
+
+            .react-datepicker-wrapper {
+                width: 100%;
+
+                input {
+                    font-size: 1rem;
+                    background: #fff;
+                    cursor: pointer;
+                    box-sizing: border-box;
+                }
+            }
+
+            .error-msg {
+                position: absolute;
+                color: #e03131;
+                font-size: 12px;
+                margin-top: 4px;
+                margin-left: 2px;
+            }
+
+            &:has(.error-msg) input {
+                border-color: #e03131 !important;
+            }
+
+            // 👇 DatePicker 전용 추가
+            &:has(.error-msg) .react-datepicker-wrapper input {
+                border-color: #e03131 !important;
+            }
+        }
+
+    }
+
+
+    .password-wrap {
+        border-top: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        margin-bottom: 80px;
+
+        .pass-notice {
+            font-size: 0.75em;
+            color: #6a6a6a;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pass-change-btn {
+            // padding-left: 20px;
+
+            button {
+                border: 1px solid #000;
+                background-color: #000;
+                color: #fff;
+                white-space: nowrap;
+                padding: 10px 38px;
+                font-size: 1rem;
+                margin-top: 20px;
+
+                &:hover {
+                    background: #fff;
+                    color: #000;
+                    border: 1px solid #000;
+                }
             }
         }
     }
 
-    .btn-wrap {
-        display: flex;
-        justify-content: center;
-        padding: 50px 0 70px;
+    // 배송주소 --------------------------
+    .title-wrap {
+        margin-top: 20px;
+    }
+
+    .address-info {
+        // border: 2px solid red;
+
+        .postcode {
+            margin-top: 10px;
+
+            label {
+                display: flex;
+                // gap: 20px;
+                align-items: center;
+
+                input {
+                    width: 420px;
+                }
+            }
+
+            .address-btn{
+                padding: 0;
+                div{
+                    padding: 0 20px;
+                    flex-direction: column;
+                }
+
+                button {
+                    background-color: #000;
+                    color: #fff;
+                    padding: 10px 12px;
+                    font-size: 0.88rem;
+                    border: 1px solid #FFF;
+
+                    &:hover {
+                        background: #fff;
+                        color: #000;
+                        border: 1px solid #000;
+                    }
+                }
+            }
+        }
+
+        div {
+            display: flex;
+            font-size: 0.85em;
+            padding: 10px 0;
+
+            label {
+                position: relative;
+                width: 100%;
+                display: block;
+
+                input {
+                    width: 100%;
+                    border: 1px solid #2F2F2F;
+                    // border-radius: 15px;
+                    height: 40px;
+                    padding-left: 15px;
+                    outline: none;
+                }
+
+                input:read-only {
+                    background: #eee;
+                    border: 1px solid #d7d7d7;
+                    cursor: not-allowed;
+
+                    +span {
+                        background: #eee;
+                    }
+                }
+
+
+
+                span {
+                    position: absolute;
+                    top: 50%;
+                    left: 15px;
+                    transform: translateY(-50%);
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                    background: #fff;
+                    padding: 0 4px;
+
+                    opacity: 0;
+                    visibility: hidden;
+
+                    &.always {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+
+                input:not(:read-only):focus~span,
+                input:not(:placeholder-shown)~span {
+                    top: 0;
+                    transform: translateY(-50%);
+                    font-size: 0.75em;
+                    color: #101010;
+
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        .btn-wrap {
+            display: flex;
+            justify-content: center;
+            padding: 50px 0 70px;
+
+            button {
+                border: 1px solid #000;
+                background-color: #000;
+                color: #fff;
+                white-space: nowrap;
+                padding: 10px 38px;
+                font-size: 1rem;
+
+                &:hover {
+                    background: #fff;
+                    color: #000;
+                    border: 1px solid #000;
+                }
+            }
+        }
+    }
+
+    // 계정삭제 --------------------------
+    .delete-wrap {
+        background: #eee;
+        padding: 40px;
+        margin-bottom: 50px;
+
+        p {
+            // padding: 10px 0;
+            margin-top: 25px;
+        }
 
         button {
-            border: 1px solid #000;
-            background-color: #000;
-            color: #fff;
-            white-space: nowrap;
-            padding: 10px 38px;
+            border: 2px solid #FF3535;
+            background: #fff;
             font-size: 1rem;
+            font-weight: bold;
+            color: #FF3535;
+            padding: 10px 50px;
+            display: block;
+            margin: 40px auto 0px;
 
             &:hover {
-                background: #fff;
-                color: #000;
-                border: 1px solid #000;
+                background: #FF3535;
+                color: #fff;
             }
         }
     }
-}
 
-// 계정삭제 --------------------------
-.delete-wrap {
-    background: #eee;
-    padding: 40px;
-    margin-bottom: 50px;
-
-    p {
-        // padding: 10px 0;
-        margin-top: 25px;
-    }
-
-    button {
-        border: 2px solid #FF3535;
-        background: #fff;
+    .input-btn {
+        width: 100%;
+        height: 60px;
+        // margin: 50px 0;
+        border: 1px solid #000;
+        background: #000;
+        color: #fff;
         font-size: 1rem;
-        font-weight: bold;
-        color: #FF3535;
-        padding: 10px 50px;
-        display: block;
-        margin: 40px auto 0px;
-
-        &:hover {
-            background: #FF3535;
-            color: #fff;
-        }
+        cursor: pointer;
     }
-}
 
-.input-btn {
-    width: 100%;
-    height: 60px;
-    // margin: 50px 0;
-    border: 1px solid #000;
-    background: #000;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.input-btn:hover {
-    color: #000;
-    background: #fff;
+    .input-btn:hover {
+        color: #000;
+        background: #fff;
+    }
 }
