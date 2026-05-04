@@ -64,21 +64,25 @@ export default function MainSlider() {
                 {slides.map((slide, i) => (
                     <SwiperSlide key={i}>
                         <img src={slide.src} alt={slide.alt} />
+
                         <div className="slide-title">
                             <div className="title-img">
-                                <img src={slide.titleImg} alt="title" className='title-img' />
+                                <img src={slide.titleImg} alt="title" />
                             </div>
+
                             <div className="title-text">
                                 {slide.text && <p className="main-text" style={{ color: slide.color }}>{slide.text}</p>}
                                 {slide.sub && <p className='sub-text' style={{ color: slide.color }}>{slide.sub}</p>}
                             </div>
                         </div>
-                        <div className="slide-counter">
-                            {String(i + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
+
+            {/* 🔥 여기로 이동 */}
+            <div className="slide-counter">
+                {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+            </div>
         </div>
     )
 }

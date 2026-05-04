@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useAuthStore } from '../../store/useAuthStore';
 import './scss/Giftcard.scss';
 import GiftCardModal from './GiftCardModal';
+import EmptyState from './EmptyState';
 
 export default function Giftcard() {
     const { user } = useAuthStore();
@@ -109,7 +110,7 @@ export default function Giftcard() {
                             </div>
                         ))}</>
                     ) : (
-                        <div>사용가능한 쿠폰이 없습니다.</div>
+                        <EmptyState icon="%" strong="사용 가능한 쿠폰" title="이 없습니다." desc="진행 중인 이벤트와 혜택을 확인해 보세요." btnText="홈으로 돌아가기" btnLink="/" />
                     )}
                 </div>
             </div>
