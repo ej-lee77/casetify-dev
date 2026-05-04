@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import './scss/CustomPage.scss'
 
 const DEVICE_VIDEOS = {
@@ -15,6 +15,7 @@ const DEVICE_IMAGES = {
 
 export default function CustomPage() {
     const navigate = useNavigate()
+    const [searchParams] = useSearchParams()
     const [activeVideo, setActiveVideo] = useState('phone')
     const [videoReady, setVideoReady] = useState(false)
     const videoRef = useRef(null)
@@ -24,6 +25,15 @@ export default function CustomPage() {
         { key: 'laptop', label: '노트북', img: '/images/category/mini/laptop.png', desc: 'MacBook' },
         { key: 'tablet', label: '태블릿', img: '/images/category/mini/tablet.png', desc: 'iPad' },
     ]
+
+    // ?device=phone|laptop|tablet 로 진입하면 바로 studio로 이동
+    useEffect(() => {
+        const deviceParam = searchParams.get('device')
+        const validKeys = devices.map(d => d.key)
+        if (deviceParam && validKeys.includes(deviceParam)) {
+            navigate('/custom/studio', { state: { deviceType: deviceParam }, replace: true })
+        }
+    }, [searchParams])
 
     // src 변경 시 수동으로 load → play (loop 속성은 유지되므로 끊김 없이 반복)
     useEffect(() => {

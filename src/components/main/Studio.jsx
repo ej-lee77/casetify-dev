@@ -7,11 +7,11 @@ import FadeInSection from '../FadeInSection'
 export default function Studio() {
     return (
         <section className="studio-info">
-            <FadeInSection direction="up" delay={0.4}>
+            {/* <FadeInSection direction="up" delay={0.4}> */}
                 <SectionTitle title={"CASETiFY STUDiO"} subtitle={"전국 오프라인 매장에서 만나보세요!"} />
-            </FadeInSection>
+            {/* </FadeInSection> */}
             {/* <div className="bg"> */}
-            <FadeInSection direction="up" delay={0.6}>
+            <FadeInSection direction="up" delay={0.4}>
                 <div className="inner">
                     <div className="img-box">
                         <img src="./images/main/studio/studio_pangyo.jpg" alt="판교지점" />
@@ -23,8 +23,7 @@ export default function Studio() {
                             <span>기다림 없이 바로 만나는 즐거움, 커스텀 케이스 당일 수령</span>
                             <span>나만의 개성을 더해줄 포인트, 다양한 테크 악세서리 체험</span>
                         </div>
-                        <button className="studio-search">매장찾기</button>
-                        {/* <Link className="studio-search">매장찾기</Link> */}
+                        <Link to="/brand/store" className="studio-search">매장찾기</Link>
                     </div>
                 </div>
             </FadeInSection>

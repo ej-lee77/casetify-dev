@@ -36,9 +36,9 @@ export default function NewArrival() {
 
     return (
         <section className="new-arrival">
-            <FadeInSection direction="up" delay={0.2}>
+            {/* <FadeInSection direction="up" delay={0.2}> */}
                 <SectionTitle title={"New Arrival"} subtitle={"케이스티파이의 새로운 제품"} />
-            </FadeInSection>
+            {/* </FadeInSection> */}
             <div className="inner">
                 <div className="new-arr-inner-wrap">
                     {/* <ul className="new-arr-list"> */}
