@@ -539,7 +539,7 @@ export default function CategoryPagePractice() {
                                             {deviceModelOptions.map((model) => (
                                                 <li
                                                     key={model.key}
-                                                    className={selectedFilters.model === model.key ? "on" : ""}
+                                                    className={selectedFilters.mㅁodel === model.key ? "on" : ""}
                                                     onClick={() =>
                                                         setSelectedFilters((p) => ({
                                                             ...p,
