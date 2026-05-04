@@ -79,24 +79,32 @@ export function ProductCustomizePage() {
             : designType === 'text' ? '텍스트 커스텀' : null,
     ].filter(Boolean).join(' / ')
 
-    const handleAddCart = async () => {
-        if (!user) { navigate('/login'); return }
-        const customContent = designType === 'text'
-            ? textValue
-            : photoTab === 'sticker' ? selectedSticker?.src : photoURL
-        const result = await onAddToCart({
-            id: `CUSTOM-${Date.now()}`,
-            productName: '커스텀 케이스', price,
-            device: selectedModelLabel || '', deviceKey: selectedModel || '',
-            color: selectedCaseColor || '', imgUrl: '/images/main/custom/CU/custom1.png',
-            colorList: [], deviceList: [], isPhone: initialDeviceType === 'phone',
-            deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
-            quantity: 1, isCustom: true, customMode: designType, customContent,
-        })
-        if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
-        else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
-        setIsCartPopupOpen(true)
-    }
+const handleAddCart = async () => {
+    if (!user) { navigate('/login'); return }
+
+    // ✅ deviceType별 카트 이미지 분기
+const cartImgUrl = 
+    initialDeviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
+    initialDeviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
+    '/images/custom/cart/phone-cart-go.png'  // ✅ 기본값으로 그냥 두면 됨
+
+    const customContent = designType === 'text'
+        ? textValue
+        : photoTab === 'sticker' ? selectedSticker?.src : photoURL
+
+    const result = await onAddToCart({
+        id: `CUSTOM-${Date.now()}`,
+        productName: '커스텀 케이스', price,
+        device: selectedModelLabel || '', deviceKey: selectedModel || '',
+        color: selectedCaseColor || '', imgUrl: cartImgUrl, // ✅ 여기만 변경
+        colorList: [], deviceList: [], isPhone: initialDeviceType === 'phone',
+        deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
+        quantity: 1, isCustom: true, customMode: designType, customContent,
+    })
+    if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
+    else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
+    setIsCartPopupOpen(true)
+}
 
     const previewProps = {
         selectedModel,
