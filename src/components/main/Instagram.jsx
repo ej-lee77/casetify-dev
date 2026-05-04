@@ -9,13 +9,13 @@ export default function Instagram() {
     return (
         <section className='instagram'>
             <div className="inner">
-                <FadeInSection direction="up" delay={0.2}>
+                {/* <FadeInSection direction="up" delay={0.2}> */}
                     <SectionTitle
                         title="INSTAGRAM"
                         subtitle="@casetify"
                         subLink="https://www.instagram.com/casetify_kr/"
                     />
-                </FadeInSection>
+                {/* </FadeInSection> */}
                 {/* <ul> */}
                 <StaggerContainer>
                     <StaggerItemInsta>

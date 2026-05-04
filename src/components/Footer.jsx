@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./scss/Footer.scss"
 import { Link } from 'react-router-dom'
+import RecentAside from './RecentAside';
 
 export default function Footer({ className }) {
   const [topBtn, setTopBtn] = useState(false);
@@ -108,6 +109,13 @@ export default function Footer({ className }) {
       <div className={topBtn ? "top-btn active" : "top-btn"} onClick={handleToTop}>
         <img src="/images/icon/icon-top-btn.svg" alt="top" />
         <p>TOP</p>
+      </div>
+      <RecentAside />
+      <div className="aside-custom-btn">
+        <Link to={"/custom"}>
+        <img src="/images/asideCustom.png" alt="custom" />
+        </Link>
+        <p>CUSTOM</p>
       </div>
     </>
   )

@@ -16,9 +16,9 @@ const infoCardData = [
 export default function Quality() {
     return (
         <section className="quality-info">
-            <FadeInSection direction="up" delay={0.2}> 
+            {/* <FadeInSection direction="up" delay={0.2}>  */}
                 <SectionTitle title={"Protection Quality"} subtitle={"케이스티파이만의 완벽한 기준"} />
-            </FadeInSection>
+            {/* </FadeInSection> */}
             {/* Quality 특징 */}
             <FadeInSection direction="up" delay={0.4}>
                 <ul className="quality-card-wrap">
