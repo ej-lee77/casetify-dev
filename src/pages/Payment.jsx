@@ -33,6 +33,8 @@ const payMethodCategories = [
   },
 ];
 
+const carriers = ['SKT', 'KT', 'LG U+', '알뜰폰'];
+
 export default function Payment() {
   const navigate = useNavigate();
   const {user, cart, checkedCart, onAddOrder, onFetchCart} = useAuthStore();
@@ -45,6 +47,11 @@ export default function Payment() {
   const [customMemo, setCustomMemo] = useState('');
   const [activeCategory, setActiveCategory] = useState('easy'); 
   const [selectedMethod, setSelectedMethod] = useState(''); 
+  const [isPayModalOpen, setIsPayModalOpen] = useState(false);
+  const [isPhoneSelectOpen, setIsPhoneSelectOpen] = useState(false);
+
+  const [cardInfo, setCardInfo] = useState({ number: '', expiry: '', cvc: '' });
+  const [mobileInfo, setMobileInfo] = useState({ carrier: '', payphone: '' });
 
   const toggleCategory = (categoryId) => {
     setActiveCategory(activeCategory === categoryId ? null : categoryId);
@@ -72,6 +79,41 @@ export default function Payment() {
       address: "",
       detailaddress: ""
   });
+
+  const [phoneErrors, setPhoneErrors] = useState({
+      carrier: '', payphone: ''});
+
+  const [cardErrors, setCardErrors] = useState({
+      number: '', expiry: '', cvc: '' });
+
+  const handleCarrierSelect = (carrier) => {
+    setMobileInfo({ ...mobileInfo, carrier });
+    setIsPhoneSelectOpen(false); // 선택 후 닫기
+
+    const error = validatePhone('carrier', carrier);
+    setPhoneErrors(prev => ({ ...prev, carrier: error }));
+  };
+
+  // 전화번호 입력 핸들러
+  const handlePhoneChange = (e) => {
+    const { value } = e.target;
+    setMobileInfo({ ...mobileInfo, payphone: value });
+    
+    // 입력 즉시 검증
+    const error = validate('payphone', value);
+    setPhoneErrors(prev => ({ ...prev, phone: error }));
+  };
+
+  const handleCardInputChange = (e) => {
+    const { name, value } = e.target;
+    
+    // 상태 업데이트
+    setCardInfo(prev => ({ ...prev, [name]: value }));
+
+    // 실시간 검증 실행
+    const error = validateCard(name, value);
+    setCardErrors(prev => ({ ...prev, [name]: error }));
+  };
 
   // 각각 입력한 input요소를 name속성으로 찾아서 값 변경시키기
   const handleChange = (e)=>{
@@ -117,6 +159,48 @@ export default function Payment() {
           if(!numberRegex.test(value) || value.includes('-') || !value || value.trim() === '') error = '-없이 숫자만 입력해주세요.';
       }
       return error;
+  };
+
+  const validatePhone = (name, value) => {
+    let error = '';
+    if (name === 'carrier') {
+      if (!value || value.trim() === '') error = '통신사를 선택해주세요.';
+    }
+    if (name === 'payphone') {
+      const numberRegex = /^[0-9]+$/;
+      if (!value || value.trim() === '' || !numberRegex.test(value) || value.includes('-')) {
+        error = '-없이 숫자만 입력해주세요.';
+      }
+    }
+    return error;
+  };
+
+  const validateCard = (name, value) => {
+    let error = '';
+
+    switch (name) {
+      case 'cardNumber':
+        // 16자리 숫자 검증
+        if (!/^[0-9]{16}$/.test(value)) {
+          error = '카드 번호 16자리를 -없이 숫자만 입력해주세요.';
+        }
+        break;
+      case 'cardExpiry':
+        // MM/YY 형식 검증 (01~12월 / 00~99년)
+        if (!/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(value)) {
+          error = '유효기간을 MM/YY 형식으로 입력해주세요.';
+        }
+        break;
+      case 'cardCvc':
+        // 3자리 숫자 검증
+        if (!/^[0-9]{3}$/.test(value)) {
+          error = 'CVC 번호 3자리를 입력해주세요.';
+        }
+        break;
+      default:
+        if (!value || value.trim() === '') error = '필수 입력 항목입니다.';
+    }
+    return error;
   };
   
   // 장바구니 정보 가져오기
@@ -250,9 +334,34 @@ export default function Payment() {
     // 제출 시 최종 검증 (모든 필드에 대해)
     const newErrors = {};
     Object.keys(formData).forEach(key => {
-    newErrors[key] = validate(key, formData[key]);
+      newErrors[key] = validate(key, formData[key]);
     });
     setJoinAllErr(newErrors);
+
+    if(!selectedMethod){
+      setJoinErr("결제 수단을 선택해주세요");
+      return;
+    }
+
+    let cardErrors = {};
+    let phoneErrors = {};
+  
+    if (selectedMethod === 'card') {
+      // 카드 정보 검증
+      cardErrors.cardNumber = validateCard('cardNumber', cardInfo.cardNumber);
+      cardErrors.cardExpiry = validateCard('cardExpiry', cardInfo.cardExpiry);
+      cardErrors.cardCvc = validateCard('cardCvc', cardInfo.cardCvc);
+    } else if (selectedMethod === 'mobile') {
+      // 휴대폰 결제 정보 검증
+      phoneErrors.carrier = validatePhone('carrier', mobileInfo.carrier);
+      phoneErrors.payphone = validatePhone('phone', mobileInfo.phone);
+    }
+
+    // 모든 에러 합치기
+    const finalErrors = { ...newErrors, ...cardErrors, ...phoneErrors };
+    setJoinAllErr(finalErrors); // 에러 상태 업데이트 (UI 출력용)
+    setPhoneErrors(phoneErrors);
+    setCardErrors(cardErrors);
 
     const allTouched = {
         username: true,
@@ -264,16 +373,25 @@ export default function Payment() {
     // 에러가 하나도 없는지 확인
     let isFormValid = Object.values(newErrors).every(err => err === '');
 
-    if(!selectedMethod){
-        setJoinErr("결제 수단을 선택해주세요");
-        return;
-    }
-
     if(!isFormValid){
         setJoinErr("입력 오류가 있습니다.");
         return;
     }
 
+    const easyPayIds = payMethodCategories
+        .find(cat => cat.id === 'easy')
+        .methods.map(m => m.id);
+
+    // 3. 현재 선택된 수단이 간편결제 목록에 있는지 확인
+    if (easyPayIds.includes(selectedMethod)) {
+      // 간편결제 모달 오픈
+      setIsPayModalOpen(true); 
+    }else{
+      paymentComplete();
+    }
+  };
+
+  const paymentComplete = async()=>{
     const orderId = Date.now();
 
     const orderItemsWithStatus = checkedCart.map(item => ({
@@ -311,6 +429,13 @@ export default function Payment() {
     }else{
       alert("결제실패")
     }
+  }
+  const modalOverlayStyle = {
+    position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
+    backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000
+  };
+  const modalContentStyle = {
+    background: '#fff', padding: '30px', borderRadius: '10px', textAlign: 'center'
   };
 
   return (
@@ -567,7 +692,90 @@ export default function Payment() {
                   )}
                 </div>
               ))}
-            </div>
+              {/* 1. 신용카드 선택 시 */}
+              {selectedMethod === 'card' && (
+                <div className="detail-box card-input">
+                  <h4>카드 정보 입력</h4>
+                  <div className="input-box">
+                    <input 
+                      type="text" 
+                      name="cardNumber"
+                      placeholder="카드 번호 16자리 (- 제외)" 
+                      maxLength="16"
+                      onChange={handleCardInputChange}
+                    />
+                    {cardErrors.cardNumber && <p className="error-text">{cardErrors.cardNumber}</p>}
+                  </div>
+                  
+                  <div className="input-group">
+                    <div className="input-box">
+                      <input 
+                        type="text" 
+                        name="cardExpiry"
+                        placeholder="유효기간 (MM/YY)" 
+                        maxLength="5"
+                        onChange={handleCardInputChange}
+                      />
+                      {cardErrors.cardExpiry && <p className="error-text">{cardErrors.cardExpiry}</p>}
+                    </div>
+                    <div className="input-box">
+                      <input 
+                        type="password" 
+                        name="cardCvc"
+                        placeholder="CVC" 
+                        maxLength="3"
+                        onChange={handleCardInputChange}
+                      />
+                      {cardErrors.cardCvc && <p className="error-text">{cardErrors.cardCvc}</p>}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* 2. 휴대폰 결제 선택 시 */}
+              {selectedMethod === 'mobile' && (
+                <div className="detail-box mobile-input">
+                  <h4>휴대폰 결제 정보</h4>
+                  <div className={`custom-select-container ${isPhoneSelectOpen ? 'active' : ''}`}>
+                    <div 
+                      className="select-selected" 
+                      onClick={() => setIsPhoneSelectOpen(!isPhoneSelectOpen)}
+                    >
+                      {mobileInfo.carrier || "통신사 선택"}
+                      <span className="arrow-icon"></span>
+                    </div>
+                    
+                    {isPhoneSelectOpen && (
+                      <ul className="select-options">
+                        {carriers.map((carrier) => (
+                          <li key={carrier} onClick={() => handleCarrierSelect(carrier)}>
+                            {carrier}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {phoneErrors.carrier && <p className="error-text">{phoneErrors.carrier}</p>}
+                  </div>
+                  <div className="input-box">
+                    <input 
+                      type="tel" 
+                      className="phone-input"
+                      placeholder="휴대폰 번호 (- 제외)" 
+                      value={mobileInfo.payphone}
+                      onChange={handlePhoneChange}
+                    />                  
+                    {phoneErrors.payphone && <p className="error-text">{phoneErrors.payphone}</p>}
+                  </div>
+                </div>
+              )}
+
+              {/* 3. 무통장 입금 등 기타 안내가 필요한 경우 */}
+              {selectedMethod === 'vbank' || selectedMethod === 'transfer' ? (
+                <div className="detail-box notice-input">
+                  <p>결제 완료 후 입금 계좌를 안내해 드립니다.</p>
+                </div>
+              ) : ("")}
+              </div>
           </div>
           {/* 우측 - 주문 컨트롤 */}
           <div className="payment-ctrl-area">
@@ -601,6 +809,32 @@ export default function Payment() {
           </div>
         </div>
       </div>
+      {isPayModalOpen && (
+        <div className="payment-modal-overlay">
+          <div className="modal-content">
+            <div className={selectedMethod === 'kakaopay' ? 'modal-header kakao' : 'modal-header naver'}>
+              <img src={selectedMethod === 'kakaopay' ? '/images/icon/payment_kakao-pay.svg' : '/images/icon/payment_naver-pay.svg'} alt="결제방법" />
+              <button className="close-btn" onClick={() => setIsPayModalOpen(false)}>×</button>
+            </div>
+            <div className="modal-body">
+              <div className="method-name">
+                <p className="price-sum">총 금액<span>{Number(selectedTotal).toLocaleString()}원</span></p>
+                <p className="price-discount">할인 금액{discount === 0 ? "" : "(번들할인)"}<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
+                <p className="price-discount">쿠폰 할인<span>{couponDiscount === 0 ? 0 : Number(-couponDiscount).toLocaleString()}원</span></p>
+                <p className="price-discount">기프트 카드<span>{useAmount === 0 ? 0 : Number(-giftDiscount).toLocaleString()}원</span></p>
+                <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${Number(shipping).toLocaleString()}원`}</span></p>
+              </div>
+              <p className="total-amount">
+                결제 금액: <span>{Number(finalPayment + shipping).toLocaleString()}원</span>
+              </p>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-confirm" onClick={() => paymentComplete()}>결제하기</button>
+              <button className="btn-cancel" onClick={() => setIsPayModalOpen(false)}>취소</button>
+            </div>
+          </div>
+        </div>
+      )}
       <GiftCardModal 
         isOpen={isGiftModalOpen} 
         onClose={() => setIsGiftModalOpen(false)}

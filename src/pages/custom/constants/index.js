@@ -18,8 +18,7 @@ export const BRANDS = [
     models: [
       { id: 's25ultra', label: 'Galaxy S25 Ultra' },
       { id: 's25plus', label: 'Galaxy S25+' },
-      { id: 's25', label: 'Galaxy S25' },
-      { id: 's24ultra', label: 'Galaxy S24 Ultra' },
+
       { id: 's24', label: 'Galaxy S24' },
       { id: 'z6fold', label: 'Galaxy Z Fold 6' },
       { id: 'z6flip', label: 'Galaxy Z Flip 6' },
@@ -42,9 +41,9 @@ export const TABLET_BRANDS = [
       { id: 'ipad', label: 'iPad' },
       { id: 'ipadmini', label: 'iPad mini' },
       { id: 'ipadair4', label: 'iPad Air 4세대' },
-      { id: 'ipadair11', label: 'iPad Air 11인치' },
-      { id: 'ipadair13', label: 'iPad Air 13인치' },
-      { id: 'ipadpro11', label: 'iPad Pro 11인치' },
+
+
+
       { id: 'ipadpro11s3', label: 'iPad Pro 11인치 3세대' },
       { id: 'ipadpro12.9', label: 'iPad Pro 12.9인치' },
       { id: 'ipadpro13', label: 'iPad Pro 13인치' },
