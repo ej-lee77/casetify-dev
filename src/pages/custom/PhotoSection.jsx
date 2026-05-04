@@ -2,10 +2,10 @@ import React, { useRef } from 'react'
 import { PHOTO_FILTERS } from './constants'
 
 const STICKERS = [
-    { id: 'sticker1', src: '/images/custom/alonedog.png', label: '강아지1' },
-    { id: 'sticker2', src: '/images/custom/cat.jpg', label: '강아지2' },
-    { id: 'sticker3', src: '/images/custom/dogs.jpg', label: '강아지3' },
-    { id: 'sticker4', src: '/images/custom/dossiba.jpg', label: '고양이' },
+    { id: 'sticker1', src: '/images/custom/alonedog.png', label: '큰강아지' },
+    { id: 'sticker2', src: '/images/custom/cat.png', label: '고양이' },
+    { id: 'sticker3', src: '/images/custom/dogs.png', label: '강아지들' },
+    { id: 'sticker4', src: '/images/custom/dossiba.png', label: '일본강아지' },
 ]
 
 function getFilterStyle(filterId, strength) {
