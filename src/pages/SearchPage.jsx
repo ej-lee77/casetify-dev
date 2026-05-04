@@ -9,6 +9,7 @@ import CategoryPhoneProductCard from "../components/sub/CategoryPhoneProductCard
 import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
 import CategoryFilterPanel from "../components/sub/CategoryFilterPanel";
 import CategoryFilterButton from "../components/sub/CategoryFilterButton";
+import EmptyState from "../components/sub/EmptyState"
 
 // ─────────────────────────────────────────────
 // 상수
@@ -236,7 +237,7 @@ export default function SearchPage() {
                 <div className="category-top-row">
                     <div className="category-top-left">
                         <CategoryFilterButton onClick={() => setIsFilterOpen(true)} />
-                        <p className="result-count">총 <strong>{sortedGroups.length}</strong>개</p>
+                        {/* <p className="result-count">총 <strong>{sortedGroups.length}</strong>개</p> */}
                     </div>
                     <div className="sort-select-wrap">
                         <div className={`sort-dropdown${isSortOpen ? " open" : ""}`}>
@@ -298,13 +299,14 @@ export default function SearchPage() {
                         ))}
                     </ul>
                 ) : (
-                    <div className="search-page-empty">
-                        <p className="search-page-empty-title">
-                            <strong>{isImageSearch ? "이미지 분석 결과" : `"${keyword}"`}</strong>에 대한 검색 결과가 없습니다.
-                        </p>
-                        <p className="search-page-empty-sub">다른 검색어로 다시 시도해 보세요.</p>
-                        <Link to="/" className="search-page-empty-btn">홈으로 돌아가기</Link>
-                    </div>
+                    <EmptyState
+                        icon="?"
+                        strong={isImageSearch ? "이미지 분석 결과" : `"${keyword}"`}
+                        title="에 대한 검색 결과가 없습니다."
+                        desc="다른 검색어로 다시 시도해 보세요."
+                        btnText="홈으로 돌아가기"
+                        btnLink="/"
+                    />
                 )}
 
                 {/* 페이지네이션 */}
