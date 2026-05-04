@@ -7,7 +7,19 @@ import { Autoplay } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 import SlideInSection from '../SlideInSection';
 import FadeInSection from '../FadeInSection';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+// id별 커스텀 스튜디오 진입 device 매핑
+const CU_DEVICE_MAP = {
+    1: 'phone',
+    2: 'phone',
+    3: 'phone',
+    4: 'tablet',
+    5: 'laptop',
+    6: 'phone',
+    7: 'phone',
+    8: 'phone',
+};
 
 const CUmain = [
     {
@@ -34,12 +46,19 @@ const [slide1, slide2] = CUmain;
 
 export default function Custom() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const navigate = useNavigate();
+
+    const goToCustomStudio = (id) => {
+        const device = CU_DEVICE_MAP[id] || 'phone';
+        navigate('/custom/studio', { state: { deviceType: device } });
+    };
 
     return (
         <section className='custom-wrap bp-wrap'>
             <div className="inner">
                 <div className="all">
                     <div className="left">
+                        <SlideInSection direction="left" delay={0.4} className='w-100'>
                         <div className="cu-swiper-wrap">
                             <Swiper
                                 modules={[Autoplay]}
@@ -54,28 +73,29 @@ export default function Custom() {
                                 {String(activeIndex + 1).padStart(2, '0')} / {String(CUmain.length).padStart(2, '0')}
                             </div>
                         </div>
+                        </SlideInSection>
                     </div>
                     <div className="right">
-                        <FadeInSection direction="up" delay={0.2}>
+                        {/* <FadeInSection direction="up" delay={0.2}> */}
                             <SectionTitle title="Customize Your Case" subtitle="케이스티파이에서 나만의 케이스를 제작해보세요" />
-                        </FadeInSection>
+                        {/* </FadeInSection> */}
                         <SlideInSection direction="right" delay={0.4} className='w-100'>
                             <ul>
                                 {CUmain[activeIndex]?.Cuproduct.map((item) => (
-                                    <li key={item.id}>
-                                        <Link to="/custom">
-                                            <div>
-                                                <img src={item.CUimage} alt="" />
-                                            </div>
-                                            <div>
-                                                <p className='name'>{item.title}</p>
-                                                <p className='price'>{item.price.toLocaleString()}원</p>
-                                            </div>
-                                        </Link>
+                                    <li key={item.id} onClick={() => goToCustomStudio(item.id)} style={{ cursor: 'pointer' }}>
+                                        <div>
+                                            <img src={item.CUimage} alt="" />
+                                        </div>
+                                        <div>
+                                            <p className='name'>{item.title}</p>
+                                            <p className='price'>{item.price.toLocaleString()}원</p>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>
-                            <button><Link to="/custom">커스텀하기</Link></button>
+                            <button onClick={() => navigate('/custom')}>
+                                커스텀하기
+                            </button>
                         </SlideInSection>
                     </div>
                 </div>

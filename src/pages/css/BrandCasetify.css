@@ -1,0 +1,1197 @@
+@charset "UTF-8";
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: "GMarketSans", "Pretendard", sans-serif;
+  color: #2F2F2F;
+  font-size: 16px;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sub-page-wrap {
+  margin: 80px 0;
+}
+
+section {
+  margin-top: 150px;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.bc-page {
+  font-family: "Pretendard", sans-serif;
+  color: #2f2f2f;
+}
+
+.bc-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.bc-tab-nav {
+  position: sticky;
+  top: 80px;
+  z-index: 999;
+  background: #111;
+}
+.bc-tab-nav .bc-inner {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+}
+
+.bc-tab-btn {
+  color: #777;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 18px 64px;
+  letter-spacing: 0.12em;
+  font-family: "Archivo", "Pretendard", sans-serif;
+  transition: color 0.2s;
+  position: relative;
+  text-transform: uppercase;
+}
+.bc-tab-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  transition: background 0.2s;
+}
+.bc-tab-btn:hover {
+  color: #fff;
+}
+.bc-tab-btn.active {
+  color: #fff;
+}
+.bc-tab-btn.active::after {
+  background: #fff;
+}
+
+.bc-hero {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+  background: #111;
+}
+.bc-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+.bc-hero .bc-hero-title {
+  position: absolute;
+  bottom: 48px;
+  left: 60px;
+  font-family: "Archivo", "Pretendard", sans-serif;
+  font-weight: 900;
+  font-size: 6rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.bc-intro {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 60px 60px;
+  text-align: center;
+}
+.bc-intro h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.bc-intro p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.85;
+}
+
+.bc-img-center {
+  max-width: 1440px;
+  margin: 0 auto 60px;
+  padding: 0 60px;
+}
+.bc-img-center img {
+  width: 100%;
+  max-width: 720px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+.bc-img-center--narrow img {
+  max-width: 520px;
+}
+
+.bc-full-img {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.bc-full-img img {
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  display: block;
+}
+
+.bc-section-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -0.01em;
+}
+
+.bc-split {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+.bc-split .bc-split-img {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+}
+.bc-split .bc-split-img img {
+  width: 420px;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+.bc-split .bc-split-img .bc-split-caption {
+  text-align: left;
+  max-width: 360px;
+  padding-top: 12px;
+}
+.bc-split .bc-split-img .bc-split-caption p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.bc-split .bc-lead {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.bc-split p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.bc-quote {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 60px;
+  text-align: center;
+}
+.bc-quote blockquote {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #2f2f2f;
+}
+.bc-quote p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.85;
+  margin-bottom: 8px;
+}
+
+.bc-std-text {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  padding: 0 60px;
+  text-align: center;
+}
+.bc-std-text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+.bc-std-text .bc-std-emphasis {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+.bc-std-text .bc-std-cta-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2f2f2f;
+}
+
+.bc-swiper-section {
+  max-width: 1440px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+}
+.bc-swiper-section .bc-swiper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.bc-swiper-section .bc-swiper .swiper-button-prev,
+.bc-swiper-section .bc-swiper .swiper-button-next {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.bc-swiper-section .bc-swiper .swiper-button-prev::after,
+.bc-swiper-section .bc-swiper .swiper-button-next::after {
+  font-size: 18px;
+}
+.bc-swiper-section .bc-slide {
+  position: relative;
+  width: 100%;
+}
+.bc-swiper-section .bc-slide img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+}
+.bc-swiper-section .bc-slide .bc-slide-btn {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.bc-swiper-section .bc-slide .bc-slide-btn:hover {
+  background: #111;
+  color: #fff;
+}
+
+.bc-warranty {
+  background: #f7f7f7;
+  padding: 60px;
+  margin-bottom: 60px;
+}
+.bc-warranty .bc-warranty-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+.bc-warranty .bc-warranty-left h4 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.bc-warranty .bc-warranty-left p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.8;
+}
+.bc-warranty .bc-warranty-badge {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3a9bd5 0%, #5bc4bf 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+}
+.bc-warranty .bc-warranty-badge span:first-child {
+  font-size: 2rem;
+}
+.bc-warranty .bc-warranty-badge span:last-child {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.bc-guarantee {
+  max-width: 1440px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+}
+.bc-guarantee .bc-guarantee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.bc-guarantee .bc-guarantee-card {
+  border-radius: 12px;
+  padding: 32px 28px;
+  border: 2px solid transparent;
+}
+.bc-guarantee .bc-guarantee-card--blue {
+  background: #eef5fb;
+  border-color: #c5dff0;
+}
+.bc-guarantee .bc-guarantee-card--pink {
+  background: #fff0f5;
+  border-color: #f5c0d0;
+}
+.bc-guarantee .bc-guarantee-card .bc-guarantee-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.bc-guarantee .bc-guarantee-card .bc-guarantee-period {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #2f2f2f;
+}
+.bc-guarantee .bc-guarantee-card .bc-guarantee-tag {
+  background: #3a9bd5;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.bc-guarantee .bc-guarantee-card .bc-guarantee-tag--gold {
+  background: #c8a24c;
+}
+.bc-guarantee .bc-guarantee-card p {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.bc-guarantee .bc-guarantee-card ol {
+  padding-left: 18px;
+}
+.bc-guarantee .bc-guarantee-card ol li {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+.bc-care {
+  max-width: 1440px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+  text-align: center;
+}
+.bc-care .bc-care-sub {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+.bc-care .bc-care-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+.bc-care .bc-care-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.bc-care .bc-care-card .bc-care-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2f2f2f;
+}
+.bc-care .bc-care-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+.bc-care .bc-care-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.bc-rc-goal {
+  max-width: 1440px;
+  margin: 0 auto 60px;
+  padding: 0 60px;
+}
+.bc-rc-goal img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.bc-rc-crisis {
+  max-width: 1440px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.bc-rc-crisis .bc-rc-crisis-img img {
+  width: 100%;
+  border-radius: 8px;
+}
+.bc-rc-crisis .bc-rc-crisis-text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.bc-rc-crisis .bc-rc-crisis-text p:first-child {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2f2f2f;
+}
+
+.bc-rc-stats {
+  max-width: 1440px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: #e5e5e5;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.bc-rc-stats .bc-rc-stat {
+  background: #fff;
+  padding: 40px 28px;
+  text-align: center;
+}
+.bc-rc-stats .bc-rc-stat span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: "Archivo", sans-serif;
+  color: #111;
+  margin-bottom: 16px;
+}
+.bc-rc-stats .bc-rc-stat p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.bc-rc-steps {
+  max-width: 1440px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.bc-rc-steps .bc-rc-step {
+  text-align: center;
+}
+.bc-rc-steps .bc-rc-step img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.bc-rc-steps .bc-rc-step p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.bc-rc-artist {
+  max-width: 1440px;
+  margin: 0 auto 80px;
+  padding: 0 60px;
+}
+.bc-rc-artist .bc-rc-artist-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.bc-rc-artist .bc-rc-artist-head p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #2f2f2f;
+}
+.bc-rc-artist .bc-rc-artist-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.bc-rc-artist .bc-rc-artist-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+.bc-rc-artist .bc-rc-artist-card .bc-rc-artist-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2f2f2f;
+}
+.bc-rc-artist .bc-rc-artist-card p {
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.65;
+}
+
+.bc-club {
+  background: #fff;
+}
+
+.bc-club-hero {
+  position: relative;
+  height: 520px;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+.bc-club-hero .bc-club-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 70% 30%, #2a2a2a 0%, #0a0a0a 60%), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 18px, transparent 18px 36px);
+}
+.bc-club-hero .bc-club-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 18% 40%, #c8a24c 0 6px, transparent 7px), radial-gradient(circle at 82% 28%, #c8a24c 0 5px, transparent 6px), radial-gradient(circle at 88% 62%, #9aa0a6 0 4px, transparent 5px), radial-gradient(circle at 60% 80%, #c8a24c 0 3px, transparent 4px), radial-gradient(circle at 40% 22%, #fff 0 3px, transparent 4px);
+  opacity: 0.85;
+}
+.bc-club-hero .bc-club-hero-badge {
+  position: absolute;
+  right: 120px;
+  top: 80px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #c8a24c, #fff5d8, #c8a24c, #8a6a2e, #c8a24c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 30px 80px rgba(200, 162, 76, 0.35);
+}
+.bc-club-hero .bc-club-hero-badge .bc-club-hero-badge-inner {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  border: 2px solid rgba(200, 162, 76, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.bc-club-hero .bc-club-hero-badge .bc-club-badge-k {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #c8a24c;
+  font-weight: 700;
+}
+.bc-club-hero .bc-club-hero-badge .bc-club-badge-v {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  letter-spacing: -0.02em;
+}
+.bc-club-hero .bc-club-hero-badge .bc-club-badge-s {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: #9a9a9a;
+}
+.bc-club-hero .bc-club-hero-title {
+  position: absolute;
+  bottom: 48px;
+  left: 60px;
+  font-family: "Archivo", sans-serif;
+  font-size: 7rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+.bc-club-hero .bc-club-hero-sub {
+  position: absolute;
+  bottom: 28px;
+  left: 64px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+
+.bc-club-eyebrow {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.bc-club-intro {
+  padding: 100px 0 60px;
+  text-align: center;
+}
+.bc-club-intro h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.bc-club-intro .bc-club-lead {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.85;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+.bc-club-intro .bc-club-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.bc-club-intro .bc-club-stat {
+  padding: 36px 28px;
+  border-right: 1px solid #e5e5e5;
+  text-align: left;
+}
+.bc-club-intro .bc-club-stat:last-child {
+  border-right: none;
+}
+.bc-club-intro .bc-club-stat .bc-club-stat-num {
+  display: block;
+  font-family: "Archivo", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111;
+}
+.bc-club-intro .bc-club-stat .bc-club-stat-num em {
+  font-size: 1.2rem;
+  color: #999;
+  font-style: normal;
+  font-weight: 600;
+}
+.bc-club-intro .bc-club-stat .bc-club-stat-lbl {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+
+.bc-club-how {
+  background: #f5f3ee;
+  padding: 80px 0;
+}
+.bc-club-how .bc-club-how-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 52px;
+}
+.bc-club-how .bc-club-how-head h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-top: 14px;
+  letter-spacing: -0.02em;
+}
+.bc-club-how .bc-club-how-head > p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+  text-align: right;
+  max-width: 360px;
+}
+.bc-club-how .bc-club-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bc-club-how .bc-club-step {
+  background: #fff;
+  border-radius: 12px;
+  padding: 36px 32px;
+  position: relative;
+}
+.bc-club-how .bc-club-step .bc-club-step-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #888;
+  margin-bottom: 12px;
+}
+.bc-club-how .bc-club-step .bc-club-step-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #111;
+}
+.bc-club-how .bc-club-step p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.75;
+}
+.bc-club-how .bc-club-step .bc-club-step-glyph {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  font-size: 2rem;
+  color: #e5e5e5;
+  font-weight: 900;
+}
+
+.bc-club-tiers {
+  padding: 80px 0;
+  text-align: center;
+}
+.bc-club-tiers h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 14px 0 16px;
+  letter-spacing: -0.02em;
+}
+.bc-club-tiers .bc-club-tier-sub {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 52px;
+}
+.bc-club-tiers .bc-club-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+.bc-club-tiers .bc-club-tier {
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.bc-club-tiers .bc-club-tier--bronze {
+  background: linear-gradient(160deg, #f5ede0 0%, #eedcc4 100%);
+}
+.bc-club-tiers .bc-club-tier--silver {
+  background: linear-gradient(160deg, #eef0f5 0%, #d8dce8 100%);
+}
+.bc-club-tiers .bc-club-tier--gold {
+  background: linear-gradient(160deg, #fdf5de 0%, #f0d97a 100%);
+}
+.bc-club-tiers .bc-club-tier .bc-club-tier-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+.bc-club-tier--bronze .bc-club-tiers .bc-club-tier .bc-club-tier-ribbon {
+  background: #b07a4b;
+}
+.bc-club-tier--silver .bc-club-tiers .bc-club-tier .bc-club-tier-ribbon {
+  background: #9aa0a6;
+}
+.bc-club-tier--gold .bc-club-tiers .bc-club-tier .bc-club-tier-ribbon {
+  background: #c8a24c;
+}
+.bc-club-tiers .bc-club-tier .bc-club-tier-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #888;
+  margin-bottom: 20px;
+}
+.bc-club-tiers .bc-club-tier .bc-club-tier-coin {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: "Archivo", sans-serif;
+  margin-bottom: 16px;
+  color: #fff;
+}
+.bc-club-tier--bronze .bc-club-tiers .bc-club-tier .bc-club-tier-coin {
+  background: #b07a4b;
+}
+.bc-club-tier--silver .bc-club-tiers .bc-club-tier .bc-club-tier-coin {
+  background: #9aa0a6;
+}
+.bc-club-tier--gold .bc-club-tiers .bc-club-tier .bc-club-tier-coin {
+  background: #c8a24c;
+}
+.bc-club-tiers .bc-club-tier .bc-club-tier-name {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  color: #111;
+  font-family: "Archivo", sans-serif;
+}
+.bc-club-tiers .bc-club-tier .bc-club-tier-req {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 24px;
+}
+.bc-club-tiers .bc-club-tier ul {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+.bc-club-tiers .bc-club-tier ul li {
+  font-size: 0.9rem;
+  color: #444;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.bc-club-tiers .bc-club-tier ul li::before {
+  content: "✓ ";
+  color: #888;
+}
+
+.bc-club-compare {
+  background: #fafafa;
+  padding: 80px 0;
+}
+.bc-club-compare h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 14px 0 40px;
+  letter-spacing: -0.02em;
+}
+.bc-club-compare .bc-club-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.bc-club-compare .bc-club-table thead tr {
+  background: #111;
+  color: #fff;
+}
+.bc-club-compare .bc-club-table th {
+  padding: 16px 24px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+}
+.bc-club-compare .bc-club-table th:first-child {
+  text-align: left;
+}
+.bc-club-compare .bc-club-table th.bronze {
+  color: #e8c49a;
+}
+.bc-club-compare .bc-club-table th.silver {
+  color: #c5ccdc;
+}
+.bc-club-compare .bc-club-table th.gold {
+  color: #f0d96a;
+}
+.bc-club-compare .bc-club-table tbody tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+.bc-club-compare .bc-club-table tbody tr:hover {
+  background: #f5f5f5;
+}
+.bc-club-compare .bc-club-table td {
+  padding: 14px 24px;
+  text-align: center;
+  color: #444;
+}
+.bc-club-compare .bc-club-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+.bc-club-compare .bc-club-table td.gold {
+  color: #b07a00;
+  font-weight: 700;
+}
+.bc-club-compare .bc-club-table tfoot td {
+  padding: 16px 24px;
+  font-size: 0.8rem;
+  color: #999;
+  text-align: left;
+  background: #f5f5f5;
+}
+
+.bc-club-earn {
+  padding: 80px 0;
+  text-align: center;
+}
+.bc-club-earn h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 14px 0 16px;
+  letter-spacing: -0.02em;
+}
+.bc-club-earn .bc-club-earn-sub {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 52px;
+}
+.bc-club-earn .bc-club-earn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.bc-club-earn .bc-club-earn-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  background: #f5f3ee;
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: left;
+}
+.bc-club-earn .bc-club-earn-card h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.bc-club-earn .bc-club-earn-card p {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.bc-club-earn .bc-club-earn-ico {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.bc-club-earn .bc-club-earn-ico--usd {
+  font-family: "Archivo", sans-serif;
+  font-size: 1.3rem;
+}
+.bc-club-earn .bc-club-earn-pts {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  background: #111;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.bc-club-earn .bc-club-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.bc-club-earn .bc-club-duo-blk {
+  border-radius: 12px;
+  padding: 36px 32px;
+  text-align: left;
+}
+.bc-club-earn .bc-club-duo-blk--welcome {
+  background: #111;
+  color: #fff;
+}
+.bc-club-earn .bc-club-duo-blk--bday {
+  background: #fff0f5;
+  color: #2f2f2f;
+  border: 2px solid #f5c0d0;
+}
+.bc-club-earn .bc-club-duo-blk .bc-club-duo-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  margin-bottom: 8px;
+  color: #c8a24c;
+}
+.bc-club-earn .bc-club-duo-blk .bc-club-duo-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.bc-club-earn .bc-club-duo-blk .bc-club-duo-big {
+  font-family: "Archivo", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+.bc-club-earn .bc-club-duo-blk p:last-child {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+.bc-club-faq {
+  background: #fafafa;
+  padding: 80px 0;
+}
+.bc-club-faq .bc-club-faq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+.bc-club-faq .bc-club-faq-head h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-top: 14px;
+  letter-spacing: -0.02em;
+}
+.bc-club-faq .bc-club-faq-head > p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+  text-align: right;
+}
+.bc-club-faq .bc-club-faq-list {
+  border-top: 1px solid #e5e5e5;
+}
+.bc-club-faq .bc-club-faq-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+.bc-club-faq .bc-club-faq-item.open {
+  background: #fff;
+}
+.bc-club-faq .bc-club-faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 4px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2f2f2f;
+  gap: 16px;
+  background: none;
+  border: none;
+}
+.bc-club-faq .bc-club-faq-q .bc-club-faq-qmark {
+  display: inline-block;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #c8a24c;
+  margin-right: 12px;
+  letter-spacing: 0.05em;
+}
+.bc-club-faq .bc-club-faq-toggle {
+  font-size: 1.4rem;
+  color: #888;
+  flex-shrink: 0;
+}
+.bc-club-faq .bc-club-faq-a {
+  padding: 0 4px 24px 44px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.bc-club-cta {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+.bc-club-cta h3 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 16px 0 20px;
+  letter-spacing: -0.02em;
+  font-family: "Archivo", sans-serif;
+}
+.bc-club-cta > .bc-inner > p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 40px;
+}
+.bc-club-cta .bc-club-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.bc-club-cta .bc-club-cta-primary {
+  background: #c8a24c;
+  color: #0a0a0a;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 16px 40px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.bc-club-cta .bc-club-cta-primary:hover {
+  background: #e0bb6a;
+}
+.bc-club-cta .bc-club-cta-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 16px 36px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.bc-club-cta .bc-club-cta-ghost:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.bc-club-cta .bc-club-cta-legal {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+}

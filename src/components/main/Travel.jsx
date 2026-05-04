@@ -52,9 +52,9 @@ export default function MainTravel() {
                             poster="./images/main/travel.png"
                         />
                         <div className="travel-text">
-                            <FadeInSection direction="up" delay={0.2}>
+                            {/* <FadeInSection direction="up" delay={0.2}> */}
                                 <SectionTitle title={"Travel"} subtitle={"발걸음마다 예술이 되는 나만의 움직이는 캔버스"} />
-                            </FadeInSection>
+                            {/* </FadeInSection> */}
                         </div>
                     </Link>
                     <div className="logo-wrap">

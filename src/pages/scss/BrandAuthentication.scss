@@ -136,7 +136,80 @@
         }
     }
 
-    // ─── FAQ 섹션 ─────────────────────────────────────────
+    // ─── FAQ 섹션 (BrandQna와 동일) ───────────────────────
+    .faq-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .section-heading {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 28px;
+        letter-spacing: -0.02em;
+    }
+
+    .faq-section {
+        padding: 60px 0 80px;
+    }
+
+    .faq-accordion {
+        border-top: 1px solid #e6e6e6;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #e6e6e6;
+
+        &.open {
+            .faq-chevron {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .faq-question {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #2f2f2f;
+
+        span {
+            flex: 1;
+            line-height: 1.5;
+        }
+    }
+
+    .faq-chevron {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        color: #585858;
+        transition: transform 0.25s ease;
+    }
+
+    .faq-answer {
+        padding: 0 4px 24px;
+
+        p {
+            background: #f7f7f7;
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #585858;
+        }
+    }
+
+    // ─── 기존 auth-faq (미사용 레거시) ───────────────────
     .auth-faq-section {
         max-width: 900px;
         margin: 0 auto 100px;
@@ -275,6 +348,7 @@
                     }
                 }
             }
+
             @keyframes fadeIn {
                 from {
                     opacity: 0;
@@ -289,4 +363,3 @@
         }
     }
 }
-

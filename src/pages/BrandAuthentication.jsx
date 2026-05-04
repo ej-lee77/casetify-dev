@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 import { AUTH_FAQS } from '../data/authFaqs'
 import './scss/BrandAuthentication.scss'
-import './scss/BrandQna.scss'
 
 export default function BrandAuthentication() {
     const navigate = useNavigate()
@@ -20,7 +19,7 @@ export default function BrandAuthentication() {
         setPopup(result)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         if (!user) return;
         onFetchOrder();
     }, [user]);
