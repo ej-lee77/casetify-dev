@@ -115,7 +115,7 @@ export default function Footer({ className }) {
         <Link to={"/custom"}>
         <img src="/images/asideCustom.png" alt="custom" />
         </Link>
-        <p>CUSTOM</p>
+        <p>커스텀하기</p>
       </div>
     </>
   )
