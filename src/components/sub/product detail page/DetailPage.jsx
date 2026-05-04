@@ -35,7 +35,6 @@ export default function DetailPage({ item }) {
     useEffect(() => {
         if (!item) return;
 
-        // 1. 공통 필수 초기화 (어떤 경우에도 실행되어야 함)
         setQuantity(1);
         setSelectedBundles({});
         setAccordionOpen(false);
@@ -44,25 +43,21 @@ export default function DetailPage({ item }) {
 
         const modelOpts = getModelsByProductGroup(items, item);
 
-        // 2. 우선순위 결정: URL state(Cart에서 넘어온 값)가 있으면 그것을 사용, 없으면 기본 로직
         const targetModelLabel = state?.selectedModel || initialModel;
         const targetColor = state?.selectedColor || initialColor;
 
         if (targetModelLabel) {
-            // --- [CASE A] 외부(장바구니 등)에서 모델 정보가 넘어온 경우 ---
             setSelectedModel(targetModelLabel);
             setUserSelected(true); 
 
             const targetModelOpt = modelOpts.find(mo => mo.label === targetModelLabel);
             
             if (targetModelOpt) {
-                // 기종에 맞는 디바이스 컬러 설정
                 setSelectedDeviceColor(modelColorOptions?.[targetModelOpt.key]?.[0]?.key || "");
                 
                 if (targetColor) {
                     setSelectedColor(targetColor);
                 } else {
-                    // 색상이 없으면 해당 모델의 기본 색상 찾기
                     const matched = items.find(d => 
                         d.productName === item.productName && 
                         d.caseCategory === item.caseCategory && 
@@ -72,7 +67,6 @@ export default function DetailPage({ item }) {
                 }
             }
         } else {
-            // --- [CASE B] 일반적인 상품 진입 (기본 로직) ---
             setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
             setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
 
@@ -96,7 +90,6 @@ export default function DetailPage({ item }) {
             setUserSelected(hasNoOption || item.isWish || autoSelected || false);
         }
 
-        // 3. 브랜드 탭 설정 (UI 관련 공통)
         const availableBrand = Object.keys(phoneModelOptions).find((brand) =>
             phoneModelOptions[brand].some((m) =>
                 modelOpts.some((mo) => mo.key === m.key)
@@ -104,35 +97,29 @@ export default function DetailPage({ item }) {
         );
         if (availableBrand) setSelectedBrandTab(availableBrand);
 
-    }, [item, state, initialModel, initialColor]); // 모든 외부 변수를 의존성 배열에 추가
+    }, [item, state, initialModel, initialColor]);
 
     // ==================== MEMO ====================
 
-    // 번들 상품 랜덤 3개
     const bundleItems = useMemo(() => {
         if (!items || !item) return [];
 
-        // accessory만 필터
         const accessories = items.filter((d) => 
             Array.isArray(d.mainCategory) 
                 ? d.mainCategory.includes("accessory") 
                 : d.mainCategory === "accessory"
         );
 
-        // item.id에서 숫자 합산으로 고유 시드 생성
         const seed = item.id.replace(/\D/g, "").split("").reduce((acc, n) => acc + Number(n), 0);
 
-        // 시드로 서로 다른 인덱스 2개 선택
         const len = accessories.length;
         const idx1 = seed % len;
         let idx2 = (seed * 3 + 7) % len;
         if (idx2 === idx1) idx2 = (idx2 + 1) % len;
         
-        // 첫번째 현재 상품 고정 + 액세서리 2개
        return [item, accessories[idx1], accessories[idx2]];
     }, [item, items]);
 
-    // 같은 상품명+케이스카테고리 그룹에서 기종 목록 추출
     const modelOptions = useMemo(() => {
         return getModelsByProductGroup(items, item);
     }, [item]);
@@ -140,7 +127,6 @@ export default function DetailPage({ item }) {
 
     // ==================== HANDLERS ====================
 
-    // 번들 체크박스 토글
     const handleBundleToggle = (bundleItem) => {
         setSelectedBundles((prev) => {
             const next = { ...prev };
@@ -153,7 +139,6 @@ export default function DetailPage({ item }) {
         });
     };
 
-    // 번들 수량 변경
     const handleBundleQty = (bundleId, delta) => {
         setSelectedBundles((prev) => {
             const next = { ...prev };
@@ -168,7 +153,6 @@ export default function DetailPage({ item }) {
         });
     };
 
-    // 번들 이미지 경로 (mainImagePath 방식 동일)
     const getBundleImagePath = (b) => {
         const isPhoneB = b?.productTarget === "phone";
         const modelColorsB = isPhoneB ? modelColorOptions?.[b?.modelKey] || [] : [];
@@ -178,7 +162,6 @@ export default function DetailPage({ item }) {
         } else if (b.modelKey) {
             return `/images/category/products/${b.id}_${b.modelKey}_${b.mainCaseColor}_main.jpg`;
         } else {
-            // color 없을 때 언더바 두 개 방지
             return `/images/category/products/${b.id}${b.mainCaseColor ? `_${b.mainCaseColor}` : ""}_main.jpg`;
         }
     };
@@ -197,7 +180,6 @@ export default function DetailPage({ item }) {
     // ==================== DERIVED VALUES ====================
     const isPhone = item?.productTarget === "phone";
 
-    // 선택된 기종에 맞는 실제 item 찾기 (기종 변경 시 이미지 경로 교체용)
     const selectedItem = (() => {
         if (!selectedModel || !isPhone) return item;
         return items.find(
@@ -208,11 +190,9 @@ export default function DetailPage({ item }) {
         ) || item;
     })();
 
-    // selectedItem 기준으로 디바이스 컬러 목록
     const modelColors = isPhone ? modelColorOptions?.[selectedItem?.modelKey] || [] : [];
     const fixedThumbDeviceColor = isPhone ? modelColors?.[0]?.key || "" : "";
 
-    // selectedItem 기준으로 이미지 경로
     const mainImagePath = isPhone
         ? `/images/category/products/${selectedItem.id}_${selectedItem.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
         : item.modelKey
@@ -254,6 +234,21 @@ export default function DetailPage({ item }) {
     const [isWishPopupOpen, setIsWishPopupOpen] = useState(false);
     const [isCartPopupOpen, setIsCartPopupOpen] = useState(false);
     const [isPopupErr, setIsPopupErr] = useState(false);
+
+    // ✅ 모든 옵션 선택 여부 체크
+const canAddCart = (() => {
+    if (isPhone && modelOptions.length > 0 && !selectedModel) return false;
+    // ✅ selectedModel이 compatibleModels 목록 안에 있는 값인지까지 체크
+    if (!isPhone && item.compatibleModels?.length > 0) {
+        const isValidModel = item.compatibleModels.includes(selectedModel);
+        if (!isValidModel) return false;
+    }
+    if (item.caseColors?.length > 1 && !selectedColor) return false;
+    return true;
+})();
+
+
+
     const handleAddWish = async(item) => {
         if(!user){
             setCartMsg("로그인 후 이용 가능합니다.");
@@ -279,7 +274,6 @@ export default function DetailPage({ item }) {
         const isWish = await onAddWishlist(wishItem);
 
         if(isWish === "del"){
-            // 완료 팝업열기
             setWishMsg("위시리스트에서 삭제했습니다.");
             setIsWishPopupOpen(true);
         }else if(isWish === "add"){
@@ -291,7 +285,6 @@ export default function DetailPage({ item }) {
         }
     };
 
-    // 장바구니 추가
     const handleAddCart = async(item) => {
         const modelKey = isPhone
             ? phoneModelOptions[selectedBrandTab]?.find((model) => selectedModel === model.label)?.key || ""
@@ -322,6 +315,7 @@ export default function DetailPage({ item }) {
             setIsPopupErr(true);
         }
     };
+
     const handleBundleAddCart = async()=>{        
         try {
             const modelKey = isPhone
@@ -350,11 +344,9 @@ export default function DetailPage({ item }) {
                 setIsPopupErr(true);
             }
 
-            // 1. 번들에 담긴 각 아이템들을 장바구니 아이템 형식으로 변환
             const cartPromises = Object.entries(selectedBundles).map(async ([bundleKey, bundleValue])=>{
                 const bundle = items.find((data) => String(data.id) === String(bundleKey));
                 
-                // 객체 생성
                 const bundleCartItem = {
                     id: bundle.id,
                     productName: bundle.productName,
@@ -370,14 +362,10 @@ export default function DetailPage({ item }) {
                     caseCategory: bundle.caseCategory
                 };
 
-                // 개별 추가 함수 호출
                 return onAddToCart(bundleCartItem);
             });
 
-                // 2. 모든 요청이 끝날 때까지 대기
                 const results = await Promise.all(cartPromises);
-
-                // 3. 모든 요청이 성공(true)했는지 확인
                 const isAllSuccess = results.every(res => res === true);
 
                 if (isAllSuccess) {
@@ -385,7 +373,6 @@ export default function DetailPage({ item }) {
                     setIsPopupErr(false);
                     setIsCartPopupOpen(true);
                 } else {
-                    // 일부만 성공했거나 실패한 경우
                     setCartMsg("장바구니에 담기실패");
                     setIsPopupErr(true);
                 }
@@ -396,13 +383,10 @@ export default function DetailPage({ item }) {
     }
 
     const optionSummary = [
-        // item.modelLabel,
-        // selectedDeviceColor,
         selectedColor,
         selectedModel,
     ].filter(Boolean).join(" / ");
 
-    // 번들 선택 여부에 따라 악세에만 10% 할인 반영 (원래 가격은 고정)
     const bundleTotal = bundleItems
         .filter((b) => b.id !== item.id)
         .reduce((acc, b) => {
@@ -423,7 +407,6 @@ export default function DetailPage({ item }) {
                         <div className="detail-main-image" style={{ position: "relative" }}>
                             <img src={mainImage} alt={item.productName} />
 
-                            {/* 디바이스 컬러 리모콘 */}
                             {isPhone && !!modelColors.length && (
                                 <div className="color-remote">
                                     {modelColors.map((deviceColor) => (
@@ -447,7 +430,6 @@ export default function DetailPage({ item }) {
                                 </div>
                             )}
 
-                            {/* 위시 하트 버튼 */}
                             <button
                                 className={`image-wish-btn ${isWishList ? "wished" : ""}`}
                                 onClick={() => {
@@ -485,28 +467,24 @@ export default function DetailPage({ item }) {
                 </div>
 
                 <div className="detail-right">
-                    {/* 무료배송 뱃지 + 상품 ID */}
                     <div className="detail-meta">
                         {item.badge?.includes("무료 배송") && (
                             <span className="badge-free-ship">무료 배송</span>
                         )}
                         <span className="detail-product-id">{item.id}</span>
                     </div>
-                    {/* <p className="detail-artist">{item.artist || "CASETiFY"}</p> */}
                     <h2 className="detail-title">{item.productName}</h2>
                     <p className="detail-price">
                         {Number(item.price || 0).toLocaleString()}원
                     </p>
 
                     <div className="right-info-wrap">
-                        {/* 케이스 카테고리 */}
                         {!!item.caseCategory && (
                             <div className="detail-info-box">
                                 <p className="label"><span className="label">{item.caseCategory}</span></p>
                             </div>
                         )}
 
-                        {/* 기종 선택 아코디언 */}
                         <div className="model-select-box">
                             {isPhone && modelOptions.length > 0 && (
                                 <div className="detail-info-box">
@@ -522,7 +500,6 @@ export default function DetailPage({ item }) {
                                         </button>
                                         {modelAccordionOpen && (
                                             <div className="model-accordion-list">
-                                                {/* 브랜드 탭 - 실제 존재하는 브랜드만 표시 */}
                                                 <div className="model-brand-tabs">
                                                     {Object.keys(phoneModelOptions)
                                                         .filter((brand) =>
@@ -542,7 +519,6 @@ export default function DetailPage({ item }) {
                                                     ))}
                                                 </div>
 
-                                                {/* 기종 리스트 - 선택 시 이미지/색상/디바이스컬러 초기화 */}
                                                 <ul className="model-sub-list">
                                                     {modelOptions
                                                         .filter((mo) =>
@@ -580,7 +556,6 @@ export default function DetailPage({ item }) {
                             )}
                         </div>
 
-                        {/* 케이스 컬러 선택 */}
                         {!!item.caseColors?.length && (
                             <div className="detail-info-box">
                                 <p className="label">케이스 컬러</p>
@@ -607,7 +582,6 @@ export default function DetailPage({ item }) {
                             </div>
                         )}
 
-                        {/* 옵션 아코디언 (호환 모델) */}
                         {!!item.compatibleModels?.length && (
                             <div className="detail-info-box">
                                 <p className="label">옵션</p>
@@ -644,12 +618,10 @@ export default function DetailPage({ item }) {
 
                     {/* ========== 주문 / 버튼 영역 ========== */}
                     <div className="right-btn-wrap">
-                        {/* userSelected 일때만 표시, 1에서 − 누르면 사라짐 */}
                         {userSelected && (isPhone || !!item.compatibleModels?.length || !!item.caseColors?.length) && (
                             <div className="order-result">
                                 <hr className="left-line" />
 
-                                {/* 메인 상품 행 */}
                                 <div className="order-result-row">
                                     <span className="order-option-name">
                                         {item.productName}
@@ -686,7 +658,6 @@ export default function DetailPage({ item }) {
                                     </span>
                                 </div>
 
-                                {/* 총액 - 메인 상품만 */}
                                 <div className="order-total">
                                     <span>총 상품금액 (수량 {quantity}개)</span>
                                     <strong>{((item.price || 0) * quantity).toLocaleString()}원</strong>
@@ -694,7 +665,7 @@ export default function DetailPage({ item }) {
                             </div>
                         )}
 
-                        {/* 장바구니 버튼 - 미선택 시 alert */}
+                        {/* ✅ userSelected → canAddCart 로 교체 */}
                         <button className="buy-btn" onClick={() => {
                             if(!user){
                                 setCartMsg("로그인 후 이용 가능합니다.");
@@ -702,8 +673,8 @@ export default function DetailPage({ item }) {
                                 setIsCartPopupOpen(true);
                                 return;
                             }
-                            if (!userSelected) {
-                                setCartMsg("제품을 선택해주세요.");
+                            if (!canAddCart) {
+                                setCartMsg("모든 옵션을 선택해주세요.");
                                 setIsPopupErr(true);
                                 setIsCartPopupOpen(true);
                                 return;
@@ -715,7 +686,7 @@ export default function DetailPage({ item }) {
                     </div>
 
                     {/* ========== 번들 섹션 ========== */}
-                    {item?.productTarget === "phone" &&bundleItems.length > 0 && (
+                    {item?.productTarget === "phone" && bundleItems.length > 0 && (
                         <div className="budle-buy">
                             <div className="bundle-section">
                                 <p className="bundle-title">번들 할인</p>
@@ -748,7 +719,6 @@ export default function DetailPage({ item }) {
                                                 </div>
                                                 <span className="bundle-name">{b.productName}</span>
 
-                                                {/* 번들 가격 */}
                                                 <div className="bundle-price-wrap">
                                                     <span className="bundle-default-price">{b.price.toLocaleString()}원</span>
                                                 </div>
@@ -757,7 +727,6 @@ export default function DetailPage({ item }) {
                                     })}
                                 </ul>
 
-                                {/* 번들 선택 총 할인금액 */}
                                 {Object.keys(selectedBundles).length > 0 && (
                                     <div className="bundle-total-wrap">
                                         <span className="bundle-total-label">번들 할인 총액</span>
@@ -783,7 +752,7 @@ export default function DetailPage({ item }) {
                                 )}
                             </div>
 
-                            {/* 번들 장바구니 버튼 - 미선택 시 alert */}
+                            {/* ✅ userSelected → canAddCart 로 교체 */}
                             <button className="buy-btn" onClick={() => {
                                 if(!user){
                                     setCartMsg("로그인 후 이용 가능합니다.");
@@ -791,11 +760,10 @@ export default function DetailPage({ item }) {
                                     setIsCartPopupOpen(true);
                                     return;
                                 }
-                                if (!userSelected) {
-                                    setCartMsg("제품을 선택해주세요.");
+                                if (!canAddCart) {
+                                    setCartMsg("모든 옵션을 선택해주세요.");
                                     setIsPopupErr(true);
                                     setIsCartPopupOpen(true);
-                                    // alert("제품을 선택해주세요.");
                                     return;
                                 }
                                 handleBundleAddCart();
@@ -844,7 +812,6 @@ export default function DetailPage({ item }) {
                                 <p>{wishMsg}</p>
                                 {isPopupErr ? (
                                     <div className="popup-buttons">
-                                        
                                         <button 
                                             className="btn-close" 
                                             onClick={() => setIsWishPopupOpen(false)}
