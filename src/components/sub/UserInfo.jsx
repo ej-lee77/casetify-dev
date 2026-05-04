@@ -230,7 +230,7 @@ export default function UserInfo() {
     // 적용
     const fillWidth = getPointPercent(user?.point);
     return (
-        <div>
+        <div className='user-info-wrap'>
             <AlertPopup
                 message={alertMsg}
                 onClose={() => {
@@ -384,7 +384,7 @@ export default function UserInfo() {
                                 locale={ko}             // 한국어 적용
                                 placeholderText=""
                             />
-                            <span>생년월일</span>
+                            <span className='date-label-span'>생년월일</span>
                             {errors.birthDate && <p className="error-msg">{errors.birthDate}</p>}
                         </label>
                     </div>
