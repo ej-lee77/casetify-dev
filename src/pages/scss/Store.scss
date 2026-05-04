@@ -20,7 +20,7 @@
             top: 1rem;
             left: 1rem;
             padding: 1rem;
-            width: 32.5rem;
+            width: 33.75rem;
             background-color: white;
             border: 1px solid #a9a9a9;
             z-index: 1;
@@ -117,7 +117,7 @@
             // 지역 리스트
             .store-city-list {
                 @include g.myFlex($jc: null, $ai: null, $gap: 1.5rem, $fd: column);
-                min-height: calc((3rem * 4) + (1rem * 3) + 0.25rem);
+                min-height: calc((3.25rem * 4) + (1.25rem * 3) + 0.25rem);
                 margin-bottom: 1.5rem;
 
                 li {
