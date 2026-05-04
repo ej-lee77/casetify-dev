@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
+import { div } from 'framer-motion/client';
 
 const methodMap = {
     card: "신용/체크 카드",
@@ -36,6 +37,15 @@ export default function PayComplete() {
     if(grade && grade !== ""){
         gradeMsg = gradeList.filter(g => g.key === grade)[0];
     }
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1); // 오늘 날짜 + 1일
+    
+    const yyyy = tomorrow.getFullYear();
+    const mm = String(tomorrow.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1
+    const dd = String(tomorrow.getDate()).padStart(2, '0');
+    
+    const tomorrowDate = `${yyyy}/${mm}/${dd}`;
 
     return (
         <div className="sub-page-wrap pay-page-wrap">
@@ -89,7 +99,7 @@ export default function PayComplete() {
                             </div>
                             <div className='detail-row'>
                                 <span className='detail-title'>배송 메모</span>
-                                <span>{currentOrder.deliveryMemo}</span>
+                                <span>{currentOrder.deliveryMemo === '배송 메모를 선택해주세요' ? "없음" : currentOrder.deliveryMemo}</span>
                             </div>
                         </div>
 
@@ -105,8 +115,20 @@ export default function PayComplete() {
                                 <span className='final-price'>{currentOrder.priceSummary.finalPayment.toLocaleString()}원</span>
                             </div>
                         </div>
+                        {currentOrder.paymentMethod === "transfer" || currentOrder.paymentMethod === 'vbank' ? 
+                        (<div className='detail-section'>
+                            <h3>{methodMap[currentOrder.paymentMethod]}안내</h3>
+                            <div className='detail-row'>
+                                <span className='detail-title'>입금 계좌</span>
+                                <span>이젠은행 0000-000-0000000 CASETIFY</span>
+                            </div>
+                            <div className='detail-row'>
+                                <span className='detail-title'>입금 기한</span>
+                                <span>{tomorrowDate}</span>
+                            </div>
+                        </div>
+                        ) : ("")}
                     </div>
-
                     <Link to="/mypage" state={{ menu: "주문" }}><button className='input-btn'>주문 내역 보기</button></Link>
                 </div>
             </div>

@@ -108,6 +108,18 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
             }
         }
     };
+
+    const orderDate = new Date(order.orderDate.replace(/\. /g, '-')); 
+    
+    // 2. 하루 더하기
+    orderDate.setDate(orderDate.getDate() + 1);
+    
+    // 3. 포맷팅 (yyyy.mm.dd)
+    const yyyy = orderDate.getFullYear();
+    const mm = String(orderDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(orderDate.getDate()).padStart(2, '0');
+    
+    const tomorrowDate = `${yyyy}/${mm}/${dd}`;
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
@@ -206,6 +218,18 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
               <span className="label">결제방법</span>
               <span className="value">{methodMap[order.paymentMethod] || order.paymentMethod}</span>
             </div>
+            {order.paymentMethod === "transfer" || order.paymentMethod === 'vbank' ? 
+              (<>
+                <div className="info-row">
+                  <span className="label">입금계좌</span>
+                  <span className="value">이젠은행 0000-000-0000000 CASETIFY</span>
+                </div>
+                <div className="info-row">
+                  <span className="label">입금기한</span>
+                  <span className="value">{tomorrowDate}</span>
+                </div>
+              </>
+              ) : ("")}
             <div className="info-row">
               <span className="label">쿠폰</span>
               <span className="value">{order.priceSummary.coupon ? order.priceSummary.coupon.title : '없음'}</span>
