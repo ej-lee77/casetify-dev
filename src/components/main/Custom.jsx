@@ -58,6 +58,7 @@ export default function Custom() {
             <div className="inner">
                 <div className="all">
                     <div className="left">
+                        <SlideInSection direction="left" delay={0.4} className='w-100'>
                         <div className="cu-swiper-wrap">
                             <Swiper
                                 modules={[Autoplay]}
@@ -72,11 +73,12 @@ export default function Custom() {
                                 {String(activeIndex + 1).padStart(2, '0')} / {String(CUmain.length).padStart(2, '0')}
                             </div>
                         </div>
+                        </SlideInSection>
                     </div>
                     <div className="right">
-                        <FadeInSection direction="up" delay={0.2}>
+                        {/* <FadeInSection direction="up" delay={0.2}> */}
                             <SectionTitle title="Customize Your Case" subtitle="케이스티파이에서 나만의 케이스를 제작해보세요" />
-                        </FadeInSection>
+                        {/* </FadeInSection> */}
                         <SlideInSection direction="right" delay={0.4} className='w-100'>
                             <ul>
                                 {CUmain[activeIndex]?.Cuproduct.map((item) => (
