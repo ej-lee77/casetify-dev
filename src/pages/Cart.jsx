@@ -6,13 +6,14 @@ import CartOption from '../components/sub/CartOption';
 import { Link, useNavigate } from 'react-router-dom';
 import BundleRecommend from '../components/sub/product detail page/Recommend';
 import { li } from 'framer-motion/client';
+import EmptyState from '../components/sub/EmptyState'
 
 // 추천상품용
 const tempRecoItem = { id: "CTF-34942803-16006188" }
 
 export default function Cart() {
   const navigate = useNavigate();
-  const {user, cart, onUpdateCheckedCart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity} = useAuthStore();
+  const { user, cart, onUpdateCheckedCart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity } = useAuthStore();
   const [cartItemList, setCartItemList] = useState([]);
   const [optionModalOpen, setOptionModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
@@ -46,11 +47,11 @@ export default function Cart() {
     if (item.quantity + delta < 1) return;
     updateQuantity(index, delta);
   };
-  
+
   // 장바구니 정보 가져오기
-  useEffect(()=>{ 
-      if (!user) return;
-      onFetchCart();
+  useEffect(() => {
+    if (!user) return;
+    onFetchCart();
   }, [user]);
 
   // 선택 제품
@@ -62,30 +63,30 @@ export default function Cart() {
   // 번들 할인
   // isPhone이 true인 제품이 하나라도 있는지 체크
   const hasPhone = selectedItems.some(item => item.isPhone);
-  
+
   // 2. 할인 금액 계산
   const discount = selectedItems.reduce((acc, item) => {
     // 폰이 포함되어 있고, 현재 아이템이 폰이 아닌 경우에만 10% 할인 적용
-    if (hasPhone && !item.isPhone && item.price<300000) {
+    if (hasPhone && !item.isPhone && item.price < 300000) {
       return acc + (item.price * 0.1);
     }
     return acc;
   }, 0);
-  
+
   // 최종 결제 금액
   const finalPayment = Math.max(0, selectedTotal - discount);
 
   // 배송비 기본 9000원
   const [shipping, setShipping] = useState(9000);
-  useEffect(()=>{ 
-    if(finalPayment >= 50000){
+  useEffect(() => {
+    if (finalPayment >= 50000) {
       setShipping(0);
-    }else{
+    } else {
       setShipping(9000)
     }
   }, [finalPayment]);
 
-  const handleRemoveCart = ()=>{
+  const handleRemoveCart = () => {
     onRemoveSelected(selectedItems);
     setCheckedItems([]);
   }
@@ -97,12 +98,12 @@ export default function Cart() {
     }
 
     // 현재 체크된 상품 객체들만 추출
-    const orderData = cart.filter(item => 
+    const orderData = cart.filter(item =>
       chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`)
     );
 
     // 스토어의 checkedCart에 저장
-    onUpdateCheckedCart(orderData); 
+    onUpdateCheckedCart(orderData);
 
     // 결제 페이지로 이동
     navigate("/payment");
@@ -110,7 +111,7 @@ export default function Cart() {
 
   const handleAllOrder = () => {
     // 스토어의 checkedCart에 저장
-    onUpdateCheckedCart(cart); 
+    onUpdateCheckedCart(cart);
 
     // 결제 페이지로 이동
     navigate("/payment");
@@ -168,64 +169,66 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-            {cart.length > 0 ? (
-              <>
-              {cart.map((item, index) => {
-                const itemKey = getItemKey(item);
-                const isChecked = chekedItems.includes(itemKey);
-                return (
-                  <li key={itemKey} className="cart-item">
-                    <label className="checkbox-label">
-                      <input 
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={() => handleChecked(item)} 
-                      />
-                      <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
-                    </label>
-                    <div className="cart-card-wrap">
-                      <div className="cart-goods-info">
-                        <div className="goods-img">
-                          <Link to={`/detail/${item.productId}`}>
-                            <img
-                              src={`${item.imgUrl}`}
-                              alt={item.title} />
-                          </Link>
-                        </div>
-                        <div className="goods-text">
-                          <p className="title">{item.title}</p>
-                          <div className="goods-detail-product">
-                            <p>{item.device}</p>
-                            <p>{item.color}</p>
+              {cart.length > 0 ? (
+                <>
+                  {cart.map((item, index) => {
+                    const itemKey = getItemKey(item);
+                    const isChecked = chekedItems.includes(itemKey);
+                    return (
+                      <li key={itemKey} className="cart-item">
+                        <label className="checkbox-label">
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => handleChecked(item)}
+                          />
+                          <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
+                        </label>
+                        <div className="cart-card-wrap">
+                          <div className="cart-goods-info">
+                            <div className="goods-img">
+                              <Link to={`/detail/${item.productId}`}>
+                                <img
+                                  src={`${item.imgUrl}`}
+                                  alt={item.title} />
+                              </Link>
+                            </div>
+                            <div className="goods-text">
+                              <p className="title">{item.title}</p>
+                              <div className="goods-detail-product">
+                                <p>{item.device}</p>
+                                <p>{item.color}</p>
+                              </div>
+                              {item.device || item.color ?
+                                <button onClick={() => setEditingItem(item)}>옵션변경</button> : ""}
+                            </div>
                           </div>
-                          {item.device || item.color ? 
-                          <button onClick={() => setEditingItem(item)}>옵션변경</button> : ""}
+                          <div className="cart-goods-count-price">
+                            <div className="cart-count-ctrl">
+                              <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
+                              <span>{item.quantity}</span>
+                              <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
+                            </div>
+                            <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="cart-goods-count-price">
-                        <div className="cart-count-ctrl">
-                          <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
-                          <span>{item.quantity}</span>
-                          <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
-                        </div>
-                        <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-              </>
-            ):(
-              <li>등록된 상품이 없습니다.</li>
-            )}
+                      </li>
+                    );
+                  })}
+                </>
+              ) : (
+                <li>
+                  <EmptyState icon="🛒" strong="장바구니" title="가 비어 있습니다." desc="마음에 드는 상품을 담아보세요." btnText="쇼핑하러 가기" btnLink="/case/device" />
+                </li>
+              )}
             </ul>
             {editingItem && (
-              <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)}/>
+              <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)} />
             )}
             {/* 체크박스 취소 버튼 */}
             <div className="cart-cancel-btn-wrap">
-              <button onClick={()=>handleRemoveCart()}>선택 상품 삭제</button>
-              <button onClick={()=>onClearCart()}>전체 상품 삭제</button>
+              <button onClick={() => handleRemoveCart()}>선택 상품 삭제</button>
+              <button onClick={() => onClearCart()}>전체 상품 삭제</button>
             </div>
           </div>
           {/* 우측 - 주문 컨트롤 */}
@@ -243,19 +246,19 @@ export default function Cart() {
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment+shipping).toLocaleString()}원</span></p>
+                <p className="est-price">결제예정금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment + shipping).toLocaleString()}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
             <ul className="order-btn-wrap">
-              <li><button className="order-all" onClick={()=>handleAllOrder()}>전체 상품 주문</button></li>
-              <li><button onClick={()=>handleCheckedOrder()}>선택 상품 주문</button></li>
+              <li><button className="order-all" onClick={() => handleAllOrder()}>전체 상품 주문</button></li>
+              <li><button onClick={() => handleCheckedOrder()}>선택 상품 주문</button></li>
             </ul>
           </div>
         </div>
         {/* 추천상품 */}
         <div className="recommend-wrap">
-          <BundleRecommend item={tempRecoItem}/>
+          <BundleRecommend item={tempRecoItem} />
         </div>
       </div>
     </div>

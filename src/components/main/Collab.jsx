@@ -117,71 +117,71 @@ export default function Collab() {
                     slidesPerView={5}
                     spaceBetween={30}
                 >
-                {slides.map((item) => {
-                    const product = productMap[String(item.id)];
+                    {slides.map((item) => {
+                        const product = productMap[String(item.id)];
 
-                    // 아티스트 기반 컬렉션 링크 생성
-                    const artistKey = product?.artist
-                        ? makeArtistIconKey(product.artist)
-                        : null;
-                    const collectionLink = artistKey
-                        ? `/colab/${item.subCate}?mini=${artistKey}`
-                        : `/colab/${item.subCate}`;
+                        // 아티스트 기반 컬렉션 링크 생성
+                        const artistKey = product?.artist
+                            ? makeArtistIconKey(product.artist)
+                            : null;
+                        const collectionLink = artistKey
+                            ? `/colab/${item.subCate}?mini=${artistKey}`
+                            : `/colab/${item.subCate}`;
 
-                    return (
-                        <SwiperSlide key={item.id}>
-                            <div
-                                className="card"
-                                onMouseEnter={() => swiperRef.current?.autoplay.stop()}
-                                onMouseLeave={() => swiperRef.current?.autoplay.start()}
-                            >
-                                <div className="card-inner">
-                                    <div className="card-brand">
-                                        <img
-                                            src={item.themeImg}
-                                            alt={product?.productName || "collab brand"}
-                                            className="theme-img"
-                                        />
-                                    </div>
+                        return (
+                            <SwiperSlide key={item.id}>
+                                <div
+                                    className="card"
+                                    onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+                                    onMouseLeave={() => swiperRef.current?.autoplay.start()}
+                                >
+                                    <div className="card-inner">
+                                        <div className="card-brand">
+                                            <img
+                                                src={item.themeImg}
+                                                alt={product?.productName || "collab brand"}
+                                                className="theme-img"
+                                            />
+                                        </div>
 
-                                    <div className="card-back">
-                                        <Link to={`/detail/${item.id}`}>
-                                            <div className="card-img">
-                                                <img
-                                                    src={item.colImg}
-                                                    alt={product?.productName || "collab product"}
-                                                />
-                                            </div>
-
-                                            <div className="card-content">
-                                                <div>
-                                                    <p>
-                                                        {product?.productName || "상품명 없음"}
-                                                    </p>
-                                                    <p className="price">
-                                                        {product?.price != null
-                                                            ? `${Number(product.price).toLocaleString()}원`
-                                                            : "가격 정보 없음"}
-                                                    </p>
+                                        <div className="card-back">
+                                            <Link to={`/detail/${item.id}`}>
+                                                <div className="card-img">
+                                                    <img
+                                                        src={item.colImg}
+                                                        alt={product?.productName || "collab product"}
+                                                    />
                                                 </div>
-                                            </div>
-                                        </Link>
 
-                                        <Link to={collectionLink}>
-                                            <button type="button" className="more-btn">
-                                                컬렉션 더보기 +
-                                            </button>
-                                        </Link>
+                                                <div className="card-content">
+                                                    <div>
+                                                        <p>
+                                                            {product?.productName || "상품명 없음"}
+                                                        </p>
+                                                        <p className="price">
+                                                            {product?.price != null
+                                                                ? `${Number(product.price).toLocaleString()}원`
+                                                                : "가격 정보 없음"}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </Link>
+
+                                            <Link to={collectionLink}>
+                                                <button type="button" className="more-btn">
+                                                    컬렉션 더보기 +
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
-                    );
-                })}
+                            </SwiperSlide>
+                        );
+                    })}
                 </Swiper>
-                <div className="collab-slide-counter">
+                {/* <div className="collab-slide-counter">
                     {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-                </div>
+                </div> */}
             </div>
         </section>
     );
