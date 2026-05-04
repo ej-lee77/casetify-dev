@@ -3,9 +3,9 @@
 .MapPopup {
     position: absolute;
     max-width: 620px;
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
+    // top: 50px; // 임시 초기값
+    // left: 600px; // 임시 초기값
+    // transform: translate(-50%, -50%);
     z-index: 500;
     border: 1px solid #a9a9a9;
     background-color: white;
@@ -41,6 +41,15 @@
         margin-bottom: g.$title-gap;
         font-size: 1.5rem;
         text-align: center;
+    }
+
+    .drag-area {
+        cursor: grab;
+        user-select: none;
+    }
+
+    .drag-area:active {
+        cursor: grabbing;
     }
 
     .store-img-area {

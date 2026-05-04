@@ -352,7 +352,7 @@
                         position: absolute;
                         width: 100%;
                         height: 20px;
-                        bottom: -25px;
+                        bottom: -20px;
                         left: 0;
                         font-size: 0.88em;
                         padding-left: 10px;
@@ -534,6 +534,127 @@
                     }
                 }
             }
+
+            .detail-box {
+                padding: 20px;
+                background-color: #f8f9fa;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                animation: fadeIn 0.3s ease-in-out; // 나타날 때 부드럽게
+
+                h4 {
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    color: #333;
+                }
+
+                input {
+                    font-size: 1rem;
+                    color: #222222;
+                    width: 100%;
+                    border: none;
+                    border: solid #aaaaaa 1px;
+                    padding: 10px 0;
+                    padding-left: 10px;
+                    position: relative;
+                    background: #fff;
+                    z-index: 5;
+                }
+
+                input::placeholder { color: #aaaaaa; }
+                input:focus { outline: none; }
+
+                .input-group {
+                    display: flex;
+                    gap: 10px;
+                    margin-top: 16px;
+                    input { flex: 1; }
+                }
+                .input-box{
+                    position: relative;
+                    width: 100%;
+                }
+                p.error-text{
+                    position: absolute;
+                    width: 100%;
+                    height: 20px;
+                    bottom: -20px;
+                    left: 0;
+                    font-size: 0.88em;
+                    padding-left: 10px;
+                    color: g.$text-sale;
+                }
+
+                .custom-select-container {
+                    position: relative;
+                    margin-bottom: 16px;
+                    user-select: none;
+
+                    /* 클릭하는 메인 영역 */
+                    .select-selected {
+                        background-color: #fff;
+                        border: 1px solid #aaa;
+                        padding: 10px;
+                        // font-size: 14px;
+                        cursor: pointer;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        transition: border-color 0.2s;
+
+                        .arrow-icon {
+                        width: 10px;
+                        height: 6px;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23111' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        transition: transform 0.3s;
+                        }
+
+                        // &:hover { border-color: #000; }
+                    }
+
+                    /* 드롭다운이 열렸을 때 */
+                    &.active {
+                        .select-selected {
+                        border-color: #000;
+                        .arrow-icon { transform: rotate(180deg); }
+                        }
+                    }
+
+                    .select-options {
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background-color: #fff;
+                        border: 1px solid #000;
+                        border-top: none;
+                        z-index: 10;
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+                        li {
+                            padding: 12px 16px;
+                            font-size: 14px;
+                            cursor: pointer;
+                            color: #666;
+
+                            &:hover {
+                                background-color: #ddd;
+                                color: #000;
+                            }
+
+                            &.selected {
+                                background-color: #000;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
         }
         .accordion-section{
             margin-bottom: 5px;
@@ -633,6 +754,87 @@
                 .detail-section{
                     margin-top: 10px;
                 }
+            }
+        }
+    }
+
+    // 간편결제 모달 스타일
+    .payment-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+
+        .modal-content {
+            background: #fff;
+            width: 90%;
+            max-width: 400px;
+            // border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+            .modal-header {
+                padding: 20px;
+                border-bottom: 1px solid #ddd;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h3 { margin: 0; font-size: 18px; }
+                .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
+
+                &.kakao{
+                    background-color: #FFEB00;
+                }
+                &.naver{
+                    background-color: #fff;
+                }
+            }
+
+            .modal-body {
+                padding: 30px 20px;
+                text-align: center;
+                .method-name {                    
+                    @include g.myFlex($fd: column, $ai: null, $gap: 0.75em);
+                    margin-bottom: 10px;
+                    p {
+                        @include g.myFlex($gap: null);
+                        font-weight: 300;
+
+                        span {
+                            font-weight: 500;
+                        }
+                    }
+                }
+                .total-amount {
+                    margin-top: 10px;
+                    font-size: 1.25em;
+                    span { color: #ff4d4f; font-weight: bold; }
+                }
+            }
+
+            .modal-footer {
+                padding: 15px 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding-top: 0;
+                
+                button {
+                flex: 1;
+                padding: 16px;
+                // border-radius: 6px;
+                border: none;
+                cursor: pointer;
+                font-weight: 500;
+                }
+                .btn-confirm { background: #000; color: #fff; }
+                .btn-cancel { background: #eee; color: #333; }
             }
         }
     }
