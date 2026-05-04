@@ -81,6 +81,17 @@
 
                 .city-select {
                     flex: 1;
+
+                    .select-btn {
+                        .arrow>img {
+                            transition: transform 0.2s;
+                        }
+
+                        .arrow.active>img {
+                            transform: rotate(180deg);
+                        }
+
+                    }
                 }
 
                 .near-list {

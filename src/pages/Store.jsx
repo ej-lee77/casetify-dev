@@ -12,7 +12,9 @@ export default function Store() {
   const [show, setShow] = useState(false);
   const [areas, setArea] = useState([])
   // const [areaList, setAreaList] = useState([])
-  const [selectCity, setSelectCity] = useState("전체")
+
+  const selectAllCity = "ALL";
+  const [selectCity, setSelectCity] = useState(null);
   const [sortByDistance, setSortByDistance] = useState(false);
 
   //########## 현재 위치 체크할 변수
@@ -129,7 +131,7 @@ export default function Store() {
     })
     .filter((store) => {
       const matchCity =
-        selectCity === "전체" || store.storeArea === selectCity;
+        !selectCity || selectCity === "전체" || store.storeArea === selectCity;
 
       const matchSearch =
         searchWord === "" ||
@@ -181,7 +183,7 @@ export default function Store() {
               <button className="select-btn" onClick={handleShow}>
                 {/* <span>{selectCity}</span> */}
                 <span>
-                  {selectCity === "전체" ? "지역을 선택하세요" : selectCity}
+                  {!selectCity ? "지역을 선택하세요" : selectCity === selectAllCity ? "전체" : selectCity}
                 </span>
                 <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span>
               </button>
@@ -195,7 +197,7 @@ export default function Store() {
             </div>
             <div className='near-list'>
               <button className="select-btn" onClick={() => setSortByDistance(prev => !prev)}>
-                <span>{sortByDistance ? "가까운 지점 정렬 ON" : "가까운 지점 정렬하기"}</span>
+                <span>{sortByDistance ? "가까운 지점 정렬 ON" : "가까운 지점 정렬 OFF"}</span>
                 {/* <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span> */}
               </button>
             </div>
