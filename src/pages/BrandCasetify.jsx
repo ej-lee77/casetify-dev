@@ -159,7 +159,37 @@ function RecastifyTab() {
                 <p>우리는 지속 가능한 미래를 향한 여정에 사명감을 갖고 나아가고 있습니다.<br />보다 친환경적인 미래에 대한 명확한 비전을 가지고<br />버진 플라스틱 사용을 줄이기 위해 전념하고 있습니다.</p>
             </section>
             <section className="bc-rc-goal">
-                <img src="/images/brand/rc-goal.png" alt="2030년까지의 목표" />
+                <div className="bc-rc-goal-img">
+                    <img src="/images/brand/rc-goal.png" alt="2030년까지의 목표" />
+
+                    <div className="bc-rc-goal-overlay">
+                        <h3 className="rc-title">
+                            <span>RE:Castify</span>
+                            <br />
+                            <span>2030년까지의 목표</span>
+                        </h3>
+
+                        <div className="rc-goal-circle">
+                            <div>
+                                <p>-6.42%</p>
+                                <p>에너지 집중도</p>
+                                <p>홍콩 리테일 매장 및 사무실 연면적(GFA)당 생산량 기준</p>
+                            </div>
+
+                            <div>
+                                <p>-22%</p>
+                                <p>온실가스 배출량</p>
+                                <p>홍콩 리테일 매장 및 사무실 연면적(GFA)당 생산량 기준</p>
+                            </div>
+
+                            <div>
+                                <p>100%</p>
+                                <p>재활용 비율</p>
+                                <p>홍콩 생산 기지의 생산 폐기물</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <section className="bc-rc-crisis">
                 <div className="bc-rc-crisis-img"><img src="/images/brand/rc-crisis.png" alt="플라스틱 위기" /></div>
@@ -179,20 +209,41 @@ function RecastifyTab() {
                 <h3>폐기물을 re/IMAGINE 하다<br />: Re/CASETiFY™를 소개합니다</h3>
             </section>
             <section className="bc-rc-steps">
-                <div className="bc-rc-step"><img src="/images/brand/rc-step1.png" alt="낡은 케이스 수거" /><p>낡은 케이스를<br />우리에게 건네주세요</p></div>
-                <div className="bc-rc-step"><img src="/images/brand/rc-step2.png" alt="재활용 파트너" /><p>독립된 재활용 파트너와협력<br />하여 케이스를 처리합니다</p></div>
-                <div className="bc-rc-step"><img src="/images/brand/rc-step3.png" alt="재활용 소재" /><p>재활용 소재를 추출합니다</p></div>
+                <div className="bc-rc-step">
+                    <div className="img-box">
+                        <img src="/images/brand/rc-step1.png" alt="낡은 케이스 수거" />
+                    </div>
+                    <p>낡은 케이스를<br />우리에게 건네주세요</p>
+                </div>
+
+                <div className="bc-rc-step">
+                    <div className="img-box">
+                        <img src="/images/brand/rc-step2.png" alt="재활용 파트너" />
+                    </div>
+                    <p>독립된 재활용 파트너와 협력<br />하여 케이스를 처리합니다</p>
+                </div>
+
+                <div className="bc-rc-step">
+                    <div className="img-box">
+                        <img src="/images/brand/rc-step3.png" alt="재활용 소재" />
+                    </div>
+                    <p>재활용 소재를 추출합니다</p>
+                </div>
             </section>
             <section className="bc-rc-artist">
-                <div className="bc-rc-artist-head">
-                    <p>폐기물에 새로운 시선을,<br />창작자에게는 새로운 가능성을</p>
-                    <p>지속가능한 스타일,<br />분명한 목적을 담다</p>
+                <div className="br-rc-artist-left">
+                    <h3>폐기물에 새로운 시선을,<br />창작자에게는 새로운 가능성을</h3>
+                    <div className="bc-rc-artist-card-wrapper">
+                        <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist1.png" alt="차인필" /><p className="bc-rc-artist-name">차인철, 서울</p><p>서울 도시의 생명감 넘치는 거리 예술가 차인철은 케이스티파이와의 함께 만든 환경 친친 폰케이스를 통해 도시의 음영과 함께 직접 만들었습니다.</p></div>
+                        <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist2.png" alt="코디 호이트" /><p className="bc-rc-artist-name">코디 호이트(Cody Hoyt)</p><p>브루클린을 기반으로 활동하는 아티스트 코디 호이트(CodyHoyt)는 금속 폐문 및 잡체적인 협력에 영향을 받아 재해석된 폰케이스를 재탄생시켰습니다.</p></div>
+                    </div>
                 </div>
-                <div className="bc-rc-artist-grid">
-                    <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist1.png" alt="차인필" /><p className="bc-rc-artist-name">차인철, 서울</p><p>서울 도시의 생명감 넘치는 거리 예술가 차인철은 케이스티파이와의 함께 만든 환경 친친 폰케이스를 통해 도시의 음영과 함께 직접 만들었습니다.</p></div>
-                    <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist2.png" alt="코디 호이트" /><p className="bc-rc-artist-name">코디 호이트(Cody Hoyt)</p><p>브루클린을 기반으로 활동하는 아티스트 코디 호이트(CodyHoyt)는 금속 폐문 및 잡체적인 협력에 영향을 받아 재해석된 폰케이스를 재탄생시켰습니다.</p></div>
-                    <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist3.png" alt="RE/CLAIMED" /><p className="bc-rc-artist-name">RE/CLAIMED 대형 설치를 K11 MUSEA에 설치된 벤치</p><p>RE/CLAIMED의 대형 설치물은 지속 가능성이 아름다움과의 대화와 영향력을 동시에 거둘 수 있음을 보여줍니다.</p></div>
-                    <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist4.png" alt="스마트폰 스탠드" /><p className="bc-rc-artist-name">스마트폰 스탠드</p><p>한편, 폰 하여서만 한국 성기들 대구 및 패밀리에서 이 아이폰-RE/IMAGINED 기프트도 100% 재활용 소재로 제작됩니다.</p></div>
+                <div className="br-rc-artist-right">
+                    <h3>지속가능한 스타일,<br />분명한 목적을 담다</h3>
+                    <div className="bc-rc-artist-card-wrapper">
+                        <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist3.png" alt="RE/CLAIMED" /><p className="bc-rc-artist-name">RE/CLAIMED 대형 설치를 K11 MUSEA에 설치된 벤치</p><p>RE/CLAIMED의 대형 설치물은 지속 가능성이 아름다움과의 대화와 영향력을 동시에 거둘 수 있음을 보여줍니다.</p></div>
+                        <div className="bc-rc-artist-card"><img src="/images/brand/rc-artist4.png" alt="스마트폰 스탠드" /><p className="bc-rc-artist-name">스마트폰 스탠드</p><p>한편, 폰 하여서만 한국 성기들 대구 및 패밀리에서 이 아이폰-RE/IMAGINED 기프트도 100% 재활용 소재로 제작됩니다.</p></div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -227,17 +278,9 @@ function ClubTab() {
 
     return (
         <div className="bc-club">
-            <div className="bc-club-hero">
-                <div className="bc-club-hero-bg" />
-                <div className="bc-club-hero-badge">
-                    <div className="bc-club-hero-badge-inner">
-                        <span className="bc-club-badge-k">MEMBER ONLY</span>
-                        <span className="bc-club-badge-v">CLUB</span>
-                        <span className="bc-club-badge-s">SINCE 2021</span>
-                    </div>
-                </div>
-                <h2 className="bc-club-hero-title">CLUB</h2>
-                <p className="bc-club-hero-sub">CASETiFY MEMBERSHIP — 등급별 혜택과 포인트로 즐기는 특별한 경험</p>
+            <div className="bc-hero">
+                <img src="/images/brand/club-hero.png" alt="CASETiFY CLUB" />
+                <h2 className="bc-hero-title">CASETiFY CLUB</h2>
             </div>
 
             <section className="bc-club-intro">
@@ -326,20 +369,40 @@ function ClubTab() {
                 </div>
             </section>
 
-            <section className="bc-club-faq">
-                <div className="bc-inner">
-                    <div className="bc-club-faq-head">
-                        <div><p className="bc-club-eyebrow">FAQ</p><h3>자주 묻는 질문</h3></div>
-                        <p>더 궁금한 점이 있으신가요?<br />고객지원 센터로 문의해 주세요.</p>
-                    </div>
-                    <div className="bc-club-faq-list">
+            <section className="bc-club-faq faq-section">
+                <div className="faq-inner">
+                    <h2 className="section-heading">자주 묻는 질문(FAQ)</h2>
+
+                    <div className="faq-accordion">
                         {faqs.map((faq, i) => (
-                            <div key={i} className={`bc-club-faq-item ${openFaq === i ? 'open' : ''}`}>
-                                <button className="bc-club-faq-q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                                    <span><span className="bc-club-faq-qmark">Q{i + 1}</span>{faq.q}</span>
-                                    <span className="bc-club-faq-toggle">{openFaq === i ? '−' : '+'}</span>
+                            <div
+                                key={i}
+                                className={`faq-item ${openFaq === i ? "open" : ""}`}
+                            >
+                                <button
+                                    type="button"
+                                    className="faq-question"
+                                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                                >
+                                    <span>{faq.q}</span>
+
+                                    <svg
+                                        className="faq-chevron"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                    >
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
                                 </button>
-                                {openFaq === i && <div className="bc-club-faq-a">{faq.a}</div>}
+
+                                {openFaq === i && (
+                                    <div className="faq-answer">
+                                        <p>{faq.a}</p>
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
