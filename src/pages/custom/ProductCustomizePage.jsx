@@ -154,13 +154,30 @@ function ProductCustomizeContent({ deviceType }) {
     const isAllDone = doneSteps === totalSteps
 
     useEffect(() => {
+        let wasMobile = window.innerWidth <= 860
+
         const apply = () => {
-            if (window.innerWidth <= 860) { document.body.style.overflow = ''; return }
+            const isMobile = window.innerWidth <= 860
+
+            // 모바일 → 데스크탑 전환 시 top으로 스크롤
+            if (wasMobile && !isMobile) {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+            wasMobile = isMobile
+
+            if (isMobile) {
+                document.body.style.overflow = ''
+                return
+            }
             document.body.style.overflow = canAddCart ? '' : 'hidden'
         }
+
         apply()
         window.addEventListener('resize', apply)
-        return () => { window.removeEventListener('resize', apply); document.body.style.overflow = '' }
+        return () => {
+            window.removeEventListener('resize', apply)
+            document.body.style.overflow = ''
+        }
     }, [canAddCart])
 
     const optionSummary = [
