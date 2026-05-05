@@ -75,7 +75,7 @@ export const LAPTOP_CASE_TYPES = [
 
 export const CASE_COLORS = [
   { id: 'black', label: '블랙', hex: '#111111' },
-  { id: 'red', label: '레드', hex: '#ffb2b2' },
+  // { id: 'red', label: '레드', hex: '#ffb2b2' },
   { id: 'white', label: '화이트', hex: '#F0F0F0' },
   { id: 'yellow', label: '블루', hex: '#9fddda' },
 ]
@@ -95,7 +95,7 @@ export const PHOTO_FILTERS = [
 export const FONT_COLORS = [
   { id: 'black', label: '블랙', hex: '#111111' },
   { id: 'white', label: '화이트', hex: '#ffffff' },
-  { id: 'blue', label: '파랑', hex: '#1A5ADB' },
+  // { id: 'blue', label: '파랑', hex: '#1A5ADB' },
   { id: 'purple', label: '보라', hex: '#af6fba' },
 ]
 

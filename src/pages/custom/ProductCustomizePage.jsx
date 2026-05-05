@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/useAuthStore'
 import { BRANDS, TABLET_BRANDS, LAPTOP_BRANDS, CASE_TYPES, TABLET_CASE_TYPES, LAPTOP_CASE_TYPES, CASE_COLORS } from './constants'
@@ -14,23 +14,58 @@ const QUICK_MENUS = [
     { id: 'laptop', label: 'MacBook Case', sub: '맥북 케이스 커스텀', icon: '💻' },
 ]
 
-export function ProductCustomizePage() {
-    const location = useLocation()
+// ✅ 커스텀 컬러 피커 컴포넌트 (케이스 컬러용)
+function ColorPickerButton({ value, onChange, presetColors }) {
+    const inputRef = useRef(null)
+    const isCustom = value && !presetColors.some(c => c.hex.toLowerCase() === value.toLowerCase())
+    const label = isCustom ? value.toUpperCase() : '직접 선택'
+
+    return (
+        <button
+            type="button"
+            className={`color-picker-btn ${isCustom ? 'active' : ''}`}
+            onClick={() => inputRef.current?.click()}
+            style={{ position: 'relative' }}
+            title="직접 색상 선택"
+        >
+            <span
+                className="color-chip color-chip-custom"
+                style={{
+                    background: isCustom
+                        ? value
+                        : 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red)',
+                    border: '1px solid #ddd',
+                }}
+            />
+            {label}
+            <input
+                ref={inputRef}
+                type="color"
+                value={isCustom ? value.toLowerCase() : '#ffffff'}
+                onChange={e => onChange(e.target.value)}
+                style={{ position: 'absolute', opacity: 0, width: 0, height: 0, pointerEvents: 'none' }}
+                tabIndex={-1}
+            />
+        </button>
+    )
+}
+
+// ✅ 내부 컨텐츠 컴포넌트 (key로 완전 리마운트 트리거)
+function ProductCustomizeContent({ deviceType }) {
     const navigate = useNavigate()
     const { user, onAddToCart } = useAuthStore()
-    const initialDeviceType = location.state?.deviceType || 'phone'
 
     const brandList =
-        initialDeviceType === 'tablet' ? TABLET_BRANDS :
-            initialDeviceType === 'laptop' ? LAPTOP_BRANDS :
+        deviceType === 'tablet' ? TABLET_BRANDS :
+            deviceType === 'laptop' ? LAPTOP_BRANDS :
                 BRANDS
 
     const caseTypeList =
-        initialDeviceType === 'tablet' ? TABLET_CASE_TYPES :
-            initialDeviceType === 'laptop' ? LAPTOP_CASE_TYPES :
+        deviceType === 'tablet' ? TABLET_CASE_TYPES :
+            deviceType === 'laptop' ? LAPTOP_CASE_TYPES :
                 CASE_TYPES
 
-    const isNonPhone = initialDeviceType === 'tablet' || initialDeviceType === 'laptop'
+    const isNonPhone = deviceType === 'tablet' || deviceType === 'laptop'
 
     const [selectedBrand, setSelectedBrand] = useState(brandList[0]?.id || null)
     const [selectedModel, setSelectedModel] = useState(null)
@@ -63,11 +98,10 @@ export function ProductCustomizePage() {
         phone: 'Phone Custom Case',
         laptop: 'MacBook Custom Case',
         tablet: 'Tablet Custom Case',
-    }[initialDeviceType] || ''
+    }[deviceType] || ''
 
     const previewURL = photoTab === 'sticker' ? selectedSticker?.src || null : photoURL
 
-    // ✅ 커스텀 디자인 상태 초기화
     const resetDesign = () => {
         setDesignType(null)
         setPhotoFile(null)
@@ -80,7 +114,6 @@ export function ProductCustomizePage() {
         setSelectedSticker(null)
     }
 
-    // ── 필터 함수 ─────────────────────────────────────────
     const isModelSupportedByCaseType = (modelId) => {
         if (!selectedCaseType) return true
         return isCaseTypeSupported(modelId, selectedCaseType)
@@ -91,7 +124,6 @@ export function ProductCustomizePage() {
         return isCaseTypeSupported(selectedModel, caseTypeId)
     }
 
-    // ── Effects ───────────────────────────────────────────
     useEffect(() => {
         if (!selectedCaseType) return
         const ok = (brandList.find(b => b.id === selectedBrand)?.models || [])
@@ -102,21 +134,18 @@ export function ProductCustomizePage() {
         }
     }, [selectedCaseType])
 
-    // ── canAddCart ────────────────────────────────────────
     const canAddCart =
         selectedModel && selectedCaseColor && selectedCaseType && designType &&
         (designType === 'photo'
             ? (photoTab === 'upload' ? (photoFile && photoFilter) : selectedSticker)
             : (textValue.trim().length > 0 && fontColor))
 
-    // ── 진행도 ────────────────────────────────────────────
     const totalSteps = 5
     const doneSteps = [
         !!selectedModel,
         !!selectedCaseColor,
         !!selectedCaseType,
         !!designType,
-        // ✅ designType 없으면 무조건 false
         designType === 'photo'
             ? (photoTab === 'upload' ? !!(photoFile && photoFilter) : !!selectedSticker)
             : designType === 'text' ? !!(textValue.trim().length > 0 && fontColor) : false,
@@ -124,7 +153,6 @@ export function ProductCustomizePage() {
     const percent = Math.round((doneSteps / totalSteps) * 100)
     const isAllDone = doneSteps === totalSteps
 
-    // ── overflow 제어 ─────────────────────────────────────
     useEffect(() => {
         const apply = () => {
             if (window.innerWidth <= 860) { document.body.style.overflow = ''; return }
@@ -135,22 +163,22 @@ export function ProductCustomizePage() {
         return () => { window.removeEventListener('resize', apply); document.body.style.overflow = '' }
     }, [canAddCart])
 
-    // ── optionSummary ─────────────────────────────────────
     const optionSummary = [
         selectedModelLabel,
-        selectedCaseColor ? CASE_COLORS.find(c => c.hex === selectedCaseColor)?.label : null,
+        selectedCaseColor
+            ? (CASE_COLORS.find(c => c.hex.toLowerCase() === selectedCaseColor.toLowerCase())?.label || selectedCaseColor.toUpperCase())
+            : null,
         selectedCaseLabel,
         designType === 'photo'
             ? (photoTab === 'sticker' ? '스티커 커스텀' : '포토 커스텀')
             : designType === 'text' ? '텍스트 커스텀' : null,
     ].filter(Boolean).join(' / ')
 
-    // ── handleAddCart ─────────────────────────────────────
     const handleAddCart = async () => {
         if (!user) { navigate('/login'); return }
         const cartImgUrl =
-            initialDeviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
-                initialDeviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
+            deviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
+                deviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
                     '/images/custom/cart/phone-cart-go.png'
         const customContent = designType === 'text'
             ? textValue
@@ -160,7 +188,7 @@ export function ProductCustomizePage() {
             productName: '커스텀 케이스', price,
             device: selectedModelLabel || '', deviceKey: selectedModel || '',
             color: selectedCaseColor || '', imgUrl: cartImgUrl,
-            colorList: [], deviceList: [], isPhone: initialDeviceType === 'phone',
+            colorList: [], deviceList: [], isPhone: deviceType === 'phone',
             deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
             quantity: 1, isCustom: true, customMode: designType, customContent,
         })
@@ -171,13 +199,12 @@ export function ProductCustomizePage() {
 
     const previewProps = {
         selectedModel, selectedCaseType,
-        deviceType: initialDeviceType,
+        deviceType,
         designType, previewURL, photoFilter, filterStrength,
         textValue, fontColor, photoTab, selectedCaseColor,
     }
 
-    // ── 빠른 메뉴 ─────────────────────────────────────────
-    const quickMenus = QUICK_MENUS.filter(m => m.id !== initialDeviceType)
+    const quickMenus = QUICK_MENUS.filter(m => m.id !== deviceType)
 
     const QuickMenu = () => (
         <div className="custom-quick-menu">
@@ -201,7 +228,6 @@ export function ProductCustomizePage() {
         </div>
     )
 
-    // ── Render ────────────────────────────────────────────
     return (
         <section className="custom detail-page">
             <div className="detail-inner">
@@ -212,8 +238,6 @@ export function ProductCustomizePage() {
                         <div className="detail-main-image custom-preview-main" style={{ minHeight: '70vh' }}>
                             <PhonePreview {...previewProps} />
                         </div>
-
-                        {/* 게이지 바 */}
                         <div className="progress-bar-wrap">
                             <div className="progress-bar-fill" style={{ width: `${percent}%` }} />
                         </div>
@@ -221,8 +245,6 @@ export function ProductCustomizePage() {
                             COMPLETE! · 모든 단계를 완료했습니다
                         </p>
                     </div>
-
-                    {/* ✅ 데스크탑 빠른 메뉴 - 모든 단계 완료 시만 */}
                     {isAllDone && (
                         <div className="quick-menu-desktop">
                             <QuickMenu />
@@ -291,7 +313,7 @@ export function ProductCustomizePage() {
                             <div className="detail-colors">
                                 {CASE_COLORS.map(c => (
                                     <button key={c.id}
-                                        className={selectedCaseColor === c.hex ? 'active' : ''}
+                                        className={selectedCaseColor?.toLowerCase() === c.hex.toLowerCase() ? 'active' : ''}
                                         onClick={() => setSelectedCaseColor(c.hex)}>
                                         <span className="color-chip" style={{
                                             backgroundColor: c.hex,
@@ -300,6 +322,12 @@ export function ProductCustomizePage() {
                                         {c.label}
                                     </button>
                                 ))}
+                                {/* ✅ 직접 선택 - 선택 후 hex 코드로 라벨 변경 */}
+                                <ColorPickerButton
+                                    value={selectedCaseColor}
+                                    onChange={setSelectedCaseColor}
+                                    presetColors={CASE_COLORS}
+                                />
                             </div>
                         </div>
 
@@ -367,9 +395,10 @@ export function ProductCustomizePage() {
                                 showEmojiPicker={showEmojiPicker} setShowEmojiPicker={setShowEmojiPicker}
                             />
                         )}
+
                     </div>
 
-                    {/* ✅ 주문 요약 + 장바구니 - 모두 완료 시에만 표시 */}
+                    {/* 주문 요약 + 장바구니 */}
                     <div className="right-btn-wrap">
                         {canAddCart ? (
                             <>
@@ -400,7 +429,6 @@ export function ProductCustomizePage() {
                                 </button>
                             </>
                         ) : (
-                            // ✅ 미완료 시 비활성 버튼
                             <button className="buy-btn buy-btn-disabled" onClick={() => {
                                 setCartMsg('모든 옵션을 선택해주세요.')
                                 setIsPopupErr(true)
@@ -414,7 +442,6 @@ export function ProductCustomizePage() {
                         )}
                     </div>
 
-                    {/* ✅ 반응형 빠른 메뉴 - 모든 단계 완료 시만 */}
                     {isAllDone && (
                         <div className="quick-menu-mobile">
                             <QuickMenu />
@@ -445,6 +472,14 @@ export function ProductCustomizePage() {
             </div>
         </section>
     )
+}
+
+// ✅ 외부 래퍼: deviceType이 바뀌면 key가 바뀌어 내부 컴포넌트 완전 리마운트 → 모든 state 자동 초기화
+export function ProductCustomizePage() {
+    const location = useLocation()
+    const deviceType = location.state?.deviceType || 'phone'
+
+    return <ProductCustomizeContent key={deviceType} deviceType={deviceType} />
 }
 
 export default ProductCustomizePage
