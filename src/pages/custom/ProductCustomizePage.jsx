@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/useAuthStore'
 import { BRANDS, TABLET_BRANDS, LAPTOP_BRANDS, CASE_TYPES, TABLET_CASE_TYPES, LAPTOP_CASE_TYPES, CASE_COLORS } from './constants'
-import { PhonePreview } from './PhonePreview'
+import { PhonePreview, isCaseTypeSupported, BOUNCE_FILE_MAP, RING_FILE_MAP } from './PhonePreview' // ✅ 파일맵 import
 import { TextInputSection } from './TextInputSection'
 import { PhotoSection } from './PhotoSection'
 import './scss/ProductCustomizePage.scss'
@@ -59,6 +59,42 @@ export function ProductCustomizePage() {
 
     const previewURL = photoTab === 'sticker' ? selectedSticker?.src || null : photoURL
 
+    // ✅ 케이스타입 기준으로 지원되는 모델인지 체크
+    const isModelSupported = (modelId) => {
+        if (!selectedCaseType) return true // 케이스타입 미선택이면 전부 표시
+        return isCaseTypeSupported(modelId, selectedCaseType)
+    }
+
+    // ✅ 기종 선택 시 지원하지 않는 케이스타입이면 자동 해제
+    useEffect(() => {
+        if (!selectedModel || !selectedCaseType) return
+        if (!isCaseTypeSupported(selectedModel, selectedCaseType)) {
+            setSelectedCaseType(null)
+        }
+    }, [selectedModel])
+
+    // ✅ 케이스타입 선택 시 현재 선택된 기종이 지원 안 되면 자동 해제
+    useEffect(() => {
+        if (!selectedCaseType || !selectedModel) return
+        if (!isCaseTypeSupported(selectedModel, selectedCaseType)) {
+            setSelectedModel(null)
+        }
+    }, [selectedCaseType])
+
+    // ✅ 케이스타입 변경 시 현재 브랜드가 지원 안 되면 첫 번째 지원 브랜드로 자동 변경
+    useEffect(() => {
+        if (!selectedCaseType) return
+        const currentBrandModels = brandList.find(b => b.id === selectedBrand)?.models || []
+        const currentBrandSupported = currentBrandModels.some(m => isCaseTypeSupported(m.id, selectedCaseType))
+        if (!currentBrandSupported) {
+            const firstSupportedBrand = brandList.find(b =>
+                b.models.some(m => isCaseTypeSupported(m.id, selectedCaseType))
+            )
+            if (firstSupportedBrand) setSelectedBrand(firstSupportedBrand.id)
+        }
+    }, [selectedCaseType])
+
+
     const canAddCart =
         selectedModel && selectedCaseColor && selectedCaseType && designType &&
         (designType === 'photo'
@@ -79,32 +115,31 @@ export function ProductCustomizePage() {
             : designType === 'text' ? '텍스트 커스텀' : null,
     ].filter(Boolean).join(' / ')
 
-const handleAddCart = async () => {
-    if (!user) { navigate('/login'); return }
+    const handleAddCart = async () => {
+        if (!user) { navigate('/login'); return }
 
-    // ✅ deviceType별 카트 이미지 분기
-const cartImgUrl = 
-    initialDeviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
-    initialDeviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
-    '/images/custom/cart/phone-cart-go.png'  // ✅ 기본값으로 그냥 두면 됨
+        const cartImgUrl =
+            initialDeviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
+                initialDeviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
+                    '/images/custom/cart/phone-cart-go.png'
 
-    const customContent = designType === 'text'
-        ? textValue
-        : photoTab === 'sticker' ? selectedSticker?.src : photoURL
+        const customContent = designType === 'text'
+            ? textValue
+            : photoTab === 'sticker' ? selectedSticker?.src : photoURL
 
-    const result = await onAddToCart({
-        id: `CUSTOM-${Date.now()}`,
-        productName: '커스텀 케이스', price,
-        device: selectedModelLabel || '', deviceKey: selectedModel || '',
-        color: selectedCaseColor || '', imgUrl: cartImgUrl, // ✅ 여기만 변경
-        colorList: [], deviceList: [], isPhone: initialDeviceType === 'phone',
-        deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
-        quantity: 1, isCustom: true, customMode: designType, customContent,
-    })
-    if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
-    else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
-    setIsCartPopupOpen(true)
-}
+        const result = await onAddToCart({
+            id: `CUSTOM-${Date.now()}`,
+            productName: '커스텀 케이스', price,
+            device: selectedModelLabel || '', deviceKey: selectedModel || '',
+            color: selectedCaseColor || '', imgUrl: cartImgUrl,
+            colorList: [], deviceList: [], isPhone: initialDeviceType === 'phone',
+            deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
+            quantity: 1, isCustom: true, customMode: designType, customContent,
+        })
+        if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
+        else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
+        setIsCartPopupOpen(true)
+    }
 
     const previewProps = {
         selectedModel,
@@ -150,22 +185,30 @@ const cartImgUrl =
                                 {modelOpen && (
                                     <div className="model-accordion-list">
                                         <div className="model-brand-tabs">
-                                            {brandList.map(b => (
-                                                <button key={b.id} type="button"
-                                                    className={selectedBrand === b.id ? 'active' : ''}
-                                                    onClick={() => { setSelectedBrand(b.id); setSelectedModel(null) }}>
-                                                    {b.label}
-                                                </button>
-                                            ))}
+                                            {brandList
+                                                // ✅ 해당 브랜드에 지원되는 기종이 하나라도 있을 때만 표시
+                                                .filter(b =>
+                                                    b.models.some(m => isModelSupported(m.id))
+                                                )
+                                                .map(b => (
+                                                    <button key={b.id} type="button"
+                                                        className={selectedBrand === b.id ? 'active' : ''}
+                                                        onClick={() => { setSelectedBrand(b.id); setSelectedModel(null) }}>
+                                                        {b.label}
+                                                    </button>
+                                                ))}
                                         </div>
                                         <ul className="model-sub-list">
-                                            {models.map(m => (
-                                                <li key={m.id}
-                                                    className={selectedModel === m.id ? 'active' : ''}
-                                                    onClick={() => { setSelectedModel(m.id); setModelOpen(false) }}>
-                                                    {m.label}
-                                                </li>
-                                            ))}
+                                            {models
+                                                // ✅ 케이스타입 선택됐으면 지원되는 기종만 표시
+                                                .filter(m => isModelSupported(m.id))
+                                                .map(m => (
+                                                    <li key={m.id}
+                                                        className={selectedModel === m.id ? 'active' : ''}
+                                                        onClick={() => { setSelectedModel(m.id); setModelOpen(false) }}>
+                                                        {m.label}
+                                                    </li>
+                                                ))}
                                         </ul>
                                     </div>
                                 )}
@@ -203,13 +246,18 @@ const cartImgUrl =
                                 {!isNonPhone && caseTypeOpen && (
                                     <div className="model-accordion-list">
                                         <ul className="model-sub-list">
-                                            {caseTypeList.map(ct => (
-                                                <li key={ct.id}
-                                                    className={selectedCaseType === ct.id ? 'active' : ''}
-                                                    onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false) }}>
-                                                    {ct.label}
-                                                </li>
-                                            ))}
+                                            {caseTypeList
+                                                // ✅ 기종 선택됐으면 지원되는 케이스타입만 표시
+                                                .filter(ct =>
+                                                    !selectedModel || isCaseTypeSupported(selectedModel, ct.id)
+                                                )
+                                                .map(ct => (
+                                                    <li key={ct.id}
+                                                        className={selectedCaseType === ct.id ? 'active' : ''}
+                                                        onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false) }}>
+                                                        {ct.label}
+                                                    </li>
+                                                ))}
                                         </ul>
                                     </div>
                                 )}
