@@ -311,33 +311,33 @@ const RING_LAYOUT = {
     },
     'iphone17': {
         scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 30, left: 38, w: 137, h: 298, radius: 20 },
-        camera: { top: 13, left: 32, width: 125, height: 110 },
+        canvas: { top: 20, left: 34, w: 152, h: 316, radius: 27 },
+        camera: { top: 13, left: 32, width: 115, height: 100 },
     },
     'iphone16promax': {
-        scale: 1.5, bodyW: 260, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 20, left: 69, w: 140, h: 320, radius: 30 },
-        camera: { top: 22, left: 62, width: 80, height: 80 },
+        scale: 1.5, bodyW: 190, bodyH: 318, bodyRadius: 44,
+        canvas: { top: 13, left: 21, w: 148, h: 290, radius: 22 },
+        camera: { top: 8, left: 22, width: 98, height: 80 },
     },
     'iphone16': {
-        scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 43, left: 27, w: 140, h: 300, radius: 30 },
-        camera: { top: 45, left: 28, width: 73, height: 80 },
+        scale: 1.5, bodyW: 200, bodyH: 318, bodyRadius: 44,
+        canvas: { top: 17, left: 24, w: 145, h: 280, radius: 26 },
+        camera: { top: 12, left: 23, width: 90, height: 80 },
     },
     'iphone15': {
-        scale: 1.5, bodyW: 230, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 35, left: 43, w: 135, h: 300, radius: 30 },
-        camera: { top: 35, left: 42, width: 77, height: 80 },
+        scale: 1.5, bodyW: 195, bodyH: 328, bodyRadius: 44,
+        canvas: { top: 13, left: 23, w: 152, h: 302, radius: 24 },
+        camera: { top: 9, left: 21, width: 110, height: 85 },
     },
     'z6fold': {
         scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 20,
-        canvas: { top: 44, left: 58, w: 140, h: 295, radius: 10 },
-        camera: { top: 40, left: 53, width: 74, height: 120 },
+        canvas: { top: 15, left: 35, w: 162, h: 322, radius: 15 },
+        camera: { top: 10, left: 31, width: 114, height: 134 },
     },
     'z6flip': {
         scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 30,
-        canvas: { top: 193, left: 33, w: 140, h: 147, radius: 7 },
-        camera: { top: 45, left: 30, width: 56, height: 33 },
+        canvas: { top: 18, left: 25, w: 149, h: 315, radius: 9 },
+        camera: { top: 12, left: 22.8, width: 110, height: 130 },
     },
 }
 
