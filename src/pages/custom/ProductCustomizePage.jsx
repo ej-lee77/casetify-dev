@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/useAuthStore'
 import { BRANDS, TABLET_BRANDS, LAPTOP_BRANDS, CASE_TYPES, TABLET_CASE_TYPES, LAPTOP_CASE_TYPES, CASE_COLORS } from './constants'
-import { PhonePreview, isCaseTypeSupported, BOUNCE_FILE_MAP, RING_FILE_MAP } from './PhonePreview' // ✅ 파일맵 import
+import { PhonePreview, isCaseTypeSupported } from './PhonePreview'
 import { TextInputSection } from './TextInputSection'
 import { PhotoSection } from './PhotoSection'
 import './scss/ProductCustomizePage.scss'
@@ -48,8 +48,10 @@ export function ProductCustomizePage() {
     const [showEmojiPicker, setShowEmojiPicker] = useState(false)
 
     const price = 89000
+
+    // 모든 브랜드에서 선택된 모델 라벨 찾기
+    const selectedModelLabel = brandList.flatMap(b => b.models).find(m => m.id === selectedModel)?.label
     const models = brandList.find(b => b.id === selectedBrand)?.models || []
-    const selectedModelLabel = models.find(m => m.id === selectedModel)?.label
     const selectedCaseLabel = caseTypeList.find(c => c.id === selectedCaseType)?.label
     const deviceTypeLabel = {
         phone: 'Phone Custom Case',
@@ -59,41 +61,30 @@ export function ProductCustomizePage() {
 
     const previewURL = photoTab === 'sticker' ? selectedSticker?.src || null : photoURL
 
-    // ✅ 케이스타입 기준으로 지원되는 모델인지 체크
-    const isModelSupported = (modelId) => {
-        if (!selectedCaseType) return true // 케이스타입 미선택이면 전부 표시
+    // ✅ 케이스타입 기준 기종 필터 (케이스타입 선택 시 적용)
+    const isModelSupportedByCaseType = (modelId) => {
+        if (!selectedCaseType) return true
         return isCaseTypeSupported(modelId, selectedCaseType)
     }
 
-    // ✅ 기종 선택 시 지원하지 않는 케이스타입이면 자동 해제
-    useEffect(() => {
-        if (!selectedModel || !selectedCaseType) return
-        if (!isCaseTypeSupported(selectedModel, selectedCaseType)) {
-            setSelectedCaseType(null)
-        }
-    }, [selectedModel])
+    // ✅ 기종 기준 케이스타입 필터 (기종 선택 시 적용)
+    const isCaseTypeSupportedByModel = (caseTypeId) => {
+        if (!selectedModel) return true
+        return isCaseTypeSupported(selectedModel, caseTypeId)
+    }
 
-    // ✅ 케이스타입 선택 시 현재 선택된 기종이 지원 안 되면 자동 해제
-    useEffect(() => {
-        if (!selectedCaseType || !selectedModel) return
-        if (!isCaseTypeSupported(selectedModel, selectedCaseType)) {
-            setSelectedModel(null)
-        }
-    }, [selectedCaseType])
-
-    // ✅ 케이스타입 변경 시 현재 브랜드가 지원 안 되면 첫 번째 지원 브랜드로 자동 변경
+    // ✅ 케이스타입 선택됐을 때 현재 브랜드에 지원 기종 없으면 첫 번째 지원 브랜드로 이동
     useEffect(() => {
         if (!selectedCaseType) return
-        const currentBrandModels = brandList.find(b => b.id === selectedBrand)?.models || []
-        const currentBrandSupported = currentBrandModels.some(m => isCaseTypeSupported(m.id, selectedCaseType))
-        if (!currentBrandSupported) {
-            const firstSupportedBrand = brandList.find(b =>
+        const currentBrandHasSupported = (brandList.find(b => b.id === selectedBrand)?.models || [])
+            .some(m => isCaseTypeSupported(m.id, selectedCaseType))
+        if (!currentBrandHasSupported) {
+            const firstSupported = brandList.find(b =>
                 b.models.some(m => isCaseTypeSupported(m.id, selectedCaseType))
             )
-            if (firstSupportedBrand) setSelectedBrand(firstSupportedBrand.id)
+            if (firstSupported) setSelectedBrand(firstSupported.id)
         }
     }, [selectedCaseType])
-
 
     const canAddCart =
         selectedModel && selectedCaseColor && selectedCaseType && designType &&
@@ -117,16 +108,13 @@ export function ProductCustomizePage() {
 
     const handleAddCart = async () => {
         if (!user) { navigate('/login'); return }
-
         const cartImgUrl =
             initialDeviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
                 initialDeviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
                     '/images/custom/cart/phone-cart-go.png'
-
         const customContent = designType === 'text'
             ? textValue
             : photoTab === 'sticker' ? selectedSticker?.src : photoURL
-
         const result = await onAddToCart({
             id: `CUSTOM-${Date.now()}`,
             productName: '커스텀 케이스', price,
@@ -142,8 +130,7 @@ export function ProductCustomizePage() {
     }
 
     const previewProps = {
-        selectedModel,
-        selectedCaseType,
+        selectedModel, selectedCaseType,
         deviceType: initialDeviceType,
         designType, previewURL, photoFilter, filterStrength,
         textValue, fontColor, photoTab, selectedCaseColor,
@@ -184,12 +171,22 @@ export function ProductCustomizePage() {
                                 </button>
                                 {modelOpen && (
                                     <div className="model-accordion-list">
+                                        {/* ✅ 기종 다시 고르기 버튼 */}
+                                        {selectedModel && (
+                                            <button
+                                                type="button"
+                                                className="reset-btn"
+                                                onClick={() => {
+                                                    setSelectedModel(null)
+                                                    setModelOpen(false)
+                                                }}>
+                                                기종 다시 고르기
+                                            </button>
+                                        )}
+                                        {/* ✅ 케이스타입 선택됐으면 지원 브랜드만 표시 */}
                                         <div className="model-brand-tabs">
                                             {brandList
-                                                // ✅ 해당 브랜드에 지원되는 기종이 하나라도 있을 때만 표시
-                                                .filter(b =>
-                                                    b.models.some(m => isModelSupported(m.id))
-                                                )
+                                                .filter(b => b.models.some(m => isModelSupportedByCaseType(m.id)))
                                                 .map(b => (
                                                     <button key={b.id} type="button"
                                                         className={selectedBrand === b.id ? 'active' : ''}
@@ -198,10 +195,10 @@ export function ProductCustomizePage() {
                                                     </button>
                                                 ))}
                                         </div>
+                                        {/* ✅ 케이스타입 선택됐으면 지원 기종만 표시 */}
                                         <ul className="model-sub-list">
                                             {models
-                                                // ✅ 케이스타입 선택됐으면 지원되는 기종만 표시
-                                                .filter(m => isModelSupported(m.id))
+                                                .filter(m => isModelSupportedByCaseType(m.id))
                                                 .map(m => (
                                                     <li key={m.id}
                                                         className={selectedModel === m.id ? 'active' : ''}
@@ -245,12 +242,22 @@ export function ProductCustomizePage() {
                                 </button>
                                 {!isNonPhone && caseTypeOpen && (
                                     <div className="model-accordion-list">
+                                        {/* ✅ 케이스타입 다시 고르기 버튼 */}
+                                        {selectedCaseType && (
+                                            <button
+                                                type="button"
+                                                className="reset-btn"
+                                                onClick={() => {
+                                                    setSelectedCaseType(null)
+                                                    setCaseTypeOpen(false)
+                                                }}>
+                                                케이스타입 다시 고르기
+                                            </button>
+                                        )}
                                         <ul className="model-sub-list">
                                             {caseTypeList
-                                                // ✅ 기종 선택됐으면 지원되는 케이스타입만 표시
-                                                .filter(ct =>
-                                                    !selectedModel || isCaseTypeSupported(selectedModel, ct.id)
-                                                )
+                                                // ✅ 기종 선택됐으면 지원 케이스타입만 표시
+                                                .filter(ct => isCaseTypeSupportedByModel(ct.id))
                                                 .map(ct => (
                                                     <li key={ct.id}
                                                         className={selectedCaseType === ct.id ? 'active' : ''}
