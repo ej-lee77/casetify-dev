@@ -81,61 +81,27 @@
         }
     }
 
+    // ✅ 왼쪽 sticky
     .detail-left {
         flex: 1;
         position: sticky;
         top: 0;
+        align-self: flex-start;
     }
 
     .detail-image-wrap {
         position: relative;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
 
         .detail-main-image {
             width: 100%;
             min-width: 300px;
-            min-height: 300px;
             background: #f7f7f7;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            img {
-                width: 100%;
-                display: block;
-                object-fit: cover;
-            }
-        }
-
-        .image-wish-btn {
-            position: absolute;
-            bottom: 30px;
-            left: 35px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(6px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-
-            img {
-                width: 40px;
-                height: 40px;
-                object-fit: contain;
-                transition: filter 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-
-            &:hover img,
-            &.wished img {
-                filter: invert(27%) sepia(90%) saturate(2000%) hue-rotate(330deg) brightness(100%);
-                transform: scale(1.1);
-            }
+            overflow: hidden;
         }
     }
 
@@ -176,13 +142,13 @@
         align-items: center;
         justify-content: center;
         gap: 6px;
-    }
 
-    .photo-tab-btn.active {
-        background: #fff;
-        color: #111;
-        font-weight: 600;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        &.active {
+            background: #fff;
+            color: #111;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
     }
 
     .model-accordion {
@@ -213,6 +179,28 @@
             max-height: 520px;
             overflow-y: auto;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+
+            .reset-btn {
+                display: block;
+                width: calc(100% - 24px);
+                margin: 12px auto 0;
+                padding: 10px 0;
+                background: none;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 12px;
+                color: #999;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.2s;
+                letter-spacing: 0.3px;
+
+                &:hover {
+                    border-color: #111;
+                    color: #111;
+                    background: #f7f7f7;
+                }
+            }
 
             .model-brand-tabs {
                 display: flex;
@@ -293,16 +281,17 @@
         }
     }
 
+    // ✅ 오른쪽 - sticky + 내부 스크롤로 장바구니까지 표시
     .detail-right-custom {
         width: 420px;
         flex-shrink: 0;
         position: sticky;
-        top: 80px;
-        max-height: calc(80vh - 80px);
+        top: 0;
+        max-height: 100vh;
         overflow-y: auto;
         overscroll-behavior: contain;
         padding-right: 4px;
-        padding-bottom: 40px;
+        padding-bottom: 60px;
 
         &::-webkit-scrollbar {
             width: 4px;
@@ -315,27 +304,6 @@
         &::-webkit-scrollbar-thumb {
             background: #ddd;
             border-radius: 4px;
-        }
-    }
-
-    // ✅ 다시 고르기 버튼
-    .reset-btn {
-        display: block;
-        width: 100%;
-        padding: 8px 0;
-        margin-bottom: 12px;
-        background: none;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        font-size: 12px;
-        color: #888;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.2s;
-
-        &:hover {
-            color: #fff;
-            background-color: #111;
         }
     }
 
@@ -518,17 +486,37 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
+        transition: background 0.2s;
+    }
+
+    // ✅ 비활성 버튼
+    .buy-btn-disabled {
+        background: #ccc;
+        cursor: not-allowed;
+
+        &:hover {
+            background: #ccc;
+        }
     }
 
     // ── 반응형 ────────────────────────────────────────────
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
+        .detail-inner {
+            gap: 30px;
+        }
+
+        .detail-right-custom {
+            width: 360px;
+        }
+    }
+
+    @media (max-width: 860px) {
         .detail-inner {
             flex-direction: column;
             gap: 0;
             max-width: calc(100% - 32px);
         }
 
-        // 프리뷰 - sticky 해제, 전체 스크롤에 포함
         .detail-left {
             position: static;
             width: 100%;
@@ -539,31 +527,168 @@
             margin-bottom: 24px;
         }
 
-        // 오른쪽 옵션 - sticky/내부스크롤 해제, 자연스럽게 아래로 이어짐
         .detail-right-custom {
             width: 100%;
             position: static;
             max-height: none;
             overflow-y: visible;
             padding-right: 0;
-            padding-bottom: 100px; // 장바구니 버튼 여백
+            padding-bottom: 60px;
         }
 
+        .detail-title {
+            font-size: 26px;
+        }
+
+        .detail-price {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .popup-overlay .popup-wrap {
+            width: calc(100% - 40px);
+            height: auto;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
         .detail-title {
             font-size: 22px;
         }
 
         .detail-price {
             font-size: 20px;
-            margin-bottom: 20px;
+        }
+    }
+}
+
+// ── 진행도 게이지 ─────────────────────────────────────────
+.progress-bar-wrap {
+    width: 100%;
+    height: 3px;
+    background: #eee;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #111;
+    border-radius: 99px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-complete-msg {
+    font-size: 11px;
+    color: #111;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    height: 0;
+    overflow: hidden;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+    }
+}
+
+// ── 빠른 메뉴 ─────────────────────────────────────────────
+.custom-quick-menu {
+    margin-top: 24px;
+
+    .quick-menu-label {
+        font-size: 11px;
+        color: #aaa;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .quick-menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .quick-menu-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        border: 1px solid #ebebeb;
+        border-radius: 12px;
+        background: #fff;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: left;
+        width: 100%;
+
+        &:hover {
+            border-color: #111;
+            background: #fafafa;
+
+            .quick-menu-arrow {
+                transform: translateX(4px);
+            }
         }
 
-        // 팝업 모바일 대응
-        .popup-overlay .popup-wrap {
-            width: calc(100% - 40px);
-            height: auto;
-            padding: 20px;
+        .quick-menu-icon {
+            font-size: 20px;
+            line-height: 1;
+            flex-shrink: 0;
         }
+
+        .quick-menu-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+
+            strong {
+                font-size: 13px;
+                font-weight: 600;
+                color: #111;
+            }
+
+            small {
+                font-size: 11px;
+                color: #aaa;
+            }
+        }
+
+        .quick-menu-arrow {
+            font-size: 14px;
+            color: #bbb;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+        }
+    }
+}
+
+// ✅ 데스크탑: 왼쪽 하단 / 모바일: 숨김
+.quick-menu-desktop {
+    display: block;
+
+    @media (max-width: 860px) {
+        display: none;
+    }
+}
+
+// ✅ 모바일: 오른쪽 하단 / 데스크탑: 숨김
+.quick-menu-mobile {
+    display: none;
+    margin-top: 32px;
+
+    @media (max-width: 860px) {
+        display: block;
     }
 }
 
@@ -573,13 +698,89 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    min-height: 560px !important;
-    padding: 40px 20px !important;
-    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 360px;
 
-    @media (max-width: 768px) {
-        min-height: 380px !important;
-        padding: 24px 16px !important;
+    @media (max-width: 860px) {
+        min-height: 460px !important;
+        padding: 24px 16px;
+        overflow-x: auto;
+    }
+}
+
+// ── 기기 타입별 Placeholder ───────────────────────────────
+.device-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// ✅ 랩탑 placeholder
+.laptop-placeholder {
+    gap: 0;
+
+    .lp-screen {
+        width: 280px;
+        height: 180px;
+        background: var(--case-color, #111);
+        opacity: 0.25;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .custom-phone-placeholder {
+            opacity: 1;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .lp-hinge {
+        width: 300px;
+        height: 6px;
+        background: #ccc;
+        border-radius: 0 0 4px 4px;
+    }
+
+    .lp-base {
+        width: 260px;
+        height: 14px;
+        background: #ddd;
+        border-radius: 0 0 8px 8px;
+        margin-top: 1px;
+    }
+}
+
+// ✅ 태블릿 placeholder
+.tablet-placeholder {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    .tb-camera {
+        width: 8px;
+        height: 8px;
+        background: #bbb;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .tb-screen {
+        width: 200px;
+        height: 270px;
+        background: var(--case-color, #111);
+        opacity: 0.25;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .custom-phone-placeholder {
+            opacity: 1;
+            color: rgba(255, 255, 255, 0.5);
+        }
     }
 }
 
@@ -859,118 +1060,76 @@
         font-size: 0.72rem;
         color: #aaa;
     }
+}
 
-    .photo-tab-wrap {
+.photo-tab-wrap {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    .photo-tab-btn {
+        flex: 1;
+        padding: 10px 14px;
+        border: 1.5px solid #ddd;
+        border-radius: 8px;
+        background: #fafafa;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: #555;
+        cursor: pointer;
+        transition: all 0.15s;
+
+        &:hover {
+            border-color: #bbb;
+            color: #111;
+        }
+
+        &.active {
+            border-color: #111;
+            background: #111;
+            color: #fff;
+        }
+    }
+}
+
+.sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    .sticker-card {
+        aspect-ratio: 1;
+        border: 2px solid #eee;
+        border-radius: 12px;
+        background: #fafafa;
         display: flex;
-        gap: 8px;
-        margin-bottom: 16px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.15s;
+        padding: 8px;
 
-        .photo-tab-btn {
-            flex: 1;
-            padding: 10px 14px;
-            border: 1.5px solid #ddd;
-            border-radius: 8px;
-            background: #fafafa;
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: #555;
-            cursor: pointer;
-            transition: all 0.15s;
-
-            &:hover {
-                border-color: #bbb;
-                color: #111;
-            }
-
-            &.active {
-                border-color: #111;
-                background: #111;
-                color: #fff;
-            }
-        }
-    }
-
-    .sticker-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-
-        .sticker-card {
-            aspect-ratio: 1;
-            border: 2px solid #eee;
-            border-radius: 12px;
-            background: #fafafa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.15s;
-            padding: 8px;
-
-            &:hover {
-                border-color: #bbb;
-                background: #f0f0f0;
-            }
-
-            &.active {
-                border-color: #111;
-                background: #f5f5f5;
-            }
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-        }
-    }
-
-    @media (max-width: 768px) {
-        body {
-            overflow: auto !important;
+        &:hover {
+            border-color: #bbb;
+            background: #f0f0f0;
         }
 
-        .detail-inner {
-            flex-direction: column;
-            gap: 0;
-            max-width: calc(100% - 32px);
+        &.active {
+            border-color: #111;
+            background: #f5f5f5;
         }
 
-        .detail-left {
-            position: static;
+        img {
             width: 100%;
-            flex: none;
-        }
-
-        .detail-image-wrap {
-            margin-bottom: 24px;
-        }
-
-        .detail-right-custom {
-            width: 100%;
-            position: static;
-            max-height: none;
-            overflow-y: visible;
-            padding-right: 0;
-            padding-bottom: 100px;
-        }
-
-        .detail-title {
-            font-size: 22px;
-        }
-
-        .detail-price {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .popup-overlay .popup-wrap {
-            width: calc(100% - 40px);
-            height: auto;
-            padding: 20px;
+            height: 100%;
+            object-fit: contain;
         }
     }
+}
 
-
+@media (max-width: 768px) {
+    body {
+        overflow: auto !important;
+    }
 }

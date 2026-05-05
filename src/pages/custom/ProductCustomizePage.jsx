@@ -7,6 +7,13 @@ import { TextInputSection } from './TextInputSection'
 import { PhotoSection } from './PhotoSection'
 import './scss/ProductCustomizePage.scss'
 
+// ✅ 빠른 메뉴 데이터
+const QUICK_MENUS = [
+    { id: 'phone', label: 'Phone Case', sub: '폰 케이스 커스텀', icon: '📱' },
+    { id: 'tablet', label: 'Tablet Case', sub: '태블릿 케이스 커스텀', icon: '⬛' },
+    { id: 'laptop', label: 'MacBook Case', sub: '맥북 케이스 커스텀', icon: '💻' },
+]
+
 export function ProductCustomizePage() {
     const location = useLocation()
     const navigate = useNavigate()
@@ -49,63 +56,96 @@ export function ProductCustomizePage() {
 
     const price = 89000
 
-    // 모든 브랜드에서 선택된 모델 라벨 찾기
     const selectedModelLabel = brandList.flatMap(b => b.models).find(m => m.id === selectedModel)?.label
     const models = brandList.find(b => b.id === selectedBrand)?.models || []
     const selectedCaseLabel = caseTypeList.find(c => c.id === selectedCaseType)?.label
     const deviceTypeLabel = {
         phone: 'Phone Custom Case',
         laptop: 'MacBook Custom Case',
-        tablet: 'Tablet Custom Case'
+        tablet: 'Tablet Custom Case',
     }[initialDeviceType] || ''
 
     const previewURL = photoTab === 'sticker' ? selectedSticker?.src || null : photoURL
 
-    // ✅ 케이스타입 기준 기종 필터 (케이스타입 선택 시 적용)
+    // ✅ 커스텀 디자인 상태 초기화
+    const resetDesign = () => {
+        setDesignType(null)
+        setPhotoFile(null)
+        setPhotoURL(null)
+        setPhotoFilter(null)
+        setFilterStrength(50)
+        setTextValue('')
+        setFontColor(null)
+        setPhotoTab('upload')
+        setSelectedSticker(null)
+    }
+
+    // ── 필터 함수 ─────────────────────────────────────────
     const isModelSupportedByCaseType = (modelId) => {
         if (!selectedCaseType) return true
         return isCaseTypeSupported(modelId, selectedCaseType)
     }
 
-    // ✅ 기종 기준 케이스타입 필터 (기종 선택 시 적용)
     const isCaseTypeSupportedByModel = (caseTypeId) => {
         if (!selectedModel) return true
         return isCaseTypeSupported(selectedModel, caseTypeId)
     }
 
-    // ✅ 케이스타입 선택됐을 때 현재 브랜드에 지원 기종 없으면 첫 번째 지원 브랜드로 이동
+    // ── Effects ───────────────────────────────────────────
     useEffect(() => {
         if (!selectedCaseType) return
-        const currentBrandHasSupported = (brandList.find(b => b.id === selectedBrand)?.models || [])
+        const ok = (brandList.find(b => b.id === selectedBrand)?.models || [])
             .some(m => isCaseTypeSupported(m.id, selectedCaseType))
-        if (!currentBrandHasSupported) {
-            const firstSupported = brandList.find(b =>
-                b.models.some(m => isCaseTypeSupported(m.id, selectedCaseType))
-            )
-            if (firstSupported) setSelectedBrand(firstSupported.id)
+        if (!ok) {
+            const first = brandList.find(b => b.models.some(m => isCaseTypeSupported(m.id, selectedCaseType)))
+            if (first) setSelectedBrand(first.id)
         }
     }, [selectedCaseType])
 
+    // ── canAddCart ────────────────────────────────────────
     const canAddCart =
         selectedModel && selectedCaseColor && selectedCaseType && designType &&
         (designType === 'photo'
             ? (photoTab === 'upload' ? (photoFile && photoFilter) : selectedSticker)
             : (textValue.trim().length > 0 && fontColor))
 
+    // ── 진행도 ────────────────────────────────────────────
+    const totalSteps = 5
+    const doneSteps = [
+        !!selectedModel,
+        !!selectedCaseColor,
+        !!selectedCaseType,
+        !!designType,
+        // ✅ designType 없으면 무조건 false
+        designType === 'photo'
+            ? (photoTab === 'upload' ? !!(photoFile && photoFilter) : !!selectedSticker)
+            : designType === 'text' ? !!(textValue.trim().length > 0 && fontColor) : false,
+    ].filter(Boolean).length
+    const percent = Math.round((doneSteps / totalSteps) * 100)
+    const isAllDone = doneSteps === totalSteps
+
+    // ── overflow 제어 ─────────────────────────────────────
     useEffect(() => {
-        if (window.innerWidth <= 768) return
-        document.body.style.overflow = !!canAddCart ? '' : 'hidden'
-        return () => { document.body.style.overflow = '' }
+        const apply = () => {
+            if (window.innerWidth <= 860) { document.body.style.overflow = ''; return }
+            document.body.style.overflow = canAddCart ? '' : 'hidden'
+        }
+        apply()
+        window.addEventListener('resize', apply)
+        return () => { window.removeEventListener('resize', apply); document.body.style.overflow = '' }
     }, [canAddCart])
 
+    // ── optionSummary ─────────────────────────────────────
     const optionSummary = [
         selectedModelLabel,
         selectedCaseColor ? CASE_COLORS.find(c => c.hex === selectedCaseColor)?.label : null,
         selectedCaseLabel,
-        designType === 'photo' ? (photoTab === 'sticker' ? '스티커 커스텀' : '포토 커스텀')
+        designType === 'photo'
+            ? (photoTab === 'sticker' ? '스티커 커스텀' : '포토 커스텀')
             : designType === 'text' ? '텍스트 커스텀' : null,
     ].filter(Boolean).join(' / ')
 
+    // ── handleAddCart ─────────────────────────────────────
     const handleAddCart = async () => {
         if (!user) { navigate('/login'); return }
         const cartImgUrl =
@@ -136,6 +176,32 @@ export function ProductCustomizePage() {
         textValue, fontColor, photoTab, selectedCaseColor,
     }
 
+    // ── 빠른 메뉴 ─────────────────────────────────────────
+    const quickMenus = QUICK_MENUS.filter(m => m.id !== initialDeviceType)
+
+    const QuickMenu = () => (
+        <div className="custom-quick-menu">
+            <p className="quick-menu-label">다른 커스텀 하러가기</p>
+            <div className="quick-menu-list">
+                {quickMenus.map(menu => (
+                    <button
+                        key={menu.id}
+                        className="quick-menu-item"
+                        onClick={() => navigate('/custom/studio', { state: { deviceType: menu.id } })}
+                    >
+                        <span className="quick-menu-icon">{menu.icon}</span>
+                        <span className="quick-menu-text">
+                            <strong>{menu.label}</strong>
+                            <small>{menu.sub}</small>
+                        </span>
+                        <span className="quick-menu-arrow">→</span>
+                    </button>
+                ))}
+            </div>
+        </div>
+    )
+
+    // ── Render ────────────────────────────────────────────
     return (
         <section className="custom detail-page">
             <div className="detail-inner">
@@ -143,10 +209,25 @@ export function ProductCustomizePage() {
                 {/* 왼쪽: 프리뷰 */}
                 <div className="detail-left">
                     <div className="detail-image-wrap">
-                        <div className="detail-main-image custom-preview-main">
+                        <div className="detail-main-image custom-preview-main" style={{ minHeight: '70vh' }}>
                             <PhonePreview {...previewProps} />
                         </div>
+
+                        {/* 게이지 바 */}
+                        <div className="progress-bar-wrap">
+                            <div className="progress-bar-fill" style={{ width: `${percent}%` }} />
+                        </div>
+                        <p className={`progress-complete-msg ${isAllDone ? 'visible' : ''}`}>
+                            COMPLETE! · 모든 단계를 완료했습니다
+                        </p>
                     </div>
+
+                    {/* ✅ 데스크탑 빠른 메뉴 - 모든 단계 완료 시만 */}
+                    {isAllDone && (
+                        <div className="quick-menu-desktop">
+                            <QuickMenu />
+                        </div>
+                    )}
                 </div>
 
                 {/* 오른쪽: 옵션 */}
@@ -171,19 +252,12 @@ export function ProductCustomizePage() {
                                 </button>
                                 {modelOpen && (
                                     <div className="model-accordion-list">
-                                        {/* ✅ 기종 다시 고르기 버튼 */}
                                         {selectedModel && (
-                                            <button
-                                                type="button"
-                                                className="reset-btn"
-                                                onClick={() => {
-                                                    setSelectedModel(null)
-                                                    setModelOpen(false)
-                                                }}>
+                                            <button type="button" className="reset-btn"
+                                                onClick={() => { setSelectedModel(null); setModelOpen(false) }}>
                                                 기종 다시 고르기
                                             </button>
                                         )}
-                                        {/* ✅ 케이스타입 선택됐으면 지원 브랜드만 표시 */}
                                         <div className="model-brand-tabs">
                                             {brandList
                                                 .filter(b => b.models.some(m => isModelSupportedByCaseType(m.id)))
@@ -195,14 +269,13 @@ export function ProductCustomizePage() {
                                                     </button>
                                                 ))}
                                         </div>
-                                        {/* ✅ 케이스타입 선택됐으면 지원 기종만 표시 */}
                                         <ul className="model-sub-list">
                                             {models
                                                 .filter(m => isModelSupportedByCaseType(m.id))
                                                 .map(m => (
                                                     <li key={m.id}
                                                         className={selectedModel === m.id ? 'active' : ''}
-                                                        onClick={() => { setSelectedModel(m.id); setModelOpen(false) }}>
+                                                        onClick={() => { setSelectedModel(m.id); setModelOpen(false); resetDesign() }}>
                                                         {m.label}
                                                     </li>
                                                 ))}
@@ -222,7 +295,7 @@ export function ProductCustomizePage() {
                                         onClick={() => setSelectedCaseColor(c.hex)}>
                                         <span className="color-chip" style={{
                                             backgroundColor: c.hex,
-                                            border: c.id === 'white' ? '1px solid #ddd' : 'none'
+                                            border: c.id === 'white' ? '1px solid #ddd' : 'none',
                                         }} />
                                         {c.label}
                                     </button>
@@ -242,26 +315,19 @@ export function ProductCustomizePage() {
                                 </button>
                                 {!isNonPhone && caseTypeOpen && (
                                     <div className="model-accordion-list">
-                                        {/* ✅ 케이스타입 다시 고르기 버튼 */}
                                         {selectedCaseType && (
-                                            <button
-                                                type="button"
-                                                className="reset-btn"
-                                                onClick={() => {
-                                                    setSelectedCaseType(null)
-                                                    setCaseTypeOpen(false)
-                                                }}>
+                                            <button type="button" className="reset-btn"
+                                                onClick={() => { setSelectedCaseType(null); setCaseTypeOpen(false) }}>
                                                 케이스타입 다시 고르기
                                             </button>
                                         )}
                                         <ul className="model-sub-list">
                                             {caseTypeList
-                                                // ✅ 기종 선택됐으면 지원 케이스타입만 표시
                                                 .filter(ct => isCaseTypeSupportedByModel(ct.id))
                                                 .map(ct => (
                                                     <li key={ct.id}
                                                         className={selectedCaseType === ct.id ? 'active' : ''}
-                                                        onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false) }}>
+                                                        onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false); resetDesign() }}>
                                                         {ct.label}
                                                     </li>
                                                 ))}
@@ -303,42 +369,57 @@ export function ProductCustomizePage() {
                         )}
                     </div>
 
-                    {/* 주문 요약 + 장바구니 */}
+                    {/* ✅ 주문 요약 + 장바구니 - 모두 완료 시에만 표시 */}
                     <div className="right-btn-wrap">
-                        {canAddCart && (
-                            <div className="order-result">
-                                <hr className="left-line" />
-                                <div className="order-result-row">
-                                    <span className="order-option-name">
-                                        커스텀 케이스
-                                        {optionSummary && <em className="order-option-detail"> / {optionSummary}</em>}
-                                    </span>
-                                    <div className="order-quantity">
-                                        <button type="button">−</button>
-                                        <span>1</span>
-                                        <button type="button">+</button>
+                        {canAddCart ? (
+                            <>
+                                <div className="order-result">
+                                    <hr className="left-line" />
+                                    <div className="order-result-row">
+                                        <span className="order-option-name">
+                                            커스텀 케이스
+                                            {optionSummary && <em className="order-option-detail"> / {optionSummary}</em>}
+                                        </span>
+                                        <div className="order-quantity">
+                                            <button type="button">−</button>
+                                            <span>1</span>
+                                            <button type="button">+</button>
+                                        </div>
+                                        <span className="order-row-price">{price.toLocaleString()}원</span>
                                     </div>
-                                    <span className="order-row-price">{price.toLocaleString()}원</span>
+                                    <div className="order-total">
+                                        <span>총 상품금액 (수량 1개)</span>
+                                        <strong>{price.toLocaleString()}원</strong>
+                                    </div>
                                 </div>
-                                <div className="order-total">
-                                    <span>총 상품금액 (수량 1개)</span>
-                                    <strong>{price.toLocaleString()}원</strong>
-                                </div>
-                            </div>
-                        )}
-                        <button className="buy-btn" onClick={() => {
-                            if (!canAddCart) {
+                                <button className="buy-btn" onClick={handleAddCart}>
+                                    <span className="icon">
+                                        <img src="/images/icon/btn_shopping-cart.svg" alt="" />
+                                    </span>
+                                    장바구니에 담기
+                                </button>
+                            </>
+                        ) : (
+                            // ✅ 미완료 시 비활성 버튼
+                            <button className="buy-btn buy-btn-disabled" onClick={() => {
                                 setCartMsg('모든 옵션을 선택해주세요.')
-                                setIsPopupErr(true); setIsCartPopupOpen(true); return
-                            }
-                            handleAddCart()
-                        }}>
-                            <span className="icon">
-                                <img src="/images/icon/btn_shopping-cart.svg" alt="" />
-                            </span>
-                            장바구니에 담기
-                        </button>
+                                setIsPopupErr(true)
+                                setIsCartPopupOpen(true)
+                            }}>
+                                <span className="icon">
+                                    <img src="/images/icon/btn_shopping-cart.svg" alt="" />
+                                </span>
+                                장바구니에 담기
+                            </button>
+                        )}
                     </div>
+
+                    {/* ✅ 반응형 빠른 메뉴 - 모든 단계 완료 시만 */}
+                    {isAllDone && (
+                        <div className="quick-menu-mobile">
+                            <QuickMenu />
+                        </div>
+                    )}
                 </div>
 
                 {/* 팝업 */}

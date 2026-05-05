@@ -37,8 +37,6 @@ const CAMERA_FILE_OVERRIDE = {
 }
 
 // ── bounce 파일명 ─────────────────────────────────
-// ✅ 실제 파일명 그대로 입력하세요 (확장자 제외)
-// null = 해당 기종 이미지 없음 → 케이스타입 메뉴에서 자동 숨김
 export const BOUNCE_FILE_MAP = {
     'iphone17promax': '17pro-bouce',
     'iphone17pro': '17pro-bouce',
@@ -46,7 +44,7 @@ export const BOUNCE_FILE_MAP = {
     'iphone16promax': '16pro-bouce',
     'iphone16': 'iphone16-bouce',
     'iphone15': 'iphone15-bouce',
-    'iphone15promax': '15pro-bouce',   // ← 15pro가 있다면
+    'iphone15promax': '15pro-bouce',
     'iphone14plus': null,
     'iphone13promax': null,
     'iphoneMini': null,
@@ -62,15 +60,13 @@ export const BOUNCE_FILE_MAP = {
 }
 
 // ── ring 파일명 ───────────────────────────────────
-// ✅ 실제 파일명 그대로 입력하세요 (확장자 제외)
-// null = 해당 기종 이미지 없음 → 케이스타입 메뉴에서 자동 숨김
 export const RING_FILE_MAP = {
-    'iphone17promax': '17pro-ring',        // 17pro-ring.png
-    'iphone17pro': '17pro-ring',        // 17pro-ring.png
-    'iphone17': 'iphone17-ring',     // iphone17-ring.png
-    'iphone16promax': '16pro-ring',        // 16pro-ring.png
-    'iphone16': 'iphone16-ring',     // iphone16-ring.png
-    'iphone15': 'iphone15-ring',     // iphone15-ring.png
+    'iphone17promax': '17pro-ring',
+    'iphone17pro': '17pro-ring',
+    'iphone17': 'iphone17-ring',
+    'iphone16promax': '16pro-ring',
+    'iphone16': 'iphone16-ring',
+    'iphone15': 'iphone15-ring',
     'iphone14plus': null,
     'iphone13promax': null,
     'iphoneMini': null,
@@ -78,8 +74,8 @@ export const RING_FILE_MAP = {
     's25plus': null,
     's25': null,
     's24': null,
-    'z6fold': '26plus-ring',       // 26plus-ring.png
-    'z6flip': '26-ring',           // 26-ring.png
+    'z6fold': '26plus-ring',
+    'z6flip': '26-ring',
     'pixel9pro': null,
     'pixel9': null,
     'pixel8pro': null,
@@ -268,57 +264,55 @@ const MODEL_LAYOUT = {
 }
 
 // ── bounce 레이아웃 ───────────────────────────────
-// ✅ canvas/camera 값을 각 기종 bounce 이미지에 맞게 조절하세요
 const BOUNCE_LAYOUT = {
     'iphone17promax': {
-        scale: 1.5, bodyW: 280, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 30, left: 60, w: 140, h: 299, radius: 20 },
-        camera: { top: 32, left: 55, width: 150, height: 90 },
+        scale: 1.5, bodyW: 240, bodyH: 358, bodyRadius: 44,
+        canvas: { top: 30, left: 38, w: 160, h: 299, radius: 20 },
+        camera: { top: 32, left: 35, width: 170, height: 110 },
     },
     'iphone17pro': {
-        scale: 1.5, bodyW: 250, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 33, left: 49, w: 140, h: 300, radius: 30 },
-        camera: { top: 30, left: 43, width: 150, height: 100 },
+        scale: 1.5, bodyW: 240, bodyH: 358, bodyRadius: 44,
+        canvas: { top: 33, left: 39, w: 160, h: 300, radius: 30 },
+        camera: { top: 32, left: 34, width: 170, height: 110 },
     },
     'iphone17': {
         scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 30, left: 38, w: 137, h: 298, radius: 20 },
-        camera: { top: 27, left: 35, width: 70, height: 75 },
+        canvas: { top: 30, left: 43, w: 132, h: 298, radius: 20 },
+        camera: { top: 30, left: 38, width: 80, height: 90 },
     },
     'iphone16promax': {
-        scale: 1.5, bodyW: 260, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 20, left: 69, w: 140, h: 320, radius: 30 },
-        camera: { top: 22, left: 62, width: 80, height: 80 },
+        scale: 1.5, bodyW: 240, bodyH: 358, bodyRadius: 44,
+        canvas: { top: 28, left: 37, w: 159.7, h: 308, radius: 30 },
+        camera: { top: 27, left: 33, width: 90, height: 90 },
     },
     'iphone16': {
-        scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 43, left: 27, w: 140, h: 300, radius: 30 },
-        camera: { top: 45, left: 28, width: 73, height: 80 },
+        scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 44,
+        canvas: { top: 24, left: 34, w: 152, h: 312, radius: 26 },
+        camera: { top: 25, left: 34, width: 83, height: 90 },
     },
     'iphone15': {
-        scale: 1.5, bodyW: 230, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 35, left: 43, w: 135, h: 300, radius: 30 },
-        camera: { top: 35, left: 42, width: 77, height: 80 },
+        scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 44,
+        canvas: { top: 26, left: 33, w: 153, h: 310, radius: 25 },
+        camera: { top: 25, left: 32, width: 77, height: 80 },
     },
 }
 
 // ── ring 레이아웃 ─────────────────────────────────
-// ✅ canvas/camera 값을 각 기종 ring 이미지에 맞게 조절하세요
 const RING_LAYOUT = {
     'iphone17promax': {
         scale: 1.5, bodyW: 280, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 30, left: 60, w: 140, h: 299, radius: 20 },
-        camera: { top: 32, left: 55, width: 150, height: 90 },
+        canvas: { top: 30, left: 43, w: 162, h: 299, radius: 20 },
+        camera: { top: 16, left: 40, width: 220, height: 120 },
     },
     'iphone17pro': {
         scale: 1.5, bodyW: 250, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 33, left: 49, w: 140, h: 300, radius: 30 },
-        camera: { top: 30, left: 43, width: 150, height: 100 },
+        canvas: { top: 33, left: 38, w: 145, h: 303, radius: 30 },
+        camera: { top: 20, left: 33, width: 210, height: 110 },
     },
     'iphone17': {
         scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 44,
         canvas: { top: 30, left: 38, w: 137, h: 298, radius: 20 },
-        camera: { top: 27, left: 35, width: 70, height: 75 },
+        camera: { top: 13, left: 32, width: 125, height: 110 },
     },
     'iphone16promax': {
         scale: 1.5, bodyW: 260, bodyH: 358, bodyRadius: 44,
@@ -347,12 +341,11 @@ const RING_LAYOUT = {
     },
 }
 
-// ── 케이스타입별 지원 여부 체크 (숨김 처리용) ────────
-// ✅ ProductCustomizePage에서 import해서 사용
+// ── 케이스타입 지원 여부 체크 ─────────────────────
 export function isCaseTypeSupported(modelId, caseTypeId) {
     if (caseTypeId === 'magsafe-bounce') return !!BOUNCE_FILE_MAP[modelId]
     if (caseTypeId === 'magsafe-compact') return !!RING_FILE_MAP[modelId]
-    return true // impact는 항상 표시
+    return true
 }
 
 // ── 필터 스타일 ──────────────────────────────────
@@ -376,6 +369,74 @@ function getLayout(selectedModel, selectedCaseType) {
     }
     return MODEL_LAYOUT[selectedModel] || DEFAULT_LAYOUT
 }
+
+// ── 기기 타입별 Placeholder (SVG 모형) ──────────────
+function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySrc, selectedCaseColor }) {
+    const line1 = !selectedModel ? '기종을'
+        : !selectedCaseType ? '케이스 타입을'
+            : !bodySrc ? '이미지'
+                : '커스텀 내용을'
+    const line2 = !selectedModel ? '선택하세요'
+        : !selectedCaseType ? '선택하세요'
+            : !bodySrc ? '준비 중입니다'
+                : '선택하세요'
+    const cc = selectedCaseColor || '#888'
+
+    if (deviceType === 'laptop') {
+        return (
+            <svg width="340" height="230" viewBox="0 0 340 230" style={{ display: 'block', margin: '0 auto' }}>
+                <rect x="10" y="10" width="320" height="200" rx="10"
+                    fill={cc} fillOpacity="0.12"
+                    stroke={cc} strokeOpacity="0.5" strokeWidth="1.5" strokeDasharray="6 4" />
+                <rect x="24" y="22" width="292" height="176" rx="6"
+                    fill={cc} fillOpacity="0.07"
+                    stroke={cc} strokeOpacity="0.2" strokeWidth="1" />
+                <circle cx="170" cy="30" r="4" fill={cc} fillOpacity="0.4" />
+                <rect x="0" y="212" width="340" height="8" rx="3" fill={cc} fillOpacity="0.15" />
+                <text x="170" y="104" textAnchor="middle" fontSize="13" fill={cc} fillOpacity="0.5" fontFamily="sans-serif">{line1}</text>
+                <text x="170" y="122" textAnchor="middle" fontSize="13" fill={cc} fillOpacity="0.5" fontFamily="sans-serif">{line2}</text>
+            </svg>
+        )
+    }
+
+    if (deviceType === 'tablet') {
+        return (
+            <svg width="180" height="260" viewBox="0 0 180 260" style={{ display: 'block', margin: '0 auto' }}>
+                <rect x="10" y="10" width="160" height="240" rx="16"
+                    fill={cc} fillOpacity="0.12"
+                    stroke={cc} strokeOpacity="0.5" strokeWidth="1.5" strokeDasharray="6 4" />
+                <circle cx="90" cy="24" r="5" fill={cc} fillOpacity="0.4" />
+                <rect x="22" y="36" width="136" height="196" rx="6"
+                    fill={cc} fillOpacity="0.07"
+                    stroke={cc} strokeOpacity="0.2" strokeWidth="1" />
+                <text x="90" y="128" textAnchor="middle" fontSize="13" fill={cc} fillOpacity="0.5" fontFamily="sans-serif">{line1}</text>
+                <text x="90" y="146" textAnchor="middle" fontSize="13" fill={cc} fillOpacity="0.5" fontFamily="sans-serif">{line2}</text>
+            </svg>
+        )
+    }
+
+    return (
+        <div className="custom-phone-preview" style={{ '--case-color': selectedCaseColor || '#111111' }}>
+            <div className="custom-phone-body">
+                <div className="custom-phone-camera">
+                    <div className="custom-phone-lens" />
+                    <div className="custom-phone-lens" />
+                    <div className="custom-phone-lens" />
+                </div>
+                <div className="custom-phone-screen">
+                    <p className="custom-phone-placeholder">
+                        {!selectedModel ? '기종을\n선택하세요'
+                            : !selectedCaseType ? '케이스 타입을\n선택하세요'
+                                : !bodySrc ? '해당 케이스 타입의\n이미지 준비 중입니다'
+                                    : '커스텀 내용을\n선택하세요'}
+                    </p>
+                </div>
+                <div className="custom-phone-grid" />
+            </div>
+        </div>
+    )
+}
+
 
 // ── PhonePreview 컴포넌트 ─────────────────────────
 export function PhonePreview({
@@ -440,30 +501,17 @@ export function PhonePreview({
     // ── Placeholder ───────────────────────────────
     if (!showPreview) {
         return (
-            <div className="custom-phone-preview" style={{ '--case-color': selectedCaseColor || '#111111' }}>
-                <div className="custom-phone-body">
-                    <div className="custom-phone-camera">
-                        <div className="custom-phone-lens" />
-                        <div className="custom-phone-lens" />
-                        <div className="custom-phone-lens" />
-                    </div>
-                    <div className="custom-phone-screen">
-                        <p className="custom-phone-placeholder">
-                            {!selectedModel
-                                ? '기종을\n선택하세요'
-                                : !selectedCaseType
-                                    ? '케이스 타입을\n선택하세요'
-                                    : !bodySrc
-                                        ? '해당 케이스 타입의\n이미지 준비 중입니다'
-                                        : '커스텀 내용을\n선택하세요'}
-                        </p>
-                    </div>
-                    <div className="custom-phone-grid" />
-                </div>
-            </div>
+            <DevicePlaceholder
+                deviceType={deviceType}
+                selectedModel={selectedModel}
+                selectedCaseType={selectedCaseType}
+                bodySrc={bodySrc}
+                selectedCaseColor={selectedCaseColor}
+            />
         )
     }
 
+    // ── 실제 프리뷰 ───────────────────────────────
     return (
         <div style={{
             position: 'relative',
@@ -472,7 +520,7 @@ export function PhonePreview({
             margin: '0 auto',
             flexShrink: 0,
         }}>
-            {/* ❶ 폰 본체 + 컬러 오버레이 */}
+            {/* ❶ 본체 + 컬러 오버레이 */}
             <div style={{
                 position: 'absolute', inset: 0, zIndex: 1,
                 overflow: 'hidden', borderRadius: bodyRadius * scale,
