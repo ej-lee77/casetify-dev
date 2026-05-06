@@ -54,15 +54,7 @@ export default function CustomPage() {
                     preload="auto"
                     onCanPlayThrough={() => setVideoReady(true)}
                 />
-                {/* 태블릿일 때 이미지 표시 */}
-                {/* {activeVideo === 'tablet' && (
-                    <img
-                        src={DEVICE_IMAGES.tablet}
-                        alt="tablet"
-                        className="custom-hero-video ready"
-                        style={{ objectFit: 'cover' }}
-                    /> */}
-                )}
+              
                 <div className="custom-hero-overlay" />
 
                 <div className="custom-hero-text" style={{ animationDelay: '0.1s' }}>
