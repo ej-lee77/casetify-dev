@@ -400,6 +400,7 @@ const canAddCart = (() => {
 
     // ==================== RENDER ====================
     return (
+        <>
         <section className="detail-page">
             <div className="detail-inner">
                 <div className="detail-left">
@@ -837,41 +838,49 @@ const canAddCart = (() => {
                         </div>
                     </div>
                 )}
-                {isCartPopupOpen && (
-                    <div className="popup-overlay">
-                        <div className="popup-wrap">
-                            <div className="popup">
-                                <p>{cartMsg}</p>
-                                {isPopupErr ? (
-                                    <div className="popup-buttons">
-                                        <button 
-                                            className="btn-close" 
-                                            onClick={() => setIsCartPopupOpen(false)}
-                                        >
-                                            닫기
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <div className="popup-buttons">
-                                        <button 
-                                            className="btn-continue" 
-                                            onClick={() => setIsCartPopupOpen(false)}
-                                        >
-                                            계속 쇼핑하기
-                                        </button>
-                                        <button 
-                                            className="btn-go-wish" 
-                                            onClick={() => navigate('/cart')}
-                                        >
-                                            장바구니 보기
-                                        </button>
-                                    </div>  
-                                )}                              
-                            </div>
+            
+            </div>   
+           
+        </section>
+ {/* ✅ section 밖으로 이동 */}
+            {isWishPopupOpen && (
+                <div className="popup-overlay">
+                    <div className="popup-wrap">
+                        <div className="popup">
+                            <p>{wishMsg}</p>
+                            {isPopupErr ? (
+                                <div className="popup-buttons">
+                                    <button className="btn-close" onClick={() => setIsWishPopupOpen(false)}>닫기</button>
+                                </div>
+                            ) : (
+                                <div className="popup-buttons">
+                                    <button className="btn-continue" onClick={() => setIsWishPopupOpen(false)}>계속 쇼핑하기</button>
+                                    <button className="btn-go-wish" onClick={() => navigate('/mypage', { state: { menu: "위시리스트" } })}>위시리스트 보기</button>
+                                </div>
+                            )}
                         </div>
                     </div>
-                )}
-            </div>
-        </section>
+                </div>
+            )}
+            {isCartPopupOpen && (
+                <div className="popup-overlay">
+                    <div className="popup-wrap">
+                        <div className="popup">
+                            <p>{cartMsg}</p>
+                            {isPopupErr ? (
+                                <div className="popup-buttons">
+                                    <button className="btn-close" onClick={() => setIsCartPopupOpen(false)}>닫기</button>
+                                </div>
+                            ) : (
+                                <div className="popup-buttons">
+                                    <button className="btn-continue" onClick={() => setIsCartPopupOpen(false)}>계속 쇼핑하기</button>
+                                    <button className="btn-go-wish" onClick={() => navigate('/cart')}>장바구니 보기</button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }
