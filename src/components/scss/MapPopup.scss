@@ -67,6 +67,10 @@
         margin: 0 2rem;
         border-radius: 1rem;
         overflow: hidden;
+
+        img {
+            pointer-events: none;
+        }
     }
 
     .store-address-area,
