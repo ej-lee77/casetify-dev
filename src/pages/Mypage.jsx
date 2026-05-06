@@ -7,9 +7,14 @@ import { useLocation, useParams } from 'react-router-dom'
 import UserInfo from '../components/sub/UserInfo'
 import OrderInfo from '../components/sub/OrderInfo'
 import Giftcard from '../components/sub/Giftcard'
+import { useAuthStore } from '../store/useAuthStore'
 
 
 export default function Mypage() {
+  const {user} = useAuthStore();
+
+  if (!user) return;
+
   const location = useLocation();
 
   // 왼쪽 메뉴 체크 변수

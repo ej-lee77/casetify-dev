@@ -10,6 +10,7 @@ export default function Header() {
   const { mainMenuList, isSearchOpen, onToggleSearch, onCloseSearch } = useProductStore();
   const { user, onLogout, cart, onFetchCart } = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
+  const [userPopup, setUserPopup] = useState(false);
 
   const navigate = useNavigate();
 
@@ -66,6 +67,18 @@ export default function Header() {
     }
   }
 
+  const handleProtectedClick = (e) => {
+    if (!user) {
+      e.preventDefault();
+      setUserPopup(true);
+    }
+  };
+
+  const goToLogin = () => {
+    setUserPopup(false);
+    navigate("/login");
+  };
+
   return (
     <>
       <header className={`${isScrolled || MenuActive !== null ? "active" : ""} ${headerColor}`}>
@@ -81,7 +94,7 @@ export default function Header() {
                       <ul className={`sub-menu ${MenuActive === menu.link ? 'active' : ''}`}>
                         {menu.sub.map((s) => (
                           <li key={s.link}>
-                            <Link to={`/${menu.link}/${s.link}`}>
+                            <Link to={`/${menu.link}/${s.link}`} onClick={()=>setMenuActive(null)}>
                               <div>
                                 <span><img src={`/images/header-footer/menu/${menu.link}-${s.link}.png`} alt={s.name} /></span>
                                 <span>{s.name}</span>
@@ -133,15 +146,26 @@ export default function Header() {
               </li>
             )}
             <li>
-              <Link to="/cart"><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /><span className='cart-num'>{cart.length}</span></Link>
+              <Link to="/cart" onClick={(e) => handleProtectedClick(e)}><img src="/images/icon/btn_shopping-cart.svg" alt="장바구니" /><span className='cart-num'>{cart.length}</span></Link>
             </li>
             <li>
-              <Link to="/mypage" state={{ menu: "위시리스트" }}><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
+              <Link to="/mypage" state={{ menu: "위시리스트" }} onClick={(e) => handleProtectedClick(e)}><img src="/images/icon/icon_favorite.svg" alt="위시리스트" /></Link>
             </li>
           </ul>
         </div>
       </header>
       <SearchOverlay isActive={isSearchOpen} onClose={onCloseSearch} />
+      {userPopup && (
+        <div className="login-modal-overlay">
+          <div className="login-modal">
+            <p>로그인 후 이용 가능합니다.</p>
+            <div className="modal-btns">
+              <button onClick={goToLogin} className="confirm">로그인하러 가기</button>
+              <button onClick={() => setUserPopup(false)}>취소</button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
