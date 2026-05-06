@@ -6,100 +6,100 @@ import "./scss/detail.scss"
 const detailImages = {
     // ── 핸드폰 ──────────────────────────────────────────
     phone: [
-        "/images/KY/productdetail/detail/case-detail.png",
+        "/images/detail/case-detail.png",
     ],
 
     // ── 이어폰 ──────────────────────────────────────────
     earbuds: [
-        "/images/KY/productdetail/detail/earphone-detail.png",
+        "/images/detail/earphone-detail.png",
     ],
 
     // ── 노트북 ──────────────────────────────────────────
     laptop: [
-        "/images/KY/productdetail/detail/laptop-detail.png",
+        "/images/detail/laptop-detail.png",
     ],
 
     // ── 워치 ────────────────────────────────────────────
     watch: [
-        "/images/KY/productdetail/detail/watch-detail.png",
+        "/images/detail/watch-detail.png",
     ],
 
     // ── 태블릿 ──────────────────────────────────────────
     tablet: [
-        "/images/KY/productdetail/detail/ipad-detail.png",
+        "/images/detail/ipad-detail.png",
     ],
 
     // ── 스트랩 ──────────────────────────────────────────
     strap: [
-        "/images/KY/productdetail/detail/strap-detail.png",
+        "/images/detail/strap-detail.png",
     ],
 
     // ── 참 ──────────────────────────────────────────────
     charm: [
-        "/images/KY/productdetail/detail/charm-detail.png",
+        "/images/detail/charm-detail.png",
     ],
 
     // ── 카메라 렌즈 프로텍터 ─────────────────────────────
     "lens-protector": [
-        "/images/KY/productdetail/detail/lens-protector-detail.png",
+        "/images/detail/lens-protector-detail.png",
     ],
 
     // ── 스크린 프로텍터 ──────────────────────────────────
     protector: [
-        "/images/KY/productdetail/detail/protector-detail.png",
+        "/images/detail/protector-detail.png",
     ],
 
     // ── 링홀더 ──────────────────────────────────────────
     "ring-holder": [
-        "/images/KY/productdetail/detail/ring-holder-detail.png",
+        "/images/detail/ring-holder-detail.png",
     ],
 
     // ── 카드홀더 ─────────────────────────────────────────
     cardholder: [
-        "/images/KY/productdetail/detail/cardholder-detail.png",
+        "/images/detail/cardholder-detail.png",
     ],
 
     // ── 스탠드 랩탑 폰 마운트 ────────────────────────────
     "stand-laptop-phone-mount": [
-        "/images/KY/productdetail/detail/stand-detail.png",
+        "/images/detail/stand-detail.png",
     ],
 
     // ── 그립 ────────────────────────────────────────────
     grip: [
-        "/images/KY/productdetail/detail/grip-detail.png",
+        "/images/detail/grip-detail.png",
     ],
 
     // ── 마우스패드 ───────────────────────────────────────
     "mouse-pad": [
-        "/images/KY/productdetail/detail/mouse-pad-detail.png",
+        "/images/detail/mouse-pad-detail.png",
     ],
 
     // ── 데스크 매트 ──────────────────────────────────────
     "desk-mat": [
-        "/images/KY/productdetail/detail/desk-mat-detail.png",
+        "/images/detail/desk-mat-detail.png",
     ],
 
     // ── 충전기 ──────────────────────────────────────────
     charger: [
-        "/images/KY/productdetail/detail/charger-detail.png",
+        "/images/detail/charger-detail.png",
     ],
 
     // ── 에어태그 케이스 ──────────────────────────────────
     airtag: [
-        "/images/KY/productdetail/detail/airtag-detail.png",
+        "/images/detail/airtag-detail.png",
     ],
 
     // ── 스티커팩 ─────────────────────────────────────────
     sticker: [
-        "/images/KY/productdetail/detail/sticker-detail.png",
+        "/images/detail/sticker-detail.png",
     ],
 
     // ── 기본 fallback ─────────────────────────────────────
     etc: [
-        "/images/KY/productdetail/detail/etc-detail.png",
+        "/images/detail/etc-detail.png",
     ],
     travel: [
-        "/images/KY/productdetail/detail/travel-detail.png",
+        "/images/detail/travel-detail.png",
     ],
 }
 
