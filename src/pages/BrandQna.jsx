@@ -412,6 +412,10 @@ export default function BrandQna() {
     const { hash } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
 
+    // ✅ 페이지네이션 state 추가
+    const [currentPage, setCurrentPage] = useState(1)
+    const ITEMS_PER_PAGE = 10
+
     useEffect(() => {
         if (hash === '#inquiry') {
             const el = document.getElementById('inquiry');
@@ -424,6 +428,12 @@ export default function BrandQna() {
             setActiveCategory(location.state.activeTab);
         }
     }, [location.state]);
+
+    // ✅ 카테고리/검색 바뀔 때 1페이지로 리셋
+    useEffect(() => {
+        setCurrentPage(1)
+        setOpenFaqId(null)
+    }, [activeCategory, searchKeyword])
 
     // 문의하기 폼 상태
     const [form, setForm] = useState({
@@ -455,6 +465,13 @@ export default function BrandQna() {
             faq.answer.includes(searchKeyword);
         return matchCate && matchSearch;
     });
+
+    // ✅ 페이지네이션 계산
+    const totalPages = Math.ceil(filteredFaqs.length / ITEMS_PER_PAGE)
+    const pagedFaqs = filteredFaqs.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    )
 
     const toggleFaq = (id) => {
         setOpenFaqId((prev) => (prev === id ? null : id));
@@ -576,10 +593,11 @@ export default function BrandQna() {
 
                     {/* FAQ 아코디언 */}
                     <div className="faq-accordion">
-                        {filteredFaqs.length === 0 ? (
+                        {/* ✅ filteredFaqs → pagedFaqs 로 교체 */}
+                        {pagedFaqs.length === 0 ? (
                             <p className="faq-empty">검색 결과가 없습니다.</p>
                         ) : (
-                            filteredFaqs.map((faq) => (
+                            pagedFaqs.map((faq) => (
                                 <div
                                     key={faq.id}
                                     className={`faq-item ${openFaqId === faq.id ? "open" : ""}`}
@@ -610,6 +628,36 @@ export default function BrandQna() {
                             ))
                         )}
                     </div>
+
+                    {/* ✅ 페이지네이션 추가 */}
+                    {totalPages > 1 && (
+                        <div className="faq-pagination">
+                            <button
+                                className="faq-page-btn"
+                                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                                disabled={currentPage === 1}
+                            >
+                                ‹
+                            </button>
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                                <button
+                                    key={page}
+                                    className={`faq-page-btn ${currentPage === page ? 'active' : ''}`}
+                                    onClick={() => setCurrentPage(page)}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+                            <button
+                                className="faq-page-btn"
+                                onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                                disabled={currentPage === totalPages}
+                            >
+                                ›
+                            </button>
+                        </div>
+                    )}
+
                 </div>
             </section>
 
