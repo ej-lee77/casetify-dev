@@ -210,41 +210,43 @@
                 }
             }
 
-            .model-brand-tabs {
-                display: flex;
-                gap: 10px;
-                padding: 16px 16px 12px;
-                position: sticky;
-                top: 0;
-                background: #fff;
-                z-index: 2;
-                border-bottom: 1px solid #f0f0f0;
+      .model-brand-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 16px 16px 12px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+    border-bottom: 1px solid #f0f0f0;
+    justify-content: center; // ✅ 추가 - 하나일 때 중앙 정렬
 
-                button {
-                    padding: 8px 24px;
-                    border-radius: 999px;
-                    border: 1.5px solid #ddd;
-                    background: #fafafa;
-                    font-size: 14px;
-                    font-weight: 500;
-                    color: #555;
-                    cursor: pointer;
-                    transition: all 0.2s;
+    button {
+        padding: 8px 24px;
+        border-radius: 999px;
+        border: 1.5px solid #ddd;
+        background: #fafafa;
+        font-size: 14px;
+        font-weight: 500;
+        color: #555;
+        cursor: pointer;
+        transition: all 0.2s;
+        flex: 1;          // ✅ 추가 - 꽉 차게
 
-                    &.active {
-                        border-color: #111;
-                        background: #111;
-                        color: #fff;
-                        font-weight: 600;
-                    }
+        &.active {
+            border-color: #111;
+            background: #111;
+            color: #fff;
+            font-weight: 600;
+        }
 
-                    &:hover:not(.active) {
-                        border-color: #bbb;
-                        background: #fff;
-                        color: #111;
-                    }
-                }
-            }
+        &:hover:not(.active) {
+            border-color: #bbb;
+            background: #fff;
+            color: #111;
+        }
+    }
+}
 
             .model-sub-list {
                 padding: 12px;
@@ -290,30 +292,30 @@
     }
 
     // ✅ 오른쪽 - sticky + 내부 스크롤로 장바구니까지 표시
-    .detail-right-custom {
-        width: 420px;
-        flex-shrink: 0;
-        position: sticky;
-        top: 0;
-        max-height: 100vh;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        padding-right: 4px;
-        padding-bottom: 60px;
+.detail-right-custom {
+    width: 420px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 120px;          // ✅ 헤더 높이만큼 내려서 시작
+    max-height: calc(100vh - 120px);  // ✅ 헤더 높이 빼기
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 4px;
+    padding-bottom: 60px;
 
-        &::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #ddd;
-            border-radius: 4px;
-        }
+    &::-webkit-scrollbar {
+        width: 4px;
     }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 4px;
+    }
+}
 
     .detail-meta {
         display: flex;

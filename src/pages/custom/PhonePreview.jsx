@@ -359,7 +359,7 @@ const BOUNCE_LAYOUT = {
     },
     'iphone15': {
         scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 44,
-        canvas: { top: 26, left: 33, w: 153, h: 310, radius: 25 },
+        canvas: { top: 24, left: 33, w: 153, h: 310, radius: 25 },
         camera: { top: 25, left: 32, width: 77, height: 80 },
     },
 }
