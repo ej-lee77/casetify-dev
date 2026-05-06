@@ -9,11 +9,13 @@
     .gift-title {
         text-align: center;
 
-        h1 {
+        h2 {
             font-size: 2.5rem;
         }
 
         p {
+            font-family: "Pretendard", sans-serif;
+            font-weight: 300;
             font-size: 1.25rem;
         }
     }
@@ -361,7 +363,7 @@
                     padding: 0 16px;
                     font-size: 0.9rem;
                     line-height: 1.8;
-                    color: #333;
+                    color: #585858;
                     background-color: #f7f7f7;
                 }
 
