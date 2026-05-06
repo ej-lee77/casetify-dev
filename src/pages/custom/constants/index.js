@@ -7,7 +7,7 @@ export const BRANDS = [
       { id: 'iphone17', label: '아이폰 17' },
       // { id: 'iphone16promax', label: '아이폰 16 Pro Max' },
       { id: 'iphone16', label: '아이폰 16' },
-      // { id: 'iphone15', label: '아이폰 15' },
+      { id: 'iphone15', label: '아이폰 15' },
       // { id: 'iphone14plus', label: '아이폰 14 Plus' },
       // { id: 'iphone13promax', label: '아이폰 13 Pro Max' },
       // { id: 'iphoneMini', label: '아이폰 mini' },
