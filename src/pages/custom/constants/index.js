@@ -6,7 +6,9 @@ export const BRANDS = [
       { id: 'iphone17pro', label: '아이폰 17 Pro' },
       { id: 'iphone17', label: '아이폰 17' },
       // { id: 'iphone16promax', label: '아이폰 16 Pro Max' },
+      { id: 'iphone16pro', label: '아이폰 16 Pro' },      // ✅ 추가
       { id: 'iphone16', label: '아이폰 16' },
+      { id: 'iphone15pro', label: '아이폰 15 Pro' },      // ✅ 추가
       { id: 'iphone15', label: '아이폰 15' },
       // { id: 'iphone14plus', label: '아이폰 14 Plus' },
       // { id: 'iphone13promax', label: '아이폰 13 Pro Max' },
@@ -16,20 +18,26 @@ export const BRANDS = [
   {
     id: 'samsung', label: 'SAMSUNG',
     models: [
-      { id: 's25ultra', label: 'Galaxy S25 Ultra' },
+      // { id: 's25ultra', label: 'Galaxy S25 Ultra' },
       { id: 's25plus', label: 'Galaxy S25+' },
-
-      { id: 's24', label: 'Galaxy S24' },
+      { id: 's25', label: 'Galaxy S25' },                 // ✅ 추가
+      // { id: 's24', label: 'Galaxy S24' },
+      { id: 's26plus', label: 'Galaxy S26+' },            // ✅ 추가
+      { id: 's26', label: 'Galaxy S26' },                 // ✅ 추가
       { id: 'z6fold', label: 'Galaxy Z Fold 6' },
       { id: 'z6flip', label: 'Galaxy Z Flip 6' },
+      { id: 'z7fold', label: 'Galaxy Z Fold 7' },         // ✅ 추가
+      { id: 'z7flip', label: 'Galaxy Z Flip 7' },         // ✅ 추가
     ],
   },
   {
     id: 'google', label: 'GOOGLE',
     models: [
+      { id: 'pixel10pro', label: 'Pixel 10 Pro' },        // ✅ 추가
+      { id: 'pixel10', label: 'Pixel 10' },               // ✅ 추가
       { id: 'pixel9pro', label: 'Pixel 9 Pro' },
       { id: 'pixel9', label: 'Pixel 9' },
-      { id: 'pixel8pro', label: 'Pixel 8 Pro' },
+      // { id: 'pixel8pro', label: 'Pixel 8 Pro' },
     ],
   },
 ]

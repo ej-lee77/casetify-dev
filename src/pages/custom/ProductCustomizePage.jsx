@@ -258,11 +258,11 @@ const handleAddCart = async () => {
     )
 
     return (
-        <section className="custom detail-page">
-            <div className="detail-inner">
+        <section className="custom detail-page-custom">
+            <div className="detail-inner-custom">
 
                 {/* 왼쪽: 프리뷰 */}
-                <div className="detail-left">
+                <div className="detail-left-custom">
                     <div className="detail-image-wrap">
                         <div className="detail-main-image custom-preview-main" style={{ minHeight: '70vh' }}>
                             <PhonePreview {...previewProps} />
