@@ -777,7 +777,7 @@ const canAddCart = (() => {
                     )}
 
                     {/* ========== 이미지 경로 확인용 (임시) ========== */}
-                    <div className="detail-desc">
+                    {/* <div className="detail-desc">
                         <h3>상품 안내</h3>
                         <p>
                             현재 이 페이지는 데이터 연결과 이미지 경로 확인용 임시 상세페이지야.
@@ -802,7 +802,7 @@ const canAddCart = (() => {
                                     ? `${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
                                     : `${item.id}${selectedColor ? `_${selectedColor}` : ""}_2.jpg`}
                         </p>
-                    </div>
+                    </div> */}
 
                 </div>
                 {isWishPopupOpen && (
