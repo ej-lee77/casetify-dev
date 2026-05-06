@@ -4,6 +4,8 @@ import { useAuthStore } from '../store/useAuthStore';
 import AddressSearch from '../components/sub/AddressSearch'
 import { Link, useNavigate } from 'react-router-dom';
 import GiftCardModal from '../components/sub/GiftCardModal';
+import CircularText from '../components/CircularText';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const memoList = [
   "부재 시 문 앞에 놓아주세요",
@@ -49,6 +51,7 @@ export default function Payment() {
   const [selectedMethod, setSelectedMethod] = useState(''); 
   const [isPayModalOpen, setIsPayModalOpen] = useState(false);
   const [isPhoneSelectOpen, setIsPhoneSelectOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [cardInfo, setCardInfo] = useState({ number: '', expiry: '', cvc: '' });
   const [mobileInfo, setMobileInfo] = useState({ carrier: '', payphone: '' });
@@ -392,6 +395,7 @@ export default function Payment() {
   };
 
   const paymentComplete = async()=>{
+    setIsLoading(true);
     const orderId = Date.now();
 
     const orderItemsWithStatus = checkedCart.map(item => ({
@@ -423,20 +427,17 @@ export default function Payment() {
     if(isOrder){
       // 완료 페이지로 '아이디'만 넘겨주며 이동
       if(isOrder !== true){
-        navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
+        setTimeout(() => {
+          navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
+        }, 3000);
       }
-      navigate("/payment/complete", { state: { orderId: orderId } });
+      setTimeout(() => {
+        navigate("/payment/complete", { state: { orderId: orderId } });
+      }, 3000);
     }else{
       alert("결제실패")
     }
   }
-  const modalOverlayStyle = {
-    position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-    backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000
-  };
-  const modalContentStyle = {
-    background: '#fff', padding: '30px', borderRadius: '10px', textAlign: 'center'
-  };
 
   return (
     <div className="sub-page-wrap pay-page-wrap">
@@ -839,6 +840,29 @@ export default function Payment() {
         isOpen={isGiftModalOpen} 
         onClose={() => setIsGiftModalOpen(false)}
       />
+
+      {isLoading ? (
+        <div className="payment-loader-container">
+          <AnimatePresence mode="wait">
+            {/* // 로딩 중일 때 보여줄 화면 */}
+            <motion.div 
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className='loader-motion'
+            >
+              <CircularText 
+                text="CASETiFY*CASETiFY*CASETiFY*" 
+                spinDuration={10} 
+                className="payment-loader"
+              />
+              {/* <p style={{ color: 'white', marginTop: '20px' }}>결제 중입니다...</p> */}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      ) : ("")}
+
     </div>
   )
 }

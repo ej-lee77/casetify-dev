@@ -844,3 +844,22 @@
         }
     }
 }
+
+.payment-loader-container{
+    height: 100%;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 99999999;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #ffffff62; 
+
+    .loader-motion{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
