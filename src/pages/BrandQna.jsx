@@ -587,6 +587,7 @@ export default function BrandQna() {
                                 onClick={() => {
                                     setActiveCategory(cat.id);
                                     setOpenFaqId(null);
+                                    window.scrollTo({ top: 0, behavior: 'instant' });
                                 }}
                             >
                                 {cat.label}
