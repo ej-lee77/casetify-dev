@@ -30,13 +30,15 @@ export default function BrandAuthentication() {
         <div className="brand-auth-page">
 
             {/* 히어로 배너 */}
-            <div className="auth-hero">
-                <img src="/images/brand/auth-hero.png" alt="정품인증" />
-                <div className="auth-hero-text">
-                    <h1>정품인증</h1>
-                    <p>정품인증을 통해서 보호하고 혜택을 즐기세요</p>
-                </div>
-            </div>
+   <div className="auth-hero">
+    <img src="/images/brand/auth-hero.png" alt="정품인증" />
+    <div className="auth-hero-text">
+        <p className="auth-hero-sub">AUTHENTIC PRODUCT</p>
+        <h1>정품인증</h1>
+        <div className="auth-hero-line" />
+        <p>정품인증을 통해서 보호하고 혜택을 즐기세요</p>
+    </div>
+</div>
 
             {/* 인증방법 */}
             <section className="auth-steps-section">
