@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import "./scss/Footer.scss"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import RecentAside from './RecentAside';
 
 export default function Footer({ className }) {
   const [topBtn, setTopBtn] = useState(false);
+  const navigate = useNavigate();
 
   const handleToTop = () => {
     document.documentElement.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -21,7 +22,11 @@ export default function Footer({ className }) {
     // 처음 값 체크
     handleTopbtn();
     return () => window.removeEventListener("scroll", handleTopbtn);
-  }, [])
+  }, []);
+
+  const handleToCustom = ()=>{
+    navigate("/custom");
+  }
 
   return (
     <>
@@ -111,10 +116,8 @@ export default function Footer({ className }) {
         <p>TOP</p>
       </div>
       <RecentAside />
-      <div className="aside-custom-btn">
-        <Link to={"/custom"}>
+      <div className="aside-custom-btn" onClick={handleToCustom}>
         <img src="/images/asideCustom.png" alt="custom" />
-        </Link>
         <p>커스텀하기</p>
       </div>
     </>

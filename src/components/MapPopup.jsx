@@ -111,20 +111,21 @@ export default function MapPopup({ onClose }) {
 
       <div className="drag-area" onMouseDown={handleMouseDown}>
         <h2>{selectedLocation.name}</h2>
-      </div>
-      <div className="store-img-area">
-        <img src={selectedLocation.img} alt="" />
-      </div>
 
-      <div className="store-address-area">
-        <span>주소</span>
-        <p>{selectedLocation.address}</p>
-      </div>
-      <div className="store-hours-area">
-        <span>영업시간</span>
-        <div className="store-hours-info-area">
-          <p>{selectedLocation.hours?.[0]}</p>
-          <p>{selectedLocation.hours?.[1]}</p>
+        <div className="store-img-area">
+          <img src={selectedLocation.img} alt="" />
+        </div>
+
+        <div className="store-address-area">
+          <span>주소</span>
+          <p>{selectedLocation.address}</p>
+        </div>
+        <div className="store-hours-area">
+          <span>영업시간</span>
+          <div className="store-hours-info-area">
+            <p>{selectedLocation.hours?.[0]}</p>
+            <p>{selectedLocation.hours?.[1]}</p>
+          </div>
         </div>
       </div>
     </div>
