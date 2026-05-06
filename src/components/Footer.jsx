@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import "./scss/Footer.scss"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import RecentAside from './RecentAside';
 
-export default function Footer() {
+export default function Footer({ className }) {
   const [topBtn, setTopBtn] = useState(false);
+  const navigate = useNavigate();
 
-  const handleToTop = ()=>{
-    document.documentElement.scrollTo({top:0, left:0, behavior:'smooth'});
+  const handleToTop = () => {
+    document.documentElement.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 
   // 윈도우 스크롤 이벤트 + 스크롤 위치 체크
@@ -20,11 +22,15 @@ export default function Footer() {
     // 처음 값 체크
     handleTopbtn();
     return () => window.removeEventListener("scroll", handleTopbtn);
-  }, [])
+  }, []);
+
+  const handleToCustom = ()=>{
+    navigate("/custom");
+  }
 
   return (
     <>
-      <footer>
+      <footer className={className || ""}>
         <div className="inner">
           <div className="footer-left">
             <div className="app-info-wrap">
@@ -86,7 +92,7 @@ export default function Footer() {
                 <li><img src="/images/icon/payment_kakao-pay.svg" alt="결제수단:카카오페이" /></li>
                 <li><img src="/images/icon/payment_naver-pay.svg" alt="결제수단:네이버페이" /></li>
               </ul>
-              <p className="remark"><Link><span>개인정보처리방침</span></Link><Link><span>약관</span></Link></p>
+              <p className="remark"><Link to="/brand/qna" state={{ activeTab: 'privacy' }}><span>개인정보처리방침</span></Link><Link to="/brand/qna" state={{ activeTab: 'terms' }}><span>약관</span></Link></p>
               <p className='copy'>Copyright © 2026 CASETiFY</p>
             </div>
             <div className="cs-info">
@@ -97,8 +103,8 @@ export default function Footer() {
                 <li>토요일, 일요일, 공휴일 휴무</li>
               </ul>
               <ul className="cs-menu-list info-list">
-                <li><Link>문의하기</Link></li>
-                <li><Link>FAQs</Link></li>
+                <li><Link to="/brand/qna#inquiry">문의하기</Link></li>
+                <li><Link to="/brand/qna">FAQs</Link></li>
               </ul>
             </div>
           </div>
@@ -108,6 +114,11 @@ export default function Footer() {
       <div className={topBtn ? "top-btn active" : "top-btn"} onClick={handleToTop}>
         <img src="/images/icon/icon-top-btn.svg" alt="top" />
         <p>TOP</p>
+      </div>
+      <RecentAside />
+      <div className="aside-custom-btn" onClick={handleToCustom}>
+        <img src="/images/asideCustom.png" alt="custom" />
+        <p>커스텀하기</p>
       </div>
     </>
   )

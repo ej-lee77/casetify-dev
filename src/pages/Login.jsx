@@ -12,6 +12,7 @@ export default function Login() {
     const [loginErr, setLoginErr] = useState("");
     const [rememberEmail, setRememberEmail] = useState(false);
     const [emailVerified, setEmailVerified] = useState(false);
+    const [birthMsg, setBirthMsg] = useState(null);
 
     const {user, onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
 
@@ -31,6 +32,7 @@ export default function Login() {
       e.preventDefault();
       console.log("이메일 로그인");
 
+      setBirthMsg(null);
       setLoginErr("");
       setEmailVerified(false);
 
@@ -51,11 +53,28 @@ export default function Login() {
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 2000);
       }else if(isLogin === "첫로그인"){
         navigate("/join/complete");
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }else if(isLogin === "첫로그인생일"){
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/join/complete");
+        }, 2000);
       }else if(isLogin === "메일인증"){
-        console.log("here veri")
+        // console.log("here veri")
         setIsModalOpen(true);
         setEmailVerified(true);
       } else {
@@ -69,14 +88,23 @@ export default function Login() {
       console.log("구글 로그인");
       const isLogin = await onGoogleLogin();
 
-      if(isLogin){
+      if(isLogin === true){
         // 1. 로그인 성공 가정
         setIsModalOpen(true);
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 2000);
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         // 실패: 에러 메시지
         setLoginErr("구글로그인 실패");
@@ -88,14 +116,23 @@ export default function Login() {
       console.log("카카오 로그인");
       const isLogin = await onKakaoLogin();
 
-      if(isLogin){
+      if(isLogin === true){
         // 1. 로그인 성공 가정
         setIsModalOpen(true);
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 2000);
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         // 실패: 에러 메시지
         setLoginErr("카카오로그인 실패");
@@ -107,14 +144,23 @@ export default function Login() {
       console.log("네이버 로그인");
       const isLogin = await onNaverLogin();
 
-      if(isLogin){
+      if(isLogin === true){
         // 1. 로그인 성공 가정
         setIsModalOpen(true);
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 2000);
+      }else if(isLogin === "생일"){
+        // 1. 로그인 성공 가정
+        setIsModalOpen(true);
+        setBirthMsg("생일 축하드립니다! 생일쿠폰이 발급됐습니다.");
+
+        // 2. 2초 후 홈으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         // 실패: 에러 메시지
         setLoginErr("네이버로그인 실패");
@@ -141,6 +187,10 @@ export default function Login() {
                   <span className="check-icon" aria-hidden="true"></span>
                   <label htmlFor="login-idcheck">아이디 저장</label>
               </div>
+          </div>
+          <div>
+            <p>아이디 : yelota3643@pertok.com</p>
+            <p>비밀번호 : ezen123456</p>
           </div>
           <div className='err-box'>
             <p>{loginErr}</p>
@@ -178,7 +228,8 @@ export default function Login() {
                 <button className='input-btn' onClick={() => setIsModalOpen(false)}>닫기</button></>)
               :
                 (<><p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
-                <p>곧 홈으로 이동합니다...</p></>)
+                {birthMsg !== null ? (<><p>{birthMsg}</p><p>곧 이동합니다...</p></>) : (<p>곧 홈으로 이동합니다...</p>)}
+                </>)
               }
             </div>
           </div>

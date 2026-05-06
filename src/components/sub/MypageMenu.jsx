@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./scss/MypageMenu.scss"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../../store/useAuthStore';
 
 // 마이페이지 메뉴 데이터
 const mypageMenuData = [
@@ -8,16 +9,28 @@ const mypageMenuData = [
     { id: 2, icon: "./images/mypage/mypage_order.svg", name: "주문", tabicon: true, islink: false },
     { id: 3, icon: "./images/mypage/mypage_favorite.svg", name: "위시리스트", tabicon: true, islink: false },
     { id: 4, icon: null, name: "케이스티파이 정품 인증", tabicon: false, islink: true },
-    { id: 5, icon: "./images/mypage/mypage_present.svg", name: "기프트 카드", tabicon: true, islink: false },
+    { id: 5, icon: "./images/mypage/mypage_present.svg", name: "기프트 카드/쿠폰", tabicon: true, islink: false },
     { id: 6, icon: "./images/mypage/mypage_logout.svg", name: "로그아웃", tabicon: true, islink: false },
 ]
 
 export default function MypageMenu({ sendSelect, selectMenu }) {
     // hover 상태 파악
     const [hoverId, setHoverId] = useState(null);
+    const { onLogout } = useAuthStore();
+    const navigate = useNavigate();
 
+    const handleLogout = async () => {
+        const isLogout = await onLogout();
+
+        if (isLogout) {
+            navigate("/");
+        }
+    }
+
+    const handleCertify = ()=>{
+        navigate("/brand/certify");
+    }
     return (
-
         <>
             <ul className="mypage-menu-list">
                 {mypageMenuData.map((menu) => {
@@ -26,7 +39,15 @@ export default function MypageMenu({ sendSelect, selectMenu }) {
                     return (
                         <li key={menu.id} className={`menu-item ${isActive ? "active" : ""}`}>
                             <button
-                                onClick={() => sendSelect(menu.name)}
+                                onClick={() => {
+                                    if (menu.name === "로그아웃") {
+                                        handleLogout();
+                                    }else if(menu.name === "케이스티파이 정품 인증"){
+                                        handleCertify();
+                                    } else {
+                                        sendSelect(menu.name);
+                                    }
+                                }}
                                 onMouseEnter={() => setHoverId(menu.id)}
                                 onMouseLeave={() => setHoverId(null)}
                             >

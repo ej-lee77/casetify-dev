@@ -2,11 +2,12 @@
   width: 100%;
 
   .img-box {
+    margin-top: 30px;
     display: flex;
     flex-direction: column; // 세로로 쌓기
     align-items: center; // ⭐ 가로 중앙 정렬
     justify-content: center;
-    gap: 40px; // 이미지 사이 간격
+    // gap: 40px; // 이미지 사이 간격
 
     img {
       display: block;

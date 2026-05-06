@@ -1,8 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./scss/SearchOverlay.scss";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useProductStore } from '../store/useProductStore';
+import ImageSearchModal from './ImageSearchModal';
+import BundleRecommend from './sub/product detail page/Recommend';
+
+// 추천상품용
+const tempRecoItem = { id: "CTF-34942803-16006188" }
 
 export default function SearchOverlay({ isActive, onClose }) {
+    //전역변수 searchWord, onSetSearchWorld
+    const { searchWord, onSetSearchWord, searchWordList, onAddSearchList, onRemoveSearchList, onRemoveAllSearch, onSearchByKeyword } = useProductStore();
+
+    // 검색한 단어를 저장하는 변수
+    useEffect(() => {
+        if (searchWordList.length === 0) { setSearchCheck(false) } else { setSearchCheck(true) }
+    })
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // 검색어 빈 값 방지
+        if (!searchWord.trim()) return;
+
+        onAddSearchList();
+
+        // 검색어 페이지로 이동
+        navigate();
+
+        console.log("찾는 단어 있음", searchWordList);
+    }
+    const [searchCheck, setSearchCheck] = useState(false);
+    const [modalCheck, setModalCheck] = useState(false);
+
     return (
         <div className={`search-overlay-wrap ${isActive ? "active" : ""}`}>
             <div className="search-content-outer-wrap">
@@ -11,22 +42,67 @@ export default function SearchOverlay({ isActive, onClose }) {
                 </h1>
                 <div className="search-center-wrap">
                     <div className="search-content-inner-wrap">
-                        <div className="search-bar">
+                        <form className="search-bar" onSubmit={handleSubmit}>
                             <label>
-                                <input type="text" placeholder="궁금한 내용의 단어나 키워드로 검색하세요" />
+                                <input type="text" placeholder="궁금한 내용의 단어나 키워드로 검색하세요"
+                                    value={searchWord}
+                                    onChange={(e) => onSetSearchWord(e.target.value)}
+                                />
                             </label>
                             <button className="btn-search">
-                                <img src="/images/icon/search_var.svg" alt="" />
+                                <img src="/images/icon/search_var.svg" alt="검색" />
                             </button>
-                            <button className="btn-reset">초기화</button>
+                            {searchWord.length > 0 && (
+                                <button className="btn-reset" onClick={() => onSetSearchWord("")}>
+                                    <img src="/images/icon/btn_reset.svg" alt="검색초기화" />
+                                </button>
+                            )}
+                        </form>
+                        <div className="recent-search-wrap">
+                            <div className="inner-title">최근 검색어</div>
+                            {searchCheck ?
+                                (<div className="recent-result-wrap">
+                                    <button className="remove-all" onClick={onRemoveAllSearch}>모두 지우기</button>
+                                    <ul className="recent-result-list">
+                                        {searchWordList.map((s) => (
+                                            <li key={s.id} style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword(s.text)}>{s.text} <button onClick={(e) => { e.stopPropagation(); onRemoveSearchList(s.id); }}> ×</button></li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                )
+                                : (<p className="txt-recent">최근 검색어가 없습니다.</p>)}
                         </div>
-                        <div className="recent-search-wrap">최근 검색어</div>
-                        <div className="fav-search-wrap">인기 검색어</div>
-                        <div className="recommend-wrap">추천 상품</div>
+                        <div className="pop-search-wrap">
+                            <div className="inner-title">인기 검색어</div>
+                            <ol className="pop-search-list">
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("클리어 케이스")}>클리어 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("아이폰 17 Pro")}>아이폰 17 Pro</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("아이폰 17")}>아이폰 17</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("메탈 참 큐브")}>메탈 참 큐브</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("임팩트 케이스")}>임팩트 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("바운스 케이스")}>바운스 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("YOUNG FOREST")}>YOUNG FOREST</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Cherry Blossom")}>Cherry Blossom</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("글레이즈 케이스")}>글레이즈 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Skater JOHN")}>Skater JOHN</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("SSEBONG")}>SSEBONG</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("미러 케이스")}>미러 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Esther Bunny")}>Esther Bunny</li>
+                            </ol>
+                        </div>
+                        <div className="recommend-wrap">
+                            <BundleRecommend item={tempRecoItem} />
+                        </div>
                     </div>
-                    <div className="img-search">이미지 검색</div>
+                    <div className="search-content-extra-wrap">
+                        <div className="img-search" onClick={() => setModalCheck(true)} >
+                            <img src="/images/icon/icon-img-search-camera.svg" alt="이미지검색_카메라아이콘" />
+                            <span>이미지 검색</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <ImageSearchModal modalCheck={modalCheck} setModalCheck={setModalCheck} />
             {/* 검색 닫기 */}
             <p className="close-btn" onClick={onClose}><img src="/images/icon/close.svg" alt="검색닫기" /></p>
         </div>

@@ -1,51 +1,54 @@
-.main-slider-img {
-    // border: 5px solid green;
-    height: 50vw;
-    max-height: 850px;
-    min-height: 300px;
+.main-slider-wrap {
+    position: relative; // 👈 기준점
 
-    .swiper-slide {
-        // border: 2px dashed red;
-        position: relative;
+    .slide-counter {
+        position: absolute;
+        bottom: 40px;
+        right: 60px;
 
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: #828282;
-            background: linear-gradient(213deg, rgba(130, 130, 130, 0) 47%, rgba(0, 0, 0, 0.21) 80%);
+        font-size: 0.9rem;
+        color: #fff;
+        z-index: 10;
+    }
+
+    .main-slider-img {
+        height: 50vw;
+        max-height: 850px;
+        min-height: 300px;
+
+        .swiper-slide {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(213deg, rgba(130, 130, 130, 0) 47%, rgba(0, 0, 0, 0.21) 80%);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-
-        }
+    .main-scrollbar-removed {
+        display: none;
     }
 }
 
-.swiper-pagination-bullet {
-    width: 40px;
-    height: 10px;
-    border-radius: 0;
-    background-color: #E4E4E4;
 
-    &.swiper-pagination-bullet-active {
-        background-color: rgba(255, 255, 255, 0.7);
-        width: 70px;
-    }
-}
 
 .slide-title {
     position: absolute;
     left: 80px;
     bottom: 80px;
     z-index: 10;
-    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
 }
@@ -64,7 +67,6 @@
 
     .main-text {
         font-size: 30px;
-
     }
 
     .sub-text {

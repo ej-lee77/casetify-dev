@@ -1,185 +1,122 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./scss/Cart.scss"
+import { useAuthStore } from '../store/useAuthStore';
+import { modelColorOptions, colorMap, phoneModelOptions } from '../data/finalData';
+import CartOption from '../components/sub/CartOption';
+import { Link, useNavigate } from 'react-router-dom';
+import BundleRecommend from '../components/sub/product detail page/Recommend';
+import { li } from 'framer-motion/client';
+import EmptyState from '../components/sub/EmptyState'
 
-// 임시 배열
-const tempItem = [
-  {
-    id: "CTF-28302256-16009387",
-    badge: [
-      "무료 배송"
-    ],
-    price: "89000",
-    productName: "Punny Orange&Berry",
-    caseCategory: "맥세이프 호환 임팩트 케이스",
-    color: [
-      "Black",
-      "Orange",
-      "Pink",
-      "Soft Blue",
-      "Matte Black"
-    ],
-    collabo: "By Number D",
-    mainCategory: "케이스",
-    subCategory: "디바이스",
-    miniCategory: "핸드폰",
-    lastCategory: [
-      "iPhone 17 Pro"
-    ],
-    deviceCategory: {
-      Apple: [
-        "아이폰 17 Pro",
-        "아이폰 17",
-        "아이폰 16 Pro",
-        "아이폰 16",
-        "아이폰 15 Pro",
-        "아이폰 15"
-      ],
-      Samsung: [
-        "갤럭시 S26",
-        "갤럭시 S26+",
-        "갤럭시 Z 폴드7",
-        "갤럭시 Z 플립7",
-        "갤럭시 S25",
-        "갤럭시 S25+",
-        "갤럭시 Z 폴드6",
-        "갤럭시 Z 플립6"
-      ],
-      Google: [
-        "Pixel 10 Pro",
-        "Pixel 10",
-        "Pixel 9 Pro",
-        "Pixel 9"
-      ]
-    }
-  },
-  {
-    id: "CTF-30073724-16009386",
-    badge: [
-      "무료 배송"
-    ],
-    price: "89000",
-    productName: "Cheek-to-cheek",
-    caseCategory: "맥세이프 호환 임팩트 케이스",
-    color: [
-      "Black",
-      "Orange",
-      "Pink",
-      "Soft Blue"
-    ],
-    collabo: "By matsui",
-    mainCategory: "케이스",
-    subCategory: "디바이스",
-    miniCategory: "핸드폰",
-    lastCategory: [
-      "iPhone 17 Pro"
-    ],
-    deviceCategory: {
-      Apple: [
-        "아이폰 17 Pro",
-        "아이폰 17",
-        "아이폰 16 Pro",
-        "아이폰 16",
-        "아이폰 15 Pro",
-        "아이폰 15"
-      ],
-      Samsung: [
-        "갤럭시 S26",
-        "갤럭시 S26+",
-        "갤럭시 Z 폴드7",
-        "갤럭시 Z 플립7",
-        "갤럭시 S25",
-        "갤럭시 S25+",
-        "갤럭시 Z 폴드6",
-        "갤럭시 Z 플립6"
-      ],
-      Google: [
-        "Pixel 10 Pro",
-        "Pixel 10",
-        "Pixel 9 Pro",
-        "Pixel 9"
-      ]
-    }
-  },
-];
-
-const tempRecoItem = [
-  {
-    id: "CTF-34942803-16006188",
-    badge: [
-      "무료 배송"
-    ],
-    price: "127000",
-    productName: "Enjoy Where I Am",
-    caseCategory: "2-in-1 충전 스탠드",
-    color: [
-      "White"
-    ],
-    collabo: "By nothing here",
-    mainCategory: "악세서리",
-    subCategory: "충전기",
-    miniCategory: "충전기",
-    lastCategory: "charger",
-    deviceCategory: ""
-  },
-  {
-    id: "CTF-35069870-16009970",
-    badge: [
-      "무료 배송"
-    ],
-    price: "51000",
-    productName: "Pearl Phone Charm - Classic Pearl",
-    caseCategory: "",
-    color: [
-      "Classic Pearl (Silver)",
-      "Pearly Heart",
-      "Classic Pearl"
-    ],
-    collabo: "",
-    mainCategory: "악세서리",
-    subCategory: "스트랩",
-    miniCategory: "스트랩",
-    lastCategory: "strap",
-    deviceCategory: ""
-  },
-  {
-    id: "CTF-37181334-16010330",
-    badge: [],
-    price: "45000",
-    productName: "Black Sakura Bloom",
-    caseCategory: "데스크 매트",
-    color: [
-      "White"
-    ],
-    collabo: "",
-    mainCategory: "악세서리",
-    subCategory: "기타",
-    miniCategory: "기타",
-    lastCategory: "etc",
-    deviceCategory: ""
-  },
-  {
-    id: "CTF-34735868-16010810",
-    badge: [],
-    price: "45000",
-    productName: "Snappy Grip Holder Customizer",
-    caseCategory: "",
-    color: [
-      "Pink",
-      "Glitter Black",
-      "Clear",
-      "Matte Black",
-      "Soft Blue"
-    ],
-    collabo: "",
-    mainCategory: "악세서리",
-    subCategory: "맥세이프",
-    miniCategory: "맥세이프",
-    lastCategory: "magsafe",
-    deviceCategory: ""
-  },
-]
+// 추천상품용
+const tempRecoItem = { id: "CTF-34942803-16006188" }
 
 export default function Cart() {
+  const navigate = useNavigate();
+  const { user, cart, onUpdateCheckedCart, onFetchCart, onRemoveSelected, onClearCart, updateQuantity } = useAuthStore();
+  const [cartItemList, setCartItemList] = useState([]);
+  const [optionModalOpen, setOptionModalOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState(null);
+
+  // 체크박스 선택 확인
+  const [chekedItems, setCheckedItems] = useState([]);
+  const getItemKey = (item) => `${item.productId}-${item.deviceKey}-${item.color}`;
+  // 체크박스 실행 메서드
+  const handleChecked = (item) => {
+    const key = getItemKey(item);
+    setCheckedItems((prev) => {
+      if (prev.includes(key)) {
+        return prev.filter((v) => v !== key);
+      } else {
+        return [...prev, key];
+      }
+    });
+  };
+  // 전체 체크 메서드
+  const handleAllChecked = (e) => {
+    if (e.target.checked) {
+      const allKeys = cart.map((item) => getItemKey(item));
+      setCheckedItems(allKeys);
+    } else {
+      setCheckedItems([]);
+    }
+  };
+
+  const handleUpdateQty = (index, delta, item) => {
+    // 수량이 1 미만으로 내려가지 않도록 방어 로직
+    if (item.quantity + delta < 1) return;
+    updateQuantity(index, delta);
+  };
+
+  // 장바구니 정보 가져오기
+  useEffect(() => {
+    if (!user) return;
+    onFetchCart();
+  }, [user]);
+
+  // 선택 제품
+  const selectedItems = cart.filter((item) => chekedItems.includes(getItemKey(item)));
+  // 선택 제품 총가격 
+  const selectedTotal = selectedItems.reduce((acc, cur) =>
+    acc + cur.price * cur.quantity, 0);
+
+  // 번들 할인
+  // isPhone이 true인 제품이 하나라도 있는지 체크
+  const hasPhone = selectedItems.some(item => item.isPhone);
+
+  // 2. 할인 금액 계산
+  const discount = selectedItems.reduce((acc, item) => {
+    // 폰이 포함되어 있고, 현재 아이템이 폰이 아닌 경우에만 10% 할인 적용
+    if (hasPhone && !item.isPhone && item.price < 300000) {
+      return acc + (item.price * 0.1);
+    }
+    return acc;
+  }, 0);
+
+  // 최종 결제 금액
+  const finalPayment = Math.max(0, selectedTotal - discount);
+
+  // 배송비 기본 9000원
+  const [shipping, setShipping] = useState(9000);
+  useEffect(() => {
+    if (finalPayment >= 50000) {
+      setShipping(0);
+    } else {
+      setShipping(9000)
+    }
+  }, [finalPayment]);
+
+  const handleRemoveCart = () => {
+    onRemoveSelected(selectedItems);
+    setCheckedItems([]);
+  }
+
+  const handleCheckedOrder = () => {
+    if (chekedItems.length === 0) {
+      alert("주문할 상품을 선택해주세요.");
+      return;
+    }
+
+    // 현재 체크된 상품 객체들만 추출
+    const orderData = cart.filter(item =>
+      chekedItems.includes(`${item.productId}-${item.deviceKey}-${item.color}`)
+    );
+
+    // 스토어의 checkedCart에 저장
+    onUpdateCheckedCart(orderData);
+
+    // 결제 페이지로 이동
+    navigate("/payment");
+  };
+
+  const handleAllOrder = () => {
+    // 스토어의 checkedCart에 저장
+    onUpdateCheckedCart(cart);
+
+    // 결제 페이지로 이동
+    navigate("/payment");
+  };
+
   return (
     <div className="sub-page-wrap cart-page-wrap">
       {/* 페이지 상단 제목 */}
@@ -192,7 +129,7 @@ export default function Cart() {
           <ul className="payment-progress-wrap">
             <li className="payment-progress-item active">
               <div className="icon-box">
-                <img src="./images/icon/cart_white.svg" alt="장바구니" />
+                <img src="./images/cart/cart-bag.svg" alt="장바구니" />
               </div>
               <p>장바구니</p>
             </li>
@@ -217,8 +154,11 @@ export default function Cart() {
             {/* 장바구니 제목 */}
             <div className="cart-title">
               <div className="cart-title-left">
-                <label>
-                  <input type="checkbox" />
+                <label className="checkbox-label">
+                  <input type="checkbox"
+                    checked={cart.length > 0 && chekedItems.length === cart.length}
+                    onChange={handleAllChecked} />
+                  <span className={`checkbox-icon ${cart.length > 0 && chekedItems.length === cart.length ? "on" : "off"}`}></span>
                 </label>
                 <p>상품정보</p>
               </div>
@@ -229,44 +169,66 @@ export default function Cart() {
             </div>
             {/* 장바구니 제품 목록 */}
             <ul className="cart-item-list">
-              {tempItem.map((item) => (
-                <li key={item.id} className="cart-item">
-                  <label>
-                    <input type="checkbox" />
-                  </label>
-                  <div className="cart-card-wrap">
-                    <div className="cart-goods-info">
-                      <div className="goods-img">
-                        <img
-                          src={`/images/category/case/${item.id}_${item.color[0]}_0.jpg`}
-                          alt={item.productName} />
-                      </div>
-                      <div className="goods-text">
-                        <p className="title">{item.productName}</p>
-                        <div className="goods-detail-product">
-                          <p>{item.lastCategory}</p>
-                          <p>{item.caseCategory}</p>
-                          <p>{item.color[0]}</p>
+              {cart.length > 0 ? (
+                <>
+                  {cart.map((item, index) => {
+                    const itemKey = getItemKey(item);
+                    const isChecked = chekedItems.includes(itemKey);
+                    return (
+                      <li key={itemKey} className="cart-item">
+                        <label className="checkbox-label">
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => handleChecked(item)}
+                          />
+                          <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
+                        </label>
+                        <div className="cart-card-wrap">
+                          <div className="cart-goods-info">
+                            <div className="goods-img">
+                              <Link to={`/detail/${item.productId}`}>
+                                <img
+                                  src={`${item.imgUrl}`}
+                                  alt={item.title} />
+                              </Link>
+                            </div>
+                            <div className="goods-text">
+                              <p className="title">{item.title}</p>
+                              <div className="goods-detail-product">
+                                <p>{item.device}</p>
+                                <p>{item.color}</p>
+                              </div>
+                              {item.device || item.color ?
+                                <button onClick={() => setEditingItem(item)}>옵션변경</button> : ""}
+                            </div>
+                          </div>
+                          <div className="cart-goods-count-price">
+                            <div className="cart-count-ctrl">
+                              <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
+                              <span>{item.quantity}</span>
+                              <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
+                            </div>
+                            <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
+                          </div>
                         </div>
-                        <button>옵션변경</button>
-                      </div>
-                    </div>
-                    <div className="cart-goods-count-price">
-                      <div className="cart-count-ctrl">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                      </div>
-                      <p className="price">₩ <span>{Number(item.price).toLocaleString()}</span></p>
-                    </div>
-                  </div>
+                      </li>
+                    );
+                  })}
+                </>
+              ) : (
+                <li>
+                  <EmptyState icon="🛒" strong="장바구니" title="가 비어 있습니다." desc="마음에 드는 상품을 담아보세요." btnText="쇼핑하러 가기" btnLink="/case/device" />
                 </li>
-              ))}
+              )}
             </ul>
+            {editingItem && (
+              <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)} />
+            )}
             {/* 체크박스 취소 버튼 */}
             <div className="cart-cancel-btn-wrap">
-              <button>선택 상품 삭제</button>
-              <button>전체 상품 삭제</button>
+              <button onClick={() => handleRemoveCart()}>선택 상품 삭제</button>
+              <button onClick={() => onClearCart()}>전체 상품 삭제</button>
             </div>
           </div>
           {/* 우측 - 주문 컨트롤 */}
@@ -278,41 +240,25 @@ export default function Cart() {
             <div className="price-info-wrap">
               {/* 총 금액 */}
               <div className="price-detail">
-                <p className="price-sum">총 금액<span>₩ {Number("100000").toLocaleString()}</span></p>
-                <p className="price-discount">할인 금액<span>- ₩ {Number("100000").toLocaleString()}</span></p>
-                <p className="price-delevery">배송비<span>₩ {Number("100000").toLocaleString()}</span></p>
+                <p className="price-sum">총 금액<span>{Number(selectedTotal).toLocaleString()}원</span></p>
+                <p className="price-discount">할인 금액<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
+                <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${Number(shipping).toLocaleString()}원`}</span></p>
               </div>
               <div className="price-total">
-                <p className="free-info">₩ 50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>₩ {Number("100000").toLocaleString()}</span></p>
+                <p className="free-info">50,000원 이상 배송비 무료</p>
+                <p className="est-price">결제예정금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment + shipping).toLocaleString()}원</span></p>
               </div>
             </div>
             {/* 주문 버튼 */}
             <ul className="order-btn-wrap">
-              <li><button className="order-all">전체 상품 주문</button></li>
-              <li><button>선택 상품 주문</button></li>
+              <li><button className="order-all" onClick={() => handleAllOrder()}>전체 상품 주문</button></li>
+              <li><button onClick={() => handleCheckedOrder()}>선택 상품 주문</button></li>
             </ul>
           </div>
         </div>
         {/* 추천상품 */}
         <div className="recommend-wrap">
-          <h3>추천 상품</h3>
-          {/* 추천 상품 목록 */}
-          <ul className="recommend-item-list">
-            {tempRecoItem.map((item) => (
-              <li key={item.id} className="recommend-item">
-                <div className="goods-img">
-                  <img
-                    src={`/images/category/accessory/${item.id}_${item.color[0]}_0.jpg`}
-                    alt={item.productName} />
-                </div>
-                <div className="goods-text">
-                  <p className="item-name">{item.productName}</p>
-                  <p className="item-price">₩ {Number(item.price).toLocaleString()}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <BundleRecommend item={tempRecoItem} />
         </div>
       </div>
     </div>
