@@ -42,7 +42,7 @@ function StoryTab() {
                     <div className="story-feature-grid">
                         <img
                             src="/images/brand/story-wes-ng.png"
-                            alt="store"
+                            alt="Wes Ng · Co-Founder & CEO"
                             className="story-feature-img"
                         />
                         <div className="story-feature-meta">
@@ -125,7 +125,7 @@ const STANDARD_SLIDES = [
     { key: 'travel', label: 'TRAVEL CARRIER', title: '여행의 시작,\n케이스티파이 트래블 캐리어', desc: '가볍고 견고한 소재로 만든 트래블 캐리어. 이동 중에도 스타일을 잃지 않습니다.', link: '/search?q=수트케이스', img: '/images/brand/travel.png' },
 ]
 
-const CHIP_LABELS = ['전체', '임팩트 케이스', '바운스 케이스', '클리어 케이스', '글레이즈 케이스', '링스탠드', '바디스트랩', '트래블 캐리어']
+const CHIP_LABELS = ['임팩트 케이스', '바운스 케이스', '클리어 케이스', '글레이즈 케이스', '링스탠드', '바디스트랩', '트래블 캐리어']
 
 // 슬라이드별 상세 설명
 const SLIDE_DETAILS = [
@@ -316,23 +316,15 @@ function StandardTab() {
             {/* 카테고리 칩 — 클릭 시 해당 슬라이드로 이동 */}
             <div className="std-chips-wrap">
                 <div className="std-chips">
-                    {CHIP_LABELS.map((chip, i) => {
-                        // i=0 은 '전체' → 슬라이드 0번과 연결
-                        // i=1~7 은 각 슬라이드 0~6 과 연결
-                        const slideIdx = i === 0 ? 0 : i - 1
-                        const isActive = i === 0 ? false : currentIdx === slideIdx
-                        return (
-                            <span
-                                key={chip}
-                                className={`std-chip${isActive ? ' on' : ''}`}
-                                onClick={() => {
-                                    swiperRef.current?.slideToLoop(slideIdx)
-                                }}
-                            >
-                                {chip}
-                            </span>
-                        )
-                    })}
+                    {CHIP_LABELS.map((chip, i) => (
+                        <span
+                            key={chip}
+                            className={`std-chip${currentIdx === i ? ' on' : ''}`}
+                            onClick={() => swiperRef.current?.slideToLoop(i)}
+                        >
+                            {chip}
+                        </span>
+                    ))}
                 </div>
             </div>
 
