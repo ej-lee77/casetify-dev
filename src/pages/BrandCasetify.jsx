@@ -40,7 +40,11 @@ function StoryTab() {
             <section className="story-feature">
                 <div className="bc-inner">
                     <div className="story-feature-grid">
-                        <div className="story-feature-img" />
+                        <img
+                            src="/images/brand/story-wes-ng.png"
+                            alt="store"
+                            className="story-feature-img"
+                        />
                         <div className="story-feature-meta">
                             <div className="story-yrs">2011</div>
                             <div className="story-since">FOUNDED · A NEW IDEA</div>
@@ -121,7 +125,7 @@ const STANDARD_SLIDES = [
     { key: 'travel', label: 'TRAVEL CARRIER', title: '여행의 시작,\n케이스티파이 트래블 캐리어', desc: '가볍고 견고한 소재로 만든 트래블 캐리어. 이동 중에도 스타일을 잃지 않습니다.', link: '/search?q=수트케이스', img: '/images/brand/travel.png' },
 ]
 
-const CHIP_LABELS = ['임팩트 케이스', '바운스 케이스', '클리어 케이스', '글레이즈 케이스', '링스탠드', '바디스트랩', '트래블 캐리어']
+const CHIP_LABELS = ['전체', '임팩트 케이스', '바운스 케이스', '클리어 케이스', '글레이즈 케이스', '링스탠드', '바디스트랩', '트래블 캐리어']
 
 // 슬라이드별 상세 설명
 const SLIDE_DETAILS = [
@@ -437,15 +441,15 @@ function RecastifyTab() {
         { idx: '04', num: 'CO', unit: '₂↓', title: '탄소 배출량 절감', desc: '제조 공정과 물류 전반에서 탄소 배출량을 지속적으로 절감하고 있습니다.' },
     ]
     const processSteps = [
-        { n: '01', lbl: 'COLLECT', title: '낡은 케이스를 보내주세요', desc: '더 이상 사용하지 않는 케이스를 케이스티파이로 보내주시면, 순환 여정의 출발점이 됩니다.' },
-        { n: '02', lbl: 'PROCESS', title: '전문 파트너와 함께 처리', desc: '독립된 재활용 파트너와 협력하여 케이스를 안전하게 분해·세척·처리합니다.' },
-        { n: '03', lbl: 'EXTRACT', title: '재활용 소재로 재탄생', desc: '추출된 소재는 새로운 케이스, 액세서리, 그리고 아티스트 작품으로 다시 태어납니다.' },
+        { n: '01', lbl: 'COLLECT', img: '/images/brand/recastify-collect.png', title: '낡은 케이스를 보내주세요', desc: '더 이상 사용하지 않는 케이스를 케이스티파이로 보내주시면, 순환 여정의 출발점이 됩니다.' },
+        { n: '02', lbl: 'PROCESS', img: '/images/brand/recastify-process.png', title: '전문 파트너와 함께 처리', desc: '독립된 재활용 파트너와 협력하여 케이스를 안전하게 분해·세척·처리합니다.' },
+        { n: '03', lbl: 'EXTRACT', img: '/images/brand/recastify-extract.png', title: '재활용 소재로 재탄생', desc: '추출된 소재는 새로운 케이스, 액세서리, 그리고 아티스트 작품으로 다시 태어납니다.' },
     ]
     const artistCards = [
-        { cls: 'c1', tag: 'SEOUL', name: '차인철', desc: '서울의 도시 거리에서 영감을 받은 거리 예술가. 케이스티파이와 함께 도시의 음영을 담은 친환경 폰케이스를 선보였습니다.' },
-        { cls: 'c2', tag: 'BROOKLYN', name: '코디 호이트 (Cody Hoyt)', desc: '브루클린을 기반으로 활동하는 아티스트. 금속 폐자재와 협력적 작업에 영향을 받아 재해석된 폰케이스를 재탄생시켰습니다.' },
-        { cls: 'c3', tag: 'K11 MUSEA', name: 'RE/CLAIMED 설치물', desc: 'K11 MUSEA에 설치된 대형 벤치 작품은 지속가능성이 아름다움과 영향력을 동시에 거둘 수 있음을 보여줍니다.' },
-        { cls: 'c4', tag: 'ACCESSORY', name: 'RE/IMAGINED 스마트폰 스탠드', desc: '100% 재활용 소재로 제작된 데일리 액세서리. 지속가능한 스타일에 분명한 목적을 담았습니다.' },
+        { cls: 'c1', tag: 'SEOUL', img: '/images/brand/artist-cha-incheol.png', name: '차인철', desc: '서울의 도시 거리에서 영감을 받은 거리 예술가. 케이스티파이와 함께 도시의 음영을 담은 친환경 폰케이스를 선보였습니다.' },
+        { cls: 'c2', tag: 'BROOKLYN', img: '/images/brand/artist-cody-hoyt.png', name: '코디 호이트 (Cody Hoyt)', desc: '브루클린을 기반으로 활동하는 아티스트. 금속 폐자재와 협력적 작업에 영향을 받아 재해석된 폰케이스를 재탄생시켰습니다.' },
+        { cls: 'c3', tag: 'K11 MUSEA', img: '/images/brand/artist-reclaimed.png', name: 'RE/CLAIMED 설치물', desc: 'K11 MUSEA에 설치된 대형 벤치 작품은 지속가능성이 아름다움과 영향력을 동시에 거둘 수 있음을 보여줍니다.' },
+        { cls: 'c4', tag: 'ACCESSORY', img: '/images/brand/artist-reimagined.png', name: 'RE/IMAGINED 스마트폰 스탠드', desc: '100% 재활용 소재로 제작된 데일리 액세서리. 지속가능한 스타일에 분명한 목적을 담았습니다.' },
     ]
 
     return (
@@ -492,7 +496,11 @@ function RecastifyTab() {
             <section className="rc-crisis">
                 <div className="bc-inner">
                     <div className="rc-crisis-grid">
-                        <div className="rc-crisis-ph" />
+                        <img
+                            src="/images/brand/recastify-plastic-ocean.png"
+                            alt="플라스틱 위기 · 바다 속 플라스틱"
+                            className="rc-crisis-ph"
+                        />
                         <div className="rc-crisis-meta">
                             <p className="bc-intro-eyebrow" style={{ color: '#3a7fb5' }}>THE PLASTIC CRISIS</p>
                             <h2>전 세계가 마주한,<br /><b>플라스틱 위기</b></h2>
@@ -536,7 +544,10 @@ function RecastifyTab() {
                         {processSteps.map((step) => (
                             <div key={step.n} className="rc-process-step">
                                 <div className="rc-process-n">{step.n}</div>
-                                <div className="rc-process-ph"><div className="rc-process-lbl">{step.lbl}</div></div>
+                                <div className="rc-process-ph">
+                                    <img src={step.img} alt={step.title} className="rc-process-img" />
+                                    <div className="rc-process-lbl">{step.lbl}</div>
+                                </div>
                                 <h4>{step.title}</h4>
                                 <p>{step.desc}</p>
                             </div>
@@ -556,6 +567,7 @@ function RecastifyTab() {
                         {artistCards.map((card) => (
                             <div key={card.name} className={`rc-artist-card ${card.cls}`}>
                                 <div className="rc-artist-ph">
+                                    <img src={card.img} alt={card.name} className="rc-artist-img" />
                                     <div className="rc-artist-tag">{card.tag}</div>
                                 </div>
                                 <div className="rc-artist-name">{card.name}</div>
@@ -812,7 +824,15 @@ function ClubTab() {
 
 // ─── 체크 도트 (비교표용) ──────────────────────────────
 function CheckDot({ on = false }) {
-    return <span className={`check${on ? ' on' : ''}`} />
+    return (
+        <span className={`check${on ? ' on' : ''}`}>
+            {on && (
+                <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="2,6 5,9 10,3" stroke="#0a0a0a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            )}
+        </span>
+    )
 }
 
 // ─── 탭 정의 ─────────────────────────────────────────

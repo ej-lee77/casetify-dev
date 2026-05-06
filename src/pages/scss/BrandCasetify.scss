@@ -267,30 +267,11 @@
     }
 
     .story-feature-img {
+        width: 100%;
         aspect-ratio: 4/5;
         border-radius: 4px;
-        background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);
-        position: relative;
-        overflow: hidden;
-
-        &::before {
-            content: 'WES NG · CO-FOUNDER';
-            position: absolute;
-            left: 24px;
-            bottom: 24px;
-            color: rgba(255, 255, 255, .6);
-            font-size: 11px;
-            letter-spacing: .2em;
-            font-family: 'Archivo', sans-serif;
-            font-weight: 700;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(40% 60% at 50% 40%, rgba(255, 255, 255, .08), transparent 70%);
-        }
+        object-fit: cover;
+        display: block;
     }
 
     .story-feature-meta {
@@ -505,10 +486,10 @@
 
     h2 {
         margin-top: 32px;
-        font-size: 96px;
-        font-weight: 900;
-        letter-spacing: -.04em;
-        line-height: .95;
+        font-size: 44px;
+        font-weight: 800;
+        letter-spacing: -.025em;
+        line-height: 1.25;
         color: var(--ink);
         font-family: 'Pretendard', sans-serif;
     }
@@ -1211,25 +1192,11 @@
     }
 
     .rc-crisis-ph {
+        width: 100%;
         aspect-ratio: 5/6;
         border-radius: 8px;
-        background:
-            radial-gradient(60% 80% at 50% 50%, rgba(58, 127, 181, .4), transparent 70%),
-            linear-gradient(135deg, #1a3a52 0%, #0e2030 100%);
-        position: relative;
-        overflow: hidden;
-
-        &::before {
-            content: 'PLASTIC IN OCEAN';
-            position: absolute;
-            left: 24px;
-            bottom: 24px;
-            color: rgba(255, 255, 255, .55);
-            font-size: 11px;
-            letter-spacing: .24em;
-            font-family: 'Archivo', sans-serif;
-            font-weight: 700;
-        }
+        object-fit: cover;
+        display: block;
     }
 
     .rc-crisis-meta {
@@ -1418,16 +1385,22 @@
             margin-top: 32px;
             height: 200px;
             border-radius: 6px;
-            background:
-                radial-gradient(50% 70% at 50% 50%, rgba(200, 162, 76, .18), transparent 70%),
-                linear-gradient(135deg, #1a1814 0%, #0a0a0a 100%);
             position: relative;
+            overflow: hidden;
+            background: #1a1814;
+
+            .rc-process-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
 
             .rc-process-lbl {
                 position: absolute;
                 left: 16px;
                 bottom: 16px;
-                color: rgba(255, 255, 255, .4);
+                color: rgba(255, 255, 255, .6);
                 font-size: 10px;
                 letter-spacing: .24em;
                 font-family: 'Archivo', sans-serif;
@@ -1489,6 +1462,14 @@
             border-radius: 6px;
             position: relative;
             overflow: hidden;
+            background: #1a1a1a;
+
+            .rc-artist-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
 
             .rc-artist-tag {
                 position: absolute;
@@ -1507,19 +1488,19 @@
         }
 
         &.c1 .rc-artist-ph {
-            background: linear-gradient(135deg, #3a3835 0%, #1a1815 100%);
+            background: #3a3835;
         }
 
         &.c2 .rc-artist-ph {
-            background: linear-gradient(135deg, #4a3528 0%, #2a1c14 100%);
+            background: #4a3528;
         }
 
         &.c3 .rc-artist-ph {
-            background: linear-gradient(135deg, #2a3845 0%, #0e1822 100%);
+            background: #2a3845;
         }
 
         &.c4 .rc-artist-ph {
-            background: linear-gradient(135deg, #3a3a40 0%, #1a1a20 100%);
+            background: #3a3a40;
         }
 
         .rc-artist-name {
@@ -2034,27 +2015,22 @@
 
 // 체크 도트
 .check {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: #1f1f1f;
-    position: relative;
+    background: #2a2a2a;
+
+    svg {
+        width: 12px;
+        height: 12px;
+        display: block;
+    }
 
     &.on {
-        background: #c8a24c;
-
-        &::after {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 8px;
-            width: 4px;
-            height: 8px;
-            border: solid #0a0a0a;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg) translateY(-5px);
-        }
+        background: var(--gold);
     }
 }
 
@@ -2192,7 +2168,7 @@
     display: block;
 }
 
-// FAQ
+// FAQ — BrandQna 스타일 통일
 .bc-club-faq {
     padding: 72px 0;
     background: #fff;
@@ -2200,66 +2176,67 @@
     .faq-inner {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 0 60px;
+        padding: 0 20px;
     }
 
     .section-heading {
-        text-align: center;
-        font-size: 36px;
-        font-weight: 800;
-        margin-bottom: 56px;
-        letter-spacing: -.02em;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 28px;
+        letter-spacing: -0.02em;
+        color: #2f2f2f;
     }
 
     .faq-accordion {
-        border-top: 1px solid #ddd;
+        border-top: 1px solid #e6e6e6;
     }
 
     .faq-item {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #e6e6e6;
+
+        &.open .faq-chevron {
+            transform: rotate(180deg);
+        }
     }
 
     .faq-question {
         width: 100%;
-        padding: 26px 28px;
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        gap: 24px;
-        text-align: left;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 4px;
         background: none;
         border: none;
         cursor: pointer;
+        text-align: left;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #2f2f2f;
 
         span {
-            font-size: 16px;
-            font-weight: 700;
-            color: #222;
+            flex: 1;
             line-height: 1.5;
-            letter-spacing: -.005em;
         }
     }
 
     .faq-chevron {
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
         flex-shrink: 0;
-        transition: transform .25s ease;
-        color: #111;
-    }
-
-    .faq-item.open .faq-chevron {
-        transform: rotate(180deg);
+        color: #585858;
+        transition: transform 0.25s ease;
     }
 
     .faq-answer {
-        padding: 0 28px 28px;
+        padding: 0 4px 24px;
 
         p {
-            font-size: 14px;
-            line-height: 1.85;
-            color: #666;
-            font-weight: 400;
+            background: #f7f7f7;
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #585858;
         }
     }
 }
