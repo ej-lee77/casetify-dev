@@ -15,25 +15,42 @@ const MODEL_FILE_MAP = {
     'iphone17pro': 'IPHONE17PRO',
     'iphone17': 'IPHONE17',
     'iphone16promax': 'IPHONE16PROMAX',
+    'iphone16pro': 'iphone16pro',       // ✅ 추가
     'iphone16': 'IPHONE16',
+    'iphone15pro': 'iphone15pro',       // ✅ 추가
     'iphone15': 'IPHONE15',
     'iphone14plus': 'IPHONE14PLUS',
     'iphone13promax': 'IPHONE13PROMAX',
     'iphoneMini': 'IPHONEMINI',
     's25ultra': 'GALAXYS25ULTRA',
-    's25plus': 'GALAXYS25PLUS',
-    's25': null,
+    's25plus': 'GALAXYS25PLUS',         // ✅ null → 파일 연결
+    's25': 'galxeys25',                 // ✅ 추가
+    's26plus': 'galxeys26plus',         // ✅ 추가
+    's26': 'galxeys26',                 // ✅ 추가
     's24': 'GALAXYS24',
     'z6fold': 'ZFOLDER6',
     'z6flip': 'ZFLIP6',
+    'z7fold': 'galxeysZfold7',          // ✅ 추가
+    'z7flip': 'galxeysZflip7 1',        // ✅ 추가
     'pixel9pro': 'PIXELPRO9',
     'pixel9': 'GOOGLE9',
     'pixel8pro': 'GOOGLEPRO9',
+    'pixel10pro': 'pixel10pro',         // ✅ 추가
+    'pixel10': 'pixel10',               // ✅ 추가
 }
 
 const CAMERA_FILE_OVERRIDE = {
     'z6fold': 'ZFOLDER6-CAMEARA',
-    's25': null,
+    's25':'galxeys25-camera',
+    's25plus': 'GALAXYS25PLUS-CAMERA',  // ✅ 추가
+    's26': 'galxeys26-camera',          // ✅ 추가
+    's26plus': 'galxeys26plus-camera',  // ✅ 추가
+    'z7fold': 'galxeysZfold7-camera',   // ✅ 추가
+    'z7flip': null,                     // ✅ 추가 (카메라 파일 없음)
+    'iphone15pro': 'iphone15pro -camera', // ✅ 추가 (파일명 공백 있음)
+    'iphone16pro': 'iphone16pro-camera', // ✅ 추가
+    'pixel10': 'pixel10-camera',        // ✅ 추가
+    'pixel10pro': 'pixel10pro-camera',  // ✅ 추가
 }
 
 // ── bounce 파일명 ─────────────────────────────────
@@ -136,10 +153,22 @@ const MODEL_LAYOUT = {
         canvas: { top: 20, left: 69, w: 140, h: 320, radius: 30 },
         camera: { top: 22, left: 62, width: 80, height: 80 },
     },
+    // ✅ 추가 - iphone16pro (368x681, 카메라 194x200)
+    'iphone16pro': {
+        scale: 1.5, bodyW: 215, bodyH: 358, bodyRadius: 44,
+        canvas: { top: 32, left: 37, w: 138, h: 300, radius: 30 },
+        camera: { top: 30, left: 35, width: 82, height: 86 },
+    },
     'iphone16': {
         scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 44,
         canvas: { top: 43, left: 27, w: 140, h: 300, radius: 30 },
         camera: { top: 45, left: 28, width: 73, height: 80 },
+    },
+    // ✅ 추가 - iphone15pro (429x767, 카메라 214x215)
+    'iphone15pro': {
+        scale: 1.5, bodyW: 225, bodyH: 358, bodyRadius: 44,
+        canvas: { top: 33, left: 42, w: 136, h: 298, radius: 30 },
+        camera: { top: 30, left: 40, width: 80, height: 84 },
     },
     'iphone15': {
         scale: 1.5, bodyW: 230, bodyH: 358, bodyRadius: 44,
@@ -166,10 +195,29 @@ const MODEL_LAYOUT = {
         canvas: { top: 28, left: 22, w: 154, h: 320, radius: 10 },
         camera: { top: 24, left: 20, width: 87, height: 130 },
     },
+    // ✅ null → 파일 연결 - s25plus (397x748, 카메라 163x261)
     's25plus': {
         scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 30,
-        canvas: { top: 38, left: 30, w: 150, h: 303, radius: 20 },
-        camera: { top: 40, left: 32, width: 67, height: 110, background: '#221f1f', radius: 20 },
+        canvas: { top: 38, left: 30, w: 140, h: 303, radius: 20 },
+        camera: { top: 35, left: 28, width: 62, height: 110, background: '#221f1f', radius: 20 },
+    },
+    // ✅ 추가 - s25 (376x708, 카메라 146x238)
+    's25': {
+        scale: 1.5, bodyW: 195, bodyH: 358, bodyRadius: 30,
+        canvas: { top: 38, left: 26, w: 142, h: 302, radius: 20 },
+        camera: { top: 36, left: 24, width: 56, height: 108 },
+    },
+    // ✅ 추가 - s26plus (409x704, 카메라 155x243)
+    's26plus': {
+        scale: 1.5, bodyW: 210, bodyH: 358, bodyRadius: 30,
+        canvas: { top: 36, left: 30, w: 148, h: 305, radius: 20 },
+        camera: { top: 34, left: 28, width: 60, height: 113 },
+    },
+    // ✅ 추가 - s26 (389x698, 카메라 155x243)
+    's26': {
+        scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 30,
+        canvas: { top: 36, left: 27, w: 145, h: 305, radius: 20 },
+        camera: { top: 34, left: 25, width: 60, height: 110 },
     },
     's24': {
         scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 30,
@@ -182,6 +230,18 @@ const MODEL_LAYOUT = {
         camera: { top: 40, left: 53, width: 74, height: 120 },
     },
     'z6flip': {
+        scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 30,
+        canvas: { top: 193, left: 33, w: 140, h: 147, radius: 7 },
+        camera: { top: 45, left: 30, width: 56, height: 33 },
+    },
+    // ✅ 추가 - z7fold (406x782, 카메라 168x253)
+    'z7fold': {
+        scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 20,
+        canvas: { top: 44, left: 58, w: 140, h: 295, radius: 10 },
+        camera: { top: 40, left: 53, width: 65, height: 120 },
+    },
+    // ✅ 추가 - z7flip (366x723, 카메라 파일 없음)
+    'z7flip': {
         scale: 1.5, bodyW: 200, bodyH: 358, bodyRadius: 30,
         canvas: { top: 193, left: 33, w: 140, h: 147, radius: 7 },
         camera: { top: 45, left: 30, width: 56, height: 33 },
@@ -200,6 +260,18 @@ const MODEL_LAYOUT = {
         scale: 1.5, bodyW: 230, bodyH: 358, bodyRadius: 30,
         canvas: { top: 38, left: 38, w: 150, h: 300, radius: 25 },
         camera: { top: 40, left: 34, width: 154, height: 64 },
+    },
+    // ✅ 추가 - pixel10 (353x706, 카메라 294x122)
+    'pixel10': {
+        scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 30,
+        canvas: { top: 33, left: 38, w: 146, h: 310, radius: 30 },
+        camera: { top: 34, left: 35, width: 150, height: 58 },
+    },
+    // ✅ 추가 - pixel10pro (384x697, 카메라 293x122)
+    'pixel10pro': {
+        scale: 1.5, bodyW: 225, bodyH: 358, bodyRadius: 30,
+        canvas: { top: 36, left: 38, w: 150, h: 302, radius: 25 },
+        camera: { top: 20, left: 35, width: 154, height: 57 },
     },
     'ipad': {
         scale: 1.2, bodyW: 260, bodyH: 358, bodyRadius: 20,

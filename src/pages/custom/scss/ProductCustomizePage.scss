@@ -114,6 +114,11 @@
         gap: 20px;
     }
 
+    // ✅ 추가 - jsx에서 사용
+    .right-btn-wrap {
+        margin-top: 20px;
+    }
+
     .label {
         font-weight: 400;
         font-size: 12px;
@@ -504,7 +509,7 @@
 
     // ── 반응형 ────────────────────────────────────────────
     @media (max-width: 1024px) {
-        .detail-inner {
+        .detail-inner-custom {  // ✅ 수정: detail-inner → detail-inner-custom
             gap: 30px;
         }
 
@@ -514,13 +519,13 @@
     }
 
     @media (max-width: 860px) {
-        .detail-inner {
+        .detail-inner-custom {  // ✅ 수정: detail-inner → detail-inner-custom
             flex-direction: column;
             gap: 0;
             max-width: calc(100% - 32px);
         }
 
-        .detail-left {
+        .detail-left-custom {   // ✅ 수정: detail-left → detail-left-custom
             position: static;
             width: 100%;
             flex: none;
