@@ -106,6 +106,7 @@ export const useCategoryProductStore = create((set, get) => ({
                     name: "아트", link: "art",
                     mini: [
                         { label: "Takashi Murakami", key: "takashi-murakami" },
+                        { label: "Andy Warhol", key: "andy-warhol" },
                     ]
                 },
 
