@@ -1,11 +1,11 @@
 // ── Detail 레이아웃 ───────────────────────────────────────
-.detail-page {
+.detail-page-custom{
     position: relative;
     z-index: 0;
     margin-bottom: -50px;
     margin-top: 120px;
 
-    .detail-inner {
+    .detail-inner-custom {
 
         width: 1280px;
         max-width: calc(100% - 40px);
@@ -114,6 +114,11 @@
         gap: 20px;
     }
 
+    // ✅ 추가 - jsx에서 사용
+    .right-btn-wrap {
+        margin-top: 20px;
+    }
+
     .label {
         font-weight: 400;
         font-size: 12px;
@@ -205,41 +210,43 @@
                 }
             }
 
-            .model-brand-tabs {
-                display: flex;
-                gap: 10px;
-                padding: 16px 16px 12px;
-                position: sticky;
-                top: 0;
-                background: #fff;
-                z-index: 2;
-                border-bottom: 1px solid #f0f0f0;
+      .model-brand-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 16px 16px 12px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+    border-bottom: 1px solid #f0f0f0;
+    justify-content: center; // ✅ 추가 - 하나일 때 중앙 정렬
 
-                button {
-                    padding: 8px 24px;
-                    border-radius: 999px;
-                    border: 1.5px solid #ddd;
-                    background: #fafafa;
-                    font-size: 14px;
-                    font-weight: 500;
-                    color: #555;
-                    cursor: pointer;
-                    transition: all 0.2s;
+    button {
+        padding: 8px 24px;
+        border-radius: 999px;
+        border: 1.5px solid #ddd;
+        background: #fafafa;
+        font-size: 14px;
+        font-weight: 500;
+        color: #555;
+        cursor: pointer;
+        transition: all 0.2s;
+        flex: 1;          // ✅ 추가 - 꽉 차게
 
-                    &.active {
-                        border-color: #111;
-                        background: #111;
-                        color: #fff;
-                        font-weight: 600;
-                    }
+        &.active {
+            border-color: #111;
+            background: #111;
+            color: #fff;
+            font-weight: 600;
+        }
 
-                    &:hover:not(.active) {
-                        border-color: #bbb;
-                        background: #fff;
-                        color: #111;
-                    }
-                }
-            }
+        &:hover:not(.active) {
+            border-color: #bbb;
+            background: #fff;
+            color: #111;
+        }
+    }
+}
 
             .model-sub-list {
                 padding: 12px;
@@ -285,30 +292,30 @@
     }
 
     // ✅ 오른쪽 - sticky + 내부 스크롤로 장바구니까지 표시
-    .detail-right-custom {
-        width: 420px;
-        flex-shrink: 0;
-        position: sticky;
-        top: 0;
-        max-height: 100vh;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        padding-right: 4px;
-        padding-bottom: 60px;
+.detail-right-custom {
+    width: 420px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 120px;          // ✅ 헤더 높이만큼 내려서 시작
+    max-height: calc(100vh - 120px);  // ✅ 헤더 높이 빼기
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 4px;
+    padding-bottom: 60px;
 
-        &::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #ddd;
-            border-radius: 4px;
-        }
+    &::-webkit-scrollbar {
+        width: 4px;
     }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 4px;
+    }
+}
 
     .detail-meta {
         display: flex;
@@ -504,7 +511,7 @@
 
     // ── 반응형 ────────────────────────────────────────────
     @media (max-width: 1024px) {
-        .detail-inner {
+        .detail-inner-custom {  // ✅ 수정: detail-inner → detail-inner-custom
             gap: 30px;
         }
 
@@ -514,13 +521,13 @@
     }
 
     @media (max-width: 860px) {
-        .detail-inner {
+        .detail-inner-custom {  // ✅ 수정: detail-inner → detail-inner-custom
             flex-direction: column;
             gap: 0;
             max-width: calc(100% - 32px);
         }
 
-        .detail-left {
+        .detail-left-custom {   // ✅ 수정: detail-left → detail-left-custom
             position: static;
             width: 100%;
             flex: none;
