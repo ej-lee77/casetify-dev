@@ -60,7 +60,7 @@
 
     .auth-step-card {
         flex: 1;
-        background: #f7f7f7;
+        // background: #f7f7f7;
         padding: 40px 24px 28px;
 
         .auth-step-icon {
@@ -72,14 +72,14 @@
             border-radius: 8px;
 
             img {
-                width: 64px;
-                height: 64px;
+                width: 100px;
+                height: 100px;
                 object-fit: contain;
             }
         }
 
         p {
-            font-size: 0.88rem;
+            font-size: 1em;
             color: g.$text-sub;
             text-align: center;
             line-height: 1.5;
@@ -152,6 +152,7 @@
 
     .faq-section {
         padding: 60px 0 80px;
+        margin-top: 0;
     }
 
     .faq-accordion {
