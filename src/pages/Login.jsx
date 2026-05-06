@@ -4,6 +4,13 @@ import SectionTitle from '../components/SectionTitle'
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -167,6 +174,13 @@ export default function Login() {
       }
     }
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className='login-wrap'>
       <div className="inner">
         <SectionTitle title={"로그인"} subtitle={""} />
@@ -236,5 +250,6 @@ export default function Login() {
         )}
       </div>
     </div>
+    </motion.div>
   )
 }

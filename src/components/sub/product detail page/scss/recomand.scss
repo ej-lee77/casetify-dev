@@ -29,6 +29,7 @@
     }
 
     .name {
+      @include g.multi-ellipsis();
       font-size: 13px;
       color: g.$text-main;
       margin-bottom: 5px;

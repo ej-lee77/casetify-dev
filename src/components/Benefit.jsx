@@ -1,6 +1,7 @@
 import React from 'react'
 import "./scss/Benefit.scss"
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // 하단 benefit 배너 데이터
 const subCardData = [
@@ -32,16 +33,13 @@ export default function Benefit() {
             <ul className="benefit-card-list">
                 {subCardData.map((data, d) => (
                     <li key={d} className="benefit-banner-item">
-                        <button
-                            type="button"
-                            onClick={() => navigate('/brand/casetify', { state: { tab: data.tab } })}
-                        >
+                        <Link to={"/brand/casetify"} state={{ tab: data.tab }}>
                             <img src={data.img} alt={`benefit-img${d + 1}`} />
                             <div className="text-box">
                                 <p className="text1">{data.topText}</p>
                                 <p className="text2">{data.bottomText}</p>
                             </div>
-                        </button>
+                        </Link>
                     </li>
                 ))}
             </ul>

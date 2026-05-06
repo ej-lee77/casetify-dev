@@ -49,9 +49,9 @@ export default function SearchOverlay({ isActive, onClose }) {
                                     onChange={(e) => onSetSearchWord(e.target.value)}
                                 />
                             </label>
-                            <button className="btn-search">
+                            <div className="btn-search">
                                 <img src="/images/icon/search_var.svg" alt="검색" />
-                            </button>
+                            </div>
                             {searchWord.length > 0 && (
                                 <button className="btn-reset" onClick={() => onSetSearchWord("")}>
                                     <img src="/images/icon/btn_reset.svg" alt="검색초기화" />
