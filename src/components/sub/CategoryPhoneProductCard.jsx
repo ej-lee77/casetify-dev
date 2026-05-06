@@ -135,7 +135,7 @@ export default function CategoryPhoneProductCard({ item }) {
                         {feedback === "wish" && "찜 목록에 추가됐어요"}
                         {feedback === "unwish" && "찜 목록에서 제거됐어요"}
                         {feedback === "needDetail" && "상세 내역을 선택해 주세요"}
-                        {feedback === "login" && "로그인이 필요한 서비스예요"}
+                        {feedback === "login" && "로그인 후 이용 가능합니다."}
                     </div>
                 )}
             </div>

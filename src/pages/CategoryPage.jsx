@@ -18,6 +18,15 @@ import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
 import CategoryFilterPanel from "../components/sub/CategoryFilterPanel";
 import CategoryFilterButton from "../components/sub/CategoryFilterButton";
 
+import { motion } from "framer-motion";
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+
 // ─────────────────────────────────────────────
 // 상수
 // ─────────────────────────────────────────────
@@ -365,6 +374,13 @@ export default function CategoryPagePractice() {
     // JSX
     // ─────────────────────────────────────────
     return (
+        <motion.div
+        variants={fadeVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.4 }}
+        >
         <div className="sub-page-wrap category-wrap">
             <CategoryHero
                 mainCate={mainCate}
@@ -666,5 +682,6 @@ export default function CategoryPagePractice() {
                 selectedFilters={selectedFilters}
             />
         </div>
+        </motion.div>
     );
 }

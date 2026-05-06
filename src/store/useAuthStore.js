@@ -1009,7 +1009,7 @@ export const useAuthStore = create(
                     return { ...card, price: 0, use: false };
                 }
             });
-            console.log(updatedGiftCards);
+            // console.log(updatedGiftCards);
 
             // 2. 쿠폰 사용 처리 로직
             const { coupon } = orderData.priceSummary;
@@ -1032,11 +1032,8 @@ export const useAuthStore = create(
             const totalPrice = orderData.priceSummary.totalPrice || 0; // 전체 결제 금액 기준
 
             // A. 금액별 포인트 가산
-            if (totalPrice >= 100000) {
-                currentPoint += 100;
-            } else if (totalPrice >= 50000) {
-                currentPoint += 50;
-            }
+            const earnedPoint = Math.floor(totalPrice / 1000);
+            currentPoint += earnedPoint;
 
             let upgradeMessage = "";
             const rewardMilestones = [{point: 50, label: 'bronze'}, {point: 120, label: 'silver'}, {point: 200, label: 'gold'}];
