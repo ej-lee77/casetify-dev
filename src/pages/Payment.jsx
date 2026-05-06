@@ -4,8 +4,7 @@ import { useAuthStore } from '../store/useAuthStore';
 import AddressSearch from '../components/sub/AddressSearch'
 import { Link, useNavigate } from 'react-router-dom';
 import GiftCardModal from '../components/sub/GiftCardModal';
-import CircularText from '../components/CircularText';
-import { AnimatePresence, motion } from 'framer-motion';
+import CircularOverlay from '../components/CircularOverlay';
 
 const memoList = [
   "부재 시 문 앞에 놓아주세요",
@@ -51,7 +50,7 @@ export default function Payment() {
   const [selectedMethod, setSelectedMethod] = useState(''); 
   const [isPayModalOpen, setIsPayModalOpen] = useState(false);
   const [isPhoneSelectOpen, setIsPhoneSelectOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [cardInfo, setCardInfo] = useState({ number: '', expiry: '', cvc: '' });
   const [mobileInfo, setMobileInfo] = useState({ carrier: '', payphone: '' });
@@ -842,25 +841,7 @@ export default function Payment() {
       />
 
       {isLoading ? (
-        <div className="payment-loader-container">
-          <AnimatePresence mode="wait">
-            {/* // 로딩 중일 때 보여줄 화면 */}
-            <motion.div 
-              key="loading"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className='loader-motion'
-            >
-              <CircularText 
-                text="CASETiFY*CASETiFY*CASETiFY*" 
-                spinDuration={10} 
-                className="payment-loader"
-              />
-              {/* <p style={{ color: 'white', marginTop: '20px' }}>결제 중입니다...</p> */}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      <CircularOverlay />
       ) : ("")}
 
     </div>

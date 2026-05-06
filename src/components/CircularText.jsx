@@ -21,7 +21,7 @@ const getTransition = (duration, from) => ({
   }
 });
 
-const CircularText = ({ text, spinDuration = 20, onHover = 'speedUp', className = '' }) => {
+const CircularText = ({ text, spinDuration = 20, onHover = '', className = '' }) => {
   const letters = Array.from(text);
   const controls = useAnimation();
   const rotation = useMotionValue(0);
@@ -37,7 +37,7 @@ const CircularText = ({ text, spinDuration = 20, onHover = 'speedUp', className 
 
   const handleHoverStart = () => {
     const start = rotation.get();
-    console.log('CircularText mounted with text:', text);
+    // console.log('CircularText mounted with text:', text);
     if (!onHover) return;
 
     let transitionConfig;
