@@ -371,4 +371,40 @@
         }
     }
 
+    .faq-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 40px;
+
+    .faq-page-btn {
+        width: 36px;
+        height: 36px;
+        border: 1px solid #ddd;
+        background: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.15s;
+
+        &:hover:not(:disabled) {
+            border-color: #111;
+            color: #111;
+        }
+
+        &.active {
+            background: #111;
+            border-color: #111;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        &:disabled {
+            color: #ccc;
+            cursor: not-allowed;
+            border-color: #eee;
+        }
+    }
+}
+
 }
