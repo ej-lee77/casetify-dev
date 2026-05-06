@@ -5,6 +5,7 @@ import { BRANDS, TABLET_BRANDS, LAPTOP_BRANDS, CASE_TYPES, TABLET_CASE_TYPES, LA
 import { PhonePreview, isCaseTypeSupported } from './PhonePreview'
 import { TextInputSection } from './TextInputSection'
 import { PhotoSection } from './PhotoSection'
+import ShippingInfo from '../../components/sub/product detail page/ShippingInfo'
 import './scss/ProductCustomizePage.scss'
 
 // ✅ 빠른 메뉴 데이터
@@ -13,6 +14,73 @@ const QUICK_MENUS = [
     { id: 'tablet', label: 'Tablet Case', sub: '태블릿 케이스 커스텀', icon: '⬛' },
     { id: 'laptop', label: 'MacBook Case', sub: '맥북 케이스 커스텀', icon: '💻' },
 ]
+
+// ✅ 라이브러리 없이 hex → 한글 색상명 자동매칭
+const COLOR_NAME_TABLE = [
+    { name: '블랙',      hex: '#000000' },
+    { name: '화이트',    hex: '#ffffff' },
+    { name: '레드',      hex: '#ff0000' },
+    { name: '오렌지',    hex: '#ff8000' },
+    { name: '옐로우',    hex: '#ffff00' },
+    { name: '라임',      hex: '#80ff00' },
+    { name: '그린',      hex: '#00ff00' },
+    { name: '민트',      hex: '#00ff80' },
+    { name: '시안',      hex: '#00ffff' },
+    { name: '스카이블루', hex: '#0080ff' },
+    { name: '블루',      hex: '#0000ff' },
+    { name: '바이올렛',  hex: '#8000ff' },
+    { name: '퍼플',      hex: '#ff00ff' },
+    { name: '마젠타',    hex: '#ff0080' },
+    { name: '핑크',      hex: '#ffb6c1' },
+    { name: '살몬',      hex: '#fa8072' },
+    { name: '코랄',      hex: '#ff6b6b' },
+    { name: '브라운',    hex: '#8b4513' },
+    { name: '베이지',    hex: '#f5f5dc' },
+    { name: '아이보리',  hex: '#fffff0' },
+    { name: '골드',      hex: '#ffd700' },
+    { name: '실버',      hex: '#c0c0c0' },
+    { name: '그레이',    hex: '#808080' },
+    { name: '다크그레이', hex: '#404040' },
+    { name: '네이비',    hex: '#001f5b' },
+    { name: '틸',        hex: '#008080' },
+    { name: '올리브',    hex: '#808000' },
+    { name: '인디고',    hex: '#4b0082' },
+    { name: '마룬',      hex: '#800000' },
+    { name: '라벤더',    hex: '#e6e6fa' },
+]
+
+const hexToRgb = (hex) => {
+    const h = hex.replace('#', '')
+    return {
+        r: parseInt(h.substring(0, 2), 16),
+        g: parseInt(h.substring(2, 4), 16),
+        b: parseInt(h.substring(4, 6), 16),
+    }
+}
+
+const colorDistance = (hex1, hex2) => {
+    const a = hexToRgb(hex1)
+    const b = hexToRgb(hex2)
+    return Math.sqrt((a.r - b.r) ** 2 + (a.g - b.g) ** 2 + (a.b - b.b) ** 2)
+}
+
+const getColorLabel = (hex) => {
+    if (!hex) return null
+    // 프리셋 컬러면 label 그대로
+    const preset = CASE_COLORS.find(c => c.hex.toLowerCase() === hex.toLowerCase())
+    if (preset) return preset.label
+    // 가장 가까운 색상명 매칭
+    let minDist = Infinity
+    let matched = COLOR_NAME_TABLE[0].name
+    for (const color of COLOR_NAME_TABLE) {
+        const dist = colorDistance(hex, color.hex)
+        if (dist < minDist) {
+            minDist = dist
+            matched = color.name
+        }
+    }
+    return matched
+}
 
 // ✅ 커스텀 컬러 피커 컴포넌트 (케이스 컬러용)
 function ColorPickerButton({ value, onChange, presetColors }) {
@@ -182,9 +250,7 @@ function ProductCustomizeContent({ deviceType }) {
 
     const optionSummary = [
         selectedModelLabel,
-        selectedCaseColor
-            ? (CASE_COLORS.find(c => c.hex.toLowerCase() === selectedCaseColor.toLowerCase())?.label || selectedCaseColor.toUpperCase())
-            : null,
+        selectedCaseColor ? getColorLabel(selectedCaseColor) : null, // ✅ 교체
         selectedCaseLabel,
         designType === 'photo'
             ? (photoTab === 'sticker' ? '스티커 커스텀' : '포토 커스텀')
@@ -215,7 +281,8 @@ const handleAddCart = async () => {
             title: productName,  
         price,
         device: selectedModelLabel || '', deviceKey: selectedModel || '',
-        color: selectedCaseColor || '', imgUrl: cartImgUrl,
+        color: getColorLabel(selectedCaseColor) || '', // ✅ 교체
+        imgUrl: cartImgUrl,
         colorList: [], deviceList: [], isPhone: deviceType === 'phone',
         deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
         quantity: 1, isCustom: true, customMode: designType, customContent,
@@ -499,6 +566,11 @@ const handleAddCart = async () => {
                     </div>
                 )}
             </div>
+
+<div style={{ marginTop: '30px' }}>
+    <ShippingInfo />
+</div>
+
         </section>
     )
 }
