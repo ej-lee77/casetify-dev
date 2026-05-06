@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { FONT_COLORS } from './constants'
 
 const EMOJIS = ['😀', '😊', '😍', '🥰', '😎', '🤩', '❤️', '🧡', '💛', '💚', '💙', '💜',
@@ -9,6 +9,11 @@ export function TextInputSection({
     fontColor, setFontColor,
     showEmojiPicker, setShowEmojiPicker,
 }) {
+    const fontColorInputRef = useRef(null)
+
+    // 프리셋에 없는 값이면 커스텀 컬러로 간주
+    const isCustomColor = fontColor && !FONT_COLORS.some(c => c.hex === fontColor)
+
     return (
         <div className="detail-info-box">
             <p className="label">텍스트 입력</p>
@@ -73,6 +78,30 @@ export function TextInputSection({
                         {c.label}
                     </button>
                 ))}
+
+                {/* ✅ 직접 선택 버튼 - 선택 후엔 hex 코드로 텍스트 변경 */}
+                <button
+                    className={isCustomColor ? 'active' : ''}
+                    onClick={() => fontColorInputRef.current?.click()}
+                    style={{ position: 'relative' }}
+                    title="직접 색상 선택"
+                >
+                    <span className="color-chip" style={{
+                        background: isCustomColor
+                            ? fontColor
+                            : 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red)',
+                        border: '1px solid #ddd',
+                    }} />
+                    {isCustomColor ? fontColor.toUpperCase() : '직접 선택'}
+                    <input
+                        ref={fontColorInputRef}
+                        type="color"
+                        value={isCustomColor ? fontColor : '#ffffff'}
+                        onChange={e => setFontColor(e.target.value)}
+                        style={{ position: 'absolute', opacity: 0, width: 0, height: 0, pointerEvents: 'none' }}
+                        tabIndex={-1}
+                    />
+                </button>
             </div>
         </div>
     )
