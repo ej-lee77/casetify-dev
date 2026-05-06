@@ -117,8 +117,10 @@ export default function Footer({ className }) {
       </div>
       <RecentAside />
       <div className="aside-custom-btn" onClick={handleToCustom}>
-        <img src="/images/asideCustom.png" alt="custom" />
-        <p>커스텀하기</p>
+        <div>
+          <img src="/images/asideCustom.png" alt="custom" />
+          <p>커스텀하기</p>
+        </div>
       </div>
     </>
   )

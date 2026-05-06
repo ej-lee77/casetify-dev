@@ -4,6 +4,7 @@ import { useAuthStore } from '../store/useAuthStore';
 import AddressSearch from '../components/sub/AddressSearch'
 import { Link, useNavigate } from 'react-router-dom';
 import GiftCardModal from '../components/sub/GiftCardModal';
+import CircularOverlay from '../components/CircularOverlay';
 
 const memoList = [
   "부재 시 문 앞에 놓아주세요",
@@ -49,6 +50,7 @@ export default function Payment() {
   const [selectedMethod, setSelectedMethod] = useState(''); 
   const [isPayModalOpen, setIsPayModalOpen] = useState(false);
   const [isPhoneSelectOpen, setIsPhoneSelectOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [cardInfo, setCardInfo] = useState({ number: '', expiry: '', cvc: '' });
   const [mobileInfo, setMobileInfo] = useState({ carrier: '', payphone: '' });
@@ -100,7 +102,7 @@ export default function Payment() {
     setMobileInfo({ ...mobileInfo, payphone: value });
     
     // 입력 즉시 검증
-    const error = validate('payphone', value);
+    const error = validatePhone('payphone', value);
     setPhoneErrors(prev => ({ ...prev, payphone: error }));
   };
 
@@ -392,6 +394,7 @@ export default function Payment() {
   };
 
   const paymentComplete = async()=>{
+    setIsLoading(true);
     const orderId = Date.now();
 
     const orderItemsWithStatus = checkedCart.map(item => ({
@@ -423,20 +426,17 @@ export default function Payment() {
     if(isOrder){
       // 완료 페이지로 '아이디'만 넘겨주며 이동
       if(isOrder !== true){
-        navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
+        setTimeout(() => {
+          navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
+        }, 3000);
       }
-      navigate("/payment/complete", { state: { orderId: orderId } });
+      setTimeout(() => {
+        navigate("/payment/complete", { state: { orderId: orderId } });
+      }, 3000);
     }else{
       alert("결제실패")
     }
   }
-  const modalOverlayStyle = {
-    position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-    backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000
-  };
-  const modalContentStyle = {
-    background: '#fff', padding: '30px', borderRadius: '10px', textAlign: 'center'
-  };
 
   return (
     <div className="sub-page-wrap pay-page-wrap">
@@ -839,6 +839,11 @@ export default function Payment() {
         isOpen={isGiftModalOpen} 
         onClose={() => setIsGiftModalOpen(false)}
       />
+
+      {isLoading ? (
+      <CircularOverlay />
+      ) : ("")}
+
     </div>
   )
 }

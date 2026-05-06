@@ -634,13 +634,13 @@ const canAddCart = (() => {
                                         <button
                                             type="button"
                                         onClick={(e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (quantity > 1) {
-        setQuantity((q) => q - 1);
-    }
-    // quantity가 1이면 아무것도 안 함 → 선택값 유지
-}}
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            if (quantity > 1) {
+                                                setQuantity((q) => q - 1);
+                                            }
+                                            // quantity가 1이면 아무것도 안 함 → 선택값 유지
+                                        }}
                                         >−</button>
                                         <span>{quantity}</span>
                                         <button
