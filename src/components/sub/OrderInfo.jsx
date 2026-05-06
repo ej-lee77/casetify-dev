@@ -241,7 +241,7 @@ export default function OrderInfo() {
                         <div className="order-group" key={order.orderId}>
                             {/* 왼쪽: 날짜 및 주문번호 */}
                             <div className="order-info-col">
-                                <p className="date">{order.orderDate}</p>
+                                <p className="date">{order.orderDate.replace(/\.\s*$/, "")}</p>
                                 <p className="order-id">{order.orderId}</p>
                                 <button className="detail-btn" onClick={() => handleShowDetail(order)}>주문정보 상세보기 〉</button>
                             </div>
