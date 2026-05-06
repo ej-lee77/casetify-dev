@@ -79,7 +79,7 @@ export default function Gift() {
       setPopupError(false)
       setPopupOpen(true)
     } else {
-      setPopupMsg('로그인이 필요합니다.')
+      setPopupMsg('로그인 후 이용 가능합니다.')
       setPopupError(true)
       setPopupOpen(true)
     }
