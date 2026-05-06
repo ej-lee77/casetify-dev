@@ -116,10 +116,10 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
     
     // 3. 포맷팅 (yyyy.mm.dd)
     const yyyy = orderDate.getFullYear();
-    const mm = String(orderDate.getMonth() + 1).padStart(2, '0');
-    const dd = String(orderDate.getDate()).padStart(2, '0');
+    const mm = String(orderDate.getMonth() + 1);
+    const dd = String(orderDate.getDate());
     
-    const tomorrowDate = `${yyyy}/${mm}/${dd}`;
+    const tomorrowDate = `${yyyy}. ${mm}. ${dd}`;
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
@@ -137,7 +137,7 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
           <section className="info-section customer-info">
             <div className="info-row">
               <span className="label">주문날짜</span>
-              <span className="value">{order.orderDate}</span>
+              <span className="value">{order.orderDate.replace(/\.\s*$/, "")}</span>
             </div>
             <div className="info-row">
               <span className="label">주문번호</span>
@@ -157,7 +157,7 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
             </div>
             <div className="info-row">
               <span className="label">배송 메모</span>
-              <span className="value">{order.deliveryMemo || '없음'}</span>
+              <span className="value">{order.deliveryMemo === '배송 메모를 선택해주세요' ? "없음" : currentOrder.deliveryMemo || '없음'}</span>
             </div>
             <div className="info-row">
               <span className="label">주문 상태</span>
