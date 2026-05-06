@@ -90,7 +90,7 @@ export default function Gift() {
       <div className="giftcard-page">
         <div className='sub-page-wrap'>
           <div className='gift-title'>
-            <h1>디지털 기프트 카드</h1>
+            <h2>디지털 기프트 카드</h2>
             <p>한 장의 카드로 전하는 무궁무진한 선물!</p>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function Gift() {
             ))}
           </div>
           <div className="gift-faq-more">
-            <Link to="/brand/qna"><button>더 알아보기</button></Link>
+            <Link to="/brand/qna" state={{activeTab: 'gift'}}><button>더 알아보기</button></Link>
           </div>
         </div>
 
