@@ -19,7 +19,7 @@ export const BRANDS = [
       // { id: 's25ultra', label: 'Galaxy S25 Ultra' },
       { id: 's25plus', label: 'Galaxy S25+' },
 
-      { id: 's24', label: 'Galaxy S24' },
+      // { id: 's24', label: 'Galaxy S24' },
       { id: 'z6fold', label: 'Galaxy Z Fold 6' },
       { id: 'z6flip', label: 'Galaxy Z Flip 6' },
     ],
@@ -29,7 +29,7 @@ export const BRANDS = [
     models: [
       { id: 'pixel9pro', label: 'Pixel 9 Pro' },
       { id: 'pixel9', label: 'Pixel 9' },
-      { id: 'pixel8pro', label: 'Pixel 8 Pro' },
+      // { id: 'pixel8pro', label: 'Pixel 8 Pro' },
     ],
   },
 ]
