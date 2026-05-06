@@ -33,7 +33,7 @@ const FAQ_LIST = [
         category: "order",
         question: "CASETiFY 계정은 어떻게 만드나요?",
         answer:
-            "CASETiFY 계정을 생성하려면 만 13세 이상이어야 합니다. 가입 시 제공하는 정보는 정확하고 완전해야 하며, 개인정보에 변경사항이 생기면 즉시 업데이트해 주세요. 페이스북, 카카오, 애플 등 외부 서비스 계정으로도 간편하게 가입하실 수 있습니다.",
+            "CASETiFY 계정회원가입 페이지를 통해 만드실 수 있습니다. 가입 시 제공하는 정보는 정확하고 완전해야 하며, 개인정보에 변경사항이 생기면 즉시 업데이트해 주세요. 구글, 카카오, 네이버 등 외부 서비스 계정으로도 간편하게 가입하실 수 있습니다.",
     },
     {
         id: 3,
@@ -47,7 +47,7 @@ const FAQ_LIST = [
         category: "delivery",
         question: "배송 방법에는 어떤 것이 있나요?",
         answer:
-            '배송은 "일반배송"과 "익스프레스 배송" 두 가지로 나뉩니다. 일반배송은 국제 우체국을 통해 배달되며, 익스프레스 배송은 FedEx나 DHL Express 등 특송사를 통해 운송됩니다. 배송 형태는 도착지 국가의 서비스에 따라 다를 수 있습니다.',
+            '배송은 "일반배송"만 가능합니다. 일반배송은우체국을 통해 배달되며, 배송 형태는 기관에 따라 다를 수 있습니다.',
     },
     {
         id: 5,
@@ -63,13 +63,13 @@ const FAQ_LIST = [
         answer:
             "무료배송이 제공되는 경우, 별도 언급이 없는 한 '표준 배송(일반 배송)'에만 해당됩니다. 또한 무료배송은 오직 주문의 첫 번째 배송에만 적용됩니다. 배송지 오기재나 수취인 부재 등으로 재배송이 필요한 경우 재배송 비용이 부과되며, 모든 배송비는 환불이 불가합니다.",
     },
-    {
-        id: 7,
-        category: "delivery",
-        question: "해외 배송 시 추가 비용이 발생하나요?",
-        answer:
-            "해외 주문 시 수입세, 관세, 부가세 및 운송 관련 비용이 발생할 수 있으며, 이는 웹사이트 결제 금액에 포함되어 있지 않습니다. 상품 수령 전 해당 국가 유관 기관에 비용을 납부해야 할 수 있으며, 이와 관련하여 CASETiFY는 어떠한 책임도 지지 않습니다.",
-    },
+    // {
+    //     id: 7,
+    //     category: "delivery",
+    //     question: "해외 배송 시 추가 비용이 발생하나요?",
+    //     answer:
+    //         "해외 주문 시 수입세, 관세, 부가세 및 운송 관련 비용이 발생할 수 있으며, 이는 웹사이트 결제 금액에 포함되어 있지 않습니다. 상품 수령 전 해당 국가 유관 기관에 비용을 납부해야 할 수 있으며, 이와 관련하여 CASETiFY는 어떠한 책임도 지지 않습니다.",
+    // },
     {
         id: 8,
         category: "return",
@@ -96,7 +96,7 @@ const FAQ_LIST = [
         category: "product",
         question: "커스텀 케이스는 어떻게 만드나요?",
         answer:
-            "커스텀 케이스는 CASETiFY 앱 또는 웹사이트의 스튜디오 페이지에서 제작 가능합니다. 원하는 텍스트, 이미지, 사진을 업로드하거나 제공된 디자인 템플릿을 활용해 나만의 케이스를 만들 수 있습니다. 인스타그램 API를 통해 내 인스타그램 사진을 바로 불러오는 것도 가능합니다.",
+            "커스텀 케이스는 CASETiFY웹사이트의 커스텀 페이지에서 제작 가능합니다. 원하는 텍스트, 이미지, 사진을 업로드하거나 제공된 디자인 템플릿을 활용해 나만의 케이스를 만들 수 있습니다. ",
     },
     {
         id: 103,
@@ -456,6 +456,10 @@ export default function BrandQna() {
     const { hash } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
 
+    // ✅ 페이지네이션 state 추가
+    const [currentPage, setCurrentPage] = useState(1)
+    const ITEMS_PER_PAGE = 10
+
     useEffect(() => {
         if (hash === '#inquiry') {
             const el = document.getElementById('inquiry');
@@ -468,6 +472,12 @@ export default function BrandQna() {
             setActiveCategory(location.state.activeTab);
         }
     }, [location.state]);
+
+    // ✅ 카테고리/검색 바뀔 때 1페이지로 리셋
+    useEffect(() => {
+        setCurrentPage(1)
+        setOpenFaqId(null)
+    }, [activeCategory, searchKeyword])
 
     // 문의하기 폼 상태
     const [form, setForm] = useState({
@@ -499,6 +509,13 @@ export default function BrandQna() {
             faq.answer.includes(searchKeyword);
         return matchCate && matchSearch;
     });
+
+    // ✅ 페이지네이션 계산
+    const totalPages = Math.ceil(filteredFaqs.length / ITEMS_PER_PAGE)
+    const pagedFaqs = filteredFaqs.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    )
 
     const toggleFaq = (id) => {
         setOpenFaqId((prev) => (prev === id ? null : id));
@@ -621,10 +638,11 @@ export default function BrandQna() {
 
                     {/* FAQ 아코디언 */}
                     <div className="faq-accordion">
-                        {filteredFaqs.length === 0 ? (
+                        {/* ✅ filteredFaqs → pagedFaqs 로 교체 */}
+                        {pagedFaqs.length === 0 ? (
                             <p className="faq-empty">검색 결과가 없습니다.</p>
                         ) : (
-                            filteredFaqs.map((faq) => (
+                            pagedFaqs.map((faq) => (
                                 <div
                                     key={faq.id}
                                     className={`faq-item ${openFaqId === faq.id ? "open" : ""}`}
@@ -655,6 +673,36 @@ export default function BrandQna() {
                             ))
                         )}
                     </div>
+
+                    {/* ✅ 페이지네이션 추가 */}
+                    {totalPages > 1 && (
+                        <div className="faq-pagination">
+                            <button
+                                className="faq-page-btn"
+                                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                                disabled={currentPage === 1}
+                            >
+                                ‹
+                            </button>
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                                <button
+                                    key={page}
+                                    className={`faq-page-btn ${currentPage === page ? 'active' : ''}`}
+                                    onClick={() => setCurrentPage(page)}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+                            <button
+                                className="faq-page-btn"
+                                onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                                disabled={currentPage === totalPages}
+                            >
+                                ›
+                            </button>
+                        </div>
+                    )}
+
                 </div>
             </section>
 
