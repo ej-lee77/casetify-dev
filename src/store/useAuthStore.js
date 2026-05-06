@@ -981,7 +981,7 @@ export const useAuthStore = create(
         orderList: [],
         // 주문정보저장
         onAddOrder: async (orderData) => {
-            const { user, orderList, couponList, getThreeMonthsLater } = get();
+            const { user, orderList, couponList, getThreeMonthsLater, cart } = get();
             if (!user) return;
 
             // 결제 시 사용할 총 기프트 카드 금액
@@ -1067,13 +1067,27 @@ export const useAuthStore = create(
                 });
 
                 // C. 장바구니 비우기
+                // 현재 장바구니에서 주문한 상품(orderItems)을 제외한 나머지만 추출
+                let currentCart = [...cart];
+                const remainingItems = currentCart.filter(cartItem => {
+                    // 주문한 상품들 중에 현재 장바구니 아이템과 id, color, device가 모두 일치하는 게 있는지 확인
+                    const isOrdered = orderData.orderItems.some(orderItem => 
+                        orderItem.id === cartItem.id && 
+                        orderItem.color === cartItem.color && 
+                        orderItem.device === cartItem.device
+                    );
+                    // 일치하지 않는 것(주문 안 한 것)만 남김
+                    return !isOrdered;
+                });
+
+                // DB 업데이트
                 const cartRef = doc(db, "carts", user.uid);
-                await setDoc(cartRef, { items: [] }, { merge: true });
+                await setDoc(cartRef, { items: remainingItems }, { merge: true });
 
                 // D. 로컬 상태 업데이트
                 set({
                     orderList: updatedOrders,
-                    cart: [],
+                    cart: remainingItems,
                     checkedCart: [],
                     user: { 
                         ...user, 

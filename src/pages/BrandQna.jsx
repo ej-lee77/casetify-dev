@@ -187,6 +187,115 @@ const FAQ_LIST = [
         answer:
             "고객은 개인정보 보호법에 따라 본인의 개인정보를 열람, 정정 및 삭제할 권리가 있습니다. 관련 요청은 케이스티파이 법무팀(legal@casetify.com)으로 연락 주시기 바랍니다. 케이스티파이의 서비스는 14세 미만 고객을 대상으로 하지 않습니다.",
     },
+    // --기프트카드--
+    {
+        id: 19,
+        category: "gift",
+        question: "기프트 카드 사용 기한은 어떻게 되나요?",
+        answer: "기프트 카드는 구매일로부터 5년간 사용할 수 있습니다.",
+    },
+    {
+        id: 20,
+        category: "gift",
+        question: "기프트 카드를 구매한 후, 금액을 변경할 수 있나요?",
+        answer: "아니요. 모든 구매 완료된 기프트 카드는 수정, 반품 또는 환불이 불가능합니다.",
+    },
+    {
+        id: 21,
+        category: "gift",
+        question: "기프트 카드는 언제 발송되나요?",
+        answer: "케이스티파이에서 결제가 승인되면 기프트 카드가 받는 분에게 발송됩니다. 구매자에게는 주문 확인 이메일이 전송됩니다.",
+    },
+    {
+        id: 22,
+        category: "gift",
+        question: "기프트 카드를 이메일로 받지 못했어요.",
+        answer: "구매 시 올바른 이메일 주소를 입력했는지 확인해 주세요. 핫메일 계정의 경우, 기프트 카드 이메일이 프로모션/스팸/정크 이메일 폴더로 들어갈 수 있습니다. 받은 편지함의 용량이 초과된 경우, 기프트 카드를 포함한 새 메시지를 받을 수 없으니, 이메일 폴더 용량을 확인하고 비워주세요. 여전히 이메일을 찾을 수 없는 경우, 케이스티파이에게 이메일을 보내주세요.",
+    },
+    {
+        id: 23,
+        category: "gift",
+        question: "기프트 카드로 다른 기프트 카드를 구매할 수 있나요?",
+        answer: "죄송합니다. 기프트 카드로 구매 시 기프트 카드를 사용할 수 없습니다.",
+    },
+    {
+        id: 24,
+        category: "gift",
+        question: "구매 시 1개 이상의 기프트 카드를 사용할 수 있나요?",
+        answer: "네! 제품 구매 시, 여러 개의 기프트 카드를 사용할 수 있습니다.",
+    },
+    {
+        id: 25,
+        category: "gift",
+        question: "기프트 카드로 구매할 경우 멤버십 포인트가 적립되나요?",
+        answer: "구매 시 사용한 기프트 카드 금액은 케이스티파이 클럽 프로그램 총 결제 금액에서 제외됩니다.",
+    },
+    {
+        id: 26,
+        category: "gift",
+        question: "보유하고 있는 기프트 카드에 금액을 충전할 수 있나요?",
+        answer: "이미 보유하고 있는 기프트 카드에는 금액을 충전할 수 없습니다.",
+    },
+    {
+        id: 27,
+        category: "gift",
+        question: "다른 회원 계정에서 기프트 카드를 사용할 수 있나요?",
+        answer: "기프트 카드를 사용하려면 회원가입 및 로그인이 필요합니다. 기프트 카드가 성공적으로 회원 계정에 추가되면 해당 기프트 카드는 계정을 보유한 회원만 사용할 수 있습니다. 등록이 완료된 기프트 카드는 양도할 수 없습니다.",
+    },
+    {
+        id: 28,
+        category: "gift",
+        question: "기프트 카드로 구매한 제품을 반품하는 경우 환불받을 수 있나요?",
+        answer: "기프트 카드로 구매한 제품을 반품할 경우, 해당 금액은 스토어 크레딧으로 환불됩니다. 반품 및 교환 정책에 대한 자세한 내용은 다음을 참조하세요: https://www.casetify.com/faq/topic/return",
+    },
+    {
+        id: 29,
+        category: "gift",
+        question: "기프트 카드 구매 시, 할인/프로모션 코드를 적용할 수 있나요?",
+        answer: "기프트 카드 구매 시, 할인/프로모션 코드를 적용할 수 없습니다.",
+    },
+    {
+        id: 30,
+        category: "gift",
+        question: "기프트 카드의 통화를 변경할 수 있나요?",
+        answer: "통화는 변경될 수 없으며, 기프트 카드는 다른 통화를 사용하는 지역에서 사용할 수 없습니다. 예를 들어, 미국에서 거주 및 구매하고자 하는 경우, USD 통화의 기프트 카드로만 구매할 수 있습니다.",
+    },
+    {
+        id: 31,
+        category: "gift",
+        question: "기프트 카드 구매 시, 케이스티파이 클럽 구매 금액에 포함되나요?",
+        answer: "기프트 카드 구매 시, 구매자 계정에 멤버십 포인트가 적립됩니다. 하지만 기프트 카드를 이용해 구매하는 사용자에게는 추가 포인트가 적립되지 않습니다.",
+    },
+    {
+        id: 32,
+        category: "gift",
+        question: "기프트 카드의 금액을 원하는 대로 설정할 수 있나요?",
+        answer: "기프트 카드 구매 시 사용자가 지정한 금액으로 설정할 수 있습니다.",
+    },
+    {
+        id: 33,
+        category: "gift",
+        question: "기프트 카드를 결제한 후, 수신자 이메일 주소를 수정할 수 있나요?",
+        answer: "아니요. 모든 결제 완료된 기프트 카드는 수정, 반품 및 환불이 불가능합니다. 케이스티파이는 잘못 입력된 이메일 주소나 존재하지 않는 이메일 주소로 배송된 기프트 카드에 대한 책임을 지지 않습니다. 구매자가 전적으로 책임을 지기 때문에 신중히 입력해 주세요.",
+    },
+    {
+        id: 34,
+        category: "gift",
+        question: "기프트 카드는 일회용인가요?",
+        answer: "기프트 카드를 이용해 구매 시, 구매 금액이 기프트 카드의 잔액에서 차감됩니다. 구매 총액이 기프트 카드 금액보다 적을 경우, 남은 잔액은 나중에 사용할 수 있도록 기프트 카드에 남습니다. 단, 기프트 카드에 금액을 더 추가할 수 없으며 거스름돈은 제공되지 않습니다.",
+    },
+    {
+        id: 35,
+        category: "gift",
+        question: "기프트 카드로 웹사이트와 오프라인 매장에서 구매할 수 있나요?",
+        answer: "네, 기프트 카드를 사용하여 웹사이트 또는 오프라인 매장에서 구매할 수 있습니다 (대만, 일본, 프랑스, 한국, 태국 오프라인 매장 제외). 웹사이트에서 실물 기프트 카드를 사용하려면 기프트 카드의 홀로그램 패널을 긁어낸 수 결제 페이지에서 기프트 카드 코드를 입력하세요. 일본과 태국의 경우, 디지털 기프트 카드로 웹사이트에서, 실물 기프트 카드로는 오프라인 매장에서 구매할 수 있습니다. 기프트 카드는 구매하는 웹사이트 및 오프라인 매장에서 사용하는 통화와 동일한 통화로 구매하는 경우에만 사용할 수 있습니다.",
+    },
+    {
+        id: 36,
+        category: "gift",
+        question: "기프트 카드를 구매한 후 환불을 받을 수 있나요?",
+        answer: "사용된 기프트 카드는 어떠한 방식으로든 대체, 환불될 수 없으며 새 기프트 카드로도 교환되지 않습니다.",
+    },
     // ── 개인정보처리방침 ──
     {
         id: 200,
@@ -309,7 +418,7 @@ export default function BrandQna() {
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
     }, [hash]);
-   
+
     useEffect(() => {
         if (location.state?.activeTab) {
             setActiveCategory(location.state.activeTab);
@@ -375,12 +484,12 @@ export default function BrandQna() {
         if (name === 'category') {
             if (!value || value.trim() === '') error = '문의 분류를 선택해주세요.';
         }
-        if (name === 'email'){
-            if(!value.includes('@') || !value || value.trim() === '') error = '이메일 형식이 올바르지 않습니다.';
+        if (name === 'email') {
+            if (!value.includes('@') || !value || value.trim() === '') error = '이메일 형식이 올바르지 않습니다.';
         }
-        if (name === 'phone'){
+        if (name === 'phone') {
             const numberRegex = /^[0-9]+$/;
-            if(!numberRegex.test(value) || value.includes('-')) error = '-없이 숫자만 입력해주세요.';
+            if (!numberRegex.test(value) || value.includes('-')) error = '-없이 숫자만 입력해주세요.';
         }
         if (name === 'message') {
             if (!value || value.trim() === '') error = '필수 입력 항목입니다.';
@@ -409,7 +518,7 @@ export default function BrandQna() {
         // 에러가 하나도 없는지 확인
         let isFormValid = Object.values(newErrors).every(err => err === '');
 
-        if(!isFormValid){
+        if (!isFormValid) {
             setJoinErr("입력 오류가 있습니다.");
             return;
         }
@@ -531,15 +640,15 @@ export default function BrandQna() {
                                     <div className="selected-value" onClick={() => setIsOpen(!isOpen)}>
                                         {form.category || INQUIRY_CATEGORIES[0]}
                                     </div>
-                                    
+
                                     {isOpen && (
                                         <ul className="custom-options">
                                             {INQUIRY_CATEGORIES.map((cat, idx) => (
-                                                <li 
-                                                    key={cat} 
+                                                <li
+                                                    key={cat}
                                                     className="custom-option"
                                                     onClick={() => {
-                                                        handleFormChange({ target: { name: 'category', value: idx === 0 ? "" : cat }});
+                                                        handleFormChange({ target: { name: 'category', value: idx === 0 ? "" : cat } });
                                                         handleCustomSelectBlur('category');
                                                         setIsOpen(false);
                                                     }}
