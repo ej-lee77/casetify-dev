@@ -213,7 +213,7 @@ footer {
     transition: 0.3s;
     z-index: 1000;
 
-    a{
+    >div{
         display: block;
         width: 80%;
     }
@@ -222,14 +222,14 @@ footer {
         display: none;
         font-size: 0.88em;
         position: absolute;
-        // bottom: 6px;
         text-align: center;
-        // right: 0;
-        // left: -100%;
         width: 60px;
         color: g.$text-main;
         background: #ffffffad;
-        border-radius: 20px;
+        border-radius: 30px;
+        left: 0;
+        transform: translateY(-50%);
+        top: 50%;
     }
 
     &:hover {
