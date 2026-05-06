@@ -800,3 +800,31 @@
         border: 1px solid #ccc;
     }
 }
+// ✅ 로그인 배너 (팝업 대체)
+.login-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(188, 73, 73, 0.88);
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    z-index: 10;
+    animation: loginBannerIn 0.2s ease;
+
+    @keyframes loginBannerIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.92);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+}

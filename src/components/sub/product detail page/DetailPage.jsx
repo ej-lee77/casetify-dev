@@ -27,6 +27,7 @@ export default function DetailPage({ item }) {
     const [selectedBrandTab, setSelectedBrandTab] = useState(item?.brand || "Apple");
     const [isWished, setIsWished] = useState(false);
     const [selectedBundles, setSelectedBundles] = useState({});
+    const [showLoginBanner, setShowLoginBanner] = useState(false) // ✅ 추가
 
     const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
     const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
@@ -166,6 +167,14 @@ export default function DetailPage({ item }) {
         }
     };
 
+    // ✅ 로그인 배너 표시 함수
+const showLoginAlert = () => {
+    setShowLoginBanner(true)
+    setTimeout(() => {
+        setShowLoginBanner(false)
+        navigate('/login')
+    }, 1500)
+}
 
     // ==================== EARLY RETURN ====================
     if (!item) {
@@ -251,9 +260,8 @@ const canAddCart = (() => {
 
     const handleAddWish = async(item) => {
         if(!user){
-            setCartMsg("로그인 후 이용 가능합니다.");
-            setIsPopupErr(true);
-            setIsCartPopupOpen(true);
+            // ✅ 팝업 대신 배너 표시 후 로그인 이동
+            showLoginAlert()
             return;
         }
         const modelKey = isPhone
@@ -407,6 +415,16 @@ const canAddCart = (() => {
                     <div className="detail-image-wrap">
                         <div className="detail-main-image" style={{ position: "relative" }}>
                             <img src={mainImage} alt={item.productName} />
+
+                            {/* ✅ 로그인 경고 배너 */}
+                       {showLoginBanner && (
+    <div
+        className="login-banner"
+        onClick={() => navigate('/login')}  // ✅ 클릭 시 즉시 이동
+    >
+        로그인후 이용 가능합니다.
+    </div>
+)}
 
                             {isPhone && !!modelColors.length && (
                                 <div className="color-remote">
@@ -667,9 +685,8 @@ const canAddCart = (() => {
                         {/* ✅ userSelected → canAddCart 로 교체 */}
                         <button className="buy-btn" onClick={() => {
                             if(!user){
-                                setCartMsg("로그인 후 이용 가능합니다.");
-                                setIsPopupErr(true);
-                                setIsCartPopupOpen(true);
+                                // ✅ 팝업 대신 배너 표시
+                                showLoginAlert()
                                 return;
                             }
                             if (!canAddCart) {
@@ -754,9 +771,8 @@ const canAddCart = (() => {
                             {/* ✅ userSelected → canAddCart 로 교체 */}
                             <button className="buy-btn" onClick={() => {
                                 if(!user){
-                                    setCartMsg("로그인 후 이용 가능합니다.");
-                                    setIsPopupErr(true);
-                                    setIsCartPopupOpen(true);
+                                    // ✅ 팝업 대신 배너 표시
+                                    showLoginAlert()
                                     return;
                                 }
                                 if (!canAddCart) {
@@ -804,6 +820,8 @@ const canAddCart = (() => {
                     </div> */}
 
                 </div>
+
+                {/* ✅ wishPopup - detail-inner 안 유지 (위시는 로그인 필요 없으므로 그대로) */}
                 {isWishPopupOpen && (
                     <div className="popup-overlay">
                         <div className="popup-wrap">
@@ -838,49 +856,44 @@ const canAddCart = (() => {
                         </div>
                     </div>
                 )}
-            
-            </div>   
-           
+            </div>
         </section>
- {/* ✅ section 밖으로 이동 */}
-            {isWishPopupOpen && (
-                <div className="popup-overlay">
-                    <div className="popup-wrap">
-                        <div className="popup">
-                            <p>{wishMsg}</p>
-                            {isPopupErr ? (
-                                <div className="popup-buttons">
-                                    <button className="btn-close" onClick={() => setIsWishPopupOpen(false)}>닫기</button>
-                                </div>
-                            ) : (
-                                <div className="popup-buttons">
-                                    <button className="btn-continue" onClick={() => setIsWishPopupOpen(false)}>계속 쇼핑하기</button>
-                                    <button className="btn-go-wish" onClick={() => navigate('/mypage', { state: { menu: "위시리스트" } })}>위시리스트 보기</button>
-                                </div>
-                            )}
-                        </div>
+
+        {/* ✅ cartPopup - section 밖으로 이동 */}
+        {isCartPopupOpen && (
+            <div className="popup-overlay">
+                <div className="popup-wrap">
+                    <div className="popup">
+                        <p>{cartMsg}</p>
+                        {isPopupErr ? (
+                            <div className="popup-buttons">
+                                <button 
+                                    className="btn-close" 
+                                    onClick={() => setIsCartPopupOpen(false)}
+                                >
+                                    닫기
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="popup-buttons">
+                                <button 
+                                    className="btn-continue" 
+                                    onClick={() => setIsCartPopupOpen(false)}
+                                >
+                                    계속 쇼핑하기
+                                </button>
+                                <button 
+                                    className="btn-go-wish" 
+                                    onClick={() => navigate('/cart')}
+                                >
+                                    장바구니 보기
+                                </button>
+                            </div>  
+                        )}                              
                     </div>
                 </div>
-            )}
-            {isCartPopupOpen && (
-                <div className="popup-overlay">
-                    <div className="popup-wrap">
-                        <div className="popup">
-                            <p>{cartMsg}</p>
-                            {isPopupErr ? (
-                                <div className="popup-buttons">
-                                    <button className="btn-close" onClick={() => setIsCartPopupOpen(false)}>닫기</button>
-                                </div>
-                            ) : (
-                                <div className="popup-buttons">
-                                    <button className="btn-continue" onClick={() => setIsCartPopupOpen(false)}>계속 쇼핑하기</button>
-                                    <button className="btn-go-wish" onClick={() => navigate('/cart')}>장바구니 보기</button>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            )}
+            </div>
+        )}
         </>
     );
 }
