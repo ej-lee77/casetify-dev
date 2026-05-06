@@ -31,7 +31,7 @@ export default function MapPopup({ onClose }) {
 
       setPosition({
         x: mapRect.width / 2 - rect.width / 2,
-        // y: mapRect.height / 2 - rect.height / 2 
+        // y: mapRect.height / 2 - rect.height / 2 - 16
         y: 16
       });
     });

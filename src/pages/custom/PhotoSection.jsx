@@ -6,6 +6,8 @@ const STICKERS = [
     { id: 'sticker2', src: '/images/custom/cat.png', label: '고양이' },
     { id: 'sticker3', src: '/images/custom/dogs.png', label: '강아지들' },
     { id: 'sticker4', src: '/images/custom/dossiba.png', label: '일본강아지' },
+        { id: 'sticker5', src: '/images/custom/good.stiker.png', label: 'goodthing' },
+            { id: 'sticker6', src: '/images/custom/happy.stiker.png', label: 'Happy' },
 ]
 
 function getFilterStyle(filterId, strength) {

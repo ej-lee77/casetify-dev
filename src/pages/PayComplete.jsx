@@ -42,10 +42,10 @@ export default function PayComplete() {
     tomorrow.setDate(tomorrow.getDate() + 1); // 오늘 날짜 + 1일
     
     const yyyy = tomorrow.getFullYear();
-    const mm = String(tomorrow.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1
-    const dd = String(tomorrow.getDate()).padStart(2, '0');
+    const mm = String(tomorrow.getMonth() + 1); // 월은 0부터 시작하므로 +1
+    const dd = String(tomorrow.getDate());
     
-    const tomorrowDate = `${yyyy}/${mm}/${dd}`;
+    const tomorrowDate = `${yyyy}. ${mm}. ${dd}`;
 
     return (
         <div className="sub-page-wrap pay-page-wrap">
