@@ -191,28 +191,40 @@ function ProductCustomizeContent({ deviceType }) {
             : designType === 'text' ? '텍스트 커스텀' : null,
     ].filter(Boolean).join(' / ')
 
-    const handleAddCart = async () => {
-        if (!user) { navigate('/login'); return }
-        const cartImgUrl =
-            deviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
-                deviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
-                    '/images/custom/cart/phone-cart-go.png'
-        const customContent = designType === 'text'
-            ? textValue
-            : photoTab === 'sticker' ? selectedSticker?.src : photoURL
-        const result = await onAddToCart({
-            id: `CUSTOM-${Date.now()}`,
-            productName: '커스텀 케이스', price,
-            device: selectedModelLabel || '', deviceKey: selectedModel || '',
-            color: selectedCaseColor || '', imgUrl: cartImgUrl,
-            colorList: [], deviceList: [], isPhone: deviceType === 'phone',
-            deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
-            quantity: 1, isCustom: true, customMode: designType, customContent,
-        })
-        if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
-        else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
-        setIsCartPopupOpen(true)
-    }
+const handleAddCart = async () => {
+    if (!user) { navigate('/login'); return }
+
+    const cartImgUrl =
+        deviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
+        deviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
+        '/images/custom/cart/phone-cart-go.png'
+
+    // ✅ deviceType에 따라 상품명 분기
+    const productName =
+        deviceType === 'tablet' ? '태블릿 커스텀 케이스' :
+        deviceType === 'laptop' ? '맥북 커스텀 케이스' :
+        '폰 커스텀 케이스'
+
+    const customContent = designType === 'text'
+        ? textValue
+        : photoTab === 'sticker' ? selectedSticker?.src : photoURL
+
+    const result = await onAddToCart({
+        id: `CUSTOM-${Date.now()}`,
+        productName,  // ✅ 변경
+            title: productName,  
+        price,
+        device: selectedModelLabel || '', deviceKey: selectedModel || '',
+        color: selectedCaseColor || '', imgUrl: cartImgUrl,
+        colorList: [], deviceList: [], isPhone: deviceType === 'phone',
+        deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
+        quantity: 1, isCustom: true, customMode: designType, customContent,
+    })
+
+    if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
+    else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
+    setIsCartPopupOpen(true)
+}
 
     const previewProps = {
         selectedModel, selectedCaseType,
