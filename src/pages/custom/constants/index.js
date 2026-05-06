@@ -16,7 +16,7 @@ export const BRANDS = [
   {
     id: 'samsung', label: 'SAMSUNG',
     models: [
-      { id: 's25ultra', label: 'Galaxy S25 Ultra' },
+      // { id: 's25ultra', label: 'Galaxy S25 Ultra' },
       { id: 's25plus', label: 'Galaxy S25+' },
 
       { id: 's24', label: 'Galaxy S24' },
