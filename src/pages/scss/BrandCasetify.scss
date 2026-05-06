@@ -309,7 +309,7 @@
         }
 
         p {
-            font-size: 15px;
+            font-size: 16px;
             color: #555;
             line-height: 1.95;
             margin-top: 24px;
@@ -326,7 +326,7 @@
         margin-bottom: 80px;
 
         h3 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 800;
             margin-top: 14px;
             letter-spacing: -.02em;
@@ -342,7 +342,7 @@
         &::before {
             content: '';
             position: absolute;
-            top: 90px;
+            top: 96px;
             left: 5%;
             right: 5%;
             height: 1px;
@@ -358,29 +358,31 @@
         .story-step-yr {
             font-family: 'Archivo', sans-serif;
             font-weight: 900;
-            font-size: 36px;
-            letter-spacing: -.02em;
+            font-size: 56px;
+            letter-spacing: -.03em;
+            line-height: 1;
+            color: var(--ink);
         }
 
         .story-step-dot {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: #111;
-            margin: 32px auto 28px;
+            margin: 28px auto 28px;
             border: 3px solid #fff;
             box-shadow: 0 0 0 1px var(--line);
         }
 
         h4 {
-            font-size: 17px;
+            font-size: 20px;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             letter-spacing: -.01em;
         }
 
         p {
-            font-size: 13px;
+            font-size: 16px;
             color: #666;
             line-height: 1.7;
             font-weight: 400;
@@ -388,6 +390,10 @@
 
         &.gold .story-step-dot {
             background: var(--gold);
+        }
+
+        &.gold .story-step-yr {
+            color: var(--gold);
         }
     }
 }
@@ -795,7 +801,7 @@
         }
 
         p {
-            font-size: 15px;
+            font-size: 16px;
             color: #666;
             line-height: 1.85;
             max-width: 600px;
@@ -880,7 +886,7 @@
         }
 
         p {
-            font-size: 15px;
+            font-size: 16px;
             color: #555;
             line-height: 1.85;
         }
@@ -1081,7 +1087,7 @@
         p {
             margin: 24px auto 0;
             max-width: 640px;
-            font-size: 15px;
+            font-size: 16px;
             color: #555;
             line-height: 1.9;
         }
@@ -1237,7 +1243,7 @@
 
         p {
             margin-top: 32px;
-            font-size: 15px;
+            font-size: 16px;
             color: #555;
             line-height: 1.95;
             font-weight: 400;
@@ -1306,7 +1312,7 @@
         }
 
         h4 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
             margin-top: 20px;
             letter-spacing: -.01em;
@@ -1348,7 +1354,7 @@
         p {
             margin: 24px auto 0;
             max-width: 640px;
-            font-size: 15px;
+            font-size: 16px;
             color: rgba(255, 255, 255, .65);
             line-height: 1.9;
         }
@@ -1562,7 +1568,7 @@
         background: #fff;
         color: #5a8a3a;
         font-weight: 800;
-        font-size: 15px;
+        font-size: 16px;
         padding: 18px 36px;
         border-radius: 999px;
         letter-spacing: .04em;
@@ -1939,7 +1945,7 @@
 .bc-club-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 15px;
+    font-size: 16px;
     background: #0f0f0f;
     border: 1px solid #2a2a2a;
 
@@ -2290,7 +2296,7 @@
     background: var(--gold);
     color: #0a0a0a;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 16px;
     padding: 18px 36px;
     border-radius: 999px;
     letter-spacing: .04em;

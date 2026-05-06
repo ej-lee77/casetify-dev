@@ -1,7 +1,7 @@
 import React from 'react'
 import "../scss/Quality.scss"
 import SectionTitle from '../SectionTitle'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Benefit from '../Benefit'
 import FadeInSection from '../FadeInSection'
 
@@ -14,16 +14,21 @@ const infoCardData = [
 ]
 
 export default function Quality() {
+    const navigate = useNavigate()
+
     return (
         <section className="quality-info">
-            {/* <FadeInSection direction="up" delay={0.2}>  */}
-                <SectionTitle title={"Protection Quality"} subtitle={"케이스티파이만의 완벽한 기준"} />
-            {/* </FadeInSection> */}
+            <SectionTitle title={"Protection Quality"} subtitle={"케이스티파이만의 완벽한 기준"} />
             {/* Quality 특징 */}
             <FadeInSection direction="up" delay={0.4}>
                 <ul className="quality-card-wrap">
                     {infoCardData.map((item, i) => (
-                        <li key={i} className="quality-card">
+                        <li
+                            key={i}
+                            className="quality-card"
+                            onClick={() => navigate('/brand/casetify', { state: { tab: 'standard' } })}
+                            style={{ cursor: 'pointer' }}
+                        >
                             <img src={item.img} alt={`quality-img${i + 1}`} />
                             <div className="text-box">{item.text}</div>
                         </li>

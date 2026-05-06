@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './scss/BrandCasetify.scss'
 
 // ─── STORY 탭 ───────────────────────────────────────
@@ -837,7 +837,15 @@ const TABS = [
 
 // ─── 메인 페이지 ─────────────────────────────────────
 export default function BrandCasetify() {
-    const [activeTab, setActiveTab] = useState('story')
+    const location = useLocation()
+    const [activeTab, setActiveTab] = useState(location.state?.tab || 'story')
+
+    useEffect(() => {
+        if (location.state?.tab) {
+            setActiveTab(location.state.tab)
+            window.scrollTo({ top: 0, behavior: 'instant' })
+        }
+    }, [location.state?.tab])
 
     const handleTabChange = (id) => {
         setActiveTab(id)
