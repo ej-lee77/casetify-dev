@@ -100,7 +100,7 @@ export default function Payment() {
     setMobileInfo({ ...mobileInfo, payphone: value });
     
     // 입력 즉시 검증
-    const error = validate('payphone', value);
+    const error = validatePhone('payphone', value);
     setPhoneErrors(prev => ({ ...prev, payphone: error }));
   };
 
