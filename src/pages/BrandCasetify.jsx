@@ -6,138 +6,139 @@ import 'swiper/css/navigation'
 import { useNavigate, useLocation } from 'react-router-dom'
 import './scss/BrandCasetify.scss'
 import { motion } from 'framer-motion';
+import { FAQ_LIST } from '../data/QnaData';
 
 const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 // ─── STORY 탭 ───────────────────────────────────────
 function StoryTab() {
     return (
         <motion.div
-        variants={fadeVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition={{ duration: 0.4 }}
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
         >
-        <div className="bc-story">
-            {/* Hero */}
-            <div className="bc-hero">
-                <div className="heroimg story-bg" />
-                <div className="ph-tag">[ HERO IMAGERY · BRAND STORY ]</div>
-                <h2 className="bc-hero-title">STORY</h2>
-                <div className="bc-hero-sub">CASETiFY · BRAND STORY</div>
-            </div>
+            <div className="bc-story">
+                {/* Hero */}
+                <div className="bc-hero">
+                    <div className="heroimg story-bg" />
+                    <div className="ph-tag">[ HERO IMAGERY · BRAND STORY ]</div>
+                    <h2 className="bc-hero-title">STORY</h2>
+                    <div className="bc-hero-sub">CASETiFY · BRAND STORY</div>
+                </div>
 
-            {/* 인트로 */}
-            <section className="bc-intro">
-                <p className="bc-intro-eyebrow">OUR STORY</p>
-                <h3>우리는 <b style={{ color: 'var(--gold)' }}>케이스티파이</b>입니다</h3>
-                <p>케이스티파이는 일상의 품격을 높이는 테크 액세서리를 만듭니다.<br />홍콩과 로스앤젤레스에 본사를 두고, 크리에이티브 정신을 전하는 글로벌 브랜드입니다.</p>
-            </section>
+                {/* 인트로 */}
+                <section className="bc-intro">
+                    <p className="bc-intro-eyebrow">OUR STORY</p>
+                    <h3>우리는 <b style={{ color: 'var(--gold)' }}>케이스티파이</b>입니다</h3>
+                    <p>케이스티파이는 일상의 품격을 높이는 테크 액세서리를 만듭니다.<br />홍콩과 로스앤젤레스에 본사를 두고, 크리에이티브 정신을 전하는 글로벌 브랜드입니다.</p>
+                </section>
 
-            {/* 마키 */}
-            <div className="story-marquee">
-                <span className="story-marquee-text">CRAFTED FOR YOU</span>
-                <span className="story-dot" />
-                <span className="story-marquee-text">SINCE 2011</span>
-                <span className="story-dot" />
-                <span className="story-marquee-text">HONG KONG · LOS ANGELES</span>
-                <span className="story-dot" />
-                <span className="story-marquee-text">CRAFTED FOR YOU</span>
-            </div>
+                {/* 마키 */}
+                <div className="story-marquee">
+                    <span className="story-marquee-text">CRAFTED FOR YOU</span>
+                    <span className="story-dot" />
+                    <span className="story-marquee-text">SINCE 2011</span>
+                    <span className="story-dot" />
+                    <span className="story-marquee-text">HONG KONG · LOS ANGELES</span>
+                    <span className="story-dot" />
+                    <span className="story-marquee-text">CRAFTED FOR YOU</span>
+                </div>
 
-            {/* CEO 피처 */}
-            <section className="story-feature">
-                <div className="bc-inner">
-                    <div className="story-feature-grid">
-                        <img
-                            src="/images/brand/story-wes-ng.png"
-                            alt="Wes Ng · Co-Founder & CEO"
-                            className="story-feature-img"
-                        />
-                        <div className="story-feature-meta">
-                            <div className="story-yrs">2011</div>
-                            <div className="story-since">FOUNDED · A NEW IDEA</div>
-                            <h2>새로운 아이폰을 위한,<br /><b>완전히 다른 케이스</b>가 필요했습니다</h2>
-                            <p>2011년 아이폰이 출시되었을 때, 케이스티파이의 공동 창업자이자 CEO인 Wes Ng에게 영감이 찾아왔습니다. 새로운 아이폰을 보호하기 위한 케이스들을 살펴보던 중, 무겁고 지루하고, 그의 스타일과도 전혀 어울리지 않는 선택지들에 실망했죠.</p>
-                            <p>디자이너이자 혁신가인 그는 이를 도전으로 받아들였습니다. 갖고 싶고, 세련되고, 독특한 — 부담스럽지 않은 부피에 어떤 스타일이든 포인트를 줄 수 있는 케이스를 만드는 것이 목표였습니다.</p>
+                {/* CEO 피처 */}
+                <section className="story-feature">
+                    <div className="bc-inner">
+                        <div className="story-feature-grid">
+                            <img
+                                src="/images/brand/story-wes-ng.png"
+                                alt="Wes Ng · Co-Founder & CEO"
+                                className="story-feature-img"
+                            />
+                            <div className="story-feature-meta">
+                                <div className="story-yrs">2011</div>
+                                <div className="story-since">FOUNDED · A NEW IDEA</div>
+                                <h2>새로운 아이폰을 위한,<br /><b>완전히 다른 케이스</b>가 필요했습니다</h2>
+                                <p>2011년 아이폰이 출시되었을 때, 케이스티파이의 공동 창업자이자 CEO인 Wes Ng에게 영감이 찾아왔습니다. 새로운 아이폰을 보호하기 위한 케이스들을 살펴보던 중, 무겁고 지루하고, 그의 스타일과도 전혀 어울리지 않는 선택지들에 실망했죠.</p>
+                                <p>디자이너이자 혁신가인 그는 이를 도전으로 받아들였습니다. 갖고 싶고, 세련되고, 독특한 — 부담스럽지 않은 부피에 어떤 스타일이든 포인트를 줄 수 있는 케이스를 만드는 것이 목표였습니다.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 타임라인 */}
-            <section className="story-timeline">
-                <div className="bc-inner">
-                    <div className="story-timeline-head">
-                        <p className="bc-intro-eyebrow">OUR JOURNEY</p>
-                        <h3>걸어온 길, 그리고 앞으로</h3>
+                {/* 타임라인 */}
+                <section className="story-timeline">
+                    <div className="bc-inner">
+                        <div className="story-timeline-head">
+                            <p className="bc-intro-eyebrow">OUR JOURNEY</p>
+                            <h3>걸어온 길, 그리고 앞으로</h3>
+                        </div>
+                        <div className="story-rail">
+                            {[
+                                { yr: '2011', title: '브랜드의 시작', desc: '홍콩에서 출발한 작은 아이디어, 자신의 사진으로 케이스를 커스텀하다.', gold: false },
+                                { yr: '2015', title: '임팩트 케이스 출시', desc: '실제 낙하 환경에서 검증한 자체 보호 기준을 정립합니다.', gold: false },
+                                { yr: '2021', title: 'RE:CASTiFY 시작', desc: '지속 가능한 미래를 위한 재활용 프로그램을 시작합니다.', gold: false },
+                                { yr: 'NOW', title: '전 세계 100여 개 도시', desc: '케이스티파이만의 바이브를 지구촌 곳곳으로 전파하고 있습니다.', gold: true },
+                            ].map((step) => (
+                                <div key={step.yr} className={`story-step${step.gold ? ' gold' : ''}`}>
+                                    <div className="story-step-yr">{step.yr}</div>
+                                    <div className="story-step-dot" />
+                                    <h4>{step.title}</h4>
+                                    <p>{step.desc}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    <div className="story-rail">
-                        {[
-                            { yr: '2011', title: '브랜드의 시작', desc: '홍콩에서 출발한 작은 아이디어, 자신의 사진으로 케이스를 커스텀하다.', gold: false },
-                            { yr: '2015', title: '임팩트 케이스 출시', desc: '실제 낙하 환경에서 검증한 자체 보호 기준을 정립합니다.', gold: false },
-                            { yr: '2021', title: 'RE:CASTiFY 시작', desc: '지속 가능한 미래를 위한 재활용 프로그램을 시작합니다.', gold: false },
-                            { yr: 'NOW', title: '전 세계 100여 개 도시', desc: '케이스티파이만의 바이브를 지구촌 곳곳으로 전파하고 있습니다.', gold: true },
-                        ].map((step) => (
-                            <div key={step.yr} className={`story-step${step.gold ? ' gold' : ''}`}>
-                                <div className="story-step-yr">{step.yr}</div>
-                                <div className="story-step-dot" />
-                                <h4>{step.title}</h4>
-                                <p>{step.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            {/* 큰 인용 */}
-            <section className="story-quote">
-                <div className="bc-inner">
-                    <div className="story-quote-mark">"</div>
-                    <blockquote>
-                        케이스티파이는 자신의 사진으로 케이스를 커스텀하는 것에서 시작되었습니다. 10년이 지난 지금, 케이스티파이는 <b>유니크한 디자인으로 자신만의 바이브</b>를 표현할 수 있는 신나는 방법을 제시합니다.
-                    </blockquote>
-                    <div className="story-quote-by">— WES NG · CO-FOUNDER &amp; CEO</div>
-                </div>
-            </section>
-
-            {/* 글로벌 거점 */}
-            <section className="story-global">
-                <div className="bc-inner">
-                    <div className="story-global-grid">
-                        {[
-                            { city: 'HONG KONG', role: 'HEAD OFFICE', desc: '브랜드가 시작된 곳. 디자인과 프로덕션의 본거지로, 케이스티파이의 모든 이야기가 이곳에서 출발합니다.' },
-                            { city: 'LOS ANGELES', role: 'CREATIVE STUDIO', desc: '전 세계 아티스트·셀러브리티와의 협업이 이루어지는 크리에이티브 거점입니다.' },
-                            { city: 'SEOUL', role: 'FLAGSHIP MARKET', desc: '가장 빠르게 성장하는 시장. 한국 고객을 위한 한정 컬렉션과 매장을 운영합니다.' },
-                        ].map((cell) => (
-                            <div key={cell.city} className="story-global-cell">
-                                <div className="story-global-city">{cell.city}</div>
-                                <div className="story-global-role">{cell.role}</div>
-                                <p>{cell.desc}</p>
-                            </div>
-                        ))}
+                {/* 큰 인용 */}
+                <section className="story-quote">
+                    <div className="bc-inner">
+                        <div className="story-quote-mark">"</div>
+                        <blockquote>
+                            케이스티파이는 자신의 사진으로 케이스를 커스텀하는 것에서 시작되었습니다. 10년이 지난 지금, 케이스티파이는 <b>유니크한 디자인으로 자신만의 바이브</b>를 표현할 수 있는 신나는 방법을 제시합니다.
+                        </blockquote>
+                        <div className="story-quote-by">— WES NG · CO-FOUNDER &amp; CEO</div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+
+                {/* 글로벌 거점 */}
+                <section className="story-global">
+                    <div className="bc-inner">
+                        <div className="story-global-grid">
+                            {[
+                                { city: 'HONG KONG', role: 'HEAD OFFICE', desc: '브랜드가 시작된 곳. 디자인과 프로덕션의 본거지로, 케이스티파이의 모든 이야기가 이곳에서 출발합니다.' },
+                                { city: 'LOS ANGELES', role: 'CREATIVE STUDIO', desc: '전 세계 아티스트·셀러브리티와의 협업이 이루어지는 크리에이티브 거점입니다.' },
+                                { city: 'SEOUL', role: 'FLAGSHIP MARKET', desc: '가장 빠르게 성장하는 시장. 한국 고객을 위한 한정 컬렉션과 매장을 운영합니다.' },
+                            ].map((cell) => (
+                                <div key={cell.city} className="story-global-cell">
+                                    <div className="story-global-city">{cell.city}</div>
+                                    <div className="story-global-role">{cell.role}</div>
+                                    <p>{cell.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            </div>
         </motion.div>
     )
 }
 
 // ─── STANDARD 슬라이드 데이터 ─────────────────────────
 const STANDARD_SLIDES = [
-    { key: 'impact', label: 'IMPACT CASE', title: '충격을 흡수하는,\n가장 신뢰할 수 있는 케이스', desc: '군용 등급 낙하 보호와 부담스럽지 않은 부피의 균형. 케이스티파이가 정의하는 가장 표준적인 형태입니다.', link: '/search?q=임팩트케이스', img: '/images/brand/impact-case.png' },
-    { key: 'bounce', label: 'BOUNCE CASE', title: '튀어오르는 탄성,\n일상을 지키는 케이스', desc: '독자적인 에어 쿠션 구조로 충격을 분산합니다. 어떤 낙하에도 흔들리지 않는 자신감.', link: '/search?q=바운스케이스', img: '/images/brand/bounce-case.png' },
-    { key: 'clear', label: 'CLEAR CASE', title: '투명하게, 그러나\n완벽하게 보호합니다', desc: '폰의 디자인을 그대로 살리면서 탁월한 보호력을 제공하는 시그니처 클리어 케이스.', link: '/search?q=클리어케이스', img: '/images/brand/clear-case.png' },
-    { key: 'glaze', label: 'GLAZE CASE', title: '광택이 주는 품격,\n새로운 감각의 케이스', desc: '미러 피니시 소재로 완성한 글레이즈 케이스. 빛에 따라 달라지는 독특한 표면감.', link: '/search?q=글레이즈케이스', img: '/images/brand/glaze-case.png' },
-    { key: 'ring', label: 'RING STAND', title: '잡기 편하고,\n세워두기도 좋은 링스탠드', desc: '자유롭게 각도 조절되는 링스탠드. 한 손으로도 안정적으로 기기를 잡을 수 있습니다.', link: '/search?q=링스탠드', img: '/images/brand/ring-stand.png' },
-    { key: 'strap', label: 'BODY STRAP', title: '손 없이도 자유롭게,\n바디스트랩', desc: '어깨에 걸치거나 크로스로 착용 가능한 바디스트랩. 패션과 실용성을 동시에.', link: '/search?q=바디스트랩', img: '/images/brand/body-strap.png' },
-    { key: 'travel', label: 'TRAVEL CARRIER', title: '여행의 시작,\n케이스티파이 트래블 캐리어', desc: '가볍고 견고한 소재로 만든 트래블 캐리어. 이동 중에도 스타일을 잃지 않습니다.', link: '/search?q=수트케이스', img: '/images/brand/travel.png' },
+    { key: 'impact', label: 'IMPACT CASE', title: '충격을 흡수하는,\n가장 신뢰할 수 있는 케이스', desc: '군용 등급 낙하 보호와 부담스럽지 않은 부피의 균형. 케이스티파이가 정의하는 가장 표준적인 형태입니다.', link: '/search?q=임팩트 케이스', img: '/images/brand/impact-case.png' },
+    { key: 'bounce', label: 'BOUNCE CASE', title: '튀어오르는 탄성,\n일상을 지키는 케이스', desc: '독자적인 에어 쿠션 구조로 충격을 분산합니다. 어떤 낙하에도 흔들리지 않는 자신감.', link: '/search?q=바운스 케이스', img: '/images/brand/bounce-case.png' },
+    { key: 'clear', label: 'CLEAR CASE', title: '투명하게, 그러나\n완벽하게 보호합니다', desc: '폰의 디자인을 그대로 살리면서 탁월한 보호력을 제공하는 시그니처 클리어 케이스.', link: '/search?q=임팩트 클리어 케이스', img: '/images/brand/clear-case.png' },
+    { key: 'glaze', label: 'GLAZE CASE', title: '광택이 주는 품격,\n새로운 감각의 케이스', desc: '미러 피니시 소재로 완성한 글레이즈 케이스. 빛에 따라 달라지는 독특한 표면감.', link: '/search?q=글레이즈 케이스', img: '/images/brand/glaze-case.png' },
+    { key: 'ring', label: 'RING STAND', title: '잡기 편하고,\n세워두기도 좋은 링스탠드', desc: '자유롭게 각도 조절되는 링스탠드. 한 손으로도 안정적으로 기기를 잡을 수 있습니다.', link: '/search?q=임팩트 링 스탠드 케이스', img: '/images/brand/ring-stand.png' },
+    { key: 'strap', label: 'BODY STRAP', title: '손 없이도 자유롭게,\n바디스트랩', desc: '어깨에 걸치거나 크로스로 착용 가능한 바디스트랩. 패션과 실용성을 동시에.', link: '/search?q=strap', img: '/images/brand/body-strap.png' },
+    { key: 'travel', label: 'TRAVEL CARRIER', title: '여행의 시작,\n케이스티파이 트래블 캐리어', desc: '가볍고 견고한 소재로 만든 트래블 캐리어. 이동 중에도 스타일을 잃지 않습니다.', link: '/search?q=바운스 캐리어', img: '/images/brand/travel.png' },
 ]
 
 const CHIP_LABELS = ['임팩트 케이스', '바운스 케이스', '클리어 케이스', '글레이즈 케이스', '링스탠드', '바디스트랩', '트래블 캐리어']
@@ -591,7 +592,6 @@ function RecastifyTab() {
                     <p className="bc-intro-eyebrow" style={{ color: 'rgba(255,255,255,.7)' }}>JOIN THE MOVEMENT</p>
                     <h3>당신의 낡은 케이스가,<br />새로운 시작이 됩니다</h3>
                     <p>지금 RE/CASETiFY 프로그램에 참여하고, 더 나은 미래를 함께 만들어 주세요.</p>
-                    <button className="rc-cta-btn" onClick={() => navigate('/recastify')}>프로그램 참여하기 →</button>
                 </div>
             </section>
         </div>
@@ -603,14 +603,10 @@ function ClubTab() {
     const [openFaq, setOpenFaq] = useState(null)
     const navigate = useNavigate()
 
-    const faqs = [
-        { q: 'CASETiFY Club은 어떻게 가입하나요?', a: 'CASETiFY 웹사이트에서 회원가입을 완료하시면 자동으로 CLUB 멤버가 되십니다. 별도의 가입 절차나 비용이 없으며, 신규 가입 시 첫 구매에 사용 가능한 15% 웰컴 쿠폰이 즉시 발급됩니다.' },
-        { q: '등급은 언제, 어떻게 올라가나요?', a: '최근 12개월 누적 구매 금액이 100,000원 / 250,000원 / 500,000원을 넘으면 각각 BRONZE · SILVER · GOLD 등급으로 자동 승급됩니다. 결제 후 10일이 지난 시점에 포인트가 확정되며, 같은 시점에 등급이 갱신됩니다.' },
-        { q: '멤버십 유효 기간은 얼마인가요?', a: '멤버십은 마지막 구매일 기준 12개월 동안 유지되며, 새 주문이 발생할 때마다 자동으로 12개월이 연장됩니다. 12개월간 구매 내역이 없을 경우 등급이 한 단계 하향 조정됩니다.' },
-        { q: '여러 개의 계정을 하나로 합칠 수 있나요?', a: '현재 계정 통합 기능은 제공되지 않습니다. 다만 비회원 게스트 결제 후 100일 이내에 동일한 이메일로 회원가입을 진행하시면 해당 주문 금액이 자동 누적되어 적립됩니다.' },
-        { q: '어떤 구매가 포인트 적립 대상에서 제외되나요?', a: '10일 이내 취소 또는 환불된 주문, 재판매를 위한 구매, 배송비 및 수수료는 포인트 적립 대상에서 제외됩니다. 또한 일부 컬래버레이션, 아카이브, 세일 컬렉션은 등급 할인 적용 대상에서 제외될 수 있습니다.' },
-        { q: '생일 기프트는 매년 받을 수 있나요?', a: 'SILVER · GOLD 등급을 유지하시는 한 매년 생일 달 첫째 날 자동으로 발급됩니다. 등급이 BRONZE로 하향되면 해당 혜택이 제공되지 않으며, 사용 기한 이후에는 자동 소멸됩니다.' },
-    ]
+    // QnaData에서 club 카테고리 FAQ만 필터링
+    const faqs = FAQ_LIST
+        .filter(f => f.category === 'club')
+        .map(f => ({ q: f.question, a: f.answer }))
 
     const benefits = [
         { label: '등급 할인 바우처', bronze: '15%', silver: '20%', gold: '30%' },
@@ -628,7 +624,7 @@ function ClubTab() {
         {
             cls: 'bronze', tag: 'TIER 01', coin: 'B', name: 'BRONZE',
             req: <p className="bc-club-tier-req">연간 누적 <b>100,000원+</b> · 100P</p>,
-            items: ['15% 할인 바우처', '신규 가입 웰컴 쿠폰', '회원 전용 뉴스레터', '주문 추적 우선 알림'],
+            items: ['등급 할인 바우처', '신규 가입 웰컴 쿠폰', '회원 전용 뉴스레터', '주문 추적 우선 알림'],
         },
         {
             cls: 'silver', tag: 'TIER 02', coin: 'S', name: 'SILVER',
@@ -638,7 +634,7 @@ function ClubTab() {
         {
             cls: 'gold', tag: 'TIER 03 · TOP', coin: 'G', name: 'GOLD',
             req: <p className="bc-club-tier-req">연간 누적 <b>500,000원+</b> · 500P</p>,
-            items: ['30% 할인 바우처', '전 상품 상시 15% 할인', '12개월 연장 제품 보증', '한정판 컬렉션 우선 구매', '전용 고객지원 라인', 'Silver 등급의 모든 혜택'],
+            items: ['30% 할인 바우처', '전 상품 상시 할인', '12개월 연장 제품 보증', '한정판 컬렉션 우선 구매', '전용 고객지원 라인', 'Silver 등급의 모든 혜택'],
         },
     ]
 
@@ -683,7 +679,7 @@ function ClubTab() {
                     </div>
                     <div className="bc-club-steps">
                         {[
-                            { n: 'STEP 01', title: '무료로 가입하기', desc: 'CASETiFY 계정을 만들면 자동으로 CLUB 멤버가 됩니다. 신규 가입 시 첫 구매에 사용할 수 있는 15% 웰컴 쿠폰이 즉시 발급됩니다.', glyph: '＋' },
+                            { n: 'STEP 01', title: '무료로 가입하기', desc: 'CASETiFY 계정을 만들면 자동으로 CLUB 멤버가 됩니다. 등급에 따라 다양한 할인 혜택과 단독 혜택을 누릴 수 있습니다.', glyph: '＋' },
                             { n: 'STEP 02', title: '포인트 적립하기', desc: '구매 금액 1,000원당 1포인트가 자동 적립됩니다. 결제 후 10일이 지난 시점에 적립이 확정되며, 누적 포인트에 따라 등급이 결정됩니다.', glyph: '₩' },
                             { n: 'STEP 03', title: '등급별 혜택 누리기', desc: 'Bronze → Silver → Gold 순으로 등급이 올라갈 때마다 더 큰 할인과 단독 혜택이 열립니다. 마지막 구매일 기준 12개월 동안 유지됩니다.', glyph: '★' },
                         ].map((step) => (
@@ -761,7 +757,7 @@ function ClubTab() {
                     <div className="bc-club-earn-grid">
                         {[
                             { ico: '₩', icoClass: '', title: '구매 금액 적립', desc: '온라인 / 오프라인 매장에서의 정상가 구매 금액 1,000원당 1포인트가 자동 적립됩니다.', pts: '+1 POINT / 1,000원' },
-                            { ico: '✦', icoClass: '', title: '신규 회원 보너스', desc: '처음 가입하시면 첫 구매에 사용 가능한 15% 웰컴 쿠폰을 즉시 받으실 수 있어요.', pts: 'WELCOME 15%' },
+                            { ico: '✦', icoClass: '', title: '신규 회원 보너스', desc: '처음 가입하시면 첫 구매에 사용 가능한 웰컴 쿠폰을 즉시 받으실 수 있어요.', pts: 'WELCOME COUPON' },
                             { ico: '🎂', icoClass: '', title: '생일 기프트', desc: 'SILVER · GOLD 등급 회원분께는 매년 생일 달에 단독 기프트 바우처가 발급됩니다.', pts: 'SILVER · GOLD ONLY' },
                             { ico: '↻', icoClass: '', title: '자동 등급 갱신', desc: '새 주문이 발생할 때마다 멤버십 유효 기간이 12개월 자동 연장됩니다.', pts: 'AUTO RENEWAL · 12M' },
                         ].map((card) => (
@@ -778,7 +774,7 @@ function ClubTab() {
                     <div className="bc-club-duo">
                         <div className="bc-club-duo-blk bc-club-duo-blk--welcome">
                             <div><p className="bc-club-duo-lbl">WELCOME GIFT</p><p className="bc-club-duo-title">신규 가입 즉시 받는 첫 쇼핑 쿠폰</p></div>
-                            <p className="bc-club-duo-big">15% OFF</p>
+                            <p className="bc-club-duo-big">WELCOME</p>
                             <p>CASETiFY Club에 처음 합류하신 분께 드리는 단 한 번의 첫 구매 혜택입니다.</p>
                         </div>
                         <div className="bc-club-duo-blk bc-club-duo-blk--bday">
@@ -817,7 +813,7 @@ function ClubTab() {
                 <div className="bc-inner">
                     <p className="bc-club-eyebrow">JOIN CASETiFY CLUB</p>
                     <h3>지금 바로,<br />CLUB의 일원이 되세요</h3>
-                    <p>무료 가입과 동시에 첫 구매 15% 쿠폰이 발급됩니다.</p>
+                    <p>지금 바로 무료로 가입하고 등급별 다양한 혜택을 누려보세요.</p>
                     <div className="bc-club-cta-btns">
                         <button className="bc-club-cta-primary" onClick={() => navigate('/join')}>무료로 가입하기 →</button>
                         <button className="bc-club-cta-ghost">멤버십 약관 보기</button>
