@@ -1051,7 +1051,6 @@ export const useAuthStore = create(
 
             try {
                 // A. 주문 내역 저장
-                const updatedOrders = [...(orderList || []), orderData];
                 const orderRef = doc(db, "orders", user.uid);
                 await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
 
