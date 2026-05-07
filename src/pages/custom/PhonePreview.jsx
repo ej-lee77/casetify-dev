@@ -338,14 +338,14 @@ const BOUNCE_LAYOUT = {
         camera: { top: 32, left: 35, width: 170, height: 110 },
     },
     'iphone17pro': {
-        scale: 1.5, bodyW: 240, bodyH: 358, bodyRadius: 44,
+        scale: 1.5, bodyW: 216, bodyH: 358, bodyRadius: 44,
         canvas: { top: 33, left: 39, w: 160, h: 300, radius: 30 },
-        camera: { top: 32, left: 34, width: 170, height: 110 },
+        camera: { top: 34, left: 30, width: 150, height: 90 },
     },
     'iphone17': {
-        scale: 1.5, bodyW: 220, bodyH: 358, bodyRadius: 44,
+        scale: 1.5, bodyW: 230, bodyH: 350, bodyRadius: 44,
         canvas: { top: 30, left: 43, w: 132, h: 298, radius: 20 },
-        camera: { top: 30, left: 38, width: 80, height: 90 },
+        camera: { top: 31, left: 42, width: 80, height: 90 },
     },
     'iphone16promax': {
         scale: 1.5, bodyW: 240, bodyH: 358, bodyRadius: 44,
