@@ -5,12 +5,13 @@ import "../components/scss/Header.scss"
 import { useMainSlider } from '../store/useMainSlider';
 import { useAuthStore } from '../store/useAuthStore';
 import SearchOverlay from './SearchOverlay';
+import ToastPopup from './Toastpopup';
 
 export default function Header() {
   const { mainMenuList, isSearchOpen, onToggleSearch, onCloseSearch } = useProductStore();
   const { user, onLogout, cart, onFetchCart } = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
-  const [userPopup, setUserPopup] = useState(false);
+  const [loginToastOpen, setLoginToastOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,17 +24,17 @@ export default function Header() {
   //헤더글자색 변경
   const { headerColor, setHeaderColor } = useMainSlider();
 
-  let leaveTimeout;
+  const leaveTimeout = React.useRef(null);
 
   const handleMouseEnter = (link) => {
-    clearTimeout(leaveTimeout);
+    if (leaveTimeout.current) clearTimeout(leaveTimeout.current);
     setMenuActive(link);
   };
 
   const handleMouseLeave = () => {
-    leaveTimeout = setTimeout(() => {
+    leaveTimeout.current = setTimeout(() => {
       setMenuActive(null);
-    }, 50); // 0.05초 정도의 유예를 줌
+    }, 50);
   };
 
   // 장바구니 정보 가져오기
@@ -59,6 +60,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
+  useEffect(() => {
+    setMenuActive(null);
+    // setUserPopup(false);
+    onCloseSearch();
+  }, [location.pathname]);
+
   const handleLogout = async () => {
     const isLogout = await onLogout();
 
@@ -70,13 +77,12 @@ export default function Header() {
   const handleProtectedClick = (e) => {
     if (!user) {
       e.preventDefault();
-      setUserPopup(true);
+      setLoginToastOpen(true);
+      setTimeout(() => {
+        setLoginToastOpen(false);
+        navigate('/login');
+      }, 1500);
     }
-  };
-
-  const goToLogin = () => {
-    setUserPopup(false);
-    navigate("/login");
   };
 
   return (
@@ -87,14 +93,18 @@ export default function Header() {
           <nav>
             <ul className="main-menu">
               {mainMenuList.map(menu => (
-                <li key={menu.link} onMouseEnter={() => setMenuActive(menu.link)} onMouseLeave={() => setMenuActive(null)}>
+                <li
+                  key={menu.link}
+                  onMouseEnter={() => handleMouseEnter(menu.link)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   {menu.sub?.length > 0 ? (
                     <>
                       <Link>{menu.name}</Link>
                       <ul className={`sub-menu ${MenuActive === menu.link ? 'active' : ''}`}>
                         {menu.sub.map((s) => (
                           <li key={s.link}>
-                            <Link to={`/${menu.link}/${s.link}`} onClick={()=>setMenuActive(null)}>
+                            <Link to={`/${menu.link}/${s.link}`}>
                               <div>
                                 <span><img src={`/images/header-footer/menu/${menu.link}-${s.link}.png`} alt={s.name} /></span>
                                 <span>{s.name}</span>
@@ -155,17 +165,12 @@ export default function Header() {
         </div>
       </header>
       <SearchOverlay isActive={isSearchOpen} onClose={onCloseSearch} />
-      {userPopup && (
-        <div className="login-modal-overlay">
-          <div className="login-modal">
-            <p>로그인 후 이용 가능합니다.</p>
-            <div className="modal-btns">
-              <button onClick={goToLogin} className="confirm">로그인하러 가기</button>
-              <button onClick={() => setUserPopup(false)}>취소</button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ToastPopup
+        isOpen={loginToastOpen}
+        message="로그인 후 이용 가능합니다."
+        onClose={() => setLoginToastOpen(false)}
+        duration={1500}
+      />
     </>
   )
 }
