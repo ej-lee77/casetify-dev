@@ -5,10 +5,20 @@
 
     .category-hero {
         width: 100%;
+        position: relative;
 
         img {
             display: block;
             width: 100%;
+        }
+        h2{
+            position: absolute;
+            top: 50%;
+            left: 15%;
+            font-weight: 400;
+        }
+        .text-white{
+            color: #fff;
         }
     }
 

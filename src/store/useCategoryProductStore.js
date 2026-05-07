@@ -75,6 +75,13 @@ export const useCategoryProductStore = create((set, get) => ({
                 },
             ],
         },
+        {
+            name: "트래블", link: "travel",
+            sub: [
+                { name: "캐리어", link: "suitcase" },
+                { name: "테크파우치", link: "pouch" }
+            ]
+        },
 
         {
             name: "콜라보", link: "colab",
