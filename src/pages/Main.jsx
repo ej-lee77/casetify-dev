@@ -9,9 +9,23 @@ import Instagram from '../components/main/Instagram'
 import MainSlider from '../components/main/MainSlider'
 import Collab from '../components/main/Collab'
 import Popup from '../components/main/Popup'
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function Main() {
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className='main-wrap'>
         <Popup />
         <MainSlider />
@@ -24,5 +38,6 @@ export default function Main() {
         <Studio />
         <Quality />
     </div>
+    </motion.div>
   )
 }

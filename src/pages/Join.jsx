@@ -11,6 +11,13 @@ import Terms from '../components/Terms'
 import CasetifyClubTerms from '../components/CasetifyClubTerms'
 import Privacy from '../components/Privacy'
 import Marketing from '../components/Marketing'
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function Join() {
     const {onMember} = useAuthStore();
@@ -176,6 +183,13 @@ export default function Join() {
     };
 
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className='login-wrap join-wrap'>
         <div className="inner">
             <form onSubmit={handleSubmit}>
@@ -339,5 +353,6 @@ export default function Join() {
             )}
         </div>
     </div>
+    </motion.div>
   )
 }
