@@ -8,7 +8,13 @@ import UserInfo from '../components/sub/UserInfo'
 import OrderInfo from '../components/sub/OrderInfo'
 import Giftcard from '../components/sub/Giftcard'
 import { useAuthStore } from '../store/useAuthStore'
+import { motion } from 'framer-motion';
 
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function Mypage() {
   const {user} = useAuthStore();
@@ -45,6 +51,13 @@ export default function Mypage() {
   }, [location.state]); 
 
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className="sub-page-wrap">
       <div className="inner my-page-inner">
         <div className="my-page-wrap">
@@ -59,5 +72,6 @@ export default function Mypage() {
         <Benefit />
       </div>
     </div>
+    </motion.div>
   )
 }
