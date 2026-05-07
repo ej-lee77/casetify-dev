@@ -15,6 +15,7 @@ export default function CategoryHero({
     return (
         <div className="category-hero">
             <img src={imagePath} alt={altText} />
+            <h2 className={`${mainCate}-${subCate}` === "colab-art" ? "text-white" : ""}>{subCateKo}</h2>
         </div>
     );
 }
