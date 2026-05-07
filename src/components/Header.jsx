@@ -5,12 +5,13 @@ import "../components/scss/Header.scss"
 import { useMainSlider } from '../store/useMainSlider';
 import { useAuthStore } from '../store/useAuthStore';
 import SearchOverlay from './SearchOverlay';
+import ToastPopup from './Toastpopup';
 
 export default function Header() {
   const { mainMenuList, isSearchOpen, onToggleSearch, onCloseSearch } = useProductStore();
   const { user, onLogout, cart, onFetchCart } = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
-  const [userPopup, setUserPopup] = useState(false);
+  const [loginToastOpen, setLoginToastOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -61,7 +62,7 @@ export default function Header() {
 
   useEffect(() => {
     setMenuActive(null);
-    setUserPopup(false);
+    // setUserPopup(false);
     onCloseSearch();
   }, [location.pathname]);
 
@@ -76,13 +77,12 @@ export default function Header() {
   const handleProtectedClick = (e) => {
     if (!user) {
       e.preventDefault();
-      setUserPopup(true);
+      setLoginToastOpen(true);
+      setTimeout(() => {
+        setLoginToastOpen(false);
+        navigate('/login');
+      }, 1500);
     }
-  };
-
-  const goToLogin = () => {
-    setUserPopup(false);
-    navigate("/login");
   };
 
   return (
@@ -93,11 +93,11 @@ export default function Header() {
           <nav>
             <ul className="main-menu">
               {mainMenuList.map(menu => (
-                <li 
-                  key={menu.link} 
-                  onMouseEnter={() => handleMouseEnter(menu.link)} 
+                <li
+                  key={menu.link}
+                  onMouseEnter={() => handleMouseEnter(menu.link)}
                   onMouseLeave={handleMouseLeave}
-                >                  
+                >
                   {menu.sub?.length > 0 ? (
                     <>
                       <Link>{menu.name}</Link>
@@ -165,17 +165,12 @@ export default function Header() {
         </div>
       </header>
       <SearchOverlay isActive={isSearchOpen} onClose={onCloseSearch} />
-      {userPopup && (
-        <div className="login-modal-overlay">
-          <div className="login-modal">
-            <p>로그인 후 이용 가능합니다.</p>
-            <div className="modal-btns">
-              <button onClick={goToLogin} className="confirm">로그인하러 가기</button>
-              <button onClick={() => setUserPopup(false)}>취소</button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ToastPopup
+        isOpen={loginToastOpen}
+        message="로그인 후 이용 가능합니다."
+        onClose={() => setLoginToastOpen(false)}
+        duration={1500}
+      />
     </>
   )
 }
