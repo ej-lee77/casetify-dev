@@ -5,6 +5,7 @@ import { useAuthStore } from '../../store/useAuthStore';
 import { Link } from 'react-router-dom';
 import { li } from 'framer-motion/client';
 import EmptyState from './EmptyState';
+import ConfirmModal from '../ConfirmModal';
 
 export default function WishList() {
     const [wishItemList, setWishItemList] = useState([]);
@@ -104,19 +105,15 @@ export default function WishList() {
                 </div>
             )}
             {itemToDelete && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        <p>위시리스트에서 지워도 될까요?</p>
-                        <div className="modal-buttons">
-                            <button className="confirm-btn"
-                                onClick={() => {
-                                    onRemoveWishlist(itemToDelete); // 진짜 삭제 실행
-                                    setItemToDelete(null); // 팝업 닫기
-                                }}>확인</button>
-                            <button className="cancel-btn" onClick={() => setItemToDelete(null)}>취소</button>
-                        </div>
-                    </div>
-                </div>
+                <ConfirmModal
+                    isOpen={!!itemToDelete}
+                    message={"위시리스트에서 지워도 될까요?"}
+                    onClose={() => setItemToDelete(null)}
+                    buttons={[
+                        { label: '취소', onClick: () => setItemToDelete(null), variant: 'secondary' },
+                        { label: '확인', onClick: () => { onRemoveWishlist(itemToDelete); setItemToDelete(null); } },
+                    ]}
+                />
             )}
         </div>
     )
