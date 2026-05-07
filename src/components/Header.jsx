@@ -24,17 +24,17 @@ export default function Header() {
   //헤더글자색 변경
   const { headerColor, setHeaderColor } = useMainSlider();
 
-  let leaveTimeout;
+  const leaveTimeout = React.useRef(null);
 
   const handleMouseEnter = (link) => {
-    clearTimeout(leaveTimeout);
+    if (leaveTimeout.current) clearTimeout(leaveTimeout.current);
     setMenuActive(link);
   };
 
   const handleMouseLeave = () => {
-    leaveTimeout = setTimeout(() => {
+    leaveTimeout.current = setTimeout(() => {
       setMenuActive(null);
-    }, 50); // 0.05초 정도의 유예를 줌
+    }, 50);
   };
 
   // 장바구니 정보 가져오기
@@ -59,6 +59,12 @@ export default function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
+
+  useEffect(() => {
+    setMenuActive(null);
+    setUserPopup(false);
+    onCloseSearch();
+  }, [location.pathname]);
 
   const handleLogout = async () => {
     const isLogout = await onLogout();
@@ -87,14 +93,18 @@ export default function Header() {
           <nav>
             <ul className="main-menu">
               {mainMenuList.map(menu => (
-                <li key={menu.link} onMouseEnter={() => setMenuActive(menu.link)} onMouseLeave={() => setMenuActive(null)}>
+                <li
+                  key={menu.link}
+                  onMouseEnter={() => handleMouseEnter(menu.link)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   {menu.sub?.length > 0 ? (
                     <>
                       <Link>{menu.name}</Link>
                       <ul className={`sub-menu ${MenuActive === menu.link ? 'active' : ''}`}>
                         {menu.sub.map((s) => (
                           <li key={s.link}>
-                            <Link to={`/${menu.link}/${s.link}`} onClick={() => setMenuActive(null)}>
+                            <Link to={`/${menu.link}/${s.link}`}>
                               <div>
                                 <span><img src={`/images/header-footer/menu/${menu.link}-${s.link}.png`} alt={s.name} /></span>
                                 <span>{s.name}</span>
