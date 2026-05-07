@@ -6,6 +6,7 @@ import 'swiper/css/navigation'
 import { useNavigate, useLocation } from 'react-router-dom'
 import './scss/BrandCasetify.scss'
 import { motion } from 'framer-motion';
+import { FAQ_LIST } from '../data/QnaData';
 
 const fadeVariants = {
     initial: { opacity: 0 },
@@ -602,14 +603,10 @@ function ClubTab() {
     const [openFaq, setOpenFaq] = useState(null)
     const navigate = useNavigate()
 
-    const faqs = [
-        { q: 'CASETiFY Club은 어떻게 가입하나요?', a: 'CASETiFY 웹사이트에서 회원가입을 완료하시면 자동으로 CLUB 멤버가 되십니다. 별도의 가입 절차나 비용이 없습니다.' },
-        { q: '등급은 언제, 어떻게 올라가나요?', a: '최근 12개월 누적 구매 금액이 100,000원 / 250,000원 / 500,000원을 넘으면 각각 BRONZE · SILVER · GOLD 등급으로 자동 승급됩니다. 결제 후 10일이 지난 시점에 포인트가 확정되며, 같은 시점에 등급이 갱신됩니다.' },
-        { q: '멤버십 유효 기간은 얼마인가요?', a: '멤버십은 마지막 구매일 기준 12개월 동안 유지되며, 새 주문이 발생할 때마다 자동으로 12개월이 연장됩니다. 12개월간 구매 내역이 없을 경우 등급이 한 단계 하향 조정됩니다.' },
-        { q: '여러 개의 계정을 하나로 합칠 수 있나요?', a: '현재 계정 통합 기능은 제공되지 않습니다. 다만 비회원 게스트 결제 후 100일 이내에 동일한 이메일로 회원가입을 진행하시면 해당 주문 금액이 자동 누적되어 적립됩니다.' },
-        { q: '어떤 구매가 포인트 적립 대상에서 제외되나요?', a: '10일 이내 취소 또는 환불된 주문, 재판매를 위한 구매, 배송비 및 수수료는 포인트 적립 대상에서 제외됩니다. 또한 일부 컬래버레이션, 아카이브, 세일 컬렉션은 등급 할인 적용 대상에서 제외될 수 있습니다.' },
-        { q: '생일 기프트는 매년 받을 수 있나요?', a: 'SILVER · GOLD 등급을 유지하시는 한 매년 생일 달 첫째 날 자동으로 발급됩니다. 등급이 BRONZE로 하향되면 해당 혜택이 제공되지 않으며, 사용 기한 이후에는 자동 소멸됩니다.' },
-    ]
+    // QnaData에서 club 카테고리 FAQ만 필터링
+    const faqs = FAQ_LIST
+        .filter(f => f.category === 'club')
+        .map(f => ({ q: f.question, a: f.answer }))
 
     const benefits = [
         { label: '등급 할인 바우처', bronze: '15%', silver: '20%', gold: '30%' },
