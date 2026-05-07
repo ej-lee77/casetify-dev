@@ -265,7 +265,7 @@
     border: 1px solid #8f8f8f;
     border-top: none;
     padding: 20px;
-    line-height: 2.2;
+    // line-height: 2.2;
     width: 100%;
     z-index: 3;
 
@@ -273,6 +273,20 @@
         button {
             font-family: inherit;
             font-size: 0.875rem;
+            display: block;
+            text-align: left;
+            width: 100%;
+            line-height: 2;
+            padding: 0.25rem 0;
+
+            // 배경 디버깅
+            // background-color: rgba(255, 0, 0, 0.12);
+        }
+
+        margin-bottom: 0.25rem;
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 
