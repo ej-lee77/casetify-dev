@@ -28,6 +28,8 @@ export default function Cart() {
 
   // 체크박스 선택 확인
   const [chekedItems, setCheckedItems] = useState([]);
+  const [toastMsg, setToastMsg] = useState('');
+  const [toastOpen, setToastOpen] = useState(false);
   const getItemKey = (item) => `${item.productId}-${item.deviceKey}-${item.color}`;
   // 체크박스 실행 메서드
   const handleChecked = (item) => {
