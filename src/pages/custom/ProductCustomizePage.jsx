@@ -17,36 +17,36 @@ const QUICK_MENUS = [
 
 // ✅ 라이브러리 없이 hex → 한글 색상명 자동매칭
 const COLOR_NAME_TABLE = [
-    { name: '블랙',      hex: '#000000' },
-    { name: '화이트',    hex: '#ffffff' },
-    { name: '레드',      hex: '#ff0000' },
-    { name: '오렌지',    hex: '#ff8000' },
-    { name: '옐로우',    hex: '#ffff00' },
-    { name: '라임',      hex: '#80ff00' },
-    { name: '그린',      hex: '#00ff00' },
-    { name: '민트',      hex: '#00ff80' },
-    { name: '시안',      hex: '#00ffff' },
+    { name: '블랙',       hex: '#000000' },
+    { name: '화이트',     hex: '#ffffff' },
+    { name: '레드',       hex: '#ff0000' },
+    { name: '오렌지',     hex: '#ff8000' },
+    { name: '옐로우',     hex: '#ffff00' },
+    { name: '라임',       hex: '#80ff00' },
+    { name: '그린',       hex: '#00ff00' },
+    { name: '민트',       hex: '#00ff80' },
+    { name: '시안',       hex: '#00ffff' },
     { name: '스카이블루', hex: '#0080ff' },
-    { name: '블루',      hex: '#0000ff' },
-    { name: '바이올렛',  hex: '#8000ff' },
-    { name: '퍼플',      hex: '#ff00ff' },
-    { name: '마젠타',    hex: '#ff0080' },
-    { name: '핑크',      hex: '#ffb6c1' },
-    { name: '살몬',      hex: '#fa8072' },
-    { name: '코랄',      hex: '#ff6b6b' },
-    { name: '브라운',    hex: '#8b4513' },
-    { name: '베이지',    hex: '#f5f5dc' },
-    { name: '아이보리',  hex: '#fffff0' },
-    { name: '골드',      hex: '#ffd700' },
-    { name: '실버',      hex: '#c0c0c0' },
-    { name: '그레이',    hex: '#808080' },
+    { name: '블루',       hex: '#0000ff' },
+    { name: '바이올렛',   hex: '#8000ff' },
+    { name: '퍼플',       hex: '#ff00ff' },
+    { name: '마젠타',     hex: '#ff0080' },
+    { name: '핑크',       hex: '#ffb6c1' },
+    { name: '살몬',       hex: '#fa8072' },
+    { name: '코랄',       hex: '#ff6b6b' },
+    { name: '브라운',     hex: '#8b4513' },
+    { name: '베이지',     hex: '#f5f5dc' },
+    { name: '아이보리',   hex: '#fffff0' },
+    { name: '골드',       hex: '#ffd700' },
+    { name: '실버',       hex: '#c0c0c0' },
+    { name: '그레이',     hex: '#808080' },
     { name: '다크그레이', hex: '#404040' },
-    { name: '네이비',    hex: '#001f5b' },
-    { name: '틸',        hex: '#008080' },
-    { name: '올리브',    hex: '#808000' },
-    { name: '인디고',    hex: '#4b0082' },
-    { name: '마룬',      hex: '#800000' },
-    { name: '라벤더',    hex: '#e6e6fa' },
+    { name: '네이비',     hex: '#001f5b' },
+    { name: '틸',         hex: '#008080' },
+    { name: '올리브',     hex: '#808000' },
+    { name: '인디고',     hex: '#4b0082' },
+    { name: '마룬',       hex: '#800000' },
+    { name: '라벤더',     hex: '#e6e6fa' },
 ]
 
 const hexToRgb = (hex) => {
@@ -66,10 +66,8 @@ const colorDistance = (hex1, hex2) => {
 
 const getColorLabel = (hex) => {
     if (!hex) return null
-    // 프리셋 컬러면 label 그대로
     const preset = CASE_COLORS.find(c => c.hex.toLowerCase() === hex.toLowerCase())
     if (preset) return preset.label
-    // 가장 가까운 색상명 매칭
     let minDist = Infinity
     let matched = COLOR_NAME_TABLE[0].name
     for (const color of COLOR_NAME_TABLE) {
@@ -125,13 +123,13 @@ function ProductCustomizeContent({ deviceType }) {
 
     const brandList =
         deviceType === 'tablet' ? TABLET_BRANDS :
-            deviceType === 'laptop' ? LAPTOP_BRANDS :
-                BRANDS
+        deviceType === 'laptop' ? LAPTOP_BRANDS :
+        BRANDS
 
     const caseTypeList =
         deviceType === 'tablet' ? TABLET_CASE_TYPES :
-            deviceType === 'laptop' ? LAPTOP_CASE_TYPES :
-                CASE_TYPES
+        deviceType === 'laptop' ? LAPTOP_CASE_TYPES :
+        CASE_TYPES
 
     const isNonPhone = deviceType === 'tablet' || deviceType === 'laptop'
 
@@ -156,6 +154,45 @@ function ProductCustomizeContent({ deviceType }) {
     const [isCartPopupOpen, setIsCartPopupOpen] = useState(false)
     const [isPopupErr, setIsPopupErr] = useState(false)
     const [showEmojiPicker, setShowEmojiPicker] = useState(false)
+
+    // ✅ ref를 객체 리터럴이 아닌 개별 useRef로 선언 (렌더마다 새로 생성되는 문제 방지)
+    const step1Ref = useRef(null)
+    const step2Ref = useRef(null)
+    const step3Ref = useRef(null)
+    const step4Ref = useRef(null)
+    const step5Ref = useRef(null)
+    const rightPanelRef = useRef(null)
+    const filterSectionRef = useRef(null) // ✅ 필터 선택 영역 ref
+
+    // ✅ 초기 마운트 여부 추적 — 초기 세팅으로 인한 불필요한 스크롤 방지
+    const isMounted = useRef(false)
+    useEffect(() => {
+        isMounted.current = true
+    }, [])
+
+    // ✅ 오른쪽 패널 내부만 스크롤 — 요소의 bottom + 여유값만큼 내려감
+    const scrollToStep = (ref, extra = 80) => {
+        const el = ref?.current
+        const panel = rightPanelRef.current
+        if (!el || !panel) return
+
+        const panelRect = panel.getBoundingClientRect()
+        const elRect = el.getBoundingClientRect()
+        const offset = elRect.bottom - panelRect.bottom + panel.scrollTop + extra
+        panel.scrollTo({ top: offset, behavior: 'smooth' })
+    }
+
+    // ✅ 포토/스티커 선택 후 필터 섹션까지 스크롤 (더 많이 내려감)
+    const scrollToFilter = () => {
+        const el = filterSectionRef.current
+        const panel = rightPanelRef.current
+        if (!el || !panel) return
+
+        const panelRect = panel.getBoundingClientRect()
+        const elRect = el.getBoundingClientRect()
+        const offset = elRect.bottom - panelRect.bottom + panel.scrollTop + 120
+        panel.scrollTo({ top: offset, behavior: 'smooth' })
+    }
 
     const price = 89000
 
@@ -202,6 +239,33 @@ function ProductCustomizeContent({ deviceType }) {
         }
     }, [selectedCaseType])
 
+    // ✅ 단계 완료 시 자동 스크롤 — isMounted 체크로 초기 렌더 스크롤 방지
+
+    // step1(기종) 완료 → step2(케이스 컬러)로 스크롤
+    useEffect(() => {
+        if (!isMounted.current) return
+        if (selectedModel) setTimeout(() => scrollToStep(step2Ref), 150)
+    }, [selectedModel])
+
+    // step2(케이스 컬러) 완료 → step3(케이스 타입)으로 스크롤
+    useEffect(() => {
+        if (!isMounted.current) return
+        if (selectedCaseColor) setTimeout(() => scrollToStep(step3Ref), 150)
+    }, [selectedCaseColor])
+
+    // step3(케이스 타입) 완료 → step4(커스텀 타입)으로 스크롤
+    // isNonPhone이면 초기값이 세팅돼 있으므로 마운트 직후는 건너뜀
+    useEffect(() => {
+        if (!isMounted.current) return
+        if (selectedCaseType && selectedCaseColor) setTimeout(() => scrollToStep(step4Ref), 150)
+    }, [selectedCaseType])
+
+    // step4(커스텀 타입) 완료 → step5(사진/텍스트)으로 스크롤
+    useEffect(() => {
+        if (!isMounted.current) return
+        if (designType) setTimeout(() => scrollToStep(step5Ref), 150)
+    }, [designType])
+
     const canAddCart =
         selectedModel && selectedCaseColor && selectedCaseType && designType &&
         (designType === 'photo'
@@ -223,75 +287,61 @@ function ProductCustomizeContent({ deviceType }) {
 
     useEffect(() => {
         let wasMobile = window.innerWidth <= 860
-
         const apply = () => {
             const isMobile = window.innerWidth <= 860
-
-            // 모바일 → 데스크탑 전환 시 top으로 스크롤
-            if (wasMobile && !isMobile) {
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-            }
+            if (wasMobile && !isMobile) window.scrollTo({ top: 0, behavior: 'smooth' })
             wasMobile = isMobile
-
-            if (isMobile) {
-                document.body.style.overflow = ''
-                return
-            }
+            if (isMobile) { document.body.style.overflow = ''; return }
             document.body.style.overflow = canAddCart ? '' : 'hidden'
         }
-
         apply()
         window.addEventListener('resize', apply)
-        return () => {
-            window.removeEventListener('resize', apply)
-            document.body.style.overflow = ''
-        }
+        return () => { window.removeEventListener('resize', apply); document.body.style.overflow = '' }
     }, [canAddCart])
 
     const optionSummary = [
         selectedModelLabel,
-        selectedCaseColor ? getColorLabel(selectedCaseColor) : null, // ✅ 교체
+        selectedCaseColor ? getColorLabel(selectedCaseColor) : null,
         selectedCaseLabel,
         designType === 'photo'
             ? (photoTab === 'sticker' ? '스티커 커스텀' : '포토 커스텀')
             : designType === 'text' ? '텍스트 커스텀' : null,
     ].filter(Boolean).join(' / ')
 
-const handleAddCart = async () => {
-    if (!user) { navigate('/login'); return }
+    const handleAddCart = async () => {
+        if (!user) { navigate('/login'); return }
 
-    const cartImgUrl =
-        deviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
-        deviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
-        '/images/custom/cart/phone-cart-go.png'
+        const cartImgUrl =
+            deviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' :
+            deviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' :
+            '/images/custom/cart/phone-cart-go.png'
 
-    // ✅ deviceType에 따라 상품명 분기
-    const productName =
-        deviceType === 'tablet' ? '태블릿 커스텀 케이스' :
-        deviceType === 'laptop' ? '맥북 커스텀 케이스' :
-        '폰 커스텀 케이스'
+        const productName =
+            deviceType === 'tablet' ? '태블릿 커스텀 케이스' :
+            deviceType === 'laptop' ? '맥북 커스텀 케이스' :
+            '폰 커스텀 케이스'
 
-    const customContent = designType === 'text'
-        ? textValue
-        : photoTab === 'sticker' ? selectedSticker?.src : photoURL
+        const customContent = designType === 'text'
+            ? textValue
+            : photoTab === 'sticker' ? selectedSticker?.src : photoURL
 
-    const result = await onAddToCart({
-        id: `CUSTOM-${Date.now()}`,
-        productName,  // ✅ 변경
-            title: productName,  
-        price,
-        device: selectedModelLabel || '', deviceKey: selectedModel || '',
-        color: getColorLabel(selectedCaseColor) || '', // ✅ 교체
-        imgUrl: cartImgUrl,
-        colorList: [], deviceList: [], isPhone: deviceType === 'phone',
-        deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
-        quantity: 1, isCustom: true, customMode: designType, customContent,
-    })
+        const result = await onAddToCart({
+            id: `CUSTOM-${Date.now()}`,
+            productName,
+            title: productName,
+            price,
+            device: selectedModelLabel || '', deviceKey: selectedModel || '',
+            color: getColorLabel(selectedCaseColor) || '',
+            imgUrl: cartImgUrl,
+            colorList: [], deviceList: [], isPhone: deviceType === 'phone',
+            deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
+            quantity: 1, isCustom: true, customMode: designType, customContent, isWish: false
+        })
 
-    if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
-    else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
-    setIsCartPopupOpen(true)
-}
+        if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
+        else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
+        setIsCartPopupOpen(true)
+    }
 
     const previewProps = {
         selectedModel, selectedCaseType,
@@ -324,6 +374,13 @@ const handleAddCart = async () => {
         </div>
     )
 
+    // ✅ 단계 상태 클래스 계산 함수
+    const stepClass = (locked, done) => {
+        if (locked) return 'step-locked'
+        if (done) return 'step-done'
+        return 'step-active'
+    }
+
     return (
         <section className="custom detail-page-custom">
             <div className="detail-inner-custom">
@@ -348,8 +405,8 @@ const handleAddCart = async () => {
                     )}
                 </div>
 
-                {/* 오른쪽: 옵션 */}
-                <div className="detail-right-custom">
+                {/* 오른쪽: 옵션 패널 */}
+                <div className="detail-right-custom" ref={rightPanelRef}>
                     <div className="detail-meta">
                         <span className="badge-free-ship">무료 배송</span>
                         <span className="detail-product-id">CUSTOM · {deviceTypeLabel}</span>
@@ -359,14 +416,27 @@ const handleAddCart = async () => {
 
                     <div className="right-info-wrap">
 
-                        {/* 1. 기종 */}
-                        <div className="detail-info-box">
-                            <p className="label">기종</p>
+                        {/* ① 기종 */}
+                        <div
+                            ref={step1Ref}
+                            className={`detail-info-box step-block ${stepClass(false, !!selectedModel)}`}
+                        >
+                            <div className="step-label-row">
+                                <p className="label">① 기종</p>
+                                {selectedModel && (
+                                    <button type="button" className="step-back-btn"
+                                        onClick={() => { setSelectedModel(null); setModelOpen(true); resetDesign(); setSelectedCaseColor(null); setSelectedCaseType(isNonPhone ? caseTypeList[0]?.id : null); setTimeout(() => scrollToStep(step1Ref, 40), 100) }}>
+                                        ← 다시 선택
+                                    </button>
+                                )}
+                            </div>
                             <div className="model-accordion">
                                 <button type="button" className="model-accordion-trigger"
+                                    disabled={!!selectedModel}
+                                    style={{ cursor: selectedModel ? 'default' : 'pointer' }}
                                     onClick={() => { setModelOpen(v => !v); setCaseTypeOpen(false) }}>
                                     <span>{selectedModelLabel || '기종을 선택하세요'}</span>
-                                    <span className={`model-accordion-arrow ${modelOpen ? 'open' : ''}`}>▼</span>
+                                    {!selectedModel && <span className={`model-accordion-arrow ${modelOpen ? 'open' : ''}`}>▼</span>}
                                 </button>
                                 {modelOpen && (
                                     <div className="model-accordion-list">
@@ -393,7 +463,11 @@ const handleAddCart = async () => {
                                                 .map(m => (
                                                     <li key={m.id}
                                                         className={selectedModel === m.id ? 'active' : ''}
-                                                        onClick={() => { setSelectedModel(m.id); setModelOpen(false); resetDesign() }}>
+                                                        onClick={() => {
+                                                            setSelectedModel(m.id)
+                                                            setModelOpen(false)
+                                                            resetDesign()
+                                                        }}>
                                                         {m.label}
                                                     </li>
                                                 ))}
@@ -403,12 +477,24 @@ const handleAddCart = async () => {
                             </div>
                         </div>
 
-                        {/* 2. 케이스 컬러 */}
-                        <div className="detail-info-box">
-                            <p className="label">케이스 컬러</p>
+                        {/* ② 케이스 컬러 — 기종 선택 후 활성화 */}
+                        <div
+                            ref={step2Ref}
+                            className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedCaseColor)}`}
+                        >
+                            <div className="step-label-row">
+                                <p className="label">② 케이스 컬러</p>
+                                {selectedCaseColor && (
+                                    <button type="button" className="step-back-btn"
+                                        onClick={() => { setSelectedCaseColor(null); setTimeout(() => scrollToStep(step2Ref, 40), 100) }}>
+                                        ← 다시 선택
+                                    </button>
+                                )}
+                            </div>
                             <div className="detail-colors">
                                 {CASE_COLORS.map(c => (
                                     <button key={c.id}
+                                        disabled={!selectedModel}
                                         className={selectedCaseColor?.toLowerCase() === c.hex.toLowerCase() ? 'active' : ''}
                                         onClick={() => setSelectedCaseColor(c.hex)}>
                                         <span className="color-chip" style={{
@@ -418,24 +504,48 @@ const handleAddCart = async () => {
                                         {c.label}
                                     </button>
                                 ))}
-                                {/* ✅ 직접 선택 - 선택 후 hex 코드로 라벨 변경 */}
-                                <ColorPickerButton
-                                    value={selectedCaseColor}
-                                    onChange={setSelectedCaseColor}
-                                    presetColors={CASE_COLORS}
-                                />
+                                {/* 기종 선택 후에만 컬러피커 렌더 */}
+                                {selectedModel && (
+                                    <ColorPickerButton
+                                        value={selectedCaseColor}
+                                        onChange={setSelectedCaseColor}
+                                        presetColors={CASE_COLORS}
+                                    />
+                                )}
                             </div>
                         </div>
 
-                        {/* 3. 케이스 타입 */}
-                        <div className="detail-info-box">
-                            <p className="label">케이스 타입</p>
+                        {/* ③ 케이스 타입 — 컬러 선택 후 활성화 */}
+                        <div
+                            ref={step3Ref}
+                            className={`detail-info-box step-block ${stepClass(!selectedCaseColor, !!selectedCaseType)}`}
+                        >
+                            <div className="step-label-row">
+                                <p className="label">③ 케이스 타입</p>
+                                {selectedCaseType && !isNonPhone && (
+                                    <button type="button" className="step-back-btn"
+                                        onClick={() => { setSelectedCaseType(null); resetDesign(); setTimeout(() => scrollToStep(step3Ref, 40), 100) }}>
+                                        ← 다시 선택
+                                    </button>
+                                )}
+                            </div>
                             <div className="model-accordion">
-                                <button className="model-accordion-trigger"
-                                    onClick={() => { if (isNonPhone) return; setCaseTypeOpen(v => !v); setModelOpen(false) }}
-                                    style={{ cursor: isNonPhone ? 'default' : 'pointer', background: isNonPhone ? '#f7f7f7' : '#fff' }}>
+                                <button
+                                    className="model-accordion-trigger"
+                                    onClick={() => {
+                                        if (!selectedCaseColor || isNonPhone) return
+                                        setCaseTypeOpen(v => !v)
+                                        setModelOpen(false)
+                                    }}
+                                    style={{
+                                        cursor: (!selectedCaseColor || isNonPhone) ? 'default' : 'pointer',
+                                        background: isNonPhone ? '#f7f7f7' : '#fff',
+                                    }}
+                                >
                                     <span>{selectedCaseLabel || '케이스 타입을 선택하세요'}</span>
-                                    {!isNonPhone && <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>}
+                                    {!isNonPhone && (
+                                        <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>
+                                    )}
                                 </button>
                                 {!isNonPhone && caseTypeOpen && (
                                     <div className="model-accordion-list">
@@ -451,7 +561,11 @@ const handleAddCart = async () => {
                                                 .map(ct => (
                                                     <li key={ct.id}
                                                         className={selectedCaseType === ct.id ? 'active' : ''}
-                                                        onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false); resetDesign() }}>
+                                                        onClick={() => {
+                                                            setSelectedCaseType(ct.id)
+                                                            setCaseTypeOpen(false)
+                                                            resetDesign()
+                                                        }}>
                                                         {ct.label}
                                                     </li>
                                                 ))}
@@ -461,36 +575,59 @@ const handleAddCart = async () => {
                             </div>
                         </div>
 
-                        {/* 4. 커스텀 타입 */}
-                        <div className="detail-info-box">
-                            <p className="label">커스텀 타입</p>
+                        {/* ④ 커스텀 타입 — 케이스 타입 선택 후 활성화 */}
+                        <div
+                            ref={step4Ref}
+                            className={`detail-info-box step-block ${stepClass(!selectedCaseType, !!designType)}`}
+                        >
+                            <div className="step-label-row">
+                                <p className="label">④ 커스텀 타입</p>
+                                {designType && (
+                                    <button type="button" className="step-back-btn"
+                                        onClick={() => { resetDesign(); setTimeout(() => scrollToStep(step4Ref, 40), 100) }}>
+                                        ← 다시 선택
+                                    </button>
+                                )}
+                            </div>
                             <div className="custom-type-btns">
-                                <button className={`custom-type-btn ${designType === 'photo' ? 'active' : ''}`}
-                                    onClick={() => setDesignType('photo')}>포토 커스텀</button>
-                                <button className={`custom-type-btn ${designType === 'text' ? 'active' : ''}`}
-                                    onClick={() => setDesignType('text')}>텍스트 커스텀</button>
+                                <button
+                                    disabled={!selectedCaseType}
+                                    className={`custom-type-btn ${designType === 'photo' ? 'active' : ''}`}
+                                    onClick={() => setDesignType('photo')}
+                                >
+                                    포토 커스텀
+                                </button>
+                                <button
+                                    disabled={!selectedCaseType}
+                                    className={`custom-type-btn ${designType === 'text' ? 'active' : ''}`}
+                                    onClick={() => setDesignType('text')}
+                                >
+                                    텍스트 커스텀
+                                </button>
                             </div>
                         </div>
 
-                        {/* 5-a. 사진 */}
-                        {designType === 'photo' && (
-                            <PhotoSection
-                                photoTab={photoTab} setPhotoTab={setPhotoTab}
-                                photoURL={photoURL} setPhotoURL={setPhotoURL} setPhotoFile={setPhotoFile}
-                                photoFilter={photoFilter} setPhotoFilter={setPhotoFilter}
-                                filterStrength={filterStrength} setFilterStrength={setFilterStrength}
-                                selectedSticker={selectedSticker} setSelectedSticker={setSelectedSticker}
-                            />
-                        )}
-
-                        {/* 5-b. 텍스트 */}
-                        {designType === 'text' && (
-                            <TextInputSection
-                                textValue={textValue} setTextValue={setTextValue}
-                                fontColor={fontColor} setFontColor={setFontColor}
-                                showEmojiPicker={showEmojiPicker} setShowEmojiPicker={setShowEmojiPicker}
-                            />
-                        )}
+                        {/* ⑤ 사진 / 텍스트 — 커스텀 타입 선택 후 표시 */}
+                        <div ref={step5Ref}>
+                            {designType === 'photo' && (
+                                <PhotoSection
+                                    photoTab={photoTab} setPhotoTab={setPhotoTab}
+                                    photoURL={photoURL} setPhotoURL={setPhotoURL} setPhotoFile={setPhotoFile}
+                                    photoFilter={photoFilter} setPhotoFilter={setPhotoFilter}
+                                    filterStrength={filterStrength} setFilterStrength={setFilterStrength}
+                                    selectedSticker={selectedSticker} setSelectedSticker={setSelectedSticker}
+                                    filterSectionRef={filterSectionRef}
+                                    onScrollToFilter={scrollToFilter}
+                                />
+                            )}
+                            {designType === 'text' && (
+                                <TextInputSection
+                                    textValue={textValue} setTextValue={setTextValue}
+                                    fontColor={fontColor} setFontColor={setFontColor}
+                                    showEmojiPicker={showEmojiPicker} setShowEmojiPicker={setShowEmojiPicker}
+                                />
+                            )}
+                        </div>
 
                     </div>
 
@@ -567,9 +704,9 @@ const handleAddCart = async () => {
                 )}
             </div>
 
-<div style={{ marginTop: '30px' }}>
-    <ShippingInfo />
-</div>
+            <div style={{ marginTop: '30px' }}>
+                <ShippingInfo />
+            </div>
 
         </section>
     )
@@ -579,7 +716,6 @@ const handleAddCart = async () => {
 export function ProductCustomizePage() {
     const location = useLocation()
     const deviceType = location.state?.deviceType || 'phone'
-
     return <ProductCustomizeContent key={deviceType} deviceType={deviceType} />
 }
 
