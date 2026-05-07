@@ -62,7 +62,7 @@ export default function Header() {
 
   useEffect(() => {
     setMenuActive(null);
-    setUserPopup(false);
+    // setUserPopup(false);
     onCloseSearch();
   }, [location.pathname]);
 
