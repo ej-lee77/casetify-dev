@@ -117,18 +117,16 @@
         background: #111;
 
         .custom-hero-video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.6s ease;
+          position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0;                        // ✅ 기본 투명 — JS에서 직접 제어
+    transition: opacity 0.6s ease;     // ✅ 부드러운 페이드
+    pointer-events: none;
 
-            &.ready {
-                opacity: 1;
-            }
         }
 
         .custom-hero-overlay {
