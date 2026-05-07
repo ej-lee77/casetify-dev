@@ -8,6 +8,13 @@ import DetailPage from './DetailPage'
 import BundleRecommend from './budleReocomend';
 import { useRecentStore } from '../../../store/useRecentStore';
 import { modelColorOptions } from "../../../data/finalData";
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 
 export default function ProductDetailPage() {
@@ -47,6 +54,13 @@ export default function ProductDetailPage() {
 
     return (
         <>
+        <motion.div
+        variants={fadeVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.4 }}
+        >
         <div className='product-detail-page'>
             <div className="inner">
                 <DetailPage item={item} />
@@ -55,6 +69,7 @@ export default function ProductDetailPage() {
                 <TabWrap item={item} />
             </div>
         </div>
+        </motion.div>
         </>
     )
 }
