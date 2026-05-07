@@ -8,6 +8,7 @@ import BundleRecommend from '../components/sub/product detail page/Recommend';
 import { li } from 'framer-motion/client';
 import EmptyState from '../components/sub/EmptyState'
 import { motion } from 'framer-motion';
+import ToastPopup from '../components/Toastpopup';
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -100,7 +101,8 @@ export default function Cart() {
 
   const handleCheckedOrder = () => {
     if (chekedItems.length === 0) {
-      alert("주문할 상품을 선택해주세요.");
+      setToastMsg("주문할 상품을 선택해주세요.");
+      setToastOpen(true);
       return;
     }
 
@@ -132,150 +134,155 @@ export default function Cart() {
       exit="exit"
       transition={{ duration: 0.4 }}
     >
-    <div className="sub-page-wrap cart-page-wrap">
-      {/* 페이지 상단 제목 */}
-      <div className="inner">
-        {/* 상단 제목, 결제 과정 표시 영역 */}
-        <div className="title-wrap">
-          {/* 제목 */}
-          <h2 className="title">장바구니</h2>
-          {/* 결제 과정 */}
-          <ul className="payment-progress-wrap">
-            <li className="payment-progress-item active">
-              <div className="icon-box">
-                <img src="./images/cart/cart-bag.svg" alt="장바구니" />
+      <div className="sub-page-wrap cart-page-wrap">
+        {/* 페이지 상단 제목 */}
+        <div className="inner">
+          {/* 상단 제목, 결제 과정 표시 영역 */}
+          <div className="title-wrap">
+            {/* 제목 */}
+            <h2 className="title">장바구니</h2>
+            {/* 결제 과정 */}
+            <ul className="payment-progress-wrap">
+              <li className="payment-progress-item active">
+                <div className="icon-box">
+                  <img src="./images/cart/cart-bag.svg" alt="장바구니" />
+                </div>
+                <p>장바구니</p>
+              </li>
+              <li className="payment-progress-item">
+                <div className="icon-box">
+                  <img src="./images/cart/bank-card.svg" alt="주문/결제" />
+                </div>
+                <p>주문/결제</p>
+              </li>
+              <li className="payment-progress-item">
+                <div className="icon-box">
+                  <img src="./images/cart/order_completed.svg" alt="장바구니" />
+                </div>
+                <p>주문완료</p>
+              </li>
+            </ul>
+          </div>
+          {/* 장바구니 상품 리스트 영역 */}
+          <div className="cart-list-wrap">
+            {/* 좌측 - 장바구니 목록 */}
+            <div className="cart-list-area">
+              {/* 장바구니 제목 */}
+              <div className="cart-title">
+                <div className="cart-title-left">
+                  <label className="checkbox-label">
+                    <input type="checkbox"
+                      checked={cart.length > 0 && chekedItems.length === cart.length}
+                      onChange={handleAllChecked} />
+                    <span className={`checkbox-icon ${cart.length > 0 && chekedItems.length === cart.length ? "on" : "off"}`}></span>
+                  </label>
+                  <p>상품정보</p>
+                </div>
+                <div className="cart-title-right">
+                  <p>수량</p>
+                  <p>가격</p>
+                </div>
               </div>
-              <p>장바구니</p>
-            </li>
-            <li className="payment-progress-item">
-              <div className="icon-box">
-                <img src="./images/cart/bank-card.svg" alt="주문/결제" />
-              </div>
-              <p>주문/결제</p>
-            </li>
-            <li className="payment-progress-item">
-              <div className="icon-box">
-                <img src="./images/cart/order_completed.svg" alt="장바구니" />
-              </div>
-              <p>주문완료</p>
-            </li>
-          </ul>
-        </div>
-        {/* 장바구니 상품 리스트 영역 */}
-        <div className="cart-list-wrap">
-          {/* 좌측 - 장바구니 목록 */}
-          <div className="cart-list-area">
-            {/* 장바구니 제목 */}
-            <div className="cart-title">
-              <div className="cart-title-left">
-                <label className="checkbox-label">
-                  <input type="checkbox"
-                    checked={cart.length > 0 && chekedItems.length === cart.length}
-                    onChange={handleAllChecked} />
-                  <span className={`checkbox-icon ${cart.length > 0 && chekedItems.length === cart.length ? "on" : "off"}`}></span>
-                </label>
-                <p>상품정보</p>
-              </div>
-              <div className="cart-title-right">
-                <p>수량</p>
-                <p>가격</p>
-              </div>
-            </div>
-            {/* 장바구니 제품 목록 */}
-            <ul className="cart-item-list">
-              {cart.length > 0 ? (
-                <>
-                  {cart.map((item, index) => {
-                    const itemKey = getItemKey(item);
-                    const isChecked = chekedItems.includes(itemKey);
-                    return (
-                      <li key={itemKey} className="cart-item">
-                        <label className="checkbox-label">
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={() => handleChecked(item)}
-                          />
-                          <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
-                        </label>
-                        <div className="cart-card-wrap">
-                          <div className="cart-goods-info">
-                            <div className="goods-img">
-                              <Link to={`/detail/${item.productId}`}>
-                                <img
-                                  src={`${item.imgUrl}`}
-                                  alt={item.title} />
-                              </Link>
-                            </div>
-                            <div className="goods-text">
-                              <p className="title">{item.title}</p>
-                              <div className="goods-detail-product">
-                                <p>{item.device}</p>
-                                <p>{item.color}</p>
+              {/* 장바구니 제품 목록 */}
+              <ul className="cart-item-list">
+                {cart.length > 0 ? (
+                  <>
+                    {cart.map((item, index) => {
+                      const itemKey = getItemKey(item);
+                      const isChecked = chekedItems.includes(itemKey);
+                      return (
+                        <li key={itemKey} className="cart-item">
+                          <label className="checkbox-label">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => handleChecked(item)}
+                            />
+                            <span className={`checkbox-icon ${isChecked ? "on" : "off"}`}></span>
+                          </label>
+                          <div className="cart-card-wrap">
+                            <div className="cart-goods-info">
+                              <div className="goods-img">
+                                <Link to={`/detail/${item.productId}`}>
+                                  <img
+                                    src={`${item.imgUrl}`}
+                                    alt={item.title} />
+                                </Link>
                               </div>
-                              {item.isWish && item.device || item.color ?
-                                <button onClick={() => setEditingItem(item)}>옵션변경</button> : <p> </p>}
+                              <div className="goods-text">
+                                <p className="title">{item.title}</p>
+                                <div className="goods-detail-product">
+                                  <p>{item.device}</p>
+                                  <p>{item.color}</p>
+                                </div>
+                                {item.isWish && item.device || item.color ?
+                                  <button onClick={() => setEditingItem(item)}>옵션변경</button> : <p> </p>}
+                              </div>
+                            </div>
+                            <div className="cart-goods-count-price">
+                              <div className="cart-count-ctrl">
+                                <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
+                                <span>{item.quantity}</span>
+                                <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
+                              </div>
+                              <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
                             </div>
                           </div>
-                          <div className="cart-goods-count-price">
-                            <div className="cart-count-ctrl">
-                              <button onClick={() => handleUpdateQty(index, -1, item)}>-</button>
-                              <span>{item.quantity}</span>
-                              <button onClick={() => handleUpdateQty(index, 1, item)}>+</button>
-                            </div>
-                            <p className="price"><span>{(item.price * item.quantity).toLocaleString()}원</span></p>
-                          </div>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </>
-              ) : (
-                <li>
-                  <EmptyState icon="🛒" strong="장바구니" title="가 비어 있습니다." desc="마음에 드는 상품을 담아보세요." btnText="쇼핑하러 가기" btnLink="/case/device" />
-                </li>
+                        </li>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <li>
+                    <EmptyState icon="🛒" strong="장바구니" title="가 비어 있습니다." desc="마음에 드는 상품을 담아보세요." btnText="쇼핑하러 가기" btnLink="/case/device" />
+                  </li>
+                )}
+              </ul>
+              {editingItem && (
+                <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)} />
               )}
-            </ul>
-            {editingItem && (
-              <CartOption item={editingItem} colorMap={colorMap} phoneModelOptions={phoneModelOptions} onClose={() => setEditingItem(null)} />
-            )}
-            {/* 체크박스 취소 버튼 */}
-            <div className="cart-cancel-btn-wrap">
-              <button onClick={() => handleRemoveCart()}>선택 상품 삭제</button>
-              <button onClick={() => onClearCart()}>전체 상품 삭제</button>
-            </div>
-          </div>
-          {/* 우측 - 주문 컨트롤 */}
-          <div className="payment-ctrl-area">
-            {/* 장바구니 제목 */}
-            <div className="cart-title">
-              <p>주문 예상 금액</p>
-            </div>
-            <div className="price-info-wrap">
-              {/* 총 금액 */}
-              <div className="price-detail">
-                <p className="price-sum">총 금액<span>{Number(selectedTotal).toLocaleString()}원</span></p>
-                <p className="price-discount">할인 금액<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
-                <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${Number(shipping).toLocaleString()}원`}</span></p>
-              </div>
-              <div className="price-total">
-                <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">결제예정금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment + shipping).toLocaleString()}원</span></p>
+              {/* 체크박스 취소 버튼 */}
+              <div className="cart-cancel-btn-wrap">
+                <button onClick={() => handleRemoveCart()}>선택 상품 삭제</button>
+                <button onClick={() => onClearCart()}>전체 상품 삭제</button>
               </div>
             </div>
-            {/* 주문 버튼 */}
-            <ul className="order-btn-wrap">
-              <li><button className="order-all" onClick={() => handleAllOrder()}>전체 상품 주문</button></li>
-              <li><button onClick={() => handleCheckedOrder()}>선택 상품 주문</button></li>
-            </ul>
+            {/* 우측 - 주문 컨트롤 */}
+            <div className="payment-ctrl-area">
+              {/* 장바구니 제목 */}
+              <div className="cart-title">
+                <p>주문 예상 금액</p>
+              </div>
+              <div className="price-info-wrap">
+                {/* 총 금액 */}
+                <div className="price-detail">
+                  <p className="price-sum">총 금액<span>{Number(selectedTotal).toLocaleString()}원</span></p>
+                  <p className="price-discount">할인 금액<span>{discount === 0 ? 0 : Number(-discount).toLocaleString()}원</span></p>
+                  <p className="price-delevery">배송비<span>{shipping === 0 ? "무료" : `${Number(shipping).toLocaleString()}원`}</span></p>
+                </div>
+                <div className="price-total">
+                  <p className="free-info">50,000원 이상 배송비 무료</p>
+                  <p className="est-price">결제예정금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment + shipping).toLocaleString()}원</span></p>
+                </div>
+              </div>
+              {/* 주문 버튼 */}
+              <ul className="order-btn-wrap">
+                <li><button className="order-all" onClick={() => handleAllOrder()}>전체 상품 주문</button></li>
+                <li><button onClick={() => handleCheckedOrder()}>선택 상품 주문</button></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        {/* 추천상품 */}
-        <div className="recommend-wrap">
-          <BundleRecommend item={tempRecoItem} />
+          {/* 추천상품 */}
+          <div className="recommend-wrap">
+            <BundleRecommend item={tempRecoItem} />
+          </div>
         </div>
       </div>
-    </div>
+      <ToastPopup
+        isOpen={toastOpen}
+        message={toastMsg}
+        onClose={() => setToastOpen(false)}
+      />
     </motion.div>
   )
 }
