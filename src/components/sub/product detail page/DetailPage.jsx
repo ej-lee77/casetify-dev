@@ -309,6 +309,7 @@ const canAddCart = (() => {
             colorList: item.caseColors,
             deviceList: isPhone ? modelOptions : item.compatibleModels ?? "",
             isPhone: isPhone,
+            isWish: item.isWish,
             deviceBrand: selectedBrandTab,
             caseCategory: item.caseCategory
         };
@@ -341,6 +342,7 @@ const canAddCart = (() => {
                 colorList: item.caseColors,
                 deviceList: isPhone ? modelOptions : item.compatibleModels,
                 isPhone: isPhone,
+                isWish: item.isWish,
                 deviceBrand: selectedBrandTab,
                 caseCategory: item.caseCategory
             };
@@ -366,6 +368,7 @@ const canAddCart = (() => {
                     colorList: bundle.caseColors,
                     deviceList: bundle.compatibleModels,
                     isPhone: false,
+                    isWish: bundle.isWish,
                     deviceBrand: "",
                     caseCategory: bundle.caseCategory
                 };
@@ -417,14 +420,14 @@ const canAddCart = (() => {
                             <img src={mainImage} alt={item.productName} />
 
                             {/* ✅ 로그인 경고 배너 */}
-                       {showLoginBanner && (
-    <div
-        className="login-banner"
-        onClick={() => navigate('/login')}  // ✅ 클릭 시 즉시 이동
-    >
-        로그인후 이용 가능합니다.
-    </div>
-)}
+                            {showLoginBanner && (
+                                <div
+                                    className="login-banner"
+                                    onClick={() => navigate('/login')}  // ✅ 클릭 시 즉시 이동
+                                >
+                                    로그인후 이용 가능합니다.
+                                </div>
+                            )}
 
                             {isPhone && !!modelColors.length && (
                                 <div className="color-remote">
