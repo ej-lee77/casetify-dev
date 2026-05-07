@@ -7,6 +7,7 @@ import { useAuthStore } from '../store/useAuthStore'
 import ActionPopup from '../components/sub/product detail page/ActionPopup'
 import { motion } from 'framer-motion';
 import { FAQ_LIST } from '../data/QnaData';
+import ToastPopup from '../components/Toastpopup';
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -37,11 +38,12 @@ export default function Gift() {
   const [openIndex, setOpenIndex] = useState(null)
   const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const { onAddToCart } = useAuthStore()
+  const { onAddToCart, user } = useAuthStore()
 
   const [popupOpen, setPopupOpen] = useState(false)
   const [popupMsg, setPopupMsg] = useState('')
   const [popupError, setPopupError] = useState(false)
+  const [loginToastOpen, setLoginToastOpen] = useState(false)
 
   const [errors, setErrors] = useState({})
   const [toName, setToName] = useState('')
@@ -84,9 +86,12 @@ export default function Gift() {
       setPopupError(false)
       setPopupOpen(true)
     } else {
-      setPopupMsg('로그인 후 이용 가능합니다.')
-      setPopupError(true)
-      setPopupOpen(true)
+      // 로그인 안 된 경우 → 토스트 표시 후 로그인 페이지 이동
+      setLoginToastOpen(true)
+      setTimeout(() => {
+        setLoginToastOpen(false)
+        navigate('/login')
+      }, 1500)
     }
   }
 
@@ -263,6 +268,12 @@ export default function Gift() {
             isError={popupError}
             type="cart"
             onClose={() => setPopupOpen(false)}
+          />
+          <ToastPopup
+            isOpen={loginToastOpen}
+            message="로그인 후 이용 가능합니다."
+            onClose={() => setLoginToastOpen(false)}
+            duration={1500}
           />
           <Benefit />
         </div>

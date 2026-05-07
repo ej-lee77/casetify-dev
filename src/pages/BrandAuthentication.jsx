@@ -5,6 +5,7 @@ import { AUTH_FAQS } from '../data/authFaqs'
 import './scss/BrandAuthentication.scss'
 import { motion } from 'framer-motion'
 import ConfirmModal from '../components/ConfirmModal'
+import ToastPopup from '../components/Toastpopup'
 
 const fadeVariants = {
     initial: { opacity: 0 },
@@ -19,11 +20,21 @@ export default function BrandAuthentication() {
     const [serialNumber, setSerialNumber] = useState('')
     const [openFaqId, setOpenFaqId] = useState(null)
     const [popup, setPopup] = useState(null)
-    // popup: null | 'login' | 'success' | 'already' | 'fail' | 'error'
+    // popup: null | 'success' | 'already' | 'fail' | 'error'
+    const [loginToastOpen, setLoginToastOpen] = useState(false)
 
     const handleAuthenticate = async () => {
         if (!serialNumber.trim()) return
         const result = await onAuthenticate(serialNumber)
+        // 로그인 필요 → 토스트 후 로그인 페이지 이동
+        if (result === 'login') {
+            setLoginToastOpen(true)
+            setTimeout(() => {
+                setLoginToastOpen(false)
+                navigate('/login')
+            }, 1500)
+            return
+        }
         setPopup(result)
     }
 
@@ -136,15 +147,12 @@ export default function BrandAuthentication() {
                     </div>
                 </section>
 
-                {/* 팝업: 로그인 필요 */}
-                <ConfirmModal
-                    isOpen={popup === 'login'}
-                    message={'로그인이 필요한 서비스입니다.\n로그인 후 정품인증을 진행해주세요.'}
-                    onClose={closePopup}
-                    buttons={[
-                        { label: '닫기', onClick: closePopup, variant: 'secondary' },
-                        { label: '로그인 페이지 이동하기', onClick: () => { closePopup(); navigate('/login') } },
-                    ]}
+                {/* 팝업: 로그인 필요 → ToastPopup으로 처리 */}
+                <ToastPopup
+                    isOpen={loginToastOpen}
+                    message="로그인 후 정품인증을 진행해주세요."
+                    onClose={() => setLoginToastOpen(false)}
+                    duration={1500}
                 />
 
                 {/* 팝업: 인증 성공 + 쿠폰 발급 */}
