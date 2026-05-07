@@ -2,9 +2,23 @@ import React from 'react'
 import "./scss/Login.scss"
 import SectionTitle from '../components/SectionTitle'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function JoinMail() {
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className='login-wrap join-wrap join-complete-wrap'>
         <div className="inner">
             <SectionTitle title={"회원가입"} subtitle={""}/>
@@ -32,5 +46,6 @@ export default function JoinMail() {
             <span className='case2'><img src="/images/login/joincomplete1.png" alt="phone" /></span>
         </div>
     </div>
+    </motion.div>
   )
 }

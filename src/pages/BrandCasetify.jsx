@@ -5,10 +5,24 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { useNavigate, useLocation } from 'react-router-dom'
 import './scss/BrandCasetify.scss'
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 // ─── STORY 탭 ───────────────────────────────────────
 function StoryTab() {
     return (
+        <motion.div
+        variants={fadeVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.4 }}
+        >
         <div className="bc-story">
             {/* Hero */}
             <div className="bc-hero">
@@ -111,6 +125,7 @@ function StoryTab() {
                 </div>
             </section>
         </div>
+        </motion.div>
     )
 }
 
