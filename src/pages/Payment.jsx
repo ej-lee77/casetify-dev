@@ -596,7 +596,7 @@ export default function Payment() {
                         </div>
                       </div>
                       <div className="cart-goods-count-price">
-                        <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
+                        <p className="price"><span>{Number(item.price * item.quantity).toLocaleString()}원</span></p>
                       </div>
                     </div>
                   </li>
