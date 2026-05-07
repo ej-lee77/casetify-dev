@@ -98,18 +98,18 @@ export default function MapPopup({ onClose }) {
       className='MapPopup'
       style={{ top: position.y, left: position.x }}
     >
-      {/* <div className="map-popup-title">
+      <div className="drag-area" onMouseDown={handleMouseDown}>
+        {/* <div className="map-popup-title">
         <p>매장 상세정보</p>
         <button onClick={onClose}>
           <img src="../images/icon/close-24dp.svg" alt="닫기" />
         </button>
       </div> */}
 
-      <button onClick={onClose}>
-        <img src="../images/icon/close-24dp.svg" alt="닫기" />
-      </button>
+        <button onClick={onClose}>
+          <img src="../images/icon/close-24dp.svg" alt="닫기" />
+        </button>
 
-      <div className="drag-area" onMouseDown={handleMouseDown}>
         <h2>{selectedLocation.name}</h2>
 
         <div className="store-img-area">

@@ -20,6 +20,14 @@ export default function Store() {
   const [areas, setArea] = useState([])
   // const [areaList, setAreaList] = useState([])
 
+  // cleanup 매장정보 팝업
+  const { clearSelectedLocation } = useMapStore();
+  useEffect(() => {
+    return () => {
+      clearSelectedLocation();
+    };
+  }, [])
+
   const selectAllCity = "ALL";
   const [selectCity, setSelectCity] = useState(null);
   const [sortByDistance, setSortByDistance] = useState(false);
@@ -177,91 +185,91 @@ export default function Store() {
       exit="exit"
       transition={{ duration: 0.4 }}
     >
-    <div className="sub-page-wrap store-page">
-      <div className="inner store-title">
-        <SectionTitle title={"Store"} subtitle={""} />
-      </div>
-      <div className="store-map-wrap">
-        <StoreMap />
-        <div className="store-info-wrap">
-          <div className="store-info-innerWrap">
-            <div className="store-search-wrap">
-              <label>
-                <input type="text" placeholder="매장지역 검색" value={searchWord} onChange={(e) => onSetSearchWord(e.target.value)} />
-              </label>
-              <div className="btn-search">
-                <img src="/images/icon/search_var.svg" alt="검색" />
+      <div className="sub-page-wrap store-page">
+        <div className="inner store-title">
+          <SectionTitle title={"Store"} subtitle={""} />
+        </div>
+        <div className="store-map-wrap">
+          <StoreMap />
+          <div className="store-info-wrap">
+            <div className="store-info-innerWrap">
+              <div className="store-search-wrap">
+                <label>
+                  <input type="text" placeholder="매장지역 검색" value={searchWord} onChange={(e) => onSetSearchWord(e.target.value)} />
+                </label>
+                <div className="btn-search">
+                  <img src="/images/icon/search_var.svg" alt="검색" />
+                </div>
               </div>
-            </div>
-            <div className="store-select-wrap">
-              <div className='city-select'>
-                <button className="select-btn" onClick={handleShow}>
-                  {/* <span>{selectCity}</span> */}
-                  <span>
-                    {!selectCity ? "지역을 선택하세요" : selectCity === selectAllCity ? "전체" : selectCity}
-                  </span>
-                  <span className={`arrow ${show ? "active" : ""}`}>
-                    <img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" />
-                  </span>
-                </button>
-                {show && <ul className='city-list'>
-                  {areas.map((area, id) => (
-                    <li key={id}><button
-                      onClick={() => handleSelectArea(area)}>{area}</button></li>
+              <div className="store-select-wrap">
+                <div className='city-select'>
+                  <button className="select-btn" onClick={handleShow}>
+                    {/* <span>{selectCity}</span> */}
+                    <span>
+                      {!selectCity ? "지역을 선택하세요" : selectCity === selectAllCity ? "전체" : selectCity}
+                    </span>
+                    <span className={`arrow ${show ? "active" : ""}`}>
+                      <img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" />
+                    </span>
+                  </button>
+                  {show && <ul className='city-list'>
+                    {areas.map((area, id) => (
+                      <li key={id}><button
+                        onClick={() => handleSelectArea(area)}>{area}</button></li>
+                    ))}
+                  </ul>
+                  }
+                </div>
+                <div className={`near-list ${sortByDistance ? "active" : ""}`}>
+                  <button className="select-btn" onClick={() => setSortByDistance(prev => !prev)}>
+                    {/* <span>{sortByDistance ? "가까운 지점 정렬 ON" : "가까운 지점 정렬 OFF"}</span> */}
+                    <span>가까운 지점 정렬</span>
+                    {/* <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span> */}
+                  </button>
+                </div>
+              </div>
+              <div>
+                {/* ############### <p>현재위치 사용</p>          
+          (매장 리스트) */}
+                <ul className="store-city-list">
+                  {currentList.map((list, id) => (
+                    <MapAddress sendList={list} key={id}
+                    />
                   ))}
                 </ul>
-                }
               </div>
-              <div className={`near-list ${sortByDistance ? "active" : ""}`}>
-                <button className="select-btn" onClick={() => setSortByDistance(prev => !prev)}>
-                  {/* <span>{sortByDistance ? "가까운 지점 정렬 ON" : "가까운 지점 정렬 OFF"}</span> */}
-                  <span>가까운 지점 정렬</span>
-                  {/* <span className="arrow"><img src="/images/icon/icon-arrow-down.svg" alt="arrow-icon" /></span> */}
+
+              <div className="store-list-pager">
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={isPrevDisabled}
+                  className={isPrevDisabled ? "disabled" : ""}
+                >
+                  <img src="/images/store/Pager-Arrow_Prev.svg" alt="이전" />
+                </button>
+                <div className="pager-btn-area">
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentPage(i + 1)}
+                      className={currentPage === i + 1 ? "active" : ""}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={isNextDisabled}
+                  className={isNextDisabled ? "disabled" : ""}
+                >
+                  <img src="/images/store/Pager-Arrow_Next.svg" alt="다음" />
                 </button>
               </div>
-            </div>
-            <div>
-              {/* ############### <p>현재위치 사용</p>          
-          (매장 리스트) */}
-              <ul className="store-city-list">
-                {currentList.map((list, id) => (
-                  <MapAddress sendList={list} key={id}
-                  />
-                ))}
-              </ul>
-            </div>
-
-            <div className="store-list-pager">
-              <button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                disabled={isPrevDisabled}
-                className={isPrevDisabled ? "disabled" : ""}
-              >
-                <img src="/images/store/Pager-Arrow_Prev.svg" alt="이전" />
-              </button>
-              <div className="pager-btn-area">
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentPage(i + 1)}
-                    className={currentPage === i + 1 ? "active" : ""}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                disabled={isNextDisabled}
-                className={isNextDisabled ? "disabled" : ""}
-              >
-                <img src="/images/store/Pager-Arrow_Next.svg" alt="다음" />
-              </button>
             </div>
           </div>
         </div>
-      </div>
-    </div >
+      </div >
     </motion.div>
   )
 }

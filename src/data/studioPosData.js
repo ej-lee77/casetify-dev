@@ -15,7 +15,7 @@ export const studioPosData = [
         id: 2,
         storeArea: "부산광역시",
         storeName: "케이스티파이 스튜디오 신세계백화점 센텀시티점",
-        storeAddress: "부산광역시 해운대구 센텀남대로 35 지하2층",
+        storeAddress: "부산광역시 해운대구 센텀남대로 35, 지하2층",
         storeImg: "/images/studio/studio_02_centum_01.jpg",
         openHour:
             ["월요일 - 목요일 : 10:30AM - 8:00PM KST",
