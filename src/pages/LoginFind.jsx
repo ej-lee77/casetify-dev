@@ -7,6 +7,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/locale';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function LoginFindId() {
     const {onFindId, onFindPass} = useAuthStore();
@@ -130,6 +137,13 @@ export default function LoginFindId() {
     }
 
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className='login-wrap join-wrap find-wrap'>
         <div className="inner">
             <SectionTitle title={content === "id" ? "아이디 찾기" : "비밀번호 찾기"} subtitle={""} />
@@ -190,5 +204,6 @@ export default function LoginFindId() {
             )}
         </div>
     </div>
+    </motion.div>
   )
 }
