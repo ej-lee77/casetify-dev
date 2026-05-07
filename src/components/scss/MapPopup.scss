@@ -2,7 +2,7 @@
 
 .MapPopup {
     position: absolute;
-    max-width: 600px;
+    max-width: 520px;
     // top: 50px; // 임시 초기값
     // left: 600px; // 임시 초기값
     // transform: translate(-50%, -50%);
@@ -41,22 +41,25 @@
 
     button {
         position: absolute;
-        top: 1.625rem;
-        right: 0;
-        transform: translateY(-50%);
+        top: 1.55rem;
         right: 1rem;
+        transform: translateY(-50%);
     }
 
     h2 {
-        margin-top: 2rem;
-        margin-bottom: g.$title-gap;
+        padding-top: 2.375rem;
+        padding-bottom: g.$title-gap;
         font-size: 1.5rem;
         text-align: center;
+        @include g.multi-ellipsis($lines: 1);
     }
 
     .drag-area {
         cursor: grab;
         user-select: none;
+
+        // 배경 디버깅
+        // background-color: rgba(255, 0, 0, 0.16);
     }
 
     .drag-area:active {
@@ -94,8 +97,9 @@
     }
 
     .store-hours-area {
-        margin: g.$title-gap 0;
-        padding: 0 1rem 1.25rem;
+        // margin: g.$title-gap 0;
+        margin-top: g.$title-gap;
+        padding: 0 1rem 2rem;
 
         .store-hours-info-area {
             @include g.myFlex($jc: null, $gap: 0.25rem, $fd: column);

@@ -1052,6 +1052,15 @@ export const useAuthStore = create(
             try {
                 // A. 주문 내역 저장
                 const orderRef = doc(db, "orders", user.uid);
+                const orderSnap = await getDoc(orderRef);
+                
+                let existingOrders = [];
+                if (orderSnap.exists()) {
+                    existingOrders = orderSnap.data().orderList || [];
+                }
+        
+                // 가져온 실제 주문 목록 뒤에 새 주문 추가
+                const updatedOrders = [...existingOrders, orderData];
                 await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
 
                 // B. 유저 정보 업데이트 (기프트 카드 배열 & 쿠폰 배열 전체 업데이트)

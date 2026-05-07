@@ -19,7 +19,7 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
-            width: 32.5rem;
+            width: 500px;
             font-family: "Pretendard", sans-serif;
             z-index: 1;
 
@@ -103,7 +103,7 @@
                 // 지역 선택 영역
                 .store-select-wrap {
                     @include g.myFlex($gap: 1.25rem);
-                    margin-bottom: 1.5rem;
+                    margin-bottom: 1.25rem;
                     justify-content: space-between;
 
                     >div {
@@ -183,7 +183,7 @@
                     pointer-events: auto;
 
                     li {
-                        @include g.myFlex($gap: null);
+                        @include g.myFlex($gap: 0.25rem);
                         padding: 0.75rem 0.25rem;
                         cursor: pointer;
                         transition: 0.15s ease-in-out;
@@ -193,14 +193,20 @@
                         }
 
                         .store-list-area {
+                            flex: 1;
+
                             p {
                                 color: g.$text-sub;
                                 margin-top: 0.125rem;
                                 font-size: 0.9375rem;
+                                @include g.multi-ellipsis($lines: 1)
                             }
                         }
 
                         .store-distance-area {
+                            width: 15%;
+                            text-align: right;
+
                             p {
                                 font-size: 0.75rem;
                                 font-weight: 600;
