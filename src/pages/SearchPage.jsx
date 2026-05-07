@@ -10,6 +10,13 @@ import CategoryEtcProductCard from "../components/sub/CategoryEtcProductCard";
 import CategoryFilterPanel from "../components/sub/CategoryFilterPanel";
 import CategoryFilterButton from "../components/sub/CategoryFilterButton";
 import EmptyState from "../components/sub/EmptyState"
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 // ─────────────────────────────────────────────
 // 상수
@@ -210,6 +217,13 @@ export default function SearchPage() {
     // JSX
     // ─────────────────────────────────────────
     return (
+    <motion.div
+    variants={fadeVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    transition={{ duration: 0.4 }}
+    >
         <div className="sub-page-wrap category-wrap">
             <div className="inner">
                 {/* 브레드크럼 */}
@@ -357,5 +371,6 @@ export default function SearchPage() {
                 selectedFilters={selectedFilters}
             />
         </div>
+    </motion.div>
     );
 }

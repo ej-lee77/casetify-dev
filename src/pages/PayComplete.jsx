@@ -2,6 +2,13 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
 import { div } from 'framer-motion/client';
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 const methodMap = {
     card: "신용/체크 카드",
@@ -48,90 +55,98 @@ export default function PayComplete() {
     const tomorrowDate = `${yyyy}. ${mm}. ${dd}`;
 
     return (
-        <div className="sub-page-wrap pay-page-wrap">
-            {/* 페이지 상단 제목 */}
-            <div className="inner">
-                {/* 상단 제목, 결제 과정 표시 영역 */}
-                <div className="title-wrap">
-                    {/* 결제 과정 */}
-                    <ul className="payment-progress-wrap">
-                        <li className="payment-progress-item">
-                            <div className="icon-box">
-                                <img src="/images/cart/cart-bag.svg" alt="장바구니" />
-                            </div>
-                            <p>장바구니</p>
-                        </li>
-                        <li className="payment-progress-item">
-                            <div className="icon-box">
-                                <img src="/images/cart/bank-card.svg" alt="주문/결제" />
-                            </div>
-                            <p>주문/결제</p>
-                        </li>
-                        <li className="payment-progress-item active">
-                            <div className="icon-box">
-                                <img src="/images/cart/order_completed.svg" alt="장바구니" />
-                            </div>
-                            <p>주문완료</p>
-                        </li>
-                    </ul>
-                </div>
-                <div className="complete-msg">
-                    <span className='coupon'>주문이 완료 되었습니다</span>
-                    <p>{gradeMsg !== "" ? `${gradeMsg?.label}등급 승급! ${gradeMsg?.rate}% 쿠폰이 발급됐습니다.` : ""}</p>
-                    <p>{currentOrder.orderDate} 주문하신 상품의</p>
-                    <p>주문번호는 {orderId}입니다.</p>
-
-                    <div className='complete-details'>
-                        {/* 배송지 정보 */}
-                        <div>
-                            <h3>배송지 정보</h3>
-                            <div className='detail-row'>
-                                <span className='detail-title'>받는 분</span>
-                                <span>{currentOrder.deliveryInfo.username}</span>
-                            </div>
-                            <div className='detail-row'>
-                                <span className='detail-title'>연락처</span>
-                                <span>{currentOrder.deliveryInfo.phone}</span>
-                            </div>
-                            <div className='detail-row'>
-                                <span className='detail-title'>주소</span>
-                                <span>{currentOrder.deliveryInfo.address + currentOrder.deliveryInfo.detailaddress}</span>
-                            </div>
-                            <div className='detail-row'>
-                                <span className='detail-title'>배송 메모</span>
-                                <span>{currentOrder.deliveryMemo === '배송 메모를 선택해주세요' ? "없음" : currentOrder.deliveryMemo}</span>
-                            </div>
-                        </div>
-
-                        {/* 결제 정보 */}
-                        <div className='detail-section'>
-                            <h3>결제 정보</h3>
-                            <div className='detail-row'>
-                                <span className='detail-title'>결제 방법</span>
-                                <span>{methodMap[currentOrder.paymentMethod] || currentOrder.paymentMethod}</span>
-                            </div>
-                            <div className='detail-row final'>
-                                <span className='detail-title'>결제 금액</span>
-                                <span className='final-price'>{currentOrder.priceSummary.finalPayment.toLocaleString()}원</span>
-                            </div>
-                        </div>
-                        {currentOrder.paymentMethod === "transfer" || currentOrder.paymentMethod === 'vbank' ? 
-                        (<div className='detail-section'>
-                            <h3>{methodMap[currentOrder.paymentMethod]}안내</h3>
-                            <div className='detail-row'>
-                                <span className='detail-title'>입금 계좌</span>
-                                <span>이젠은행 0000-000-0000000 CASETIFY</span>
-                            </div>
-                            <div className='detail-row'>
-                                <span className='detail-title'>입금 기한</span>
-                                <span>{tomorrowDate}</span>
-                            </div>
-                        </div>
-                        ) : ("")}
+        <motion.div
+        variants={fadeVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.4 }}
+        >
+            <div className="sub-page-wrap pay-page-wrap">
+                {/* 페이지 상단 제목 */}
+                <div className="inner">
+                    {/* 상단 제목, 결제 과정 표시 영역 */}
+                    <div className="title-wrap">
+                        {/* 결제 과정 */}
+                        <ul className="payment-progress-wrap">
+                            <li className="payment-progress-item">
+                                <div className="icon-box">
+                                    <img src="/images/cart/cart-bag.svg" alt="장바구니" />
+                                </div>
+                                <p>장바구니</p>
+                            </li>
+                            <li className="payment-progress-item">
+                                <div className="icon-box">
+                                    <img src="/images/cart/bank-card.svg" alt="주문/결제" />
+                                </div>
+                                <p>주문/결제</p>
+                            </li>
+                            <li className="payment-progress-item active">
+                                <div className="icon-box">
+                                    <img src="/images/cart/order_completed.svg" alt="장바구니" />
+                                </div>
+                                <p>주문완료</p>
+                            </li>
+                        </ul>
                     </div>
-                    <Link to="/mypage" state={{ menu: "주문" }}><button className='input-btn'>주문 내역 보기</button></Link>
+                    <div className="complete-msg">
+                        <span className='coupon'>주문이 완료 되었습니다</span>
+                        <p>{gradeMsg !== "" ? `${gradeMsg?.label}등급 승급! ${gradeMsg?.rate}% 쿠폰이 발급됐습니다.` : ""}</p>
+                        <p>{currentOrder.orderDate} 주문하신 상품의</p>
+                        <p>주문번호는 {orderId}입니다.</p>
+
+                        <div className='complete-details'>
+                            {/* 배송지 정보 */}
+                            <div>
+                                <h3>배송지 정보</h3>
+                                <div className='detail-row'>
+                                    <span className='detail-title'>받는 분</span>
+                                    <span>{currentOrder.deliveryInfo.username}</span>
+                                </div>
+                                <div className='detail-row'>
+                                    <span className='detail-title'>연락처</span>
+                                    <span>{currentOrder.deliveryInfo.phone}</span>
+                                </div>
+                                <div className='detail-row'>
+                                    <span className='detail-title'>주소</span>
+                                    <span>{currentOrder.deliveryInfo.address + currentOrder.deliveryInfo.detailaddress}</span>
+                                </div>
+                                <div className='detail-row'>
+                                    <span className='detail-title'>배송 메모</span>
+                                    <span>{currentOrder.deliveryMemo === '배송 메모를 선택해주세요' ? "없음" : currentOrder.deliveryMemo}</span>
+                                </div>
+                            </div>
+
+                            {/* 결제 정보 */}
+                            <div className='detail-section'>
+                                <h3>결제 정보</h3>
+                                <div className='detail-row'>
+                                    <span className='detail-title'>결제 방법</span>
+                                    <span>{methodMap[currentOrder.paymentMethod] || currentOrder.paymentMethod}</span>
+                                </div>
+                                <div className='detail-row final'>
+                                    <span className='detail-title'>결제 금액</span>
+                                    <span className='final-price'>{currentOrder.priceSummary.finalPayment.toLocaleString()}원</span>
+                                </div>
+                            </div>
+                            {currentOrder.paymentMethod === "transfer" || currentOrder.paymentMethod === 'vbank' ? 
+                            (<div className='detail-section'>
+                                <h3>{methodMap[currentOrder.paymentMethod]}안내</h3>
+                                <div className='detail-row'>
+                                    <span className='detail-title'>입금 계좌</span>
+                                    <span>이젠은행 0000-000-0000000 CASETIFY</span>
+                                </div>
+                                <div className='detail-row'>
+                                    <span className='detail-title'>입금 기한</span>
+                                    <span>{tomorrowDate}</span>
+                                </div>
+                            </div>
+                            ) : ("")}
+                        </div>
+                        <Link to="/mypage" state={{ menu: "주문" }}><button className='input-btn'>주문 내역 보기</button></Link>
+                    </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

@@ -7,6 +7,13 @@ import { studioPosData } from '../data/studioPosData'
 import MapAddress from '../components/MapAddress'
 import { useMapStore } from '../store/useMapStore'
 import { useProductStore } from '../store/useProductStore'
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function Store() {
   const [show, setShow] = useState(false);
@@ -163,6 +170,13 @@ export default function Store() {
   }, [searchWord, selectCity, sortByDistance]);
 
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className="sub-page-wrap store-page">
       <div className="inner store-title">
         <SectionTitle title={"Store"} subtitle={""} />
@@ -248,5 +262,6 @@ export default function Store() {
         </div>
       </div>
     </div >
+    </motion.div>
   )
 }
