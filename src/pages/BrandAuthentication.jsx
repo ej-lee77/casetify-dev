@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 import { AUTH_FAQS } from '../data/authFaqs'
 import './scss/BrandAuthentication.scss'
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import ConfirmModal from '../components/ConfirmModal'
 
 const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 export default function BrandAuthentication() {
@@ -35,11 +36,11 @@ export default function BrandAuthentication() {
 
     return (
         <motion.div
-        variants={fadeVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition={{ duration: 0.4 }}
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
         >
             <div className="brand-auth-page">
 
@@ -136,91 +137,57 @@ export default function BrandAuthentication() {
                 </section>
 
                 {/* 팝업: 로그인 필요 */}
-                {popup === 'login' && (
-                    <div className="popup-overlay">
-                        <div className="popup-wrap">
-                            <div className="popup">
-                                <p>로그인이 필요한 서비스입니다.<br />로그인 후 정품인증을 진행해주세요.</p>
-                                <div className="popup-buttons">
-                                    <button className="btn-continue" onClick={closePopup}>닫기</button>
-                                    <button className="btn-go-wish" onClick={() => { closePopup(); navigate('/login') }}>
-                                        로그인 페이지 이동하기
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <ConfirmModal
+                    isOpen={popup === 'login'}
+                    message={'로그인이 필요한 서비스입니다.\n로그인 후 정품인증을 진행해주세요.'}
+                    onClose={closePopup}
+                    buttons={[
+                        { label: '닫기', onClick: closePopup, variant: 'secondary' },
+                        { label: '로그인 페이지 이동하기', onClick: () => { closePopup(); navigate('/login') } },
+                    ]}
+                />
 
                 {/* 팝업: 인증 성공 + 쿠폰 발급 */}
-                {popup === 'success' && (
-                    <div className="popup-overlay">
-                        <div className="popup-wrap">
-                            <div className="popup">
-                                <p>정품인증이 완료되었습니다! 🎉<br />정품인증 감사 쿠폰 10%가 발급되었습니다.<br />마이페이지에서 확인해보세요.</p>
-                                <div className="popup-buttons">
-                                    <button className="btn-continue" onClick={() => {
-                                        sessionStorage.setItem('mypageTab', '기프트 카드/쿠폰');
-                                        navigate('/mypage');
-                                        closePopup();
-                                    }}>
-                                        마이페이지 이동
-                                    </button>
-                                    <button className="btn-go-wish" onClick={() => { closePopup(); setSerialNumber('') }}>
-                                        계속 인증하기
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <ConfirmModal
+                    isOpen={popup === 'success'}
+                    message={'정품인증이 완료되었습니다! 🎉\n정품인증 감사 쿠폰 10%가 발급되었습니다.\n마이페이지에서 확인해보세요.'}
+                    onClose={closePopup}
+                    buttons={[
+                        { label: '마이페이지 이동', onClick: () => { sessionStorage.setItem('mypageTab', '기프트 카드/쿠폰'); navigate('/mypage'); closePopup(); } },
+                        { label: '계속 인증하기', onClick: () => { closePopup(); setSerialNumber('') }, variant: 'secondary' },
+                    ]}
+                />
 
                 {/* 팝업: 이미 인증함 */}
-                {popup === 'already' && (
-                    <div className="popup-overlay">
-                        <div className="popup-wrap">
-                            <div className="popup">
-                                <p>이미 정품인증 쿠폰을 받으셨습니다.<br />마이페이지에서 쿠폰을 확인해주세요.</p>
-                                <div className="popup-buttons">
-                                    <button className="btn-continue" onClick={() => { closePopup(); navigate('/mypage') }}>
-                                        마이페이지 이동
-                                    </button>
-                                    <button className="btn-go-wish" onClick={closePopup}>
-                                        닫기
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <ConfirmModal
+                    isOpen={popup === 'already'}
+                    message={'이미 정품인증 쿠폰을 받으셨습니다.\n마이페이지에서 쿠폰을 확인해주세요.'}
+                    onClose={closePopup}
+                    buttons={[
+                        { label: '마이페이지 이동', onClick: () => { closePopup(); navigate('/mypage') } },
+                        { label: '닫기', onClick: closePopup, variant: 'secondary' },
+                    ]}
+                />
 
                 {/* 팝업: 인증 실패 */}
-                {popup === 'fail' && (
-                    <div className="popup-overlay">
-                        <div className="popup-wrap">
-                            <div className="popup">
-                                <p>일련번호를 확인해주세요.<br />입력하신 번호와 일치하는 제품을 찾을 수 없습니다.</p>
-                                <div className="popup-buttons">
-                                    <button className="btn-close" onClick={closePopup}>닫기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <ConfirmModal
+                    isOpen={popup === 'fail'}
+                    message={'일련번호를 확인해주세요.\n입력하신 번호와 일치하는 제품을 찾을 수 없습니다.'}
+                    onClose={closePopup}
+                    buttons={[
+                        { label: '닫기', onClick: closePopup },
+                    ]}
+                />
 
                 {/* 팝업: 오류 */}
-                {popup === 'error' && (
-                    <div className="popup-overlay">
-                        <div className="popup-wrap">
-                            <div className="popup">
-                                <p>일시적인 오류가 발생했습니다.<br />잠시 후 다시 시도해주세요.</p>
-                                <div className="popup-buttons">
-                                    <button className="btn-close" onClick={closePopup}>닫기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <ConfirmModal
+                    isOpen={popup === 'error'}
+                    message={'일시적인 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.'}
+                    onClose={closePopup}
+                    buttons={[
+                        { label: '닫기', onClick: closePopup },
+                    ]}
+                />
             </div>
         </motion.div>
     )

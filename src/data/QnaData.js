@@ -281,7 +281,7 @@ export const FAQ_LIST = [
         category: "club",
         question: "CASETiFY Club은 어떻게 가입하나요?",
         answer:
-            "CASETiFY 웹사이트에서 회원가입을 완료하시면 자동으로 CLUB 멤버가 되십니다. 별도의 가입 절차나 비용이 없으며, 신규 가입 시 첫 구매에 사용 가능한 15% 웰컴 쿠폰이 즉시 발급됩니다.",
+            "CASETiFY 웹사이트에서 회원가입을 완료하시면 자동으로 CLUB 멤버가 되십니다. 별도의 가입 절차나 비용이 없습니다.",
     },
     {
         id: 39,

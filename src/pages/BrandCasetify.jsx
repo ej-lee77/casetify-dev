@@ -591,7 +591,6 @@ function RecastifyTab() {
                     <p className="bc-intro-eyebrow" style={{ color: 'rgba(255,255,255,.7)' }}>JOIN THE MOVEMENT</p>
                     <h3>당신의 낡은 케이스가,<br />새로운 시작이 됩니다</h3>
                     <p>지금 RE/CASETiFY 프로그램에 참여하고, 더 나은 미래를 함께 만들어 주세요.</p>
-                    <button className="rc-cta-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>맨 위로 돌아가기 ↑</button>
                 </div>
             </section>
         </div>
