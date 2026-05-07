@@ -802,7 +802,7 @@
 }
 // ✅ 로그인 배너 (팝업 대체)
 .login-banner {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
