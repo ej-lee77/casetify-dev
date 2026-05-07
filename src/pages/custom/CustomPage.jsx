@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './scss/CustomPage.scss'
 
@@ -16,8 +16,16 @@ const DEVICE_IMAGES = {
 export default function CustomPage() {
     const navigate = useNavigate()
     const [activeVideo, setActiveVideo] = useState('phone')
-    const [videoReady, setVideoReady] = useState(false)
-    const videoRef = useRef(null)
+
+    // ✅ A/B 두 개의 video ref — 번갈아 사용해서 크로스페이드
+    const videoA = useRef(null)
+    const videoB = useRef(null)
+    // 현재 보이는 레이어 ('a' or 'b')
+    const currentLayer = useRef('a')
+    // 전환 중 잠금
+    const isTransitioning = useRef(false)
+    // 전환 중 들어온 마지막 요청
+    const pendingKey = useRef(null)
 
     const devices = [
         { key: 'phone', label: '핸드폰', img: '/images/category/mini/phone.png', desc: 'iPhone · Galaxy' },
@@ -25,39 +33,99 @@ export default function CustomPage() {
         { key: 'tablet', label: '태블릿', img: '/images/category/mini/tablet.png', desc: 'iPad' },
     ]
 
-    // src 변경 시 수동으로 load → play (loop 속성은 유지되므로 끊김 없이 반복)
-    useEffect(() => {
-        const video = videoRef.current
-        if (!video) return
-        setVideoReady(false)
-        video.src = DEVICE_VIDEOS[activeVideo]
-        video.load()
-        video.play().catch(() => { })
-    }, [activeVideo])
+    // ✅ 크로스페이드 전환
+    const switchVideo = useCallback((key) => {
+        const a = videoA.current
+        const b = videoB.current
+        if (!a || !b) return
 
-    const handleVideoChange = (key) => {
+        isTransitioning.current = true
+
+        // 현재 레이어가 A면 → B에 새 영상 준비
+        const isCurrentA = currentLayer.current === 'a'
+        const incoming = isCurrentA ? b : a
+        const outgoing = isCurrentA ? a : b
+
+        // 새 영상 로드 (아직 숨긴 상태)
+        incoming.src = DEVICE_VIDEOS[key]
+        incoming.load()
+
+        incoming.oncanplaythrough = () => {
+            incoming.play().catch(() => {})
+
+            // 새 영상 페이드인
+            incoming.style.opacity = '1'
+            // 기존 영상 페이드아웃
+            outgoing.style.opacity = '0'
+
+            currentLayer.current = isCurrentA ? 'b' : 'a'
+            setActiveVideo(key)
+
+            // transition 끝난 뒤 잠금 해제 + 펜딩 처리
+            setTimeout(() => {
+                outgoing.pause()
+                outgoing.src = ''
+                isTransitioning.current = false
+
+                if (pendingKey.current) {
+                    const next = pendingKey.current
+                    pendingKey.current = null
+                    switchVideo(next)
+                }
+            }, 600) // CSS transition 시간과 동일하게
+        }
+    }, [])
+
+    // ✅ 호버 핸들러
+    const handleVideoChange = useCallback((key) => {
+        if (key === activeVideo && !isTransitioning.current) return
         if (key === activeVideo) return
-        setActiveVideo(key)
-    }
+
+        if (isTransitioning.current) {
+            pendingKey.current = key
+            return
+        }
+        switchVideo(key)
+    }, [activeVideo, switchVideo])
+
+    // ✅ 초기 마운트 — A레이어에 첫 영상 로드
+    useEffect(() => {
+        const a = videoA.current
+        if (!a) return
+        a.src = DEVICE_VIDEOS['phone']
+        a.load()
+        a.play().catch(() => {})
+        a.style.opacity = '1'
+    }, [])
 
     return (
         <div className="custom-page">
             <section className="custom-hero">
 
+                {/* ✅ A 레이어 */}
                 <video
-                    ref={videoRef}
-                    className={`custom-hero-video ${videoReady ? 'ready' : ''}`}
+                    ref={videoA}
+                    className="custom-hero-video"
                     autoPlay
                     loop
                     muted
                     playsInline
                     preload="auto"
-                    onCanPlayThrough={() => setVideoReady(true)}
                 />
-              
+                {/* ✅ B 레이어 */}
+                <video
+                    ref={videoB}
+                    className="custom-hero-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                />
+
                 <div className="custom-hero-overlay" />
 
-                <div className="custom-hero-text" style={{ animationDelay: '0.1s' }}>
+                <div className="custom-hero-text">
                     <p className="custom-hero-sub" style={{ animationDelay: '0.1s' }}>MAKE IT YOURS</p>
                     <h1 style={{ animationDelay: '0.35s' }}>Customize</h1>
                     <p className="cus-title" style={{ animationDelay: '0.6s' }}></p>
@@ -69,7 +137,6 @@ export default function CustomPage() {
                         {/* <h2 className="fade-up" style={{ animationDelay: '0.9s' }}>
                             커스텀할 기종을 선택해주세요
                         </h2> */}
-
                     </div>
                     <div className="device-cards">
                         {devices.map((d, i) => (
@@ -88,7 +155,6 @@ export default function CustomPage() {
                             </button>
                         ))}
                     </div>
-
                 </div>
 
             </section>

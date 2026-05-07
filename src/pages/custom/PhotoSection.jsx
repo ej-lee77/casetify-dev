@@ -6,8 +6,8 @@ const STICKERS = [
     { id: 'sticker2', src: '/images/custom/cat.png', label: '고양이' },
     { id: 'sticker3', src: '/images/custom/dogs.png', label: '강아지들' },
     { id: 'sticker4', src: '/images/custom/dossiba.png', label: '일본강아지' },
-        { id: 'sticker5', src: '/images/custom/good.stiker.png', label: 'goodthing' },
-            { id: 'sticker6', src: '/images/custom/happy.stiker.png', label: 'Happy' },
+    { id: 'sticker5', src: '/images/custom/good.stiker.png', label: 'goodthing' },
+    { id: 'sticker6', src: '/images/custom/happy.stiker.png', label: 'Happy' },
 ]
 
 function getFilterStyle(filterId, strength) {
@@ -26,15 +26,22 @@ export function PhotoSection({
     photoFilter, setPhotoFilter,
     filterStrength, setFilterStrength,
     selectedSticker, setSelectedSticker,
+    filterSectionRef,   // ✅ 추가
+    onScrollToFilter,   // ✅ 추가
 }) {
     const fileInputRef = useRef(null)
 
+    // ✅ 기존 handlePhotoUpload에 스크롤 호출 추가
     const handlePhotoUpload = (e) => {
         const file = e.target.files?.[0]
         if (!file) return
         setPhotoFile(file)
         const reader = new FileReader()
-        reader.onload = (ev) => setPhotoURL(ev.target.result)
+        reader.onload = (ev) => {
+            setPhotoURL(ev.target.result)
+            // ✅ 사진 업로드 완료 → 필터 섹션으로 스크롤
+            setTimeout(() => onScrollToFilter?.(), 200)
+        }
         reader.readAsDataURL(file)
     }
 
@@ -76,32 +83,35 @@ export function PhotoSection({
                     )}
                     {photoURL && (
                         <>
-                            <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
-                            <div className="custom-filter-grid">
-                                {PHOTO_FILTERS.map(f => (
-                                    <button key={f.id}
-                                        className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
-                                        onClick={() => setPhotoFilter(f.id)}>
-                                        <div className="custom-filter-img-wrap">
-                                            <img src={photoURL} alt={f.label}
-                                                style={getFilterStyle(f.id, filterStrength)} />
-                                        </div>
-                                        <span>{f.label}</span>
-                                    </button>
-                                ))}
-                            </div>
-                            {photoFilter && (
-                                <div className="custom-slider-wrap">
-                                    <label className="label">필터 강도</label>
-                                    <input type="range" min={0} max={100} step={1}
-                                        value={filterStrength}
-                                        onChange={e => setFilterStrength(Number(e.target.value))}
-                                        className="custom-slider" />
-                                    <div className="custom-slider-ticks">
-                                        <span>약</span><span>강</span>
-                                    </div>
+                            {/* ✅ 필터 선택 영역에 ref 부착 */}
+                            <div ref={filterSectionRef}>
+                                <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
+                                <div className="custom-filter-grid">
+                                    {PHOTO_FILTERS.map(f => (
+                                        <button key={f.id}
+                                            className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
+                                            onClick={() => setPhotoFilter(f.id)}>
+                                            <div className="custom-filter-img-wrap">
+                                                <img src={photoURL} alt={f.label}
+                                                    style={getFilterStyle(f.id, filterStrength)} />
+                                            </div>
+                                            <span>{f.label}</span>
+                                        </button>
+                                    ))}
                                 </div>
-                            )}
+                                {photoFilter && (
+                                    <div className="custom-slider-wrap">
+                                        <label className="label">필터 강도</label>
+                                        <input type="range" min={0} max={100} step={1}
+                                            value={filterStrength}
+                                            onChange={e => setFilterStrength(Number(e.target.value))}
+                                            className="custom-slider" />
+                                        <div className="custom-slider-ticks">
+                                            <span>약</span><span>강</span>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </>
                     )}
                 </>
@@ -113,7 +123,11 @@ export function PhotoSection({
                         {STICKERS.map(s => (
                             <button key={s.id}
                                 className={`custom-filter-card ${selectedSticker?.id === s.id ? 'active' : ''}`}
-                                onClick={() => setSelectedSticker(s)}>
+                                onClick={() => {
+                                    setSelectedSticker(s)
+                                    // ✅ 스티커 선택 → 필터 섹션으로 스크롤
+                                    setTimeout(() => onScrollToFilter?.(), 150)
+                                }}>
                                 <div className="custom-filter-img-wrap">
                                     <img src={s.src} alt={s.label} />
                                 </div>
@@ -123,32 +137,35 @@ export function PhotoSection({
                     </div>
                     {selectedSticker && (
                         <>
-                            <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
-                            <div className="custom-filter-grid">
-                                {PHOTO_FILTERS.map(f => (
-                                    <button key={f.id}
-                                        className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
-                                        onClick={() => setPhotoFilter(f.id)}>
-                                        <div className="custom-filter-img-wrap">
-                                            <img src={selectedSticker.src} alt={f.label}
-                                                style={getFilterStyle(f.id, filterStrength)} />
-                                        </div>
-                                        <span>{f.label}</span>
-                                    </button>
-                                ))}
-                            </div>
-                            {photoFilter && (
-                                <div className="custom-slider-wrap">
-                                    <label className="label">필터 강도</label>
-                                    <input type="range" min={0} max={100} step={1}
-                                        value={filterStrength}
-                                        onChange={e => setFilterStrength(Number(e.target.value))}
-                                        className="custom-slider" />
-                                    <div className="custom-slider-ticks">
-                                        <span>약</span><span>강</span>
-                                    </div>
+                            {/* ✅ 필터 선택 영역에 ref 부착 */}
+                            <div ref={filterSectionRef}>
+                                <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
+                                <div className="custom-filter-grid">
+                                    {PHOTO_FILTERS.map(f => (
+                                        <button key={f.id}
+                                            className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
+                                            onClick={() => setPhotoFilter(f.id)}>
+                                            <div className="custom-filter-img-wrap">
+                                                <img src={selectedSticker.src} alt={f.label}
+                                                    style={getFilterStyle(f.id, filterStrength)} />
+                                            </div>
+                                            <span>{f.label}</span>
+                                        </button>
+                                    ))}
                                 </div>
-                            )}
+                                {photoFilter && (
+                                    <div className="custom-slider-wrap">
+                                        <label className="label">필터 강도</label>
+                                        <input type="range" min={0} max={100} step={1}
+                                            value={filterStrength}
+                                            onChange={e => setFilterStrength(Number(e.target.value))}
+                                            className="custom-slider" />
+                                        <div className="custom-slider-ticks">
+                                            <span>약</span><span>강</span>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </>
                     )}
                 </>
