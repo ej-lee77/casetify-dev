@@ -9,27 +9,25 @@ import BundleRecommend from './sub/product detail page/Recommend';
 const tempRecoItem = { id: "CTF-34942803-16006188" }
 
 export default function SearchOverlay({ isActive, onClose }) {
-    //전역변수 searchWord, onSetSearchWorld
-    const { searchWord, onSetSearchWord, searchWordList, onAddSearchList, onRemoveSearchList, onRemoveAllSearch, onSearchByKeyword } = useProductStore();
+    const { searchWord, onSetSearchWord, searchWordList, onAddSearchList, onRemoveSearchList, onRemoveAllSearch, onSearchByKeyword, onCloseSearch } = useProductStore();
+    const navigate = useNavigate();
 
-    // 검색한 단어를 저장하는 변수
     useEffect(() => {
         if (searchWordList.length === 0) { setSearchCheck(false) } else { setSearchCheck(true) }
     })
 
-    const navigate = useNavigate();
+    // 검색 실행 함수 — 키워드를 미리 캡처해서 navigate
+    const goSearch = (keyword) => {
+        const kw = keyword.trim();
+        if (!kw) return;
+        onAddSearchList();
+        onCloseSearch();
+        navigate(`/search?q=${encodeURIComponent(kw)}`);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // 검색어 빈 값 방지
-        if (!searchWord.trim()) return;
-
-        onAddSearchList();
-
-        // 검색어 페이지로 이동
-        navigate();
-
-        console.log("찾는 단어 있음", searchWordList);
+        goSearch(searchWord);
     }
     const [searchCheck, setSearchCheck] = useState(false);
     const [modalCheck, setModalCheck] = useState(false);
@@ -49,9 +47,9 @@ export default function SearchOverlay({ isActive, onClose }) {
                                     onChange={(e) => onSetSearchWord(e.target.value)}
                                 />
                             </label>
-                            <div className="btn-search">
+                            <button type="submit" className="btn-search">
                                 <img src="/images/icon/search_var.svg" alt="검색" />
-                            </div>
+                            </button>
                             {searchWord.length > 0 && (
                                 <button className="btn-reset" onClick={() => onSetSearchWord("")}>
                                     <img src="/images/icon/btn_reset.svg" alt="검색초기화" />
@@ -65,7 +63,7 @@ export default function SearchOverlay({ isActive, onClose }) {
                                     <button className="remove-all" onClick={onRemoveAllSearch}>모두 지우기</button>
                                     <ul className="recent-result-list">
                                         {searchWordList.map((s) => (
-                                            <li key={s.id} style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword(s.text)}>{s.text} <button onClick={(e) => { e.stopPropagation(); onRemoveSearchList(s.id); }}> ×</button></li>
+                                            <li key={s.id} style={{ cursor: "pointer" }} onClick={() => goSearch(s.text)}>{s.text} <button onClick={(e) => { e.stopPropagation(); onRemoveSearchList(s.id); }}> ×</button></li>
                                         ))}
                                     </ul>
                                 </div>
@@ -75,19 +73,19 @@ export default function SearchOverlay({ isActive, onClose }) {
                         <div className="pop-search-wrap">
                             <div className="inner-title">인기 검색어</div>
                             <ol className="pop-search-list">
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("클리어 케이스")}>클리어 케이스</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("아이폰 17 Pro")}>아이폰 17 Pro</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("아이폰 17")}>아이폰 17</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("메탈 참 큐브")}>메탈 참 큐브</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("임팩트 케이스")}>임팩트 케이스</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("바운스 케이스")}>바운스 케이스</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("YOUNG FOREST")}>YOUNG FOREST</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Cherry Blossom")}>Cherry Blossom</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("글레이즈 케이스")}>글레이즈 케이스</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Skater JOHN")}>Skater JOHN</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("SSEBONG")}>SSEBONG</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("미러 케이스")}>미러 케이스</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => onSearchByKeyword("Esther Bunny")}>Esther Bunny</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("클리어 케이스")}>클리어 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("아이폰 17 Pro")}>아이폰 17 Pro</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("아이폰 17")}>아이폰 17</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("메탈 참 큐브")}>메탈 참 큐브</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("임팩트 케이스")}>임팩트 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("바운스 케이스")}>바운스 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("YOUNG FOREST")}>YOUNG FOREST</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("Cherry Blossom")}>Cherry Blossom</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("글레이즈 케이스")}>글레이즈 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("Skater JOHN")}>Skater JOHN</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("SSEBONG")}>SSEBONG</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("미러 케이스")}>미러 케이스</li>
+                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("Esther Bunny")}>Esther Bunny</li>
                             </ol>
                         </div>
                         <div className="recommend-wrap">
