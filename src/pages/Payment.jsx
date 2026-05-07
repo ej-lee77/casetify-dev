@@ -5,6 +5,13 @@ import AddressSearch from '../components/sub/AddressSearch'
 import { Link, useNavigate } from 'react-router-dom';
 import GiftCardModal from '../components/sub/GiftCardModal';
 import CircularOverlay from '../components/CircularOverlay';
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 const memoList = [
   "부재 시 문 앞에 놓아주세요",
@@ -439,6 +446,13 @@ export default function Payment() {
   }
 
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className="sub-page-wrap pay-page-wrap">
       {/* 페이지 상단 제목 */}
       <div className="inner">
@@ -582,7 +596,7 @@ export default function Payment() {
                         </div>
                       </div>
                       <div className="cart-goods-count-price">
-                        <p className="price"><span>{Number(item.price).toLocaleString()}원</span></p>
+                        <p className="price"><span>{Number(item.price * item.quantity).toLocaleString()}원</span></p>
                       </div>
                     </div>
                   </li>
@@ -845,5 +859,6 @@ export default function Payment() {
       ) : ("")}
 
     </div>
+    </motion.div>
   )
 }

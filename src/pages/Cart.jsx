@@ -7,6 +7,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import BundleRecommend from '../components/sub/product detail page/Recommend';
 import { li } from 'framer-motion/client';
 import EmptyState from '../components/sub/EmptyState'
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 // 추천상품용
 const tempRecoItem = { id: "CTF-34942803-16006188" }
@@ -118,6 +125,13 @@ export default function Cart() {
   };
 
   return (
+    <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
     <div className="sub-page-wrap cart-page-wrap">
       {/* 페이지 상단 제목 */}
       <div className="inner">
@@ -199,8 +213,8 @@ export default function Cart() {
                                 <p>{item.device}</p>
                                 <p>{item.color}</p>
                               </div>
-                              {item.device || item.color ?
-                                <button onClick={() => setEditingItem(item)}>옵션변경</button> : ""}
+                              {item.isWish && item.device || item.color ?
+                                <button onClick={() => setEditingItem(item)}>옵션변경</button> : <p> </p>}
                             </div>
                           </div>
                           <div className="cart-goods-count-price">
@@ -262,5 +276,6 @@ export default function Cart() {
         </div>
       </div>
     </div>
+    </motion.div>
   )
 }

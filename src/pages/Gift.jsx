@@ -5,6 +5,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import GiftCardModal from '../components/sub/GiftCardModal'
 import { useAuthStore } from '../store/useAuthStore'
 import ActionPopup from '../components/sub/product detail page/ActionPopup'
+import { motion } from 'framer-motion';
+
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 const designs = [
   { id: 1, src: "./images/gift/gift-card1.png" },
@@ -87,6 +94,13 @@ export default function Gift() {
 
   return (
     <>
+      <motion.div
+      variants={fadeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+      >
       <div className="giftcard-page">
         <div className='sub-page-wrap'>
           <div className='gift-title'>
@@ -254,6 +268,7 @@ export default function Gift() {
         />
         <Benefit />
       </div>
+      </motion.div>
     </>
   )
 }
