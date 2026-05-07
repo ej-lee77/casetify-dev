@@ -106,6 +106,7 @@ export default function BrandAuthentication() {
                             제품 인증 하기
                         </button>
                     </div>
+                    <div className='text-center'>CTF-37711774-16010003</div>
                 </section>
 
                 {/* FAQ */}
