@@ -609,7 +609,7 @@ export const useAuthStore = create(
                 const currentCoupons = userData.coupons || [];
 
                 // 3. 이미 정품인증 쿠폰을 받은 적 있는지 확인
-                const alreadyAuth = currentCoupons.some(c => c.id === "auth");
+                const alreadyAuth = currentCoupons.some(c => c.id === "auth" && c.use === true);
                 if (alreadyAuth) return "already";
 
                 // 4. 쿠폰 발급 로직
@@ -1052,6 +1052,15 @@ export const useAuthStore = create(
             try {
                 // A. 주문 내역 저장
                 const orderRef = doc(db, "orders", user.uid);
+                const orderSnap = await getDoc(orderRef);
+                
+                let existingOrders = [];
+                if (orderSnap.exists()) {
+                    existingOrders = orderSnap.data().orderList || [];
+                }
+        
+                // 가져온 실제 주문 목록 뒤에 새 주문 추가
+                const updatedOrders = [...existingOrders, orderData];
                 await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
 
                 // B. 유저 정보 업데이트 (기프트 카드 배열 & 쿠폰 배열 전체 업데이트)
@@ -1118,33 +1127,35 @@ export const useAuthStore = create(
                     const updatedOrderList = remoteOrderList.map((order) => {
                         // 주문일로부터 경과일 (배송 상태용)
                         const orderDate = new Date(order.orderDate.replace(/\//g, '-'));
-                        const daysSinceOrder = Math.floor((today - orderDate) / (1000 * 60 * 60 * 24));
+                        // (현재시간 - 주문시간)을 '분'으로 계산
+                        const minutesSinceOrder = Math.floor((today - orderDate) / (1000 * 60));
 
-                        // 1. 대표 주문 상태 업데이트 (배송준비중 -> 배송중 -> 배송완료)
+                        // 1. 대표 주문 상태 업데이트 (1분 -> 배송중, 2분 -> 배송완료)
                         let newOrderStatus = order.orderStatus;
                         if (!['취소완료', '교환/반품완료'].includes(order.orderStatus)) {
-                            if (daysSinceOrder >= 2 && order.orderStatus !== "배송완료") {
+                            if (minutesSinceOrder >= 2 && order.orderStatus !== "배송완료") {
                                 newOrderStatus = "배송완료";
                                 isChanged = true;
-                            } else if (daysSinceOrder >= 1 && order.orderStatus === "배송준비중") {
+                            } else if (minutesSinceOrder >= 1 && order.orderStatus === "배송준비중") {
                                 newOrderStatus = "배송중";
                                 isChanged = true;
                             }
                         }
 
-                        // 2. 아이템별 상태 업데이트 (1->2, 3->4)
+                        // 2. 아이템별 상태 업데이트 (1분 경과 시 상태 변경)
                         const updatedItems = order.orderItems.map(item => {
                             if (item.statusDate) {
                                 const statusDate = item.statusDate.toDate ? item.statusDate.toDate() : new Date(item.statusDate);
-                                const diffDaysFromStatus = Math.floor((today - statusDate) / (1000 * 60 * 60 * 24));
+                                // (현재시간 - 상태변경시간)을 '분'으로 계산
+                                const diffMinutesFromStatus = Math.floor((today - statusDate) / (1000 * 60));
 
-                                // 취소중(1) -> 취소완료(2) 하루 경과 시
-                                if (item.status === 1 && diffDaysFromStatus >= 1) {
+                                // 취소중(1) -> 취소완료(2) 1분 경과 시
+                                if (item.status === 1 && diffMinutesFromStatus >= 1) {
                                     isChanged = true;
                                     return { ...item, status: 2 };
                                 }
-                                // 교환/반품중(3) -> 교환/반품완료(4) 하루 경과 시
-                                if (item.status === 3 && diffDaysFromStatus >= 1) {
+                                // 교환/반품중(3) -> 교환/반품완료(4) 1분 경과 시
+                                if (item.status === 3 && diffMinutesFromStatus >= 1) {
                                     isChanged = true;
                                     return { ...item, status: 4 };
                                 }

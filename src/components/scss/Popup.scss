@@ -6,6 +6,7 @@
     left: 0;
     z-index: 10000;
     top: 90px;
+    height: max-content;
 
     .popup-flex-container {
         @include g.myFlex($gap: 20px, $fw: wrap, $jc: center);

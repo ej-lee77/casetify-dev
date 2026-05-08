@@ -122,6 +122,10 @@
         @include g.myFlex($jc: center, $gap: 0);
     }
 
+    .text-center{
+        text-align: center;
+    }
+
     .auth-serial-input {
         flex: 1;
         max-width: 480px;

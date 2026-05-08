@@ -24,17 +24,17 @@ export default function Header() {
   //헤더글자색 변경
   const { headerColor, setHeaderColor } = useMainSlider();
 
-  const leaveTimeout = React.useRef(null);
+  let leaveTimeout;
 
   const handleMouseEnter = (link) => {
-    if (leaveTimeout.current) clearTimeout(leaveTimeout.current);
+    clearTimeout(leaveTimeout);
     setMenuActive(link);
   };
 
   const handleMouseLeave = () => {
-    leaveTimeout.current = setTimeout(() => {
+    leaveTimeout = setTimeout(() => {
       setMenuActive(null);
-    }, 50);
+    }, 50); // 0.05초 정도의 유예를 줌
   };
 
   // 장바구니 정보 가져오기
@@ -59,12 +59,6 @@ export default function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
-
-  useEffect(() => {
-    setMenuActive(null);
-    // setUserPopup(false);
-    onCloseSearch();
-  }, [location.pathname]);
 
   const handleLogout = async () => {
     const isLogout = await onLogout();
@@ -93,18 +87,14 @@ export default function Header() {
           <nav>
             <ul className="main-menu">
               {mainMenuList.map(menu => (
-                <li
-                  key={menu.link}
-                  onMouseEnter={() => handleMouseEnter(menu.link)}
-                  onMouseLeave={handleMouseLeave}
-                >
+                <li key={menu.link} onMouseEnter={() => setMenuActive(menu.link)} onMouseLeave={() => setMenuActive(null)}>
                   {menu.sub?.length > 0 ? (
                     <>
-                      <Link>{menu.name}</Link>
+                      <span className="main-menu-label">{menu.name}</span>
                       <ul className={`sub-menu ${MenuActive === menu.link ? 'active' : ''}`}>
                         {menu.sub.map((s) => (
                           <li key={s.link}>
-                            <Link to={`/${menu.link}/${s.link}`}>
+                            <Link to={`/${menu.link}/${s.link}`} onClick={() => setMenuActive(null)}>
                               <div>
                                 <span><img src={`/images/header-footer/menu/${menu.link}-${s.link}.png`} alt={s.name} /></span>
                                 <span>{s.name}</span>
