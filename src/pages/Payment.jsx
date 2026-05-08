@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import GiftCardModal from '../components/sub/GiftCardModal';
 import CircularOverlay from '../components/CircularOverlay';
 import { motion } from 'framer-motion';
+import ToastPopup from '../components/Toastpopup';
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -61,6 +62,9 @@ export default function Payment() {
 
   const [cardInfo, setCardInfo] = useState({ number: '', expiry: '', cvc: '' });
   const [mobileInfo, setMobileInfo] = useState({ carrier: '', payphone: '' });
+
+  const [toastMsg, setToastMsg] = useState('');
+  const [toastOpen, setToastOpen] = useState(false);
 
   const toggleCategory = (categoryId) => {
     setActiveCategory(activeCategory === categoryId ? null : categoryId);
@@ -328,13 +332,13 @@ export default function Payment() {
   // 최종 결제 금액
   const finalPayment = Math.max(0, selectedTotal - totalDiscount);
 
-  // 배송비 기본 9000원
-  const [shipping, setShipping] = useState(9000);
+  // 배송비 기본 7000원
+  const [shipping, setShipping] = useState(7000);
   useEffect(()=>{ 
     if(finalPayment >= 50000){
       setShipping(0);
     }else{
-      setShipping(9000)
+      setShipping(7000)
     }
   }, [finalPayment]);
 
@@ -348,7 +352,8 @@ export default function Payment() {
     setJoinAllErr(newErrors);
 
     if(!selectedMethod){
-      setJoinErr("결제 수단을 선택해주세요");
+      setToastMsg("결제 수단을 선택해주세요");
+      setToastOpen(true);
       return;
     }
 
@@ -383,7 +388,8 @@ export default function Payment() {
     let isFormValid = Object.values(finalErrors).every(err => err === '');
 
     if(!isFormValid){
-        setJoinErr("입력 오류가 있습니다.");
+        setToastMsg("입력 오류가 있습니다.");
+        setToastOpen(true);
         return;
     }
 
@@ -525,7 +531,18 @@ export default function Payment() {
                     <div className='input-div'>
                         <div className={`deli-memo ${selectedMemo === '배송 메모를 선택해주세요' ? 'placeholder' : ''}`} onClick={() => setIsMemoOpen(!isMemoOpen)}>
                           {selectedMemo}
-                          <span className={`accordion-arrow ${isMemoOpen ? "open" : ""}`}>▼</span>
+                          <span className={`accordion-arrow ${isMemoOpen ? "open" : ""}`}>
+                            <svg
+                                className="faq-chevron"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                            >
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                          </span>
                         </div>
                         {isMemoOpen && (
                           <div className='option-box'>
@@ -617,7 +634,18 @@ export default function Payment() {
                   <div className='input-div'>
                       <div className={`coupon-div ${!selectedCoupon ? 'placeholder' : ''}`} onClick={() => setIsCouponOpen(!isCouponOpen)}>
                         {selectedCoupon ? selectedCoupon.title : '쿠폰을 선택하세요'}
-                        <span className={`accordion-arrow ${isCouponOpen ? "open" : ""}`}>▼</span>
+                        <span className={`accordion-arrow ${isCouponOpen ? "open" : ""}`}>
+                          <svg
+                              className="faq-chevron"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                          >
+                              <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                        </span>
                       </div>
                       {isCouponOpen && (
                         <div className='option-box'>
@@ -679,7 +707,18 @@ export default function Payment() {
                     onClick={() => toggleCategory(category.id)}
                   >
                     {category.title}
-                    <span>{activeCategory === category.id ? '▲' : '▼'}</span>
+                    <span className={`accordion-arrow ${activeCategory === category.id ? 'open' : ''}`}>
+                      <svg
+                          className="faq-chevron"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                      >
+                          <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </span>
                   </div>
 
                   {/* 아코디언 내용 (선택된 카테고리일 때만 표시) */}
@@ -776,6 +815,7 @@ export default function Payment() {
                       className="phone-input"
                       placeholder="휴대폰 번호 (- 제외)" 
                       value={mobileInfo.payphone}
+                      maxLength="20"
                       onChange={handlePhoneChange}
                     />                  
                     {phoneErrors.payphone && <p className="error-text">{phoneErrors.payphone}</p>}
@@ -859,6 +899,11 @@ export default function Payment() {
       ) : ("")}
 
     </div>
+    <ToastPopup
+      isOpen={toastOpen}
+      message={toastMsg}
+      onClose={() => setToastOpen(false)}
+    />
     </motion.div>
   )
 }
