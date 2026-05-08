@@ -7,6 +7,7 @@ import { auth, db } from "../../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
 import { useAuthStore } from "../../../store/useAuthStore";
+import { useProductStore } from "../../../store/useProductStore";
 import ConfirmModal from "../../ConfirmModal";
 import ToastPopup from "../../Toastpopup";
 import Breadcrumb from "../../Breadcrumb";
@@ -422,9 +423,34 @@ export default function DetailPage({ item }) {
 
 
     // ==================== RENDER ====================
-    const MAIN_CATE_LABEL = { case: '케이스', accessory: '악세서리', travel: '트래블', colab: '콜라보', giftcard: '기프트카드' };
+    const { mainMenuList } = useProductStore();
     const mainCateKey = item?.mainCategory?.[0];
-    const mainCateLabel = MAIN_CATE_LABEL[mainCateKey] || '';
+
+    // mainmenu 찾기
+    const mainMenu = mainMenuList?.find(m => m.link === mainCateKey);
+
+    // displaySubCategories의 첫 번째 값으로 submenu 찾기
+    const subCateKey = item?.displaySubCategories?.[0];
+    const subMenu = mainMenu?.sub?.find(s => s.link === subCateKey);
+
+    // displayMiniCategories의 첫 번째 값으로 minimenu 찾기
+    const miniCateKey = item?.displayMiniCategories?.[0];
+    const MINI_LABEL_MAP = {
+        phone: '핸드폰', earphone: '이어폰', laptop: '노트북', watch: '워치', tablet: '태블릿',
+        color: '컬러', pattern: '패턴', signature: '시그니처', character: '캐릭터',
+        art: '아트', movie: '영화&엔터', fashion: '패션&라이프스타일', sports: '스포츠',
+        strap: '스트랩', charm: '참', protector: '보호필름', magsafe: '맥세이프',
+        bag: '가방', stand: '스탠드', wallet: '지갑형', holder: '홀더', etc: '기타',
+    };
+    const miniLabel = miniCateKey ? MINI_LABEL_MAP[miniCateKey] : null;
+
+    // 브레드크럼: 홈 > mainmenu(링크X) > submenu > minimenu (제품명 제거)
+    const breadcrumbItems = [
+        { label: '홈', to: '/' },
+        ...(mainMenu ? [{ label: mainMenu.name }] : []),
+        ...(subMenu ? [{ label: subMenu.name, to: `/category/${mainCateKey}?sub=${subCateKey}` }] : []),
+        ...(miniLabel && miniCateKey !== subCateKey ? [{ label: miniLabel, to: `/category/${mainCateKey}?sub=${subCateKey}&mini=${miniCateKey}` }] : []),
+    ];
 
     return (
         <>
@@ -432,11 +458,7 @@ export default function DetailPage({ item }) {
                 <div className="detail-inner">
                     <div className="detail-left">
                         {/* 브레드크럼 */}
-                        <Breadcrumb items={[
-                            { label: '홈', to: '/' },
-                            ...(mainCateLabel ? [{ label: mainCateLabel, to: `/category/${mainCateKey}` }] : []),
-                            { label: item?.productName || '' }
-                        ]} />
+                        <Breadcrumb items={breadcrumbItems} />
                         <div className="detail-image-wrap">
                             <div className="detail-main-image" style={{ position: "relative" }}>
                                 <img src={mainImage} alt={item.productName} />
