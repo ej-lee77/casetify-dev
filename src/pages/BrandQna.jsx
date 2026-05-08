@@ -172,14 +172,12 @@ export default function BrandQna() {
         >
             <div className="brand-qna-page">
                 {/* 히어로 */}
-                <section className="page-hero page-hero-qna">
-                    <div className="page-hero-bg" />
-                    <div className="page-hero-inner">
-                        <div className="page-hero-text">
-                            <span>CASETiFY SUPPORT</span>
-                            <p>궁금한 점이 있으신가요? 무엇이든 도와드릴게요</p>
-                            <h2>자주 묻는 질문(FAQ)</h2>
-                        </div>
+                <section className="qna-hero">
+                    <div className="qna-hero-text">
+                        <p className="qna-hero-sub">CASETiFY SUPPORT</p>
+                        <h2>자주 묻는 질문(FAQ)</h2>
+                        <div className="qna-hero-line" />
+                        <p>궁금한 점이 있으신가요? 무엇이든 도와드릴게요</p>
                     </div>
                 </section>
                 {/* ─── FAQ 섹션 ─── */}

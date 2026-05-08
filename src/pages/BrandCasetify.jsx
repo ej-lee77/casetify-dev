@@ -26,11 +26,13 @@ function StoryTab() {
         >
             <div className="bc-story">
                 {/* Hero */}
-                <div className="bc-hero">
-                    <div className="heroimg story-bg" />
-                    <div className="ph-tag">[ HERO IMAGERY · BRAND STORY ]</div>
-                    <h2 className="bc-hero-title">STORY</h2>
-                    <div className="bc-hero-sub">CASETiFY · BRAND STORY</div>
+                <div className="bc-hero story-bg">
+                    <div className="bc-hero-text">
+                        <p className="bc-hero-eyebrow">CASETiFY · BRAND STORY</p>
+                        <h2 className="bc-hero-title">STORY</h2>
+                        <div className="bc-hero-line" />
+                        <p className="bc-hero-desc">케이스티파이가 걸어온 길</p>
+                    </div>
                 </div>
 
                 {/* 인트로 */}
@@ -233,11 +235,13 @@ function StandardTab() {
     return (
         <div className="bc-standard">
             {/* Hero */}
-            <div className="bc-hero">
-                <div className="heroimg standard-bg" />
-                <div className="ph-tag">[ HERO IMAGERY · CASETiFY STANDARD ]</div>
-                <h2 className="bc-hero-title">STANDARD</h2>
-                <div className="bc-hero-sub">CASETiFY · OUR STANDARD</div>
+            <div className="bc-hero standard-bg">
+                <div className="bc-hero-text">
+                    <p className="bc-hero-eyebrow">CASETiFY · OUR STANDARD</p>
+                    <h2 className="bc-hero-title">STANDARD</h2>
+                    <div className="bc-hero-line" />
+                    <p className="bc-hero-desc">케이스티파이가 지키는 기준</p>
+                </div>
             </div>
 
             {/* 메가 헤드라인 */}
@@ -463,11 +467,13 @@ function RecastifyTab() {
     return (
         <div className="bc-recastify">
             {/* Hero */}
-            <div className="bc-hero">
-                <div className="heroimg rc-hero-bg" />
-                <div className="ph-tag">[ HERO IMAGERY · RECYCLED MATERIALS / NATURE ]</div>
-                <h2 className="bc-hero-title">RE:CASTiFY</h2>
-                <div className="bc-hero-sub">SUSTAINABILITY · CIRCULAR FUTURE</div>
+            <div className="bc-hero rc-hero-bg">
+                <div className="bc-hero-text">
+                    <p className="bc-hero-eyebrow">SUSTAINABILITY · CIRCULAR FUTURE</p>
+                    <h2 className="bc-hero-title">RE:CASTiFY</h2>
+                    <div className="bc-hero-line" />
+                    <p className="bc-hero-desc">지속 가능한 미래를 향한 케이스티파이의 약속</p>
+                </div>
             </div>
 
             {/* 인트로 */}
@@ -641,11 +647,13 @@ function ClubTab() {
     return (
         <div className="bc-club">
             {/* Hero */}
-            <div className="bc-hero">
-                <div className="heroimg club-bg" />
-                <div className="ph-tag">[ HERO IMAGERY · GOLD CONFETTI / MEMBER PRODUCTS ]</div>
-                <h2 className="bc-hero-title">CASETiFY CLUB</h2>
-                <div className="bc-hero-sub">MEMBERSHIP PROGRAM · MEMBER ONLY</div>
+            <div className="bc-hero club-bg">
+                <div className="bc-hero-text">
+                    <p className="bc-hero-eyebrow">MEMBERSHIP PROGRAM · MEMBER ONLY</p>
+                    <h2 className="bc-hero-title">CASETiFY CLUB</h2>
+                    <div className="bc-hero-line" />
+                    <p className="bc-hero-desc">회원 전용 혜택과 특별한 경험</p>
+                </div>
             </div>
 
             {/* 인트로 */}

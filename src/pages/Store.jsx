@@ -187,14 +187,12 @@ export default function Store() {
     >
       <div className="sub-page-wrap store-page">
         {/* 히어로 */}
-        <section className="page-hero page-hero-store">
-          <div className="page-hero-bg" />
-          <div className="page-hero-inner">
-            <div className="page-hero-text">
-              <span>CASETiFY OFFICIAL</span>
-              <p>전국 케이스티파이 공식 매장을 찾아보세요</p>
-              <h2>Store</h2>
-            </div>
+        <section className="store-hero">
+          <div className="store-hero-text">
+            <p className="store-hero-sub">CASETiFY OFFICIAL</p>
+            <h2>매장찾기</h2>
+            <div className="store-hero-line" />
+            <p>전국 케이스티파이 공식 매장을 찾아보세요</p>
           </div>
         </section>
         <div className="inner store-title">

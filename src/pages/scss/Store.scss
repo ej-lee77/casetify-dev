@@ -292,81 +292,46 @@
 
 }
 
-// ── 매장찾기 히어로 ─────────────────────────
-.page-hero {
+// ── 매장찾기 히어로 (정품인증과 동일한 디자인 구조) ────────
+.store-hero {
     position: relative;
     width: 100%;
     height: 280px;
     overflow: hidden;
+    background: linear-gradient(135deg, #d4e8f5 0%, #b8d6ed 100%);
     margin-top: 80px;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.page-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background:
-        radial-gradient(circle at 78% 50%,
-            rgba(255, 255, 255, 0.38) 0%,
-            rgba(255, 255, 255, 0.1) 30%,
-            rgba(255, 255, 255, 0) 58%),
-        linear-gradient(90deg,
-            rgba(255, 255, 255, 0.82) 0%,
-            rgba(255, 255, 255, 0.42) 42%,
-            rgba(255, 255, 255, 0) 100%);
-}
+    .store-hero-text {
+        text-align: center;
+        font-family: "Pretendard", sans-serif;
+        color: #1a2e3b;
 
-.page-hero-inner {
-    position: relative;
-    z-index: 2;
-    width: min(100%, 1440px);
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .store-hero-sub {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: rgba(26, 46, 59, 0.6);
+            margin-bottom: 14px;
+        }
 
-.page-hero-text {
-    position: absolute;
-    left: 20px;
-    top: 62px;
-    width: 520px;
-    font-family: "Pretendard", sans-serif;
-    color: #111;
-    text-align: left;
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1a2e3b;
+            margin-bottom: 10px;
+        }
 
-    span {
-        display: block;
-        margin-bottom: 18px;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        color: rgba(0, 0, 0, 0.46);
+        .store-hero-line {
+            width: 300px;
+            border-bottom: 1px solid rgba(26, 46, 59, 0.35);
+            margin: 0 auto 14px;
+        }
+
+        p:last-child {
+            font-size: 1rem;
+            color: rgba(26, 46, 59, 0.65);
+        }
     }
-
-    p {
-        display: block;
-        width: 360px;
-        margin: 0;
-        font-size: 17px;
-        font-weight: 400;
-        line-height: 1.5;
-        letter-spacing: -0.03em;
-        color: rgba(0, 0, 0, 0.68);
-    }
-
-    h2 {
-        display: block;
-        margin-top: 50px;
-        margin-left: -80px;
-        padding: 0;
-        font-size: 40px;
-        font-weight: 600;
-        line-height: 1;
-        letter-spacing: -0.06em;
-        white-space: nowrap;
-    }
-}
-
-.page-hero-store {
-    background: linear-gradient(90deg, #d4e8f5 0%, #b8d6ed 100%);
 }

@@ -60,7 +60,7 @@ export default function BrandAuthentication() {
                     <img src="/images/brand/auth-hero.png" alt="정품인증" />
                     <div className="auth-hero-text">
                         <p className="auth-hero-sub">AUTHENTIC PRODUCT</p>
-                        <h1>정품인증</h1>
+                        <h2>정품인증</h2>
                         <div className="auth-hero-line" />
                         <p>정품인증을 통해서 보호하고 혜택을 즐기세요</p>
                     </div>
