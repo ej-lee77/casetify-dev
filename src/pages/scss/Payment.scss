@@ -862,4 +862,74 @@
             }
         }
     }
+
+    .giftcom-modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        .modal-container {
+            background-color: #fff;
+            width: 400px;
+            padding: 60px 40px 40px; // 위쪽 여백을 더 줘서 아이콘 공간 확보
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: GiftmodalShow 0.3s ease-out;
+
+            .icon-wrapper {
+            position: relative;
+            margin-bottom: 40px;
+
+                img{
+                    width: 100px;
+                }
+            }
+
+            .modal-title {
+                font-size: 1.25em;
+                font-weight: 500;
+                text-align: center;
+                margin-bottom: 50px;
+                line-height: 1.4;
+                word-break: keep-all; // 한글 줄바꿈 예쁘게
+            }
+
+            .close-button {
+                width: 100%;
+                background-color: #000;
+                color: #fff;
+                padding: 18px 0;
+                font-size: 18px;
+                font-weight: 500;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: #333;
+                }
+
+                &:active {
+                    background-color: #555;
+                }
+            }
+        }
+    }
+
+    @keyframes GiftmodalShow {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 }

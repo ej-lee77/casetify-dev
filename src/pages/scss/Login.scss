@@ -250,8 +250,8 @@
         .modal-overlay{
             @include g.pos-center();
             @include g.myFlex($jc: center, $gap: unset);
-            width: 500px;
-            height: 200px;
+            width: 700px;
+            height: 300px;
             border: 10px solid g.$text-main;
             background: #fff;
             z-index: 10;
