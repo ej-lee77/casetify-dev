@@ -445,11 +445,12 @@ export default function DetailPage({ item }) {
     const miniLabel = miniCateKey ? MINI_LABEL_MAP[miniCateKey] : null;
 
     // 브레드크럼: 홈 > mainmenu(링크X) > submenu > minimenu (제품명 제거)
+    // 실제 라우트: /:mainCate/:subCate?mini=xxx
     const breadcrumbItems = [
         { label: '홈', to: '/' },
         ...(mainMenu ? [{ label: mainMenu.name }] : []),
-        ...(subMenu ? [{ label: subMenu.name, to: `/category/${mainCateKey}?sub=${subCateKey}` }] : []),
-        ...(miniLabel && miniCateKey !== subCateKey ? [{ label: miniLabel, to: `/category/${mainCateKey}?sub=${subCateKey}&mini=${miniCateKey}` }] : []),
+        ...(subMenu ? [{ label: subMenu.name, to: `/${mainCateKey}/${subCateKey}` }] : []),
+        ...(miniLabel && miniCateKey !== subCateKey ? [{ label: miniLabel, to: `/${mainCateKey}/${subCateKey}?mini=${miniCateKey}` }] : []),
     ];
 
     return (
