@@ -5,7 +5,6 @@ import { useAuthStore } from "../../store/useAuthStore";
 
 export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
     const [isImageError, setIsImageError] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
     const [feedback, setFeedback] = useState(null);
     const { user, onAddToCart, onAddWishlist, wishlist } = useAuthStore();
     const navigate = useNavigate();
@@ -105,25 +104,24 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
 
     return (
         <article className="product-card">
-            <div
-                className={`card-img-wrap${isHovered ? " hovered" : ""}`}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
+            <div className="card-img-wrap">
                 <Link to={`/detail/${item.id}`} className="card-link">
                     <div className="card-img">
                         {!isImageError ? (
-                            <img
-                                src={isHovered ? hoverImagePath : imagePath}
-                                alt={item.productName}
-                                onError={(e) => {
-                                    if (isHovered) {
-                                        e.currentTarget.src = imagePath;
-                                    } else {
-                                        setIsImageError(true);
-                                    }
-                                }}
-                            />
+                            <>
+                                <img
+                                    className="img-main"
+                                    src={imagePath}
+                                    alt={item.productName}
+                                    onError={() => setIsImageError(true)}
+                                />
+                                <img
+                                    className="img-hover"
+                                    src={hoverImagePath}
+                                    alt=""
+                                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                                />
+                            </>
                         ) : (
                             <p className="image-error-path">{imagePath}</p>
                         )}
