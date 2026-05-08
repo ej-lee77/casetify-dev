@@ -192,6 +192,7 @@ export default function Cart() {
                     {cart.map((item, index) => {
                       const itemKey = getItemKey(item);
                       const isChecked = chekedItems.includes(itemKey);
+                      const hasGiftCustomItem = item.caseCategory === "gift" || item.caseCategory === "custom";
                       return (
                         <li key={itemKey} className="cart-item">
                           <label className="checkbox-label">
@@ -205,11 +206,18 @@ export default function Cart() {
                           <div className="cart-card-wrap">
                             <div className="cart-goods-info">
                               <div className="goods-img">
+                                {!hasGiftCustomItem ? 
                                 <Link to={`/detail/${item.productId}`}>
                                   <img
                                     src={`${item.imgUrl}`}
                                     alt={item.title} />
                                 </Link>
+                                :
+                                <a>
+                                  <img
+                                  src={`${item.imgUrl}`}
+                                  alt={item.title} />
+                                </a>}
                               </div>
                               <div className="goods-text">
                                 <p className="title">{item.title}</p>
