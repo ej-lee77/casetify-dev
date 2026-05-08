@@ -24,7 +24,6 @@
     word-break: keep-all;
     background: #fff;
 
-    // 전역 margin-top 충돌 방지
     * {
         margin-top: 0;
     }
@@ -155,7 +154,7 @@
         position: absolute;
         bottom: 36px;
         left: 60px;
-        font-family: 'Archivo', sans-serif;
+        font-family: 'GMarketSans', sans-serif;
         font-weight: 900;
         font-size: 88px;
         color: #fff;
@@ -200,7 +199,6 @@
         line-height: 1.25;
         color: var(--ink);
         font-family: "GMarketSans", sans-serif;
-
     }
 
     p {
@@ -232,7 +230,7 @@
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     padding: 24px 0;
-    font-family: 'Archivo', sans-serif;
+    font-family: 'GMarketSans', sans-serif;
     font-weight: 900;
     font-size: 48px;
     letter-spacing: -.02em;
@@ -278,7 +276,7 @@
 
     .story-feature-meta {
         .story-yrs {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 200px;
             color: transparent;
@@ -360,7 +358,7 @@
         position: relative;
 
         .story-step-yr {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 56px;
             letter-spacing: -.03em;
@@ -383,6 +381,7 @@
             font-weight: 800;
             margin-bottom: 12px;
             letter-spacing: -.01em;
+            font-family: "GMarketSans", sans-serif;
         }
 
         p {
@@ -409,7 +408,7 @@
     color: #fff;
 
     .story-quote-mark {
-        font-family: 'Archivo', sans-serif;
+        font-family: 'GMarketSans', sans-serif;
         font-weight: 900;
         font-size: 120px;
         color: var(--gold);
@@ -424,6 +423,7 @@
         line-height: 1.55;
         letter-spacing: -.02em;
         color: #fff;
+        font-family: "GMarketSans", sans-serif;
 
         b {
             font-weight: 800;
@@ -462,7 +462,7 @@
         }
 
         .story-global-city {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 42px;
             letter-spacing: -.02em;
@@ -556,7 +556,7 @@
         }
 
         .std-metric-num {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 80px;
             letter-spacing: -.04em;
@@ -575,6 +575,7 @@
             font-size: 18px;
             font-weight: 800;
             letter-spacing: -.01em;
+            font-family: "GMarketSans", sans-serif;
         }
 
         p {
@@ -596,7 +597,6 @@
         background: linear-gradient(135deg, #1a2332 0%, #0a1018 100%);
     }
 
-    // Swiper가 프레임 전체를 채움
     .std-swiper {
         position: absolute;
         inset: 0;
@@ -611,7 +611,6 @@
         background-position: center;
         background-repeat: no-repeat;
 
-        // 이미지 없을 때 플레이스홀더
         &:not([style*="url"]) {
             background:
                 radial-gradient(40% 60% at 30% 50%, rgba(255, 255, 255, .08), transparent 60%),
@@ -620,7 +619,6 @@
         }
     }
 
-    // 오버레이 어둡게
     .std-showcase-frame::before {
         content: '';
         position: absolute;
@@ -740,7 +738,6 @@
     }
 }
 
-// 칩 — 중앙 정렬
 .std-chips-wrap {
     padding: 28px 60px 0;
     display: flex;
@@ -777,7 +774,6 @@
     }
 }
 
-// 제품 상세 설명 패널
 .std-product-detail {
     padding: 48px 0 60px;
 
@@ -862,6 +858,7 @@
             color: var(--ink);
             margin-bottom: 10px;
             letter-spacing: -.01em;
+            font-family: "GMarketSans", sans-serif;
         }
 
         p {
@@ -889,6 +886,7 @@
             font-weight: 800;
             margin: 16px 0;
             letter-spacing: -.02em;
+            font-family: "GMarketSans", sans-serif;
         }
 
         p {
@@ -911,7 +909,7 @@
         color: #fff;
 
         .std-badge-pct {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 36px;
             letter-spacing: -.02em;
@@ -970,7 +968,7 @@
             margin-bottom: 24px;
 
             .std-card-period {
-                font-family: 'Archivo', sans-serif;
+                font-family: 'GMarketSans', sans-serif;
                 font-weight: 900;
                 font-size: 36px;
                 letter-spacing: -.02em;
@@ -1133,7 +1131,7 @@
         }
 
         .rc-goal-num {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 88px;
             letter-spacing: -.04em;
@@ -1151,6 +1149,7 @@
             margin-top: 12px;
             letter-spacing: -.01em;
             color: var(--ink);
+            font-family: "GMarketSans", sans-serif;
         }
 
         p {
@@ -1230,7 +1229,7 @@
         }
 
         .rc-crisis-big {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 80px;
             letter-spacing: -.04em;
@@ -1307,7 +1306,7 @@
         }
 
         .rc-stats-num {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 56px;
             letter-spacing: -.03em;
@@ -1327,6 +1326,7 @@
             font-weight: 800;
             margin-top: 20px;
             letter-spacing: -.01em;
+            font-family: "GMarketSans", sans-serif;
         }
 
         p {
@@ -1390,7 +1390,7 @@
         }
 
         .rc-process-n {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'GMarketSans', sans-serif;
             font-weight: 900;
             font-size: 64px;
             color: transparent;
@@ -1432,6 +1432,7 @@
             font-weight: 800;
             letter-spacing: -.01em;
             color: #fff;
+            font-family: "GMarketSans", sans-serif;
         }
 
         p {
@@ -1528,6 +1529,7 @@
             font-weight: 800;
             letter-spacing: -.01em;
             color: var(--ink);
+            font-family: "GMarketSans", sans-serif;
         }
 
         .rc-artist-desc {
@@ -1663,7 +1665,7 @@
 
 .bc-club-stat-num {
     display: block;
-    font-family: 'Archivo', sans-serif;
+    font-family: 'GMarketSans', sans-serif;
     font-weight: 900;
     font-size: 48px;
     letter-spacing: -.03em;
@@ -1736,7 +1738,7 @@
     flex-direction: column;
 
     p {
-        font-size: 14px;
+        // font-size: 15px;
         color: #555;
         line-height: 1.85;
         font-weight: 400;
@@ -1752,11 +1754,12 @@
 }
 
 .bc-club-step-title {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 26px;
+    font-weight: 900;
     margin-bottom: 14px;
     color: var(--ink);
-    letter-spacing: -.01em;
+    letter-spacing: -.02em;
+    font-family: "GMarketSans", sans-serif;
 }
 
 .bc-club-step-glyph {
@@ -1862,7 +1865,7 @@
     justify-content: center;
     font-size: 32px;
     font-weight: 900;
-    font-family: 'Archivo', sans-serif;
+    font-family: 'GMarketSans', sans-serif;
     margin-bottom: 20px;
     color: #fff;
     letter-spacing: -.02em;
@@ -1887,7 +1890,7 @@
     letter-spacing: .04em;
     margin-bottom: 10px;
     color: var(--ink);
-    font-family: 'Archivo', sans-serif;
+    font-family: 'GMarketSans', sans-serif;
 }
 
 .bc-club-tier-req {
@@ -1977,7 +1980,7 @@
         font-weight: 800;
         letter-spacing: .2em;
         font-size: 13px;
-        font-family: 'Archivo', sans-serif;
+        font-family: 'GMarketSans', sans-serif;
         border-bottom: 1px solid #1d1d1d;
 
         &:first-child {
@@ -2037,7 +2040,6 @@
     }
 }
 
-// 체크 도트
 .check {
     display: inline-flex;
     align-items: center;
@@ -2111,6 +2113,7 @@
         font-weight: 800;
         margin-bottom: 10px;
         letter-spacing: -.01em;
+        font-family: "GMarketSans", sans-serif;
     }
 
     p {
@@ -2133,7 +2136,7 @@
     justify-content: center;
     font-size: 28px;
     font-weight: 900;
-    font-family: 'Archivo', sans-serif;
+    font-family: 'GMarketSans', sans-serif;
 }
 
 .bc-club-earn-pts {
@@ -2183,17 +2186,18 @@
     font-weight: 700;
     margin-bottom: 24px;
     display: block;
+    font-family: "GMarketSans", sans-serif;
 }
 
 .bc-club-duo-big {
-    font-family: 'Archivo', sans-serif;
+    font-family: 'GMarketSans', sans-serif;
     font-size: 48px;
     font-weight: 900;
     margin-bottom: 20px;
     display: block;
 }
 
-// FAQ — BrandQna 스타일 통일
+// FAQ
 .bc-club-faq {
     padding: 72px 0;
     background: #fff;
@@ -2210,6 +2214,7 @@
         margin-bottom: 28px;
         letter-spacing: -0.02em;
         color: #2f2f2f;
+        font-family: "GMarketSans", sans-serif;
     }
 
     .faq-accordion {
@@ -2322,6 +2327,7 @@
     border: none;
     cursor: pointer;
     transition: background .2s;
+    font-family: "GMarketSans", sans-serif;
 
     &:hover {
         background: #e0bb6a;
