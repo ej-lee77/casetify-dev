@@ -328,13 +328,13 @@ export default function Payment() {
   // 최종 결제 금액
   const finalPayment = Math.max(0, selectedTotal - totalDiscount);
 
-  // 배송비 기본 9000원
-  const [shipping, setShipping] = useState(9000);
+  // 배송비 기본 7000원
+  const [shipping, setShipping] = useState(7000);
   useEffect(()=>{ 
     if(finalPayment >= 50000){
       setShipping(0);
     }else{
-      setShipping(9000)
+      setShipping(7000)
     }
   }, [finalPayment]);
 
@@ -776,6 +776,7 @@ export default function Payment() {
                       className="phone-input"
                       placeholder="휴대폰 번호 (- 제외)" 
                       value={mobileInfo.payphone}
+                      maxLength="20"
                       onChange={handlePhoneChange}
                     />                  
                     {phoneErrors.payphone && <p className="error-text">{phoneErrors.payphone}</p>}

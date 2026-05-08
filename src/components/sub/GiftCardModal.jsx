@@ -16,7 +16,8 @@ export default function GiftCardModal({ isOpen, onClose }) {
     if (!isOpen) return null;
 
     const handleSubmit = async () => {
-        if (cardCode) {
+        setMsg("");
+        if (cardCode.trim()) {
             const isGift = await registerGiftCard(cardCode);
 
             if (isGift === true) {
@@ -34,6 +35,7 @@ export default function GiftCardModal({ isOpen, onClose }) {
     return (
         <div className="modal-overlay">
             <div className="gift-card-popup">
+                <p className="close-btn" onClick={onClose}><img src="/images/icon/close.svg" alt="닫기" /></p>
                 <div className="popup-header">
                     <span className="card-icon"><img src="/images/mypage/gift/gift-card.svg" alt="기프트카드" /></span>
                     <h2>기프트 카드 계정에 추가하기</h2>
@@ -49,6 +51,7 @@ export default function GiftCardModal({ isOpen, onClose }) {
                         type="text"
                         placeholder="일련번호 (10 숫자)"
                         value={cardCode}
+                        maxLength="10"
                         onChange={(e) => setCardCode(e.target.value)}
                     />
                 </div>

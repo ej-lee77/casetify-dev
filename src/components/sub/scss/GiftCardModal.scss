@@ -16,6 +16,14 @@
   max-width: 500px;
   padding: 30px;
   text-align: center;
+  position: relative;
+
+  .close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
 
   .popup-header {
     h2 { font-size: 20px; font-weight: bold; margin: 10px 0; }

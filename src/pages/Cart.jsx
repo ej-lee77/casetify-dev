@@ -86,13 +86,13 @@ export default function Cart() {
   // 최종 결제 금액
   const finalPayment = Math.max(0, selectedTotal - discount);
 
-  // 배송비 기본 9000원
-  const [shipping, setShipping] = useState(9000);
+  // 배송비 기본 7000원
+  const [shipping, setShipping] = useState(7000);
   useEffect(() => {
     if (finalPayment >= 50000) {
       setShipping(0);
     } else {
-      setShipping(9000)
+      setShipping(7000)
     }
   }, [finalPayment]);
 
