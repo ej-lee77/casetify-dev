@@ -220,15 +220,17 @@
                         // @include g.pos-center();
                         @include g.myFlex($jc: center, $gap: unset);
                         width: 500px;
-                        height: 400px;
+                        // height: 400px;
                         border: 1px solid g.$text-strike;
                         background: #fff;
                         z-index: 10;
                         animation: fadeIn 0.5s ease-in-out forwards;
+                        position: relative;
 
                         .option-box{
                             width: 80%;
                             margin: 0 auto;
+                            padding: 20px 0;
 
                             >div{
                                 margin-bottom: 30px;
@@ -236,6 +238,13 @@
 
                             .option-box-title{
                                 @include g.myFlex($gap: unset);
+
+                                .close-btn{
+                                    position: absolute;
+                                    top: 20px;
+                                    right: 20px;
+                                    cursor: pointer;
+                                }
                             }
 
                             .model-accordion {
