@@ -333,6 +333,7 @@
                         background: #fff;
                         border: solid #aaaaaa 1px;
                         position: relative;
+                        cursor: pointer;
                     
                         .accordion-arrow {
                             font-size: 11px;
@@ -343,6 +344,7 @@
                             top: 50%;
                             transform: translateY(-50%);
                             &.open { transform: rotate(180deg) translateY(50%); }
+                            width: 20px;
                         }
                     }
                     .placeholder{
@@ -371,6 +373,7 @@
                         padding: 10px;
                         border: 1px solid #eee;
                         background: #fff;
+                        cursor: pointer;
                     }
                 }
                 .address-box{
@@ -416,6 +419,7 @@
                         background: #fff;
                         border: solid #aaaaaa 1px;
                         position: relative;
+                        cursor: pointer;
                     
                         .accordion-arrow {
                             font-size: 11px;
@@ -426,6 +430,7 @@
                             top: 50%;
                             transform: translateY(-50%);
                             &.open { transform: rotate(180deg) translateY(50%); }
+                            width: 20px;
                         }
                     }
 
@@ -452,20 +457,21 @@
                         padding: 10px;
                         border: 1px solid #eee;
                         background: #fff;
+                        cursor: pointer;
                     }
                     .coupon-select{
-                       @include g.myFlex($gap:unset);
-                       .coupon-title{
-                            >span{
-                                padding-left: 10px;
-                                color: #ff6666;
-                            }
-                       }
-                       .limit{
-                            color: #aaa;
-                            font-size: 0.9rem;
-                            margin-top: 10px;
-                       }
+                        @include g.myFlex($gap:unset);
+                        .coupon-title{
+                                >span{
+                                    padding-left: 10px;
+                                    color: #ff6666;
+                                }
+                        }
+                        .limit{
+                                color: #aaa;
+                                font-size: 0.9rem;
+                                margin-top: 10px;
+                        }
                     }
 
                 }
@@ -669,6 +675,19 @@
                 // font-weight: bold;
                 display: flex;
                 justify-content: space-between;
+                position: relative;
+
+                .accordion-arrow {
+                    font-size: 11px;
+                    color: #888;
+                    transition: transform 0.2s ease;
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    &.open { transform: rotate(180deg) translateY(50%); }
+                    width: 20px;
+                }
             }
             .accordion-header.active {
                 background-color: #f0f0f0; /* 열려있을 때 강조 */

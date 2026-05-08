@@ -2,6 +2,7 @@
 
 .sub-page-wrap.category-wrap {
     background: #fff;
+    margin-top: 0;
 
     .category-hero {
         width: 100%;
@@ -11,13 +12,15 @@
             display: block;
             width: 100%;
         }
-        h2{
+
+        h2 {
             position: absolute;
             top: 50%;
             left: 15%;
             font-weight: 400;
         }
-        .text-white{
+
+        .text-white {
             color: #fff;
         }
     }
