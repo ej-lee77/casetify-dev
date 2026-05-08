@@ -383,6 +383,7 @@ function ProductCustomizeContent({ deviceType }) {
 
     return (
         <section className="custom detail-page-custom">
+            <div className="inner">
             <div className="detail-inner-custom">
 
                 {/* 왼쪽: 프리뷰 */}
@@ -702,11 +703,12 @@ function ProductCustomizeContent({ deviceType }) {
                         </div>
                     </div>
                 )}
+
             </div>
 
-            <div style={{ marginTop: '30px' }}>
-                <ShippingInfo />
-            </div>
+<div className='shipping-margin' style={{ marginTop: '60px' }}>
+    <ShippingInfo />
+</div></div>
 
         </section>
     )
