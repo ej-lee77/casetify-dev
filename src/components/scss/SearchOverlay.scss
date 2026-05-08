@@ -215,6 +215,7 @@
         }
 
         .img-search {
+            cursor: pointer;
             font-weight: 300;
             @include g.myFlex($jc: null, $ai: center, $gap: 0.5rem);
             // border: 1px dashed;
@@ -233,6 +234,6 @@
         position: absolute;
         top: 30px;
         right: 40px;
-
+        cursor: pointer;
     }
 }

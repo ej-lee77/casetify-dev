@@ -20,6 +20,7 @@ export default function SearchOverlay({ isActive, onClose }) {
         const kw = keyword.trim();
         if (!kw) return;
         onAddSearchList(kw);
+        onSetSearchWord("");
         // navigate는 SearchNavigator가 pendingSearch를 감지해서 처리
     }
 
