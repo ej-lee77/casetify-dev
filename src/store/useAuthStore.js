@@ -1126,13 +1126,13 @@ export const useAuthStore = create(
 
                     const updatedOrderList = remoteOrderList.map((order) => {
                         // 주문일로부터 경과일 (배송 상태용)
-                        const orderDate = new Date(order.orderDate.replace(/\//g, '-'));
+                        const orderDate = new Date(Number(order.orderId));
                         // (현재시간 - 주문시간)을 '분'으로 계산
                         const minutesSinceOrder = Math.floor((today - orderDate) / (1000 * 60));
 
                         // 1. 대표 주문 상태 업데이트 (1분 -> 배송중, 2분 -> 배송완료)
                         let newOrderStatus = order.orderStatus;
-                        if (!['취소완료', '교환/반품완료'].includes(order.orderStatus)) {
+                        if (!['취소완료', '교환/반품완료', '취소/반품'].includes(order.orderStatus)) {
                             if (minutesSinceOrder >= 2 && order.orderStatus !== "배송완료") {
                                 newOrderStatus = "배송완료";
                                 isChanged = true;

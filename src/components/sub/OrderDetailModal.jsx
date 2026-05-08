@@ -163,7 +163,7 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
             </div>
             <div className="info-row">
               <span className="label">배송 메모</span>
-              <span className="value">{order.deliveryMemo === '배송 메모를 선택해주세요' ? "없음" : currentOrder.deliveryMemo || '없음'}</span>
+              <span className="value">{order.deliveryMemo === '배송 메모를 선택해주세요' ? "없음" : order.deliveryMemo || '없음'}</span>
             </div>
             <div className="info-row">
               <span className="label">주문 상태</span>

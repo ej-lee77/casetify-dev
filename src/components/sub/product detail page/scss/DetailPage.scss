@@ -46,10 +46,10 @@
         .image-wish-btn {
             position: absolute;
             // width: 50px;
-            bottom: 30px;
-            left: 35px;
-            width: 60px;
-            height: 60px;
+      top: 38px;      /* ← bottom 제거, top으로 변경 */
+    right: 38px;    /* ← left 제거, right으로 변경 */
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             border: none;
             background: rgba(255, 255, 255, 0.85);
