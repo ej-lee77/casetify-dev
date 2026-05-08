@@ -5,9 +5,9 @@ import { FAQ_CATEGORIES, FAQ_LIST } from "../data/QnaData"; // ✅ 카테고리 
 import { motion } from 'framer-motion';
 
 const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 const INQUIRY_CATEGORIES = [
@@ -164,13 +164,24 @@ export default function BrandQna() {
 
     return (
         <motion.div
-        variants={fadeVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition={{ duration: 0.4 }}
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
         >
             <div className="brand-qna-page">
+                {/* 히어로 */}
+                <section className="page-hero page-hero-qna">
+                    <div className="page-hero-bg" />
+                    <div className="page-hero-inner">
+                        <div className="page-hero-text">
+                            <span>CASETiFY SUPPORT</span>
+                            <p>궁금한 점이 있으신가요? 무엇이든 도와드릴게요</p>
+                            <h2>자주 묻는 질문(FAQ)</h2>
+                        </div>
+                    </div>
+                </section>
                 {/* ─── FAQ 섹션 ─── */}
                 <section className="faq-section">
                     <div className="faq-inner">

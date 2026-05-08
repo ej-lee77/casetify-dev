@@ -789,7 +789,7 @@ function ClubTab() {
             {/* FAQ */}
             <section className="bc-club-faq">
                 <div className="faq-inner">
-                    <h2 className="section-heading">자주 묻는 질문 (FAQ)</h2>
+                    <h2 className="section-heading">자주 묻는 질문(FAQ)</h2>
                     <div className="faq-accordion">
                         {faqs.map((faq, i) => (
                             <div key={i} className={`faq-item${openFaq === i ? ' open' : ''}`}>
