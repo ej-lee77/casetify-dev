@@ -17,6 +17,7 @@
 
 // ─── 공통 ─────────────────────────────────────────────
 .bc-page {
+    padding-top: 80px;
     font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
@@ -93,7 +94,6 @@
     position: relative;
     height: 280px;
     overflow: hidden;
-    margin-top: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
