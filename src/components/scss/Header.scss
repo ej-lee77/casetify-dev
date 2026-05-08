@@ -105,6 +105,10 @@ header {
                     width: 24px;
                 }
 
+                .mypage-icon, .logout-icon{
+                    cursor: pointer;
+                }
+
                 .user-icon::after {
                     content: "로그인";
                     display: none;
