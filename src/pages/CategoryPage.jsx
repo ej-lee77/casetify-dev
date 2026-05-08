@@ -80,7 +80,9 @@ const filterByRoute = (items, mainCate, subCate) =>
 
         if (mainCate === "colab") {
             if (!mains.includes("colab")) return false;
-            return !subCate || subs.includes(subCate);
+            // displaySubCategories 또는 collaboCategory로 서브 매칭
+            if (!subCate) return true;
+            return subs.includes(subCate) || item.collaboCategory === subCate;
         }
 
         if (!mains.includes(mainCate)) return false;
