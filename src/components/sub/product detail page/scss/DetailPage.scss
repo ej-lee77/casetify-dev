@@ -6,6 +6,10 @@
     position: relative;
     z-index: 0;
 
+    .category-breadcrumb{
+        margin: 0 0 10px;
+    }
+
     .detail-inner {
         width: 1280px;
         max-width: calc(100% - 40px);

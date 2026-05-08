@@ -5,7 +5,7 @@ import AddressSearch from '../components/sub/AddressSearch'
 import { Link, useNavigate } from 'react-router-dom';
 import GiftCardModal from '../components/sub/GiftCardModal';
 import CircularOverlay from '../components/CircularOverlay';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import ToastPopup from '../components/Toastpopup';
 
 const fadeVariants = {
@@ -848,7 +848,19 @@ export default function Payment() {
               </div>
               <div className="price-total">
                 <p className="free-info">50,000원 이상 배송비 무료</p>
-                <p className="est-price">최종결제금액<span>{shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment+shipping).toLocaleString()}원</span></p>
+                <p className="est-price">최종결제금액
+                  <AnimatePresence mode="popLayout">
+                    <motion.span
+                    key={finalPayment} // 가격이 바뀔 때마다 컴포넌트를 재생성하여 애니메이션 트리거
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    >
+                    {shipping === 0 ? Number(finalPayment).toLocaleString() : Number(finalPayment+shipping).toLocaleString()}원
+                    </motion.span>
+                  </AnimatePresence>
+                </p>
               </div>
             </div>
             {/* 주문 버튼 */}
