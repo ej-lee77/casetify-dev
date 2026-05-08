@@ -20,7 +20,7 @@ export default function SearchOverlay({ isActive, onClose }) {
     const goSearch = (keyword) => {
         const kw = keyword.trim();
         if (!kw) return;
-        onAddSearchList();
+        onAddSearchList(kw);
         onCloseSearch();
         navigate(`/search?q=${encodeURIComponent(kw)}`);
     }

@@ -17,15 +17,19 @@ export const useProductStore = create((set, get) => ({
     onClearPendingSearch: () => set({ pendingSearch: null }),
 
     //검색 단어 저장 메서드
-    onAddSearchList: () => {
-        set((state) => ({
-            searchWordList: [...state.searchWordList, {
-                id: Date.now(),
-                text: state.searchWord
-            }],
-            pendingSearch: state.searchWord.trim(),
-            searchWord: ""
-        }))
+    onAddSearchList: (keyword) => {
+        set((state) => {
+            const text = (keyword ?? state.searchWord).trim();
+            if (!text) return {};
+            return {
+                searchWordList: [...state.searchWordList, {
+                    id: Date.now(),
+                    text
+                }],
+                pendingSearch: text,
+                searchWord: ""
+            };
+        })
     },
 
     onRemoveSearchList: (id) => {
