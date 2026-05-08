@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./scss/SearchOverlay.scss";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 import ImageSearchModal from './ImageSearchModal';
 import BundleRecommend from './sub/product detail page/Recommend';
@@ -10,19 +10,17 @@ const tempRecoItem = { id: "CTF-34942803-16006188" }
 
 export default function SearchOverlay({ isActive, onClose }) {
     const { searchWord, onSetSearchWord, searchWordList, onAddSearchList, onRemoveSearchList, onRemoveAllSearch, onSearchByKeyword, onCloseSearch } = useProductStore();
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (searchWordList.length === 0) { setSearchCheck(false) } else { setSearchCheck(true) }
     })
 
-    // 검색 실행 함수 — 키워드를 미리 캡처해서 navigate
+    // 검색 실행 함수 — onAddSearchList로 pendingSearch 설정, SearchNavigator가 navigate 처리
     const goSearch = (keyword) => {
         const kw = keyword.trim();
         if (!kw) return;
         onAddSearchList(kw);
-        onCloseSearch();
-        navigate(`/search?q=${encodeURIComponent(kw)}`);
+        // navigate는 SearchNavigator가 pendingSearch를 감지해서 처리
     }
 
     const handleSubmit = (e) => {
@@ -83,9 +81,6 @@ export default function SearchOverlay({ isActive, onClose }) {
                                 <li style={{ cursor: "pointer" }} onClick={() => goSearch("Cherry Blossom")}>Cherry Blossom</li>
                                 <li style={{ cursor: "pointer" }} onClick={() => goSearch("글레이즈 케이스")}>글레이즈 케이스</li>
                                 <li style={{ cursor: "pointer" }} onClick={() => goSearch("Skater JOHN")}>Skater JOHN</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("SSEBONG")}>SSEBONG</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("미러 케이스")}>미러 케이스</li>
-                                <li style={{ cursor: "pointer" }} onClick={() => goSearch("Esther Bunny")}>Esther Bunny</li>
                             </ol>
                         </div>
                         <div className="recommend-wrap">

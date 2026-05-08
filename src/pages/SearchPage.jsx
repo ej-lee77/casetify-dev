@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
 
 import { useCategoryProductStore } from "../store/useCategoryProductStore";
+import Breadcrumb from "../components/Breadcrumb";
 import { groupModelsByProductName } from "../utils/groupProducts";
 
 import CategoryPhoneProductCard from "../components/sub/CategoryPhoneProductCard";
@@ -236,14 +237,13 @@ export default function SearchPage() {
             exit="exit"
             transition={{ duration: 0.4 }}
         >
-            <div className="sub-page-wrap category-wrap">
+            <div className="sub-page-wrap category-wrap search-page">
                 <div className="inner">
                     {/* 브레드크럼 */}
-                    <div className="category-breadcrumb">
-                        <Link to="/">홈</Link>
-                        <span> &gt; </span>
-                        <span>검색 결과</span>
-                    </div>
+                    <Breadcrumb items={[
+                        { label: '홈', to: '/' },
+                        { label: '검색 결과' }
+                    ]} />
 
                     {/* 검색어 헤더 */}
                     <div className="search-page-header">
