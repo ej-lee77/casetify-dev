@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
 import { div } from 'framer-motion/client';
-import { motion } from 'framer-motion';
+import { has2DTranslate, motion } from 'framer-motion';
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -28,6 +28,7 @@ const gradeList = [
 export default function PayComplete() {
     const location = useLocation();
     const { orderId, grade } = location.state || {};
+    const [isGiftModalOpen, setIsGiftModalOpen] = useState(false);
 
     // 스토어에서 주문 내역 가져오기
     const {orderList} = useAuthStore();
@@ -38,6 +39,12 @@ export default function PayComplete() {
     // 만약 데이터가 없으면 예외 처리
     if (!currentOrder) {
         return <div className='error-box'>주문 정보를 찾을 수 없습니다.</div>;
+    }
+
+    const hasGiftItem = currentOrder.orderItems.some(item => item.caseCategory === "gift");
+    console.log(hasGiftItem)
+    if (hasGiftItem) {
+        setIsGiftModalOpen(true);
     }
 
     let gradeMsg = "";
@@ -146,6 +153,25 @@ export default function PayComplete() {
                         <Link to="/mypage" state={{ menu: "주문" }}><button className='input-btn'>주문 내역 보기</button></Link>
                     </div>
                 </div>
+                {isGiftModalOpen && (
+                <div className="giftcom-modal-overlay">
+                    {/* stopPropagation은 클릭 시 모달이 닫히지 않게 방지 */}
+                    <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+                        
+                        <div className="icon-wrapper">
+                            <img src="/images/cart/paper-plane.svg" alt="기프트카드 전송완료" />
+                        </div>
+
+                        <h2 className="modal-title">
+                            기프트카드 전송이<br />완료되었습니다!!
+                        </h2>
+
+                        <button className="close-button" onClick={()=>setIsGiftModalOpen(false)}>
+                            닫기
+                        </button>
+                    </div>
+                </div>
+                )}
             </div>
         </motion.div>
     )
