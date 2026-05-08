@@ -236,7 +236,7 @@ export default function SearchPage() {
             exit="exit"
             transition={{ duration: 0.4 }}
         >
-            <div className="sub-page-wrap category-wrap">
+            <div className="sub-page-wrap category-wrap search-page">
                 <div className="inner">
                     {/* 브레드크럼 */}
                     <div className="category-breadcrumb">
