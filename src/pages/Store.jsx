@@ -186,8 +186,17 @@ export default function Store() {
       transition={{ duration: 0.4 }}
     >
       <div className="sub-page-wrap store-page">
+        {/* 히어로 */}
+        <section className="store-hero">
+          <div className="store-hero-text">
+            <p className="store-hero-sub">CASETiFY OFFICIAL</p>
+            <h2>매장찾기</h2>
+            <div className="store-hero-line" />
+            <p>전국 케이스티파이 공식 매장을 찾아보세요</p>
+          </div>
+        </section>
         <div className="inner store-title">
-          <SectionTitle title={"Store"} subtitle={""} />
+          {/* <SectionTitle title={"Store"} subtitle={""} /> */}
         </div>
         <div className="store-map-wrap">
           <StoreMap />
