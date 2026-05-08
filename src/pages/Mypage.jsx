@@ -17,9 +17,7 @@ const fadeVariants = {
 };
 
 export default function Mypage() {
-  const {user} = useAuthStore();
-
-  if (!user) return;
+  const { user } = useAuthStore();
 
   const location = useLocation();
 
@@ -43,12 +41,12 @@ export default function Mypage() {
       case "로그아웃": return <p>로그아웃 + 메인페이지 이동</p>
     }
   }
-  
+
   useEffect(() => {
     if (location.state?.menu) {
       setSelectMenu(location.state.menu);
     }
-  }, [location.state]); 
+  }, [location.state]);
 
   return (
     <motion.div
@@ -58,20 +56,20 @@ export default function Mypage() {
       exit="exit"
       transition={{ duration: 0.4 }}
     >
-    <div className="sub-page-wrap">
-      <div className="inner my-page-inner">
-        <div className="my-page-wrap">
-          <div className="my-page-menu">
-            {/* 마이페이지 메뉴 컴포넌트 */}
-            <MypageMenu sendSelect={handleMenuClick} selectMenu={selectMenu} />
+      <div className="sub-page-wrap">
+        <div className="inner my-page-inner">
+          <div className="my-page-wrap">
+            <div className="my-page-menu">
+              {/* 마이페이지 메뉴 컴포넌트 */}
+              <MypageMenu sendSelect={handleMenuClick} selectMenu={selectMenu} />
+            </div>
+            <div className="my-page-content">
+              <div>{handleContent()}</div>
+            </div>
           </div>
-          <div className="my-page-content">
-            <div>{handleContent()}</div>
-          </div>
+          <Benefit />
         </div>
-        <Benefit />
       </div>
-    </div>
     </motion.div>
   )
 }
