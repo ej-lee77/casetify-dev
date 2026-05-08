@@ -14,7 +14,7 @@
         gap: 60px;
         align-items: flex-start;
         flex-wrap: wrap;
-
+        
         .popup-overlay {
             touch-action: none;
             position: fixed;
@@ -210,7 +210,7 @@
                 }
             }
 
-      .model-brand-tabs {
+.model-brand-tabs {
     display: flex;
     gap: 10px;
     padding: 16px 16px 12px;
@@ -219,7 +219,8 @@
     background: #fff;
     z-index: 2;
     border-bottom: 1px solid #f0f0f0;
-    justify-content: center; // ✅ 추가 - 하나일 때 중앙 정렬
+    justify-content: center;
+    flex-wrap: wrap; // ✅ 추가 - 줄바꿈
 
     button {
         padding: 8px 24px;
@@ -231,7 +232,13 @@
         color: #555;
         cursor: pointer;
         transition: all 0.2s;
-        flex: 1;          // ✅ 추가 - 꽉 차게
+        flex: 1;
+        min-width: 80px; // ✅ 추가 - 너무 작아지지 않게
+
+        @media (max-width: 480px) {
+            padding: 8px 12px;
+            font-size: 13px;
+        }
 
         &.active {
             border-color: #111;
@@ -1146,6 +1153,16 @@
 }
 
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+
 
 // ── 단계별 상태 스타일 — ProductCustomizePage.scss 하단에 추가 ──────────
 
@@ -1162,7 +1179,8 @@
     background: #fff;
 }
 
-// 완료된 단계 — 흐리게 처리, 단 뒤로가기 버튼은 항상 진하게 유지
+
+// step-done 수정
 .step-done {
     border-color: #e8e8e8;
     background: #fafafa;
@@ -1172,6 +1190,16 @@
         color: #bbb;
     }
 
+    // ✅ 내부 버튼/입력 요소 흐리게 + 클릭 차단
+    button:not(.step-back-btn),
+    input,
+    ul,
+    li {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    // ✅ 뒤로가기 버튼만 선명하게 유지
     .step-back-btn {
         opacity: 1;
         color: #000;
@@ -1194,6 +1222,7 @@
     border-color: transparent;
 
     * {
+    
         pointer-events: none !important;
     }
 }
