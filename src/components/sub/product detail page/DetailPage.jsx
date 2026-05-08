@@ -424,7 +424,11 @@ export default function DetailPage({ item }) {
 
     // ==================== RENDER ====================
     const { mainMenuList } = useProductStore();
-    const mainCateKey = item?.mainCategory?.[0];
+    // mainCategory가 문자열인 경우도 처리
+    const mainCategoryArr = Array.isArray(item?.mainCategory)
+        ? item.mainCategory
+        : (item?.mainCategory ? [item.mainCategory] : []);
+    const mainCateKey = mainCategoryArr[0];
 
     // mainmenu 찾기
     const mainMenu = mainMenuList?.find(m => m.link === mainCateKey);

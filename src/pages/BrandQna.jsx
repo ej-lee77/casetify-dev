@@ -175,7 +175,7 @@ export default function BrandQna() {
                 <section className="qna-hero">
                     <div className="qna-hero-text">
                         <p className="qna-hero-sub">CASETiFY SUPPORT</p>
-                        <h2>QNA</h2>
+                        <h2>Q&A</h2>
                         <div className="qna-hero-line" />
                         <p>궁금한 점이 있으신가요? 무엇이든 도와드릴게요</p>
                     </div>
