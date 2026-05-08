@@ -46,7 +46,7 @@ export default function CartOption({item, colorMap, phoneModelOptions, onClose})
             <div className="option-box">
                 <div className='option-box-title'>
                     <h3>옵션</h3>
-                    <span onClick={onClose}><img src="/images/icon/close.svg" alt="닫기" /></span>
+                    <span onClick={onClose} className='close-btn'><img src="/images/icon/close.svg" alt="닫기" /></span>
                 </div>
                 <div className="model-select-box">
                     {!!selectedModel && (

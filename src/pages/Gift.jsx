@@ -44,6 +44,7 @@ export default function Gift() {
   const [popupMsg, setPopupMsg] = useState('')
   const [popupError, setPopupError] = useState(false)
   const [loginToastOpen, setLoginToastOpen] = useState(false)
+  const [toastMsg, setToastMsg] = useState('');
 
   const [errors, setErrors] = useState({})
   const [toName, setToName] = useState('')
@@ -59,7 +60,11 @@ export default function Gift() {
     if (!fromEmail) newErrors.fromEmail = '보내는 분 이메일 주소를 입력해주세요.'
 
     setErrors(newErrors)
-    if (Object.keys(newErrors).length > 0) return
+    if (Object.keys(newErrors).length > 0){
+      setToastMsg("입력 오류가 있습니다.")
+      setLoginToastOpen(true)
+      return
+    } 
 
     const giftProduct = {
       id: `gift-${selectedDesign.id}-${selectedAmount}`,
@@ -87,6 +92,7 @@ export default function Gift() {
       setPopupOpen(true)
     } else {
       // 로그인 안 된 경우 → 토스트 표시 후 로그인 페이지 이동
+      setToastMsg("로그인 후 이용 가능합니다.")
       setLoginToastOpen(true)
       setTimeout(() => {
         setLoginToastOpen(false)
@@ -271,7 +277,7 @@ export default function Gift() {
           />
           <ToastPopup
             isOpen={loginToastOpen}
-            message="로그인 후 이용 가능합니다."
+            message={toastMsg}
             onClose={() => setLoginToastOpen(false)}
             duration={1500}
           />

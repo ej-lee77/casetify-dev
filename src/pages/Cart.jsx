@@ -217,8 +217,8 @@ export default function Cart() {
                                   <p>{item.device}</p>
                                   <p>{item.color}</p>
                                 </div>
-                                {item.isWish && item.device || item.color ?
-                                  <button onClick={() => setEditingItem(item)}>옵션변경</button> : <p> </p>}
+                                {(!item.isWish && (item.device || item.color)) ?
+                                  (<button onClick={() => setEditingItem(item)}>옵션변경</button>) : (<p> </p>)}
                               </div>
                             </div>
                             <div className="cart-goods-count-price">
