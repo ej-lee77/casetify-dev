@@ -183,7 +183,8 @@
         background: #fafafa;
         padding: 60px 0 100px;
         // border-top: 1px solid #e6e6e6;
-        scroll-margin-top: 80px; /* 원하는 오프셋 만큼 설정 */
+        scroll-margin-top: 80px;
+        /* 원하는 오프셋 만큼 설정 */
     }
 
     .inquiry-form {
@@ -236,6 +237,7 @@
             color: #ababab;
         }
     }
+
     .custom-select-container {
         position: relative;
         width: 100%;
@@ -275,7 +277,7 @@
         color: #fff;
     }
 
-    .err-box{
+    .err-box {
         position: absolute;
         width: 100%;
         height: 20px;
@@ -311,8 +313,8 @@
         }
     }
 
-    .inquiry-row--textarea{
-        .err-box{
+    .inquiry-row--textarea {
+        .err-box {
             top: 210px;
         }
     }
@@ -323,7 +325,7 @@
         margin-top: 8px;
         position: relative;
 
-        p{
+        p {
             position: absolute;
             width: 100%;
             height: 20px;
@@ -372,39 +374,82 @@
     }
 
     .faq-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-top: 40px;
 
-    .faq-page-btn {
-        width: 36px;
-        height: 36px;
-        border: 1px solid #ddd;
-        background: #fff;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.15s;
+        .faq-page-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.15s;
 
-        &:hover:not(:disabled) {
-            border-color: #111;
-            color: #111;
-        }
+            &:hover:not(:disabled) {
+                border-color: #111;
+                color: #111;
+            }
 
-        &.active {
-            background: #111;
-            border-color: #111;
-            color: #fff;
-            font-weight: 600;
-        }
+            &.active {
+                background: #111;
+                border-color: #111;
+                color: #fff;
+                font-weight: 600;
+            }
 
-        &:disabled {
-            color: #ccc;
-            cursor: not-allowed;
-            border-color: #eee;
+            &:disabled {
+                color: #ccc;
+                cursor: not-allowed;
+                border-color: #eee;
+            }
         }
     }
+
 }
 
+// ── QNA 히어로 (정품인증과 동일한 디자인 구조) ────────
+.qna-hero {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8e2f5 0%, #d4ccea 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .qna-hero-text {
+        text-align: center;
+        font-family: "Pretendard", sans-serif;
+        color: #2a1e3b;
+
+        .qna-hero-sub {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: rgba(42, 30, 59, 0.6);
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #2a1e3b;
+            margin-bottom: 10px;
+        }
+
+        .qna-hero-line {
+            width: 300px;
+            border-bottom: 1px solid rgba(42, 30, 59, 0.35);
+            margin: 0 auto 14px;
+        }
+
+        p:last-child {
+            font-size: 1rem;
+            color: rgba(42, 30, 59, 0.65);
+        }
+    }
 }

@@ -51,7 +51,7 @@ export default function CustomPage() {
         incoming.load()
 
         incoming.oncanplaythrough = () => {
-            incoming.play().catch(() => {})
+            incoming.play().catch(() => { })
 
             // 새 영상 페이드인
             incoming.style.opacity = '1'
@@ -94,7 +94,7 @@ export default function CustomPage() {
         if (!a) return
         a.src = DEVICE_VIDEOS['phone']
         a.load()
-        a.play().catch(() => {})
+        a.play().catch(() => { })
         a.style.opacity = '1'
     }, [])
 
@@ -127,7 +127,7 @@ export default function CustomPage() {
 
                 <div className="custom-hero-text">
                     <p className="custom-hero-sub" style={{ animationDelay: '0.1s' }}>MAKE IT YOURS</p>
-                    <h1 style={{ animationDelay: '0.35s' }}>Customize</h1>
+                    <h2 style={{ animationDelay: '0.35s' }}>Customize</h2>
                     <p className="cus-title" style={{ animationDelay: '0.6s' }}></p>
                     <p style={{ animationDelay: '0.75s' }}>사진과 글귀들로 세상에 하나뿐인 케이스를 만들어보세요</p>
                 </div>
