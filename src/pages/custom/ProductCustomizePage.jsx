@@ -255,8 +255,8 @@ function ProductCustomizeContent({ deviceType }) {
             device: selectedModelLabel || '', deviceKey: selectedModel || '',
             color: getColorLabel(selectedCaseColor) || '', imgUrl: cartImgUrl,
             colorList: [], deviceList: [], isPhone: deviceType === 'phone',
-            deviceBrand: selectedBrand || '', caseCategory: selectedCaseType || '',
-            quantity: 1, isCustom: true, customMode: designType, customContent, isWish: false
+            deviceBrand: selectedBrand || '', caseCategory: 'custom' || '',
+            quantity: 1, isCustom: true, customMode: designType, customContent, isWish: true
         })
         if (result) { setCartMsg('장바구니에 담겼습니다!'); setIsPopupErr(false) }
         else { setCartMsg('장바구니 담기에 실패했습니다.'); setIsPopupErr(true) }
