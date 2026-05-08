@@ -1,8 +1,9 @@
 import { useState, useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
 import "../scss/bestProduct.scss";
-import { Autoplay } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import SectionTitle from "../SectionTitle";
 import SlideInSection from "../SlideInSection";
 import FadeInSection from "../FadeInSection";
@@ -68,7 +69,7 @@ export default function BestProduct() {
         <section className="bp-wrap">
             <div className="inner">
                 {/* <FadeInSection direction="up" delay={0.2}> */}
-                    <SectionTitle title="Best Product" subtitle="지금 케이스티파이에서 가장핫한 제품" />
+                <SectionTitle title="Best Product" subtitle="지금 케이스티파이에서 가장핫한 제품" />
                 {/* </FadeInSection> */}
 
                 <div className="all">
@@ -76,8 +77,12 @@ export default function BestProduct() {
                         <SlideInSection direction="left" delay={0.4}>
                             <div className="bp-swiper-wrap">
                                 <Swiper
-                                    modules={[Autoplay]}
-                                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                                    modules={[Navigation]}
+                                    navigation={{
+                                        nextEl: ".bp-btn-next",
+                                        prevEl: ".bp-btn-prev",
+                                    }}
+                                    grabCursor={true}
                                     loop={true}
                                     onSlideChange={(swiper) => { setActiveIndex(swiper.realIndex); }}
                                 >
@@ -86,6 +91,12 @@ export default function BestProduct() {
                                     <SwiperSlide><img src={slide3.src} alt={slide3.alt} /></SwiperSlide>
                                     <SwiperSlide><img src={slide4.src} alt={slide4.alt} /></SwiperSlide>
                                 </Swiper>
+                                <button className="bp-btn-prev bp-nav-btn" type="button" aria-label="이전">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+                                </button>
+                                <button className="bp-btn-next bp-nav-btn" type="button" aria-label="다음">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                                </button>
                                 <div className="bp-slide-counter">
                                     {String(activeIndex + 1).padStart(2, '0')} / {String(BPmain.length).padStart(2, '0')}
                                 </div>

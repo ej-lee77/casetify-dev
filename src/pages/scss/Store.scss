@@ -291,3 +291,47 @@
     }
 
 }
+
+// ── 매장찾기 히어로 (정품인증과 동일한 디자인 구조) ────────
+.store-hero {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #d4e8f5 0%, #b8d6ed 100%);
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .store-hero-text {
+        text-align: center;
+        font-family: "Pretendard", sans-serif;
+        color: #1a2e3b;
+
+        .store-hero-sub {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: rgba(26, 46, 59, 0.6);
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1a2e3b;
+            margin-bottom: 10px;
+        }
+
+        .store-hero-line {
+            width: 300px;
+            border-bottom: 1px solid rgba(26, 46, 59, 0.35);
+            margin: 0 auto 14px;
+        }
+
+        p:last-child {
+            font-size: 1rem;
+            color: rgba(26, 46, 59, 0.65);
+        }
+    }
+}
