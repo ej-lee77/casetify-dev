@@ -13,6 +13,15 @@ header.white {
 
     .user-icon::after,
     .logout-icon::after,
+    button.mypage-icon {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+    }
+
     .mypage-icon::after {
         color: #fff !important;
     }
