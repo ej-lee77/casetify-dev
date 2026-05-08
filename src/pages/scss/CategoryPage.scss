@@ -4,6 +4,11 @@
     background: #fff;
     margin-top: 0;
 
+    // 검색 결과 페이지 — 히어로 이미지 없이 시작하므로 헤더 높이만큼 상단 여백 확보
+    &.search-page {
+        padding-top: 80px;
+    }
+
     .category-hero {
         width: 100%;
         position: relative;
