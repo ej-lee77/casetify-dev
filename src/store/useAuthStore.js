@@ -862,6 +862,7 @@ export const useAuthStore = create(
                     colorList: product.colorList,
                     deviceList: product.deviceList,
                     isPhone: product.isPhone,
+                    isWish: product.isWish,
                     deviceBrand: product.deviceBrand,
                     caseCategory: product.caseCategory,
                     quantity: 1
