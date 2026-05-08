@@ -120,7 +120,7 @@ export default function Header() {
             {user ? (
               <>
                 <li onMouseEnter={() => setMenuActive("gnb")} onMouseLeave={() => setMenuActive(null)}>
-                  <button className='mypage-icon'><img src="/images/icon/user.svg" alt="내정보" /></button>
+                  <a className='mypage-icon'><img src="/images/icon/user.svg" alt="내정보" /></a>
                   <ul className={`user-menu ${MenuActive === "gnb" ? "active" : ""}`}>
                     <li>
                       <Link to="/mypage" state={{ menu: "회원정보" }}>회원정보</Link>
