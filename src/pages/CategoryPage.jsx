@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom"
 import "./scss/CategoryPage.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import Breadcrumb from "../components/Breadcrumb";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -403,10 +404,10 @@ export default function CategoryPagePractice() {
 
                 <div className="inner">
                     {/* 브레드크럼 */}
-                    <div className="category-breadcrumb">
-                        <Link to="/">홈</Link>
-                        {currentMain?.name && <><span> &gt; </span><span>{currentMain.name}</span></>}
-                    </div>
+                    <Breadcrumb items={[
+                        { label: '홈', to: '/' },
+                        ...(currentMain?.name ? [{ label: currentMain.name }] : [])
+                    ]} />
 
                     {/* 미니 카테고리 슬라이더 */}
                     {!!visibleMiniItems.length && (
