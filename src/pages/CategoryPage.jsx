@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,9 +21,9 @@ import CategoryFilterButton from "../components/sub/CategoryFilterButton";
 import { motion } from "framer-motion";
 
 const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 
@@ -170,6 +170,18 @@ export default function CategoryPagePractice() {
     const [isColorFilterPopupOpen, setIsColorFilterPopupOpen] = useState(false);
     const [selectedBrand, setSelectedBrand] = useState("Apple");
     const [selectedFilters, setSelectedFilters] = useState(INITIAL_FILTERS);
+    const sortDropdownRef = useRef(null);
+
+    // 드롭다운 외부 클릭 시 닫기
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (sortDropdownRef.current && !sortDropdownRef.current.contains(e.target)) {
+                setIsSortOpen(false);
+            }
+        };
+        if (isSortOpen) document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [isSortOpen]);
 
     // ── 메뉴 참조 ──
     const currentMain = useMemo(() =>
@@ -375,313 +387,313 @@ export default function CategoryPagePractice() {
     // ─────────────────────────────────────────
     return (
         <motion.div
-        variants={fadeVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition={{ duration: 0.4 }}
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
         >
-        <div className="sub-page-wrap category-wrap">
-            <CategoryHero
-                mainCate={mainCate}
-                subCate={subCate}
-                mainCateKo={currentMain?.name}
-                subCateKo={currentSub?.name}
-            />
+            <div className="sub-page-wrap category-wrap">
+                <CategoryHero
+                    mainCate={mainCate}
+                    subCate={subCate}
+                    mainCateKo={currentMain?.name}
+                    subCateKo={currentSub?.name}
+                />
 
-            <div className="inner">
-                {/* 브레드크럼 */}
-                <div className="category-breadcrumb">
-                    <Link to="/">홈</Link>
-                    {currentMain?.name && <><span> &gt; </span><span>{currentMain.name}</span></>}
-                </div>
-
-                {/* 미니 카테고리 슬라이더 */}
-                {!!visibleMiniItems.length && (
-                    visibleMiniItems.length > 9 ? (
-                        <div className="category-mini-swiper-wrap">
-                            <Swiper
-                                modules={[Pagination]}
-                                pagination={{ clickable: true }}
-                                slidesPerView={9}
-                                spaceBetween={32}
-                                loop={visibleMiniItems.length >= 9}
-                                grabCursor
-                                className={`category-mini-swiper ${mini ? "has-active" : ""}`}
-                            >
-                                {visibleMiniItems.map((m, i) => (
-                                    <SwiperSlide key={`${m.key}-${i}`}>
-                                        <CategoryMiniIcon
-                                            miniKey={getMiniIconKey(m)}
-                                            label={m.label}
-                                            isActive={mini === m.key}
-                                            onClick={() => onHandleMiniCategory(m.key)}
-                                        />
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </div>
-                    ) : (
-                        <ul className={`category-sub-slider ${mini ? "has-active" : ""}`}>
-                            {visibleMiniItems.map((m, i) => (
-                                <CategoryMiniIcon
-                                    key={`${m.key}-${i}`}
-                                    miniKey={getMiniIconKey(m)}
-                                    label={m.label}
-                                    isActive={mini === m.key}
-                                    onClick={() => onHandleMiniCategory(m.key)}
-                                />
-                            ))}
-                        </ul>
-                    )
-                )}
-
-
-
-                {/* 상단 필터 / 정렬 바 */}
-                <div className="category-top-row">
-                    <div className="category-top-left">
-                        <CategoryFilterButton onClick={() => setIsFilterOpen(true)} mainCate={mainCate} />
-
-                        {/* 케이스 종류 선택 팝업 (케이스 > 디자인 > 시그니처) */}
-                        {showExternalCaseCategory && !!externalCaseCategoryOptions.length && (
-                            <div className="device-model-popup-wrap">
-                                <button
-                                    type="button"
-                                    className={`device-model-inline-box ${isCaseCategoryPopupOpen ? "on" : ""}`}
-                                    onClick={() => setIsCaseCategoryPopupOpen((p) => !p)}
-                                >
-                                    <span className="device-model-label">케이스 종류</span>
-                                    <span className="device-model-value">
-                                        {selectedFilters.caseCategory || ""}
-                                    </span>
-                                </button>
-
-                                {isCaseCategoryPopupOpen && (
-                                    <div className="device-model-popup-panel">
-                                        <div className="device-popup-header-inline">
-                                            <span className="device-model-label">케이스 종류</span>
-                                            <button
-                                                type="button"
-                                                className="device-popup-close"
-                                                onClick={() => setIsCaseCategoryPopupOpen(false)}
-                                            >✕</button>
-                                        </div>
-
-                                        <ul className="device-model-list">
-                                            {externalCaseCategoryOptions.map((cat) => (
-                                                <li
-                                                    key={cat}
-                                                    className={selectedFilters.caseCategory === cat ? "on" : ""}
-                                                    onClick={() => {
-                                                        setSelectedFilters((prev) => ({
-                                                            ...prev,
-                                                            caseCategory: prev.caseCategory === cat ? "" : cat,
-                                                        }));
-                                                    }}
-                                                >
-                                                    {cat}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-                            </div>
-                        )}
-
-                        {/* 색상 선택 팝업 (케이스 > 디자인 > 컬러) */}
-                        {showColorFilter && !!colorFilterOptions.length && (
-                            <div className="color-chip-filter-wrap">
-                                {colorFilterOptions.map((color) => (
-                                    <button
-                                        key={color}
-                                        type="button"
-                                        className={`color-chip-btn${selectedFilters.colorFilter === color ? " on" : ""}`}
-                                        title={color}
-                                        onClick={() =>
-                                            setSelectedFilters((prev) => ({
-                                                ...prev,
-                                                colorFilter: prev.colorFilter === color ? "" : color,
-                                            }))
-                                        }
-                                    >
-                                        <span
-                                            className="color-chip-circle"
-                                            style={{ backgroundColor: colorMap[color] || "#ddd" }}
-                                        />
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-
-                        {/* 모델 선택 팝업 (phone mini + 콜라보 제외) */}
-                        {mini === "phone" && mainCate !== "colab" && (
-                            <div className="device-model-popup-wrap">
-                                <button
-                                    type="button"
-                                    className={`device-model-inline-box ${isDeviceModelPopupOpen ? "on" : ""}`}
-                                    onClick={() => setIsDeviceModelPopupOpen((p) => !p)}
-                                >
-                                    <span className="device-model-label">모델 선택</span>
-                                    <span className="device-model-value">
-                                        {selectedFilters.model
-                                            ? routeItems.find((i) => i.modelKey === selectedFilters.model)?.modelLabel || "선택됨"
-                                            : "선택 안됨"}
-                                    </span>
-                                </button>
-
-                                {isDeviceModelPopupOpen && (
-                                    <div className="device-model-popup-panel">
-                                        <div className="device-popup-header-inline">
-                                            <div className="device-brand-tabs">
-                                                {["Apple", "Samsung", "Google"].map((brand) => (
-                                                    <button
-                                                        key={brand}
-                                                        className={selectedBrand === brand ? "on" : ""}
-                                                        onClick={() => setSelectedBrand(brand)}
-                                                    >
-                                                        {brand}
-                                                    </button>
-                                                ))}
-                                            </div>
-                                            <button
-                                                type="button"
-                                                className="device-popup-close"
-                                                onClick={() => setIsDeviceModelPopupOpen(false)}
-                                            >✕</button>
-                                        </div>
-
-                                        <ul className="device-model-list">
-                                            {deviceModelOptions.map((model) => (
-                                                <li
-                                                    key={model.key}
-                                                    className={selectedFilters.mㅁodel === model.key ? "on" : ""}
-                                                    onClick={() =>
-                                                        setSelectedFilters((p) => ({
-                                                            ...p,
-                                                            model: p.model === model.key ? "" : model.key,
-                                                        }))
-                                                    }
-                                                >
-                                                    {model.label}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-                            </div>
-                        )}
-
-                        <p className="result-count">총 <strong>{sortedGroups.length}</strong>개</p>
+                <div className="inner">
+                    {/* 브레드크럼 */}
+                    <div className="category-breadcrumb">
+                        <Link to="/">홈</Link>
+                        {currentMain?.name && <><span> &gt; </span><span>{currentMain.name}</span></>}
                     </div>
 
-                    <div className="sort-select-wrap">
-                        <div className={`sort-dropdown${isSortOpen ? " open" : ""}`}>
-                            <button
-                                type="button"
-                                className="sort-dropdown-trigger"
-                                onClick={() => setIsSortOpen((p) => !p)}
-                            >
-                                <span>{SORT_OPTIONS.find((o) => o.key === sort)?.label || "추천순"}</span>
-                                <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 8L1 3h10z" fill="currentColor" />
-                                </svg>
-                            </button>
-                            {isSortOpen && (
-                                <ul className="sort-dropdown-list">
-                                    {SORT_OPTIONS.map((o) => (
-                                        <li
-                                            key={o.key}
-                                            className={sort === o.key ? "on" : ""}
-                                            onClick={() => {
-                                                const next = new URLSearchParams(searchParams);
-                                                next.set("sort", o.key);
-                                                if (mini) next.set("mini", mini);
-                                                setSearchParams(next);
-                                                setIsSortOpen(false);
-                                            }}
-                                        >
-                                            {o.label}
-                                        </li>
+                    {/* 미니 카테고리 슬라이더 */}
+                    {!!visibleMiniItems.length && (
+                        visibleMiniItems.length > 9 ? (
+                            <div className="category-mini-swiper-wrap">
+                                <Swiper
+                                    modules={[Pagination]}
+                                    pagination={{ clickable: true }}
+                                    slidesPerView={9}
+                                    spaceBetween={32}
+                                    loop={visibleMiniItems.length >= 9}
+                                    grabCursor
+                                    className={`category-mini-swiper ${mini ? "has-active" : ""}`}
+                                >
+                                    {visibleMiniItems.map((m, i) => (
+                                        <SwiperSlide key={`${m.key}-${i}`}>
+                                            <CategoryMiniIcon
+                                                miniKey={getMiniIconKey(m)}
+                                                label={m.label}
+                                                isActive={mini === m.key}
+                                                onClick={() => onHandleMiniCategory(m.key)}
+                                            />
+                                        </SwiperSlide>
                                     ))}
-                                </ul>
+                                </Swiper>
+                            </div>
+                        ) : (
+                            <ul className={`category-sub-slider ${mini ? "has-active" : ""}`}>
+                                {visibleMiniItems.map((m, i) => (
+                                    <CategoryMiniIcon
+                                        key={`${m.key}-${i}`}
+                                        miniKey={getMiniIconKey(m)}
+                                        label={m.label}
+                                        isActive={mini === m.key}
+                                        onClick={() => onHandleMiniCategory(m.key)}
+                                    />
+                                ))}
+                            </ul>
+                        )
+                    )}
+
+
+
+                    {/* 상단 필터 / 정렬 바 */}
+                    <div className="category-top-row">
+                        <div className="category-top-left">
+                            <CategoryFilterButton onClick={() => setIsFilterOpen(true)} mainCate={mainCate} />
+
+                            {/* 케이스 종류 선택 팝업 (케이스 > 디자인 > 시그니처) */}
+                            {showExternalCaseCategory && !!externalCaseCategoryOptions.length && (
+                                <div className="device-model-popup-wrap">
+                                    <button
+                                        type="button"
+                                        className={`device-model-inline-box ${isCaseCategoryPopupOpen ? "on" : ""}`}
+                                        onClick={() => setIsCaseCategoryPopupOpen((p) => !p)}
+                                    >
+                                        <span className="device-model-label">케이스 종류</span>
+                                        <span className="device-model-value">
+                                            {selectedFilters.caseCategory || ""}
+                                        </span>
+                                    </button>
+
+                                    {isCaseCategoryPopupOpen && (
+                                        <div className="device-model-popup-panel">
+                                            <div className="device-popup-header-inline">
+                                                <span className="device-model-label">케이스 종류</span>
+                                                <button
+                                                    type="button"
+                                                    className="device-popup-close"
+                                                    onClick={() => setIsCaseCategoryPopupOpen(false)}
+                                                >✕</button>
+                                            </div>
+
+                                            <ul className="device-model-list">
+                                                {externalCaseCategoryOptions.map((cat) => (
+                                                    <li
+                                                        key={cat}
+                                                        className={selectedFilters.caseCategory === cat ? "on" : ""}
+                                                        onClick={() => {
+                                                            setSelectedFilters((prev) => ({
+                                                                ...prev,
+                                                                caseCategory: prev.caseCategory === cat ? "" : cat,
+                                                            }));
+                                                        }}
+                                                    >
+                                                        {cat}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
                             )}
+
+                            {/* 색상 선택 팝업 (케이스 > 디자인 > 컬러) */}
+                            {showColorFilter && !!colorFilterOptions.length && (
+                                <div className="color-chip-filter-wrap">
+                                    {colorFilterOptions.map((color) => (
+                                        <button
+                                            key={color}
+                                            type="button"
+                                            className={`color-chip-btn${selectedFilters.colorFilter === color ? " on" : ""}`}
+                                            title={color}
+                                            onClick={() =>
+                                                setSelectedFilters((prev) => ({
+                                                    ...prev,
+                                                    colorFilter: prev.colorFilter === color ? "" : color,
+                                                }))
+                                            }
+                                        >
+                                            <span
+                                                className="color-chip-circle"
+                                                style={{ backgroundColor: colorMap[color] || "#ddd" }}
+                                            />
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* 모델 선택 팝업 (phone mini + 콜라보 제외) */}
+                            {mini === "phone" && mainCate !== "colab" && (
+                                <div className="device-model-popup-wrap">
+                                    <button
+                                        type="button"
+                                        className={`device-model-inline-box ${isDeviceModelPopupOpen ? "on" : ""}`}
+                                        onClick={() => setIsDeviceModelPopupOpen((p) => !p)}
+                                    >
+                                        <span className="device-model-label">모델 선택</span>
+                                        <span className="device-model-value">
+                                            {selectedFilters.model
+                                                ? routeItems.find((i) => i.modelKey === selectedFilters.model)?.modelLabel || "선택됨"
+                                                : "선택 안됨"}
+                                        </span>
+                                    </button>
+
+                                    {isDeviceModelPopupOpen && (
+                                        <div className="device-model-popup-panel">
+                                            <div className="device-popup-header-inline">
+                                                <div className="device-brand-tabs">
+                                                    {["Apple", "Samsung", "Google"].map((brand) => (
+                                                        <button
+                                                            key={brand}
+                                                            className={selectedBrand === brand ? "on" : ""}
+                                                            onClick={() => setSelectedBrand(brand)}
+                                                        >
+                                                            {brand}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    className="device-popup-close"
+                                                    onClick={() => setIsDeviceModelPopupOpen(false)}
+                                                >✕</button>
+                                            </div>
+
+                                            <ul className="device-model-list">
+                                                {deviceModelOptions.map((model) => (
+                                                    <li
+                                                        key={model.key}
+                                                        className={selectedFilters.mㅁodel === model.key ? "on" : ""}
+                                                        onClick={() =>
+                                                            setSelectedFilters((p) => ({
+                                                                ...p,
+                                                                model: p.model === model.key ? "" : model.key,
+                                                            }))
+                                                        }
+                                                    >
+                                                        {model.label}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            <p className="result-count">총 <strong>{sortedGroups.length}</strong>개</p>
+                        </div>
+
+                        <div className="sort-select-wrap">
+                            <div ref={sortDropdownRef} className={`sort-dropdown${isSortOpen ? " open" : ""}`}>
+                                <button
+                                    type="button"
+                                    className="sort-dropdown-trigger"
+                                    onClick={() => setIsSortOpen((p) => !p)}
+                                >
+                                    <span>{SORT_OPTIONS.find((o) => o.key === sort)?.label || "추천순"}</span>
+                                    <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 8L1 3h10z" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                {isSortOpen && (
+                                    <ul className="sort-dropdown-list">
+                                        {SORT_OPTIONS.map((o) => (
+                                            <li
+                                                key={o.key}
+                                                className={sort === o.key ? "on" : ""}
+                                                onClick={() => {
+                                                    const next = new URLSearchParams(searchParams);
+                                                    next.set("sort", o.key);
+                                                    if (mini) next.set("mini", mini);
+                                                    setSearchParams(next);
+                                                    setIsSortOpen(false);
+                                                }}
+                                            >
+                                                {o.label}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
                     </div>
+
+                    {/* 적용된 필터 태그 */}
+                    {!!appliedTags.length && (
+                        <div className="selected-tags-row">
+                            {appliedTags.map((tag, i) => (
+                                <button
+                                    type="button"
+                                    key={`${tag.type}-${tag.value}-${i}`}
+                                    className="selected-tag"
+                                    onClick={() => removeTag(tag)}
+                                >
+                                    {tag.label} ×
+                                </button>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* 상품 목록 */}
+                    <ul className="category-product-list">
+                        {pagedGroups.map((group) => (
+                            <li key={`${group.productName}-${group.caseCategory}`}>
+                                {renderCard(group)}
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* 페이지네이션 */}
+                    {totalPages > 1 && (
+                        <div className="category-pagination">
+                            <button type="button" onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>&laquo;</button>
+                            <button type="button" onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))} disabled={currentPage === 1}>&lsaquo;</button>
+
+                            {pageNumbers[0] > 1 && (
+                                <>
+                                    <button type="button" onClick={() => setCurrentPage(1)}>1</button>
+                                    {pageNumbers[0] > 2 && <span className="page-ellipsis">…</span>}
+                                </>
+                            )}
+
+                            {pageNumbers.map((n) => (
+                                <button
+                                    type="button"
+                                    key={n}
+                                    className={currentPage === n ? "on" : ""}
+                                    onClick={() => setCurrentPage(n)}
+                                >{n}</button>
+                            ))}
+
+                            {pageNumbers.at(-1) < totalPages && (
+                                <>
+                                    {pageNumbers.at(-1) < totalPages - 1 && <span className="page-ellipsis">…</span>}
+                                    <button type="button" onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
+                                </>
+                            )}
+
+                            <button type="button" onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>&rsaquo;</button>
+                            <button type="button" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>&raquo;</button>
+                        </div>
+                    )}
                 </div>
 
-                {/* 적용된 필터 태그 */}
-                {!!appliedTags.length && (
-                    <div className="selected-tags-row">
-                        {appliedTags.map((tag, i) => (
-                            <button
-                                type="button"
-                                key={`${tag.type}-${tag.value}-${i}`}
-                                className="selected-tag"
-                                onClick={() => removeTag(tag)}
-                            >
-                                {tag.label} ×
-                            </button>
-                        ))}
-                    </div>
-                )}
-
-                {/* 상품 목록 */}
-                <ul className="category-product-list">
-                    {pagedGroups.map((group) => (
-                        <li key={`${group.productName}-${group.caseCategory}`}>
-                            {renderCard(group)}
-                        </li>
-                    ))}
-                </ul>
-
-                {/* 페이지네이션 */}
-                {totalPages > 1 && (
-                    <div className="category-pagination">
-                        <button type="button" onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>&laquo;</button>
-                        <button type="button" onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))} disabled={currentPage === 1}>&lsaquo;</button>
-
-                        {pageNumbers[0] > 1 && (
-                            <>
-                                <button type="button" onClick={() => setCurrentPage(1)}>1</button>
-                                {pageNumbers[0] > 2 && <span className="page-ellipsis">…</span>}
-                            </>
-                        )}
-
-                        {pageNumbers.map((n) => (
-                            <button
-                                type="button"
-                                key={n}
-                                className={currentPage === n ? "on" : ""}
-                                onClick={() => setCurrentPage(n)}
-                            >{n}</button>
-                        ))}
-
-                        {pageNumbers.at(-1) < totalPages && (
-                            <>
-                                {pageNumbers.at(-1) < totalPages - 1 && <span className="page-ellipsis">…</span>}
-                                <button type="button" onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
-                            </>
-                        )}
-
-                        <button type="button" onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>&rsaquo;</button>
-                        <button type="button" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>&raquo;</button>
-                    </div>
-                )}
+                <CategoryFilterPanel
+                    isOpen={isFilterOpen}
+                    onClose={() => setIsFilterOpen(false)}
+                    onApply={handleApplyFilters}
+                    mainCate={mainCate}
+                    currentMain={currentMain}
+                    currentSub={currentSub}
+                    currentMini={mini}
+                    allItems={allItems}
+                    selectedFilters={selectedFilters}
+                />
             </div>
-
-            <CategoryFilterPanel
-                isOpen={isFilterOpen}
-                onClose={() => setIsFilterOpen(false)}
-                onApply={handleApplyFilters}
-                mainCate={mainCate}
-                currentMain={currentMain}
-                currentSub={currentSub}
-                currentMini={mini}
-                allItems={allItems}
-                selectedFilters={selectedFilters}
-            />
-        </div>
         </motion.div>
     );
 }
