@@ -30,6 +30,7 @@ export default function DetailPage({ item }) {
     const [isWished, setIsWished] = useState(false);
     const [selectedBundles, setSelectedBundles] = useState({});
     const [showLoginBanner, setShowLoginBanner] = useState(false) // ✅ 추가
+    const [showCartBanner, setShowCartBanner] = useState(false)   // ✅ 추가
 
     const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
     const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
@@ -175,6 +176,14 @@ export default function DetailPage({ item }) {
         setTimeout(() => {
             setShowLoginBanner(false)
             navigate('/login')
+        }, 1500)
+    }
+
+    // ✅ 옵션 미선택 토스트 표시
+    const showCartAlert = () => {
+        setShowCartBanner(true)
+        setTimeout(() => {
+            setShowCartBanner(false)
         }, 1500)
     }
 
@@ -426,6 +435,14 @@ export default function DetailPage({ item }) {
                                     isOpen={showLoginBanner}
                                     message="로그인후 이용 가능합니다."
                                     onClose={() => setShowLoginBanner(false)}
+                                    duration={1500}
+                                />
+
+                                {/* ✅ 옵션 미선택 토스트 — 로그인 경고와 동일한 디자인 */}
+                                <ToastPopup
+                                    isOpen={showCartBanner}
+                                    message="모든 옵션을 선택해주세요."
+                                    onClose={() => setShowCartBanner(false)}
                                     duration={1500}
                                 />
 
@@ -693,9 +710,8 @@ export default function DetailPage({ item }) {
                                     return;
                                 }
                                 if (!canAddCart) {
-                                    setCartMsg("모든 옵션을 선택해주세요.");
-                                    setIsPopupErr(true);
-                                    setIsCartPopupOpen(true);
+                                    // ✅ 팝업 대신 토스트 배너 표시
+                                    showCartAlert()
                                     return;
                                 }
                                 handleAddCart(item);
@@ -779,9 +795,8 @@ export default function DetailPage({ item }) {
                                         return;
                                     }
                                     if (!canAddCart) {
-                                        setCartMsg("모든 옵션을 선택해주세요.");
-                                        setIsPopupErr(true);
-                                        setIsCartPopupOpen(true);
+                                        // ✅ 팝업 대신 토스트 배너 표시
+                                        showCartAlert()
                                         return;
                                     }
                                     handleBundleAddCart();

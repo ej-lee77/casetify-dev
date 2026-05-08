@@ -37,6 +37,13 @@ const statusBtn = {
     "취소/반품": "" // 이미 취소된 경우 버튼 안 보임
 };
 
+const STATUS_MAP = {
+    1: { text: "취소중", className: "cancel-ing" },
+    2: { text: "취소완료", className: "cancel-done" },
+    3: { text: "교환/반품중", className: "return-ing" },
+    4: { text: "교환/반품완료", className: "return-done" },
+};
+
 const tabs = ['전체', '배송준비중', '배송중', '배송완료', '취소/반품'];
 
 export default function OrderInfo() {
@@ -248,12 +255,22 @@ export default function OrderInfo() {
 
                             {/* 중간: 상품 리스트 (한 주문 내의 상품들) */}
                             <div className="order-items-col">
-                                {displayItems.map((item, idx) => (
+                                {displayItems.map((item, idx) => {
+                                    const statusInfo = STATUS_MAP[item.status];
+                                    return (
                                     <div className="item-row" key={`${order.orderId}-${idx}`}>
                                         <div className="item-img">
                                             <img src={item.imgUrl} alt={item.title} />
                                         </div>
                                         <div className="item-txt">
+                                            <div className="col-check">
+                                            {statusInfo ? (
+                                                // 상태 코드가 (1,2,3,4) 있으면 텍스트 표시
+                                                <span className={`status-badge ${statusInfo.className}`}>
+                                                {statusInfo.text}
+                                                </span>
+                                            ) : ("")}
+                                            </div>
                                             <p className="item-title">{item.title}</p>
                                             <p className="item-option">{item.device && <span>{item.device}</span>}{item.color && <span>{item.color}</span>}</p>
                                         </div>
@@ -262,7 +279,7 @@ export default function OrderInfo() {
                                             <p className="qty">{item.quantity}개</p>
                                         </div>
                                     </div>
-                                ))}
+                                )})}
                                 {/* 3개 이상일 경우 '그 외 몇 개' 표시 */}
                                 {isMoreThanThree && (
                                     <div className="more-items-tag">
