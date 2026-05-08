@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css";
+import "swiper/css/navigation";
 import "../scss/bestProduct.scss"
 import "../scss/custom.scss"
-import { Autoplay } from 'swiper/modules'
+// import { Autoplay } from 'swiper/modules'            // ← autoplay 필요 시 재활성화
+import { Navigation } from 'swiper/modules'
 import SectionTitle from '../SectionTitle';
 import SlideInSection from '../SlideInSection';
 import FadeInSection from '../FadeInSection';
@@ -59,25 +61,36 @@ export default function Custom() {
                 <div className="all">
                     <div className="left">
                         <SlideInSection direction="left" delay={0.4} className='w-100'>
-                        <div className="cu-swiper-wrap">
-                            <Swiper
-                                modules={[Autoplay]}
-                                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                                loop={true}
-                                onSlideChange={(swiper) => { setActiveIndex(swiper.realIndex); }}
-                            >
-                                <SwiperSlide><img src={slide1.src} alt={slide1.alt} /></SwiperSlide>
-                                <SwiperSlide><img src={slide2.src} alt={slide2.alt} /></SwiperSlide>
-                            </Swiper>
-                            <div className="cu-slide-counter">
-                                {String(activeIndex + 1).padStart(2, '0')} / {String(CUmain.length).padStart(2, '0')}
+                            <div className="cu-swiper-wrap">
+                                <Swiper
+                                    modules={[Navigation]}
+                                    navigation={{
+                                        nextEl: ".cu-btn-next",
+                                        prevEl: ".cu-btn-prev",
+                                    }}
+                                    grabCursor={true}
+                                    loop={true}
+                                    onSlideChange={(swiper) => { setActiveIndex(swiper.realIndex); }}
+                                >
+                                    <SwiperSlide><img src={slide1.src} alt={slide1.alt} /></SwiperSlide>
+                                    <SwiperSlide><img src={slide2.src} alt={slide2.alt} /></SwiperSlide>
+                                </Swiper>
+                                <button className="cu-btn-prev cu-nav-btn" type="button" aria-label="이전">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+                                </button>
+                                <button className="cu-btn-next cu-nav-btn" type="button" aria-label="다음">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                                </button>
+                                <div className="cu-slide-counter">
+                                    {String(activeIndex + 1).padStart(2, '0')} / {String(CUmain.length).padStart(2, '0')}
+                                </div>
+
                             </div>
-                        </div>
                         </SlideInSection>
                     </div>
                     <div className="right">
                         {/* <FadeInSection direction="up" delay={0.2}> */}
-                            <SectionTitle title="Customize Your Case" subtitle="케이스티파이에서 나만의 케이스를 제작해보세요" />
+                        <SectionTitle title="Customize Your Case" subtitle="케이스티파이에서 나만의 케이스를 제작해보세요" />
                         {/* </FadeInSection> */}
                         <SlideInSection direction="right" delay={0.4} className='w-100'>
                             <ul>

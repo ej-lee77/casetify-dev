@@ -239,7 +239,7 @@ export default function Gift() {
           </div>
 
           <div className="gift-faq-wrap">
-            <h2>자주 묻는 질문</h2>
+            <h2>자주 묻는 질문(FAQ)</h2>
             <div className="faq-list">
               {faqList.map((item, idx) => (
                 <div key={idx} className={`faq-item ${openIndex === idx ? 'open' : ''}`}>
