@@ -114,11 +114,34 @@
     overflow: hidden;
 
     .card-img {
+        position: relative;
         transition: none;
+
+        // 두 이미지 겹침으로 JS state 없이 hover 이미지 전환
+        .img-main {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: opacity 0.25s ease;
+        }
+
+        .img-hover {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
     }
 
-    &.hovered .card-img {
-        transform: none;
+    &:hover .card-img .img-main {
+        opacity: 0;
+    }
+
+    &:hover .card-img .img-hover {
+        opacity: 1;
     }
 
     // 하트 - 항상 우측 상단에 표시
@@ -195,7 +218,7 @@
         }
     }
 
-    &.hovered .card-hover-actions {
+    &:hover .card-hover-actions {
         opacity: 1;
         transform: translateY(0);
     }

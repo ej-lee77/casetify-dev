@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "./scss/CategoryPage.scss";
 
@@ -13,9 +13,9 @@ import EmptyState from "../components/sub/EmptyState"
 import { motion } from 'framer-motion';
 
 const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 // ─────────────────────────────────────────────
@@ -102,6 +102,18 @@ export default function SearchPage() {
     const [isSortOpen, setIsSortOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedFilters, setSelectedFilters] = useState(INITIAL_FILTERS);
+    const sortDropdownRef = useRef(null);
+
+    // 드롭다운 외부 클릭 시 닫기
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (sortDropdownRef.current && !sortDropdownRef.current.contains(e.target)) {
+                setIsSortOpen(false);
+            }
+        };
+        if (isSortOpen) document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [isSortOpen]);
 
     const isImageSearch = useMemo(() => keyword.toLowerCase() === "img", [keyword]);
 
@@ -217,160 +229,160 @@ export default function SearchPage() {
     // JSX
     // ─────────────────────────────────────────
     return (
-    <motion.div
-    variants={fadeVariants}
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    transition={{ duration: 0.4 }}
-    >
-        <div className="sub-page-wrap category-wrap">
-            <div className="inner">
-                {/* 브레드크럼 */}
-                <div className="category-breadcrumb">
-                    <Link to="/">홈</Link>
-                    <span> &gt; </span>
-                    <span>검색 결과</span>
-                </div>
-
-                {/* 검색어 헤더 */}
-                <div className="search-page-header">
-                    <h2 className="search-page-keyword">
-                        {isImageSearch ? (
-                            `이미지 검색 결과`
-                        ) : (
-                            `"${keyword}"`
-                        )}
-                    </h2>
-                    <p className="search-page-count">
-                        총 <strong>{sortedGroups.length}</strong>개의 상품
-                    </p>
-                </div>
-
-                {/* 상단 필터 / 정렬 바 */}
-                <div className="category-top-row">
-                    <div className="category-top-left">
-                        <CategoryFilterButton onClick={() => setIsFilterOpen(true)} />
-                        {/* <p className="result-count">총 <strong>{sortedGroups.length}</strong>개</p> */}
+        <motion.div
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
+        >
+            <div className="sub-page-wrap category-wrap">
+                <div className="inner">
+                    {/* 브레드크럼 */}
+                    <div className="category-breadcrumb">
+                        <Link to="/">홈</Link>
+                        <span> &gt; </span>
+                        <span>검색 결과</span>
                     </div>
-                    <div className="sort-select-wrap">
-                        <div className={`sort-dropdown${isSortOpen ? " open" : ""}`}>
-                            <button
-                                type="button"
-                                className="sort-dropdown-trigger"
-                                onClick={() => setIsSortOpen((p) => !p)}
-                            >
-                                <span>{SORT_OPTIONS.find((o) => o.key === sort)?.label || "추천순"}</span>
-                                <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 8L1 3h10z" fill="currentColor" />
-                                </svg>
-                            </button>
-                            {isSortOpen && (
-                                <ul className="sort-dropdown-list">
-                                    {SORT_OPTIONS.map((o) => (
-                                        <li
-                                            key={o.key}
-                                            className={sort === o.key ? "on" : ""}
-                                            onClick={() => {
-                                                const next = new URLSearchParams(searchParams);
-                                                next.set("sort", o.key);
-                                                setSearchParams(next);
-                                                setIsSortOpen(false);
-                                            }}
-                                        >
-                                            {o.label}
-                                        </li>
-                                    ))}
-                                </ul>
+
+                    {/* 검색어 헤더 */}
+                    <div className="search-page-header">
+                        <h2 className="search-page-keyword">
+                            {isImageSearch ? (
+                                `이미지 검색 결과`
+                            ) : (
+                                `"${keyword}"`
                             )}
+                        </h2>
+                        <p className="search-page-count">
+                            총 <strong>{sortedGroups.length}</strong>개의 상품
+                        </p>
+                    </div>
+
+                    {/* 상단 필터 / 정렬 바 */}
+                    <div className="category-top-row">
+                        <div className="category-top-left">
+                            <CategoryFilterButton onClick={() => setIsFilterOpen(true)} />
+                            {/* <p className="result-count">총 <strong>{sortedGroups.length}</strong>개</p> */}
+                        </div>
+                        <div className="sort-select-wrap">
+                            <div ref={sortDropdownRef} className={`sort-dropdown${isSortOpen ? " open" : ""}`}>
+                                <button
+                                    type="button"
+                                    className="sort-dropdown-trigger"
+                                    onClick={() => setIsSortOpen((p) => !p)}
+                                >
+                                    <span>{SORT_OPTIONS.find((o) => o.key === sort)?.label || "추천순"}</span>
+                                    <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 8L1 3h10z" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                {isSortOpen && (
+                                    <ul className="sort-dropdown-list">
+                                        {SORT_OPTIONS.map((o) => (
+                                            <li
+                                                key={o.key}
+                                                className={sort === o.key ? "on" : ""}
+                                                onClick={() => {
+                                                    const next = new URLSearchParams(searchParams);
+                                                    next.set("sort", o.key);
+                                                    setSearchParams(next);
+                                                    setIsSortOpen(false);
+                                                }}
+                                            >
+                                                {o.label}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
                     </div>
+
+                    {/* 적용된 필터 태그 */}
+                    {!!appliedTags.length && (
+                        <div className="selected-tags-row">
+                            {appliedTags.map((tag, i) => (
+                                <button
+                                    type="button"
+                                    key={`${tag.type}-${tag.value}-${i}`}
+                                    className="selected-tag"
+                                    onClick={() => removeTag(tag)}
+                                >
+                                    {tag.label} ×
+                                </button>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* 상품 목록 or 결과 없음 */}
+                    {sortedGroups.length > 0 ? (
+                        <ul className="category-product-list">
+                            {pagedGroups.map((group) => (
+                                <li key={`${group.productName}-${group.caseCategory}`}>
+                                    {renderCard(group)}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <EmptyState
+                            icon="?"
+                            strong={isImageSearch ? "이미지 분석 결과" : `"${keyword}"`}
+                            title="에 대한 검색 결과가 없습니다."
+                            desc="다른 검색어로 다시 시도해 보세요."
+                            btnText="홈으로 돌아가기"
+                            btnLink="/"
+                        />
+                    )}
+
+                    {/* 페이지네이션 */}
+                    {totalPages > 1 && (
+                        <div className="category-pagination">
+                            <button type="button" onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>&laquo;</button>
+                            <button type="button" onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))} disabled={currentPage === 1}>&lsaquo;</button>
+
+                            {pageNumbers[0] > 1 && (
+                                <>
+                                    <button type="button" onClick={() => setCurrentPage(1)}>1</button>
+                                    {pageNumbers[0] > 2 && <span className="page-ellipsis">…</span>}
+                                </>
+                            )}
+
+                            {pageNumbers.map((n) => (
+                                <button
+                                    type="button"
+                                    key={n}
+                                    className={currentPage === n ? "on" : ""}
+                                    onClick={() => setCurrentPage(n)}
+                                >{n}</button>
+                            ))}
+
+                            {pageNumbers.at(-1) < totalPages && (
+                                <>
+                                    {pageNumbers.at(-1) < totalPages - 1 && <span className="page-ellipsis">…</span>}
+                                    <button type="button" onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
+                                </>
+                            )}
+
+                            <button type="button" onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>&rsaquo;</button>
+                            <button type="button" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>&raquo;</button>
+                        </div>
+                    )}
                 </div>
 
-                {/* 적용된 필터 태그 */}
-                {!!appliedTags.length && (
-                    <div className="selected-tags-row">
-                        {appliedTags.map((tag, i) => (
-                            <button
-                                type="button"
-                                key={`${tag.type}-${tag.value}-${i}`}
-                                className="selected-tag"
-                                onClick={() => removeTag(tag)}
-                            >
-                                {tag.label} ×
-                            </button>
-                        ))}
-                    </div>
-                )}
-
-                {/* 상품 목록 or 결과 없음 */}
-                {sortedGroups.length > 0 ? (
-                    <ul className="category-product-list">
-                        {pagedGroups.map((group) => (
-                            <li key={`${group.productName}-${group.caseCategory}`}>
-                                {renderCard(group)}
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <EmptyState
-                        icon="?"
-                        strong={isImageSearch ? "이미지 분석 결과" : `"${keyword}"`}
-                        title="에 대한 검색 결과가 없습니다."
-                        desc="다른 검색어로 다시 시도해 보세요."
-                        btnText="홈으로 돌아가기"
-                        btnLink="/"
-                    />
-                )}
-
-                {/* 페이지네이션 */}
-                {totalPages > 1 && (
-                    <div className="category-pagination">
-                        <button type="button" onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>&laquo;</button>
-                        <button type="button" onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))} disabled={currentPage === 1}>&lsaquo;</button>
-
-                        {pageNumbers[0] > 1 && (
-                            <>
-                                <button type="button" onClick={() => setCurrentPage(1)}>1</button>
-                                {pageNumbers[0] > 2 && <span className="page-ellipsis">…</span>}
-                            </>
-                        )}
-
-                        {pageNumbers.map((n) => (
-                            <button
-                                type="button"
-                                key={n}
-                                className={currentPage === n ? "on" : ""}
-                                onClick={() => setCurrentPage(n)}
-                            >{n}</button>
-                        ))}
-
-                        {pageNumbers.at(-1) < totalPages && (
-                            <>
-                                {pageNumbers.at(-1) < totalPages - 1 && <span className="page-ellipsis">…</span>}
-                                <button type="button" onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
-                            </>
-                        )}
-
-                        <button type="button" onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>&rsaquo;</button>
-                        <button type="button" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>&raquo;</button>
-                    </div>
-                )}
+                {/* 필터 패널 */}
+                <CategoryFilterPanel
+                    isOpen={isFilterOpen}
+                    onClose={() => setIsFilterOpen(false)}
+                    onApply={handleApplyFilters}
+                    mainCate="search"
+                    currentMain={null}
+                    currentSub={null}
+                    currentMini=""
+                    allItems={keywordFilteredItems}
+                    selectedFilters={selectedFilters}
+                />
             </div>
-
-            {/* 필터 패널 */}
-            <CategoryFilterPanel
-                isOpen={isFilterOpen}
-                onClose={() => setIsFilterOpen(false)}
-                onApply={handleApplyFilters}
-                mainCate="search"
-                currentMain={null}
-                currentSub={null}
-                currentMini=""
-                allItems={keywordFilteredItems}
-                selectedFilters={selectedFilters}
-            />
-        </div>
-    </motion.div>
+        </motion.div>
     );
 }
