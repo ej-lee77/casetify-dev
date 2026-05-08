@@ -28,6 +28,7 @@ import Store from './pages/Store'
 import ProductCustomizePage from './pages/custom/ProductCustomizePage'
 import Gift from './pages/Gift'
 import BrandAuthentication from './pages/BrandAuthentication'
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
   const { pathname } = useLocation();
@@ -78,10 +79,10 @@ function App() {
         <Route path='/join/mail' element={<JoinMail />} />
         <Route path='/join/complete' element={<JoinComplete />} />
 
-        <Route path='/mypage' element={<Mypage />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/payment' element={<Payment />} />
-        <Route path='/payment/complete' element={<PayComplete />} />
+        <Route path='/mypage' element={<PrivateRoute><Mypage /></PrivateRoute>} />
+        <Route path='/cart' element={<PrivateRoute><Cart /></PrivateRoute>} />
+        <Route path='/payment' element={<PrivateRoute><Payment /></PrivateRoute>} />
+        <Route path='/payment/complete' element={<PrivateRoute><PayComplete /></PrivateRoute>} />
 
         <Route path='/brand/casetify' element={<BrandCasetify />} />
         <Route path='/brand/qna' element={<BrandQna />} />
