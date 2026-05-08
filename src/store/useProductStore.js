@@ -21,13 +21,12 @@ export const useProductStore = create((set, get) => ({
         set((state) => {
             const text = (keyword ?? state.searchWord).trim();
             if (!text) return {};
+            // 중복 검색어 제거 후 맨 앞에 추가
+            const filtered = state.searchWordList.filter((s) => s.text !== text);
             return {
-                searchWordList: [...state.searchWordList, {
-                    id: Date.now(),
-                    text
-                }],
+                searchWordList: [{ id: Date.now(), text }, ...filtered].slice(0, 10),
                 pendingSearch: text,
-                searchWord: ""
+                // searchWord는 초기화하지 않아 검색창 재열었을 때 이전 검색어 유지
             };
         })
     },

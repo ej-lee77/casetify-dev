@@ -9,6 +9,7 @@ import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
 import { useAuthStore } from "../../../store/useAuthStore";
 import ConfirmModal from "../../ConfirmModal";
 import ToastPopup from "../../Toastpopup";
+import Breadcrumb from "../../Breadcrumb";
 
 export default function DetailPage({ item }) {
 
@@ -421,11 +422,21 @@ export default function DetailPage({ item }) {
 
 
     // ==================== RENDER ====================
+    const MAIN_CATE_LABEL = { case: '케이스', accessory: '악세서리', travel: '트래블', colab: '콜라보', giftcard: '기프트카드' };
+    const mainCateKey = item?.mainCategory?.[0];
+    const mainCateLabel = MAIN_CATE_LABEL[mainCateKey] || '';
+
     return (
         <>
             <section className="detail-page">
                 <div className="detail-inner">
                     <div className="detail-left">
+                        {/* 브레드크럼 */}
+                        <Breadcrumb items={[
+                            { label: '홈', to: '/' },
+                            ...(mainCateLabel ? [{ label: mainCateLabel, to: `/category/${mainCateKey}` }] : []),
+                            { label: item?.productName || '' }
+                        ]} />
                         <div className="detail-image-wrap">
                             <div className="detail-main-image" style={{ position: "relative" }}>
                                 <img src={mainImage} alt={item.productName} />
