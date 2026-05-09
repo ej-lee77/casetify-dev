@@ -262,6 +262,22 @@
             #9fa4ea 100%);
 }
 
+/* 기프트카드 */
+
+.category-hero-casetify-giftcard {
+    background:
+        linear-gradient(90deg,
+            #f0e2f3 0%,
+            #f0cffd 100%);
+
+    h2{
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        font-weight: 400;
+    }
+}
+
 /* =========================
    MOBILE
 ========================= */

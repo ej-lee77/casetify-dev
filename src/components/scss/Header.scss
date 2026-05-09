@@ -22,6 +22,8 @@ header.white {
         align-items: center;
     }
 
+    .user-icon::after,
+    .logout-icon::after,
     .mypage-icon::after {
         color: #fff !important;
     }
