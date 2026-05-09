@@ -443,7 +443,7 @@ export const useAuthStore = create(
         onLogout: async () => {
             try {
                 await signOut(auth);
-                set({ user: null });
+                set({ user: null, cart: [] });
                 return true;
             } catch (err) {
                 console.error('로그아웃 오류:', err);

@@ -2,23 +2,30 @@
 
 .giftcard-page {
 
-    .sub-page-wrap {
-        margin: 150px 0 40px;
+    .category-hero-text .h2{
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        font-weight: 400;
     }
 
-    .gift-title {
-        text-align: center;
+    // .sub-page-wrap {
+    //     margin: 150px 0 40px;
+    // }
 
-        h2 {
-            font-size: 2.5rem;
-        }
+    // .gift-title {
+    //     text-align: center;
 
-        p {
-            font-family: "Pretendard", sans-serif;
-            font-weight: 300;
-            font-size: 1.25rem;
-        }
-    }
+    //     h2 {
+    //         font-size: 2.5rem;
+    //     }
+
+    //     p {
+    //         font-family: "Pretendard", sans-serif;
+    //         font-weight: 300;
+    //         font-size: 1.25rem;
+    //     }
+    // }
 
     .banner-wrap {
         padding-bottom: 40px;
@@ -45,7 +52,7 @@
 
                 >p:first-child {
                     font-size: 24px;
-                    font-weight: 700;
+                    font-weight: 500;
                     width: 100%;
                     text-align: center;
                     line-height: 1;
@@ -78,7 +85,7 @@
 
                     >p:first-child {
                         font-size: 20px;
-                        font-weight: 700;
+                        font-weight: 500;
                         text-align: center;
                         margin: 0;
                     }
@@ -89,7 +96,7 @@
                         border: none;
                         padding: 14px 36px;
                         font-size: 16px;
-                        font-weight: 600;
+                        font-weight: 500;
                         cursor: pointer;
 
                         &:hover {
@@ -310,7 +317,7 @@
         font-family: "Pretendard";
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 24px;
         }
