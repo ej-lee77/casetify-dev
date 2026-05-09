@@ -70,7 +70,8 @@ export default function TabWrap({ item }) {
                     className={active === 1 ? "active" : ""}
                     onClick={() => handleClick(1)}
                 >
-                    상품 평<span>(스코어)</span>
+                    {/* 상품 평<span>(스코어)</span> */}
+                    고객 리뷰
                 </li>
 
                 <li
@@ -84,7 +85,8 @@ export default function TabWrap({ item }) {
                     className={active === 3 ? "active" : ""}
                     onClick={() => handleClick(3)}
                 >
-                    배송/교환/반품 안내
+                    {/* 배송/교환/반품 안내 */}
+                    배송관련 FAQ
                 </li>
             </ul>
 

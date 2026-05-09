@@ -21,7 +21,7 @@ export default function LoginFindId() {
     const { content } = useParams(); //id이면 아이디 찾기, pass면 비밀번호 찾기
     const [findEmail, setFindEmail] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isJoin, setIsJoin] = useState("");
+    // const [isJoin, setIsJoin] = useState("");
 
     const [formData, setFormData] = useState({
         username: "",
@@ -112,10 +112,11 @@ export default function LoginFindId() {
             return;
         }
 
+        let isJoin = "";
         if (content === "id") {
-            setIsJoin(await onFindId(formData));
+            isJoin = await onFindId(formData);
         } else {
-            setIsJoin(await onFindPass(formData));
+            isJoin = await onFindPass(formData);
         }
 
         if (isJoin === false) {
@@ -201,11 +202,13 @@ export default function LoginFindId() {
                         </div>
                     </form>
                     {isModalOpen && (
-                        <div className="modal-overlay">
-                            <div className="modal-content">
-                                {content === 'id' ? <p>입력한 정보와 일치하는 아이디입니다.</p> : ""}
-                                <p>{findEmail}</p>
-                                <Link to="/login"><button className='input-btn'>로그인으로 이동하기</button></Link>
+                        <div className='modal-wrap'>
+                            <div className="modal-overlay">
+                                <div className="modal-content">
+                                    {content === 'id' ? <p>입력한 정보와 일치하는 아이디입니다.</p> : ""}
+                                    <p>{findEmail}</p>
+                                    <Link to="/login"><button className='input-btn'>로그인으로 이동하기</button></Link>
+                                </div>
                             </div>
                         </div>
                     )}

@@ -88,7 +88,7 @@ const handleDeleteReview = (targetReview) => {
 
     return (
         <div className="review">
-            <h3>고객리뷰</h3>
+            <h3>고객 리뷰</h3>
 
             <div className="review-star">
                 <div className="left">
