@@ -37,7 +37,7 @@ export default function Change() {
 
     return (
         <div className="change">
-            <h3>배송관련</h3>
+            <h3>배송관련 FAQ</h3>
 
             <div className="top-btns">
                 {FAQ_CATEGORIES.map((cat) => (

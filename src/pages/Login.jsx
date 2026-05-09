@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { div } from 'framer-motion/client';
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -234,17 +235,19 @@ export default function Login() {
             </div>
         </div>
         {isModalOpen && (
-          <div className="modal-overlay">
-            <div className="modal-content">
-              {emailVerified ? 
-                (<><p>인증 이메일이 재발송되었습니다.</p>
-                <p>계정을 활성화하려면 인증 이메일을 확인해주세요.</p>
-                <button className='input-btn' onClick={() => setIsModalOpen(false)}>닫기</button></>)
-              :
-                (<><p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
-                {birthMsg !== null ? (<><p>{birthMsg}</p><p>곧 이동합니다...</p></>) : (<p>곧 홈으로 이동합니다...</p>)}
-                </>)
-              }
+          <div className='modal-wrap'>
+            <div className="modal-overlay">
+              <div className="modal-content">
+                {emailVerified ? 
+                  (<><p>인증 이메일이 재발송되었습니다.</p>
+                  <p>계정을 활성화하려면 인증 이메일을 확인해주세요.</p>
+                  <button className='input-btn' onClick={() => setIsModalOpen(false)}>닫기</button></>)
+                :
+                  (<><p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
+                  {birthMsg !== null ? (<><p>{birthMsg}</p><p>곧 이동합니다...</p></>) : (<p>곧 홈으로 이동합니다...</p>)}
+                  </>)
+                }
+              </div>
             </div>
           </div>
         )}
