@@ -77,6 +77,7 @@ export default function Gift() {
       colorList: [],
       deviceList: [],
       isPhone: false,
+      isWish: true,
       deviceBrand: '-',
       caseCategory: 'gift',
       toName,

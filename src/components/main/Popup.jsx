@@ -1,39 +1,57 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
 import "../scss/Popup.scss"
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Popup({ id, imageUrl, link }) {
-    const [showPopup1, setShowPopup1] = useState(false);
-    const [showPopup2, setShowPopup2] = useState(false);
+export default function Popup() {
+    // 현재 보여줄 팝업의 ID (null, 'shipping', 'membership')
+    const [activePopup, setActivePopup] = useState(null);
+    const [isClosing, setIsClosing] = useState(false); // 닫히는 중인지 확인하는 상태
 
     useEffect(() => {
+        // (기존 랜덤 로직 동일...)
         const now = new Date().getTime();
-        
-        // 팝업 1 상태 체크
+        const availablePopups = [];
         const hide1 = localStorage.getItem('popup_hidden_shipping');
-        if (!hide1 || now > parseInt(hide1)) setShowPopup1(true);
-
-        // 팝업 2 상태 체크
+        if (!hide1 || now > parseInt(hide1)) availablePopups.push('shipping');
         const hide2 = localStorage.getItem('popup_hidden_membership');
-        if (!hide2 || now > parseInt(hide2)) setShowPopup2(true);
+        if (!hide2 || now > parseInt(hide2)) availablePopups.push('membership');
+
+        if (availablePopups.length > 0) {
+            const randomIndex = Math.floor(Math.random() * availablePopups.length);
+            setActivePopup(availablePopups[randomIndex]);
+        }
     }, []);
 
-    // 오늘 하루 열지 않기 로직 (공통)
     const hideToday = (id) => {
         const midnight = new Date().setHours(23, 59, 59, 999);
         localStorage.setItem(`popup_hidden_${id}`, midnight.toString());
-        if (id === 'shipping') setShowPopup1(false);
-        if (id === 'membership') setShowPopup2(false);
+        handleClose(); // 팝업 닫기
     };
 
-    // 둘 다 닫혔으면 오버레이 자체를 렌더링하지 않음
-    if (!showPopup1 && !showPopup2) return null;
+    // 닫기 실행 함수
+    const handleClose = (id, isPermanent = false) => {
+        setIsClosing(true); // 닫기 애니메이션 시작
+        
+        // 애니메이션 시간(0.3초) 후에 실제로 DOM에서 제거
+        setTimeout(() => {
+            if (isPermanent) {
+                const midnight = new Date().setHours(23, 59, 59, 999);
+                localStorage.setItem(`popup_hidden_${id}`, midnight.toString());
+            }
+            setActivePopup(null);
+            setIsClosing(false);
+        }, 300);
+    };
+
+    // 활성화된 팝업이 없으면 아무것도 렌더링하지 않음
+    if (!activePopup) return null;
+
     return (
-        <div className="main-popup-overlay">
+        <div className={`main-popup-overlay ${isClosing ? 'fade-out' : ''}`}>
             <div className="popup-flex-container">
                 
                 {/* 팝업 1: 무료 배송 */}
-                {showPopup1 && (
+                {activePopup === 'shipping' && (
                     <div className="main-popup-content">
                         <Link className="popup-link-area">
                             <div className="popup-body">
@@ -53,7 +71,7 @@ export default function Popup({ id, imageUrl, link }) {
                         <div className="popup-footer">
                             <button onClick={() => hideToday('shipping')}>오늘 하루 열지않기</button>
                             <span className="divider">|</span>
-                            <button onClick={() => setShowPopup1(false)} className="close-btn">
+                            <button onClick={() => handleClose()} className="close-btn">
                                 <img src="/images/icon/close.svg" alt="닫기" />
                             </button>
                         </div>
@@ -61,7 +79,7 @@ export default function Popup({ id, imageUrl, link }) {
                 )}
 
                 {/* 팝업 2: 멤버십 */}
-                {showPopup2 && (
+                {activePopup === 'membership' && (
                     <div className="main-popup-content">
                         <Link to="/login" className="popup-link-area">
                             <div className="popup-body">
@@ -80,7 +98,7 @@ export default function Popup({ id, imageUrl, link }) {
                         <div className="popup-footer">
                             <button onClick={() => hideToday('membership')}>오늘 하루 열지않기</button>
                             <span className="divider">|</span>
-                            <button onClick={() => setShowPopup2(false)} className="close-btn">
+                            <button onClick={() => handleClose()} className="close-btn">
                                 <img src="/images/icon/close.svg" alt="닫기" />
                             </button>
                         </div>
@@ -89,5 +107,5 @@ export default function Popup({ id, imageUrl, link }) {
 
             </div>
         </div>
-    )
+    );
 }
