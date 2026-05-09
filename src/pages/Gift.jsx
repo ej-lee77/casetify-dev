@@ -8,6 +8,7 @@ import ActionPopup from '../components/sub/product detail page/ActionPopup'
 import { motion } from 'framer-motion';
 import { FAQ_LIST } from '../data/QnaData';
 import ToastPopup from '../components/Toastpopup';
+import CategoryHero from '../components/sub/CategoryHero'
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -77,6 +78,7 @@ export default function Gift() {
       colorList: [],
       deviceList: [],
       isPhone: false,
+      isWish: true,
       deviceBrand: '-',
       caseCategory: 'gift',
       toName,
@@ -111,12 +113,18 @@ export default function Gift() {
         transition={{ duration: 0.4 }}
       >
         <div className="giftcard-page">
-          <div className='sub-page-wrap'>
+          <CategoryHero
+              mainCate={"casetify"}
+              subCate={"giftcard"}
+              mainCateKo={"디지털 기프트 카드"}
+              subCateKo={"디지털 기프트 카드"}
+          />
+          {/* <div className='sub-page-wrap'>
             <div className='gift-title'>
               <h2>디지털 기프트 카드</h2>
               <p>한 장의 카드로 전하는 무궁무진한 선물!</p>
             </div>
-          </div>
+          </div> */}
 
           <div className='banner-wrap'>
             <div className="gift-card-wrap">
