@@ -80,7 +80,7 @@ export default function Store() {
 
   useEffect(() => {
     setArea(["전체", ...new Set(studioPosData.map(item => item.storeArea))])
-    console.log("지도내역", areas)
+    // console.log("지도내역", areas)
   }, [])
 
   // ############## 현 위치값 가져오기

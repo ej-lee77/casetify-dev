@@ -70,6 +70,10 @@ const HERO_TEXT_MAP = {
         title: "스포츠",
         subtitle: "팀과 스포츠 감성을 담은 디자인",
     },
+    "casetify-giftcard": {
+        title: "디지털 기프트 카드",
+        subtitle: "한 장의 카드로 전하는 무궁무진한 선물!",
+    },
 };
 
 export default function CategoryHero({ mainCate, subCate, mainCateKo, subCateKo }) {

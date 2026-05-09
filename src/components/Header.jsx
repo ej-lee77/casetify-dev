@@ -6,12 +6,14 @@ import { useMainSlider } from '../store/useMainSlider';
 import { useAuthStore } from '../store/useAuthStore';
 import SearchOverlay from './SearchOverlay';
 import ToastPopup from './Toastpopup';
+import CircularOverlay from './CircularOverlay';
 
 export default function Header() {
   const { mainMenuList, isSearchOpen, onToggleSearch, onCloseSearch } = useProductStore();
   const { user, onLogout, cart, onFetchCart } = useAuthStore();
   const [MenuActive, setMenuActive] = useState(null);
   const [loginToastOpen, setLoginToastOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -61,10 +63,14 @@ export default function Header() {
   }, [isHome]);
 
   const handleLogout = async () => {
+    setIsLoading(true);
     const isLogout = await onLogout();
 
     if (isLogout) {
-      navigate("/");
+      setTimeout(()=>{
+        navigate("/");
+        setIsLoading(false);
+      }, 1500);
     }
   }
 
@@ -155,6 +161,9 @@ export default function Header() {
         </div>
       </header>
       <SearchOverlay isActive={isSearchOpen} onClose={onCloseSearch} />
+      {isLoading ? (
+      <CircularOverlay />
+      ) : ("")}
       <ToastPopup
         isOpen={loginToastOpen}
         message="로그인 후 이용 가능합니다."
