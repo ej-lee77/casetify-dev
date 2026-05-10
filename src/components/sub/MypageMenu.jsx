@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./scss/MypageMenu.scss"
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/useAuthStore';
+import CircularOverlay from '../CircularOverlay';
 
 // 마이페이지 메뉴 데이터
 const mypageMenuData = [
@@ -18,13 +19,18 @@ export default function MypageMenu({ sendSelect, selectMenu }) {
     const [hoverId, setHoverId] = useState(null);
     const { onLogout } = useAuthStore();
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleLogout = async () => {
-        const isLogout = await onLogout();
-
-        if (isLogout) {
-            navigate("/");
-        }
+        setIsLoading(true);
+        
+        setTimeout(async()=>{
+            const isLogout = await onLogout();
+            if (isLogout) {
+                navigate("/");
+                setIsLoading(false);
+            }
+        }, 1500);
     }
 
     const handleCertify = ()=>{
@@ -64,6 +70,9 @@ export default function MypageMenu({ sendSelect, selectMenu }) {
                 }
                 )}
             </ul>
+            {isLoading ? (
+            <CircularOverlay />
+            ) : ("")}
         </>
     )
 }
