@@ -1,6 +1,5 @@
 import React from 'react'
 
-// ── 베이스 경로 ───────────────────────────────────
 const PHONE_BASE_MAP = {
     'impact': '/images/custom/model/impact',
     'magsafe-bounce': '/images/custom/model/bounce',
@@ -9,118 +8,51 @@ const PHONE_BASE_MAP = {
 const IPAD_BASE = '/images/custom/model/ipad'
 const LAPTOP_BASE = '/images/custom/model/macbook'
 
-// ── impact 파일명 ─────────────────────────────────
 const MODEL_FILE_MAP = {
-    // ── iPhone ──
-    'iphone17promax': null,
-    'iphone17pro': 'iphone17pro',
-    'iphone17': 'IPHONE17',
-    'iphone16promax': null,
-    'iphone16pro': 'iphone16pro',
-    'iphone16': 'IPHONE16',
-    'iphone15pro': 'iphone15pro',
-    'iphone15': 'IPHONE15',
-    'iphone14plus': null,
-    'iphone13promax': null,
-    'iphoneMini': null,
-    // ── Samsung ──
-    's25ultra': null,
-    's25plus': 'GALAXYS25PLUS',
-    's25': 'galxeys25',
-    's26plus': 'galxeys26plus',
-    's26': 'galxeys26',
-    's24': null,
-    'z6fold': 'galxeysZfold6',
-    'z6flip': 'ZFLIP6',
-    'z7fold': 'galxeysZfold7',
-    'z7flip': 'ZFLIP7',
-    // ── Pixel ──
-    'pixel9pro': 'GOOGLEPRO9',
-    'pixel9': 'GOOGLE9',
-    'pixel8pro': null,
-    'pixel10pro': 'pixel10pro',
-    'pixel10': 'pixel10',
+    'iphone17promax': null, 'iphone17pro': 'iphone17pro', 'iphone17': 'IPHONE17',
+    'iphone16promax': null, 'iphone16pro': 'iphone16pro', 'iphone16': 'IPHONE16',
+    'iphone15pro': 'iphone15pro', 'iphone15': 'IPHONE15',
+    'iphone14plus': null, 'iphone13promax': null, 'iphoneMini': null,
+    's25ultra': null, 's25plus': 'GALAXYS25PLUS', 's25': 'galxeys25',
+    's26plus': 'galxeys26plus', 's26': 'galxeys26', 's24': null,
+    'z6fold': 'galxeysZfold6', 'z6flip': 'ZFLIP6', 'z7fold': 'galxeysZfold7', 'z7flip': 'ZFLIP7',
+    'pixel9pro': 'GOOGLEPRO9', 'pixel9': 'GOOGLE9', 'pixel8pro': null,
+    'pixel10pro': 'pixel10pro', 'pixel10': 'pixel10',
 }
 
-// ── 카메라 파일명 오버라이드 ──────────────────────
 const CAMERA_FILE_OVERRIDE = {
-    'GALAXYS25PLUS': 'GALAXYS25PLUS-CAMERA',
-    'GOOGLE9': 'GOOGLE9-CAMERA',
-    'GOOGLEPRO9': 'GOOGLEPRO9-CAMERA',
-    'IPHONE15': 'IPHONE15-CAMERA',
-    'IPHONE16': 'IPHONE16-CAMERA',
-    'IPHONE17': 'IPHONE17-CAMERA',
+    'GALAXYS25PLUS': 'GALAXYS25PLUS-CAMERA', 'GOOGLE9': 'GOOGLE9-CAMERA',
+    'GOOGLEPRO9': 'GOOGLEPRO9-CAMERA', 'IPHONE15': 'IPHONE15-CAMERA',
+    'IPHONE16': 'IPHONE16-CAMERA', 'IPHONE17': 'IPHONE17-CAMERA',
 }
 
-// ── bounce 파일명 ─────────────────────────────────
 export const BOUNCE_FILE_MAP = {
-    'iphone17promax': '17pro-bouce',
-    'iphone17pro': '17pro-bouce',
-    'iphone17': 'iphone17-bouce',
-    'iphone16promax': '16pro-bouce',
-    'iphone16': 'iphone16-bouce',
-    'iphone15': 'iphone15-bouce',
-    'iphone15promax': '15pro-bouce',
-    'iphone14plus': null,
-    'iphone13promax': null,
-    'iphoneMini': null,
-    's25ultra': null,
-    's25plus': null,
-    's25': null,
-    's24': null,
-    'z6fold': null,
-    'z6flip': null,
-    'pixel9pro': null,
-    'pixel9': null,
-    'pixel8pro': null,
+    'iphone17promax': '17pro-bouce', 'iphone17pro': '17pro-bouce', 'iphone17': 'iphone17-bouce',
+    'iphone16promax': '16pro-bouce', 'iphone16': 'iphone16-bouce', 'iphone15': 'iphone15-bouce',
+    'iphone15promax': '15pro-bouce', 'iphone14plus': null, 'iphone13promax': null, 'iphoneMini': null,
+    's25ultra': null, 's25plus': null, 's25': null, 's24': null,
+    'z6fold': null, 'z6flip': null, 'pixel9pro': null, 'pixel9': null, 'pixel8pro': null,
 }
 
-// ── ring 파일명 ───────────────────────────────────
 export const RING_FILE_MAP = {
-    'iphone17promax': '17pro-ring',
-    'iphone17pro': '17pro-ring',
-    'iphone17': 'iphone17-ring',
-    'iphone16promax': '16pro-ring',
-    'iphone16': 'iphone16-ring',
-    'iphone15promax': '15pro-ring',
-    'iphone15': 'iphone15-ring',
-    'iphone14plus': null,
-    'iphone13promax': null,
-    'iphoneMini': null,
-    's25ultra': null,
-    's25plus': null,
-    's25': null,
-    's24': null,
-    'z6fold': '26plus-ring',
-    'z6flip': '26-ring',
-    'pixel9pro': null,
-    'pixel9': null,
-    'pixel8pro': null,
+    'iphone17promax': '17pro-ring', 'iphone17pro': '17pro-ring', 'iphone17': 'iphone17-ring',
+    'iphone16promax': '16pro-ring', 'iphone16': 'iphone16-ring', 'iphone15promax': '15pro-ring',
+    'iphone15': 'iphone15-ring', 'iphone14plus': null, 'iphone13promax': null, 'iphoneMini': null,
+    's25ultra': null, 's25plus': null, 's25': null, 's24': null,
+    'z6fold': '26plus-ring', 'z6flip': '26-ring', 'pixel9pro': null, 'pixel9': null, 'pixel8pro': null,
 }
 
-// ── 아이패드 파일명 ───────────────────────────────
 const IPAD_FILE_MAP = {
-    'ipad': 'ipad',
-    'ipadmini': 'ipadmini',
-    'ipadair4': 'ipadair4',
-    'ipadair11': 'ipadair11',
-    'ipadair13': 'ipadair13',
-    'ipadpro11': 'ipadpro11',
-    'ipadpro11s3': 'ipadpro11s3',
-    'ipadpro12.9': 'ipadpro12.9',
-    'ipadpro13': 'ipadpro13',
+    'ipad': 'ipad', 'ipadmini': 'ipadmini', 'ipadair4': 'ipadair4',
+    'ipadair11': 'ipadair11', 'ipadair13': 'ipadair13', 'ipadpro11': 'ipadpro11',
+    'ipadpro11s3': 'ipadpro11s3', 'ipadpro12.9': 'ipadpro12.9', 'ipadpro13': 'ipadpro13',
 }
 
-// ── 아이패드 원본 이미지 크기 ──────────────────────
 const IPAD_IMG_W = 590
 const IPAD_IMG_H = 1000
+const IPAD_DISPLAY_H = 900
+const IPAD_DISPLAY_W = (IPAD_IMG_W / IPAD_IMG_H) * IPAD_DISPLAY_H
 
-// ── 아이패드 표시 크기 (1.5배) ─────────────────────
-const IPAD_DISPLAY_H = 900   // 600 * 1.5
-const IPAD_DISPLAY_W = (IPAD_IMG_W / IPAD_IMG_H) * IPAD_DISPLAY_H  // ≈ 531
-
-// ── 아이패드 캔버스 위치 (원본 590x1000 픽셀 기준) ─────────────────
-// top/left/w/h/radius 모두 원본 이미지 픽셀 기준으로 직접 조정 가능
 const IPAD_CANVAS_MAP = {
     'ipad': { top: 202, left: 81, w: 427, h: 596, radius: 36 },
     'ipadmini': { top: 230.9, left: 101.6, w: 388, h: 535, radius: 34 },
@@ -132,19 +64,12 @@ const IPAD_CANVAS_MAP = {
 
 const IPAD_NO_CAMERA = ['ipadair11', 'ipadair13', 'ipadpro11']
 
-// ── 맥북 파일명 ───────────────────────────────────
 const LAPTOP_FILE_MAP = {
-    'macbook13': 'macbook13',
-    'macbook15': 'macbook15',
-    'macbookair13': 'macbookair13',
-    'macbookair13s1': 'macbookair13s1',
-    'macbookpro14': 'macbookpro14',
-    'macbookpro16': 'macbookpro16',
+    'macbook13': 'macbook13', 'macbook15': 'macbook15',
+    'macbookair13': 'macbookair13', 'macbookair13s1': 'macbookair13s1',
+    'macbookpro14': 'macbookpro14', 'macbookpro16': 'macbookpro16',
 }
 
-// ── 맥북 원본 이미지 크기 & 표시 크기 ────────────────
-// imgW/imgH: 원본 이미지 픽셀 크기
-// displayW/displayH: 화면에 렌더링할 크기 (비율 유지)
 const MACBOOK_SIZE_MAP = {
     'macbook13': { imgW: 900, imgH: 789, displayW: 616.5, displayH: 450 },
     'macbook15': { imgW: 1097, imgH: 822, displayW: 600.5, displayH: 450 },
@@ -154,9 +79,6 @@ const MACBOOK_SIZE_MAP = {
     'macbookpro16': { imgW: 1100, imgH: 791, displayW: 625.8, displayH: 450 },
 }
 
-// ── 맥북 캔버스 위치 (원본 이미지 픽셀 기준) ──────────────────────────
-// top/left/w/h/radius 모두 원본 이미지 픽셀 기준으로 직접 조정 가능
-// scaleX = displayW / imgW, scaleY = displayH / imgH 로 자동 환산됨
 const MACBOOK_CANVAS_MAP = {
     'macbook13': { top: 19, left: 29, w: 338, h: 203, radius: 47 },
     'macbook15': { top: 29, left: 34, w: 370, h: 210, radius: 45 },
@@ -166,12 +88,10 @@ const MACBOOK_CANVAS_MAP = {
     'macbookpro16': { top: 25, left: 27, w: 388.8, h: 232.5, radius: 49 },
 }
 
-// ── 바운스 원본 이미지 크기 & 표시 크기 ──────────────
 const BOUNCE_IMG_W = 780
 const BOUNCE_IMG_H = 1360
 const BOUNCE_DISPLAY_H = 600
 
-// ── 바운스 캔버스 위치 (780x1360 기준) ───────────────
 const BOUNCE_CANVAS_MAP = {
     'iphone17pro': { top: 278, left: 200, w: 380, h: 810, radius: 60 },
     'iphone17': { top: 340, left: 230, w: 320, h: 678, radius: 55 },
@@ -179,12 +99,10 @@ const BOUNCE_CANVAS_MAP = {
     'iphone15': { top: 330, left: 224, w: 330, h: 698, radius: 54 },
 }
 
-// ── 폰(impact) 원본 이미지 크기 & 표시 크기 ──────────
 const PHONE_IMG_W = 780
 const PHONE_IMG_H = 1360
 const PHONE_DISPLAY_H = 600
 
-// ── impact 캔버스 위치 (780x1360 기준) ───────────────
 const IMPACT_CANVAS_MAP = {
     'iphone17pro': { top: 296, left: 208, w: 368, h: 781, radius: 55 },
     'iphone17': { top: 280, left: 204, w: 371, h: 800, radius: 65 },
@@ -206,7 +124,6 @@ const IMPACT_CANVAS_MAP = {
     'pixel10pro': { top: 284, left: 210, w: 365, h: 795, radius: 54 },
 }
 
-// ── ring 캔버스 위치 (780x1360 기준) ─────────────────
 const RING_CANVAS_MAP = {
     'iphone17pro': { top: 286, left: 218, w: 348, h: 810, radius: 67 },
     'iphone17': { top: 269, left: 199, w: 380, h: 826, radius: 56 },
@@ -216,14 +133,12 @@ const RING_CANVAS_MAP = {
     'z6flip': { top: 274, left: 185, w: 410, h: 863, radius: 30 },
 }
 
-// ── 케이스타입 지원 여부 체크 ─────────────────────
 export function isCaseTypeSupported(modelId, caseTypeId) {
     if (caseTypeId === 'magsafe-bounce') return !!BOUNCE_FILE_MAP[modelId]
     if (caseTypeId === 'magsafe-compact') return !!RING_FILE_MAP[modelId]
     return true
 }
 
-// ── 필터 스타일 ──────────────────────────────────
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
     switch (filterId) {
@@ -234,8 +149,6 @@ function getFilterStyle(filterId, strength) {
     }
 }
 
-// ── 공통 캔버스 스케일 헬퍼 ──────────────────────
-// 원본 픽셀 기준 canvasInfo → 표시 크기 기준으로 환산
 function scaleCanvas(canvasInfo, displayW, displayH, imgW, imgH) {
     if (!canvasInfo) return null
     const sx = displayW / imgW
@@ -249,14 +162,44 @@ function scaleCanvas(canvasInfo, displayW, displayH, imgW, imgH) {
     }
 }
 
-// ── 공통 캔버스 콘텐츠 렌더 ──────────────────────
-function CanvasContent({ designType, previewURL, photoFilter, filterStrength, textValue, fontColor, photoTab, fontSize = 14 }) {
+// ── 캔버스 콘텐츠 ────────────────────────────────
+function CanvasContent({
+    designType, previewURL, photoFilter, filterStrength,
+    textValue, fontColor, photoTab, fontSize = 14,
+    imageTransform, cropMode, onMouseDown, onTouchStart,
+}) {
     if (designType === 'photo' && previewURL) {
+        const t = imageTransform || { x: 0, y: 0, scale: 1 }
         return (
-            <img src={previewURL} alt="미리보기" style={{
-                width: '100%', height: '100%', objectFit: 'cover',
-                ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
-            }} />
+            <div
+                style={{
+                    width: '100%', height: '100%',
+                    position: 'relative', overflow: 'hidden',
+                    cursor: cropMode ? 'grab' : 'default',
+                }}
+                onMouseDown={onMouseDown}
+                onTouchStart={onTouchStart}
+            >
+                <img
+                    src={previewURL}
+                    alt="미리보기"
+                    draggable={false}
+                    style={{
+                        position: 'absolute', top: '50%', left: '50%',
+                        transform: `translate(calc(-50% + ${t.x}px), calc(-50% + ${t.y}px)) scale(${t.scale})`,
+                        transformOrigin: 'center center',
+                        width: '100%', height: '100%', objectFit: 'cover',
+                        userSelect: 'none',
+                        ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
+                    }}
+                />
+                {cropMode && (
+                    <div style={{
+                        position: 'absolute', inset: 0, pointerEvents: 'none',
+                        border: '2px dashed rgba(255,255,255,0.7)', borderRadius: 4,
+                    }} />
+                )}
+            </div>
         )
     }
     if (designType === 'text' && textValue) {
@@ -281,27 +224,17 @@ function CanvasContent({ designType, previewURL, photoFilter, filterStrength, te
     )
 }
 
-// ── 기기 타입별 Placeholder (SVG 모형) ──────────────
+// ── Placeholder ──────────────────────────────────
 function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySrc, selectedCaseColor }) {
-    const line1 = !selectedModel ? '기종을'
-        : !selectedCaseType ? '케이스 타입을'
-            : !bodySrc ? '이미지'
-                : '커스텀 내용을'
-    const line2 = !selectedModel ? '선택하세요'
-        : !selectedCaseType ? '선택하세요'
-            : !bodySrc ? '준비 중입니다'
-                : '선택하세요'
+    const line1 = !selectedModel ? '기종을' : !selectedCaseType ? '케이스 타입을' : !bodySrc ? '이미지' : '커스텀 내용을'
+    const line2 = !selectedModel ? '선택하세요' : !selectedCaseType ? '선택하세요' : !bodySrc ? '준비 중입니다' : '선택하세요'
     const cc = selectedCaseColor || '#888'
 
     if (deviceType === 'laptop') {
         return (
             <svg width="510" height="345" viewBox="0 0 510 345" style={{ display: 'block', margin: '0 auto' }}>
-                <rect x="15" y="15" width="480" height="300" rx="14"
-                    fill={cc} fillOpacity="0.12"
-                    stroke={cc} strokeOpacity="0.5" strokeWidth="1.5" strokeDasharray="6 4" />
-                <rect x="36" y="33" width="438" height="264" rx="8"
-                    fill={cc} fillOpacity="0.07"
-                    stroke={cc} strokeOpacity="0.2" strokeWidth="1" />
+                <rect x="15" y="15" width="480" height="300" rx="14" fill={cc} fillOpacity="0.12" stroke={cc} strokeOpacity="0.5" strokeWidth="1.5" strokeDasharray="6 4" />
+                <rect x="36" y="33" width="438" height="264" rx="8" fill={cc} fillOpacity="0.07" stroke={cc} strokeOpacity="0.2" strokeWidth="1" />
                 <circle cx="255" cy="45" r="6" fill={cc} fillOpacity="0.4" />
                 <rect x="0" y="318" width="510" height="12" rx="4" fill={cc} fillOpacity="0.15" />
                 <text x="255" y="156" textAnchor="middle" fontSize="18" fill={cc} fillOpacity="0.5" fontFamily="sans-serif">{line1}</text>
@@ -309,23 +242,17 @@ function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySr
             </svg>
         )
     }
-
     if (deviceType === 'tablet') {
         return (
             <svg width="270" height="390" viewBox="0 0 270 390" style={{ display: 'block', margin: '0 auto' }}>
-                <rect x="15" y="15" width="240" height="360" rx="24"
-                    fill={cc} fillOpacity="0.12"
-                    stroke={cc} strokeOpacity="0.5" strokeWidth="1.5" strokeDasharray="6 4" />
+                <rect x="15" y="15" width="240" height="360" rx="24" fill={cc} fillOpacity="0.12" stroke={cc} strokeOpacity="0.5" strokeWidth="1.5" strokeDasharray="6 4" />
                 <circle cx="135" cy="36" r="7" fill={cc} fillOpacity="0.4" />
-                <rect x="33" y="54" width="204" height="294" rx="8"
-                    fill={cc} fillOpacity="0.07"
-                    stroke={cc} strokeOpacity="0.2" strokeWidth="1" />
+                <rect x="33" y="54" width="204" height="294" rx="8" fill={cc} fillOpacity="0.07" stroke={cc} strokeOpacity="0.2" strokeWidth="1" />
                 <text x="135" y="192" textAnchor="middle" fontSize="18" fill={cc} fillOpacity="0.5" fontFamily="sans-serif">{line1}</text>
                 <text x="135" y="216" textAnchor="middle" fontSize="18" fill={cc} fillOpacity="0.5" fontFamily="sans-serif">{line2}</text>
             </svg>
         )
     }
-
     return (
         <div className="custom-phone-preview" style={{ '--case-color': selectedCaseColor || '#111111' }}>
             <div className="custom-phone-body">
@@ -348,20 +275,12 @@ function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySr
     )
 }
 
-
-// ── PhonePreview 컴포넌트 ─────────────────────────
+// ── PhonePreview ─────────────────────────────────
 export function PhonePreview({
-    selectedModel,
-    selectedCaseType,
-    designType,
-    previewURL,
-    photoFilter,
-    filterStrength,
-    textValue,
-    fontColor,
-    photoTab,
-    selectedCaseColor,
-    deviceType,
+    selectedModel, selectedCaseType, designType,
+    previewURL, photoFilter, filterStrength,
+    textValue, fontColor, photoTab, selectedCaseColor, deviceType,
+    imageTransform, cropMode, onCanvasMouseDown, onCanvasTouchStart,
 }) {
     const isTablet = deviceType === 'tablet'
     const isLaptop = deviceType === 'laptop'
@@ -373,14 +292,11 @@ export function PhonePreview({
         const fileKey = IPAD_FILE_MAP[selectedModel]
         if (fileKey) {
             bodySrc = `${IPAD_BASE}/${fileKey}.png`
-            if (!IPAD_NO_CAMERA.includes(selectedModel)) {
-                cameraSrc = `${IPAD_BASE}/${fileKey}-camera.png`
-            }
+            if (!IPAD_NO_CAMERA.includes(selectedModel)) cameraSrc = `${IPAD_BASE}/${fileKey}-camera.png`
         }
     } else if (isLaptop) {
         const fileKey = LAPTOP_FILE_MAP[selectedModel]
         if (fileKey) bodySrc = `${LAPTOP_BASE}/${fileKey}.png`
-        cameraSrc = null
     } else {
         if (selectedCaseType === 'magsafe-bounce') {
             const fileKey = BOUNCE_FILE_MAP[selectedModel]
@@ -398,252 +314,124 @@ export function PhonePreview({
             const phoneBase = PHONE_BASE_MAP['impact']
             const fileKey = MODEL_FILE_MAP[selectedModel]
             bodySrc = fileKey ? `${phoneBase}/${fileKey}.png` : null
-            const camKey = fileKey
-                ? (CAMERA_FILE_OVERRIDE[fileKey] || `${fileKey}-camera`)
-                : null
+            const camKey = fileKey ? (CAMERA_FILE_OVERRIDE[fileKey] || `${fileKey}-camera`) : null
             cameraSrc = camKey ? `${phoneBase}/${camKey}.png` : null
         }
     }
 
     const showPreview = !!selectedModel && (isTablet ? !!bodySrc : isLaptop ? !!bodySrc : !!selectedCaseType && !!bodySrc)
 
-    // ── Placeholder ───────────────────────────────
     if (!showPreview) {
         return (
             <DevicePlaceholder
-                deviceType={deviceType}
-                selectedModel={selectedModel}
-                selectedCaseType={selectedCaseType}
-                bodySrc={bodySrc}
+                deviceType={deviceType} selectedModel={selectedModel}
+                selectedCaseType={selectedCaseType} bodySrc={bodySrc}
                 selectedCaseColor={selectedCaseColor}
             />
         )
     }
 
-    // ── 공통 케이스 컬러 오버레이 ─────────────────
     const CaseColorOverlay = ({ src }) => selectedCaseColor ? (
         <div style={{
             position: 'absolute', inset: 0,
             background: selectedCaseColor,
             mixBlendMode: 'multiply', opacity: 0.45,
             zIndex: 2, pointerEvents: 'none',
-            WebkitMaskImage: `url(${src})`,
-            maskImage: `url(${src})`,
-            WebkitMaskSize: '100% 100%',
-            maskSize: '100% 100%',
+            WebkitMaskImage: `url(${src})`, maskImage: `url(${src})`,
+            WebkitMaskSize: '100% 100%', maskSize: '100% 100%',
         }} />
     ) : null
 
-    // ── 아이패드 렌더 ─────────────────────────────
-    // 원본 590x1000 기준 IPAD_CANVAS_MAP → IPAD_DISPLAY_H(900px) 기준으로 자동 환산
+    // 공통 CanvasContent props
+    const ccProps = {
+        designType, previewURL, photoFilter, filterStrength,
+        textValue, fontColor, photoTab,
+        imageTransform, cropMode,
+        onMouseDown: onCanvasMouseDown,
+        onTouchStart: onCanvasTouchStart,
+    }
+
+    // ── 아이패드 ──────────────────────────────────
     if (isTablet) {
-        const displayW = IPAD_DISPLAY_W
-        const displayH = IPAD_DISPLAY_H
-        const scaledCanvas = scaleCanvas(
-            IPAD_CANVAS_MAP[selectedModel],
-            displayW, displayH,
-            IPAD_IMG_W, IPAD_IMG_H
-        )
-
+        const scaledCanvas = scaleCanvas(IPAD_CANVAS_MAP[selectedModel], IPAD_DISPLAY_W, IPAD_DISPLAY_H, IPAD_IMG_W, IPAD_IMG_H)
         return (
-            <div style={{ position: 'relative', width: displayW, height: displayH, margin: '0 auto', flexShrink: 0 }}>
-                {/* ❶ 본체 */}
-                <img src={bodySrc} alt={selectedModel} style={{
-                    position: 'absolute', inset: 0, width: '100%', height: '100%',
-                    objectFit: 'fill', zIndex: 1, pointerEvents: 'none',
-                }} />
-
-                {/* ❷ 케이스 컬러 오버레이 */}
+            <div style={{ position: 'relative', width: IPAD_DISPLAY_W, height: IPAD_DISPLAY_H, margin: '0 auto', flexShrink: 0 }}>
+                <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
                 <CaseColorOverlay src={bodySrc} />
-
-                {/* ❸ 디자인 캔버스 */}
                 {scaledCanvas && (
-                    <div style={{
-                        position: 'absolute',
-                        top: scaledCanvas.top, left: scaledCanvas.left,
-                        width: scaledCanvas.w, height: scaledCanvas.h,
-                        borderRadius: scaledCanvas.radius,
-                        overflow: 'hidden', zIndex: 3,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                        <CanvasContent
-                            designType={designType} previewURL={previewURL}
-                            photoFilter={photoFilter} filterStrength={filterStrength}
-                            textValue={textValue} fontColor={fontColor}
-                            photoTab={photoTab} fontSize={16}
-                        />
+                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <CanvasContent {...ccProps} fontSize={16} />
                     </div>
                 )}
-
-                {/* ❹ 카메라 - 동일 크기로 겹치기 */}
-                {cameraSrc && (
-                    <img src={cameraSrc} alt="camera" style={{
-                        position: 'absolute', inset: 0, width: '100%', height: '100%',
-                        objectFit: 'fill', zIndex: 4, pointerEvents: 'none',
-                    }} />
-                )}
+                {cameraSrc && <img src={cameraSrc} alt="camera" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 4, pointerEvents: 'none' }} />}
             </div>
         )
     }
 
-    // ── 맥북 렌더 ─────────────────────────────────
-    // 원본 imgW x imgH 기준 MACBOOK_CANVAS_MAP → displayW x displayH 로 자동 환산
+    // ── 맥북 ─────────────────────────────────────
     if (isLaptop) {
         const info = MACBOOK_SIZE_MAP[selectedModel]
         const displayW = info ? info.displayW : 620
         const displayH = info ? info.displayH : 450
         const imgW = info ? info.imgW : 900
         const imgH = info ? info.imgH : 789
-
-        const scaledCanvas = scaleCanvas(
-            MACBOOK_CANVAS_MAP[selectedModel],
-            displayW, displayH,
-            imgW, imgH
-        )
-
+        const scaledCanvas = scaleCanvas(MACBOOK_CANVAS_MAP[selectedModel], displayW, displayH, imgW, imgH)
         return (
             <div style={{ position: 'relative', width: displayW, height: displayH, margin: '0 auto', flexShrink: 0 }}>
-                {/* ❶ 본체 */}
-                <img src={bodySrc} alt={selectedModel} style={{
-                    position: 'absolute', inset: 0, width: '100%', height: '100%',
-                    objectFit: 'fill', zIndex: 1, pointerEvents: 'none',
-                }} />
-
-                {/* ❷ 디자인 캔버스 */}
+                <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
                 {scaledCanvas ? (
-                    <div style={{
-                        position: 'absolute',
-                        top: scaledCanvas.top, left: scaledCanvas.left,
-                        width: scaledCanvas.w, height: scaledCanvas.h,
-                        borderRadius: scaledCanvas.radius,
-                        overflow: 'hidden', zIndex: 3,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                        <CanvasContent
-                            designType={designType} previewURL={previewURL}
-                            photoFilter={photoFilter} filterStrength={filterStrength}
-                            textValue={textValue} fontColor={fontColor}
-                            photoTab={photoTab} fontSize={18}
-                        />
+                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <CanvasContent {...ccProps} fontSize={18} />
                     </div>
                 ) : (
-                    // 캔버스맵 없으면 전체 영역 fallback
                     <div style={{ position: 'absolute', inset: 0, zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                        <CanvasContent
-                            designType={designType} previewURL={previewURL}
-                            photoFilter={photoFilter} filterStrength={filterStrength}
-                            textValue={textValue} fontColor={fontColor}
-                            photoTab={photoTab} fontSize={18}
-                        />
+                        <CanvasContent {...ccProps} fontSize={18} />
                     </div>
                 )}
             </div>
         )
     }
 
-    // ── 바운스 렌더 ───────────────────────────────
+    // ── 바운스 ────────────────────────────────────
     if (selectedCaseType === 'magsafe-bounce' && bodySrc) {
         const displayH = BOUNCE_DISPLAY_H * 1.5
         const displayW = (BOUNCE_IMG_W / BOUNCE_IMG_H) * displayH
-        const scaledCanvas = scaleCanvas(
-            BOUNCE_CANVAS_MAP[selectedModel],
-            displayW, displayH,
-            BOUNCE_IMG_W, BOUNCE_IMG_H
-        )
-
+        const scaledCanvas = scaleCanvas(BOUNCE_CANVAS_MAP[selectedModel], displayW, displayH, BOUNCE_IMG_W, BOUNCE_IMG_H)
         return (
             <div style={{ position: 'relative', width: displayW, height: displayH, margin: '0 auto', flexShrink: 0 }}>
-                <img src={bodySrc} alt={selectedModel} style={{
-                    position: 'absolute', inset: 0, width: '100%', height: '100%',
-                    objectFit: 'fill', zIndex: 1, pointerEvents: 'none',
-                }} />
+                <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
                 <CaseColorOverlay src={bodySrc} />
                 {scaledCanvas && (
-                    <div style={{
-                        position: 'absolute',
-                        top: scaledCanvas.top, left: scaledCanvas.left,
-                        width: scaledCanvas.w, height: scaledCanvas.h,
-                        borderRadius: scaledCanvas.radius,
-                        overflow: 'hidden', zIndex: 3,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                        <CanvasContent
-                            designType={designType} previewURL={previewURL}
-                            photoFilter={photoFilter} filterStrength={filterStrength}
-                            textValue={textValue} fontColor={fontColor}
-                            photoTab={photoTab} fontSize={14}
-                        />
+                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <CanvasContent {...ccProps} fontSize={14} />
                     </div>
                 )}
-                {cameraSrc && (
-                    <img src={cameraSrc} alt="camera" style={{
-                        position: 'absolute', inset: 0, width: '100%', height: '100%',
-                        objectFit: 'fill', zIndex: 4, pointerEvents: 'none',
-                    }} />
-                )}
+                {cameraSrc && <img src={cameraSrc} alt="camera" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 4, pointerEvents: 'none' }} />}
             </div>
         )
     }
 
-    // ── 폰 impact/ring 렌더 (780x1360 기준, 1.5배) ──
+    // ── 폰 impact/ring ────────────────────────────
     {
         const SCALE = 1.5
         const displayH = PHONE_DISPLAY_H * SCALE
         const displayW = (PHONE_IMG_W / PHONE_IMG_H) * displayH
-
         const canvasMap = selectedCaseType === 'magsafe-compact' ? RING_CANVAS_MAP : IMPACT_CANVAS_MAP
-        const scaledCanvas = scaleCanvas(
-            canvasMap[selectedModel],
-            displayW, displayH,
-            PHONE_IMG_W, PHONE_IMG_H
-        )
-
+        const scaledCanvas = scaleCanvas(canvasMap[selectedModel], displayW, displayH, PHONE_IMG_W, PHONE_IMG_H)
         return (
             <div style={{ position: 'relative', width: displayW, height: displayH, margin: '0 auto', flexShrink: 0 }}>
-                {/* ❶ 본체 */}
-                <img src={bodySrc} alt={selectedModel} style={{
-                    position: 'absolute', inset: 0, width: '100%', height: '100%',
-                    objectFit: 'fill', zIndex: 1, pointerEvents: 'none',
-                }} />
-
-                {/* ❷ 케이스 컬러 오버레이 */}
+                <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
                 <CaseColorOverlay src={bodySrc} />
-
-                {/* ❸ 디자인 캔버스 */}
                 {scaledCanvas ? (
-                    <div style={{
-                        position: 'absolute',
-                        top: scaledCanvas.top, left: scaledCanvas.left,
-                        width: scaledCanvas.w, height: scaledCanvas.h,
-                        borderRadius: scaledCanvas.radius,
-                        overflow: 'hidden', zIndex: 3,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                        <CanvasContent
-                            designType={designType} previewURL={previewURL}
-                            photoFilter={photoFilter} filterStrength={filterStrength}
-                            textValue={textValue} fontColor={fontColor}
-                            photoTab={photoTab} fontSize={16}
-                        />
+                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <CanvasContent {...ccProps} fontSize={16} />
                     </div>
                 ) : (
                     <div style={{ position: 'absolute', inset: 0, zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                        <CanvasContent
-                            designType={designType} previewURL={previewURL}
-                            photoFilter={photoFilter} filterStrength={filterStrength}
-                            textValue={textValue} fontColor={fontColor}
-                            photoTab={photoTab} fontSize={16}
-                        />
+                        <CanvasContent {...ccProps} fontSize={16} />
                     </div>
                 )}
-
-                {/* ❹ 카메라 - 동일 크기로 겹치기 */}
-                {cameraSrc && (
-                    <img src={cameraSrc} alt="camera" style={{
-                        position: 'absolute', inset: 0, width: '100%', height: '100%',
-                        objectFit: 'fill', zIndex: 4, pointerEvents: 'none',
-                    }} />
-                )}
+                {cameraSrc && <img src={cameraSrc} alt="camera" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 4, pointerEvents: 'none' }} />}
             </div>
         )
     }
