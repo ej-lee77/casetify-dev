@@ -65,10 +65,11 @@ export default function Header() {
   const handleLogout = async () => {
     setIsLoading(true);
     const isLogout = await onLogout();
+    
 
     if (isLogout) {
+      navigate("/");
       setTimeout(()=>{
-        navigate("/");
         setIsLoading(false);
       }, 1500);
     }
