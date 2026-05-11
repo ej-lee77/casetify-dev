@@ -707,7 +707,7 @@ function ClubTab() {
         {
             cls: 'gold', tag: 'TIER 03 · TOP', coin: 'G', name: 'GOLD',
             req: <p className="bc-club-tier-req">연간 누적 <b>500,000원+</b> · 500P</p>,
-            items: ['30% 할인 바우처', '전 상품 상시 할인', '12개월 연장 제품 보증', '한정판 컬렉션 우선 구매', '전용 고객지원 라인', 'Silver 등급의 모든 혜택'],
+            items: ['30% 할인 바우처', '12개월 연장 제품 보증', '한정판 컬렉션 우선 구매', '전용 고객지원 라인', 'Silver 등급의 모든 혜택'],
         },
     ]
 
@@ -891,7 +891,7 @@ function ClubTab() {
                     <p>지금 바로 무료로 가입하고 등급별 다양한 혜택을 누려보세요.</p>
                     <div className="bc-club-cta-btns">
                         <button className="bc-club-cta-primary" onClick={() => navigate('/join')}>무료로 가입하기 →</button>
-                        <button className="bc-club-cta-ghost">멤버십 약관 보기</button>
+                        <button className="bc-club-cta-ghost" onClick={() => navigate('/brand/qna')}>멤버십 약관 보기</button>
                     </div>
                     <p className="bc-club-cta-legal">* 본 페이지의 혜택 내용은 운영 정책에 따라 사전 고지 없이 변경될 수 있습니다.</p>
                 </div>
@@ -935,7 +935,9 @@ export default function BrandCasetify() {
 
     const handleTabChange = (id) => {
         setActiveTab(id)
-        window.scrollTo({ top: 0, behavior: 'instant' })
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, 0)
     }
 
     return (
