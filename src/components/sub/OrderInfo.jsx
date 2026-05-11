@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { ko } from 'date-fns/locale';
 import OrderDetailModal from './OrderDetailModal';
 import EmptyState from './EmptyState';
+import { useNavigate } from 'react-router-dom';
 
 const CustomDateInput = forwardRef(({ value, onClick, placeholder }, ref) => (
     <div className="datepicker-box" onClick={onClick} ref={ref}>
@@ -47,6 +48,7 @@ const STATUS_MAP = {
 const tabs = ['전체', '배송준비중', '배송중', '배송완료', '취소/반품'];
 
 export default function OrderInfo() {
+    const navigate = useNavigate();
     const { user, orderList, onFetchOrder, onUpdateAllItemsStatus } = useAuthStore();
     const [allCheckedMode, setAllCheckedMode] = useState(false);
     // 검색할 시작/종료 날짜 상태
@@ -165,6 +167,15 @@ export default function OrderInfo() {
         setAllCheckedMode(false);
     };
 
+    // 주문내역 클릭시 상품페이지로 이동 
+    const handleItemClick = (item) => {
+        if (item.caseCategory === "gift") {
+            navigate('/giftcard');
+        } else {
+            navigate(`/detail/${item.productId}`);
+        }
+    }
+
     return (
         <div className="order-list-container">
             <div>
@@ -258,28 +269,33 @@ export default function OrderInfo() {
                                 {displayItems.map((item, idx) => {
                                     const statusInfo = STATUS_MAP[item.status];
                                     return (
-                                    <div className="item-row" key={`${order.orderId}-${idx}`}>
-                                        <div className="item-img">
-                                            <img src={item.imgUrl} alt={item.title} />
-                                        </div>
-                                        <div className="item-txt">
-                                            <div className="col-check">
-                                            {statusInfo ? (
-                                                // 상태 코드가 (1,2,3,4) 있으면 텍스트 표시
-                                                <span className={`status-badge ${statusInfo.className}`}>
-                                                {statusInfo.text}
-                                                </span>
-                                            ) : ("")}
+                                        <div className="item-row" key={`${order.orderId}-${idx}`}>
+                                            <div
+                                                onClick={() => handleItemClick(item)}
+                                                style={{ cursor: 'pointer', display: 'contents' }}
+                                            >
+                                                <div className="item-img">
+                                                    <img src={item.imgUrl} alt={item.title} />
+                                                </div>
+                                                <div className="item-txt">
+                                                    <div className="col-check">
+                                                        {statusInfo ? (
+                                                            <span className={`status-badge ${statusInfo.className}`}>
+                                                                {statusInfo.text}
+                                                            </span>
+                                                        ) : ("")}
+                                                    </div>
+                                                    <p className="item-title">{item.title}</p>
+                                                    <p className="item-option">{item.device && <span>{item.device}</span>}{item.color && <span>{item.color}</span>}</p>
+                                                </div>
                                             </div>
-                                            <p className="item-title">{item.title}</p>
-                                            <p className="item-option">{item.device && <span>{item.device}</span>}{item.color && <span>{item.color}</span>}</p>
+                                            <div className="item-price-qty">
+                                                <p className="price">{item.price.toLocaleString()}원</p>
+                                                <p className="qty">{item.quantity}개</p>
+                                            </div>
                                         </div>
-                                        <div className="item-price-qty">
-                                            <p className="price">{item.price.toLocaleString()}원</p>
-                                            <p className="qty">{item.quantity}개</p>
-                                        </div>
-                                    </div>
-                                )})}
+                                    )
+                                })}
                                 {/* 3개 이상일 경우 '그 외 몇 개' 표시 */}
                                 {isMoreThanThree && (
                                     <div className="more-items-tag">
