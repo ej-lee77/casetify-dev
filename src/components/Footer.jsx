@@ -24,7 +24,7 @@ export default function Footer({ className }) {
     return () => window.removeEventListener("scroll", handleTopbtn);
   }, []);
 
-  const handleToCustom = ()=>{
+  const handleToCustom = () => {
     navigate("/custom");
   }
 
@@ -92,7 +92,8 @@ export default function Footer({ className }) {
                 <li><img src="/images/icon/payment_kakao-pay.svg" alt="결제수단:카카오페이" /></li>
                 <li><img src="/images/icon/payment_naver-pay.svg" alt="결제수단:네이버페이" /></li>
               </ul>
-              <p className="remark"><Link to="/brand/qna" state={{ activeTab: 'privacy' }}><span>개인정보처리방침</span></Link><Link to="/brand/qna" state={{ activeTab: 'terms' }}><span>약관</span></Link></p>
+              <p className="remark"><Link to="/brand/qna" state={{ activeTab: 'privacy' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><span>개인정보처리방침</span></Link>
+                <Link to="/brand/qna" state={{ activeTab: 'terms' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><span>약관</span></Link></p>
               <p className='copy'>Copyright © 2026 CASETiFY</p>
             </div>
             <div className="cs-info">
@@ -104,7 +105,7 @@ export default function Footer({ className }) {
               </ul>
               <ul className="cs-menu-list info-list">
                 <li><Link to="/brand/qna#inquiry">문의하기</Link></li>
-                <li><Link to="/brand/qna">FAQs</Link></li>
+                <li><Link to="/brand/qna" state={{ activeTab: 'all' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>FAQs</Link></li>
               </ul>
             </div>
           </div>
