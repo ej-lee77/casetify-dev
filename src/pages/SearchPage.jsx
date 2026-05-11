@@ -133,7 +133,11 @@ export default function SearchPage() {
                 (item.productName || "").toLowerCase().includes(kw) ||
                 (item.artist || "").toLowerCase().includes(kw) ||
                 (item.modelLabel || "").toLowerCase().includes(kw) ||
-                (item.caseCategory || "").toLowerCase().includes(kw)
+                (item.caseCategory || "").toLowerCase().includes(kw) ||
+                (item.id || "").toLowerCase().includes(kw) ||
+                (item.caseColors || []).some(color => 
+                    (color || "").toLowerCase().includes(kw)
+                )
             );
         }
         return result;

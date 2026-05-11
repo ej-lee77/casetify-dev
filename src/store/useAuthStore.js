@@ -1167,6 +1167,7 @@ export const useAuthStore = create(
                         return { ...order, orderStatus: newOrderStatus, orderItems: updatedItems };
                     });
 
+                    updatedOrderList.sort((a, b) => Number(b.orderId) - Number(a.orderId));
                     // 변경사항이 있을 때만 서버 업데이트
                     if (isChanged) {
                         await updateDoc(orderRef, { orderList: updatedOrderList });
