@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Breadcrumb from '../components/Breadcrumb';
+import ToastPopup from '../components/Toastpopup';
 
 const fadeVariants = {
     initial: { opacity: 0 },
@@ -22,6 +23,8 @@ export default function LoginFindId() {
     const [findEmail, setFindEmail] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     // const [isJoin, setIsJoin] = useState("");
+    const [toastOpen, setToastOpen] = useState(false);
+    const [toastMsg, setToastMsg] = useState("");
 
     const [formData, setFormData] = useState({
         username: "",
@@ -108,7 +111,9 @@ export default function LoginFindId() {
         }
 
         if (!isFormValid) {
-            setJoinErr("입력 오류가 있습니다.");
+            // setJoinErr("입력 오류가 있습니다.");
+            setToastMsg("입력 오류가 있습니다.");
+            setToastOpen(true);
             return;
         }
 
@@ -120,7 +125,9 @@ export default function LoginFindId() {
         }
 
         if (isJoin === false) {
-            setJoinErr("일치하는 회원 정보를 찾을 수 없습니다.");
+            setToastMsg("일치하는 회원 정보를 찾을 수 없습니다.");
+            setToastOpen(true);
+            // setJoinErr("일치하는 회원 정보를 찾을 수 없습니다.");
         } else {
             if (content == "id") {
                 const [localPart, domain] = isJoin.split('@');
@@ -212,6 +219,11 @@ export default function LoginFindId() {
                             </div>
                         </div>
                     )}
+                    <ToastPopup
+                        isOpen={toastOpen}
+                        message={toastMsg}
+                        onClose={() => setToastOpen(false)}
+                        />
                 </div>
             </div>
         </motion.div>

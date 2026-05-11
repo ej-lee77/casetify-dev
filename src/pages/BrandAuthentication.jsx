@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 import { AUTH_FAQS } from '../data/authFaqs'
@@ -15,27 +15,35 @@ const fadeVariants = {
 
 export default function BrandAuthentication() {
     const navigate = useNavigate()
-    const { onAuthenticate, onFetchOrder, user } = useAuthStore()
+    const { onAuthenticate, onFetchOrder, user, orderList } = useAuthStore()
 
     const [serialNumber, setSerialNumber] = useState('')
     const [openFaqId, setOpenFaqId] = useState(null)
     const [popup, setPopup] = useState(null)
     // popup: null | 'success' | 'already' | 'fail' | 'error'
-    const [loginToastOpen, setLoginToastOpen] = useState(false)
+    const [loginToastOpen, setLoginToastOpen] = useState(false);
+    const [toastMsg, setToastMsg] = useState("");
 
     const handleAuthenticate = async () => {
-        if (!serialNumber.trim()) return
-        const result = await onAuthenticate(serialNumber)
-        // 로그인 필요 → 토스트 후 로그인 페이지 이동
-        if (result === 'login') {
-            setLoginToastOpen(true)
-            setTimeout(() => {
-                setLoginToastOpen(false)
-                navigate('/login')
-            }, 1500)
-            return
+        setToastMsg("");
+        if (serialNumber?.trim()){
+            const result = await onAuthenticate(serialNumber)
+            // 로그인 필요 → 토스트 후 로그인 페이지 이동
+            if (result === 'login') {
+                setToastMsg("로그인 후 정품인증을 진행해주세요.");
+                setLoginToastOpen(true)
+                setTimeout(() => {
+                    setLoginToastOpen(false)
+                    navigate('/login')
+                }, 1500)
+                return
+            }
+            setPopup(result)
+        }else{
+            setToastMsg("일렬번호를 입력해주세요.");
+            setLoginToastOpen(true);
         }
-        setPopup(result)
+
     }
 
     useEffect(() => {
@@ -44,6 +52,22 @@ export default function BrandAuthentication() {
     }, [user]);
 
     const closePopup = () => setPopup(null)
+
+    const filteredIds = useMemo(() => {
+        const result = [];
+        
+        orderList.forEach(order => {
+            (order.orderItems || []).forEach(item => {
+                const id = item.productId || "";
+                // CTF로 시작하고 중복되지 않은 경우만 추가
+                if (id.startsWith("CTF") && !result.includes(id)) {
+                    result.push(id);
+                }
+            });
+        });
+        
+        return result;
+    }, [orderList]) // 결과를 담을 빈 배열
 
     return (
         <motion.div
@@ -106,7 +130,14 @@ export default function BrandAuthentication() {
                             제품 인증 하기
                         </button>
                     </div>
-                    <div className='text-center'>CTF-37711774-16010003</div>
+                    <div className='text-center'>
+                        {filteredIds.length > 0 ?
+                            filteredIds.map((item)=>(
+                                <p>{item}</p>
+                            )) :
+                            <p>먼저 상품 구매가 필요합니다.</p> 
+                        }
+                    </div>
                 </section>
 
                 {/* FAQ */}
@@ -151,7 +182,7 @@ export default function BrandAuthentication() {
                 {/* 팝업: 로그인 필요 → ToastPopup으로 처리 */}
                 <ToastPopup
                     isOpen={loginToastOpen}
-                    message="로그인 후 정품인증을 진행해주세요."
+                    message={toastMsg}
                     onClose={() => setLoginToastOpen(false)}
                     duration={1500}
                 />

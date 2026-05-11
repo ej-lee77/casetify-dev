@@ -6,6 +6,7 @@ import { useAuthStore } from '../store/useAuthStore';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { div, img } from 'framer-motion/client';
+import ToastPopup from '../components/Toastpopup';
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -21,6 +22,8 @@ export default function Login() {
     const [rememberEmail, setRememberEmail] = useState(false);
     const [emailVerified, setEmailVerified] = useState(false);
     const [birthMsg, setBirthMsg] = useState(null);
+    const [toastOpen, setToastOpen] = useState(false);
+    const [toastMsg, setToastMsg] = useState("");
 
     const {user, onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
 
@@ -56,6 +59,12 @@ export default function Login() {
         } else {
           // 체크 안 되어 있으면 기존 저장된 값 삭제
           localStorage.removeItem('savedEmail');
+      }
+
+      if(!email || !password){
+        setToastMsg("모든 정보를 입력해주세요.");
+        setToastOpen(true);
+        return
       }
 
       const isLogin = await onLogin(email, password);
@@ -193,12 +202,12 @@ export default function Login() {
         <SectionTitle title={"로그인"} subtitle={""} />
         <form onSubmit={handleSubmit}>
           <div className='input-div'>
-              <input type="email" name="email" id='email' required="required" value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="email" placeholder=""/>
+              <input type="email" name="email" id='email' value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete="email" placeholder=""/>
               <label htmlFor='email'>이메일</label>
               <span></span>
           </div>
           <div className='input-div'>
-              <input type={showPassword ? 'text' : 'password'} name="password" id='password' required="required" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder=""/>
+              <input type={showPassword ? 'text' : 'password'} name="password" id='password' value={password} onChange={(e)=>setPassword(e.target.value)} placeholder=""/>
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
@@ -269,6 +278,11 @@ export default function Login() {
             </div>
           </div>
         )}
+        <ToastPopup
+            isOpen={toastOpen}
+            message={toastMsg}
+            onClose={() => setToastOpen(false)}
+          />
       </div>
     </div>
     </motion.div>

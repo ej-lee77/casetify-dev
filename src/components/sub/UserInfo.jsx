@@ -13,10 +13,10 @@ import { p } from 'framer-motion/client';
 import { getUserGrade } from '../../utils/groupProducts';
 
 const gradeList = [
-    {key: "Basic", label: "베이직", rate: 10, next: "브론즈", nextP: 50, nextR: 15},
-    {key: "Bronze", label: "브론즈", rate: 15, next: "실버", nextP: 120, nextR: 20},
-    {key: "Silver", label: "실버", rate: 20, next: "골드", nextP: 200, nextR: 30},
-    {key: "Gold", label: "골드", rate: 30, next: "", nextP: 1000, nextR: 20}
+    { key: "Basic", label: "베이직", rate: 10, next: "브론즈", nextP: 50, nextR: 15 },
+    { key: "Bronze", label: "브론즈", rate: 15, next: "실버", nextP: 120, nextR: 20 },
+    { key: "Silver", label: "실버", rate: 20, next: "골드", nextP: 200, nextR: 30 },
+    { key: "Gold", label: "골드", rate: 30, next: "", nextP: 1000, nextR: 20 }
 ]
 
 export default function UserInfo() {
@@ -212,7 +212,7 @@ export default function UserInfo() {
 
     const getPointPercent = (point) => {
         if (point <= 0) return 0;
-        
+
         if (point <= 50) {
             // 0 ~ 50 구간: 0% ~ 33.3% 영역에서 움직임
             return (point / 50) * 33.3;
@@ -223,7 +223,7 @@ export default function UserInfo() {
             // 120 ~ 200 구간: 66.6% ~ 100% 영역에서 움직임
             return 66.6 + ((point - 120) / (200 - 120)) * 33.4;
         }
-        
+
         return 100; // 200 이상일 때
     };
 
@@ -274,7 +274,12 @@ export default function UserInfo() {
                     <div className='point-card-header'>
                         <span className='title'>CASETiFY Club</span>
                         <img src="./images/icon/info.png" alt="info"
-                            className='point-info-icon' />
+                            className='point-info-icon'
+                            onClick={() => {
+                                Navigate('/brand/casetify', { state: { tab: 'club' } })
+                                window.scrollTo({ top: 0, behavior: 'instant' })
+                            }}
+                            style={{ cursor: 'pointer' }} />
                     </div>
                     <p className='point-label'>현재 보유 포인트</p>
                     <p className='point-value'>{user?.point}</p>
@@ -288,8 +293,8 @@ export default function UserInfo() {
                             <span className='label-item'>골드</span>
                         </div>
                         <div className='point-bar-track'>
-                            <div className='point-bar-fill' style={{ width: `${fillWidth}%` }}/>
-                            <div className='point-bar-thumb' style={{ left: `${fillWidth}%` }}/>
+                            <div className='point-bar-fill' style={{ width: `${fillWidth}%` }} />
+                            <div className='point-bar-thumb' style={{ left: `${fillWidth}%` }} />
                         </div>
                         <div className='point-bar-numbers'>
                             <span className='label-item'>0</span>
@@ -302,30 +307,30 @@ export default function UserInfo() {
                     <div className='point-bottom'>
                         {userGrade !== "골드" ? (
                             <>
-                            <div className='point-bottom-item'>
-                                <p>{userGradeEN?.next} 등급까지</p>
-                                <p className='point-highlight'>{userGradeEN?.nextP - user?.point || 0}</p>
-                                <p>포인트 남았어요!</p>
-                            </div>
-                            <div className='point-divider' />
-                            <div className='point-bottom-item'>
-                                <p>{userGradeEN.next} 등급이 되면</p>
-                                <p className='point-highlight'>{userGradeEN.nextR}% 할인 쿠폰</p>
-                                <p>지급!</p>
-                            </div>
+                                <div className='point-bottom-item'>
+                                    <p>{userGradeEN?.next} 등급까지</p>
+                                    <p className='point-highlight'>{userGradeEN?.nextP - user?.point || 0}</p>
+                                    <p>포인트 남았어요!</p>
+                                </div>
+                                <div className='point-divider' />
+                                <div className='point-bottom-item'>
+                                    <p>{userGradeEN.next} 등급이 되면</p>
+                                    <p className='point-highlight'>{userGradeEN.nextR}% 할인 쿠폰</p>
+                                    <p>지급!</p>
+                                </div>
                             </>
-                        ):(
+                        ) : (
                             <>
-                            <div className='point-bottom-item'>
-                                <p className='point-highlight'>골드 등급</p>
-                                <p>업그레이드 완료</p>
-                            </div>
-                            <div className='point-divider' />
-                            <div className='point-bottom-item'>
-                                <p>CASETiFY Club에서</p>
-                                <p>드리는 전용혜택을</p>
-                                <p>놓치지마세요!</p>
-                            </div>
+                                <div className='point-bottom-item'>
+                                    <p className='point-highlight'>골드 등급</p>
+                                    <p>업그레이드 완료</p>
+                                </div>
+                                <div className='point-divider' />
+                                <div className='point-bottom-item'>
+                                    <p>CASETiFY Club에서</p>
+                                    <p>드리는 전용혜택을</p>
+                                    <p>놓치지마세요!</p>
+                                </div>
                             </>
                         )}
                     </div>
