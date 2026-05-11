@@ -40,6 +40,10 @@ export default function BrandQna() {
             const el = document.getElementById('inquiry');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
+        if (hash === '#faq') {
+            const el = document.getElementById('faq');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
     }, [hash]);
 
     useEffect(() => {
@@ -170,7 +174,7 @@ export default function BrandQna() {
             exit="exit"
             transition={{ duration: 0.4 }}
         >
-            <div className="brand-qna-page">
+            <div className="brand-qna-page" id="faq">
                 {/* 히어로 */}
                 <section className="qna-hero">
                     <div className="qna-hero-text">
@@ -195,7 +199,7 @@ export default function BrandQna() {
                                     onClick={() => {
                                         setActiveCategory(cat.id);
                                         setOpenFaqId(null);
-                                        window.scrollTo({ top: 0, behavior: 'instant' });
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }}
                                 >
                                     {cat.label}

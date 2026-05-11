@@ -935,7 +935,9 @@ export default function BrandCasetify() {
 
     const handleTabChange = (id) => {
         setActiveTab(id)
-        window.scrollTo({ top: 0, behavior: 'instant' })
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, 0)
     }
 
     return (
