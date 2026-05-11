@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
 import { div } from 'framer-motion/client';
 import { has2DTranslate, motion } from 'framer-motion';
@@ -29,6 +29,7 @@ export default function PayComplete() {
     const location = useLocation();
     const { orderId, grade } = location.state || {};
     const [isGiftModalOpen, setIsGiftModalOpen] = useState(false);
+    const navigate = useNavigate();
 
     // 스토어에서 주문 내역 가져오기
     const {orderList} = useAuthStore();
@@ -36,9 +37,11 @@ export default function PayComplete() {
     // 내역 중 아이디가 일치하는 주문 찾기
     const currentOrder = orderList.find(order => order.orderId === orderId);
 
+
     // 만약 데이터가 없으면 예외 처리
     if (!currentOrder) {
-        return <div className='error-box'>주문 정보를 찾을 수 없습니다.</div>;
+        // replace: true는 뒤로가기 했을 때 다시 이 빈 페이지로 오지 않게 기록을 덮어씁니다.
+        return <Navigate to="/error" replace />;
     }
 
     const hasGiftItem = currentOrder.orderItems.some(item => item.caseCategory === "gift");

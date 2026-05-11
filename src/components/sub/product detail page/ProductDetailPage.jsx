@@ -11,9 +11,9 @@ import { modelColorOptions } from "../../../data/finalData";
 import { motion } from 'framer-motion';
 
 const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import "./scss/MypageTitle.scss"
 
 export default function MypageTitle({ title }) {
     return (

@@ -7,8 +7,12 @@
         right: 60px;
 
         font-size: 0.9rem;
-        color: #fff;
+        color: #2F2F2F;
         z-index: 10;
+
+        &.white{
+            color: #fff;
+        }
     }
 
     .main-slider-img {

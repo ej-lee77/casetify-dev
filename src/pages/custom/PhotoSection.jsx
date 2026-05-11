@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { PHOTO_FILTERS } from './constants'
 
 const STICKERS = [
@@ -23,9 +23,70 @@ function getFilterStyle(filterId, strength) {
     }
 }
 
-// ✅ 중앙 필터 자동 선택
 const DEFAULT_FILTER_ID = PHOTO_FILTERS[Math.floor(PHOTO_FILTERS.length / 2)]?.id
 
+// ── 영역 고르기 컴포넌트 ─────────────────────────
+function CropSection({ imageTransform, setImageTransform, cropMode, setCropMode, cropLocked, setCropLocked }) {
+    return (
+        <div style={{ marginTop: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                <p className="label" style={{ margin: 0 }}>영역 고르기</p>
+                <div style={{ display: 'flex', gap: 6 }}>
+                    {!cropLocked ? (
+                        !cropMode ? (
+                            <button onClick={() => setCropMode(true)} style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#222', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>✂️ 영역 고르기</button>
+                        ) : (
+                            <>
+                                <button onClick={() => { setCropLocked(true); setCropMode(false) }} style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#111', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>✅ 고정</button>
+                                <button onClick={() => { setCropMode(false); setImageTransform({ x: 0, y: 0, scale: 1 }) }} style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#eee', color: '#333', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>초기화</button>
+                            </>
+                        )
+                    ) : (
+                        <button onClick={() => { setCropLocked(false); setCropMode(true) }} style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#666', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>✏️ 다시 편집</button>
+                    )}
+                </div>
+            </div>
+            {cropMode && !cropLocked && (
+                <div style={{ background: '#f5f5f5', borderRadius: 12, padding: 14, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <p style={{ fontSize: 12, color: '#888', margin: 0, textAlign: 'center' }}>왼쪽 프리뷰에서 드래그하거나 아래로 조정하세요</p>
+                    <div>
+                        <label style={{ fontSize: 12, color: '#555', marginBottom: 4, display: 'block' }}>
+                            확대/축소 <span style={{ color: '#222', fontWeight: 600 }}>{Math.round((imageTransform?.scale || 1) * 100)}%</span>
+                        </label>
+                        <input type="range" min={50} max={300} step={1}
+                            value={Math.round((imageTransform?.scale || 1) * 100)}
+                            onChange={e => setImageTransform(p => ({ ...p, scale: Number(e.target.value) / 100 }))}
+                            className="custom-slider" style={{ width: '100%' }} />
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#aaa' }}>
+                            <span>50%</span><span>300%</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style={{ fontSize: 12, color: '#555', marginBottom: 6, display: 'block' }}>위치 미세조정</label>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, width: 96, margin: '0 auto' }}>
+                            <div />
+                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }} onClick={() => setImageTransform(p => ({ ...p, y: (p.y || 0) - 5 }))}>▲</button>
+                            <div />
+                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }} onClick={() => setImageTransform(p => ({ ...p, x: (p.x || 0) - 5 }))}>◀</button>
+                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#ddd', cursor: 'pointer', fontSize: 11 }} onClick={() => setImageTransform(p => ({ x: 0, y: 0, scale: p.scale || 1 }))}>●</button>
+                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }} onClick={() => setImageTransform(p => ({ ...p, x: (p.x || 0) + 5 }))}>▶</button>
+                            <div />
+                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }} onClick={() => setImageTransform(p => ({ ...p, y: (p.y || 0) + 5 }))}>▼</button>
+                            <div />
+                        </div>
+                    </div>
+                </div>
+            )}
+            {cropLocked && (
+                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, padding: '8px 12px', fontSize: 12, color: '#16a34a' }}>
+                    ✅ 영역이 고정되었습니다. "다시 편집"을 눌러 수정할 수 있어요.
+                </div>
+            )}
+        </div>
+    )
+}
+
+// ── PhotoSection ─────────────────────────────────
 export function PhotoSection({
     photoTab, setPhotoTab,
     photoURL, setPhotoURL, setPhotoFile,
@@ -34,8 +95,11 @@ export function PhotoSection({
     selectedSticker, setSelectedSticker,
     filterSectionRef,
     onScrollToFilter,
+    imageTransform, setImageTransform,
+    cropMode, setCropMode,
 }) {
     const fileInputRef = useRef(null)
+    const [cropLocked, setCropLocked] = useState(false)
 
     const handlePhotoUpload = (e) => {
         const file = e.target.files?.[0]
@@ -44,7 +108,6 @@ export function PhotoSection({
         const reader = new FileReader()
         reader.onload = (ev) => {
             setPhotoURL(ev.target.result)
-            // ✅ 사진 업로드 완료 → 중앙 필터 자동 선택 + 스크롤
             setPhotoFilter(DEFAULT_FILTER_ID)
             setTimeout(() => onScrollToFilter?.(), 200)
         }
@@ -115,6 +178,13 @@ export function PhotoSection({
                                     </div>
                                 </div>
                             )}
+                            {photoFilter && setImageTransform && (
+                                <CropSection
+                                    imageTransform={imageTransform} setImageTransform={setImageTransform}
+                                    cropMode={cropMode} setCropMode={setCropMode}
+                                    cropLocked={cropLocked} setCropLocked={setCropLocked}
+                                />
+                            )}
                         </div>
                     )}
                 </>
@@ -128,7 +198,6 @@ export function PhotoSection({
                                 className={`custom-filter-card ${selectedSticker?.id === s.id ? 'active' : ''}`}
                                 onClick={() => {
                                     setSelectedSticker(s)
-                                    // ✅ 스티커 선택 → 중앙 필터 자동 선택 + 스크롤
                                     setPhotoFilter(DEFAULT_FILTER_ID)
                                     setTimeout(() => onScrollToFilter?.(), 150)
                                 }}>
@@ -166,6 +235,13 @@ export function PhotoSection({
                                         <span>약</span><span>강</span>
                                     </div>
                                 </div>
+                            )}
+                            {photoFilter && setImageTransform && (
+                                <CropSection
+                                    imageTransform={imageTransform} setImageTransform={setImageTransform}
+                                    cropMode={cropMode} setCropMode={setCropMode}
+                                    cropLocked={cropLocked} setCropLocked={setCropLocked}
+                                />
                             )}
                         </div>
                     )}

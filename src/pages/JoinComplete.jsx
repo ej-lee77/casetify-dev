@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
 const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 export default function JoinMail() {
-  return (
+    return (
     <motion.div
-      variants={fadeVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration: 0.4 }}
+        variants={fadeVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.4 }}
     >
     <div className='login-wrap join-wrap join-complete-wrap'>
         <div className="inner">
@@ -47,5 +47,5 @@ export default function JoinMail() {
         </div>
     </div>
     </motion.div>
-  )
+    )
 }
