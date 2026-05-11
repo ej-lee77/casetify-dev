@@ -37,7 +37,7 @@ function StoryTab() {
 
                 {/* 인트로 */}
                 <section className="bc-intro">
-                    <p className="bc-intro-eyebrow">OUR STORY</p>
+                    <span className="bc-intro-eyebrow">OUR STORY</span>
                     <h3>우리는 <b style={{ color: 'var(--gold)' }}>케이스티파이</b>입니다</h3>
                     <p>케이스티파이는 일상의 품격을 높이는 테크 액세서리를 만듭니다.<br />홍콩과 로스앤젤레스에 본사를 두고, 크리에이티브 정신을 전하는 글로벌 브랜드입니다.</p>
                 </section>
@@ -134,14 +134,77 @@ function StoryTab() {
 
 // ─── STANDARD 슬라이드 데이터 ─────────────────────────
 const STANDARD_SLIDES = [
-    { key: 'impact', label: 'IMPACT CASE', title: '충격을 흡수하는,\n가장 신뢰할 수 있는 케이스', desc: '군용 등급 낙하 보호와 부담스럽지 않은 부피의 균형. 케이스티파이가 정의하는 가장 표준적인 형태입니다.', link: '/search?q=임팩트 케이스', img: '/images/brand/impact-case.png' },
-    { key: 'bounce', label: 'BOUNCE CASE', title: '튀어오르는 탄성,\n일상을 지키는 케이스', desc: '독자적인 에어 쿠션 구조로 충격을 분산합니다. 어떤 낙하에도 흔들리지 않는 자신감.', link: '/search?q=바운스 케이스', img: '/images/brand/bounce-case.png' },
-    { key: 'clear', label: 'CLEAR CASE', title: '투명하게, 그러나\n완벽하게 보호합니다', desc: '폰의 디자인을 그대로 살리면서 탁월한 보호력을 제공하는 시그니처 클리어 케이스.', link: '/search?q=임팩트 클리어 케이스', img: '/images/brand/clear-case.png' },
-    { key: 'glaze', label: 'GLAZE CASE', title: '광택이 주는 품격,\n새로운 감각의 케이스', desc: '미러 피니시 소재로 완성한 글레이즈 케이스. 빛에 따라 달라지는 독특한 표면감.', link: '/search?q=글레이즈 케이스', img: '/images/brand/glaze-case.png' },
-    { key: 'ring', label: 'RING STAND', title: '잡기 편하고,\n세워두기도 좋은 링스탠드', desc: '자유롭게 각도 조절되는 링스탠드. 한 손으로도 안정적으로 기기를 잡을 수 있습니다.', link: '/search?q=임팩트 링 스탠드 케이스', img: '/images/brand/ring-stand.png' },
-    { key: 'strap', label: 'BODY STRAP', title: '손 없이도 자유롭게,\n바디스트랩', desc: '어깨에 걸치거나 크로스로 착용 가능한 바디스트랩. 패션과 실용성을 동시에.', link: '/search?q=strap', img: '/images/brand/body-strap.png' },
-    { key: 'travel', label: 'TRAVEL CARRIER', title: '여행의 시작,\n케이스티파이 트래블 캐리어', desc: '가볍고 견고한 소재로 만든 트래블 캐리어. 이동 중에도 스타일을 잃지 않습니다.', link: '/search?q=바운스 캐리어', img: '/images/brand/travel.png' },
+    {
+        key: 'impact',
+        label: 'IMPACT CASE',
+        showcaseTitle: 'PROTECTION,\nREFINED',
+        title: '충격을 흡수하는,\n가장 신뢰할 수 있는 케이스',
+        desc: '군용 등급 낙하 보호와 부담스럽지 않은 부피의 균형. 케이스티파이가 정의하는 가장 표준적인 형태입니다.',
+        link: '/search?q=임팩트 케이스',
+        img: '/images/brand/impact-case.png'
+    },
+
+    {
+        key: 'bounce',
+        label: 'BOUNCE CASE',
+        showcaseTitle: 'BUILT TO\nBOUNCE BACK',
+        title: '튀어오르는 탄성,\n일상을 지키는 케이스',
+        desc: '독자적인 에어 쿠션 구조로 충격을 분산합니다. 어떤 낙하에도 흔들리지 않는 자신감.',
+        link: '/search?q=바운스 케이스',
+        img: '/images/brand/bounce-case.png'
+    },
+
+    {
+        key: 'clear',
+        label: 'CLEAR CASE',
+        showcaseTitle: 'CRYSTAL CLEAR,\nEVERYDAY READY',
+        title: '투명하게, 그러나\n완벽하게 보호합니다',
+        desc: '폰의 디자인을 그대로 살리면서 탁월한 보호력을 제공하는 시그니처 클리어 케이스.',
+        link: '/search?q=임팩트 클리어 케이스',
+        img: '/images/brand/clear-case.png'
+    },
+
+    {
+        key: 'glaze',
+        label: 'GLAZE CASE',
+        showcaseTitle: 'SHINE WITH\nATTITUDE',
+        title: '광택이 주는 품격,\n새로운 감각의 케이스',
+        desc: '미러 피니시 소재로 완성한 글레이즈 케이스. 빛에 따라 달라지는 독특한 표면감.',
+        link: '/search?q=글레이즈 케이스',
+        img: '/images/brand/glaze-case.png'
+    },
+
+    {
+        key: 'ring',
+        label: 'RING STAND',
+        showcaseTitle: 'HOLD.\nSTAND. GO.',
+        title: '잡기 편하고,\n세워두기도 좋은 링스탠드',
+        desc: '자유롭게 각도 조절되는 링스탠드. 한 손으로도 안정적으로 기기를 잡을 수 있습니다.',
+        link: '/search?q=임팩트 링 스탠드 케이스',
+        img: '/images/brand/ring-stand.png'
+    },
+
+    {
+        key: 'strap',
+        label: 'BODY STRAP',
+        showcaseTitle: 'MOVE\nHANDS FREE',
+        title: '손 없이도 자유롭게,\n바디스트랩',
+        desc: '어깨에 걸치거나 크로스로 착용 가능한 바디스트랩. 패션과 실용성을 동시에.',
+        link: '/search?q=strap',
+        img: '/images/brand/body-strap.png'
+    },
+
+    {
+        key: 'travel',
+        label: 'TRAVEL CARRIER',
+        showcaseTitle: 'MOVE IN\nSTYLE',
+        title: '여행의 시작,\n케이스티파이 트래블 캐리어',
+        desc: '가볍고 견고한 소재로 만든 트래블 캐리어. 이동 중에도 스타일을 잃지 않습니다.',
+        link: '/search?q=바운스 캐리어',
+        img: '/images/brand/travel.png'
+    },
 ]
+
 
 const CHIP_LABELS = ['임팩트 케이스', '바운스 케이스', '클리어 케이스', '글레이즈 케이스', '링스탠드', '바디스트랩', '트래블 캐리어']
 
@@ -247,7 +310,7 @@ function StandardTab() {
             {/* 메가 헤드라인 */}
             <section className="std-mega">
                 <div className="bc-inner">
-                    <p className="bc-intro-eyebrow">OUR STANDARD</p>
+                    <span className="bc-intro-eyebrow">OUR STANDARD</span>
                     <h2><span className="std-light">충분한</span> 보호력이 아닌,<br />당신의 <b style={{ color: 'var(--gold)' }}>실제 삶</b>에서 시작되는 기준</h2>
                     <p><span className="std-strong">다른 이들이 '이 정도면 충분한' 보호력을 이야기할 때,</span> 케이스티파이의 기준은 당신의 실제 삶에서 시작됩니다. 일상 속 사소한 낙하부터 짜릿한 모험, 그리고 케이스의 진정한 성능을 시험하는 생생한 도전까지 — 우리가 만들어내는 모든 제품은 현실에서 만들어진 끝없는 도전에서 비로소 탄생합니다.</p>
                 </div>
@@ -298,7 +361,7 @@ function StandardTab() {
                         {/* 오버레이 레이블 */}
                         <div className="std-showcase-lbl">SIGNATURE COLLECTION</div>
 
-                        {/* 제품 보러가기 */}
+                        제품 보러가기
                         <button
                             className="std-showcase-cta"
                             onClick={() => navigate(current.link)}
@@ -309,10 +372,15 @@ function StandardTab() {
                         {/* 캡션 */}
                         <div className="std-showcase-cap">
                             <div className="std-showcase-k">{current.label}</div>
-                            <h3>{current.title.split('\n').map((line, i) => (
-                                <span key={i}>{line}{i === 0 && <br />}</span>
-                            ))}</h3>
-                            <p>{current.desc}</p>
+
+                            <h3>
+                                {current.showcaseTitle.split('\n').map((line, i) => (
+                                    <span key={i}>
+                                        {line}
+                                        {i === 0 && <br />}
+                                    </span>
+                                ))}
+                            </h3>
                         </div>
 
                         {/* 페이저 */}
@@ -331,10 +399,10 @@ function StandardTab() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* 카테고리 칩 — 클릭 시 해당 슬라이드로 이동 */}
-            <div className="std-chips-wrap">
+            <div div className="std-chips-wrap" >
                 <div className="std-chips">
                     {CHIP_LABELS.map((chip, i) => (
                         <span
@@ -346,10 +414,10 @@ function StandardTab() {
                         </span>
                     ))}
                 </div>
-            </div>
+            </div >
 
             {/* 제품 상세 설명 패널 */}
-            <section className="std-product-detail">
+            <section section className="std-product-detail" >
                 <div className="bc-inner">
                     <div className="std-detail-header">
                         <div className="std-detail-label">{current.label}</div>
@@ -372,10 +440,10 @@ function StandardTab() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* 100% 만족 보장 */}
-            <section className="std-warranty">
+            <section section className="std-warranty" >
                 <div className="bc-inner">
                     <div className="std-warranty-wrap">
                         <div className="std-warranty-left">
@@ -389,10 +457,10 @@ function StandardTab() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* 보증 카드 */}
-            <section className="std-guarantee">
+            <section section className="std-guarantee" >
                 <div className="bc-inner">
                     <div className="std-guarantee-head">
                         <p className="bc-intro-eyebrow">PRODUCT WARRANTY</p>
@@ -411,10 +479,10 @@ function StandardTab() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* 케어 팁 */}
-            <section className="std-care">
+            <section section className="std-care" >
                 <div className="bc-inner">
                     <p className="std-care-sub">다음은 CASETiFY 제품의 사용 수명을 보장하기 위한 소재별 관리 팁입니다.</p>
                     <h3>제품 케어 팁</h3>
@@ -432,8 +500,8 @@ function StandardTab() {
                         ))}
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     )
 }
 
@@ -478,7 +546,7 @@ function RecastifyTab() {
 
             {/* 인트로 */}
             <section className="bc-intro">
-                <p className="bc-intro-eyebrow" style={{ color: '#7eb450' }}>SUSTAINABILITY</p>
+                <span className="bc-intro-eyebrow" style={{ color: '#7eb450' }}>SUSTAINABILITY</span>
                 <h3>지속 가능한 미래를 향한,<br /><b style={{ color: '#5a8a3a' }}>케이스티파이의 약속</b></h3>
                 <p>우리는 보다 친환경적인 미래에 대한 명확한 비전을 가지고, 버진 플라스틱 사용을 줄이기 위해 전념하고 있습니다. 케이스티파이는 디자인과 지속가능성이 공존할 수 있음을 보여줍니다.</p>
             </section>
@@ -516,7 +584,7 @@ function RecastifyTab() {
                             className="rc-crisis-ph"
                         />
                         <div className="rc-crisis-meta">
-                            <p className="bc-intro-eyebrow" style={{ color: '#3a7fb5' }}>THE PLASTIC CRISIS</p>
+                            <p className="bc-intro-eyebrow" style={{ color: '#3a7fb5', fontWeight: 700 }}>THE PLASTIC CRISIS</p>
                             <h2>전 세계가 마주한,<br /><b>플라스틱 위기</b></h2>
                             <div className="rc-crisis-big">460<small>M</small></div>
                             <div className="rc-crisis-cap">전 세계 연간 플라스틱 생산량 (단위: 톤)</div>
@@ -595,7 +663,7 @@ function RecastifyTab() {
             {/* CTA */}
             <section className="rc-cta">
                 <div className="bc-inner">
-                    <p className="bc-intro-eyebrow" style={{ color: 'rgba(255,255,255,.7)' }}>JOIN THE MOVEMENT</p>
+                    <p className="bc-intro-eyebrow" style={{ color: 'rgba(255,255,255,.7)', fontWeight: 700 }}>JOIN THE MOVEMENT</p>
                     <h3>당신의 낡은 케이스가,<br />새로운 시작이 됩니다</h3>
                     <p>지금 RE/CASETiFY 프로그램에 참여하고, 더 나은 미래를 함께 만들어 주세요.</p>
                 </div>
@@ -620,7 +688,6 @@ function ClubTab() {
         { label: '신제품 사전 주문', bronze: <CheckDot />, silver: <CheckDot on />, gold: <CheckDot on /> },
         { label: '비공개 세일 초대', bronze: <CheckDot />, silver: <CheckDot on />, gold: <CheckDot on /> },
         { label: '생일 기프트 바우처', bronze: <CheckDot />, silver: <CheckDot on />, gold: <CheckDot on /> },
-        { label: '전 상품 상시 할인', bronze: '—', silver: '—', gold: '15% OFF' },
         { label: '제품 보증 기간', bronze: '6개월', silver: '6개월', gold: '12개월' },
         { label: '한정판 우선 구매', bronze: <CheckDot />, silver: <CheckDot />, gold: <CheckDot on /> },
         { label: '전용 고객지원', bronze: <CheckDot />, silver: <CheckDot />, gold: <CheckDot on /> },
@@ -692,7 +759,7 @@ function ClubTab() {
                             { n: 'STEP 03', title: '등급별 혜택 누리기', desc: 'Bronze → Silver → Gold 순으로 등급이 올라갈 때마다 더 큰 할인과 단독 혜택이 열립니다. 마지막 구매일 기준 12개월 동안 유지됩니다.', glyph: '★' },
                         ].map((step) => (
                             <div key={step.n} className="bc-club-step">
-                                <p className="bc-club-step-num">{step.n}</p>
+                                <span className="bc-club-step-num">{step.n}</span>
                                 <p className="bc-club-step-title">{step.title}</p>
                                 <p>{step.desc}</p>
                                 <span className="bc-club-step-glyph">{step.glyph}</span>
@@ -764,10 +831,10 @@ function ClubTab() {
                     <p className="bc-club-earn-sub">쇼핑할 때마다 자동으로 포인트가 적립됩니다.<br />마지막 구매일로부터 12개월 동안의 누적 포인트가 등급을 결정합니다.</p>
                     <div className="bc-club-earn-grid">
                         {[
-                            { ico: '₩', icoClass: '', title: '구매 금액 적립', desc: '온라인 / 오프라인 매장에서의 정상가 구매 금액 1,000원당 1포인트가 자동 적립됩니다.', pts: '+1 POINT / 1,000원' },
-                            { ico: '✦', icoClass: '', title: '신규 회원 보너스', desc: '처음 가입하시면 첫 구매에 사용 가능한 웰컴 쿠폰을 즉시 받으실 수 있어요.', pts: 'WELCOME COUPON' },
-                            { ico: '🎂', icoClass: '', title: '생일 기프트', desc: 'SILVER · GOLD 등급 회원분께는 매년 생일 달에 단독 기프트 바우처가 발급됩니다.', pts: 'SILVER · GOLD ONLY' },
-                            { ico: '↻', icoClass: '', title: '자동 등급 갱신', desc: '새 주문이 발생할 때마다 멤버십 유효 기간이 12개월 자동 연장됩니다.', pts: 'AUTO RENEWAL · 12M' },
+                            { ico: '₩', icoClass: '', title: '구매 금액 적립', desc: '온라인 / 오프라인 매장에서의 정상가 구매 금액 1,000원당 1포인트가 자동 적립됩니다.', pts: '+1 POINT / 1,000원', },
+                            { ico: '✦', icoClass: '', title: '신규 회원 보너스', desc: '처음 가입하시면 첫 구매에 사용 가능한 웰컴 쿠폰을 즉시 받으실 수 있어요.', pts: 'WELCOME COUPON', },
+                            { ico: '🎂', icoClass: '', title: '생일 기프트', desc: 'SILVER · GOLD 등급 회원분께는 매년 생일 달에 단독 기프트 바우처가 발급됩니다.', pts: 'SILVER · GOLD ONLY', },
+                            { ico: '↻', icoClass: '', title: '자동 등급 갱신', desc: '새 주문이 발생할 때마다 멤버십 유효 기간이 12개월 자동 연장됩니다.', pts: 'AUTO RENEWAL · 12M', },
                         ].map((card) => (
                             <div key={card.title} className="bc-club-earn-card">
                                 <div className={`bc-club-earn-ico${card.icoClass ? ' ' + card.icoClass : ''}`}>{card.ico}</div>
@@ -779,7 +846,7 @@ function ClubTab() {
                             </div>
                         ))}
                     </div>
-                    <div className="bc-club-duo">
+                    {/* <div className="bc-club-duo">
                         <div className="bc-club-duo-blk bc-club-duo-blk--welcome">
                             <div><p className="bc-club-duo-lbl">WELCOME GIFT</p><p className="bc-club-duo-title">신규 가입 즉시 받는 첫 쇼핑 쿠폰</p></div>
                             <p className="bc-club-duo-big">WELCOME</p>
@@ -790,7 +857,7 @@ function ClubTab() {
                             <p className="bc-club-duo-big">매년 ₩</p>
                             <p>SILVER 이상 등급 회원께 매년 생일 달 첫째 날 자동으로 발급됩니다.</p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

@@ -198,9 +198,10 @@
     text-align: center;
 
     h3 {
-        font-size: 44px;
+        font-size: 48px;
         font-weight: 800;
-        margin-bottom: 24px;
+        margin-top: 30px;
+        margin-bottom: 30px;
         letter-spacing: -.025em;
         line-height: 1.25;
         color: var(--ink);
@@ -211,16 +212,25 @@
         font-size: 16px;
         color: #5a5a5a;
         line-height: 1.9;
-        font-weight: 400;
+        // font-weight: 400;
         max-width: 720px;
         margin: 0 auto;
+
+        &.bc-intro-eyebrow {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 24px;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: center;
+        }
     }
 }
 
 .bc-intro-eyebrow {
     font-family: 'Archivo', sans-serif;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: .32em;
     color: #999;
     margin-bottom: 24px;
@@ -302,7 +312,7 @@
         }
 
         h2 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 800;
             line-height: 1.35;
             margin-top: 32px;
@@ -350,7 +360,7 @@
         &::before {
             content: '';
             position: absolute;
-            top: 96px;
+            top: 92px;
             left: 5%;
             right: 5%;
             height: 1px;
@@ -408,22 +418,24 @@
 }
 
 .story-quote {
-    padding: 80px 0;
+    padding: 70px 0 80px;
     text-align: center;
     background: #0a0a0a;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px; // ← 요소 간 간격 통일
 
     .story-quote-mark {
-        font-family: 'GMarketSans', sans-serif;
+        font-size: 100px; // ← 크기 줄여서 여백 덜 차지하게
         font-weight: 900;
-        font-size: 120px;
-        color: var(--gold);
         line-height: 1;
+        color: var(--gold);
     }
 
     blockquote {
         max-width: 980px;
-        margin: 24px auto 0;
         font-size: 32px;
         font-weight: 300;
         line-height: 1.55;
@@ -438,12 +450,12 @@
     }
 
     .story-quote-by {
-        margin-top: 48px;
         font-family: 'Archivo', sans-serif;
         font-weight: 700;
         font-size: 12px;
         letter-spacing: .32em;
         color: rgba(255, 255, 255, .5);
+        margin-top: 48px;
     }
 }
 
@@ -502,8 +514,8 @@
     text-align: center;
 
     h2 {
-        margin-top: 32px;
-        font-size: 44px;
+        margin-top: 30px;
+        font-size: 48px;
         font-weight: 800;
         letter-spacing: -.025em;
         line-height: 1.25;
@@ -512,11 +524,11 @@
     }
 
     p {
-        margin: 48px auto 0;
+        margin: 30px auto 0;
         max-width: 760px;
         font-size: 16px;
         line-height: 1.95;
-        color: #555;
+        color: #5a5a5a;
         font-weight: 400;
     }
 }
@@ -571,7 +583,7 @@
             color: var(--ink);
 
             small {
-                padding-left: 5px;
+                padding-left: 10px;
                 font-size: 32px;
                 font-weight: 700;
                 color: #888;
@@ -588,7 +600,7 @@
 
         p {
             margin-top: 10px;
-            font-size: 13px;
+            font-size: 14px;
             color: #666;
             line-height: 1.7;
         }
@@ -794,14 +806,14 @@
         .std-detail-label {
             font-family: 'Archivo', sans-serif;
             font-weight: 700;
-            font-size: 11px;
+            font-size: 13px;
             letter-spacing: .28em;
             color: #999;
             margin-bottom: 14px;
         }
 
         h3 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 800;
             letter-spacing: -.02em;
             line-height: 1.2;
@@ -814,7 +826,7 @@
             font-size: 16px;
             color: #666;
             line-height: 1.85;
-            max-width: 600px;
+            max-width: none;
             margin: 0 auto 28px;
         }
     }
@@ -1004,8 +1016,8 @@
             padding-left: 16px;
 
             li {
-                font-size: 13px;
-                color: #777;
+                font-size: 14px;
+                color: #666;
                 line-height: 1.7;
                 margin-bottom: 6px;
             }
@@ -1020,6 +1032,7 @@
 
     .std-care-sub {
         font-size: 14px;
+        font-weight: 700;
         color: #888;
         letter-spacing: .04em;
         margin-bottom: 16px;
@@ -1144,6 +1157,7 @@
             small {
                 font-size: 36px;
                 font-weight: 700;
+                padding-left: 10px;
             }
         }
 
@@ -1243,7 +1257,7 @@
                 font-size: 32px;
                 font-weight: 700;
                 color: #888;
-                padding-left: 5px;
+                padding-left: 10px;
             }
         }
 
@@ -1322,7 +1336,7 @@
                 font-size: 20px;
                 font-weight: 700;
                 color: #888;
-                padding-left: 5px;
+                padding-left: 10px;
             }
         }
 
@@ -1423,7 +1437,7 @@
                 position: absolute;
                 left: 16px;
                 bottom: 16px;
-                color: rgba(255, 255, 255, .6);
+                color: rgb(59 59 59 / 60%);
                 font-size: 10px;
                 letter-spacing: .24em;
                 font-family: 'Archivo', sans-serif;
@@ -1455,7 +1469,7 @@
 
     .rc-artist-head {
         text-align: center;
-        margin-bottom: 80px;
+        margin-bottom: 70px;
 
         h3 {
             font-size: 44px;
@@ -1612,11 +1626,11 @@
 .bc-club-eyebrow {
     font-family: 'Archivo', sans-serif;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: .32em;
     color: #999;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
     display: block;
 }
 
@@ -1626,7 +1640,7 @@
     text-align: center;
 
     h3 {
-        font-size: 44px;
+        font-size: 48px;
         font-weight: 800;
         margin-bottom: 24px;
         letter-spacing: -.025em;
@@ -1642,7 +1656,7 @@
 
 .bc-club-lead {
     font-size: 16px;
-    color: #555;
+    color: #5a5a5a;
     line-height: 1.95;
     font-weight: 400;
     max-width: 760px;
@@ -1683,14 +1697,14 @@
         font-style: normal;
         font-weight: 600;
         letter-spacing: 0;
-        margin-left: 4px;
+        margin-left: 10px;
     }
 }
 
 .bc-club-stat-lbl {
     display: block;
-    font-size: 12px;
-    color: #777;
+    font-size: 13px;
+    color: #666;
     margin-top: 12px;
     letter-spacing: .04em;
     font-weight: 500;
@@ -1751,7 +1765,7 @@
 }
 
 .bc-club-step-num {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: .24em;
     color: #999;
@@ -1786,7 +1800,7 @@
     h3 {
         font-size: 36px;
         font-weight: 800;
-        margin: 14px 0 18px;
+        margin: 0 0 24px;
         letter-spacing: -.02em;
         font-family: "GMarketSans", sans-serif;
     }
@@ -2067,13 +2081,13 @@
 
 // EARN
 .bc-club-earn {
-    padding: 72px 0;
+    padding: 72px 0 0;
     text-align: center;
 
     h3 {
         font-size: 36px;
         font-weight: 800;
-        margin: 14px 0 18px;
+        margin: 0 0 24px;
         letter-spacing: -.02em;
         font-family: "GMarketSans", sans-serif;
     }
@@ -2106,11 +2120,11 @@
     border: 1px solid var(--line);
     border-radius: 12px;
     padding: 32px;
-    transition: transform .25s, box-shadow .25s;
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, .06);
+    >div:last-child {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 
     h4 {
@@ -2152,6 +2166,9 @@
     color: #fff;
     padding: 5px 12px;
     border-radius: 20px;
+
+    margin-top: auto;
+    width: fit-content;
 }
 
 .bc-club-duo {
