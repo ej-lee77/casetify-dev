@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { div } from 'framer-motion/client';
+import { div, img } from 'framer-motion/client';
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -23,6 +23,12 @@ export default function Login() {
     const [birthMsg, setBirthMsg] = useState(null);
 
     const {user, onLogin, onGoogleLogin, onKakaoLogin, onNaverLogin} = useAuthStore();
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
 
     // 로그인하면 첫화면으로 이동하기
     const navigate = useNavigate();
@@ -192,7 +198,19 @@ export default function Login() {
               <span></span>
           </div>
           <div className='input-div'>
-              <input type="password" name="password" id='password' required="required" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder=""/>
+              <input type={showPassword ? 'text' : 'password'} name="password" id='password' required="required" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder=""/>
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className='eye-btn'
+                aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+              >
+                {showPassword ? (
+                  <img src='/images/login/eye-off.png' alt='비밀번호 숨기기'/>
+                ) : (
+                  <img src='/images/login/eye-open.png' alt='비밀번호 보기'/>
+                )}
+              </button>
               <label htmlFor='password'>비밀번호</label>
               <span></span>
           </div>

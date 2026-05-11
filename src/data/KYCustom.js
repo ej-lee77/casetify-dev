@@ -5,3 +5,4 @@ export const productsData = [
     { id: 3, category: "women", subcategory: "상의", title: "Women's Summer Dress", price: 79000, image: "/images/women/women3.jpg", description: "Lightweight summer dress." },
     { id: 4, category: "women", subcategory: "상의", title: "Women's Hoodie", price: 69000, image: "/images/women/women4.jpg", description: "Warm and cozy hoodie." },
     { id: 5, category: "women", subcategory: "상의", title: "Women's Jacket", price: 99000, image: "/images/women/women5.jpg", description: "Trendy outdoor jacket." },
+]

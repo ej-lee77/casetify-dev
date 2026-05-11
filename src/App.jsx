@@ -29,6 +29,7 @@ import ProductCustomizePage from './pages/custom/ProductCustomizePage'
 import Gift from './pages/Gift'
 import BrandAuthentication from './pages/BrandAuthentication'
 import PrivateRoute from './components/PrivateRoute'
+import Error from './pages/Error'
 
 function App() {
   const { pathname } = useLocation();
@@ -91,6 +92,9 @@ function App() {
         <Route path='/brand/certify' element={<BrandAuthentication />} />
 
         <Route path="/giftcard" element={<Gift />} />
+
+        <Route path="/error" element={<Error />} />
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer className={isStorePage ? "no-margin-top" : ""} />
     </>
