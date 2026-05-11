@@ -103,6 +103,19 @@ export default function Gift() {
     }
   }
 
+  const handleGiftModal = ()=>{
+    if(!user){
+      setToastMsg("로그인 후 이용 가능합니다.")
+      setLoginToastOpen(true)
+      setTimeout(() => {
+        setLoginToastOpen(false)
+        navigate('/login')
+      }, 1500)
+    }else{
+      setIsModalOpen(true);
+    }
+  }
+
   return (
     <>
       <motion.div
@@ -142,7 +155,7 @@ export default function Gift() {
               </div>
               <div className="gift-card-info register">
                 <p>이미 기프트 카드를 보유하고 계시나요?</p>
-                <button onClick={() => setIsModalOpen(true)}>
+                <button onClick={() => handleGiftModal()}>
                   기프트 카드 등록하기
                 </button>
               </div>
