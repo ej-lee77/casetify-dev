@@ -182,13 +182,13 @@ export default function Join() {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-  return (
+    return (
     <motion.div
-      variants={fadeVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration: 0.4 }}
+        variants={fadeVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.4 }}
     >
     <div className='login-wrap join-wrap'>
         <div className="inner">
@@ -354,5 +354,5 @@ export default function Join() {
         </div>
     </div>
     </motion.div>
-  )
+    ) 
 }
