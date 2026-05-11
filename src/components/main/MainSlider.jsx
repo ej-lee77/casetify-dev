@@ -8,7 +8,8 @@ import "../scss/MainSlider.scss"
 import { useMainSlider } from '../../store/useMainSlider'
 
 export default function MainSlider() {
-    const setHeaderColor = useMainSlider((state) => state.setHeaderColor);
+    //헤더글자색 변경
+    const { headerColor, setHeaderColor } = useMainSlider();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const slides = [
@@ -80,7 +81,7 @@ export default function MainSlider() {
             </Swiper>
 
             {/* 🔥 여기로 이동 */}
-            <div className="slide-counter">
+            <div className={`slide-counter ${headerColor}`}>
                 {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
             </div>
         </div>
