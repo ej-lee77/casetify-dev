@@ -12,6 +12,7 @@ import CasetifyClubTerms from '../components/CasetifyClubTerms'
 import Privacy from '../components/Privacy'
 import Marketing from '../components/Marketing'
 import { motion } from 'framer-motion';
+import ToastPopup from '../components/Toastpopup'
 
 const fadeVariants = {
   initial: { opacity: 0 },
@@ -26,8 +27,9 @@ export default function Join() {
     const [isSecurityModalOpen, setIsSecurityModalOpen] = useState(false);
     const [isMarketModalOpen, setIsMarketModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
-    
     const [showPassword, setShowPassword] = useState(false);
+    const [toastOpen, setToastOpen] = useState(false);
+    const [toastMsg, setToastMsg] = useState("");
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -133,6 +135,7 @@ export default function Join() {
     // 회원가입 전송
     const handleSubmit = async(e)=>{
         e.preventDefault();
+        setBirthErr("");
 
         // 제출 시 최종 검증 (모든 필드에 대해)
         const newErrors = {};
@@ -154,18 +157,22 @@ export default function Join() {
         let isFormValid = Object.values(newErrors).every(err => err === '');
 
         if(!formData.birthDate){
-            setBirthErr("필수 입력 항목입니다.")
+            setBirthErr("필수 입력 항목입니다.");
             isFormValid = false;
         }
 
         if(!isFormValid){
-            setJoinErr("입력 오류가 있습니다.");
+            setToastMsg("입력 오류가 있습니다.");
+            setToastOpen(true);
+            // setJoinErr("입력 오류가 있습니다.");
             return;
         }
 
         // 필수 항목 검사
         if (!agreements.agree || !agreements.security) {
-            setJoinErr("필수 약관에 동의해주세요.");
+            setToastMsg("필수 약관에 동의해주세요.");
+            setToastOpen(true);
+            // setJoinErr("필수 약관에 동의해주세요.");
             return;
         }
 
@@ -175,11 +182,17 @@ export default function Join() {
             // 회원가입되면 완료화면으로 이동
             navigate("/join/mail");
         }else if(isJoin === 'auth/email-already-in-use'){
-            setJoinErr("이미 등록된 이메일 주소입니다. 다른 이메일을 사용해주세요.");
+            setToastMsg("이미 등록된 이메일 주소입니다. 다른 이메일을 사용해주세요.");
+            setToastOpen(true);
+            // setJoinErr("이미 등록된 이메일 주소입니다. 다른 이메일을 사용해주세요.");
         }else if (isJoin === 'auth/invalid-email') {
-            setJoinErr("유효하지 않은 이메일 형식입니다.");
+            setToastMsg("유효하지 않은 이메일 형식입니다.");
+            setToastOpen(true);
+            // setJoinErr("유효하지 않은 이메일 형식입니다.");
         }else{
-            setJoinErr("회원가입 중 오류가 발생했습니다");
+            setToastMsg("회원가입 중 오류가 발생했습니다");
+            setToastOpen(true);
+            // setJoinErr("회원가입 중 오류가 발생했습니다");
         }
     }
 
@@ -369,6 +382,11 @@ export default function Join() {
                 </div>
             </div>
             )}
+            <ToastPopup
+                isOpen={toastOpen}
+                message={toastMsg}
+                onClose={() => setToastOpen(false)}
+                />
         </div>
     </div>
     </motion.div>
