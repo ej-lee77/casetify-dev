@@ -7,6 +7,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import './scss/BrandCasetify.scss'
 import { motion } from 'framer-motion';
 import { FAQ_LIST } from '../data/QnaData';
+import { Link } from 'react-router-dom'
 
 const fadeVariants = {
     initial: { opacity: 0 },
@@ -891,7 +892,18 @@ function ClubTab() {
                     <p>지금 바로 무료로 가입하고 등급별 다양한 혜택을 누려보세요.</p>
                     <div className="bc-club-cta-btns">
                         <button className="bc-club-cta-primary" onClick={() => navigate('/join')}>무료로 가입하기 →</button>
-                        <button className="bc-club-cta-ghost" onClick={() => navigate('/brand/qna')}>멤버십 약관 보기</button>
+                        <button 
+                        className="bc-club-cta-ghost" 
+                            onClick={() => {
+                                // 1. 페이지 이동 및 데이터(state) 전달
+                                navigate('/brand/qna', { state: { activeTab: 'terms' } });
+                                
+                                // 2. 상단으로 스크롤 이동
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
+                            >
+                            멤버십 약관 보기
+                        </button>
                     </div>
                     <p className="bc-club-cta-legal">* 본 페이지의 혜택 내용은 운영 정책에 따라 사전 고지 없이 변경될 수 있습니다.</p>
                 </div>
