@@ -26,6 +26,12 @@ export default function Join() {
     const [isSecurityModalOpen, setIsSecurityModalOpen] = useState(false);
     const [isMarketModalOpen, setIsMarketModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
+    
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     const [formData, setFormData] = useState({
         username: "",
@@ -227,7 +233,19 @@ export default function Join() {
                         <div className='input-box'>
                             <div className='label-div'><label htmlFor='password'>비밀번호</label><span>(필수)</span></div>
                             <div className='input-div'>
-                                <input type="password" id='password' name='password'placeholder='비밀번호 입력' onBlur={handleBlur} onChange={handleChange}/>
+                                <input type={showPassword ? 'text' : 'password'} id='password' name='password'placeholder='비밀번호 입력' onBlur={handleBlur} onChange={handleChange}/>
+                                <button
+                                    type="button"
+                                    onClick={togglePasswordVisibility}
+                                    className='eye-btn'
+                                    aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+                                >
+                                    {showPassword ? (
+                                    <img src='/images/login/eye-off.png' alt='비밀번호 숨기기'/>
+                                    ) : (
+                                    <img src='/images/login/eye-open.png' alt='비밀번호 보기'/>
+                                    )}
+                                </button>
                                 <p className='err-box'>{touched.password && joinAllErr.password}</p>
                             </div>
                         </div>
