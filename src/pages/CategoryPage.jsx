@@ -359,6 +359,11 @@ export default function CategoryPagePractice() {
         setIsColorFilterPopupOpen(false);
     }, [mini, selectedFilters.model, selectedFilters.caseCategory, selectedFilters.colorFilter]);
 
+    // 페이지 변경 시 상단으로 스크롤
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }, [currentPage]);
+
     // ── 이벤트 핸들러 ──
     const onHandleMiniCategory = (miniValue) => {
         const next = new URLSearchParams(searchParams);
