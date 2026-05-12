@@ -216,36 +216,36 @@
             gap: 14px;
             cursor: pointer;
             background: #fff;
-            will-change: transform;
-            transition: transform 0.2s ease, box-shadow 0.2s ease,
-                border-color 0.2s ease, background 0.2s ease;
+            // will-change: transform;
+            // transition: transform 0.2s ease, box-shadow 0.2s ease,
+                // border-color 0.2s ease, background 0.2s ease;
 
             &:hover {
                 background: linear-gradient(white, white) padding-box,
                     linear-gradient(to right, rgb(96, 157, 255), rgb(244, 122, 122)) border-box;
                 border: 3px solid transparent;
-                transform: translateY(-4px);
+                // transform: translateY(-4px);
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
             }
 
             // 카드 3개 모두 fadeUp으로 복구
-            &:nth-child(1) {
-                opacity: 0;
-                animation: fadeUp 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-                will-change: opacity, transform;
-            }
+            // &:nth-child(1) {
+            //     opacity: 0;
+            //     animation: fadeUp 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            //     will-change: opacity, transform;
+            // }
 
-            &:nth-child(2) {
-                opacity: 0;
-                animation: fadeUp 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-                will-change: opacity, transform;
-            }
+            // &:nth-child(2) {
+            //     opacity: 0;
+            //     animation: fadeUp 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            //     will-change: opacity, transform;
+            // }
 
-            &:nth-child(3) {
-                opacity: 0;
-                animation: fadeUp 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-                will-change: opacity, transform;
-            }
+            // &:nth-child(3) {
+            //     opacity: 0;
+            //     animation: fadeUp 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            //     will-change: opacity, transform;
+            // }
 
             .device-img-wrap {
                 width: 80px;
