@@ -54,12 +54,12 @@ const IPAD_DISPLAY_H = 900
 const IPAD_DISPLAY_W = (IPAD_IMG_W / IPAD_IMG_H) * IPAD_DISPLAY_H
 
 const IPAD_CANVAS_MAP = {
-    'ipad':        { top: 202,   left: 81,   w: 427, h: 596, radius: 36 },
-    'ipadmini':    { top: 230.9, left: 101.6,w: 388, h: 535, radius: 34 },
-    'ipadair4':    { top: 189,   left: 72,   w: 438, h: 618, radius: 28 },
-    'ipadpro11s3': { top: 189,   left: 74,   w: 445, h: 620, radius: 30 },
-    'ipadpro12.9': { top: 136.9, left: 50,   w: 490, h: 695, radius: 30 },
-    'ipadpro13':   { top: 150,   left: 50.6, w: 492, h: 698, radius: 30 },
+    'ipad':        { top: 202,   left: 81,    w: 427, h: 596, radius: 36 },
+    'ipadmini':    { top: 230.9, left: 101.6, w: 388, h: 535, radius: 34 },
+    'ipadair4':    { top: 189,   left: 72,    w: 438, h: 618, radius: 28 },
+    'ipadpro11s3': { top: 189,   left: 74,    w: 445, h: 620, radius: 30 },
+    'ipadpro12.9': { top: 136.9, left: 50,    w: 490, h: 695, radius: 30 },
+    'ipadpro13':   { top: 150,   left: 50.6,  w: 492, h: 698, radius: 30 },
 }
 
 const IPAD_NO_CAMERA = ['ipadair11', 'ipadair13', 'ipadpro11']
@@ -80,12 +80,12 @@ const MACBOOK_SIZE_MAP = {
 }
 
 const MACBOOK_CANVAS_MAP = {
-    'macbook13':      { top: 62,   left: 69, w:798,   h: 668,   radius: 87   },
-    'macbook15':      { top: 30,   left: 34, w: 370,   h: 210,   radius: 45   },
-    'macbookair13':   { top: 104,   left: 98, w: 968,   h: 679,   radius: 106   },
-    'macbookair13s1': { top: 71,   left: 115, w: 960,   h: 665,   radius:  30   },
-    'macbookpro14':   { top: 53, left: 85, w: 970, h: 685,   radius: 100.8 },
-    'macbookpro16':   { top: 71,   left: 67, w: 972.8, h:669.5, radius: 100  },
+    'macbook13':      { top: 62,   left: 69,  w: 798,   h: 668,   radius: 87    },
+    'macbook15':      { top: 30,   left: 34,  w: 370,   h: 210,   radius: 45    },
+    'macbookair13':   { top: 104,  left: 98,  w: 968,   h: 679,   radius: 106   },
+    'macbookair13s1': { top: 71,   left: 115, w: 960,   h: 665,   radius: 30    },
+    'macbookpro14':   { top: 53,   left: 85,  w: 970,   h: 685,   radius: 100.8 },
+    'macbookpro16':   { top: 71,   left: 67,  w: 972.8, h: 669.5, radius: 100   },
 }
 
 const BOUNCE_IMG_W = 780
@@ -143,7 +143,7 @@ function getShapeClipPath(shapeId) {
     switch (shapeId) {
         case 'circle':  return 'circle(50% at 50% 50%)'
         case 'square':  return 'inset(5% 5% 5% 5%)'
-        case 'heart':   return 'path("M50,85 C20,60 5,45 5,30 C5,15 15,8 28,8 C38,8 46,14 50,20 C54,14 62,8 72,8 C85,8 95,15 95,30 C95,45 80,60 50,85Z")'
+        case 'heart':   return 'polygon(50% 15%, 63% 5%, 78% 5%, 90% 12%, 96% 25%, 94% 38%, 86% 50%, 75% 62%, 63% 73%, 50% 85%, 37% 73%, 25% 62%, 14% 50%, 6% 38%, 4% 25%, 10% 12%, 22% 5%, 37% 5%)'
         case 'star':    return 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
         case 'diamond': return 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
         default:        return 'none'
@@ -173,46 +173,126 @@ function scaleCanvas(canvasInfo, displayW, displayH, imgW, imgH) {
     }
 }
 
+// ── 캔버스 콘텐츠 ────────────────────────────────
 function CanvasContent({
     designType, previewURL, photoFilter, filterStrength,
     textValue, fontColor, photoTab, fontSize = 14,
-    imageTransform, shapeFrame, cropMode, onMouseDown, onTouchStart,
+    imageTransform, cropTransform, shapeFrame,
+    cropSetupMode, cropMode,
+    onMouseDown, onTouchStart,
 }) {
     if (designType === 'photo' && previewURL) {
+        const ct = cropTransform || { x: 0, y: 0, scale: 1 }
         const t = imageTransform || { x: 0, y: 0, scale: 1 }
         const clipPath = shapeFrame && shapeFrame !== 'none' ? getShapeClipPath(shapeFrame) : 'none'
+        const isActive = cropSetupMode || cropMode
         return (
-            <div
-                style={{
-                    width: '100%', height: '100%',
-                    position: 'relative', overflow: 'hidden',
-                    cursor: cropMode ? 'grab' : 'default',
-                    clipPath,
-                    WebkitClipPath: clipPath,
-                }}
-                onMouseDown={onMouseDown}
-                onTouchStart={onTouchStart}
-            >
-                <img
-                    src={previewURL}
-                    alt="미리보기"
-                    draggable={false}
-                    style={{
-                        position: 'absolute', top: '50%', left: '50%',
-                        transform: `translate(calc(-50% + ${t.x}px), calc(-50% + ${t.y}px)) scale(${t.scale})`,
-                        transformOrigin: 'center center',
-                        width: '100%', height: '100%', objectFit: 'cover',
-                        userSelect: 'none',
-                        ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
-                    }}
-                />
-                {cropMode && (
+            <>
+                {/* ── 확정된 이미지 레이어 (clipPath + 3단계: 프레임 이동/크기) ── */}
+                <div style={{
+                    // scale → 프레임 자체 크기 변경 (width/height에 적용)
+                    width: `${100 * t.scale}%`,
+                    height: `${100 * t.scale}%`,
+                    position: 'absolute', top: '50%', left: '50%',
+                    transform: `translate(calc(-50% + ${t.x}px), calc(-50% + ${t.y}px))`,
+                    transformOrigin: 'center center',
+                    overflow: cropSetupMode ? 'visible' : 'hidden',
+                    clipPath: cropSetupMode ? 'none' : clipPath,
+                    WebkitClipPath: cropSetupMode ? 'none' : clipPath,
+                    pointerEvents: 'none',
+                    zIndex: 3,
+                    opacity: cropSetupMode ? 0 : 1,
+                }}>
+                    <img
+                        src={previewURL}
+                        alt="미리보기"
+                        draggable={false}
+                        style={{
+                            position: 'absolute', top: '50%', left: '50%',
+                            transform: `translate(calc(-50% + ${ct.x}px), calc(-50% + ${ct.y}px)) scale(${ct.scale})`,
+                            transformOrigin: 'center center',
+                            width: '100%', height: '100%',
+                            objectFit: photoTab === 'sticker' ? 'contain' : 'cover',
+                            userSelect: 'none',
+                            ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
+                        }}
+                    />
+                </div>
+
+                {/* ── cropSetupMode일 때: 원본 이미지 반투명 오버레이 (잘리지 않은 전체) ── */}
+                {cropSetupMode && (
+                    <>
+                        {/* 반투명 배경 - 원본 전체 이미지 표시 */}
+                        <img
+                            src={previewURL}
+                            alt=""
+                            draggable={false}
+                            style={{
+                                position: 'absolute', top: '50%', left: '50%',
+                                transform: `translate(calc(-50% + ${ct.x}px), calc(-50% + ${ct.y}px)) scale(${ct.scale})`,
+                                transformOrigin: 'center center',
+                                width: '100%', height: '100%',
+                                objectFit: photoTab === 'sticker' ? 'contain' : 'cover',
+                                userSelect: 'none',
+                                opacity: 0.35,
+                                zIndex: 4,
+                                pointerEvents: 'none',
+                                ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
+                            }}
+                        />
+                        {/* 확정 영역 하이라이트 테두리 */}
+                        <div style={{
+                            position: 'absolute', top: '50%', left: '50%',
+                            transform: `translate(calc(-50% + ${t.x}px), calc(-50% + ${t.y}px))`,
+                            width: `${100 * t.scale}%`,
+                            height: `${100 * t.scale}%`,
+                            clipPath,
+                            WebkitClipPath: clipPath,
+                            border: '2px solid rgba(255,255,255,0.9)',
+                            boxSizing: 'border-box',
+                            pointerEvents: 'none',
+                            zIndex: 5,
+                        }} />
+                        {/* 드래그 핸들 */}
+                        <div style={{
+                            position: 'absolute', inset: 0, zIndex: 6,
+                            cursor: 'grab',
+                        }}
+                            onMouseDown={onMouseDown}
+                            onTouchStart={onTouchStart}
+                        />
+                        {/* 안내 텍스트 */}
+                        <div style={{
+                            position: 'absolute', bottom: 8, left: 0, right: 0,
+                            textAlign: 'center', zIndex: 7, pointerEvents: 'none',
+                        }}>
+                            <span style={{
+                                background: 'rgba(0,0,0,0.55)', color: '#fff',
+                                fontSize: 11, padding: '3px 10px', borderRadius: 20,
+                            }}>드래그로 구역 이동</span>
+                        </div>
+                    </>
+                )}
+
+                {/* ── cropMode일 때: 캔버스 위 이동 드래그 핸들 ── */}
+                {cropMode && !cropSetupMode && (
                     <div style={{
-                        position: 'absolute', inset: 0, pointerEvents: 'none',
+                        position: 'absolute', inset: 0, zIndex: 6,
+                        cursor: 'grab',
+                    }}
+                        onMouseDown={onMouseDown}
+                        onTouchStart={onTouchStart}
+                    />
+                )}
+
+                {/* 가이드 테두리 */}
+                {cropMode && !cropSetupMode && (
+                    <div style={{
+                        position: 'absolute', inset: 0, zIndex: 7, pointerEvents: 'none',
                         border: '2px dashed rgba(255,255,255,0.7)', borderRadius: 4,
                     }} />
                 )}
-            </div>
+            </>
         )
     }
     if (designType === 'text' && textValue) {
@@ -237,6 +317,7 @@ function CanvasContent({
     )
 }
 
+// ── Placeholder ──────────────────────────────────
 function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySrc, selectedCaseColor }) {
     const line1 = !selectedModel ? '기종을' : !selectedCaseType ? '케이스 타입을' : !bodySrc ? '이미지' : '커스텀 내용을'
     const line2 = !selectedModel ? '선택하세요' : !selectedCaseType ? '선택하세요' : !bodySrc ? '준비 중입니다' : '선택하세요'
@@ -287,11 +368,14 @@ function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySr
     )
 }
 
+// ── PhonePreview ─────────────────────────────────
 export function PhonePreview({
     selectedModel, selectedCaseType, designType,
     previewURL, photoFilter, filterStrength,
     textValue, fontColor, photoTab, selectedCaseColor, deviceType,
-    imageTransform, shapeFrame, cropMode, onCanvasMouseDown, onCanvasTouchStart,
+    imageTransform, cropTransform, shapeFrame,
+    cropSetupMode, cropMode,
+    onCanvasMouseDown, onCanvasTouchStart,
 }) {
     const isTablet = deviceType === 'tablet'
     const isLaptop = deviceType === 'laptop'
@@ -356,19 +440,27 @@ export function PhonePreview({
     const ccProps = {
         designType, previewURL, photoFilter, filterStrength,
         textValue, fontColor, photoTab,
-        imageTransform, shapeFrame, cropMode,
+        imageTransform, cropTransform, shapeFrame,
+        cropSetupMode, cropMode,
         onMouseDown: onCanvasMouseDown,
         onTouchStart: onCanvasTouchStart,
     }
 
+    const canvasStyle = {
+        position: 'absolute', borderRadius: 0,
+        overflow: cropSetupMode ? 'visible' : 'hidden', zIndex: 3,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }
+
+    // ── 아이패드 ──────────────────────────────────
     if (isTablet) {
-        const scaledCanvas = scaleCanvas(IPAD_CANVAS_MAP[selectedModel], IPAD_DISPLAY_W, IPAD_DISPLAY_H, IPAD_IMG_W, IPAD_IMG_H)
+        const sc = scaleCanvas(IPAD_CANVAS_MAP[selectedModel], IPAD_DISPLAY_W, IPAD_DISPLAY_H, IPAD_IMG_W, IPAD_IMG_H)
         return (
             <div style={{ position: 'relative', width: IPAD_DISPLAY_W, height: IPAD_DISPLAY_H, margin: '0 auto', flexShrink: 0 }}>
                 <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
                 <CaseColorOverlay src={bodySrc} />
-                {scaledCanvas && (
-                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {sc && (
+                    <div style={{ ...canvasStyle, top: sc.top, left: sc.left, width: sc.w, height: sc.h, borderRadius: sc.radius }}>
                         <CanvasContent {...ccProps} fontSize={16} />
                     </div>
                 )}
@@ -377,22 +469,21 @@ export function PhonePreview({
         )
     }
 
+    // ── 맥북 ─────────────────────────────────────
     if (isLaptop) {
         const info = MACBOOK_SIZE_MAP[selectedModel]
-        const displayW = info ? info.displayW : 620
-        const displayH = info ? info.displayH : 450
-        const imgW = info ? info.imgW : 900
-        const imgH = info ? info.imgH : 789
-        const scaledCanvas = scaleCanvas(MACBOOK_CANVAS_MAP[selectedModel], displayW, displayH, imgW, imgH)
+        const dW = info ? info.displayW : 620
+        const dH = info ? info.displayH : 450
+        const sc = scaleCanvas(MACBOOK_CANVAS_MAP[selectedModel], dW, dH, info?.imgW || 900, info?.imgH || 789)
         return (
-            <div style={{ position: 'relative', width: displayW, height: displayH, margin: '0 auto', flexShrink: 0 }}>
+            <div style={{ position: 'relative', width: dW, height: dH, margin: '0 auto', flexShrink: 0 }}>
                 <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
-                {scaledCanvas ? (
-                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {sc ? (
+                    <div style={{ ...canvasStyle, top: sc.top, left: sc.left, width: sc.w, height: sc.h, borderRadius: sc.radius }}>
                         <CanvasContent {...ccProps} fontSize={18} />
                     </div>
                 ) : (
-                    <div style={{ position: 'absolute', inset: 0, zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                    <div style={{ ...canvasStyle, inset: 0 }}>
                         <CanvasContent {...ccProps} fontSize={18} />
                     </div>
                 )}
@@ -400,16 +491,17 @@ export function PhonePreview({
         )
     }
 
+    // ── 바운스 ────────────────────────────────────
     if (selectedCaseType === 'magsafe-bounce' && bodySrc) {
-        const displayH = BOUNCE_DISPLAY_H * 1.5
-        const displayW = (BOUNCE_IMG_W / BOUNCE_IMG_H) * displayH
-        const scaledCanvas = scaleCanvas(BOUNCE_CANVAS_MAP[selectedModel], displayW, displayH, BOUNCE_IMG_W, BOUNCE_IMG_H)
+        const dH = BOUNCE_DISPLAY_H * 1.5
+        const dW = (BOUNCE_IMG_W / BOUNCE_IMG_H) * dH
+        const sc = scaleCanvas(BOUNCE_CANVAS_MAP[selectedModel], dW, dH, BOUNCE_IMG_W, BOUNCE_IMG_H)
         return (
-            <div style={{ position: 'relative', width: displayW, height: displayH, margin: '0 auto', flexShrink: 0 }}>
+            <div style={{ position: 'relative', width: dW, height: dH, margin: '0 auto', flexShrink: 0 }}>
                 <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
                 <CaseColorOverlay src={bodySrc} />
-                {scaledCanvas && (
-                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {sc && (
+                    <div style={{ ...canvasStyle, top: sc.top, left: sc.left, width: sc.w, height: sc.h, borderRadius: sc.radius }}>
                         <CanvasContent {...ccProps} fontSize={14} />
                     </div>
                 )}
@@ -418,22 +510,23 @@ export function PhonePreview({
         )
     }
 
+    // ── 폰 impact/ring ────────────────────────────
     {
         const SCALE = 1.5
-        const displayH = PHONE_DISPLAY_H * SCALE
-        const displayW = (PHONE_IMG_W / PHONE_IMG_H) * displayH
+        const dH = PHONE_DISPLAY_H * SCALE
+        const dW = (PHONE_IMG_W / PHONE_IMG_H) * dH
         const canvasMap = selectedCaseType === 'magsafe-compact' ? RING_CANVAS_MAP : IMPACT_CANVAS_MAP
-        const scaledCanvas = scaleCanvas(canvasMap[selectedModel], displayW, displayH, PHONE_IMG_W, PHONE_IMG_H)
+        const sc = scaleCanvas(canvasMap[selectedModel], dW, dH, PHONE_IMG_W, PHONE_IMG_H)
         return (
-            <div style={{ position: 'relative', width: displayW, height: displayH, margin: '0 auto', flexShrink: 0 }}>
+            <div style={{ position: 'relative', width: dW, height: dH, margin: '0 auto', flexShrink: 0 }}>
                 <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
                 <CaseColorOverlay src={bodySrc} />
-                {scaledCanvas ? (
-                    <div style={{ position: 'absolute', top: scaledCanvas.top, left: scaledCanvas.left, width: scaledCanvas.w, height: scaledCanvas.h, borderRadius: scaledCanvas.radius, overflow: 'hidden', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {sc ? (
+                    <div style={{ ...canvasStyle, top: sc.top, left: sc.left, width: sc.w, height: sc.h, borderRadius: sc.radius }}>
                         <CanvasContent {...ccProps} fontSize={16} />
                     </div>
                 ) : (
-                    <div style={{ position: 'absolute', inset: 0, zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                    <div style={{ ...canvasStyle, inset: 0 }}>
                         <CanvasContent {...ccProps} fontSize={16} />
                     </div>
                 )}

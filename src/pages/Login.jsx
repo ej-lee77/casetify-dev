@@ -273,7 +273,7 @@ export default function Login() {
                   <button className='input-btn' onClick={() => setIsModalOpen(false)}>닫기</button></>)
                 :
                   (<><p>안녕하세요, {user !== null ? user.name || user.email || '게스트' : '게스트'} 님!</p>
-                  {birthMsg !== null ? (<><p>{birthMsg}</p><p>곧 이동합니다...</p></>) : (<p>곧 홈으로 이동합니다...</p>)}
+                  {birthMsg !== null ? (<><p>{birthMsg}</p><p>곧 이동합니다...</p></>) : (<p>곧 이동합니다...</p>)}
                   </>)
                 }
               </div>
