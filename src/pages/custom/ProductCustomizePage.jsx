@@ -15,36 +15,21 @@ const QUICK_MENUS = [
 ]
 
 const COLOR_NAME_TABLE = [
-    { name: '블랙', hex: '#000000' },
-    { name: '화이트', hex: '#ffffff' },
-    { name: '레드', hex: '#ff0000' },
-    { name: '오렌지', hex: '#ff8000' },
-    { name: '옐로우', hex: '#ffff00' },
-    { name: '라임', hex: '#80ff00' },
-    { name: '그린', hex: '#00ff00' },
-    { name: '민트', hex: '#00ff80' },
-    { name: '시안', hex: '#00ffff' },
-    { name: '스카이블루', hex: '#0080ff' },
-    { name: '블루', hex: '#0000ff' },
-    { name: '바이올렛', hex: '#8000ff' },
-    { name: '퍼플', hex: '#ff00ff' },
-    { name: '마젠타', hex: '#ff0080' },
-    { name: '핑크', hex: '#ffb6c1' },
-    { name: '살몬', hex: '#fa8072' },
-    { name: '코랄', hex: '#ff6b6b' },
-    { name: '브라운', hex: '#8b4513' },
-    { name: '베이지', hex: '#f5f5dc' },
-    { name: '아이보리', hex: '#fffff0' },
-    { name: '골드', hex: '#ffd700' },
-    { name: '실버', hex: '#c0c0c0' },
-    { name: '그레이', hex: '#808080' },
-    { name: '다크그레이', hex: '#404040' },
-    { name: '네이비', hex: '#001f5b' },
-    { name: '틸', hex: '#008080' },
-    { name: '올리브', hex: '#808000' },
-    { name: '인디고', hex: '#4b0082' },
-    { name: '마룬', hex: '#800000' },
-    { name: '라벤더', hex: '#e6e6fa' },
+    { name: '블랙', hex: '#000000' }, { name: '화이트', hex: '#ffffff' },
+    { name: '레드', hex: '#ff0000' }, { name: '오렌지', hex: '#ff8000' },
+    { name: '옐로우', hex: '#ffff00' }, { name: '라임', hex: '#80ff00' },
+    { name: '그린', hex: '#00ff00' }, { name: '민트', hex: '#00ff80' },
+    { name: '시안', hex: '#00ffff' }, { name: '스카이블루', hex: '#0080ff' },
+    { name: '블루', hex: '#0000ff' }, { name: '바이올렛', hex: '#8000ff' },
+    { name: '퍼플', hex: '#ff00ff' }, { name: '마젠타', hex: '#ff0080' },
+    { name: '핑크', hex: '#ffb6c1' }, { name: '살몬', hex: '#fa8072' },
+    { name: '코랄', hex: '#ff6b6b' }, { name: '브라운', hex: '#8b4513' },
+    { name: '베이지', hex: '#f5f5dc' }, { name: '아이보리', hex: '#fffff0' },
+    { name: '골드', hex: '#ffd700' }, { name: '실버', hex: '#c0c0c0' },
+    { name: '그레이', hex: '#808080' }, { name: '다크그레이', hex: '#404040' },
+    { name: '네이비', hex: '#001f5b' }, { name: '틸', hex: '#008080' },
+    { name: '올리브', hex: '#808000' }, { name: '인디고', hex: '#4b0082' },
+    { name: '마룬', hex: '#800000' }, { name: '라벤더', hex: '#e6e6fa' },
 ]
 
 const hexToRgb = (hex) => {
@@ -116,6 +101,7 @@ function ProductCustomizeContent({ deviceType }) {
     const [showScrollAlert, setShowScrollAlert] = useState(false)
     const [imageTransform, setImageTransform] = useState({ x: 0, y: 0, scale: 1 })
     const [cropMode, setCropMode] = useState(false)
+    const [shapeFrame, setShapeFrame] = useState('none')
     const dragRef = useRef(null)
 
     const onCanvasMouseDown = useCallback((e) => {
@@ -162,12 +148,9 @@ function ProductCustomizeContent({ deviceType }) {
 
     useEffect(() => { isMounted.current = true }, [])
 
-    // ✅ 진입 시 스크롤이 top이 아니면 안내 팝업
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (window.scrollY > 80) {
-                setShowScrollAlert(true)
-            }
+            if (window.scrollY > 80) setShowScrollAlert(true)
         }, 300)
         return () => clearTimeout(timer)
     }, [])
@@ -195,6 +178,7 @@ function ProductCustomizeContent({ deviceType }) {
     const resetDesign = () => {
         setDesignType(null); setPhotoFile(null); setPhotoURL(null); setPhotoFilter(null)
         setFilterStrength(50); setTextValue(''); setFontColor(null); setPhotoTab('upload'); setSelectedSticker(null)
+        setImageTransform({ x: 0, y: 0, scale: 1 }); setCropMode(false); setShapeFrame('none')
     }
 
     const isModelSupportedByCaseType = (modelId) => !selectedCaseType || isCaseTypeSupported(modelId, selectedCaseType)
@@ -209,9 +193,6 @@ function ProductCustomizeContent({ deviceType }) {
         }
     }, [selectedCaseType])
 
-    // ── 자동 스크롤 ──
-    // phone:    ① 기종 → ② 케이스컬러 → ③ 케이스타입 → ④ 커스텀타입 → ⑤ 사진/텍스트
-    // nonPhone: ① 기종 → ② 케이스타입(자동) → ③ 케이스컬러 → ④ 커스텀타입 → ⑤ 사진/텍스트
     useEffect(() => {
         if (!isMounted.current) return
         if (selectedModel) setTimeout(() => scrollToStep(isNonPhone ? step3Ref : step2Ref), 150)
@@ -258,17 +239,13 @@ function ProductCustomizeContent({ deviceType }) {
         return () => { window.removeEventListener('resize', apply); document.body.style.overflow = '' }
     }, [canAddCart])
 
-    // ✅ 다시선택으로 완료 해제 시 top으로
     const prevIsAllDone = useRef(false)
     useEffect(() => {
         if (prevIsAllDone.current === true && !isAllDone) {
             const isMobile = window.innerWidth <= 860
             setTimeout(() => {
-                if (isMobile) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' })
-                } else {
-                    rightPanelRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
-                }
+                if (isMobile) window.scrollTo({ top: 0, behavior: 'smooth' })
+                else rightPanelRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
             }, 80)
         }
         prevIsAllDone.current = isAllDone
@@ -299,7 +276,7 @@ function ProductCustomizeContent({ deviceType }) {
         setIsCartPopupOpen(true)
     }
 
-    const previewProps = { selectedModel, selectedCaseType, deviceType, designType, previewURL, photoFilter, filterStrength, textValue, fontColor, photoTab, selectedCaseColor, imageTransform, cropMode, onCanvasMouseDown, onCanvasTouchStart }
+    const previewProps = { selectedModel, selectedCaseType, deviceType, designType, previewURL, photoFilter, filterStrength, textValue, fontColor, photoTab, selectedCaseColor, imageTransform, shapeFrame, cropMode, onCanvasMouseDown, onCanvasTouchStart }
     const quickMenus = QUICK_MENUS.filter(m => m.id !== deviceType)
 
     const QuickMenu = () => (
@@ -318,58 +295,22 @@ function ProductCustomizeContent({ deviceType }) {
         </div>
     )
 
-    // ── stepClass ─────────────────────────────────────────────────────
-    // phone:    ① locked=false/done=model  ② locked=!model/done=color  ③ locked=!color/done=type  ④ locked=!type/done=design  ⑤ locked=!design
-    // nonPhone: ① locked=false/done=model  ② locked=!model/done=model(자동)  ③ locked=!model/done=color  ④ locked=!color/done=design  ⑤ locked=!design
     const stepClass = (locked, done) => locked ? 'step-locked' : done ? 'step-done' : 'step-active'
 
     return (
         <section className="custom detail-page-custom">
-
-            {/* ✅ 스크롤 위치 안내 팝업 */}
             {showScrollAlert && (
-                <div style={{
-                    position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-                    background: 'rgba(0,0,0,0.5)', zIndex: 9999,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    animation: 'fadeIn 0.3s ease',
-                }}>
-                    <div style={{
-                        background: '#fff', borderRadius: 16, padding: '36px 32px',
-                        textAlign: 'center', maxWidth: 320, width: 'calc(100% - 48px)',
-                        boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
-                        animation: 'slideUp 0.3s ease',
-                    }}>
-                        {/* 스와이퍼 아이콘 */}
+                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'fadeIn 0.3s ease' }}>
+                    <div style={{ background: '#fff', borderRadius: 16, padding: '36px 32px', textAlign: 'center', maxWidth: 320, width: 'calc(100% - 48px)', boxShadow: '0 20px 60px rgba(0,0,0,0.2)', animation: 'slideUp 0.3s ease' }}>
                         <div style={{ fontSize: 40, marginBottom: 12 }}>↕</div>
-                        <p style={{ fontSize: 16, fontWeight: 700, color: '#111', marginBottom: 8 }}>
-                            페이지 상단으로 이동해주세요
-                        </p>
-                        <p style={{ fontSize: 13, color: '#888', marginBottom: 24, lineHeight: 1.6 }}>
-                            커스텀 스튜디오는 상단에서<br />시작해야 합니다.
-                        </p>
-                        <button
-                            onClick={() => {
-                                setShowScrollAlert(false)
-                                window.scrollTo({ top: 0, behavior: 'smooth' })
-                            }}
-                            style={{
-                                width: '100%', padding: '14px 0',
-                                background: '#111', color: '#fff',
-                                border: 'none', borderRadius: 8,
-                                fontSize: 15, fontWeight: 600, cursor: 'pointer',
-                            }}
-                        >
+                        <p style={{ fontSize: 16, fontWeight: 700, color: '#111', marginBottom: 8 }}>페이지 상단으로 이동해주세요</p>
+                        <p style={{ fontSize: 13, color: '#888', marginBottom: 24, lineHeight: 1.6 }}>커스텀 스튜디오는 상단에서<br />시작해야 합니다.</p>
+                        <button onClick={() => { setShowScrollAlert(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+                            style={{ width: '100%', padding: '14px 0', background: '#111', color: '#fff', border: 'none', borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
                             맨 위로 이동
                         </button>
-                        <button
-                            onClick={() => setShowScrollAlert(false)}
-                            style={{
-                                width: '100%', padding: '10px 0', marginTop: 8,
-                                background: 'none', color: '#aaa',
-                                border: 'none', fontSize: 13, cursor: 'pointer',
-                            }}
-                        >
+                        <button onClick={() => setShowScrollAlert(false)}
+                            style={{ width: '100%', padding: '10px 0', marginTop: 8, background: 'none', color: '#aaa', border: 'none', fontSize: 13, cursor: 'pointer' }}>
                             그냥 계속하기
                         </button>
                     </div>
@@ -377,8 +318,6 @@ function ProductCustomizeContent({ deviceType }) {
             )}
             <div className="inner">
                 <div className="detail-inner-custom">
-
-                    {/* 왼쪽: 프리뷰 */}
                     <div className="detail-left-custom">
                         <div className="detail-image-wrap">
                             <div className="detail-main-image custom-preview-main" style={{ minHeight: '70vh' }}>
@@ -394,7 +333,6 @@ function ProductCustomizeContent({ deviceType }) {
                         {isAllDone && <div className="quick-menu-desktop"><QuickMenu /></div>}
                     </div>
 
-                    {/* 오른쪽: 옵션 패널 */}
                     <div className="detail-right-custom" ref={rightPanelRef}>
                         <div className="detail-meta">
                             <span className="badge-free-ship">무료 배송</span>
@@ -405,7 +343,6 @@ function ProductCustomizeContent({ deviceType }) {
 
                         <div className="right-info-wrap">
 
-                            {/* ① 기종 — 공통 */}
                             <div ref={step1Ref} className={`detail-info-box step-block ${stepClass(false, !!selectedModel)}`}>
                                 <div className="step-label-row">
                                     <p className="label">① 기종</p>
@@ -450,7 +387,6 @@ function ProductCustomizeContent({ deviceType }) {
                                 </div>
                             </div>
 
-                            {/* ② 케이스 타입 — nonPhone만 (자동고정, 기종 후 활성) */}
                             {isNonPhone && (
                                 <div ref={step2Ref} className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedModel)}`}>
                                     <div className="step-label-row">
@@ -464,29 +400,20 @@ function ProductCustomizeContent({ deviceType }) {
                                 </div>
                             )}
 
-                            {/* ② 케이스 컬러 (phone) / ③ 케이스 컬러 (nonPhone) */}
-                            <div
-                                ref={isNonPhone ? step3Ref : step2Ref}
-                                className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedCaseColor)}`}
-                            >
+                            <div ref={isNonPhone ? step3Ref : step2Ref}
+                                className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedCaseColor)}`}>
                                 <div className="step-label-row">
                                     <p className="label">{isNonPhone ? '③' : '②'} 케이스 컬러</p>
                                     {selectedCaseColor && (
-                                        <button type="button" className="step-back-btn" onClick={() => {
-                                            setSelectedCaseColor(null)
-                                        }}>← 다시 선택</button>
+                                        <button type="button" className="step-back-btn" onClick={() => setSelectedCaseColor(null)}>← 다시 선택</button>
                                     )}
                                 </div>
                                 <div className="detail-colors">
                                     {CASE_COLORS.map(c => (
-                                        <button key={c.id}
-                                            disabled={!selectedModel}
+                                        <button key={c.id} disabled={!selectedModel}
                                             className={selectedCaseColor?.toLowerCase() === c.hex.toLowerCase() ? 'active' : ''}
                                             onClick={() => setSelectedCaseColor(c.hex)}>
-                                            <span className="color-chip" style={{
-                                                backgroundColor: c.hex,
-                                                border: c.id === 'white' ? '1px solid #ddd' : 'none',
-                                            }} />
+                                            <span className="color-chip" style={{ backgroundColor: c.hex, border: c.id === 'white' ? '1px solid #ddd' : 'none' }} />
                                             {c.label}
                                         </button>
                                     ))}
@@ -496,23 +423,17 @@ function ProductCustomizeContent({ deviceType }) {
                                 </div>
                             </div>
 
-                            {/* ③ 케이스 타입 (phone only) */}
                             {!isNonPhone && (
                                 <div ref={step3Ref} className={`detail-info-box step-block ${stepClass(!selectedCaseColor, !!selectedCaseType)}`}>
                                     <div className="step-label-row">
                                         <p className="label">③ 케이스 타입</p>
                                         {selectedCaseType && (
-                                            <button type="button" className="step-back-btn" onClick={() => {
-                                                setSelectedCaseType(null); resetDesign()
-                                            }}>← 다시 선택</button>
+                                            <button type="button" className="step-back-btn" onClick={() => { setSelectedCaseType(null); resetDesign() }}>← 다시 선택</button>
                                         )}
                                     </div>
                                     <div className="model-accordion">
                                         <button className="model-accordion-trigger"
-                                            onClick={() => {
-                                                if (!selectedCaseColor) return
-                                                setCaseTypeOpen(v => !v); setModelOpen(false)
-                                            }}
+                                            onClick={() => { if (!selectedCaseColor) return; setCaseTypeOpen(v => !v); setModelOpen(false) }}
                                             style={{ cursor: !selectedCaseColor ? 'default' : 'pointer' }}>
                                             <span>{selectedCaseLabel || '케이스 타입을 선택하세요'}</span>
                                             <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>
@@ -534,39 +455,23 @@ function ProductCustomizeContent({ deviceType }) {
                                 </div>
                             )}
 
-                            {/* ④ 커스텀 타입 */}
-                            <div
-                                ref={step4Ref}
-                                className={`detail-info-box step-block ${stepClass(
-                                    isNonPhone ? !selectedCaseColor : !selectedCaseType,
-                                    !!designType
-                                )}`}
-                            >
+                            <div ref={step4Ref} className={`detail-info-box step-block ${stepClass(isNonPhone ? !selectedCaseColor : !selectedCaseType, !!designType)}`}>
                                 <div className="step-label-row">
                                     <p className="label">④ 커스텀 타입</p>
                                     {designType && (
-                                        <button type="button" className="step-back-btn" onClick={() => {
-                                            resetDesign()
-                                        }}>← 다시 선택</button>
+                                        <button type="button" className="step-back-btn" onClick={() => resetDesign()}>← 다시 선택</button>
                                     )}
                                 </div>
                                 <div className="custom-type-btns">
-                                    <button
-                                        disabled={isNonPhone ? !selectedCaseColor : !selectedCaseType}
+                                    <button disabled={isNonPhone ? !selectedCaseColor : !selectedCaseType}
                                         className={`custom-type-btn ${designType === 'photo' ? 'active' : ''}`}
-                                        onClick={() => setDesignType('photo')}>
-                                        포토 커스텀
-                                    </button>
-                                    <button
-                                        disabled={isNonPhone ? !selectedCaseColor : !selectedCaseType}
+                                        onClick={() => setDesignType('photo')}>포토 커스텀</button>
+                                    <button disabled={isNonPhone ? !selectedCaseColor : !selectedCaseType}
                                         className={`custom-type-btn ${designType === 'text' ? 'active' : ''}`}
-                                        onClick={() => setDesignType('text')}>
-                                        텍스트 커스텀
-                                    </button>
+                                        onClick={() => setDesignType('text')}>텍스트 커스텀</button>
                                 </div>
                             </div>
 
-                            {/* ⑤ 사진 / 텍스트 */}
                             <div ref={step5Ref} className={`detail-info-box step-block ${stepClass(!designType, false)}`}>
                                 {designType === 'photo' && (
                                     <PhotoSection
@@ -577,7 +482,8 @@ function ProductCustomizeContent({ deviceType }) {
                                         selectedSticker={selectedSticker} setSelectedSticker={setSelectedSticker}
                                         filterSectionRef={filterSectionRef} onScrollToFilter={scrollToFilter}
                                         imageTransform={imageTransform} setImageTransform={setImageTransform}
-                                        cropMode={cropMode} setCropMode={setCropMode} />
+                                        cropMode={cropMode} setCropMode={setCropMode}
+                                        shapeFrame={shapeFrame} setShapeFrame={setShapeFrame} />
                                 )}
                                 {designType === 'text' && (
                                     <TextInputSection
@@ -590,7 +496,6 @@ function ProductCustomizeContent({ deviceType }) {
 
                         </div>
 
-                        {/* 주문 요약 + 장바구니 */}
                         <div className="right-btn-wrap">
                             {canAddCart ? (
                                 <>
@@ -631,7 +536,6 @@ function ProductCustomizeContent({ deviceType }) {
                         {isAllDone && <div className="quick-menu-mobile"><QuickMenu /></div>}
                     </div>
 
-                    {/* 팝업 */}
                     {isCartPopupOpen && (
                         <div className="popup-overlay">
                             <div className="popup-wrap">
@@ -658,7 +562,6 @@ function ProductCustomizeContent({ deviceType }) {
                     <ShippingInfo />
                 </div>
             </div>
-
         </section>
     )
 }
