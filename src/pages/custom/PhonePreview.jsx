@@ -139,16 +139,6 @@ export function isCaseTypeSupported(modelId, caseTypeId) {
     return true
 }
 
-function getShapeClipPath(shapeId) {
-    switch (shapeId) {
-        case 'circle':  return 'circle(50% at 50% 50%)'
-        case 'square':  return 'inset(5% 5% 5% 5%)'
-        case 'heart':   return 'polygon(50% 15%, 63% 5%, 78% 5%, 90% 12%, 96% 25%, 94% 38%, 86% 50%, 75% 62%, 63% 73%, 50% 85%, 37% 73%, 25% 62%, 14% 50%, 6% 38%, 4% 25%, 10% 12%, 22% 5%, 37% 5%)'
-        case 'star':    return 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
-        case 'diamond': return 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
-        default:        return 'none'
-    }
-}
 
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
@@ -177,14 +167,15 @@ function scaleCanvas(canvasInfo, displayW, displayH, imgW, imgH) {
 function CanvasContent({
     designType, previewURL, photoFilter, filterStrength,
     textValue, fontColor, photoTab, fontSize = 14,
-    imageTransform, cropTransform, shapeFrame,
+    imageTransform, cropTransform,
     cropSetupMode, cropMode,
+    textTransform, textMode,
     onMouseDown, onTouchStart,
 }) {
     if (designType === 'photo' && previewURL) {
         const ct = cropTransform || { x: 0, y: 0, scale: 1 }
         const t = imageTransform || { x: 0, y: 0, scale: 1 }
-        const clipPath = shapeFrame && shapeFrame !== 'none' ? getShapeClipPath(shapeFrame) : 'none'
+        const clipPath = 'none'
         const isActive = cropSetupMode || cropMode
         return (
             <>
@@ -296,12 +287,34 @@ function CanvasContent({
         )
     }
     if (designType === 'text' && textValue) {
+        const tt = textTransform || { x: 0, y: 0, scale: 1, rotate: 0 }
         return (
-            <span style={{
-                color: fontColor || '#fff', fontSize, fontWeight: 600,
-                textAlign: 'center', padding: 8,
-                wordBreak: 'break-all', whiteSpace: 'pre-line',
-            }}>{textValue}</span>
+            <>
+                {/* 드래그 핸들 - textMode일 때 활성 */}
+                {textMode && (
+                    <div style={{
+                        position: 'absolute', inset: 0, zIndex: 5,
+                        cursor: 'grab',
+                    }}
+                        onMouseDown={onMouseDown}
+                        onTouchStart={onTouchStart}
+                    />
+                )}
+                <span style={{
+                    color: fontColor || '#fff',
+                    fontSize: `${fontSize * tt.scale}px`,
+                    fontWeight: 600,
+                    textAlign: 'center', padding: 8,
+                    wordBreak: 'break-all', whiteSpace: 'pre-line',
+                    display: 'inline-block',
+                    transform: `translate(${tt.x}px, ${tt.y}px) rotate(${tt.rotate}deg)`,
+                    transformOrigin: 'center center',
+                    position: 'relative', zIndex: 4,
+                    outline: textMode ? '2px dashed rgba(255,255,255,0.7)' : 'none',
+                    outlineOffset: 4,
+                    pointerEvents: 'none',
+                }}>{textValue}</span>
+            </>
         )
     }
     return (
@@ -373,8 +386,9 @@ export function PhonePreview({
     selectedModel, selectedCaseType, designType,
     previewURL, photoFilter, filterStrength,
     textValue, fontColor, photoTab, selectedCaseColor, deviceType,
-    imageTransform, cropTransform, shapeFrame,
+    imageTransform, cropTransform,
     cropSetupMode, cropMode,
+    textTransform, textMode,
     onCanvasMouseDown, onCanvasTouchStart,
 }) {
     const isTablet = deviceType === 'tablet'
@@ -440,8 +454,9 @@ export function PhonePreview({
     const ccProps = {
         designType, previewURL, photoFilter, filterStrength,
         textValue, fontColor, photoTab,
-        imageTransform, cropTransform, shapeFrame,
+        imageTransform, cropTransform,
         cropSetupMode, cropMode,
+        textTransform, textMode,
         onMouseDown: onCanvasMouseDown,
         onTouchStart: onCanvasTouchStart,
     }
