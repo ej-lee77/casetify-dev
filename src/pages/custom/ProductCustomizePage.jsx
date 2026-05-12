@@ -382,7 +382,7 @@ function ProductCustomizeContent({ deviceType }) {
                                         style={{ cursor: selectedModel ? 'default' : 'pointer' }}
                                         onClick={() => { setModelOpen(v => !v); setCaseTypeOpen(false) }}>
                                         <span>{selectedModelLabel || '기종을 선택하세요'}</span>
-                                        {!selectedModel && <span className={`model-accordion-arrow ${modelOpen ? 'open' : ''}`}>▼</span>}
+                                        {!selectedModel && <span className={`model-accordion-arrow ${modelOpen ? 'open' : ''}`}><img className='custom-arrow' src='/images/icon/icon-arrow-down.svg' alt=''/></span>}
                                     </button>
                                     {modelOpen && (
                                         <div className="model-accordion-list">
@@ -428,7 +428,7 @@ function ProductCustomizeContent({ deviceType }) {
                                                 onClick={() => { if (!selectedModel) return; setCaseTypeOpen(v => !v); setModelOpen(false) }}
                                                 style={{ cursor: !selectedModel ? 'default' : 'pointer' }}>
                                                 <span>{selectedCaseLabel || '케이스 타입을 선택하세요'}</span>
-                                                <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>
+                                                <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}><img className='custom-arrow' src='/images/icon/icon-arrow-down.svg' alt=''/></span>
                                             </button>
                                             {caseTypeOpen && (
                                                 <div className="model-accordion-list">
