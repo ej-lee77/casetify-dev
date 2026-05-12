@@ -3,7 +3,7 @@ import "./scss/Login.scss"
 import SectionTitle from '../components/SectionTitle'
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { div, img } from 'framer-motion/client';
 import ToastPopup from '../components/Toastpopup';
@@ -33,8 +33,10 @@ export default function Login() {
       setShowPassword(!showPassword);
     };
 
-    // 로그인하면 첫화면으로 이동하기
+    // 로그인하면 원래 페이지 or 첫화면으로 이동하기
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from || "/";
 
     useEffect(() => {
       const savedEmail = localStorage.getItem('savedEmail');
@@ -75,7 +77,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       }else if(isLogin === "첫로그인"){
         navigate("/join/complete");
@@ -86,7 +88,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       }else if(isLogin === "첫로그인생일"){
         setIsModalOpen(true);
@@ -117,7 +119,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       }else if(isLogin === "생일"){
         // 1. 로그인 성공 가정
@@ -126,7 +128,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       } else {
         // 실패: 에러 메시지
@@ -145,7 +147,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       }else if(isLogin === "생일"){
         // 1. 로그인 성공 가정
@@ -154,7 +156,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       } else {
         // 실패: 에러 메시지
@@ -173,7 +175,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       }else if(isLogin === "생일"){
         // 1. 로그인 성공 가정
@@ -182,7 +184,7 @@ export default function Login() {
 
         // 2. 2초 후 홈으로 이동
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
       } else {
         // 실패: 에러 메시지

@@ -177,7 +177,7 @@ export default function DetailPage({ item }) {
         setShowLoginBanner(true)
         setTimeout(() => {
             setShowLoginBanner(false)
-            navigate('/login')
+            navigate('/login', { state: { from: location.pathname + location.search } })
         }, 1500)
     }
 

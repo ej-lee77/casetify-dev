@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./scss/Gift.scss"
 import Benefit from '../components/Benefit'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import GiftCardModal from '../components/sub/GiftCardModal'
 import { useAuthStore } from '../store/useAuthStore'
 import ActionPopup from '../components/sub/product detail page/ActionPopup'
@@ -38,6 +38,7 @@ export default function Gift() {
   const [selectedAmount, setSelectedAmount] = useState(amounts[0])
   const [openIndex, setOpenIndex] = useState(null)
   const navigate = useNavigate()
+  const location = useLocation()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { onAddToCart, user } = useAuthStore()
 
@@ -98,7 +99,7 @@ export default function Gift() {
       setLoginToastOpen(true)
       setTimeout(() => {
         setLoginToastOpen(false)
-        navigate('/login')
+        navigate('/login', { state: { from: location.pathname + location.search } })
       }, 1500)
     }
   }
@@ -109,7 +110,7 @@ export default function Gift() {
       setLoginToastOpen(true)
       setTimeout(() => {
         setLoginToastOpen(false)
-        navigate('/login')
+        navigate('/login', { state: { from: location.pathname + location.search } })
       }, 1500)
     }else{
       setIsModalOpen(true);
