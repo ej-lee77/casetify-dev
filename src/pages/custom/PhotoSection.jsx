@@ -147,7 +147,7 @@ function CropSection({ imageTransform, setImageTransform, cropMode, setCropMode,
         <div style={{ marginTop: 20, opacity: disabled ? 0.4 : 1, pointerEvents: disabled ? 'none' : 'auto' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                 <div>
-                    <p className="label" style={{ margin: 0 }}>③ 영역 고르기</p>
+                    <p className="label" style={{ margin: 0 }}>③ 도형 위치배치</p>
                     {disabled && <p style={{ fontSize: 11, color: '#aaa', margin: '2px 0 0' }}>① 확정 후 활성화</p>}
                 </div>
                 <div style={{ display: 'flex', gap: 6 }}>
