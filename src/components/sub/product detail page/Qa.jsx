@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./scss/qa.scss";
 import { useAuthStore } from "../../../store/useAuthStore";
 import ToastPopup from "../../Toastpopup";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const DATA = [
     {
@@ -38,6 +39,8 @@ const DATA = [
 
 export default function Qa() {
     const { user } = useAuthStore();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const [openIndex, setOpenIndex] = useState(null);
     const [activeTab, setActiveTab] = useState(null);
@@ -54,7 +57,7 @@ export default function Qa() {
         setShowLoginBanner(true)
         setTimeout(() => {
             setShowLoginBanner(false)
-            navigate('/login')
+            navigate('/login', { state: { from: location.pathname + location.search } })
         }, 1500)
     }
 
