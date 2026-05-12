@@ -57,7 +57,7 @@ function CropSetupSection({ cropTransform, setCropTransform, cropSetupMode, setC
         <div style={sectionCard()}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                 <div>
-                    <p className="label" style={{ margin: 0, fontWeight: 700 }}>① 이미지 구역 설정</p>
+                    <p className="label" style={{ margin: 0, fontWeight: 700 }}>이미지 구역 설정</p>
                     <p style={{ fontSize: 11, color: '#888', margin: '2px 0 0' }}>원본에서 보여줄 부분을 설정하세요</p>
                 </div>
                 <div style={{ display: 'flex', gap: 6 }}>
@@ -255,14 +255,6 @@ export function PhotoSection({
                     cropTransform={cropTransform} setCropTransform={setCropTransform}
                     cropSetupMode={cropSetupMode} setCropSetupMode={setCropSetupMode}
                     cropSetupLocked={cropSetupLocked} setCropSetupLocked={setCropSetupLocked}
-                />
-            )}
-            {photoFilter && (
-                <CropSection
-                    imageTransform={imageTransform} setImageTransform={setImageTransform}
-                    cropMode={cropMode} setCropMode={setCropMode}
-                    cropLocked={cropLocked} setCropLocked={setCropLocked}
-                    disabled={!cropSetupLocked}
                 />
             )}
         </>
