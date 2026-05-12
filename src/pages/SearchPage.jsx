@@ -19,18 +19,6 @@ const fadeVariants = {
     exit: { opacity: 0 },
 };
 
-const SearchSkeleton = () => (
-    <ul className="category-product-list">
-        {Array.from({ length: 10 }).map((_, i) => (
-            <li key={i} className="skeleton-item">
-                <div className="skeleton-img" />
-                <div className="skeleton-text title" />
-                <div className="skeleton-text price" />
-            </li>
-        ))}
-    </ul>
-);
-
 // ─────────────────────────────────────────────
 // 상수
 // ─────────────────────────────────────────────
@@ -105,7 +93,6 @@ const getPageNumbers = (totalPages, currentPage) => {
 // 컴포넌트
 // ─────────────────────────────────────────────
 export default function SearchPage() {
-    const [isLoading, setIsLoading] = useState(true);
     const [searchParams, setSearchParams] = useSearchParams();
     const keyword = searchParams.get("q") || "";
     const sort = searchParams.get("sort") || "recommend";
@@ -118,15 +105,10 @@ export default function SearchPage() {
     const [selectedFilters, setSelectedFilters] = useState(INITIAL_FILTERS);
     const sortDropdownRef = useRef(null);
 
-    // 키워드가 바뀔 때마다 로딩 상태를 활성화
-    useEffect(() => {
-        setIsLoading(true);
-        // 데이터 처리 속도가 매우 빠르므로, 스켈레톤을 보여주기 위해 의도적인 지연을 약간 줍니다.
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 600); // 0.6초 후 로딩 해제
-        return () => clearTimeout(timer);
-    }, [keyword]);
+    const paginate = (page) => {
+        setCurrentPage(page);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     // 드롭다운 외부 클릭 시 닫기
     useEffect(() => {
@@ -343,9 +325,7 @@ export default function SearchPage() {
                     )}
 
                     {/* 상품 목록 or 결과 없음 */}
-                    {isLoading ? (
-                        <SearchSkeleton />
-                    ) : sortedGroups.length > 0 ? (
+                    {sortedGroups.length > 0 ? (
                         <ul className="category-product-list">
                             {pagedGroups.map((group) => (
                                 <li key={`${group.productName}-${group.caseCategory}`}>
@@ -367,12 +347,12 @@ export default function SearchPage() {
                     {/* 페이지네이션 */}
                     {totalPages > 1 && (
                         <div className="category-pagination">
-                            <button type="button" onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>&laquo;</button>
-                            <button type="button" onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))} disabled={currentPage === 1}>&lsaquo;</button>
+                            <button type="button" onClick={() => paginate(1)} disabled={currentPage === 1}>&laquo;</button>
+                            <button type="button" onClick={() => paginate(Math.max(currentPage - 1, 1))} disabled={currentPage === 1}>&lsaquo;</button>
 
                             {pageNumbers[0] > 1 && (
                                 <>
-                                    <button type="button" onClick={() => setCurrentPage(1)}>1</button>
+                                    <button type="button" onClick={() => paginate(1)}>1</button>
                                     {pageNumbers[0] > 2 && <span className="page-ellipsis">…</span>}
                                 </>
                             )}
@@ -382,19 +362,19 @@ export default function SearchPage() {
                                     type="button"
                                     key={n}
                                     className={currentPage === n ? "on" : ""}
-                                    onClick={() => setCurrentPage(n)}
+                                    onClick={() => paginate(n)}
                                 >{n}</button>
                             ))}
 
                             {pageNumbers.at(-1) < totalPages && (
                                 <>
                                     {pageNumbers.at(-1) < totalPages - 1 && <span className="page-ellipsis">…</span>}
-                                    <button type="button" onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
+                                    <button type="button" onClick={() => paginate(totalPages)}>{totalPages}</button>
                                 </>
                             )}
 
-                            <button type="button" onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>&rsaquo;</button>
-                            <button type="button" onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>&raquo;</button>
+                            <button type="button" onClick={() => paginate(Math.min(currentPage + 1, totalPages))} disabled={currentPage === totalPages}>&rsaquo;</button>
+                            <button type="button" onClick={() => paginate(totalPages)} disabled={currentPage === totalPages}>&raquo;</button>
                         </div>
                     )}
                 </div>
