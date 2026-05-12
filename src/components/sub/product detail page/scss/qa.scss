@@ -263,3 +263,17 @@
     }
   }
 }
+@media (max-width: 640px) {
+    .qa {
+        .qa-list {
+            .qa-header,
+            .qa-row {
+                grid-template-columns: 90px 1fr 120px;
+                font-size: 12px;
+            }
+            .qa-search-bar .search-box {
+                width: 100%;
+            }
+        }
+    }
+}

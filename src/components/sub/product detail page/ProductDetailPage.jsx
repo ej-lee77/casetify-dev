@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { items } from "../../../data/finalData";
 
 
@@ -23,7 +23,8 @@ export default function ProductDetailPage() {
     const item = items.find((data) => String(data.id) === String(id));
 
     if (!item) {
-        return <div>상품 없음</div>;
+        // return <div>상품 없음</div>;
+        return <Navigate to="/error" replace />;
     }
 
     const addRecentItem = useRecentStore((state) => state.addRecentItem);

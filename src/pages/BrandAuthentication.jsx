@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 import { AUTH_FAQS } from '../data/authFaqs'
 import './scss/BrandAuthentication.scss'
@@ -15,6 +15,7 @@ const fadeVariants = {
 
 export default function BrandAuthentication() {
     const navigate = useNavigate()
+    const location = useLocation()
     const { onAuthenticate, onFetchOrder, user, orderList } = useAuthStore()
 
     const [serialNumber, setSerialNumber] = useState('')
@@ -34,7 +35,7 @@ export default function BrandAuthentication() {
                 setLoginToastOpen(true)
                 setTimeout(() => {
                     setLoginToastOpen(false)
-                    navigate('/login')
+                    navigate('/login', { state: { from: location.pathname + location.search } })
                 }, 1500)
                 return
             }
