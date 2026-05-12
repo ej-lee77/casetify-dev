@@ -73,6 +73,7 @@ function ColorPickerButton({ value, onChange, presetColors }) {
 
 function ProductCustomizeContent({ deviceType }) {
     const navigate = useNavigate()
+    const location = useLocation()
     const { user, onAddToCart } = useAuthStore()
 
     const brandList = deviceType === 'tablet' ? TABLET_BRANDS : deviceType === 'laptop' ? LAPTOP_BRANDS : BRANDS
@@ -273,7 +274,7 @@ function ProductCustomizeContent({ deviceType }) {
     ].filter(Boolean).join(' / ')
 
     const handleAddCart = async () => {
-        if (!user) { navigate('/login'); return }
+        if (!user) { navigate('/login', { state: { from: location.pathname + location.search } }); return }
         const cartImgUrl = deviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' : deviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' : '/images/custom/cart/phone-cart-go.png'
         const productName = deviceType === 'tablet' ? '태블릿 커스텀 케이스' : deviceType === 'laptop' ? '맥북 커스텀 케이스' : '폰 커스텀 케이스'
         const customContent = designType === 'text' ? textValue : photoTab === 'sticker' ? selectedSticker?.src : photoURL
