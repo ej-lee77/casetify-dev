@@ -12,7 +12,6 @@
             height: 100%;
         }
 
-        // 화살표 버튼 — 기본 숨김, 호버 시 표시
         .bp-nav-btn {
             position: absolute;
             top: 50%;
@@ -37,17 +36,10 @@
             }
         }
 
-        .bp-btn-prev {
-            left: 16px;
-        }
+        .bp-btn-prev { left: 16px; }
+        .bp-btn-next { right: 16px; }
 
-        .bp-btn-next {
-            right: 16px;
-        }
-
-        &:hover .bp-nav-btn {
-            opacity: 1;
-        }
+        &:hover .bp-nav-btn { opacity: 1; }
 
         .bp-slide-counter {
             position: absolute;
@@ -97,13 +89,9 @@
                 opacity: 1;
                 width: 100%;
 
-                &.fade {
-                    opacity: 0;
-                }
+                &.fade { opacity: 0; }
 
-                .price {
-                    color: g.$text-sub;
-                }
+                .price { color: g.$text-sub; }
 
                 .name {
                     color: g.$text-main;
@@ -115,10 +103,7 @@
 
                 li {
                     cursor: pointer;
-
-                    img {
-                        width: 180px;
-                    }
+                    img { width: 180px; }
                 }
             }
 
@@ -141,4 +126,109 @@
             }
         }
     }
-}
+
+// ── 반응형 ──────────────────────────────────────
+@media (max-width: 1024px) {
+        .all {
+            align-items: stretch;
+
+            .left img {
+                width: 500px;
+                height: 415px;
+                object-fit: cover;
+            }
+            .right {
+                ul { row-gap: 30px; li img { width: 140px; } }
+                button { width: 220px; }
+            }
+        }
+    }
+
+    @media (max-width: 860px) {
+        .all {
+            align-items: stretch;
+
+            .left img {
+                width: 420px;
+                height: 349px;
+                object-fit: cover;
+            }
+            .right {
+                ul { row-gap: 20px; li img { width: 110px; } }
+                button { width: 100%; font-size: 13px; }
+            }
+        }
+
+        .bp-swiper-wrap {
+            .bp-nav-btn { width: 36px; height: 36px; opacity: 1; }
+            .bp-btn-prev { left: 8px; }
+            .bp-btn-next { right: 8px; }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .all {
+            align-items: stretch;
+
+            .left img {
+                width: 360px;
+                height: 299px;
+                object-fit: cover;
+            }
+            .right {
+                ul { row-gap: 16px; li img { width: 90px; } }
+                .name { max-width: 90px; font-size: 12px; }
+                .price { font-size: 12px; }
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        .all {
+            flex-direction: column;
+            align-items: unset;
+
+            .left {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 1 / 1;
+                    object-fit: cover;
+                }
+            }
+
+            .right {
+                width: 100%;
+                padding: 20px 16px;
+
+                ul {
+                    row-gap: 16px;
+                    li img { width: 90px; height: auto; }
+                    .name { max-width: 90px; font-size: 11px; }
+                    .price { font-size: 11px; }
+                }
+
+                button {
+                    width: 100%;
+                    font-size: 13px;
+                    height: 36px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .all .left img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .all .left img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+    }}

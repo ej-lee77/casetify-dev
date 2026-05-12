@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { Link } from 'react-router-dom'
 
 import 'swiper/css'
 
@@ -17,32 +18,37 @@ export default function MainSlider() {
             src: "./images/main/main-slider/main-slider5.png", alt: "main-slider5",
             titleImg: "./images/main/main-slider/main-slider-title5.png",
             text: "단 하나의 마그네틱 스타, 단 하나의 독보적인 에딧. \n 아일릿 원희의 감성으로 채운 Y2K",
-            sub: "", color: "#fff", headerColor: "white"
+            sub: "", color: "#fff", headerColor: "white",
+            link: "/detail/CTF-37498812-16010942"
         },
         {
             src: "./images/main/main-slider/main-slider1.png", alt: "main-slider1",
             titleImg: "./images/main/main-slider/main-slider-title1.png",
             text: "나를 만난 모든 순간, 그 모든 여정에 함께.",
-            color: "#fff", headerColor: "white"
+            color: "#fff", headerColor: "white",
+            link: "/travel/suitcase"
         },
         {
             src: "./images/main/main-slider/main-slider2.png", alt: "main-slider2",
             titleImg: "./images/main/main-slider/main-slider-title2.png",
             text: "에스더 버니와 함께하는 즐거운 여정!",
-            color: "#2f2f2f", headerColor: "black"
+            color: "#2f2f2f", headerColor: "black",
+            link: "/colab/character?mini=esther-bunny&sort=recommend"
         },
         {
             src: "./images/main/main-slider/main-slider3.png", alt: "main-slider3",
             titleImg: "./images/main/main-slider/main-slider-title3.png",
             text: "Infinity In Bloom Collection",
             sub: "천상의 리본과 끝없는 가능성이 만나는 곳",
-            color: "#2f2f2f", headerColor: "black"
+            color: "#2f2f2f", headerColor: "black",
+            link: "/colab/fashion?mini=susan-fang&sort=recommend"
         },
         {
             src: "./images/main/main-slider/main-slider4.png", alt: "main-slider4",
             titleImg: "./images/main/main-slider/main-slider-title4.png",
             text: "완벽하게 당신다운, 세상에 없던 단 하나의 케이스.",
-            sub: "", color: "#2f2f2f", headerColor: "black"
+            sub: "", color: "#2f2f2f", headerColor: "black",
+            link: "/custom"
         },
     ]
 
@@ -64,6 +70,7 @@ export default function MainSlider() {
             >
                 {slides.map((slide, i) => (
                     <SwiperSlide key={i}>
+                        <Link to={slide.link} className="slide-link">
                         <img src={slide.src} alt={slide.alt} />
 
                         <div className="slide-title">
@@ -76,6 +83,7 @@ export default function MainSlider() {
                                 {slide.sub && <p className='sub-text' style={{ color: slide.color }}>{slide.sub}</p>}
                             </div>
                         </div>
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>
