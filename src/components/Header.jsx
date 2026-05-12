@@ -81,7 +81,7 @@ export default function Header() {
       setLoginToastOpen(true);
       setTimeout(() => {
         setLoginToastOpen(false);
-        navigate('/login');
+        navigate('/login', { state: { from: location.pathname + location.search } });
       }, 1500);
     }
   };

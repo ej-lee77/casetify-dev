@@ -20,6 +20,7 @@ import CategoryFilterPanel from "../components/sub/CategoryFilterPanel";
 import CategoryFilterButton from "../components/sub/CategoryFilterButton";
 
 import { motion } from "framer-motion";
+import EmptyState from "../components/sub/EmptyState";
 
 const fadeVariants = {
     initial: { opacity: 0 },
@@ -27,6 +28,17 @@ const fadeVariants = {
     exit: { opacity: 0 },
 };
 
+const SearchSkeleton = () => (
+    <ul className="category-product-list">
+        {Array.from({ length: 10 }).map((_, i) => (
+            <li key={i} className="skeleton-item">
+                <div className="skeleton-img" />
+                <div className="skeleton-text title" />
+                <div className="skeleton-text price" />
+            </li>
+        ))}
+    </ul>
+);
 
 // ─────────────────────────────────────────────
 // 상수
@@ -156,6 +168,7 @@ const makeArtistIconKey = (artist = "") =>
 // 컴포넌트
 // ─────────────────────────────────────────────
 export default function CategoryPagePractice() {
+    const [isLoading, setIsLoading] = useState(true);
     const { mainCate, subCate } = useParams();
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
@@ -174,6 +187,19 @@ export default function CategoryPagePractice() {
     const [selectedBrand, setSelectedBrand] = useState("Apple");
     const [selectedFilters, setSelectedFilters] = useState(INITIAL_FILTERS);
     const sortDropdownRef = useRef(null);
+
+    useEffect(() => {
+        // 필터나 페이지가 바뀌면 일단 로딩 시작!
+        setIsLoading(true);
+
+        // 실제로는 useMemo가 계산을 끝내는 아주 짧은 시간이겠지만,
+        // 사용자에게 '변경 중'임을 알리기 위해 약간의 지연을 줄 수도 있어.
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 300); // 0.3초 정도 부드럽게 보여줌
+
+        return () => clearTimeout(timer);
+    }, [mainCate, subCate, mini, sort, selectedFilters, currentPage]);
 
     // 드롭다운 외부 클릭 시 닫기
     useEffect(() => {
@@ -332,6 +358,11 @@ export default function CategoryPagePractice() {
         }
         setIsColorFilterPopupOpen(false);
     }, [mini, selectedFilters.model, selectedFilters.caseCategory, selectedFilters.colorFilter]);
+
+    // 페이지 변경 시 상단으로 스크롤
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }, [currentPage]);
 
     // ── 이벤트 핸들러 ──
     const onHandleMiniCategory = (miniValue) => {
@@ -642,13 +673,25 @@ export default function CategoryPagePractice() {
                     )}
 
                     {/* 상품 목록 */}
-                    <ul className="category-product-list">
-                        {pagedGroups.map((group) => (
-                            <li key={`${group.productName}-${group.caseCategory}`}>
-                                {renderCard(group)}
-                            </li>
-                        ))}
-                    </ul>
+                    {isLoading ? (
+                        <SearchSkeleton />
+                    ) : pagedGroups.length > 0 ? (
+                        // 로딩 완료 & 데이터 있을 때
+                        <ul className="category-product-list">
+                            {pagedGroups.map((group)=>(
+                                <li key={`${group.productName}-${group.caseCategory}`}>
+                                    {renderCard(group)}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        // 데이터 없을 때
+                        <EmptyState
+                            strong=""
+                            title=""
+                        />
+                    )}
+                    
 
                     {/* 페이지네이션 */}
                     {totalPages > 1 && (
