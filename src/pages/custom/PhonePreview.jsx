@@ -54,12 +54,12 @@ const IPAD_DISPLAY_H = 900
 const IPAD_DISPLAY_W = (IPAD_IMG_W / IPAD_IMG_H) * IPAD_DISPLAY_H
 
 const IPAD_CANVAS_MAP = {
-    'ipad': { top: 202, left: 81, w: 427, h: 596, radius: 36 },
-    'ipadmini': { top: 230.9, left: 101.6, w: 388, h: 535, radius: 34 },
-    'ipadair4': { top: 189, left: 72, w: 438, h: 618, radius: 28 },
-    'ipadpro11s3': { top: 189, left: 74, w: 445, h: 620, radius: 30 },
-    'ipadpro12.9': { top: 136.9, left: 50, w: 490, h: 695, radius: 30 },
-    'ipadpro13': { top: 150, left: 50.6, w: 492, h: 698, radius: 30 },
+    'ipad':        { top: 202,   left: 81,   w: 427, h: 596, radius: 36 },
+    'ipadmini':    { top: 230.9, left: 101.6,w: 388, h: 535, radius: 34 },
+    'ipadair4':    { top: 189,   left: 72,   w: 438, h: 618, radius: 28 },
+    'ipadpro11s3': { top: 189,   left: 74,   w: 445, h: 620, radius: 30 },
+    'ipadpro12.9': { top: 136.9, left: 50,   w: 490, h: 695, radius: 30 },
+    'ipadpro13':   { top: 150,   left: 50.6, w: 492, h: 698, radius: 30 },
 }
 
 const IPAD_NO_CAMERA = ['ipadair11', 'ipadair13', 'ipadpro11']
@@ -71,21 +71,21 @@ const LAPTOP_FILE_MAP = {
 }
 
 const MACBOOK_SIZE_MAP = {
-    'macbook13': { imgW: 900, imgH: 789, displayW: 616.5, displayH: 450 },
-    'macbook15': { imgW: 1097, imgH: 822, displayW: 600.5, displayH: 450 },
-    'macbookair13': { imgW: 1115, imgH: 849, displayW: 591.0, displayH: 450 },
+    'macbook13':      { imgW: 900,  imgH: 789, displayW: 616.5, displayH: 450 },
+    'macbook15':      { imgW: 1097, imgH: 822, displayW: 600.5, displayH: 450 },
+    'macbookair13':   { imgW: 1115, imgH: 849, displayW: 591.0, displayH: 450 },
     'macbookair13s1': { imgW: 1133, imgH: 816, displayW: 624.8, displayH: 450 },
-    'macbookpro14': { imgW: 1105, imgH: 783, displayW: 635.1, displayH: 450 },
-    'macbookpro16': { imgW: 1100, imgH: 791, displayW: 625.8, displayH: 450 },
+    'macbookpro14':   { imgW: 1105, imgH: 783, displayW: 635.1, displayH: 450 },
+    'macbookpro16':   { imgW: 1100, imgH: 791, displayW: 625.8, displayH: 450 },
 }
 
 const MACBOOK_CANVAS_MAP = {
-    'macbook13': { top: 19, left: 29, w: 338, h: 203, radius: 47 },
-    'macbook15': { top: 29, left: 34, w: 370, h: 210, radius: 45 },
-    'macbookair13': { top: 30, left: 35, w: 329, h: 191, radius: 46 },
-    'macbookair13s1': { top: 21, left: 40, w: 320, h: 195, radius: 9 },
-    'macbookpro14': { top: 17.6, left: 32, w: 348.8, h: 219, radius: 49.8 },
-    'macbookpro16': { top: 25, left: 27, w: 388.8, h: 232.5, radius: 49 },
+    'macbook13':      { top: 62,   left: 69, w:798,   h: 668,   radius: 87   },
+    'macbook15':      { top: 30,   left: 34, w: 370,   h: 210,   radius: 45   },
+    'macbookair13':   { top: 104,   left: 98, w: 968,   h: 679,   radius: 106   },
+    'macbookair13s1': { top: 71,   left: 115, w: 960,   h: 665,   radius:  30   },
+    'macbookpro14':   { top: 53, left: 85, w: 970, h: 685,   radius: 100.8 },
+    'macbookpro16':   { top: 71,   left: 67, w: 972.8, h:669.5, radius: 100  },
 }
 
 const BOUNCE_IMG_W = 780
@@ -94,9 +94,9 @@ const BOUNCE_DISPLAY_H = 600
 
 const BOUNCE_CANVAS_MAP = {
     'iphone17pro': { top: 278, left: 200, w: 380, h: 810, radius: 60 },
-    'iphone17': { top: 340, left: 230, w: 320, h: 678, radius: 55 },
-    'iphone16': { top: 315, left: 223, w: 335, h: 730, radius: 55 },
-    'iphone15': { top: 330, left: 224, w: 330, h: 698, radius: 54 },
+    'iphone17':    { top: 340, left: 230, w: 320, h: 678, radius: 55 },
+    'iphone16':    { top: 315, left: 223, w: 335, h: 730, radius: 55 },
+    'iphone15':    { top: 330, left: 224, w: 330, h: 698, radius: 54 },
 }
 
 const PHONE_IMG_W = 780
@@ -104,33 +104,33 @@ const PHONE_IMG_H = 1360
 const PHONE_DISPLAY_H = 600
 
 const IMPACT_CANVAS_MAP = {
-    'iphone17pro': { top: 296, left: 208, w: 368, h: 781, radius: 55 },
-    'iphone17': { top: 280, left: 204, w: 371, h: 800, radius: 65 },
-    'iphone16pro': { top: 280, left: 200, w: 378, h: 808, radius: 75 },
-    'iphone16': { top: 280, left: 200, w: 380, h: 800, radius: 74 },
-    'iphone15pro': { top: 238, left: 170, w: 436, h: 918, radius: 66 },
-    'iphone15': { top: 220, left: 170, w: 437, h: 924, radius: 67 },
-    's25plus': { top: 283, left: 208, w: 368, h: 799, radius: 34 },
-    's25': { top: 281, left: 210, w: 370, h: 800, radius: 40 },
-    's26plus': { top: 280, left: 202, w: 378, h: 800, radius: 36 },
-    's26': { top: 280, left: 208, w: 370, h: 800, radius: 27 },
-    'z6fold': { top: 258, left: 218, w: 362, h: 853, radius: 18 },
-    'z6flip': { top: 684, left: 215, w: 358, h: 410, radius: 10 },
-    'z7fold': { top: 269, left: 214, w: 370, h: 822, radius: 11 },
-    'z7flip': { top: 687, left: 220, w: 338, h: 375, radius: 10 },
-    'pixel9pro': { top: 260, left: 198, w: 389, h: 845, radius: 56 },
-    'pixel9': { top: 258, left: 198, w: 390, h: 845, radius: 60 },
-    'pixel10': { top: 280, left: 210, w: 364, h: 799, radius: 54 },
-    'pixel10pro': { top: 284, left: 210, w: 365, h: 795, radius: 54 },
+    'iphone17pro':  { top: 296, left: 208, w: 368, h: 781, radius: 55 },
+    'iphone17':     { top: 280, left: 204, w: 371, h: 800, radius: 65 },
+    'iphone16pro':  { top: 280, left: 200, w: 378, h: 808, radius: 75 },
+    'iphone16':     { top: 280, left: 200, w: 380, h: 800, radius: 74 },
+    'iphone15pro':  { top: 238, left: 170, w: 436, h: 918, radius: 66 },
+    'iphone15':     { top: 220, left: 170, w: 437, h: 924, radius: 67 },
+    's25plus':      { top: 283, left: 208, w: 368, h: 799, radius: 34 },
+    's25':          { top: 281, left: 210, w: 370, h: 800, radius: 40 },
+    's26plus':      { top: 280, left: 202, w: 378, h: 800, radius: 36 },
+    's26':          { top: 280, left: 208, w: 370, h: 800, radius: 27 },
+    'z6fold':       { top: 258, left: 218, w: 362, h: 853, radius: 18 },
+    'z6flip':       { top: 684, left: 215, w: 358, h: 410, radius: 10 },
+    'z7fold':       { top: 269, left: 214, w: 370, h: 822, radius: 11 },
+    'z7flip':       { top: 687, left: 220, w: 338, h: 375, radius: 10 },
+    'pixel9pro':    { top: 260, left: 198, w: 389, h: 845, radius: 56 },
+    'pixel9':       { top: 258, left: 198, w: 390, h: 845, radius: 60 },
+    'pixel10':      { top: 280, left: 210, w: 364, h: 799, radius: 54 },
+    'pixel10pro':   { top: 284, left: 210, w: 365, h: 795, radius: 54 },
 }
 
 const RING_CANVAS_MAP = {
     'iphone17pro': { top: 286, left: 218, w: 348, h: 810, radius: 67 },
-    'iphone17': { top: 269, left: 199, w: 380, h: 826, radius: 56 },
-    'iphone16': { top: 277, left: 200, w: 380, h: 808, radius: 49 },
-    'iphone15': { top: 275, left: 198, w: 383, h: 820, radius: 50 },
-    'z6fold': { top: 260, left: 189, w: 408, h: 848, radius: 30 },
-    'z6flip': { top: 274, left: 185, w: 410, h: 863, radius: 30 },
+    'iphone17':    { top: 269, left: 199, w: 380, h: 826, radius: 56 },
+    'iphone16':    { top: 277, left: 200, w: 380, h: 808, radius: 49 },
+    'iphone15':    { top: 275, left: 198, w: 383, h: 820, radius: 50 },
+    'z6fold':      { top: 260, left: 189, w: 408, h: 848, radius: 30 },
+    'z6flip':      { top: 274, left: 185, w: 410, h: 863, radius: 30 },
 }
 
 export function isCaseTypeSupported(modelId, caseTypeId) {
@@ -139,13 +139,24 @@ export function isCaseTypeSupported(modelId, caseTypeId) {
     return true
 }
 
+function getShapeClipPath(shapeId) {
+    switch (shapeId) {
+        case 'circle':  return 'circle(50% at 50% 50%)'
+        case 'square':  return 'inset(5% 5% 5% 5%)'
+        case 'heart':   return 'path("M50,85 C20,60 5,45 5,30 C5,15 15,8 28,8 C38,8 46,14 50,20 C54,14 62,8 72,8 C85,8 95,15 95,30 C95,45 80,60 50,85Z")'
+        case 'star':    return 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
+        case 'diamond': return 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
+        default:        return 'none'
+    }
+}
+
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
     switch (filterId) {
-        case 'retro': return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
+        case 'retro':   return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
         case 'digicam': return { filter: `saturate(${1 + s}) brightness(${1 + s * 0.3})` }
-        case 'mono': return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
-        default: return {}
+        case 'mono':    return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
+        default:        return {}
     }
 }
 
@@ -154,28 +165,30 @@ function scaleCanvas(canvasInfo, displayW, displayH, imgW, imgH) {
     const sx = displayW / imgW
     const sy = displayH / imgH
     return {
-        top: canvasInfo.top * sy,
-        left: canvasInfo.left * sx,
-        w: canvasInfo.w * sx,
-        h: canvasInfo.h * sy,
+        top:    canvasInfo.top    * sy,
+        left:   canvasInfo.left   * sx,
+        w:      canvasInfo.w      * sx,
+        h:      canvasInfo.h      * sy,
         radius: (canvasInfo.radius || 0) * sx,
     }
 }
 
-// ── 캔버스 콘텐츠 ────────────────────────────────
 function CanvasContent({
     designType, previewURL, photoFilter, filterStrength,
     textValue, fontColor, photoTab, fontSize = 14,
-    imageTransform, cropMode, onMouseDown, onTouchStart,
+    imageTransform, shapeFrame, cropMode, onMouseDown, onTouchStart,
 }) {
     if (designType === 'photo' && previewURL) {
         const t = imageTransform || { x: 0, y: 0, scale: 1 }
+        const clipPath = shapeFrame && shapeFrame !== 'none' ? getShapeClipPath(shapeFrame) : 'none'
         return (
             <div
                 style={{
                     width: '100%', height: '100%',
                     position: 'relative', overflow: 'hidden',
                     cursor: cropMode ? 'grab' : 'default',
+                    clipPath,
+                    WebkitClipPath: clipPath,
                 }}
                 onMouseDown={onMouseDown}
                 onTouchStart={onTouchStart}
@@ -219,12 +232,11 @@ function CanvasContent({
             {designType === 'photo'
                 ? (photoTab === 'sticker' ? '스티커를\n선택하세요' : '사진을\n업로드하세요')
                 : designType === 'text' ? '텍스트를\n입력하세요'
-                    : '커스텀 내용을\n선택하세요'}
+                : '커스텀 내용을\n선택하세요'}
         </p>
     )
 }
 
-// ── Placeholder ──────────────────────────────────
 function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySrc, selectedCaseColor }) {
     const line1 = !selectedModel ? '기종을' : !selectedCaseType ? '케이스 타입을' : !bodySrc ? '이미지' : '커스텀 내용을'
     const line2 = !selectedModel ? '선택하세요' : !selectedCaseType ? '선택하세요' : !bodySrc ? '준비 중입니다' : '선택하세요'
@@ -265,8 +277,8 @@ function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySr
                     <p className="custom-phone-placeholder">
                         {!selectedModel ? '기종을\n선택하세요'
                             : !selectedCaseType ? '케이스 타입을\n선택하세요'
-                                : !bodySrc ? '해당 케이스 타입의\n이미지 준비 중입니다'
-                                    : '커스텀 내용을\n선택하세요'}
+                            : !bodySrc ? '해당 케이스 타입의\n이미지 준비 중입니다'
+                            : '커스텀 내용을\n선택하세요'}
                     </p>
                 </div>
                 <div className="custom-phone-grid" />
@@ -275,12 +287,11 @@ function DevicePlaceholder({ deviceType, selectedModel, selectedCaseType, bodySr
     )
 }
 
-// ── PhonePreview ─────────────────────────────────
 export function PhonePreview({
     selectedModel, selectedCaseType, designType,
     previewURL, photoFilter, filterStrength,
     textValue, fontColor, photoTab, selectedCaseColor, deviceType,
-    imageTransform, cropMode, onCanvasMouseDown, onCanvasTouchStart,
+    imageTransform, shapeFrame, cropMode, onCanvasMouseDown, onCanvasTouchStart,
 }) {
     const isTablet = deviceType === 'tablet'
     const isLaptop = deviceType === 'laptop'
@@ -342,16 +353,14 @@ export function PhonePreview({
         }} />
     ) : null
 
-    // 공통 CanvasContent props
     const ccProps = {
         designType, previewURL, photoFilter, filterStrength,
         textValue, fontColor, photoTab,
-        imageTransform, cropMode,
+        imageTransform, shapeFrame, cropMode,
         onMouseDown: onCanvasMouseDown,
         onTouchStart: onCanvasTouchStart,
     }
 
-    // ── 아이패드 ──────────────────────────────────
     if (isTablet) {
         const scaledCanvas = scaleCanvas(IPAD_CANVAS_MAP[selectedModel], IPAD_DISPLAY_W, IPAD_DISPLAY_H, IPAD_IMG_W, IPAD_IMG_H)
         return (
@@ -368,7 +377,6 @@ export function PhonePreview({
         )
     }
 
-    // ── 맥북 ─────────────────────────────────────
     if (isLaptop) {
         const info = MACBOOK_SIZE_MAP[selectedModel]
         const displayW = info ? info.displayW : 620
@@ -392,7 +400,6 @@ export function PhonePreview({
         )
     }
 
-    // ── 바운스 ────────────────────────────────────
     if (selectedCaseType === 'magsafe-bounce' && bodySrc) {
         const displayH = BOUNCE_DISPLAY_H * 1.5
         const displayW = (BOUNCE_IMG_W / BOUNCE_IMG_H) * displayH
@@ -411,7 +418,6 @@ export function PhonePreview({
         )
     }
 
-    // ── 폰 impact/ring ────────────────────────────
     {
         const SCALE = 1.5
         const displayH = PHONE_DISPLAY_H * SCALE

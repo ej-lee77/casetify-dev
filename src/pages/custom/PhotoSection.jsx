@@ -13,6 +13,15 @@ const STICKERS = [
     { id: 'sticker9', src: '/images/custom/starbrigtnight.png', label: '별이빛나는밤' }
 ]
 
+const SHAPE_FRAMES = [
+    { id: 'none',    label: '없음',       icon: '▭' },
+    { id: 'circle',  label: '원형',       icon: '●' },
+    { id: 'square',  label: '정사각형',   icon: '■' },
+    { id: 'heart',   label: '하트',       icon: '♥' },
+    { id: 'star',    label: '별',         icon: '★' },
+    { id: 'diamond', label: '다이아몬드', icon: '◆' },
+]
+
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
     switch (filterId) {
@@ -24,6 +33,29 @@ function getFilterStyle(filterId, strength) {
 }
 
 const DEFAULT_FILTER_ID = PHOTO_FILTERS[Math.floor(PHOTO_FILTERS.length / 2)]?.id
+
+// ── 도형 프레임 컴포넌트 ─────────────────────────
+function ShapeSection({ shapeFrame, setShapeFrame }) {
+    return (
+        <div style={{ marginTop: 20 }}>
+            <p className="label" style={{ marginBottom: 8 }}>도형 프레임</p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+                {SHAPE_FRAMES.map(sf => (
+                    <button key={sf.id} onClick={() => setShapeFrame(sf.id)} style={{
+                        padding: '6px 12px', borderRadius: 8, cursor: 'pointer',
+                        fontSize: 12, fontWeight: shapeFrame === sf.id ? 700 : 400,
+                        border: shapeFrame === sf.id ? '2px solid #222' : '1.5px solid #ddd',
+                        background: shapeFrame === sf.id ? '#222' : '#fff',
+                        color: shapeFrame === sf.id ? '#fff' : '#333',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+                    }}>
+                        <span style={{ fontSize: 15 }}>{sf.icon}</span>{sf.label}
+                    </button>
+                ))}
+            </div>
+        </div>
+    )
+}
 
 // ── 영역 고르기 컴포넌트 ─────────────────────────
 function CropSection({ imageTransform, setImageTransform, cropMode, setCropMode, cropLocked, setCropLocked }) {
@@ -97,6 +129,7 @@ export function PhotoSection({
     onScrollToFilter,
     imageTransform, setImageTransform,
     cropMode, setCropMode,
+    shapeFrame, setShapeFrame,
 }) {
     const fileInputRef = useRef(null)
     const [cropLocked, setCropLocked] = useState(false)
@@ -178,6 +211,9 @@ export function PhotoSection({
                                     </div>
                                 </div>
                             )}
+                            {photoFilter && setShapeFrame && (
+                                <ShapeSection shapeFrame={shapeFrame} setShapeFrame={setShapeFrame} />
+                            )}
                             {photoFilter && setImageTransform && (
                                 <CropSection
                                     imageTransform={imageTransform} setImageTransform={setImageTransform}
@@ -235,6 +271,9 @@ export function PhotoSection({
                                         <span>약</span><span>강</span>
                                     </div>
                                 </div>
+                            )}
+                            {photoFilter && setShapeFrame && (
+                                <ShapeSection shapeFrame={shapeFrame} setShapeFrame={setShapeFrame} />
                             )}
                             {photoFilter && setImageTransform && (
                                 <CropSection

@@ -82,3 +82,20 @@
         transform: translateY(0);
     }
 }
+
+@media (max-width: 640px) {
+    .popup-overlay .popup-wrap {
+        width: calc(100% - 40px);
+        height: auto;
+        padding: 20px;
+
+        .popup > p {
+            margin: 20px 0;
+        }
+
+        .popup .popup-buttons button {
+            height: 48px;
+            font-size: 14px;
+        }
+    }
+}

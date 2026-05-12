@@ -832,3 +832,112 @@
         }
     }
 }
+
+// ── 반응형 ────────────────────────────────────────────
+@media (max-width: 1024px) {
+    .detail-page {
+        .detail-inner {
+            gap: 30px;
+        }
+        .detail-right {
+            width: 360px;
+        }
+    }
+}
+
+@media (max-width: 860px) {
+    .detail-page {
+        .detail-inner {
+            flex-direction: column;
+            gap: 0;
+            max-width: calc(100% - 32px);
+        }
+
+        .detail-left {
+            width: 100%;
+            flex: none;
+        }
+
+        .detail-right {
+            width: 100%;
+        }
+
+        .detail-image-wrap {
+            margin-bottom: 80px;
+
+            .detail-thumb-list {
+                bottom: -80px;
+                gap: 8px;
+
+                li {
+                    width: 60px;
+                    min-height: 60px;
+                }
+            }
+        }
+
+        .detail-title {
+            font-size: 26px;
+        }
+
+        .detail-price {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .bundle-section .bundle-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .model-accordion .model-accordion-list {
+            max-height: 400px;
+
+            .model-brand-tabs {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                padding: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .detail-page {
+        .detail-inner {
+            max-width: calc(100% - 24px);
+        }
+
+        .detail-title {
+            font-size: 22px;
+        }
+
+        .detail-price {
+            font-size: 20px;
+        }
+
+        .detail-image-wrap {
+            margin-bottom: 90px;
+
+            .detail-thumb-list {
+                gap: 6px;
+                li {
+                    width: 52px;
+                    min-height: 52px;
+                }
+            }
+        }
+
+        .bundle-section .bundle-list {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .color-remote {
+            padding: 6px 5px;
+            .remote-chip {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+}
