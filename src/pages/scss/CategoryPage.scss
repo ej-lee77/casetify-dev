@@ -787,4 +787,35 @@
             width: 300px;
         }
     }
+
+    .skeleton-item {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .skeleton-img, .skeleton-text {
+        background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: skeleton-loading 1.5s infinite;
+        border-radius: 8px;
+    }
+
+    .skeleton-img {
+        width: 100%;
+        aspect-ratio: 1 / 1; /* 기존 카드 이미지 비율에 맞춤 */
+    }
+
+    .skeleton-text {
+        height: 18px;
+    }
+
+    .skeleton-text.title { width: 80%; }
+    .skeleton-text.price { width: 50%; height: 16px; }
+
+    @keyframes skeleton-loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
 }

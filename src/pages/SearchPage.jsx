@@ -19,6 +19,18 @@ const fadeVariants = {
     exit: { opacity: 0 },
 };
 
+const SearchSkeleton = () => (
+    <ul className="category-product-list">
+        {Array.from({ length: 10 }).map((_, i) => (
+            <li key={i} className="skeleton-item">
+                <div className="skeleton-img" />
+                <div className="skeleton-text title" />
+                <div className="skeleton-text price" />
+            </li>
+        ))}
+    </ul>
+);
+
 // ─────────────────────────────────────────────
 // 상수
 // ─────────────────────────────────────────────
@@ -93,6 +105,7 @@ const getPageNumbers = (totalPages, currentPage) => {
 // 컴포넌트
 // ─────────────────────────────────────────────
 export default function SearchPage() {
+    const [isLoading, setIsLoading] = useState(true);
     const [searchParams, setSearchParams] = useSearchParams();
     const keyword = searchParams.get("q") || "";
     const sort = searchParams.get("sort") || "recommend";
@@ -104,6 +117,16 @@ export default function SearchPage() {
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedFilters, setSelectedFilters] = useState(INITIAL_FILTERS);
     const sortDropdownRef = useRef(null);
+
+    // 키워드가 바뀔 때마다 로딩 상태를 활성화
+    useEffect(() => {
+        setIsLoading(true);
+        // 데이터 처리 속도가 매우 빠르므로, 스켈레톤을 보여주기 위해 의도적인 지연을 약간 줍니다.
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 600); // 0.6초 후 로딩 해제
+        return () => clearTimeout(timer);
+    }, [keyword]);
 
     // 드롭다운 외부 클릭 시 닫기
     useEffect(() => {
@@ -320,7 +343,9 @@ export default function SearchPage() {
                     )}
 
                     {/* 상품 목록 or 결과 없음 */}
-                    {sortedGroups.length > 0 ? (
+                    {isLoading ? (
+                        <SearchSkeleton />
+                    ) : sortedGroups.length > 0 ? (
                         <ul className="category-product-list">
                             {pagedGroups.map((group) => (
                                 <li key={`${group.productName}-${group.caseCategory}`}>

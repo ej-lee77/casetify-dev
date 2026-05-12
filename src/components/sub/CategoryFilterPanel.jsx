@@ -217,6 +217,8 @@ export default function CategoryFilterPanel({
                 colors: draft.colors,
             },
         });
+        // 버튼 클릭시 상단으로 이동
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     if (!isOpen) return null;
@@ -276,8 +278,8 @@ export default function CategoryFilterPanel({
                                         type="button"
                                         key={device.key}
                                         className={`filter-chip ${mainCate === "colab"
-                                                ? draft.device === device.key ? "on" : ""
-                                                : draft.mini === device.key ? "on" : ""
+                                            ? draft.device === device.key ? "on" : ""
+                                            : draft.mini === device.key ? "on" : ""
                                             }`}
                                         onClick={() =>
                                             mainCate === "colab"
