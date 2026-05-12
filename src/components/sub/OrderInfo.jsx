@@ -171,6 +171,8 @@ export default function OrderInfo() {
     const handleItemClick = (item) => {
         if (item.caseCategory === "gift") {
             navigate('/giftcard');
+        } else if (item.title?.includes("커스텀 케이스")) {
+            navigate('/custom');
         } else {
             navigate(`/detail/${item.productId}`);
         }
