@@ -73,7 +73,6 @@ function ColorPickerButton({ value, onChange, presetColors }) {
 
 function ProductCustomizeContent({ deviceType }) {
     const navigate = useNavigate()
-    const location = useLocation()
     const { user, onAddToCart } = useAuthStore()
 
     const brandList = deviceType === 'tablet' ? TABLET_BRANDS : deviceType === 'laptop' ? LAPTOP_BRANDS : BRANDS
@@ -105,19 +104,20 @@ function ProductCustomizeContent({ deviceType }) {
     const [cropTransform, setCropTransform] = useState({ x: 0, y: 0, scale: 1 })   // 1단계: 원본 구역
     const [cropSetupMode, setCropSetupMode] = useState(false)
     const [cropSetupLocked, setCropSetupLocked] = useState(false)
-    const [shapeFrame, setShapeFrame] = useState('none')                              // 2단계: 도형 프레임
     const [imageTransform, setImageTransform] = useState({ x: 0, y: 0, scale: 1 }) // 3단계: 캔버스 이동
     const [cropMode, setCropMode] = useState(false)
+    const [textTransform, setTextTransform] = useState({ x: 0, y: 0, scale: 1, rotate: 0 })
+    const [textMode, setTextMode] = useState(false)
 
     const dragRef = useRef(null)
 
     // 1단계 드래그 (cropSetupMode)
     // 3단계 드래그 (cropMode)
     const onCanvasMouseDown = useCallback((e) => {
-        if (!cropSetupMode && !cropMode) return
+        if (!cropSetupMode && !cropMode && !textMode) return
         e.preventDefault()
-        const setter = cropSetupMode ? setCropTransform : setImageTransform
-        const current = cropSetupMode ? cropTransform : imageTransform
+        const setter = cropSetupMode ? setCropTransform : textMode ? setTextTransform : setImageTransform
+        const current = cropSetupMode ? cropTransform : textMode ? textTransform : imageTransform
         const startX = e.clientX - (current?.x || 0)
         const startY = e.clientY - (current?.y || 0)
         dragRef.current = { startX, startY }
@@ -129,13 +129,13 @@ function ProductCustomizeContent({ deviceType }) {
         const onUp = () => { dragRef.current = null; window.removeEventListener('mousemove', onMove); window.removeEventListener('mouseup', onUp) }
         window.addEventListener('mousemove', onMove)
         window.addEventListener('mouseup', onUp)
-    }, [cropSetupMode, cropMode, cropTransform, imageTransform])
+    }, [cropSetupMode, cropMode, textMode, cropTransform, imageTransform, textTransform])
 
     const onCanvasTouchStart = useCallback((e) => {
-        if (!cropSetupMode && !cropMode) return
+        if (!cropSetupMode && !cropMode && !textMode) return
         const touch = e.touches[0]
-        const setter = cropSetupMode ? setCropTransform : setImageTransform
-        const current = cropSetupMode ? cropTransform : imageTransform
+        const setter = cropSetupMode ? setCropTransform : textMode ? setTextTransform : setImageTransform
+        const current = cropSetupMode ? cropTransform : textMode ? textTransform : imageTransform
         const startX = touch.clientX - (current?.x || 0)
         const startY = touch.clientY - (current?.y || 0)
         dragRef.current = { startX, startY }
@@ -148,7 +148,7 @@ function ProductCustomizeContent({ deviceType }) {
         const onEnd = () => { dragRef.current = null; window.removeEventListener('touchmove', onMove); window.removeEventListener('touchend', onEnd) }
         window.addEventListener('touchmove', onMove, { passive: false })
         window.addEventListener('touchend', onEnd)
-    }, [cropSetupMode, cropMode, cropTransform, imageTransform])
+    }, [cropSetupMode, cropMode, textMode, cropTransform, imageTransform, textTransform])
 
     const step1Ref = useRef(null)
     const step2Ref = useRef(null)
@@ -192,8 +192,8 @@ function ProductCustomizeContent({ deviceType }) {
         setDesignType(null); setPhotoFile(null); setPhotoURL(null); setPhotoFilter(null)
         setFilterStrength(50); setTextValue(''); setFontColor(null); setPhotoTab('upload'); setSelectedSticker(null)
         setCropTransform({ x: 0, y: 0, scale: 1 }); setCropSetupMode(false); setCropSetupLocked(false)
-        setShapeFrame('none')
         setImageTransform({ x: 0, y: 0, scale: 1 }); setCropMode(false)
+        setTextTransform({ x: 0, y: 0, scale: 1, rotate: 0 }); setTextMode(false)
     }
 
     const isModelSupportedByCaseType = (modelId) => !selectedCaseType || isCaseTypeSupported(modelId, selectedCaseType)
@@ -215,13 +215,13 @@ function ProductCustomizeContent({ deviceType }) {
 
     useEffect(() => {
         if (!isMounted.current) return
-        if (selectedCaseColor) setTimeout(() => scrollToStep(step4Ref), 150)
-    }, [selectedCaseColor])
+        if (selectedCaseType) setTimeout(() => scrollToStep(isNonPhone ? step3Ref : step3Ref), 150)
+    }, [selectedCaseType])
 
     useEffect(() => {
         if (!isMounted.current) return
-        if (selectedCaseType && selectedCaseColor && !isNonPhone) setTimeout(() => scrollToStep(step4Ref), 150)
-    }, [selectedCaseType])
+        if (selectedCaseColor) setTimeout(() => scrollToStep(step4Ref), 150)
+    }, [selectedCaseColor])
 
     useEffect(() => {
         if (!isMounted.current) return
@@ -274,7 +274,7 @@ function ProductCustomizeContent({ deviceType }) {
     ].filter(Boolean).join(' / ')
 
     const handleAddCart = async () => {
-        if (!user) { navigate('/login', { state: { from: location.pathname + location.search } }); return }
+        if (!user) { navigate('/login'); return }
         const cartImgUrl = deviceType === 'tablet' ? '/images/custom/cart/ipad-cart-go.png' : deviceType === 'laptop' ? '/images/custom/cart/macbbok-cart-go.png' : '/images/custom/cart/phone-cart-go.png'
         const productName = deviceType === 'tablet' ? '태블릿 커스텀 케이스' : deviceType === 'laptop' ? '맥북 커스텀 케이스' : '폰 커스텀 케이스'
         const customContent = designType === 'text' ? textValue : photoTab === 'sticker' ? selectedSticker?.src : photoURL
@@ -294,9 +294,10 @@ function ProductCustomizeContent({ deviceType }) {
     const previewProps = {
         selectedModel, selectedCaseType, deviceType, designType, previewURL,
         photoFilter, filterStrength, textValue, fontColor, photoTab, selectedCaseColor,
-        imageTransform, cropTransform, shapeFrame,
+        imageTransform, cropTransform,
         cropSetupMode, cropMode,
         onCanvasMouseDown, onCanvasTouchStart,
+        textTransform, textMode,
     }
     const quickMenus = QUICK_MENUS.filter(m => m.id !== deviceType)
 
@@ -408,75 +409,70 @@ function ProductCustomizeContent({ deviceType }) {
                                 </div>
                             </div>
 
-                            {isNonPhone && (
-                                <div ref={step2Ref} className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedModel)}`}>
-                                    <div className="step-label-row">
-                                        <p className="label">② 케이스 타입</p>
-                                    </div>
-                                    <div className="model-accordion">
+                            {/* ② 케이스 타입 — phone: 아코디언, nonPhone: 자동고정 */}
+                            <div ref={step2Ref} className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedModel && !!selectedCaseType)}`}>
+                                <div className="step-label-row">
+                                    <p className="label">② 케이스 타입</p>
+                                    {!isNonPhone && selectedCaseType && (
+                                        <button type="button" className="step-back-btn" onClick={() => { setSelectedCaseType(isNonPhone ? caseTypeList[0]?.id : null); resetDesign() }}>← 다시 선택</button>
+                                    )}
+                                </div>
+                                <div className="model-accordion">
+                                    {isNonPhone ? (
                                         <button className="model-accordion-trigger" style={{ cursor: 'default', background: '#f7f7f7' }}>
                                             <span>{selectedCaseLabel || '케이스 타입'}</span>
                                         </button>
-                                    </div>
+                                    ) : (
+                                        <>
+                                            <button className="model-accordion-trigger"
+                                                onClick={() => { if (!selectedModel) return; setCaseTypeOpen(v => !v); setModelOpen(false) }}
+                                                style={{ cursor: !selectedModel ? 'default' : 'pointer' }}>
+                                                <span>{selectedCaseLabel || '케이스 타입을 선택하세요'}</span>
+                                                <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>
+                                            </button>
+                                            {caseTypeOpen && (
+                                                <div className="model-accordion-list">
+                                                    <ul className="model-sub-list">
+                                                        {caseTypeList.filter(ct => isCaseTypeSupportedByModel(ct.id)).map(ct => (
+                                                            <li key={ct.id}
+                                                                className={selectedCaseType === ct.id ? 'active' : ''}
+                                                                onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false); resetDesign() }}>
+                                                                {ct.label}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
                                 </div>
-                            )}
+                            </div>
 
-                            <div ref={isNonPhone ? step3Ref : step2Ref}
-                                className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedCaseColor)}`}>
+                            {/* ③ 케이스 컬러 — 공통 */}
+                            <div ref={step3Ref}
+                                className={`detail-info-box step-block ${stepClass(isNonPhone ? !selectedModel : !selectedCaseType, !!selectedCaseColor)}`}>
                                 <div className="step-label-row">
-                                    <p className="label">{isNonPhone ? '③' : '②'} 케이스 컬러</p>
+                                    <p className="label">③ 케이스 컬러</p>
                                     {selectedCaseColor && (
                                         <button type="button" className="step-back-btn" onClick={() => setSelectedCaseColor(null)}>← 다시 선택</button>
                                     )}
                                 </div>
                                 <div className="detail-colors">
                                     {CASE_COLORS.map(c => (
-                                        <button key={c.id} disabled={!selectedModel}
+                                        <button key={c.id} disabled={isNonPhone ? !selectedModel : !selectedCaseType}
                                             className={selectedCaseColor?.toLowerCase() === c.hex.toLowerCase() ? 'active' : ''}
                                             onClick={() => setSelectedCaseColor(c.hex)}>
                                             <span className="color-chip" style={{ backgroundColor: c.hex, border: c.id === 'white' ? '1px solid #ddd' : 'none' }} />
                                             {c.label}
                                         </button>
                                     ))}
-                                    {selectedModel && (
+                                    {(isNonPhone ? selectedModel : selectedCaseType) && (
                                         <ColorPickerButton value={selectedCaseColor} onChange={setSelectedCaseColor} presetColors={CASE_COLORS} />
                                     )}
                                 </div>
                             </div>
 
-                            {!isNonPhone && (
-                                <div ref={step3Ref} className={`detail-info-box step-block ${stepClass(!selectedCaseColor, !!selectedCaseType)}`}>
-                                    <div className="step-label-row">
-                                        <p className="label">③ 케이스 타입</p>
-                                        {selectedCaseType && (
-                                            <button type="button" className="step-back-btn" onClick={() => { setSelectedCaseType(null); resetDesign() }}>← 다시 선택</button>
-                                        )}
-                                    </div>
-                                    <div className="model-accordion">
-                                        <button className="model-accordion-trigger"
-                                            onClick={() => { if (!selectedCaseColor) return; setCaseTypeOpen(v => !v); setModelOpen(false) }}
-                                            style={{ cursor: !selectedCaseColor ? 'default' : 'pointer' }}>
-                                            <span>{selectedCaseLabel || '케이스 타입을 선택하세요'}</span>
-                                            <span className={`model-accordion-arrow ${caseTypeOpen ? 'open' : ''}`}>▼</span>
-                                        </button>
-                                        {caseTypeOpen && (
-                                            <div className="model-accordion-list">
-                                                <ul className="model-sub-list">
-                                                    {caseTypeList.filter(ct => isCaseTypeSupportedByModel(ct.id)).map(ct => (
-                                                        <li key={ct.id}
-                                                            className={selectedCaseType === ct.id ? 'active' : ''}
-                                                            onClick={() => { setSelectedCaseType(ct.id); setCaseTypeOpen(false); resetDesign() }}>
-                                                            {ct.label}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
-
-                            <div ref={step4Ref} className={`detail-info-box step-block ${stepClass(isNonPhone ? !selectedCaseColor : !selectedCaseType, !!designType)}`}>
+                            <div ref={step4Ref} className={`detail-info-box step-block ${stepClass(!selectedCaseColor, !!designType)}`}>
                                 <div className="step-label-row">
                                     <p className="label">④ 커스텀 타입</p>
                                     {designType && (
@@ -484,10 +480,10 @@ function ProductCustomizeContent({ deviceType }) {
                                     )}
                                 </div>
                                 <div className="custom-type-btns">
-                                    <button disabled={isNonPhone ? !selectedCaseColor : !selectedCaseType}
+                                    <button disabled={!selectedCaseColor}
                                         className={`custom-type-btn ${designType === 'photo' ? 'active' : ''}`}
                                         onClick={() => setDesignType('photo')}>포토 커스텀</button>
-                                    <button disabled={isNonPhone ? !selectedCaseColor : !selectedCaseType}
+                                    <button disabled={!selectedCaseColor}
                                         className={`custom-type-btn ${designType === 'text' ? 'active' : ''}`}
                                         onClick={() => setDesignType('text')}>텍스트 커스텀</button>
                                 </div>
@@ -505,7 +501,6 @@ function ProductCustomizeContent({ deviceType }) {
                                         cropTransform={cropTransform} setCropTransform={setCropTransform}
                                         cropSetupMode={cropSetupMode} setCropSetupMode={setCropSetupMode}
                                         cropSetupLocked={cropSetupLocked} setCropSetupLocked={setCropSetupLocked}
-                                        shapeFrame={shapeFrame} setShapeFrame={setShapeFrame}
                                         imageTransform={imageTransform} setImageTransform={setImageTransform}
                                         cropMode={cropMode} setCropMode={setCropMode} />
                                 )}
@@ -514,6 +509,8 @@ function ProductCustomizeContent({ deviceType }) {
                                         textValue={textValue} setTextValue={setTextValue}
                                         fontColor={fontColor} setFontColor={setFontColor}
                                         showEmojiPicker={showEmojiPicker} setShowEmojiPicker={setShowEmojiPicker}
+                                    textTransform={textTransform} setTextTransform={setTextTransform}
+                                    textMode={textMode} setTextMode={setTextMode}
                                     />
                                 )}
                             </div>
