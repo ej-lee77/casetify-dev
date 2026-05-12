@@ -13,31 +13,48 @@ const STICKERS = [
     { id: 'sticker9', src: '/images/custom/starbrigtnight.png', label: '별이빛나는밤' }
 ]
 
-const SHAPE_FRAMES = [
-    { id: 'none',    label: '없음',       icon: '▭' },
-    { id: 'circle',  label: '원형',       icon: '●' },
-    { id: 'square',  label: '정사각형',   icon: '■' },
-    { id: 'heart',   label: '하트',       icon: '♥' },
-    { id: 'star',    label: '별',         icon: '★' },
-    { id: 'diamond', label: '다이아몬드', icon: '◆' },
-]
-
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
     switch (filterId) {
-        case 'retro': return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
+        case 'retro':   return { filter: `saturate(${1 + s * 1.5}) hue-rotate(${s * 30}deg)` }
         case 'digicam': return { filter: `saturate(${1 + s}) brightness(${1 + s * 0.3})` }
-        case 'mono': return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
-        default: return {}
+        case 'mono':    return { filter: `grayscale(${s}) contrast(${1 + s * 0.5})` }
+        default:        return {}
     }
 }
 
 const DEFAULT_FILTER_ID = PHOTO_FILTERS[Math.floor(PHOTO_FILTERS.length / 2)]?.id
 
+// ── 공통 방향키 패드 ─────────────────────────────
+function ArrowPad({ onUp, onDown, onLeft, onRight, onCenter }) {
+    const btn = (onClick, label) => (
+        <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }} onClick={onClick}>{label}</button>
+    )
+    return (
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, width: 96, margin: '0 auto' }}>
+            <div />{btn(onUp, '▲')}<div />
+            {btn(onLeft, '◀')}
+            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#ddd', cursor: 'pointer', fontSize: 11 }} onClick={onCenter}>●</button>
+            {btn(onRight, '▶')}
+            <div />{btn(onDown, '▼')}<div />
+        </div>
+    )
+}
+
+// ── 공통 섹션 카드 스타일 ────────────────────────
+const sectionCard = (disabled = false) => ({
+    marginTop: 20,
+    background: '#f9f9f9',
+    borderRadius: 12,
+    padding: 14,
+    opacity: disabled ? 0.4 : 1,
+    pointerEvents: disabled ? 'none' : 'auto',
+})
+
 // ── 1단계: 원본 이미지 구역 설정 ─────────────────
 function CropSetupSection({ cropTransform, setCropTransform, cropSetupMode, setCropSetupMode, cropSetupLocked, setCropSetupLocked }) {
     return (
-        <div style={{ marginTop: 20, background: '#f9f9f9', borderRadius: 12, padding: 14 }}>
+        <div style={sectionCard()}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                 <div>
                     <p className="label" style={{ margin: 0, fontWeight: 700 }}>① 이미지 구역 설정</p>
@@ -87,22 +104,13 @@ function CropSetupSection({ cropTransform, setCropTransform, cropSetupMode, setC
                     </div>
                     <div>
                         <label style={{ fontSize: 12, color: '#555', marginBottom: 6, display: 'block' }}>위치 미세조정</label>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, width: 96, margin: '0 auto' }}>
-                            <div />
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setCropTransform(p => ({ ...p, y: (p.y || 0) - 5 }))}>▲</button>
-                            <div />
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setCropTransform(p => ({ ...p, x: (p.x || 0) - 5 }))}>◀</button>
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#ddd', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setCropTransform({ x: 0, y: 0, scale: 1 })}>●</button>
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setCropTransform(p => ({ ...p, x: (p.x || 0) + 5 }))}>▶</button>
-                            <div />
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setCropTransform(p => ({ ...p, y: (p.y || 0) + 5 }))}>▼</button>
-                            <div />
-                        </div>
+                        <ArrowPad
+                            onUp={() => setCropTransform(p => ({ ...p, y: (p.y || 0) - 5 }))}
+                            onDown={() => setCropTransform(p => ({ ...p, y: (p.y || 0) + 5 }))}
+                            onLeft={() => setCropTransform(p => ({ ...p, x: (p.x || 0) - 5 }))}
+                            onRight={() => setCropTransform(p => ({ ...p, x: (p.x || 0) + 5 }))}
+                            onCenter={() => setCropTransform({ x: 0, y: 0, scale: 1 })}
+                        />
                     </div>
                 </div>
             )}
@@ -115,40 +123,14 @@ function CropSetupSection({ cropTransform, setCropTransform, cropSetupMode, setC
     )
 }
 
-// ── 2단계: 도형 프레임 ────────────────────────────
-function ShapeSection({ shapeFrame, setShapeFrame, disabled }) {
-    return (
-        <div style={{ marginTop: 20, opacity: disabled ? 0.4 : 1, pointerEvents: disabled ? 'none' : 'auto' }}>
-            <p className="label" style={{ marginBottom: 8 }}>
-                ② 도형 프레임
-                {disabled && <span style={{ fontSize: 11, color: '#aaa', marginLeft: 6 }}>① 확정 후 활성화</span>}
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
-                {SHAPE_FRAMES.map(sf => (
-                    <button key={sf.id} onClick={() => setShapeFrame(sf.id)} style={{
-                        padding: '6px 12px', borderRadius: 8, cursor: 'pointer',
-                        fontSize: 12, fontWeight: shapeFrame === sf.id ? 700 : 400,
-                        border: shapeFrame === sf.id ? '2px solid #222' : '1.5px solid #ddd',
-                        background: shapeFrame === sf.id ? '#222' : '#fff',
-                        color: shapeFrame === sf.id ? '#fff' : '#333',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
-                    }}>
-                        <span style={{ fontSize: 15 }}>{sf.icon}</span>{sf.label}
-                    </button>
-                ))}
-            </div>
-        </div>
-    )
-}
-
-// ── 3단계: 캔버스 위 영역 이동 ───────────────────
+// ── 2단계: 캔버스 위 영역 이동 ───────────────────
 function CropSection({ imageTransform, setImageTransform, cropMode, setCropMode, cropLocked, setCropLocked, disabled }) {
     return (
-        <div style={{ marginTop: 20, opacity: disabled ? 0.4 : 1, pointerEvents: disabled ? 'none' : 'auto' }}>
+        <div style={sectionCard(disabled)}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                 <div>
-                    <p className="label" style={{ margin: 0 }}>③ 도형 위치배치</p>
-                    {disabled && <p style={{ fontSize: 11, color: '#aaa', margin: '2px 0 0' }}>① 확정 후 활성화</p>}
+                    <p className="label" style={{ margin: 0, fontWeight: 700 }}>② 영역 고르기</p>
+                    <p style={{ fontSize: 11, color: '#888', margin: '2px 0 0' }}>도형의 위치와 크기를 조정하세요</p>
                 </div>
                 <div style={{ display: 'flex', gap: 6 }}>
                     {!cropLocked ? (
@@ -178,7 +160,7 @@ function CropSection({ imageTransform, setImageTransform, cropMode, setCropMode,
                 </div>
             </div>
             {cropMode && !cropLocked && (
-                <div style={{ background: '#f5f5f5', borderRadius: 12, padding: 14, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 8 }}>
                     <p style={{ fontSize: 12, color: '#888', margin: 0, textAlign: 'center' }}>왼쪽 프리뷰에서 드래그하거나 아래로 조정하세요</p>
                     <div>
                         <label style={{ fontSize: 12, color: '#555', marginBottom: 4, display: 'block' }}>
@@ -194,27 +176,18 @@ function CropSection({ imageTransform, setImageTransform, cropMode, setCropMode,
                     </div>
                     <div>
                         <label style={{ fontSize: 12, color: '#555', marginBottom: 6, display: 'block' }}>위치 미세조정</label>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, width: 96, margin: '0 auto' }}>
-                            <div />
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setImageTransform(p => ({ ...p, y: (p.y || 0) - 5 }))}>▲</button>
-                            <div />
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setImageTransform(p => ({ ...p, x: (p.x || 0) - 5 }))}>◀</button>
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#ddd', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setImageTransform(p => ({ x: 0, y: 0, scale: p.scale || 1 }))}>●</button>
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setImageTransform(p => ({ ...p, x: (p.x || 0) + 5 }))}>▶</button>
-                            <div />
-                            <button style={{ width: 28, height: 28, border: '1px solid #ddd', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 11 }}
-                                onClick={() => setImageTransform(p => ({ ...p, y: (p.y || 0) + 5 }))}>▼</button>
-                            <div />
-                        </div>
+                        <ArrowPad
+                            onUp={() => setImageTransform(p => ({ ...p, y: (p.y || 0) - 5 }))}
+                            onDown={() => setImageTransform(p => ({ ...p, y: (p.y || 0) + 5 }))}
+                            onLeft={() => setImageTransform(p => ({ ...p, x: (p.x || 0) - 5 }))}
+                            onRight={() => setImageTransform(p => ({ ...p, x: (p.x || 0) + 5 }))}
+                            onCenter={() => setImageTransform(p => ({ x: 0, y: 0, scale: p.scale || 1 }))}
+                        />
                     </div>
                 </div>
             )}
             {cropLocked && (
-                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, padding: '8px 12px', fontSize: 12, color: '#16a34a' }}>
+                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, padding: '8px 12px', fontSize: 12, color: '#16a34a', marginTop: 8 }}>
                     ✅ 영역이 고정되었습니다. "다시 편집"을 눌러 수정할 수 있어요.
                 </div>
             )}
@@ -232,7 +205,6 @@ export function PhotoSection({
     filterSectionRef, onScrollToFilter,
     imageTransform, setImageTransform,
     cropMode, setCropMode,
-    shapeFrame, setShapeFrame,
     cropTransform, setCropTransform,
     cropSetupMode, setCropSetupMode,
     cropSetupLocked, setCropSetupLocked,
@@ -252,6 +224,49 @@ export function PhotoSection({
         }
         reader.readAsDataURL(file)
     }
+
+    const filterAndControls = (imgSrc) => (
+        <>
+            <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
+            <div className="custom-filter-grid">
+                {PHOTO_FILTERS.map(f => (
+                    <button key={f.id}
+                        className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
+                        onClick={() => setPhotoFilter(f.id)}>
+                        <div className="custom-filter-img-wrap">
+                            <img src={imgSrc} alt={f.label} style={getFilterStyle(f.id, filterStrength)} />
+                        </div>
+                        <span>{f.label}</span>
+                    </button>
+                ))}
+            </div>
+            {photoFilter && (
+                <div className="custom-slider-wrap">
+                    <label className="label">필터 강도</label>
+                    <input type="range" min={0} max={100} step={1}
+                        value={filterStrength}
+                        onChange={e => setFilterStrength(Number(e.target.value))}
+                        className="custom-slider" />
+                    <div className="custom-slider-ticks"><span>약</span><span>강</span></div>
+                </div>
+            )}
+            {photoFilter && (
+                <CropSetupSection
+                    cropTransform={cropTransform} setCropTransform={setCropTransform}
+                    cropSetupMode={cropSetupMode} setCropSetupMode={setCropSetupMode}
+                    cropSetupLocked={cropSetupLocked} setCropSetupLocked={setCropSetupLocked}
+                />
+            )}
+            {photoFilter && (
+                <CropSection
+                    imageTransform={imageTransform} setImageTransform={setImageTransform}
+                    cropMode={cropMode} setCropMode={setCropMode}
+                    cropLocked={cropLocked} setCropLocked={setCropLocked}
+                    disabled={!cropSetupLocked}
+                />
+            )}
+        </>
+    )
 
     return (
         <div className="detail-info-box">
@@ -283,53 +298,7 @@ export function PhotoSection({
                     )}
                     {photoURL && (
                         <div ref={filterSectionRef}>
-                            <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
-                            <div className="custom-filter-grid">
-                                {PHOTO_FILTERS.map(f => (
-                                    <button key={f.id}
-                                        className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
-                                        onClick={() => setPhotoFilter(f.id)}>
-                                        <div className="custom-filter-img-wrap">
-                                            <img src={photoURL} alt={f.label} style={getFilterStyle(f.id, filterStrength)} />
-                                        </div>
-                                        <span>{f.label}</span>
-                                    </button>
-                                ))}
-                            </div>
-                            {photoFilter && (
-                                <div className="custom-slider-wrap">
-                                    <label className="label">필터 강도</label>
-                                    <input type="range" min={0} max={100} step={1}
-                                        value={filterStrength}
-                                        onChange={e => setFilterStrength(Number(e.target.value))}
-                                        className="custom-slider" />
-                                    <div className="custom-slider-ticks"><span>약</span><span>강</span></div>
-                                </div>
-                            )}
-                            {/* ① 이미지 구역 설정 */}
-                            {photoFilter && (
-                                <CropSetupSection
-                                    cropTransform={cropTransform} setCropTransform={setCropTransform}
-                                    cropSetupMode={cropSetupMode} setCropSetupMode={setCropSetupMode}
-                                    cropSetupLocked={cropSetupLocked} setCropSetupLocked={setCropSetupLocked}
-                                />
-                            )}
-                            {/* ② 도형 프레임 - 확정 후 활성화 */}
-                            {photoFilter && (
-                                <ShapeSection
-                                    shapeFrame={shapeFrame} setShapeFrame={setShapeFrame}
-                                    disabled={!cropSetupLocked}
-                                />
-                            )}
-                            {/* ③ 영역 고르기 - 확정 후 활성화 */}
-                            {photoFilter && (
-                                <CropSection
-                                    imageTransform={imageTransform} setImageTransform={setImageTransform}
-                                    cropMode={cropMode} setCropMode={setCropMode}
-                                    cropLocked={cropLocked} setCropLocked={setCropLocked}
-                                    disabled={!cropSetupLocked}
-                                />
-                            )}
+                            {filterAndControls(photoURL)}
                         </div>
                     )}
                 </>
@@ -351,50 +320,7 @@ export function PhotoSection({
                     </div>
                     {selectedSticker && (
                         <div ref={filterSectionRef}>
-                            <p className="label" style={{ marginTop: 16 }}>필터 선택</p>
-                            <div className="custom-filter-grid">
-                                {PHOTO_FILTERS.map(f => (
-                                    <button key={f.id}
-                                        className={`custom-filter-card ${photoFilter === f.id ? 'active' : ''}`}
-                                        onClick={() => setPhotoFilter(f.id)}>
-                                        <div className="custom-filter-img-wrap">
-                                            <img src={selectedSticker.src} alt={f.label} style={getFilterStyle(f.id, filterStrength)} />
-                                        </div>
-                                        <span>{f.label}</span>
-                                    </button>
-                                ))}
-                            </div>
-                            {photoFilter && (
-                                <div className="custom-slider-wrap">
-                                    <label className="label">필터 강도</label>
-                                    <input type="range" min={0} max={100} step={1}
-                                        value={filterStrength}
-                                        onChange={e => setFilterStrength(Number(e.target.value))}
-                                        className="custom-slider" />
-                                    <div className="custom-slider-ticks"><span>약</span><span>강</span></div>
-                                </div>
-                            )}
-                            {photoFilter && (
-                                <CropSetupSection
-                                    cropTransform={cropTransform} setCropTransform={setCropTransform}
-                                    cropSetupMode={cropSetupMode} setCropSetupMode={setCropSetupMode}
-                                    cropSetupLocked={cropSetupLocked} setCropSetupLocked={setCropSetupLocked}
-                                />
-                            )}
-                            {photoFilter && (
-                                <ShapeSection
-                                    shapeFrame={shapeFrame} setShapeFrame={setShapeFrame}
-                                    disabled={!cropSetupLocked}
-                                />
-                            )}
-                            {photoFilter && (
-                                <CropSection
-                                    imageTransform={imageTransform} setImageTransform={setImageTransform}
-                                    cropMode={cropMode} setCropMode={setCropMode}
-                                    cropLocked={cropLocked} setCropLocked={setCropLocked}
-                                    disabled={!cropSetupLocked}
-                                />
-                            )}
+                            {filterAndControls(selectedSticker.src)}
                         </div>
                     )}
                 </>
