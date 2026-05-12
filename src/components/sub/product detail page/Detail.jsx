@@ -149,7 +149,7 @@ export default function Detail({ item }) {
                 ))}
             </div>
             <ShippingInfo />
-            <Benefit />
+            <Benefit className="detail-custom-benefit"/>
         </div>
     )
 }

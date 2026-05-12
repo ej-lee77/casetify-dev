@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./scss/categoryProductCard.scss";
 import { modelColorOptions, colorMap, phoneModelOptions } from "../../data/finalData";
 import { useAuthStore } from "../../store/useAuthStore";
@@ -9,6 +9,7 @@ export default function CategoryPhoneProductCard({ item }) {
     const [feedback, setFeedback] = useState(null);
     const { user, onAddToCart, onAddWishlist, wishlist } = useAuthStore();
     const navigate = useNavigate();
+    const location = useLocation();
 
     if (!item) return null;
 
@@ -39,7 +40,7 @@ export default function CategoryPhoneProductCard({ item }) {
         }
         if (!user) {
             showFeedback("login");
-            setTimeout(() => navigate("/login"), 1500);
+            setTimeout(() => navigate("/login", { state: { from: location.pathname + location.search } }), 1500);
             return;
         }
         const result = await onAddWishlist({
@@ -63,7 +64,7 @@ export default function CategoryPhoneProductCard({ item }) {
         }
         if (!user) {
             showFeedback("login");
-            setTimeout(() => navigate("/login"), 1500);
+            setTimeout(() => navigate("/login", { state: { from: location.pathname + location.search } }), 1500);
             return;
         }
         await onAddToCart({

@@ -25,11 +25,11 @@ const subCardData = [
     },
 ]
 
-export default function Benefit() {
+export default function Benefit({ className }) {
     const navigate = useNavigate()
 
     return (
-        <div className="benefit-inner">
+        <div className={`benefit-inner ${className || ''}`}>
             <ul className="benefit-card-list">
                 {subCardData.map((data, d) => (
                     <li key={d} className="benefit-banner-item">
