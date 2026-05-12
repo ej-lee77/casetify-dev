@@ -99,43 +99,55 @@ function ProductCustomizeContent({ deviceType }) {
     const [isPopupErr, setIsPopupErr] = useState(false)
     const [showEmojiPicker, setShowEmojiPicker] = useState(false)
     const [showScrollAlert, setShowScrollAlert] = useState(false)
-    const [imageTransform, setImageTransform] = useState({ x: 0, y: 0, scale: 1 })
+
+    // ── 이미지 관련 state ─────────────────────────
+    const [cropTransform, setCropTransform] = useState({ x: 0, y: 0, scale: 1 })   // 1단계: 원본 구역
+    const [cropSetupMode, setCropSetupMode] = useState(false)
+    const [cropSetupLocked, setCropSetupLocked] = useState(false)
+    const [shapeFrame, setShapeFrame] = useState('none')                              // 2단계: 도형 프레임
+    const [imageTransform, setImageTransform] = useState({ x: 0, y: 0, scale: 1 }) // 3단계: 캔버스 이동
     const [cropMode, setCropMode] = useState(false)
-    const [shapeFrame, setShapeFrame] = useState('none')
+
     const dragRef = useRef(null)
 
+    // 1단계 드래그 (cropSetupMode)
+    // 3단계 드래그 (cropMode)
     const onCanvasMouseDown = useCallback((e) => {
-        if (!cropMode) return
+        if (!cropSetupMode && !cropMode) return
         e.preventDefault()
-        const startX = e.clientX - (imageTransform?.x || 0)
-        const startY = e.clientY - (imageTransform?.y || 0)
+        const setter = cropSetupMode ? setCropTransform : setImageTransform
+        const current = cropSetupMode ? cropTransform : imageTransform
+        const startX = e.clientX - (current?.x || 0)
+        const startY = e.clientY - (current?.y || 0)
         dragRef.current = { startX, startY }
         const onMove = (ev) => {
             const drag = dragRef.current
             if (!drag) return
-            setImageTransform(prev => ({ ...prev, x: ev.clientX - drag.startX, y: ev.clientY - drag.startY }))
+            setter(prev => ({ ...prev, x: ev.clientX - drag.startX, y: ev.clientY - drag.startY }))
         }
         const onUp = () => { dragRef.current = null; window.removeEventListener('mousemove', onMove); window.removeEventListener('mouseup', onUp) }
         window.addEventListener('mousemove', onMove)
         window.addEventListener('mouseup', onUp)
-    }, [cropMode, imageTransform])
+    }, [cropSetupMode, cropMode, cropTransform, imageTransform])
 
     const onCanvasTouchStart = useCallback((e) => {
-        if (!cropMode) return
+        if (!cropSetupMode && !cropMode) return
         const touch = e.touches[0]
-        const startX = touch.clientX - (imageTransform?.x || 0)
-        const startY = touch.clientY - (imageTransform?.y || 0)
+        const setter = cropSetupMode ? setCropTransform : setImageTransform
+        const current = cropSetupMode ? cropTransform : imageTransform
+        const startX = touch.clientX - (current?.x || 0)
+        const startY = touch.clientY - (current?.y || 0)
         dragRef.current = { startX, startY }
         const onMove = (ev) => {
             const drag = dragRef.current
             if (!drag) return
             const t = ev.touches[0]
-            setImageTransform(prev => ({ ...prev, x: t.clientX - drag.startX, y: t.clientY - drag.startY }))
+            setter(prev => ({ ...prev, x: t.clientX - drag.startX, y: t.clientY - drag.startY }))
         }
         const onEnd = () => { dragRef.current = null; window.removeEventListener('touchmove', onMove); window.removeEventListener('touchend', onEnd) }
         window.addEventListener('touchmove', onMove, { passive: false })
         window.addEventListener('touchend', onEnd)
-    }, [cropMode, imageTransform])
+    }, [cropSetupMode, cropMode, cropTransform, imageTransform])
 
     const step1Ref = useRef(null)
     const step2Ref = useRef(null)
@@ -178,7 +190,9 @@ function ProductCustomizeContent({ deviceType }) {
     const resetDesign = () => {
         setDesignType(null); setPhotoFile(null); setPhotoURL(null); setPhotoFilter(null)
         setFilterStrength(50); setTextValue(''); setFontColor(null); setPhotoTab('upload'); setSelectedSticker(null)
-        setImageTransform({ x: 0, y: 0, scale: 1 }); setCropMode(false); setShapeFrame('none')
+        setCropTransform({ x: 0, y: 0, scale: 1 }); setCropSetupMode(false); setCropSetupLocked(false)
+        setShapeFrame('none')
+        setImageTransform({ x: 0, y: 0, scale: 1 }); setCropMode(false)
     }
 
     const isModelSupportedByCaseType = (modelId) => !selectedCaseType || isCaseTypeSupported(modelId, selectedCaseType)
@@ -276,7 +290,13 @@ function ProductCustomizeContent({ deviceType }) {
         setIsCartPopupOpen(true)
     }
 
-    const previewProps = { selectedModel, selectedCaseType, deviceType, designType, previewURL, photoFilter, filterStrength, textValue, fontColor, photoTab, selectedCaseColor, imageTransform, shapeFrame, cropMode, onCanvasMouseDown, onCanvasTouchStart }
+    const previewProps = {
+        selectedModel, selectedCaseType, deviceType, designType, previewURL,
+        photoFilter, filterStrength, textValue, fontColor, photoTab, selectedCaseColor,
+        imageTransform, cropTransform, shapeFrame,
+        cropSetupMode, cropMode,
+        onCanvasMouseDown, onCanvasTouchStart,
+    }
     const quickMenus = QUICK_MENUS.filter(m => m.id !== deviceType)
 
     const QuickMenu = () => (
@@ -300,8 +320,8 @@ function ProductCustomizeContent({ deviceType }) {
     return (
         <section className="custom detail-page-custom">
             {showScrollAlert && (
-                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'fadeIn 0.3s ease' }}>
-                    <div style={{ background: '#fff', borderRadius: 16, padding: '36px 32px', textAlign: 'center', maxWidth: 320, width: 'calc(100% - 48px)', boxShadow: '0 20px 60px rgba(0,0,0,0.2)', animation: 'slideUp 0.3s ease' }}>
+                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ background: '#fff', borderRadius: 16, padding: '36px 32px', textAlign: 'center', maxWidth: 320, width: 'calc(100% - 48px)', boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
                         <div style={{ fontSize: 40, marginBottom: 12 }}>↕</div>
                         <p style={{ fontSize: 16, fontWeight: 700, color: '#111', marginBottom: 8 }}>페이지 상단으로 이동해주세요</p>
                         <p style={{ fontSize: 13, color: '#888', marginBottom: 24, lineHeight: 1.6 }}>커스텀 스튜디오는 상단에서<br />시작해야 합니다.</p>
@@ -481,9 +501,12 @@ function ProductCustomizeContent({ deviceType }) {
                                         filterStrength={filterStrength} setFilterStrength={setFilterStrength}
                                         selectedSticker={selectedSticker} setSelectedSticker={setSelectedSticker}
                                         filterSectionRef={filterSectionRef} onScrollToFilter={scrollToFilter}
+                                        cropTransform={cropTransform} setCropTransform={setCropTransform}
+                                        cropSetupMode={cropSetupMode} setCropSetupMode={setCropSetupMode}
+                                        cropSetupLocked={cropSetupLocked} setCropSetupLocked={setCropSetupLocked}
+                                        shapeFrame={shapeFrame} setShapeFrame={setShapeFrame}
                                         imageTransform={imageTransform} setImageTransform={setImageTransform}
-                                        cropMode={cropMode} setCropMode={setCropMode}
-                                        shapeFrame={shapeFrame} setShapeFrame={setShapeFrame} />
+                                        cropMode={cropMode} setCropMode={setCropMode} />
                                 )}
                                 {designType === 'text' && (
                                     <TextInputSection
