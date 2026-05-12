@@ -19,7 +19,7 @@
 
 // ── Benefit 반응형 ────────────────────────────────
 @media (max-width: 860px) {
-  .benefit-inner {
+  .detail-custom-benefit {
     .benefit-card-list {
       flex-direction: column;
       gap: 16px;
@@ -32,19 +32,15 @@
 }
 
 @media (max-width: 640px) {
-  .benefit-inner {
+  .detail-custom-benefit {
     .benefit-card-list {
       gap: 12px;
     }
 
     .benefit-banner-item {
       .text-box {
-        .text1 {
-          font-size: 14px;
-        }
-        .text2 {
-          font-size: 12px;
-        }
+        .text1 { font-size: 14px; }
+        .text2 { font-size: 12px; }
       }
     }
   }
