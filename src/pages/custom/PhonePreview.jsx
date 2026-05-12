@@ -80,12 +80,12 @@ const MACBOOK_SIZE_MAP = {
 }
 
 const MACBOOK_CANVAS_MAP = {
-    'macbook13':      { top: 19,   left: 29, w: 338,   h: 203,   radius: 47   },
-    'macbook15':      { top: 29,   left: 34, w: 370,   h: 210,   radius: 45   },
-    'macbookair13':   { top: 30,   left: 35, w: 329,   h: 191,   radius: 46   },
-    'macbookair13s1': { top: 21,   left: 40, w: 320,   h: 195,   radius:  9   },
-    'macbookpro14':   { top: 17.6, left: 32, w: 348.8, h: 219,   radius: 49.8 },
-    'macbookpro16':   { top: 25,   left: 27, w: 388.8, h: 232.5, radius: 49   },
+    'macbook13':      { top: 62,   left: 69, w:798,   h: 668,   radius: 87   },
+    'macbook15':      { top: 30,   left: 34, w: 370,   h: 210,   radius: 45   },
+    'macbookair13':   { top: 104,   left: 98, w: 968,   h: 679,   radius: 106   },
+    'macbookair13s1': { top: 71,   left: 115, w: 960,   h: 665,   radius:  30   },
+    'macbookpro14':   { top: 53, left: 85, w: 970, h: 685,   radius: 100.8 },
+    'macbookpro16':   { top: 71,   left: 67, w: 972.8, h:669.5, radius: 100  },
 }
 
 const BOUNCE_IMG_W = 780
