@@ -196,7 +196,7 @@ export default function CategoryPagePractice() {
         // 사용자에게 '변경 중'임을 알리기 위해 약간의 지연을 줄 수도 있어.
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 300); // 0.3초 정도 부드럽게 보여줌
+        }, 500); // 0.3초 정도 부드럽게 보여줌
 
         return () => clearTimeout(timer);
     }, [mainCate, subCate, mini, sort, selectedFilters, currentPage]);
