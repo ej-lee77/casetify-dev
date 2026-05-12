@@ -323,12 +323,12 @@ function ProductCustomizeContent({ deviceType }) {
         <section className="custom detail-page-custom">
             {showScrollAlert && (
                 <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ background: '#fff', borderRadius: 16, padding: '36px 32px', textAlign: 'center', maxWidth: 320, width: 'calc(100% - 48px)', boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
+                    <div style={{ background: '#fff', padding: '36px 32px', textAlign: 'center', maxWidth: 320, width: 'calc(100% - 48px)', boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
                         <div style={{ fontSize: 40, marginBottom: 12 }}>↕</div>
                         <p style={{ fontSize: 16, fontWeight: 700, color: '#111', marginBottom: 8 }}>페이지 상단으로 이동해주세요</p>
                         <p style={{ fontSize: 13, color: '#888', marginBottom: 24, lineHeight: 1.6 }}>커스텀 스튜디오는 상단에서<br />시작해야 합니다.</p>
                         <button onClick={() => { setShowScrollAlert(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-                            style={{ width: '100%', padding: '14px 0', background: '#111', color: '#fff', border: 'none', borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
+                            style={{ width: '100%', padding: '14px 0', background: '#111', color: '#fff', border: 'none', fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
                             맨 위로 이동
                         </button>
                         <button onClick={() => setShowScrollAlert(false)}

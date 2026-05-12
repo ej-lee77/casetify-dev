@@ -1,3 +1,7 @@
+// * {
+//   border-radius: 0 !important;
+// }
+
 // ── Detail 레이아웃 ───────────────────────────────────────
 .detail-page-custom{
     position: relative;
@@ -92,8 +96,8 @@
   }
 
   .custom-arrow{
-    width:14px;
-    height:14px;
+    width:20px;
+    height:20px;
     display:block;
   }
 }
@@ -145,8 +149,8 @@
     .photo-tab-wrap {
         display: flex;
         background: #f1f1f1;
-        border-radius: 12px;
-        padding: 4px;
+        // border-radius: 8px;
+        padding: 6px;
     }
 
     .photo-tab-btn {
@@ -154,7 +158,9 @@
         padding: 10px 0;
         border: none;
         background: transparent;
-        border-radius: 10px;
+
+    border-radius: 0 !important;
+
         font-size: 14px;
         font-weight: 500;
         color: #666;
@@ -169,7 +175,7 @@
             background: #fff;
             color: #111;
             font-weight: 600;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            // box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
     }
 
@@ -183,7 +189,7 @@
             justify-content: space-between;
             padding: 14px 18px;
             border: 1px solid #ddd;
-            border-radius: 10px;
+            // border-radius: 10px;
             background: #fff;
             font-size: 15px;
             cursor: pointer;
@@ -423,7 +429,7 @@
         gap: 12px;
         padding: 14px 16px;
         background: #f7f7f7;
-        border-radius: 6px;
+        // border-radius: 6px;
         margin-bottom: 16px;
 
         .order-option-name {
@@ -656,7 +662,7 @@
         gap: 14px;
         padding: 14px 18px;
         border: 1px solid #ebebeb;
-        border-radius: 12px;
+        // border-radius: 12px;
         background: #fff;
         cursor: pointer;
         transition: all 0.2s;
@@ -930,7 +936,7 @@
     flex: 1;
     padding: 14px 10px;
     border: 1.5px solid #ddd;
-    border-radius: 8px;
+    // border-radius: 8px;
     background: #fff;
     font-size: 0.9rem;
     font-weight: 500;
@@ -939,8 +945,9 @@
     transition: all 0.15s;
 
     &:hover {
-        border-color: #111;
-        color: #111;
+      border-color: #111;
+        background: #111;
+        color: #fff;
     }
 
     &.active {
@@ -1014,7 +1021,7 @@
     align-items: center;
     gap: 6px;
     border: 2px solid #eee;
-    border-radius: 8px;
+    // border-radius: 8px;
     padding: 8px 6px 10px;
     cursor: pointer;
     transition: all 0.15s;
@@ -1034,7 +1041,7 @@
     .custom-filter-img-wrap {
         width: 100%;
         aspect-ratio: 1;
-        border-radius: 6px;
+        // border-radius: 6px;
         overflow: hidden;
 
         img {
@@ -1182,7 +1189,7 @@
 // ── 단계별 상태 스타일 — ProductCustomizePage.scss 하단에 추가 ──────────
 
 .step-block {
-    border-radius: 12px;
+    // border-radius: 12px;
     padding: 16px;
     border: 1.5px solid transparent;
     transition: opacity 0.3s ease, border-color 0.3s ease, background 0.3s ease;
@@ -1260,7 +1267,7 @@
     color: #999;
     background: none;
     border: 1px solid #e0e0e0;
-    border-radius: 6px;
+    // border-radius: 6px;
     padding: 4px 10px;
     cursor: pointer;
     transition: all 0.15s;
