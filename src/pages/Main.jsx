@@ -33,7 +33,7 @@ export default function Main() {
       setTimeout(() => {
         setIsFirstLoading(false);
         sessionStorage.setItem('hasVisited', 'true');
-      }, 500); // 0.5초 정도 부드러운 전환을 위해 지연
+      }, 1500); // 0.5초 정도 부드러운 전환을 위해 지연
     };
 
     // 브라우저가 이미 로드 완료 상태인지 확인
