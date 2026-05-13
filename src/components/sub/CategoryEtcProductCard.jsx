@@ -103,6 +103,11 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
         showFeedback("cart");
     };
 
+    const handleHoverError = (e) => {
+        // 호버 이미지 로드 실패 시, 소스(src)를 기본 이미지 경로로 교체
+        e.target.src = imagePath;
+    };
+
     return (
         <article className="product-card">
             <div className="card-img-wrap">
@@ -120,7 +125,7 @@ export default function CategoryEtcProductCard({ item, modelLabels = [] }) {
                                     className="img-hover"
                                     src={hoverImagePath}
                                     alt=""
-                                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                                    onError={handleHoverError}
                                 />
                             </>
                         ) : (
