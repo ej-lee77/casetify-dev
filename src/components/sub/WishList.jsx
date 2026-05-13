@@ -63,7 +63,7 @@ export default function WishList() {
                                             {item.device || item.color ?
                                                 <>
                                                     <p>[옵션]</p>
-                                                    <p>{item.device && <span>{item.device}</span>}<span>{item.color}</span></p>
+                                                    <p>{item.device && <span>{item.device}</span>}{item.color && <span>{item.color}</span>}</p>
                                                 </> : ""}
                                         </div>
                                     </div>
