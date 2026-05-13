@@ -19,13 +19,12 @@ const fadeVariants = {
 };
 
 export default function Main() {
-  const [isFirstLoading, setIsFirstLoading] = useState(true);
+  const [isFirstLoading, setIsFirstLoading] = useState(false);
 
   useEffect(() => {
     // 세션 스토리지 체크 (이미 봤다면 로딩 생략)
-    if (sessionStorage.getItem('hasVisited')) {
-      setIsFirstLoading(false);
-      return;
+    if (!sessionStorage.getItem('hasVisited')) {
+      setIsFirstLoading(true);
     }
 
     const handleLoad = () => {
@@ -33,7 +32,7 @@ export default function Main() {
       setTimeout(() => {
         setIsFirstLoading(false);
         sessionStorage.setItem('hasVisited', 'true');
-      }, 500); // 0.5초 정도 부드러운 전환을 위해 지연
+      }, 1000); // 0.5초 정도 부드러운 전환을 위해 지연
     };
 
     // 브라우저가 이미 로드 완료 상태인지 확인
