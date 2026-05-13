@@ -6,6 +6,7 @@ import { items } from "../../../data/finalData";
 import TabWrap from './TabWrap'
 import DetailPage from './DetailPage'
 import BundleRecommend from './budleReocomend';
+import Recommend from "./Recommend";
 import { useRecentStore } from '../../../store/useRecentStore';
 import { modelColorOptions } from "../../../data/finalData";
 import { motion } from 'framer-motion';
@@ -28,6 +29,7 @@ export default function ProductDetailPage() {
     }
 
     const addRecentItem = useRecentStore((state) => state.addRecentItem);
+    const isPhone = item?.productTarget === "phone";
 
     useEffect(() => {
         if (item) {
@@ -65,7 +67,11 @@ export default function ProductDetailPage() {
         <div className='product-detail-page'>
             <div className="inner">
                 <DetailPage item={item} />
-                <BundleRecommend item={item}/>
+                {isPhone ? (
+                    <BundleRecommend item={item}/>
+                ):(
+                    <Recommend item={item} />
+                )}
                 <br />
                 <TabWrap item={item} />
             </div>
