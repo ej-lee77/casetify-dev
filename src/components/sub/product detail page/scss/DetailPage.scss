@@ -6,7 +6,7 @@
     position: relative;
     z-index: 0;
 
-    .category-breadcrumb{
+    .category-breadcrumb {
         margin: 0 0 10px;
     }
 
@@ -26,7 +26,7 @@
     }
 
     .detail-image-wrap {
-        position: relative; 
+        position: relative;
         margin-bottom: 50px;
 
         .detail-main-image {
@@ -34,7 +34,7 @@
             min-width: 300px;
             min-height: 300px;
             background: #f7f7f7;
-            border-radius: 12px;
+            // border-radius: 12px;
             // overflow: hidden;
             display: flex;
             align-items: center;
@@ -46,17 +46,19 @@
                 object-fit: cover;
             }
         }
-    
+
         .image-wish-btn {
             position: absolute;
             // width: 50px;
-      top: 38px;      /* ← bottom 제거, top으로 변경 */
-    right: 38px;    /* ← left 제거, right으로 변경 */
+            top: 38px;
+            /* ← bottom 제거, top으로 변경 */
+            right: 38px;
+            /* ← left 제거, right으로 변경 */
             width: 30px;
             height: 30px;
             border-radius: 50%;
             border: none;
-            background: rgba(255, 255, 255, 0.85);
+            // background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(6px);
             display: flex;
             align-items: center;
@@ -87,10 +89,10 @@
         margin-top: 60px;
         position: absolute;
 
-        left: 50%;                      // 기준을 가운데로 이동
-        transform: translateX(-50%);    // 자기 너비의 절반만큼 왼쪽 이동 → 진짜 중앙
+        left: 50%; // 기준을 가운데로 이동
+        transform: translateX(-50%); // 자기 너비의 절반만큼 왼쪽 이동 → 진짜 중앙
 
-        bottom: -100px;                  // 메인이미지 아래로 위치
+        bottom: -100px; // 메인이미지 아래로 위치
 
         display: flex;
         // flex-wrap: wrap;
@@ -127,6 +129,7 @@
             }
         }
     }
+
     .color-remote {
         position: absolute;
         top: 16px;
@@ -156,7 +159,9 @@
                 border-color: #111;
             }
 
-            &:hover { border-color: #aaa; }
+            &:hover {
+                border-color: #aaa;
+            }
         }
 
         .remote-chip {
@@ -188,34 +193,36 @@
     // ======== ~오른쪽 ====================================================
 
 
-    .right-info-wrap{
+    .right-info-wrap {
         display: flex;
         flex-direction: column;
-        gap: 20px;   
-    }     
-    .label{
+        gap: 20px;
+    }
+
+    .label {
         font-weight: 400px;
         font-size: 12px;
-        p{
+
+        p {
             font-size: 8px;
         }
     }
 
 
     // 기종 아코디언====================================
-.model-accordion-arrow{
-  transition:0.3s;
+    .model-accordion-arrow {
+        transition: 0.3s;
 
-  &.open{
-    transform:rotate(180deg);
-  }
+        &.open {
+            transform: rotate(180deg);
+        }
 
-  .custom-arrow{
-    width:20px;
-    height:20px;
-    display:block;
-  }
-}
+        .custom-arrow {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+    }
 
 
 
@@ -284,7 +291,7 @@
                         color: #111;
                     }
                 }
-            }   
+            }
 
             // ✅ 기종 리스트
             .model-sub-list {
@@ -314,13 +321,18 @@
                 }
             }
         }
-        .model-accordion-arrow{
+
+        .model-accordion-arrow {
             font-size: 11px;
             color: #888;
             transition: transform 0.2s ease;
-            &.open { transform: rotate(180deg); }
+
+            &.open {
+                transform: rotate(180deg);
+            }
         }
     }
+
     // =====================================
 
     .image-error-path {
@@ -388,79 +400,90 @@
         font-weight: 700;
         margin-bottom: 30px;
     }
-// ==========================  ~아코디언  =============================
+
+    // ==========================  ~아코디언  =============================
 
 
 
-.accordion {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
+    .accordion {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
 
-    &-trigger {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px 18px;
-        background: #fff;
-        border: 0;
-        cursor: pointer;
-        font-size: 15px;
-
-        &:hover { background: #f7f7f7; }
-    }
-
-    &-arrow {
-        font-size: 11px;
-        color: #888;
-        transition: transform 0.2s ease;
-        &.open { transform: rotate(180deg); }
-    }
-
-    &-list {
-        padding: 12px;
-        border-top: 1px solid #eee;
-        background: #fff;
-
-        li {
-            padding: 16px 18px;
-            font-size: 15px;
-            color: #222;
-            cursor: pointer;
-            border-radius: 10px;
-            border: 1px solid #e3e3e3;
-            margin-bottom: 10px;
+        &-trigger {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
             background: #fff;
-            transition: all 0.15s;
-
-            &:last-child { margin-bottom: 0; }
-            &::before { content: none; }
+            border: 0;
+            cursor: pointer;
+            font-size: 15px;
 
             &:hover {
-                border-color: #bbb;
-                background: #fafafa;
+                background: #f7f7f7;
             }
+        }
 
-            &.active {
-                border-color: #111;
-                font-weight: 600;
+        &-arrow {
+            font-size: 11px;
+            color: #888;
+            transition: transform 0.2s ease;
+
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
+
+        &-list {
+            padding: 12px;
+            border-top: 1px solid #eee;
+            background: #fff;
+
+            li {
+                padding: 16px 18px;
+                font-size: 15px;
+                color: #222;
+                cursor: pointer;
+                border-radius: 10px;
+                border: 1px solid #e3e3e3;
+                margin-bottom: 10px;
                 background: #fff;
+                transition: all 0.15s;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &::before {
+                    content: none;
+                }
+
+                &:hover {
+                    border-color: #bbb;
+                    background: #fafafa;
+                }
+
+                &.active {
+                    border-color: #111;
+                    font-weight: 600;
+                    background: #fff;
+                }
             }
         }
     }
-}
 
-.accordion-list {
-    li {
-        cursor: pointer;
+    .accordion-list {
+        li {
+            cursor: pointer;
+        }
     }
-}
 
-// =================================================================================
+    // =================================================================================
 
-// [ ~~~ 주문지 ~~~]
+    // [ ~~~ 주문지 ~~~]
 
 
     .order-result {
@@ -514,7 +537,9 @@
             align-items: center;
             justify-content: center;
 
-            &:hover { background: #f0f0f0; }
+            &:hover {
+                background: #f0f0f0;
+            }
         }
 
         span {
@@ -559,7 +584,7 @@
 
 
 
-// 번들세트 구매 섹션 - 가로 3열 ===========================================================
+    // 번들세트 구매 섹션 - 가로 3열 ===========================================================
     .bundle-section {
         margin-top: 24px;
 
@@ -638,7 +663,9 @@
                 }
             }
 
-            &.selected .bundle-img-wrap { border-color: #ffa2a2; }
+            &.selected .bundle-img-wrap {
+                border-color: #ffa2a2;
+            }
 
             .bundle-name {
                 font-size: 12px;
@@ -650,7 +677,7 @@
         }
     }
 
-    .budle-buy{
+    .budle-buy {
         margin-top: 100px;
         // padding: 0 30px 30px 30px;
         // border: #f0ebeb 1px solid ;
@@ -730,7 +757,7 @@
 
 
 
-// =================================================================================
+    // =================================================================================
 
     .left-line {
         width: 400px;
@@ -745,10 +772,11 @@
         justify-content: center;
         margin-top: 4px;
 
-    img {
-    width: 20px;
-    height: 20px;
-    display: block;}
+        img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
     }
 
 
@@ -762,9 +790,9 @@
         cursor: pointer;
         margin: 20px 0 0px;
 
-        display: flex;              // ✅ 핵심
-        align-items: center;        // ✅ 세로 가운데
-        justify-content: center;    // ✅ 가로 가운데
+        display: flex; // ✅ 핵심
+        align-items: center; // ✅ 세로 가운데
+        justify-content: center; // ✅ 가로 가운데
         gap: 8px;
     }
 
@@ -819,6 +847,7 @@
         border: 1px solid #ccc;
     }
 }
+
 // ✅ 로그인 배너 (팝업 대체)
 .login-banner {
     position: fixed;
@@ -841,6 +870,7 @@
             opacity: 0;
             transform: translate(-50%, -50%) scale(0.92);
         }
+
         to {
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
@@ -854,6 +884,7 @@
         .detail-inner {
             gap: 30px;
         }
+
         .detail-right {
             width: 360px;
         }
@@ -935,6 +966,7 @@
 
             .detail-thumb-list {
                 gap: 6px;
+
                 li {
                     width: 52px;
                     min-height: 52px;
@@ -949,6 +981,7 @@
 
         .color-remote {
             padding: 6px 5px;
+
             .remote-chip {
                 width: 22px;
                 height: 22px;
