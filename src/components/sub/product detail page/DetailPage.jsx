@@ -573,7 +573,7 @@ export default function DetailPage({ item }) {
                                                 onClick={() => setModelAccordionOpen((prev) => !prev)}
                                             >
                                                 <span>{selectedModel || "기종을 선택하세요"}</span>
-                                                <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}>▼</span>
+                                                <span className={`model-accordion-arrow ${modelAccordionOpen ? "open" : ""}`}><img className='custom-arrow' src='/images/icon/icon-arrow-down.svg' alt=''/></span>
                                             </button>
                                             {modelAccordionOpen && (
                                                 <div className="model-accordion-list">

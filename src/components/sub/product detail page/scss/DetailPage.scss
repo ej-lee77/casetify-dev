@@ -101,7 +101,7 @@
             width: 80px;
             min-height: 80px;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            // border-radius: 8px;
             overflow: hidden;
             background: #f7f7f7;
 
@@ -147,7 +147,7 @@
             gap: 4px;
             border: 2px solid transparent;
             background: none;
-            border-radius: 8px;
+            // border-radius: 8px;
             padding: 4px;
             cursor: pointer;
             transition: border-color 0.2s;
@@ -203,6 +203,21 @@
 
 
     // 기종 아코디언====================================
+.model-accordion-arrow{
+  transition:0.3s;
+
+  &.open{
+    transform:rotate(180deg);
+  }
+
+  .custom-arrow{
+    width:20px;
+    height:20px;
+    display:block;
+  }
+}
+
+
 
     .model-accordion {
         position: relative;
@@ -214,7 +229,7 @@
             justify-content: space-between;
             padding: 14px 18px;
             border: 1px solid #ddd;
-            border-radius: 10px;
+            // border-radius: 10px;
             background: #fff;
             font-size: 15px;
         }
@@ -609,7 +624,7 @@
             .bundle-img-wrap {
                 width: 100%;
                 aspect-ratio: 1;
-                border-radius: 8px;
+                // border-radius: 8px;
                 overflow: hidden;
                 background: #f0f0f0;
                 border: 2px solid transparent;

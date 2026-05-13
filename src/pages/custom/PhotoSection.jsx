@@ -64,24 +64,24 @@ function CropSetupSection({ cropTransform, setCropTransform, cropSetupMode, setC
                     {!cropSetupLocked ? (
                         !cropSetupMode ? (
                             <button onClick={() => setCropSetupMode(true)}
-                                style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#222', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
+                                style={{ padding: '5px 12px',  border: 'none', background: '#222', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
                                 ✏️ 구역 설정
                             </button>
                         ) : (
                             <>
                                 <button onClick={() => { setCropSetupLocked(true); setCropSetupMode(false) }}
-                                    style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#111', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
+                                    style={{ padding: '5px 12px', border: 'none', background: '#111', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
                                     ✅ 확정
                                 </button>
                                 <button onClick={() => { setCropSetupMode(false); setCropTransform({ x: 0, y: 0, scale: 1 }) }}
-                                    style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#eee', color: '#333', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
+                                    style={{ padding: '5px 12px', border: 'none', background: '#eee', color: '#333', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
                                     초기화
                                 </button>
                             </>
                         )
                     ) : (
                         <button onClick={() => { setCropSetupLocked(false); setCropSetupMode(true) }}
-                            style={{ padding: '5px 12px', borderRadius: 8, border: 'none', background: '#666', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
+                            style={{ padding: '5px 12px', border: 'none', background: '#666', color: '#fff', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
                             ✏️ 다시 설정
                         </button>
                     )}
@@ -115,7 +115,7 @@ function CropSetupSection({ cropTransform, setCropTransform, cropSetupMode, setC
                 </div>
             )}
             {cropSetupLocked && (
-                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, padding: '8px 12px', fontSize: 12, color: '#16a34a', marginTop: 8 }}>
+                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0',padding: '8px 12px', fontSize: 12, color: '#16a34a', marginTop: 8 }}>
                     ✅ 구역이 확정되었습니다. "다시 설정"으로 수정할 수 있어요.
                 </div>
             )}
