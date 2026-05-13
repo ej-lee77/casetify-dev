@@ -19,23 +19,32 @@ const fadeVariants = {
 };
 
 export default function Main() {
-  const [isFirstLoading, setIsFirstLoading] = useState(false);
-  
-  useEffect(() => {
-    // 세션 스토리지에서 '이미 방문했는지' 확인
-    const hasVisited = sessionStorage.getItem('hasVisited');
+  const [isFirstLoading, setIsFirstLoading] = useState(true);
 
-    if (!hasVisited) {
-      setIsFirstLoading(true);
-      // 로딩 완료 후 방문 기록 저장
-      const timer = setTimeout(() => {
+  useEffect(() => {
+    // 세션 스토리지 체크 (이미 봤다면 로딩 생략)
+    if (sessionStorage.getItem('hasVisited')) {
+      setIsFirstLoading(false);
+      return;
+    }
+
+    const handleLoad = () => {
+      // 리소스 로드가 끝나면 약간의 여유를 주고 로딩 해제
+      setTimeout(() => {
         setIsFirstLoading(false);
         sessionStorage.setItem('hasVisited', 'true');
-      }, 1500); // 초기 로딩은 조금 더 길게 가져가도 좋아
+      }, 500); // 0.5초 정도 부드러운 전환을 위해 지연
+    };
 
-      return () => clearTimeout(timer);
+    // 브라우저가 이미 로드 완료 상태인지 확인
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
     }
   }, []);
+
   return (
     <>
       <AnimatePresence>
