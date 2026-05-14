@@ -31,8 +31,8 @@ export default function DetailPage({ item }) {
     const [selectedBrandTab, setSelectedBrandTab] = useState(item?.brand || "Apple");
     const [isWished, setIsWished] = useState(false);
     const [selectedBundles, setSelectedBundles] = useState({});
-    const [showLoginBanner, setShowLoginBanner] = useState(false) // ✅ 추가
-    const [showCartBanner, setShowCartBanner] = useState(false)   // ✅ 추가
+    const [showLoginBanner, setShowLoginBanner] = useState(false)
+    const [showCartBanner, setShowCartBanner] = useState(false)
 
     const { user, onAddWishlist, onAddToCart, wishlist } = useAuthStore();
     const isWishList = wishlist.some((wishItem) => wishItem.productId === item.id);
@@ -69,10 +69,12 @@ export default function DetailPage({ item }) {
                         d.caseCategory === item.caseCategory &&
                         d.modelLabel === targetModelLabel
                     );
-                    setSelectedColor(matched?.mainCaseColor || matched?.caseColors?.[0] || "");
+                    // ✅ 첫 번째 컬러 자동 선택
+                    setSelectedColor(matched?.mainCaseColor || matched?.caseColors?.[0] || item.caseColors?.[0] || "");
                 }
             }
         } else {
+            // ✅ 컬러 선택지가 있으면 항상 첫 번째 컬러 자동 선택
             setSelectedColor(item.mainCaseColor || item.caseColors?.[0] || "");
             setSelectedDeviceColor(modelColorOptions?.[item?.modelKey]?.[0]?.key || "");
 
@@ -86,7 +88,8 @@ export default function DetailPage({ item }) {
                     d.caseCategory === item.caseCategory &&
                     d.modelLabel === modelOpts[0].label
                 );
-                if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || "");
+                // ✅ 첫 번째 컬러 자동 선택
+                if (matched) setSelectedColor(matched.mainCaseColor || matched.caseColors?.[0] || item.caseColors?.[0] || "");
             } else {
                 setSelectedModel("");
             }
@@ -172,7 +175,6 @@ export default function DetailPage({ item }) {
         }
     };
 
-    // ✅ 로그인 토스트 표시 후 이동
     const showLoginAlert = () => {
         setShowLoginBanner(true)
         setTimeout(() => {
@@ -181,7 +183,6 @@ export default function DetailPage({ item }) {
         }, 1500)
     }
 
-    // ✅ 옵션 미선택 토스트 표시
     const showCartAlert = () => {
         setShowCartBanner(true)
         setTimeout(() => {
@@ -257,10 +258,8 @@ export default function DetailPage({ item }) {
     const [isCartPopupOpen, setIsCartPopupOpen] = useState(false);
     const [isPopupErr, setIsPopupErr] = useState(false);
 
-    // ✅ 모든 옵션 선택 여부 체크
     const canAddCart = (() => {
         if (isPhone && modelOptions.length > 0 && !selectedModel) return false;
-        // ✅ selectedModel이 compatibleModels 목록 안에 있는 값인지까지 체크
         if (!isPhone && item.compatibleModels?.length > 0) {
             const isValidModel = item.compatibleModels.includes(selectedModel);
             if (!isValidModel) return false;
@@ -269,11 +268,8 @@ export default function DetailPage({ item }) {
         return true;
     })();
 
-
-
     const handleAddWish = async (item) => {
         if (!user) {
-            // ✅ 팝업 대신 배너 표시 후 로그인 이동
             showLoginAlert()
             return;
         }
@@ -424,20 +420,16 @@ export default function DetailPage({ item }) {
 
     // ==================== RENDER ====================
     const { mainMenuList } = useProductStore();
-    // mainCategory가 문자열인 경우도 처리
     const mainCategoryArr = Array.isArray(item?.mainCategory)
         ? item.mainCategory
         : (item?.mainCategory ? [item.mainCategory] : []);
     const mainCateKey = mainCategoryArr[0];
 
-    // mainmenu 찾기
     const mainMenu = mainMenuList?.find(m => m.link === mainCateKey);
 
-    // displaySubCategories의 첫 번째 값으로 submenu 찾기
     const subCateKey = item?.displaySubCategories?.[0];
     const subMenu = mainMenu?.sub?.find(s => s.link === subCateKey);
 
-    // displayMiniCategories의 첫 번째 값으로 minimenu 찾기
     const miniCateKey = item?.displayMiniCategories?.[0];
     const MINI_LABEL_MAP = {
         phone: '핸드폰', earphone: '이어폰', laptop: '노트북', watch: '워치', tablet: '태블릿',
@@ -448,8 +440,6 @@ export default function DetailPage({ item }) {
     };
     const miniLabel = miniCateKey ? MINI_LABEL_MAP[miniCateKey] : null;
 
-    // 브레드크럼: 홈 > mainmenu(링크X) > submenu > minimenu (제품명 제거)
-    // 실제 라우트: /:mainCate/:subCate?mini=xxx
     const breadcrumbItems = [
         { label: '홈', to: '/' },
         ...(mainMenu ? [{ label: mainMenu.name }] : []),
@@ -468,7 +458,6 @@ export default function DetailPage({ item }) {
                             <div className="detail-main-image" style={{ position: "relative" }}>
                                 <img src={mainImage} alt={item.productName} />
 
-                                {/* ✅ 로그인 경고 토스트 */}
                                 <ToastPopup
                                     isOpen={showLoginBanner}
                                     message="로그인후 이용 가능합니다."
@@ -476,7 +465,6 @@ export default function DetailPage({ item }) {
                                     duration={1500}
                                 />
 
-                                {/* ✅ 옵션 미선택 토스트 — 로그인 경고와 동일한 디자인 */}
                                 <ToastPopup
                                     isOpen={showCartBanner}
                                     message="모든 옵션을 선택해주세요."
@@ -695,60 +683,55 @@ export default function DetailPage({ item }) {
 
                         {/* ========== 주문 / 버튼 영역 ========== */}
                         <div className="right-btn-wrap">
-                            {userSelected && (isPhone || !!item.compatibleModels?.length || !!item.caseColors?.length) && (
-                                <div className="order-result">
-                                    <hr className="left-line" />
+                            {/* ✅ 조건 없이 항상 표시 — 옵션 없는 상품도 수량/가격 노출 */}
+                            <div className="order-result">
+                                <hr className="left-line" />
 
-                                    <div className="order-result-row">
-                                        <span className="order-option-name">
-                                            {item.productName}
-                                            {optionSummary && (
-                                                <em className="order-option-detail"> / {optionSummary}</em>
-                                            )}
-                                        </span>
-                                        <div className="order-quantity">
-                                            <button
-                                                type="button"
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    e.stopPropagation();
-                                                    if (quantity > 1) {
-                                                        setQuantity((q) => q - 1);
-                                                    }
-                                                    // quantity가 1이면 아무것도 안 함 → 선택값 유지
-                                                }}
-                                            >−</button>
-                                            <span>{quantity}</span>
-                                            <button
-                                                type="button"
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    e.stopPropagation();
-                                                    setQuantity((q) => q + 1);
-                                                }}
-                                            >+</button>
-                                        </div>
-                                        <span className="order-row-price">
-                                            {((item.price || 0) * quantity).toLocaleString()}원
-                                        </span>
+                                <div className="order-result-row">
+                                    <span className="order-option-name">
+                                        {item.productName}
+                                        {optionSummary && (
+                                            <em className="order-option-detail"> / {optionSummary}</em>
+                                        )}
+                                    </span>
+                                    <div className="order-quantity">
+                                        <button
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                if (quantity > 1) {
+                                                    setQuantity((q) => q - 1);
+                                                }
+                                            }}
+                                        >−</button>
+                                        <span>{quantity}</span>
+                                        <button
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                setQuantity((q) => q + 1);
+                                            }}
+                                        >+</button>
                                     </div>
-
-                                    <div className="order-total">
-                                        <span>총 상품금액 (수량 {quantity}개)</span>
-                                        <strong>{((item.price || 0) * quantity).toLocaleString()}원</strong>
-                                    </div>
+                                    <span className="order-row-price">
+                                        {((item.price || 0) * quantity).toLocaleString()}원
+                                    </span>
                                 </div>
-                            )}
 
-                            {/* ✅ userSelected → canAddCart 로 교체 */}
+                                <div className="order-total">
+                                    <span>총 상품금액 (수량 {quantity}개)</span>
+                                    <strong>{((item.price || 0) * quantity).toLocaleString()}원</strong>
+                                </div>
+                            </div>
+
                             <button className="buy-btn" onClick={() => {
                                 if (!user) {
-                                    // ✅ 팝업 대신 배너 표시
                                     showLoginAlert()
                                     return;
                                 }
                                 if (!canAddCart) {
-                                    // ✅ 팝업 대신 토스트 배너 표시
                                     showCartAlert()
                                     return;
                                 }
@@ -825,15 +808,12 @@ export default function DetailPage({ item }) {
                                     )}
                                 </div>
 
-                                {/* ✅ userSelected → canAddCart 로 교체 */}
                                 <button className="buy-btn" onClick={() => {
                                     if (!user) {
-                                        // ✅ 팝업 대신 배너 표시
                                         showLoginAlert()
                                         return;
                                     }
                                     if (!canAddCart) {
-                                        // ✅ 팝업 대신 토스트 배너 표시
                                         showCartAlert()
                                         return;
                                     }
@@ -846,34 +826,6 @@ export default function DetailPage({ item }) {
                                 </button>
                             </div>
                         )}
-
-                        {/* ========== 이미지 경로 확인용 (임시) ========== */}
-                        {/* <div className="detail-desc">
-                        <h3>상품 안내</h3>
-                        <p>
-                            현재 이 페이지는 데이터 연결과 이미지 경로 확인용 임시 상세페이지야.
-                            <br /><br />
-                            메인 이미지:<br />
-                            {isPhone
-                                ? `${selectedItem.id}_${selectedItem.modelKey}_${selectedDeviceColor}_${selectedColor}_main.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_main.jpg`
-                                    : `${item.id}${selectedColor ? `_${selectedColor}` : ""}_main.jpg`}
-                            <br /><br />
-                            상세 이미지:<br />
-                            {isPhone
-                                ? `${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_1.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_1.jpg`
-                                    : `${item.id}${selectedColor ? `_${selectedColor}` : ""}_1.jpg`}
-                            <br />
-                            {isPhone
-                                ? `${selectedItem.id}_${selectedItem.modelKey}_${fixedThumbDeviceColor}_${selectedColor}_2.jpg`
-                                : item.modelKey
-                                    ? `${item.id}_${item.modelKey}_${selectedColor}_2.jpg`
-                                    : `${item.id}${selectedColor ? `_${selectedColor}` : ""}_2.jpg`}
-                        </p>
-                    </div> */}
 
                     </div>
 
