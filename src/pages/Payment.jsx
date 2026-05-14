@@ -442,10 +442,11 @@ export default function Payment() {
         setTimeout(() => {
           navigate("/payment/complete", { state: { orderId: orderId, grade: isOrder } });
         }, 3000);
+      }else{
+        setTimeout(() => {
+          navigate("/payment/complete", { state: { orderId: orderId } });
+        }, 3000);
       }
-      setTimeout(() => {
-        navigate("/payment/complete", { state: { orderId: orderId } });
-      }, 3000);
     }else{
       alert("결제실패")
     }

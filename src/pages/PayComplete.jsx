@@ -45,7 +45,7 @@ export default function PayComplete() {
     }
 
     const hasGiftItem = currentOrder.orderItems.some(item => item.caseCategory === "gift");
-    console.log(hasGiftItem)
+    // console.log(hasGiftItem)
     if (hasGiftItem) {
         setIsGiftModalOpen(true);
     }
