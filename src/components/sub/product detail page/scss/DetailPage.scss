@@ -34,7 +34,7 @@
             min-width: 300px;
             min-height: 300px;
             background: #f7f7f7;
-            border-radius: 12px;
+            // border-radius: 12px;
             // overflow: hidden;
             display: flex;
             align-items: center;
@@ -50,8 +50,8 @@
         .image-wish-btn {
             position: absolute;
             // width: 50px;
-      top: 38px;      /* ← bottom 제거, top으로 변경 */
-    right: 38px;    /* ← left 제거, right으로 변경 */
+            top: 38px;      /* ← bottom 제거, top으로 변경 */
+            right: 38px;    /* ← left 제거, right으로 변경 */
             width: 30px;
             height: 30px;
             border-radius: 50%;
