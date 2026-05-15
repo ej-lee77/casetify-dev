@@ -18,6 +18,7 @@ export const useAuthStore = create(
         initAuth: () => {
             onAuthStateChanged(auth, async (firebaseUser) => {
                 if (firebaseUser) {
+                    // 1. Firebase 로그인 유저(구글, 이메일 등) 처리
                     const userDocRef = doc(db, "users", firebaseUser.uid);
                     const userSnap = await getDoc(userDocRef);
 
@@ -26,6 +27,17 @@ export const useAuthStore = create(
                         set({ user: userData });
                     }
                 } else {
+                    // 2. Firebase 유저가 없을 때 (중요!)
+                    // 현재 Zustand 상태를 가져와서 소셜 로그인 유저인지 확인합니다.
+                    const { user } = get(); 
+                    
+                    // 만약 현재 유저가 있고, 그 유저가 카카오나 네이버라면 초기화하지 않고 유지합니다.
+                    if (user && (user.provider === 'kakao' || user.provider === 'naver')) {
+                        // console.log("소셜 로그인 유저 상태를 유지합니다.");
+                        return; 
+                    }
+
+                    // 진짜 로그아웃 상태일 때만 null로 설정
                     set({ user: null });
                 }
             })
@@ -344,7 +356,8 @@ export const useAuthStore = create(
             try {
                 // 1. 네이버 로그인 팝업 열기
                 const clientId = naverProvider;
-                const callbackUrl = encodeURIComponent("http://localhost:5173/login/naver");
+                const currentUrl = window.location.origin;
+                const callbackUrl = encodeURIComponent(currentUrl+"/login/naver");
                 const state = "random_string";
                 const naverLoginUrl = `https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=${clientId}&redirect_uri=${callbackUrl}&state=${state}`;
 
@@ -546,7 +559,7 @@ export const useAuthStore = create(
             {
                 id: "birth",
                 rate: 100,
-                title: "생일 기념 무료 케이스",
+                title: "생일 기념 무료 핸드폰 케이스",
                 limit: "",
                 use: true
             },

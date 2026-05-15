@@ -104,7 +104,9 @@ export default function Login() {
         setEmailVerified(true);
       } else {
         // 실패: 에러 메시지
-        setLoginErr("이메일 또는 비밀번호가 올바르지 않습니다.");
+        setToastMsg("이메일 또는 비밀번호가 올바르지 않습니다.");
+        setToastOpen(true);
+        // setLoginErr("이메일 또는 비밀번호가 올바르지 않습니다.");
       }
     }
 
@@ -132,7 +134,9 @@ export default function Login() {
         }, 2000);
       } else {
         // 실패: 에러 메시지
-        setLoginErr("구글로그인 실패");
+        setToastMsg("구글로그인 실패");
+        setToastOpen(true);
+        // setLoginErr("구글로그인 실패");
       }
     }
 
@@ -160,7 +164,9 @@ export default function Login() {
         }, 2000);
       } else {
         // 실패: 에러 메시지
-        setLoginErr("카카오로그인 실패");
+        setToastMsg("카카오로그인 실패");
+        setToastOpen(true);
+        // setLoginErr("카카오로그인 실패");
       }
     }
 
@@ -188,7 +194,9 @@ export default function Login() {
         }, 2000);
       } else {
         // 실패: 에러 메시지
-        setLoginErr("네이버로그인 실패");
+        setToastMsg("네이버로그인 실패");
+        setToastOpen(true);
+        // setLoginErr("네이버로그인 실패");
       }
     }
   return (
