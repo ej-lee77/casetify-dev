@@ -316,11 +316,18 @@ export default function Payment() {
   const isBirthCoupon = selectedCoupon?.id === 'birth';
   
   let birthDiscount = 0;
+
   if(isBirthCoupon){
     const phoneItems = checkedCart.filter(item => item.isPhone);
     // 가격순으로 내림차순 정렬하여 가장 비싼 제품 추출
-    const expensivePhone = [...phoneItems].sort((a, b) => b.price - a.price)[0];
-    birthDiscount = expensivePhone.price;
+    if(phoneItems.length === 0){
+      setSelectedCoupon(null);
+      setToastMsg("생일쿠폰은 핸드폰케이스에 사용가능합니다.");
+      setToastOpen(true);
+    }else{
+      const expensivePhone = [...phoneItems].sort((a, b) => b.price - a.price)[0];
+      birthDiscount = expensivePhone.price;
+    }
   }
 
   const couponRate = selectedCoupon ? selectedCoupon.rate : 0;
@@ -343,6 +350,7 @@ export default function Payment() {
   }, [finalPayment]);
 
   const handlePayment = async()=>{
+    setToastMsg("");
 
     // 제출 시 최종 검증 (모든 필드에 대해)
     const newErrors = {};
@@ -432,7 +440,7 @@ export default function Payment() {
       orderStatus: "배송준비중",
       orderDate: new Date().toLocaleDateString(),
     };
-
+    setSelectedCoupon(null);
     // 스토어(회원정보/주문내역)에 저장
     const isOrder = await onAddOrder(newOrder); 
 

@@ -546,7 +546,7 @@ export const useAuthStore = create(
             {
                 id: "birth",
                 rate: 100,
-                title: "생일 기념 무료 케이스",
+                title: "생일 기념 무료 핸드폰 케이스",
                 limit: "",
                 use: true
             },

@@ -21,12 +21,19 @@ export default function GiftCardModal({ isOpen, onClose }) {
             const isGift = await registerGiftCard(cardCode);
 
             if (isGift === true) {
-                setMsg("등록 완료!");
+                setToastMsg("등록 완료!");
+                setToastOpen(true);
+                // setMsg("등록 완료!");
             } else if (isGift === "코드") {
-                setMsg("유효하지 않은 코드입니다.");
+                setToastMsg("유효하지 않은 코드입니다.");
+                setToastOpen(true);
+                // setMsg("유효하지 않은 코드입니다.");
             } else {
-                setMsg("등록실패");
+                setToastMsg("등록실패");
+                setToastOpen(true);
+                // setMsg("등록실패");
             }
+            setCardCode("");
         } else {
             setToastMsg("모든 정보를 입력해주세요.");
             setToastOpen(true);
