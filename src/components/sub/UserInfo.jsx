@@ -103,7 +103,7 @@ export default function UserInfo() {
             if (result === true) {
                 setOnConfirm(null); // 확인 콜백 제거 (취소버튼 없애기)
                 setAlertMsg("계정이 삭제되었습니다");
-                // Navigate("/") 여기서 바로 이동하지 않음
+                Navigate("/") //여기서 바로 이동하지 않음
             } else if (result === "auth/requires-recent-login") {
                 setAlertMsg("보안을 위해 다시 로그인 후 삭제해주세요");
             } else {
