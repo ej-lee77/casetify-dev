@@ -39,6 +39,7 @@ export default function BrandAuthentication() {
                 }, 1500)
                 return
             }
+            setSerialNumber("");
             setPopup(result)
         }else{
             setToastMsg("일렬번호를 입력해주세요.");
