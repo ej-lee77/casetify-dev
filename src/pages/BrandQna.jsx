@@ -3,6 +3,7 @@ import "./scss/BrandQna.scss";
 import { useLocation } from 'react-router-dom'
 import { FAQ_CATEGORIES, FAQ_LIST } from "../data/QnaData"; // ✅ 카테고리 + 리스트 모두 import
 import { motion } from 'framer-motion';
+import ToastPopup from "../components/Toastpopup";
 
 const fadeVariants = {
     initial: { opacity: 0 },
@@ -30,6 +31,10 @@ export default function BrandQna() {
     const [searchKeyword, setSearchKeyword] = useState("");
     const { hash } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+
+    // toast msg state 추가
+    const [toastOpen,setToastOpen]=useState(false);
+    const [toastMsg, setToastMsg] =useState("");
 
     // ✅ 페이지네이션 state 추가
     const [currentPage, setCurrentPage] = useState(1)
@@ -65,7 +70,7 @@ export default function BrandQna() {
         phone: "",
         message: "",
     });
-    const [joinErr, setJoinErr] = useState("");
+    // const [joinErr, setJoinErr] = useState(""); // 토스트 팝업으로 비활성화
     const [joinAllErr, setJoinAllErr] = useState({
         category: "",
         email: "",
@@ -159,7 +164,9 @@ export default function BrandQna() {
         let isFormValid = Object.values(newErrors).every(err => err === '');
 
         if (!isFormValid) {
-            setJoinErr("입력 오류가 있습니다.");
+            // setJoinErr("입력 오류가 있습니다.");
+            setToastMsg("입력 오류가 있습니다.")
+            setToastOpen(true);
             return;
         }
 
@@ -393,7 +400,7 @@ export default function BrandQna() {
                                 </div>
 
                                 <div className="inquiry-submit-wrap">
-                                    <p>{joinErr}</p>
+                                    {/* <p>{joinErr}</p> */}
                                     <button type="submit" className="inquiry-submit-btn">
                                         문의 제출하기
                                     </button>
@@ -402,6 +409,9 @@ export default function BrandQna() {
                         )}
                     </div>
                 </section>
+
+                {/* 토스트 팝업 */}
+                <ToastPopup isOpen={toastOpen} message={toastMsg} onClose={()=>setToastOpen(false)} />
             </div>
         </motion.div>
     );
