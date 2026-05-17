@@ -297,6 +297,13 @@ function StandardTab() {
     ]
 
     return (
+        <motion.div
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
+        >
         <div className="bc-standard">
             {/* Hero */}
             <div className="bc-hero standard-bg">
@@ -503,6 +510,7 @@ function StandardTab() {
                 </div>
             </section >
         </div >
+        </motion.div>
     )
 }
 
@@ -534,6 +542,13 @@ function RecastifyTab() {
     ]
 
     return (
+        <motion.div
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
+        >
         <div className="bc-recastify">
             {/* Hero */}
             <div className="bc-hero rc-hero-bg">
@@ -670,6 +685,7 @@ function RecastifyTab() {
                 </div>
             </section>
         </div>
+        </motion.div>
     )
 }
 
@@ -713,6 +729,13 @@ function ClubTab() {
     ]
 
     return (
+        <motion.div
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
+        >
         <div className="bc-club">
             {/* Hero */}
             <div className="bc-hero club-bg">
@@ -909,6 +932,7 @@ function ClubTab() {
                 </div>
             </section>
         </div>
+        </motion.div>
     )
 }
 
@@ -953,6 +977,13 @@ export default function BrandCasetify() {
     }
 
     return (
+        <motion.div
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.4 }}
+        >
         <div className="bc-page">
             <nav className="bc-tab-nav">
                 <div className="bc-inner">
@@ -974,5 +1005,6 @@ export default function BrandCasetify() {
                 {activeTab === 'club' && <ClubTab />}
             </div>
         </div>
+        </motion.div>
     )
 }
