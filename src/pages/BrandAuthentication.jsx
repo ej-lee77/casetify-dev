@@ -134,7 +134,7 @@ export default function BrandAuthentication() {
                     </div>
                     <div className='text-center'>
                         {filteredIds.length > 0 ?
-                            filteredIds.map((item)=>(
+                            filteredIds.slice(0, 3).map((item)=>(
                                 <p>{item}</p>
                             )) :
                             <p>먼저 상품 구매가 필요합니다.</p> 
