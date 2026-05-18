@@ -493,6 +493,7 @@ export function PhonePreview({
         return (
             <div style={{ position: 'relative', width: dW, height: dH, margin: '0 auto', flexShrink: 0 }}>
                 <img src={bodySrc} alt={selectedModel} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', zIndex: 1, pointerEvents: 'none' }} />
+                   <CaseColorOverlay src={bodySrc} />
                 {sc ? (
                     <div style={{ ...canvasStyle, top: sc.top, left: sc.left, width: sc.w, height: sc.h, borderRadius: sc.radius }}>
                         <CanvasContent {...ccProps} fontSize={18} />
