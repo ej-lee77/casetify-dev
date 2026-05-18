@@ -38,7 +38,7 @@ export default function CategoryFilterPanel({
         mini: currentMini || "",
         device: "",
         caseCategory: "",
-        models: [],
+        model: "",
         isCollabo: null,
         isMagSafe: null,
         stockOnly: false,
@@ -55,7 +55,7 @@ export default function CategoryFilterPanel({
             mini: currentMini || "",
             device: selectedFilters.device || "",
             caseCategory: selectedFilters.caseCategory || "",
-            models: selectedFilters.models || [],
+            model: selectedFilters.model || "",
             isCollabo: selectedFilters.isCollabo ?? null,
             isMagSafe: selectedFilters.isMagSafe ?? null,
             stockOnly: selectedFilters.stockOnly || false,
@@ -163,7 +163,7 @@ export default function CategoryFilterPanel({
             ...prev,
             subCateLink: subLink,
             mini: "",
-            models: [],
+            model: [],
             colors: [],
         }));
     };
@@ -172,7 +172,7 @@ export default function CategoryFilterPanel({
         setDraft((prev) => ({
             ...prev,
             device: prev.device === deviceKey ? "" : deviceKey,
-            models: [],
+            model: [],
         }));
     };
 
@@ -182,7 +182,7 @@ export default function CategoryFilterPanel({
             mini: prev.mini === miniKey ? "" : miniKey,
             device: "",
             caseCategory: "",
-            models: [],
+            model: [],
             colors: [],
         }));
     };
@@ -191,7 +191,7 @@ export default function CategoryFilterPanel({
         setDraft({
             subCateLink: currentSub?.link || "",
             mini: currentMini || "",
-            models: [],
+            model: [],
             isCollabo: null,
             isMagSafe: null,
             stockOnly: false,
@@ -208,7 +208,7 @@ export default function CategoryFilterPanel({
             filters: {
                 device: draft.device || "",
                 caseCategory: draft.caseCategory || "",
-                models: draft.models,
+                model: draft.model,
                 isCollabo: draft.isCollabo,
                 isMagSafe: draft.isMagSafe,
                 stockOnly: draft.stockOnly,
@@ -303,8 +303,13 @@ export default function CategoryFilterPanel({
                                     <button
                                         type="button"
                                         key={model.key}
-                                        className={`filter-chip ${draft.models.includes(model.key) ? "on" : ""}`}
-                                        onClick={() => toggleArray("models", model.key)}
+                                        className={`filter-chip ${draft.model === model.key ? "on" : ""}`}
+                                        onClick={() => setDraft((prev) => ({
+                                                ...prev,
+                                                model: prev.model === model.key ? "" : model.key,
+                                            }))}
+                                        // className={`filter-chip ${draft.model.includes(model.key) ? "on" : ""}`}
+                                        // onClick={() => toggleArray("model", model.key)}
                                     >
                                         {model.label}
                                     </button>

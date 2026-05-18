@@ -271,7 +271,8 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
                         onClick={() => { setIsTypeOpen(!isTypeOpen); setIsReasonOpen(false); }}
                       >
                         {selectedType}
-                        <span className="arrow">{isTypeOpen ? '▲' : '▼'}</span>
+                        <span className={`arrow ${isTypeOpen ? 'active' : ''}`}>
+                        </span>
                       </button>
                       {isTypeOpen && (
                         <ul className="dropdown-list">
@@ -295,7 +296,7 @@ export default function OrderDetailModal({ order, onClose, initialAllChecked }) 
                         onClick={() => { setIsReasonOpen(!isReasonOpen); setIsTypeOpen(false); }}
                       >
                         {selectedReason}
-                        <span className="arrow">{isReasonOpen ? '▲' : '▼'}</span>
+                        <span className={`arrow ${isReasonOpen ? 'active' : ''}`}></span>
                       </button>
                       {isReasonOpen && (
                         <ul className="dropdown-list">
