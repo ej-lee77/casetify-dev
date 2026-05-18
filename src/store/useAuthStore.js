@@ -33,7 +33,22 @@ export const useAuthStore = create(
                     
                     // 만약 현재 유저가 있고, 그 유저가 카카오나 네이버라면 초기화하지 않고 유지합니다.
                     if (user && (user.provider === 'kakao' || user.provider === 'naver')) {
-                        // console.log("소셜 로그인 유저 상태를 유지합니다.");
+                        try {
+                            const userDocRef = doc(db, "users", user.uid);
+                            const userSnap = await getDoc(userDocRef);
+                            
+                            if (userSnap.exists()) {
+                                const userData = userSnap.data();
+                                set({ user: userData }); // 껍데기 유저 정보에 진짜 데이터를 채워 넣음
+                                // console.log("소셜 로그인 유저 정보 복구 완료:", userData);
+                            } else {
+                                // DB에 유저가 없다면 잘못된 정보이므로 초기화
+                                set({ user: null });
+                            }
+                        } catch (error) {
+                            console.log("소셜 유저 정보 복구 중 에러 발생:", error);
+                            set({ user: null });
+                        }
                         return; 
                     }
 
