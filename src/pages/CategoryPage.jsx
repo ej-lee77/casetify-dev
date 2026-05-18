@@ -299,9 +299,14 @@ export default function CategoryPagePractice() {
     // ── 모델 선택 옵션 ──
     const deviceModelOptions = useMemo(() => {
         const filtered = routeItems.filter(
-            (i) => i.modelKey && i.modelLabel && (!selectedBrand || i.brand === selectedBrand)
+            (i) => i.modelKey && i.modelLabel && (!selectedBrand || i.brand === selectedBrand) && !['AirPods', 'MacBook', 'iPad', 'Apple Watch'].includes(i.modelLabel)
         );
-        return [...new Map(filtered.map((i) => [i.modelKey, { key: i.modelKey, label: i.modelLabel }])).values()];
+        // return [...new Map(filtered.map((i) => [i.modelKey, { key: i.modelKey, label: i.modelLabel }])).values()];
+        // 2. 중복 제거하여 배열로 변환
+        const uniqueOptions = [...new Map(filtered.map((i) => [i.modelKey, { key: i.modelKey, label: i.modelLabel }])).values()];
+        
+        // 3. label(이름) 기준 내림차순 정렬 (큰 것부터: Z -> A, 하 -> 아)
+        return uniqueOptions.sort((a, b) => b.label.localeCompare(a.label));
     }, [routeItems, selectedBrand]);
 
     // ── 적용된 태그 ──
@@ -601,7 +606,7 @@ export default function CategoryPagePractice() {
                                                 {deviceModelOptions.map((model) => (
                                                     <li
                                                         key={model.key}
-                                                        className={selectedFilters.mㅁodel === model.key ? "on" : ""}
+                                                        className={selectedFilters.model === model.key ? "on" : ""}
                                                         onClick={() =>
                                                             setSelectedFilters((p) => ({
                                                                 ...p,
