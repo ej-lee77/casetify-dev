@@ -114,9 +114,19 @@ function CropSetupSection({ cropTransform, setCropTransform, cropSetupMode, setC
                     </div>
                 </div>
             )}
-            {cropSetupLocked && (
-                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0',padding: '8px 12px', fontSize: 12, color: '#16a34a', marginTop: 8 }}>
-                    ✅ 구역이 확정되었습니다. "다시 설정"으로 수정할 수 있어요.
+            {/* 확정 배너 — locked 여부와 상관없이 항상 표시, locked면 green / 아니면 안내 */}
+            {!cropSetupMode && (
+                <div style={{
+                    background: cropSetupLocked ? '#f0fdf4' : '#fffbeb',
+                    border: `1px solid ${cropSetupLocked ? '#bbf7d0' : '#fde68a'}`,
+                    padding: '8px 12px',
+                    fontSize: 12,
+                    color: cropSetupLocked ? '#16a34a' : '#92400e',
+                    marginTop: 8,
+                }}>
+                    {cropSetupLocked
+                        ? '✅ 구역이 확정되었습니다. "다시 설정"으로 수정할 수 있어요.'
+                        : '💡 "구역 설정"을 눌러 이미지 위치를 조정한 뒤 확정하세요.'}
                 </div>
             )}
         </div>
@@ -186,9 +196,20 @@ function CropSection({ imageTransform, setImageTransform, cropMode, setCropMode,
                     </div>
                 </div>
             )}
-            {cropLocked && (
-                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, padding: '8px 12px', fontSize: 12, color: '#16a34a', marginTop: 8 }}>
-                    ✅ 영역이 고정되었습니다. "다시 편집"을 눌러 수정할 수 있어요.
+            {/* 항상 표시 — locked 상태에 따라 색상 분기 */}
+            {!cropMode && (
+                <div style={{
+                    background: cropLocked ? '#f0fdf4' : '#fffbeb',
+                    border: `1px solid ${cropLocked ? '#bbf7d0' : '#fde68a'}`,
+                    borderRadius: 8,
+                    padding: '8px 12px',
+                    fontSize: 12,
+                    color: cropLocked ? '#16a34a' : '#92400e',
+                    marginTop: 8,
+                }}>
+                    {cropLocked
+                        ? '✅ 영역이 고정되었습니다. "다시 편집"을 눌러 수정할 수 있어요.'
+                        : '💡 "영역 고르기"를 눌러 케이스 위 이미지 위치를 조정하세요.'}
                 </div>
             )}
         </div>
@@ -223,6 +244,16 @@ export function PhotoSection({
             setTimeout(() => onScrollToFilter?.(), 200)
         }
         reader.readAsDataURL(file)
+    }
+
+    // 스티커 선택 시 cropSetupLocked 자동 확정
+    const handleStickerSelect = (sticker) => {
+        setSelectedSticker(sticker)
+        setPhotoFilter(DEFAULT_FILTER_ID)
+        // 스티커는 별도 구역 설정 불필요 → 바로 확정 상태로
+        setCropSetupLocked(true)
+        setCropSetupMode(false)
+        setTimeout(() => onScrollToFilter?.(), 150)
     }
 
     const filterAndControls = (imgSrc) => (
@@ -269,7 +300,7 @@ export function PhotoSection({
                         📷 사진 업로드
                     </button>
                     <button className={`photo-tab-btn ${photoTab === 'sticker' ? 'active' : ''}`}
-                        onClick={() => { setPhotoTab('sticker'); if (!selectedSticker) setSelectedSticker(STICKERS[0]) }}>
+                        onClick={() => { setPhotoTab('sticker'); if (!selectedSticker) handleStickerSelect(STICKERS[0]) }}>
                         🐾 스티커
                     </button>
                 </div>
@@ -302,7 +333,7 @@ export function PhotoSection({
                         {STICKERS.map(s => (
                             <button key={s.id}
                                 className={`custom-filter-card ${selectedSticker?.id === s.id ? 'active' : ''}`}
-                                onClick={() => { setSelectedSticker(s); setPhotoFilter(DEFAULT_FILTER_ID); setTimeout(() => onScrollToFilter?.(), 150) }}>
+                                onClick={() => handleStickerSelect(s)}>
                                 <div className="custom-filter-img-wrap">
                                     <img src={s.src} alt={s.label} />
                                 </div>
