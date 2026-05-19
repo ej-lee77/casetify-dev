@@ -139,7 +139,6 @@ export function isCaseTypeSupported(modelId, caseTypeId) {
     return true
 }
 
-
 function getFilterStyle(filterId, strength) {
     const s = strength / 100
     switch (filterId) {
@@ -181,7 +180,6 @@ function CanvasContent({
             <>
                 {/* ── 확정된 이미지 레이어 (clipPath + 3단계: 프레임 이동/크기) ── */}
                 <div style={{
-                    // scale → 프레임 자체 크기 변경 (width/height에 적용)
                     width: `${100 * t.scale}%`,
                     height: `${100 * t.scale}%`,
                     position: 'absolute', top: '50%', left: '50%',
@@ -203,17 +201,17 @@ function CanvasContent({
                             transform: `translate(calc(-50% + ${ct.x}px), calc(-50% + ${ct.y}px)) scale(${ct.scale})`,
                             transformOrigin: 'center center',
                             width: '100%', height: '100%',
-                            objectFit: photoTab === 'sticker' ? 'contain' : 'cover',
+                            objectFit: 'contain',
                             userSelect: 'none',
                             ...(photoFilter && getFilterStyle(photoFilter, filterStrength)),
                         }}
                     />
                 </div>
 
-                {/* ── cropSetupMode일 때: 원본 이미지 반투명 오버레이 (잘리지 않은 전체) ── */}
+                {/* ── cropSetupMode: 원본 전체 이미지 반투명 오버레이 ── */}
                 {cropSetupMode && (
                     <>
-                        {/* 반투명 배경 - 원본 전체 이미지 표시 */}
+                        {/* contain → 사진/스티커 모두 원본 전체가 프레임 안에 보임 */}
                         <img
                             src={previewURL}
                             alt=""
@@ -223,7 +221,7 @@ function CanvasContent({
                                 transform: `translate(calc(-50% + ${ct.x}px), calc(-50% + ${ct.y}px)) scale(${ct.scale})`,
                                 transformOrigin: 'center center',
                                 width: '100%', height: '100%',
-                                objectFit: photoTab === 'sticker' ? 'contain' : 'cover',
+                                objectFit: 'contain',
                                 userSelect: 'none',
                                 opacity: 0.35,
                                 zIndex: 4,
@@ -265,7 +263,7 @@ function CanvasContent({
                     </>
                 )}
 
-                {/* ── cropMode일 때: 캔버스 위 이동 드래그 핸들 ── */}
+                {/* ── cropMode: 캔버스 위 이동 드래그 핸들 ── */}
                 {cropMode && !cropSetupMode && (
                     <div style={{
                         position: 'absolute', inset: 0, zIndex: 6,
