@@ -98,21 +98,18 @@ function ProductCustomizeContent({ deviceType }) {
     const [isCartPopupOpen, setIsCartPopupOpen] = useState(false)
     const [isPopupErr, setIsPopupErr] = useState(false)
     const [showEmojiPicker, setShowEmojiPicker] = useState(false)
-    const [showScrollAlert, setShowScrollAlert] = useState(false)
 
     // ── 이미지 관련 state ─────────────────────────
-    const [cropTransform, setCropTransform] = useState({ x: 0, y: 0, scale: 1 })   // 1단계: 원본 구역
+    const [cropTransform, setCropTransform] = useState({ x: 0, y: 0, scale: 1 })
     const [cropSetupMode, setCropSetupMode] = useState(false)
     const [cropSetupLocked, setCropSetupLocked] = useState(false)
-    const [imageTransform, setImageTransform] = useState({ x: 0, y: 0, scale: 1 }) // 3단계: 캔버스 이동
+    const [imageTransform, setImageTransform] = useState({ x: 0, y: 0, scale: 1 })
     const [cropMode, setCropMode] = useState(false)
     const [textTransform, setTextTransform] = useState({ x: 0, y: 0, scale: 1, rotate: 0 })
     const [textMode, setTextMode] = useState(false)
 
     const dragRef = useRef(null)
 
-    // 1단계 드래그 (cropSetupMode)
-    // 3단계 드래그 (cropMode)
     const onCanvasMouseDown = useCallback((e) => {
         if (!cropSetupMode && !cropMode && !textMode) return
         e.preventDefault()
@@ -159,11 +156,35 @@ function ProductCustomizeContent({ deviceType }) {
     const filterSectionRef = useRef(null)
     const isMounted = useRef(false)
 
+    // ── 스크롤 시 편집 모드 자동 해제 ────────────
+    useEffect(() => {
+        const panel = rightPanelRef.current
+        if (!panel) return
+        let scrollTimer = null
+        const handleScroll = () => {
+            if (scrollTimer) clearTimeout(scrollTimer)
+            scrollTimer = setTimeout(() => {
+                const anyModeActive = cropSetupMode || cropMode || textMode
+                if (anyModeActive) {
+                    if (cropSetupMode) { setCropSetupLocked(true); setCropSetupMode(false) }
+                    if (cropMode) setCropMode(false)
+                    if (textMode) setTextMode(false)
+                }
+            }, 150)
+        }
+        panel.addEventListener('scroll', handleScroll, { passive: true })
+        return () => {
+            panel.removeEventListener('scroll', handleScroll)
+            if (scrollTimer) clearTimeout(scrollTimer)
+        }
+    }, [cropSetupMode, cropMode, textMode])
+
     useEffect(() => { isMounted.current = true }, [])
 
+    // ── 페이지 진입 시 스크롤 내려가 있으면 자동 top 이동 ──
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (window.scrollY > 80) setShowScrollAlert(true)
+            if (window.scrollY > 80) window.scrollTo({ top: 0, behavior: 'smooth' })
         }, 300)
         return () => clearTimeout(timer)
     }, [])
@@ -240,18 +261,64 @@ function ProductCustomizeContent({ deviceType }) {
     const percent = Math.round((doneSteps / totalSteps) * 100)
     const isAllDone = doneSteps === totalSteps
 
+    const prevCanAddCart = useRef(null)
+    const overflowTimerRef = useRef(null)
+
+    useEffect(() => {
+        const isMobile = window.innerWidth <= 860
+        if (isMobile) {
+            document.body.style.overflow = ''
+            prevCanAddCart.current = canAddCart
+            return
+        }
+
+        if (overflowTimerRef.current) clearTimeout(overflowTimerRef.current)
+
+        if (prevCanAddCart.current === true && !canAddCart) {
+            // 다시선택: 스크롤 먼저 허용 → top 자동 이동 → 완료 후 hidden
+            document.body.style.overflow = ''
+            if (window.scrollY > 30) window.scrollTo({ top: 0, behavior: 'smooth' })
+            overflowTimerRef.current = setTimeout(() => {
+                document.body.style.overflow = 'hidden'
+            }, 520)
+        } else {
+            document.body.style.overflow = canAddCart ? '' : 'hidden'
+        }
+
+        prevCanAddCart.current = canAddCart
+        return () => { if (overflowTimerRef.current) clearTimeout(overflowTimerRef.current) }
+    }, [canAddCart])
+
     useEffect(() => {
         let wasMobile = window.innerWidth <= 860
-        const apply = () => {
+        const onResize = () => {
             const isMobile = window.innerWidth <= 860
             if (wasMobile && !isMobile) window.scrollTo({ top: 0, behavior: 'smooth' })
             wasMobile = isMobile
             if (isMobile) { document.body.style.overflow = ''; return }
-            document.body.style.overflow = canAddCart ? '' : 'hidden'
+            if (!canAddCart) document.body.style.overflow = 'hidden'
         }
-        apply()
-        window.addEventListener('resize', apply)
-        return () => { window.removeEventListener('resize', apply); document.body.style.overflow = '' }
+        window.addEventListener('resize', onResize)
+        return () => { window.removeEventListener('resize', onResize); document.body.style.overflow = '' }
+    }, [canAddCart])
+
+    // ── 우측 패널 스크롤 끝 → 전체 페이지 스크롤 체인 ──
+    useEffect(() => {
+        const panel = rightPanelRef.current
+        if (!panel) return
+        const handleWheel = (e) => {
+            if (!canAddCart) return
+            const { scrollTop, scrollHeight, clientHeight } = panel
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 2
+            const atTop = scrollTop <= 2
+            const scrollingDown = e.deltaY > 0
+            const scrollingUp = e.deltaY < 0
+            if ((atBottom && scrollingDown) || (atTop && scrollingUp)) {
+                window.scrollBy({ top: e.deltaY, behavior: 'auto' })
+            }
+        }
+        panel.addEventListener('wheel', handleWheel, { passive: true })
+        return () => panel.removeEventListener('wheel', handleWheel)
     }, [canAddCart])
 
     const prevIsAllDone = useRef(false)
@@ -321,23 +388,6 @@ function ProductCustomizeContent({ deviceType }) {
 
     return (
         <section className="custom detail-page-custom">
-            {showScrollAlert && (
-                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ background: '#fff', padding: '36px 32px', textAlign: 'center', maxWidth: 320, width: 'calc(100% - 48px)', boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
-                        <div style={{ fontSize: 40, marginBottom: 12 }}>↕</div>
-                        <p style={{ fontSize: 16, fontWeight: 700, color: '#111', marginBottom: 8 }}>페이지 상단으로 이동해주세요</p>
-                        <p style={{ fontSize: 13, color: '#888', marginBottom: 24, lineHeight: 1.6 }}>커스텀 스튜디오는 상단에서<br />시작해야 합니다.</p>
-                        <button onClick={() => { setShowScrollAlert(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-                            style={{ width: '100%', padding: '14px 0', background: '#111', color: '#fff', border: 'none', fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
-                            맨 위로 이동
-                        </button>
-                        <button onClick={() => setShowScrollAlert(false)}
-                            style={{ width: '100%', padding: '10px 0', marginTop: 8, background: 'none', color: '#aaa', border: 'none', fontSize: 13, cursor: 'pointer' }}>
-                            그냥 계속하기
-                        </button>
-                    </div>
-                </div>
-            )}
             <div className="inner">
                 <div className="detail-inner-custom">
                     <div className="detail-left-custom">
@@ -409,7 +459,6 @@ function ProductCustomizeContent({ deviceType }) {
                                 </div>
                             </div>
 
-                            {/* ② 케이스 타입 — phone: 아코디언, nonPhone: 자동고정 */}
                             <div ref={step2Ref} className={`detail-info-box step-block ${stepClass(!selectedModel, !!selectedModel && !!selectedCaseType)}`}>
                                 <div className="step-label-row">
                                     <p className="label">② 케이스 타입</p>
@@ -448,7 +497,6 @@ function ProductCustomizeContent({ deviceType }) {
                                 </div>
                             </div>
 
-                            {/* ③ 케이스 컬러 — 공통 */}
                             <div ref={step3Ref}
                                 className={`detail-info-box step-block ${stepClass(isNonPhone ? !selectedModel : !selectedCaseType, !!selectedCaseColor)}`}>
                                 <div className="step-label-row">
@@ -509,8 +557,8 @@ function ProductCustomizeContent({ deviceType }) {
                                         textValue={textValue} setTextValue={setTextValue}
                                         fontColor={fontColor} setFontColor={setFontColor}
                                         showEmojiPicker={showEmojiPicker} setShowEmojiPicker={setShowEmojiPicker}
-                                    textTransform={textTransform} setTextTransform={setTextTransform}
-                                    textMode={textMode} setTextMode={setTextMode}
+                                        textTransform={textTransform} setTextTransform={setTextTransform}
+                                        textMode={textMode} setTextMode={setTextMode}
                                     />
                                 )}
                             </div>
