@@ -6,6 +6,8 @@ export default function Popup() {
     // 현재 보여줄 팝업의 ID (null, 'shipping', 'membership')
     const [activePopup, setActivePopup] = useState(null);
     const [isClosing, setIsClosing] = useState(false); // 닫히는 중인지 확인하는 상태
+    const [isShippingChecked, setIsShippingChecked] = useState(false);
+    const [isMembershipChecked, setIsMembershipChecked] = useState(false);
 
     useEffect(() => {
         // (기존 랜덤 로직 동일...)
@@ -69,9 +71,25 @@ export default function Popup() {
                             </div>
                         </Link>
                         <div className="popup-footer">
-                            <button onClick={() => hideToday('shipping')}>오늘 하루 열지않기</button>
+                            <label className="today-close-label">
+                                <input 
+                                    type="checkbox" 
+                                    checked={isShippingChecked}
+                                    onChange={(e) => setIsShippingChecked(e.target.checked)}
+                                    className="today-close-checkbox"
+                                />
+                                <span className="today-close-text">오늘 하루 열지않기</span>
+                            </label>
                             <span className="divider">|</span>
-                            <button onClick={() => handleClose()} className="close-btn">
+                            <button 
+                                onClick={() => {
+                                    if (isShippingChecked) {
+                                        hideToday('shipping'); // 체크되어 있다면 하루 안 보기 저장!
+                                    }
+                                    handleClose(); // 체크 여부와 상관없이 팝업은 닫힘
+                                }} 
+                                className="close-btn"
+                            >
                                 <img src="/images/icon/close.svg" alt="닫기" />
                             </button>
                         </div>
@@ -96,9 +114,25 @@ export default function Popup() {
                             </div>
                         </Link>
                         <div className="popup-footer">
-                            <button onClick={() => hideToday('membership')}>오늘 하루 열지않기</button>
+                            <label className="today-close-label">
+                                <input 
+                                    type="checkbox" 
+                                    checked={isMembershipChecked}
+                                    onChange={(e) => setIsMembershipChecked(e.target.checked)}
+                                    className="today-close-checkbox"
+                                />
+                                <span className="today-close-text">오늘 하루 열지않기</span>
+                            </label>
                             <span className="divider">|</span>
-                            <button onClick={() => handleClose()} className="close-btn">
+                            <button 
+                                onClick={() => {
+                                    if (isMembershipChecked) {
+                                        hideToday('membership'); // 체크되어 있다면 하루 안 보기 저장!
+                                    }
+                                    handleClose(); // 체크 여부와 상관없이 팝업은 닫힘
+                                }} 
+                                className="close-btn"
+                            >
                                 <img src="/images/icon/close.svg" alt="닫기" />
                             </button>
                         </div>

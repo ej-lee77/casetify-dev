@@ -755,7 +755,7 @@
                     margin-bottom: 5px;
                 }
                 .detail-row{
-                    margin-bottom: 5px;
+                    margin-bottom: 10px;
                     @include g.multi-ellipsis($lines: 1);
 
                     .detail-title{
@@ -776,7 +776,7 @@
                 }
 
                 .detail-section{
-                    margin-top: 10px;
+                    margin-top: 20px;
                 }
             }
         }

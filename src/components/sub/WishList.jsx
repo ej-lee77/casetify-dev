@@ -41,9 +41,8 @@ export default function WishList() {
     return (
         <div className='wishlist-wrap'>
             <MypageTitle title={"위시리스트"} />
-            <ul className="wish-list">
                 {currentItems.length > 0 ? (
-                    <>
+                    <ul className="wish-list">
                         {currentItems.map((item) => (
                             <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
                                 <Link
@@ -71,13 +70,11 @@ export default function WishList() {
                                 <button onClick={() => setItemToDelete(item)} className='wish-heart'><img src="/images/icon/icon_favorite_fill.svg" alt="위시리스트 해제" /></button>
                             </li>
                         ))}
-                    </>
+                    </ul>
                 ) : (
-                    <li>
-                        <EmptyState icon="♡" strong="위시리스트" title="에 담긴 상품이 없습니다." desc="관심 있는 상품을 위시리스트에 추가해 보세요." btnText="상품 보러가기" btnLink="/case/device" />
-                    </li>
+                    <EmptyState icon="♡" strong="위시리스트" title="에 담긴 상품이 없습니다." desc="관심 있는 상품을 위시리스트에 추가해 보세요." btnText="상품 보러가기" btnLink="/case/device" />
                 )}
-            </ul>
+            
             {wishlist.length > itemsPerPage && (
                 <div className="pagination-wrap">
                     {/* 맨 앞으로 (<<) */}

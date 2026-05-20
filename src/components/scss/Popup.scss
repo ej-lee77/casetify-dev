@@ -3,7 +3,7 @@
 .main-popup-overlay {
     position: fixed;
     bottom: 0; 
-    right: 0;
+    left: 0;
     z-index: 10000;
     // top: 90px;
     height: max-content;
@@ -16,7 +16,7 @@
     .main-popup-content {
         width: 400px;
         background: #fff;
-        border-radius: 30px 30px 0 30px;
+        border-radius: 30px 30px 30px 0;
         overflow: hidden;
         position: relative;
         animation: mainPopUpSlideUp 0.4s ease-out forwards;
@@ -75,6 +75,51 @@
             button, span { color: #fff; font-size: 13px; background: none; border: none; cursor: pointer; }
             .divider { margin: 0 10px; opacity: 0.3; }
             .close-btn img { width: 16px; height: 16px; filter: invert(1); }
+
+            /* 오늘 하루 열지않기 전체 클릭 영역 */
+            .today-close-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+                padding: 4px 4px;
+                user-select: none;
+            }
+
+            .today-close-text {
+                color: #bfbfbf;
+            }
+
+            /* 검은색 커스텀 체크박스 */
+            .today-close-checkbox {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #4a4a4a;
+                border-radius: 3px;
+                outline: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.15s ease;
+            }
+
+            .today-close-checkbox:checked {
+                background-color: #000000;
+            }
+
+            /* 체크되었을 때 흰색 체크 표시(V) */
+            .today-close-checkbox:checked::before {
+                content: '';
+                width: 4px;
+                height: 8px;
+                border: solid #ffffff;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+                margin-bottom: 2px;
+            }
         }
     }
     /* 닫힐 때 부드럽게 사라지는 효과를 위한 클래스 (선택 사항) */
