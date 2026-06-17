@@ -1,7 +1,7 @@
 @use "../../App.scss" as g;
 
 .login-wrap{
-    margin: 50px 0;
+    margin: 80px 0;
     padding-top: 100px;
     position: relative;
 
@@ -13,20 +13,6 @@
             position: relative;
             width: 100%;
             margin-top: 80px;
-
-            .eye-btn{
-                position: absolute;
-                right: 10px;
-                bottom: 0;
-                background: none;
-                border: none;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 4px;
-                z-index: 10;
-            }
 
             input {
                 font-size: 1rem;
@@ -44,7 +30,7 @@
             input::placeholder { color: #aaaaaa; }
             input:focus { outline: none; }
 
-            >span {
+            span {
                 display: block;
                 position: absolute;
                 bottom: 0;
@@ -261,62 +247,51 @@
                 }
             }
         }
-        .modal-wrap{
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(255, 255, 255, 0.45); 
-            backdrop-filter: blur(5px); 
-        
-            .modal-overlay{
-                @include g.pos-center();
-                @include g.myFlex($jc: center, $gap: unset);
-                width: 700px;
-                height: 300px;
-                border: 10px solid g.$text-main;
-                background: #fff;
-                z-index: 10;
-                animation: fadeInLogin 0.5s ease-in-out forwards;
-                border-radius: 40px;
+        .modal-overlay{
+            @include g.pos-center();
+            @include g.myFlex($jc: center, $gap: unset);
+            width: 500px;
+            height: 200px;
+            border: 10px solid g.$text-main;
+            background: #fff;
+            z-index: 10;
+            animation: fadeInLogin 0.5s ease-in-out forwards;
+            border-radius: 40px;
 
-                &::before{
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    left: -15px;
-                    bottom: -12px;
-                    background-image: url("/images/login/casetify-left.png");
-                    width: 100px;
-                    height: 100px;
-                    background-size: cover;
-                }
-                &::after{
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    right: -17px;
-                    top: -16px;
-                    background-image: url("/images/login/casetify-right.png");
-                    width: 100px;
-                    height: 100px;
-                    background-size: cover;
-                }
-                .modal-content{
-                    width: 80%;
-                    margin: 0 auto;
-                    text-align: center;
+            &::before{
+                content: "";
+                display: block;
+                position: absolute;
+                left: -15px;
+                bottom: -12px;
+                background-image: url("/images/login/casetify-left.png");
+                width: 100px;
+                height: 100px;
+                background-size: cover;
+            }
+            &::after{
+                content: "";
+                display: block;
+                position: absolute;
+                right: -17px;
+                top: -16px;
+                background-image: url("/images/login/casetify-right.png");
+                width: 100px;
+                height: 100px;
+                background-size: cover;
+            }
+            .modal-content{
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
 
-                    .input-btn{
-                        margin: 10px 0;
-                    }
+                .input-btn{
+                    margin: 10px 0;
                 }
-                &.active{
-                    height: 200px;
-                    border: 1px solid g.$text-strike;
-                }
+            }
+            &.active{
+                height: 200px;
+                border: 1px solid g.$text-strike;
             }
         }
 
@@ -394,6 +369,64 @@
             border-bottom: #ddd 1px solid;
         }
 
+        // ✅ 단계 표시 헤더
+        .join-substep{
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin: 0 0 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid g.$text-main;
+
+            .join-substep-now{
+                font-size: 1.4em;
+                font-weight: 800;
+                color: g.$text-main;
+            }
+            .join-substep-total{
+                font-size: 1em;
+                color: #aaa;
+            }
+            .join-substep-label{
+                margin-left: 6px;
+                font-size: 1em;
+                font-weight: 600;
+                color: g.$text-sub;
+            }
+        }
+
+        .join-step-panel{
+            animation: joinStepFade 0.25s ease;
+        }
+        @keyframes joinStepFade{
+            from{ opacity: 0; transform: translateY(6px); }
+            to{ opacity: 1; transform: translateY(0); }
+        }
+
+        // ✅ 단계 이동 버튼
+        .join-step-nav{
+            .join-step-err{
+                color: g.$text-sale;
+                font-size: 0.85em;
+                min-height: 1.2em;
+                margin-bottom: 12px;
+                text-align: center;
+            }
+            .join-step-btns{
+                display: flex;
+                gap: 12px;
+
+                .input-btn{ flex: 1; }
+
+                .input-btn-ghost{
+                    background: #fff;
+                    color: g.$text-main;
+                    border: 1px solid g.$text-main;
+                    flex: 0 0 30%;
+                }
+            }
+        }
+
         .input-box{
             @include g.myFlex($jc: start, $gap: unset);
             padding: 30px 0;
@@ -410,12 +443,6 @@
                 width: 100%;
                 margin-top: 0;
                 // position: relative;
-
-                .eye-btn{
-                    right: 20%;
-                    bottom: 50%;
-                    transform: translateY(50%);
-                }
                 input{
                     border: 1px solid #aaa;
                     width: 80%;
@@ -554,7 +581,7 @@
             border: 1px solid g.$text-strike;
             background: #fff;
             z-index: 10;
-            animation: fadeInLogin 0.5s ease-in-out forwards;
+            animation: fadeIn 0.5s ease-in-out forwards;
 
             .modal-agree-content{
                 width: 80%;

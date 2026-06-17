@@ -6,10 +6,6 @@
     position: relative;
     z-index: 0;
 
-    .category-breadcrumb{
-        margin: 0 0 10px;
-    }
-
     .detail-inner {
         width: 1280px;
         max-width: calc(100% - 40px);
@@ -34,7 +30,7 @@
             min-width: 300px;
             min-height: 300px;
             background: #f7f7f7;
-            // border-radius: 12px;
+            border-radius: 12px;
             // overflow: hidden;
             display: flex;
             align-items: center;
@@ -50,13 +46,13 @@
         .image-wish-btn {
             position: absolute;
             // width: 50px;
-            top: 38px;      /* ← bottom 제거, top으로 변경 */
-            right: 38px;    /* ← left 제거, right으로 변경 */
-            width: 30px;
-            height: 30px;
+            bottom: 30px;
+            left: 35px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: none;
-            // background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(6px);
             display: flex;
             align-items: center;
@@ -101,7 +97,7 @@
             width: 80px;
             min-height: 80px;
             border: 1px solid #ddd;
-            // border-radius: 8px;
+            border-radius: 8px;
             overflow: hidden;
             background: #f7f7f7;
 
@@ -147,7 +143,7 @@
             gap: 4px;
             border: 2px solid transparent;
             background: none;
-            // border-radius: 8px;
+            border-radius: 8px;
             padding: 4px;
             cursor: pointer;
             transition: border-color 0.2s;
@@ -203,21 +199,6 @@
 
 
     // 기종 아코디언====================================
-.model-accordion-arrow{
-  transition:0.3s;
-
-  &.open{
-    transform:rotate(180deg);
-  }
-
-  .custom-arrow{
-    width:20px;
-    height:20px;
-    display:block;
-  }
-}
-
-
 
     .model-accordion {
         position: relative;
@@ -229,7 +210,7 @@
             justify-content: space-between;
             padding: 14px 18px;
             border: 1px solid #ddd;
-            // border-radius: 10px;
+            border-radius: 10px;
             background: #fff;
             font-size: 15px;
         }
@@ -624,7 +605,7 @@
             .bundle-img-wrap {
                 width: 100%;
                 aspect-ratio: 1;
-                // border-radius: 8px;
+                border-radius: 8px;
                 overflow: hidden;
                 background: #f0f0f0;
                 border: 2px solid transparent;
@@ -662,7 +643,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2px;
+        gap: 3px;
         margin-top: 4px;
 
         .bundle-default-price {
@@ -678,18 +659,19 @@
         }
 
         .bundle-discount-price {
-            font-size: 12px;
-            color: #111;
-            font-weight: 700;
+            font-size: 13px;
+            color: g.$text-sale;
+            font-weight: 800;
         }
 
         .bundle-discount-badge {
             font-size: 10px;
             color: #fff;
-            background: #ff4d4d;
-            padding: 1px 5px;
+            background: g.$text-sale;
+            padding: 2px 6px;
             border-radius: 4px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.2px;
         }
     }
 
@@ -722,8 +704,8 @@
 
             .bundle-total-discount {
                 font-size: 16px;
-                font-weight: 700;
-                color: #111;
+                font-weight: 800;
+                color: g.$text-sale;
             }
         }
     }
@@ -817,142 +799,5 @@
         margin-right: 6px;
         vertical-align: middle;
         border: 1px solid #ccc;
-    }
-}
-// ✅ 로그인 배너 (팝업 대체)
-.login-banner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(188, 73, 73, 0.88);
-    color: #fff;
-    padding: 16px 40px;
-    border-radius: 999px;
-    font-size: 18px;
-    font-weight: 600;
-    white-space: nowrap;
-    cursor: pointer;
-    z-index: 10;
-    animation: loginBannerIn 0.2s ease;
-
-    @keyframes loginBannerIn {
-        from {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.92);
-        }
-        to {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-    }
-}
-
-// ── 반응형 ────────────────────────────────────────────
-@media (max-width: 1024px) {
-    .detail-page {
-        .detail-inner {
-            gap: 30px;
-        }
-        .detail-right {
-            width: 360px;
-        }
-    }
-}
-
-@media (max-width: 860px) {
-    .detail-page {
-        .detail-inner {
-            flex-direction: column;
-            gap: 0;
-            max-width: calc(100% - 32px);
-        }
-
-        .detail-left {
-            width: 100%;
-            flex: none;
-        }
-
-        .detail-right {
-            width: 100%;
-        }
-
-        .detail-image-wrap {
-            margin-bottom: 80px;
-
-            .detail-thumb-list {
-                bottom: -80px;
-                gap: 8px;
-
-                li {
-                    width: 60px;
-                    min-height: 60px;
-                }
-            }
-        }
-
-        .detail-title {
-            font-size: 26px;
-        }
-
-        .detail-price {
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-
-        .bundle-section .bundle-list {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .model-accordion .model-accordion-list {
-            max-height: 400px;
-
-            .model-brand-tabs {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-                padding: 12px;
-            }
-        }
-    }
-}
-
-@media (max-width: 640px) {
-    .detail-page {
-        .detail-inner {
-            max-width: calc(100% - 24px);
-        }
-
-        .detail-title {
-            font-size: 22px;
-        }
-
-        .detail-price {
-            font-size: 20px;
-        }
-
-        .detail-image-wrap {
-            margin-bottom: 90px;
-
-            .detail-thumb-list {
-                gap: 6px;
-                li {
-                    width: 52px;
-                    min-height: 52px;
-                }
-            }
-        }
-
-        .bundle-section .bundle-list {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .color-remote {
-            padding: 6px 5px;
-            .remote-chip {
-                width: 22px;
-                height: 22px;
-            }
-        }
     }
 }
