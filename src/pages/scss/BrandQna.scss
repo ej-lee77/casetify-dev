@@ -19,7 +19,7 @@
 
     // ─── 섹션 제목 ─────────────────────────────────────
     .section-heading {
-        font-size: 1.6rem;
+        font-size: 2rem;
         font-weight: 700;
         margin-bottom: 28px;
         letter-spacing: -0.02em;
@@ -183,8 +183,7 @@
         background: #fafafa;
         padding: 60px 0 100px;
         // border-top: 1px solid #e6e6e6;
-        scroll-margin-top: 80px;
-        /* 원하는 오프셋 만큼 설정 */
+        scroll-margin-top: 80px; /* 원하는 오프셋 만큼 설정 */
     }
 
     .inquiry-form {
@@ -237,7 +236,6 @@
             color: #ababab;
         }
     }
-
     .custom-select-container {
         position: relative;
         width: 100%;
@@ -277,7 +275,7 @@
         color: #fff;
     }
 
-    .err-box {
+    .err-box{
         position: absolute;
         width: 100%;
         height: 20px;
@@ -313,8 +311,8 @@
         }
     }
 
-    .inquiry-row--textarea {
-        .err-box {
+    .inquiry-row--textarea{
+        .err-box{
             top: 210px;
         }
     }
@@ -325,7 +323,7 @@
         margin-top: 8px;
         position: relative;
 
-        p {
+        p{
             position: absolute;
             width: 100%;
             height: 20px;
@@ -371,85 +369,68 @@
             color: #585858;
             margin-bottom: 32px;
         }
-    }
 
-    .faq-pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-        margin-top: 40px;
+        .inquiry-history {
+            max-width: 720px;
+            margin: 0 auto 32px;
+            text-align: left;
 
-        .faq-page-btn {
-            width: 36px;
-            height: 36px;
-            border: 1px solid #ddd;
-            background: #fff;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.15s;
-
-            &:hover:not(:disabled) {
-                border-color: #111;
-                color: #111;
+            .inquiry-history-title {
+                font-size: 1rem;
+                font-weight: 700;
+                color: g.$text-main;
+                padding-bottom: 12px;
+                margin-bottom: 16px;
+                border-bottom: 2px solid g.$text-main;
             }
 
-            &.active {
-                background: #111;
-                border-color: #111;
-                color: #fff;
-                font-weight: 600;
+            .inquiry-history-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
             }
 
-            &:disabled {
-                color: #ccc;
-                cursor: not-allowed;
-                border-color: #eee;
+            .inquiry-history-item {
+                padding: 16px 4px;
+                border-bottom: 1px solid g.$card-border;
+
+                .inquiry-history-head {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-bottom: 8px;
+
+                    .inquiry-history-cate {
+                        font-size: 0.85rem;
+                        font-weight: 700;
+                        color: g.$text-main;
+                    }
+
+                    .inquiry-history-status {
+                        font-size: 0.75rem;
+                        font-weight: 600;
+                        color: g.$color-green;
+                        background: rgba(33, 166, 100, 0.1);
+                        padding: 2px 8px;
+                        border-radius: 20px;
+                    }
+
+                    .inquiry-history-date {
+                        margin-left: auto;
+                        font-size: 0.8rem;
+                        color: #999;
+                    }
+                }
+
+                .inquiry-history-message {
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                    color: g.$text-sub;
+                    margin: 0;
+                    @include g.multi-ellipsis($lines: 2);
+                }
             }
         }
     }
 
-}
-
-// ── QNA 히어로 (정품인증과 동일한 디자인 구조) ────────
-.qna-hero {
-    position: relative;
-    width: 100%;
-    height: 280px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #e8e2f5 0%, #d4ccea 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .qna-hero-text {
-        text-align: center;
-        font-family: "Pretendard", sans-serif;
-        color: #2a1e3b;
-
-        .qna-hero-sub {
-            font-size: 0.85rem;
-            letter-spacing: 0.25em;
-            color: rgba(42, 30, 59, 0.6);
-            margin-bottom: 14px;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #2a1e3b;
-            margin-bottom: 10px;
-        }
-
-        .qna-hero-line {
-            width: 300px;
-            border-bottom: 1px solid rgba(42, 30, 59, 0.35);
-            margin: 0 auto 14px;
-        }
-
-        p:last-child {
-            font-size: 1rem;
-            color: rgba(42, 30, 59, 0.65);
-        }
-    }
 }

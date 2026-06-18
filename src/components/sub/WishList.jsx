@@ -3,16 +3,13 @@ import "./scss/WishList.scss"
 import MypageTitle from './MypageTitle'
 import { useAuthStore } from '../../store/useAuthStore';
 import { Link } from 'react-router-dom';
-import { li } from 'framer-motion/client';
-import EmptyState from './EmptyState';
-import ConfirmModal from '../ConfirmModal';
 
 export default function WishList() {
     const [wishItemList, setWishItemList] = useState([]);
     const { user, wishlist, onFetchWishlist, onRemoveWishlist } = useAuthStore();
     const [itemToDelete, setItemToDelete] = useState(null);
 
-    useEffect(() => {
+    useEffect(()=>{ 
         if (!user) return;
         onFetchWishlist();
     }, [user]);
@@ -44,37 +41,40 @@ export default function WishList() {
             <ul className="wish-list">
                 {currentItems.length > 0 ? (
                     <>
-                        {currentItems.map((item) => (
-                            <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
-                                <Link
-                                    to={`/detail/${item.productId}`}
-                                    state={{
-                                        selectedModel: item.device,
-                                        selectedColor: item.color
-                                    }}
-                                >
-                                    <div className="card-img">
-                                        <img src={`${item.imgUrl}`} alt={item.title} />
-                                    </div>
-                                    <div className="card-info">
-                                        <p className="card-name">{item.title}</p>
-                                        <p className="card-price">{Number(item.price || 0).toLocaleString()}원</p>
-                                        <div className="card-option">
-                                            {item.device || item.color ?
-                                                <>
-                                                    <p>[옵션]</p>
-                                                    <p>{item.device && <span>{item.device}</span>}{item.color && <span>{item.color}</span>}</p>
-                                                </> : ""}
-                                        </div>
-                                    </div>
-                                </Link>
-                                <button onClick={() => setItemToDelete(item)} className='wish-heart'><img src="/images/icon/icon_favorite_fill.svg" alt="위시리스트 해제" /></button>
-                            </li>
-                        ))}
+                    {currentItems.map((item) => (
+                        <li key={`${item.productId}-${item.deviceKey}-${item.color}`} className="wish-product-card">
+                            <Link 
+                            to={`/detail/${item.productId}`} 
+                            state={{ 
+                                selectedModel: item.device, 
+                                selectedColor: item.color 
+                            }}
+                            >
+                                <div className="card-img">
+                                    <img src={`${item.imgUrl}`} alt={item.title}/>
+                                </div>
+                                <div className="card-info">
+                                <p className="card-name">{item.title}</p>
+                                <p className="card-price">{Number(item.price || 0).toLocaleString()}원</p>
+                                <div className="card-option">
+                                    {item.device || item.color ? 
+                                    <>
+                                    <p>[옵션]</p>
+                                    <p>{item.device && <span>{item.device}</span>}<span>{item.color}</span></p>
+                                    </> : ""}
+                                </div>
+                                </div>
+                            </Link>
+                            <button onClick={() => setItemToDelete(item)} className='wish-heart'><img src="/images/icon/icon_favorite_fill.svg" alt="위시리스트 해제" /></button>
+                        </li>
+                    ))}
                     </>
-                ) : (
-                    <li>
-                        <EmptyState icon="♡" strong="위시리스트" title="에 담긴 상품이 없습니다." desc="관심 있는 상품을 위시리스트에 추가해 보세요." btnText="상품 보러가기" btnLink="/case/device" />
+                ):(
+                    <li className="wish-empty">
+                        <img src="/images/icon/icon_favorite.svg" alt="" className="wish-empty-icon" />
+                        <p className="wish-empty-title">위시리스트가 비어 있어요</p>
+                        <p className="wish-empty-desc">마음에 드는 상품을 하트로 저장해 보세요.</p>
+                        <Link to="/category" className="wish-empty-btn">쇼핑하러 가기</Link>
                     </li>
                 )}
             </ul>
@@ -82,14 +82,14 @@ export default function WishList() {
                 <div className="pagination-wrap">
                     {/* 맨 앞으로 (<<) */}
                     <button onClick={() => paginate(1)} disabled={currentPage === 1}>«</button>
-
+                    
                     {/* 이전 그룹으로 (<) */}
                     <button onClick={() => paginate(Math.max(1, currentPage - 1))} disabled={currentPage === 1}>‹</button>
-
+                    
                     {/* 페이지 번호 (1, 2, 3, 4, 5...) */}
                     {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map((pageNum) => (
-                        <button
-                            key={pageNum}
+                        <button 
+                            key={pageNum} 
                             onClick={() => paginate(pageNum)}
                             className={currentPage === pageNum ? 'active' : ''}
                         >
@@ -99,21 +99,25 @@ export default function WishList() {
 
                     {/* 다음 그룹으로 (>) */}
                     <button onClick={() => paginate(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages}>›</button>
-
+                    
                     {/* 맨 뒤로 (>>) */}
                     <button onClick={() => paginate(totalPages)} disabled={currentPage === totalPages}>»</button>
                 </div>
             )}
             {itemToDelete && (
-                <ConfirmModal
-                    isOpen={!!itemToDelete}
-                    message={"위시리스트에서 지워도 될까요?"}
-                    onClose={() => setItemToDelete(null)}
-                    buttons={[
-                        { label: '취소', onClick: () => setItemToDelete(null), variant: 'secondary' },
-                        { label: '확인', onClick: () => { onRemoveWishlist(itemToDelete); setItemToDelete(null); } },
-                    ]}
-                />
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <p>위시리스트에서 지워도 될까요?</p>
+                        <div className="modal-buttons">
+                            <button className="confirm-btn"
+                            onClick={() => {
+                                onRemoveWishlist(itemToDelete); // 진짜 삭제 실행
+                                setItemToDelete(null); // 팝업 닫기
+                            }}>확인</button>
+                            <button className="cancel-btn" onClick={() => setItemToDelete(null)}>취소</button>
+                        </div>
+                    </div>
+                </div>
             )}
         </div>
     )

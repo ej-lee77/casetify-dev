@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./scss/qa.scss";
 import { useAuthStore } from "../../../store/useAuthStore";
-import ToastPopup from "../../Toastpopup";
-import { useNavigate, useLocation } from "react-router-dom";
 
 const DATA = [
     {
@@ -39,8 +37,6 @@ const DATA = [
 
 export default function Qa() {
     const { user } = useAuthStore();
-    const navigate = useNavigate();
-    const location = useLocation();
 
     const [openIndex, setOpenIndex] = useState(null);
     const [activeTab, setActiveTab] = useState(null);
@@ -48,31 +44,17 @@ export default function Qa() {
     const [formContent, setFormContent] = useState("");
     const [searchKeyword, setSearchKeyword] = useState("");
     const [qaList, setQaList] = useState(DATA);
-    const [showLoginBanner, setShowLoginBanner] = useState(false); // ✅ 추가
-    const [showBanner, setShowBanner] = useState(false);   // ✅ 추가
-    const [toastMsg, setToastMsg] = useState("");
 
-    // ✅ 로그인 토스트 표시 후 이동
-    const showLoginAlert = () => {
-        setShowLoginBanner(true)
-        setTimeout(() => {
-            setShowLoginBanner(false)
-            navigate('/login', { state: { from: location.pathname + location.search } })
-        }, 1500)
-    }
-
-    // ✅ 옵션 미선택 토스트 표시
-    const showAlert = () => {
-        setShowBanner(true)
-        setTimeout(() => {
-            setShowBanner(false)
-        }, 1500)
-    }
+    // 문의 유형 라벨 (탭/뱃지 공통 사용)
+    const TYPE_LABEL = {
+        product: "상품",
+        shipping: "배송",
+        etc: "기타",
+    };
 
     const handleTabClick = (type) => {
         if (!user) {
-            showLoginAlert();
-            // alert("로그인하신 후 이용가능합니다.");
+            alert("로그인하신 후 이용가능합니다.");
             return;
         }
         setActiveTab((prev) => (prev === type ? null : type));
@@ -80,9 +62,7 @@ export default function Qa() {
 
     const handleSubmit = () => {
         if (!formTitle.trim() || !formContent.trim()) {
-            setToastMsg("제목과 문의 내용을 입력해주세요.");
-            showAlert();
-            // alert("제목과 문의 내용을 입력해주세요.");
+            alert("제목과 문의 내용을 입력해주세요.");
             return;
         }
         const newItem = {
@@ -99,14 +79,15 @@ export default function Qa() {
         setFormTitle("");
         setFormContent("");
         setActiveTab(null);
+        // 제출한 문의가 리스트 최상단에 바로 펼쳐져 보이도록
+        setSearchKeyword("");
+        setOpenIndex(0);
     };
 
     const handleDelete = (e, item) => {
         e.stopPropagation();
         if (item.answered) {
-            setToastMsg("답변이 달린 문의는 삭제가 불가능합니다.");
-            showAlert();
-            // alert("답변이 달린 문의는 삭제가 불가능합니다.");
+            alert("답변이 달린 문의는 삭제가 불가능합니다.");
             return;
         }
         setQaList((prev) => prev.filter((q) => q.id !== item.id));
@@ -122,22 +103,7 @@ export default function Qa() {
 
     return (
         <div className="qa">
-            {/* ✅ 로그인 경고 토스트 */}
-            <ToastPopup
-                isOpen={showLoginBanner}
-                message="로그인후 이용 가능합니다."
-                onClose={() => setShowLoginBanner(false)}
-                duration={1500}
-            />
-
-            {/* ✅ 옵션 미선택 토스트 — 로그인 경고와 동일한 디자인 */}
-            <ToastPopup
-                isOpen={showBanner}
-                message={toastMsg}
-                onClose={() => setShowBanner(false)}
-                duration={1500}
-            />
-            <h3>상품 문의</h3>
+            <h3>상품문의</h3>
 
             {/* 탭 + 폼 */}
             <div className="qa-top">
@@ -154,6 +120,12 @@ export default function Qa() {
                             onClick={() => handleTabClick("shipping")}
                         >
                             배송관련 문의
+                        </button>
+                        <button
+                            className={activeTab === "etc" ? "active" : ""}
+                            onClick={() => handleTabClick("etc")}
+                        >
+                            기타문의
                         </button>
                     </div>
 
@@ -208,7 +180,7 @@ export default function Qa() {
                             </div>
                             <div className="qa-title">
                                 <span className={`type-badge ${item.type}`}>
-                                    {item.type === "product" ? "상품" : "배송"}
+                                    {TYPE_LABEL[item.type] || "기타"}
                                 </span>
                                 {item.title}
                             </div>

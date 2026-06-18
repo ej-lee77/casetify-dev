@@ -15,7 +15,6 @@
         li {
             padding: 0.25em;
             position: relative;
-            height: 100%;
             .wish-heart{
                 position: absolute;
                 width: 22px;
@@ -180,6 +179,49 @@
                 border-color: #f2f2f2;
                 cursor: not-allowed;
             }
+        }
+    }
+
+    .wish-list .wish-empty {
+        grid-column: 1 / -1;        // ✅ 4단 그리드 전체를 차지 → 글자가 한 칸에 끼어 줄바꿈되지 않음
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 80px 20px;
+        text-align: center;
+
+        .wish-empty-icon {
+            width: 48px;
+            height: 48px;
+            opacity: 0.35;
+        }
+
+        .wish-empty-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: g.$text-main;
+            margin: 0;
+        }
+
+        .wish-empty-desc {
+            font-size: 0.92rem;
+            color: g.$text-sub;
+            margin: 0;
+        }
+
+        .wish-empty-btn {
+            margin-top: 8px;
+            display: inline-block;
+            padding: 12px 28px;
+            background: g.$text-main;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+
+            &:hover { opacity: 0.85; }
         }
     }
 }

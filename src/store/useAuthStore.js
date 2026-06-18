@@ -18,7 +18,6 @@ export const useAuthStore = create(
         initAuth: () => {
             onAuthStateChanged(auth, async (firebaseUser) => {
                 if (firebaseUser) {
-                    // 1. Firebase 로그인 유저(구글, 이메일 등) 처리
                     const userDocRef = doc(db, "users", firebaseUser.uid);
                     const userSnap = await getDoc(userDocRef);
 
@@ -27,32 +26,6 @@ export const useAuthStore = create(
                         set({ user: userData });
                     }
                 } else {
-                    // 2. Firebase 유저가 없을 때 (중요!)
-                    // 현재 Zustand 상태를 가져와서 소셜 로그인 유저인지 확인합니다.
-                    const { user } = get(); 
-                    
-                    // 만약 현재 유저가 있고, 그 유저가 카카오나 네이버라면 초기화하지 않고 유지합니다.
-                    if (user && (user.provider === 'kakao' || user.provider === 'naver')) {
-                        try {
-                            const userDocRef = doc(db, "users", user.uid);
-                            const userSnap = await getDoc(userDocRef);
-                            
-                            if (userSnap.exists()) {
-                                const userData = userSnap.data();
-                                set({ user: userData }); // 껍데기 유저 정보에 진짜 데이터를 채워 넣음
-                                // console.log("소셜 로그인 유저 정보 복구 완료:", userData);
-                            } else {
-                                // DB에 유저가 없다면 잘못된 정보이므로 초기화
-                                set({ user: null });
-                            }
-                        } catch (error) {
-                            console.log("소셜 유저 정보 복구 중 에러 발생:", error);
-                            set({ user: null });
-                        }
-                        return; 
-                    }
-
-                    // 진짜 로그아웃 상태일 때만 null로 설정
                     set({ user: null });
                 }
             })
@@ -371,8 +344,7 @@ export const useAuthStore = create(
             try {
                 // 1. 네이버 로그인 팝업 열기
                 const clientId = naverProvider;
-                const currentUrl = window.location.origin;
-                const callbackUrl = encodeURIComponent(currentUrl+"/login/naver");
+                const callbackUrl = encodeURIComponent("http://localhost:5173/login/naver");
                 const state = "random_string";
                 const naverLoginUrl = `https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=${clientId}&redirect_uri=${callbackUrl}&state=${state}`;
 
@@ -471,7 +443,7 @@ export const useAuthStore = create(
         onLogout: async () => {
             try {
                 await signOut(auth);
-                set({ user: null, cart: [], orderList: [] });
+                set({ user: null });
                 return true;
             } catch (err) {
                 console.error('로그아웃 오류:', err);
@@ -574,7 +546,7 @@ export const useAuthStore = create(
             {
                 id: "birth",
                 rate: 100,
-                title: "생일 기념 무료 핸드폰 케이스",
+                title: "생일 기념 무료 케이스",
                 limit: "",
                 use: true
             },
@@ -637,7 +609,7 @@ export const useAuthStore = create(
                 const currentCoupons = userData.coupons || [];
 
                 // 3. 이미 정품인증 쿠폰을 받은 적 있는지 확인
-                const alreadyAuth = currentCoupons.some(c => c.id === "auth" && c.use === true);
+                const alreadyAuth = currentCoupons.some(c => c.id === "auth");
                 if (alreadyAuth) return "already";
 
                 // 4. 쿠폰 발급 로직
@@ -890,7 +862,6 @@ export const useAuthStore = create(
                     colorList: product.colorList,
                     deviceList: product.deviceList,
                     isPhone: product.isPhone,
-                    isWish: product.isWish,
                     deviceBrand: product.deviceBrand,
                     caseCategory: product.caseCategory,
                     quantity: 1
@@ -1010,7 +981,7 @@ export const useAuthStore = create(
         orderList: [],
         // 주문정보저장
         onAddOrder: async (orderData) => {
-            const { user, orderList, couponList, getThreeMonthsLater, cart } = get();
+            const { user, orderList, couponList, getThreeMonthsLater } = get();
             if (!user) return;
 
             // 결제 시 사용할 총 기프트 카드 금액
@@ -1038,7 +1009,7 @@ export const useAuthStore = create(
                     return { ...card, price: 0, use: false };
                 }
             });
-            // console.log(updatedGiftCards);
+            console.log(updatedGiftCards);
 
             // 2. 쿠폰 사용 처리 로직
             const { coupon } = orderData.priceSummary;
@@ -1061,8 +1032,11 @@ export const useAuthStore = create(
             const totalPrice = orderData.priceSummary.totalPrice || 0; // 전체 결제 금액 기준
 
             // A. 금액별 포인트 가산
-            const earnedPoint = Math.floor(totalPrice / 1000);
-            currentPoint += earnedPoint;
+            if (totalPrice >= 100000) {
+                currentPoint += 100;
+            } else if (totalPrice >= 50000) {
+                currentPoint += 50;
+            }
 
             let upgradeMessage = "";
             const rewardMilestones = [{point: 50, label: 'bronze'}, {point: 120, label: 'silver'}, {point: 200, label: 'gold'}];
@@ -1080,16 +1054,8 @@ export const useAuthStore = create(
 
             try {
                 // A. 주문 내역 저장
+                const updatedOrders = [...(orderList || []), orderData];
                 const orderRef = doc(db, "orders", user.uid);
-                const orderSnap = await getDoc(orderRef);
-                
-                let existingOrders = [];
-                if (orderSnap.exists()) {
-                    existingOrders = orderSnap.data().orderList || [];
-                }
-        
-                // 가져온 실제 주문 목록 뒤에 새 주문 추가
-                const updatedOrders = [...existingOrders, orderData];
                 await setDoc(orderRef, { orderList: updatedOrders }, { merge: true });
 
                 // B. 유저 정보 업데이트 (기프트 카드 배열 & 쿠폰 배열 전체 업데이트)
@@ -1101,27 +1067,13 @@ export const useAuthStore = create(
                 });
 
                 // C. 장바구니 비우기
-                // 현재 장바구니에서 주문한 상품(orderItems)을 제외한 나머지만 추출
-                let currentCart = [...cart];
-                const remainingItems = currentCart.filter(cartItem => {
-                    // 주문한 상품들 중에 현재 장바구니 아이템과 id, color, device가 모두 일치하는 게 있는지 확인
-                    const isOrdered = orderData.orderItems.some(orderItem => 
-                        orderItem.id === cartItem.id && 
-                        orderItem.color === cartItem.color && 
-                        orderItem.device === cartItem.device
-                    );
-                    // 일치하지 않는 것(주문 안 한 것)만 남김
-                    return !isOrdered;
-                });
-
-                // DB 업데이트
                 const cartRef = doc(db, "carts", user.uid);
-                await setDoc(cartRef, { items: remainingItems }, { merge: true });
+                await setDoc(cartRef, { items: [] }, { merge: true });
 
                 // D. 로컬 상태 업데이트
                 set({
                     orderList: updatedOrders,
-                    cart: remainingItems,
+                    cart: [],
                     checkedCart: [],
                     user: { 
                         ...user, 
@@ -1155,36 +1107,39 @@ export const useAuthStore = create(
 
                     const updatedOrderList = remoteOrderList.map((order) => {
                         // 주문일로부터 경과일 (배송 상태용)
-                        const orderDate = new Date(Number(order.orderId));
-                        // (현재시간 - 주문시간)을 '분'으로 계산
-                        const minutesSinceOrder = Math.floor((today - orderDate) / (1000 * 60));
+                        const orderDate = new Date(order.orderDate.replace(/\//g, '-'));
+                        const daysSinceOrder = Math.floor((today - orderDate) / (1000 * 60 * 60 * 24));
 
-                        // 1. 대표 주문 상태 업데이트 (1분 -> 배송중, 2분 -> 배송완료)
+                        // 1. 대표 주문 상태 업데이트 (배송준비중 -> 배송중 -> 배송완료)
                         let newOrderStatus = order.orderStatus;
-                        if (!['취소완료', '교환/반품완료', '취소/반품'].includes(order.orderStatus)) {
-                            if (minutesSinceOrder >= 2 && order.orderStatus !== "배송완료") {
+                        if (!['취소완료', '교환/반품완료'].includes(order.orderStatus)) {
+                            if (daysSinceOrder >= 2 && order.orderStatus !== "배송완료") {
                                 newOrderStatus = "배송완료";
                                 isChanged = true;
-                            } else if (minutesSinceOrder >= 1 && order.orderStatus === "배송준비중") {
+                            } else if (daysSinceOrder >= 1 && order.orderStatus === "배송준비중") {
                                 newOrderStatus = "배송중";
                                 isChanged = true;
                             }
                         }
 
-                        // 2. 아이템별 상태 업데이트 (1분 경과 시 상태 변경)
+                        // 2. 아이템별 상태 업데이트 (1->2, 3->4)
                         const updatedItems = order.orderItems.map(item => {
                             if (item.statusDate) {
                                 const statusDate = item.statusDate.toDate ? item.statusDate.toDate() : new Date(item.statusDate);
-                                // (현재시간 - 상태변경시간)을 '분'으로 계산
-                                const diffMinutesFromStatus = Math.floor((today - statusDate) / (1000 * 60));
+                                const diffDaysFromStatus = Math.floor((today - statusDate) / (1000 * 60 * 60 * 24));
 
-                                // 취소중(1) -> 취소완료(2) 1분 경과 시
-                                if (item.status === 1 && diffMinutesFromStatus >= 1) {
+                                // 취소중(1) -> 취소완료(2) 하루 경과 시
+                                if (item.status === 1 && diffDaysFromStatus >= 1) {
                                     isChanged = true;
                                     return { ...item, status: 2 };
                                 }
-                                // 교환/반품중(3) -> 교환/반품완료(4) 1분 경과 시
-                                if (item.status === 3 && diffMinutesFromStatus >= 1) {
+                                // 반품준비중(5) -> 반품중(3) 하루 경과 시
+                                if (item.status === 5 && diffDaysFromStatus >= 1) {
+                                    isChanged = true;
+                                    return { ...item, status: 3, statusDate: today };
+                                }
+                                // 반품중(3) -> 반품완료(4) 하루 경과 시
+                                if (item.status === 3 && diffDaysFromStatus >= 1) {
                                     isChanged = true;
                                     return { ...item, status: 4 };
                                 }
@@ -1195,7 +1150,6 @@ export const useAuthStore = create(
                         return { ...order, orderStatus: newOrderStatus, orderItems: updatedItems };
                     });
 
-                    updatedOrderList.sort((a, b) => Number(b.orderId) - Number(a.orderId));
                     // 변경사항이 있을 때만 서버 업데이트
                     if (isChanged) {
                         await updateDoc(orderRef, { orderList: updatedOrderList });
@@ -1213,7 +1167,7 @@ export const useAuthStore = create(
 
             try {
                 const orderList = get().orderList;
-                const newStatus = isCancelable ? 1 : 3; // 취소가능하면 1(취소중), 아니면 3(반품중)
+                const newStatus = isCancelable ? 1 : 5; // 취소가능하면 1(취소중), 아니면 5(반품준비중)
                 const now = new Date(); // Date 객체 그대로 생성
 
                 // 전체 주문 리스트에서 해당 주문을 찾아 아이템 상태 업데이트
@@ -1256,7 +1210,7 @@ export const useAuthStore = create(
 
             try {
                 const orderList = get().orderList;
-                const newStatus = isCancelable ? 1 : 3; // 아이템 상태 코드
+                const newStatus = isCancelable ? 1 : 5; // 아이템 상태 코드 (반품은 반품준비중부터)
                 const now = new Date();
 
                 const updatedOrderList = orderList.map((order) => {
