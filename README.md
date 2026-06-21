@@ -367,7 +367,7 @@ chore: 빌드, 패키지 등
 ### Vercel 배포
 프로젝트는 **Vercel**에 자동 배포됩니다.
 
-- **라이브 URL**: https://casetify-ejone.vercel.app
+- **라이브 URL**: https://casetify-newolive.vercel.app/
 - **자동 배포**: main 브랜치 push 시 자동 배포
 - **환경 변수**: Vercel 대시보드에서 설정
 
@@ -396,10 +396,10 @@ chore: 빌드, 패키지 등
 ### 개발팀
 - **팀 이름**: 1조 (CASETiFY)
 - **깃허브**: [@ej-lee77](https://github.com/ej-lee77)
-- **배포**: [casetify-ejone.vercel.app](https://casetify-ejone.vercel.app)
+- **배포**: [casetify-newolive.vercel.app](https://casetify-newolive.vercel.app/)
 
 ### 문의 사항
-- 📧 이메일: [contact@casetify.com](mailto:contact@casetify.com)
+- 📧 이메일: [eunji0.0777@gmail.com](mailto:eunji0.0777@gmail.com)
 - 🐛 버그 리포트: [GitHub Issues](https://github.com/ej-lee77/casetify-dev/issues)
 
 ---
